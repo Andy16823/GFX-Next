@@ -24,7 +24,7 @@ namespace LibGFX.Core
             _renderTarget = renderer.CreateRenderTarget(renderTargetDescriptor);
         }
 
-        public override void RenderScene(Viewport viewport, IRenderDevice renderer, Camera camera)
+        public override void Render(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             var rectShader = renderer.GetShaderProgram("RectShader");
 
@@ -55,7 +55,7 @@ namespace LibGFX.Core
             //Debug.WriteLine($"error {renderer.GetError()}");
         }
 
-        public override void UpdateScene()
+        public override void Update()
         {
             this.Layers.ForEach(l => { 
                 l.Update(this); 

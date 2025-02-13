@@ -18,8 +18,8 @@ namespace LibGFX.Core
         }
 
         public abstract void Init(Viewport viewport, IRenderDevice renderer);
-        public abstract void RenderScene(Viewport viewport, IRenderDevice renderer, Camera camera);
-        public abstract void UpdateScene();
+        public abstract void Render(Viewport viewport, IRenderDevice renderer, Camera camera);
+        public abstract void Update();
         public abstract void DisposeScene(IRenderDevice renderer);
     }
 }
