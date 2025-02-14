@@ -26,5 +26,10 @@ namespace LibGFX.Graphics.Shapes
         public virtual bool HasNormals() => true;
         public virtual bool HasTangents() => true;
         public virtual bool HasUvCoords() => true;
+
+        public virtual bool DynamicVertices() => false;
+        public virtual bool DynamicUVCoords() => false;
+        public virtual bool DynamicNormals() => false;
+        public virtual bool DynamicTangents() => false;
     }
 }

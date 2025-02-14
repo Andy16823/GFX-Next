@@ -23,6 +23,11 @@ namespace LibGFX.Graphics.Shapes
             return false;
         }
 
+        public override bool DynamicUVCoords()
+        {
+            return true;
+        }
+
         public override float[] GetVertices()
         {
             return [

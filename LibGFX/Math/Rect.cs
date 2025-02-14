@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Math
 {
-    public class Rect
+    public struct Rect
     {
         public float X { get; set; }
         public float Y { get; set; }

@@ -241,39 +241,63 @@ namespace LibGFX.Graphics
             shape.VertexArray = GL.GenVertexArray();
             GL.BindVertexArray(shape.VertexArray);
 
+            var vBufferHint = BufferUsageHint.StaticDraw;
+            if(shape.DynamicVertices())
+            {
+                vBufferHint = BufferUsageHint.DynamicDraw;
+            }
+
             var vertices = shape.GetVertices();
             shape.VertexBuffer = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, shape.VertexBuffer);
-            GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(vertices.Length * sizeof(float)), vertices, BufferUsageHint.StaticDraw);
+            GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(vertices.Length * sizeof(float)), vertices, vBufferHint);
             GL.EnableVertexAttribArray(0);
             GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 0, 0);
 
             if(shape.HasUvCoords())
             {
+                var uvBufferHint = BufferUsageHint.StaticDraw;
+                if (shape.DynamicUVCoords())
+                {
+                    uvBufferHint = BufferUsageHint.DynamicDraw;
+                }
+
                 var uvcoords = shape.GetUVCoords();
                 shape.TextureBuffer = GL.GenBuffer();
                 GL.BindBuffer(BufferTarget.ArrayBuffer, shape.TextureBuffer);
-                GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(uvcoords.Length * sizeof(float)), uvcoords, BufferUsageHint.StaticDraw);
+                GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(uvcoords.Length * sizeof(float)), uvcoords, uvBufferHint);
                 GL.EnableVertexAttribArray(1);
                 GL.VertexAttribPointer(1, 2, VertexAttribPointerType.Float, false, 0, 0);
             }
 
             if(shape.HasNormals())
             {
+                var nBufferHint = BufferUsageHint.StaticDraw;
+                if (shape.DynamicNormals())
+                {
+                    nBufferHint = BufferUsageHint.DynamicDraw;
+                }
+
                 var normals = shape.GetNormals();
                 shape.NormalBuffer = GL.GenBuffer();
                 GL.BindBuffer(BufferTarget.ArrayBuffer, shape.NormalBuffer);
-                GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(normals.Length * sizeof(float)), normals, BufferUsageHint.StaticDraw);
+                GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(normals.Length * sizeof(float)), normals, nBufferHint);
                 GL.EnableVertexAttribArray(2);
                 GL.VertexAttribPointer(2, 3, VertexAttribPointerType.Float, false, 0, 0);
             }
 
             if (shape.HasTangents())
             {
+                var tBufferHint = BufferUsageHint.StaticDraw;
+                if (shape.DynamicTangents())
+                {
+                    tBufferHint = BufferUsageHint.DynamicDraw;
+                }
+
                 var tangents = shape.GetTangents();
                 shape.TangentBuffer = GL.GenBuffer();
                 GL.BindBuffer(BufferTarget.ArrayBuffer, shape.TangentBuffer);
-                GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(tangents.Length * sizeof(float)), tangents, BufferUsageHint.StaticDraw);
+                GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(tangents.Length * sizeof(float)), tangents, tBufferHint);
                 GL.EnableVertexAttribArray(3);
                 GL.VertexAttribPointer(3, 4, VertexAttribPointerType.Float, false, 0, 0);
             }
@@ -458,6 +482,21 @@ namespace LibGFX.Graphics
             {
                 throw new Exception("Shape 'SpriteShape' is missing or invalid.");
             }
+
+            this.DrawTexture(position, rotation, scale, texture, color, shape.GetUVCoords());
+        }
+
+        public void DrawTexture(Vector3 position, Vector3 rotation, Vector3 scale, int texture, Vector4 color, float[] uvbuffer)
+        {
+            if (!_shapes.TryGetValue("SpriteShape", out var shape) || shape == null)
+            {
+                throw new Exception("Shape 'SpriteShape' is missing or invalid.");
+            }
+
+            GL.BindBuffer(BufferTarget.ArrayBuffer, shape.TextureBuffer);
+            GL.BufferSubData(BufferTarget.ArrayBuffer, (IntPtr) 0, (IntPtr) (uvbuffer.Length * sizeof(float)), uvbuffer);
+            //GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(uvbuffer.Length * sizeof(float)), uvbuffer, BufferUsageHint.DynamicDraw);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
 
             var mt_mat = Matrix4.CreateTranslation(position);
             var mr_mat = Matrix4.CreateRotationX(Math.Math.ToRadians(rotation.X)) * Matrix4.CreateRotationY(Math.Math.ToRadians(rotation.Y)) * Matrix4.CreateRotationZ(Math.Math.ToRadians(rotation.Z));

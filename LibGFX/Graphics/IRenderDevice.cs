@@ -50,6 +50,7 @@ namespace LibGFX.Graphics
         void FillRect(Math.Rect rect, Vector4 color, float rotation = 0.0f);
         void DrawTexture(Vector3 position, Vector3 rotation, Vector3 scale, Texture texture, Vector4 color);
         void DrawTexture(Vector3 position, Vector3 rotation, Vector3 scale, int textureId, Vector4 color);
+        void DrawTexture(Vector3 position, Vector3 rotation, Vector3 scale, int textureId, Vector4 color, float[] uvbuffer);
         int GetError();
     }
 }

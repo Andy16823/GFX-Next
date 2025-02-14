@@ -48,5 +48,10 @@ namespace LibGFX.Core
                 e.Dispose(scene, renderer);
             });
         }
+
+        public GameElement? FindElement(String name)
+        {
+            return this.Elements.FirstOrDefault(e => e.Name == name);
+        }
     }
 }
