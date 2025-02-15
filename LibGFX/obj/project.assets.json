@@ -2,6 +2,41 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "FreeTypeSharp/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/FreeTypeSharp.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/FreeTypeSharp.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libfreetype.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx/native/libfreetype.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/win-arm64/native/freetype.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-x64/native/freetype.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/freetype.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
       "OpenTK/4.9.3": {
         "type": "package",
         "dependencies": {
@@ -221,6 +256,45 @@
     }
   },
   "libraries": {
+    "FreeTypeSharp/3.0.0": {
+      "sha512": "muhYzQEm5uZ4TVzdEZlPO+2zmNoJqVOcdamqfYZosUHg0V4tp6+we5mxPxh5Ib1ivYLBZlgEYey6sI8wNta26A==",
+      "type": "package",
+      "path": "freetypesharp/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "freetypesharp.3.0.0.nupkg.sha512",
+        "freetypesharp.nuspec",
+        "lib/net8.0-android34.0/FreeTypeSharp.aar",
+        "lib/net8.0-android34.0/FreeTypeSharp.dll",
+        "lib/net8.0-android34.0/FreeTypeSharp.pdb",
+        "lib/net8.0-android34.0/FreeTypeSharp.xml",
+        "lib/net8.0-ios17.2/FreeTypeSharp.dll",
+        "lib/net8.0-ios17.2/FreeTypeSharp.pdb",
+        "lib/net8.0-ios17.2/FreeTypeSharp.resources/FreeType2.xcframework/Info.plist",
+        "lib/net8.0-ios17.2/FreeTypeSharp.resources/FreeType2.xcframework/ios-arm64/libfreetype.a",
+        "lib/net8.0-ios17.2/FreeTypeSharp.resources/FreeType2.xcframework/ios-arm64_x86_64-simulator/libfreetype.a",
+        "lib/net8.0-ios17.2/FreeTypeSharp.resources/manifest",
+        "lib/net8.0-tvos17.2/FreeTypeSharp.dll",
+        "lib/net8.0-tvos17.2/FreeTypeSharp.pdb",
+        "lib/net8.0-tvos17.2/FreeTypeSharp.resources/FreeType2.xcframework/Info.plist",
+        "lib/net8.0-tvos17.2/FreeTypeSharp.resources/FreeType2.xcframework/tvos-arm64/libfreetype.a",
+        "lib/net8.0-tvos17.2/FreeTypeSharp.resources/FreeType2.xcframework/tvos-arm64_x86_64-simulator/libfreetype.a",
+        "lib/net8.0-tvos17.2/FreeTypeSharp.resources/manifest",
+        "lib/net8.0/FreeTypeSharp.dll",
+        "lib/net8.0/FreeTypeSharp.pdb",
+        "lib/netcoreapp3.1/FreeTypeSharp.dll",
+        "lib/netcoreapp3.1/FreeTypeSharp.pdb",
+        "lib/netstandard2.0/FreeTypeSharp.dll",
+        "lib/netstandard2.0/FreeTypeSharp.pdb",
+        "runtimes/linux-x64/native/libfreetype.so",
+        "runtimes/osx/native/libfreetype.dylib",
+        "runtimes/win-arm64/native/freetype.dll",
+        "runtimes/win-x64/native/freetype.dll",
+        "runtimes/win-x86/native/freetype.dll"
+      ]
+    },
     "OpenTK/4.9.3": {
       "sha512": "KdqV6GQHvVqd9/NYHImIgByIQtULb9wa32R/f0D8UsGmHoXGCYk3go14jSVSeAGDloW/CTvOWdwNXcIBP1Gqlw==",
       "type": "package",
@@ -446,6 +520,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "FreeTypeSharp >= 3.0.0",
       "OpenTK >= 4.9.3",
       "StbImageSharp >= 2.30.15"
     ]
@@ -500,6 +575,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "FreeTypeSharp": {
+            "target": "Package",
+            "version": "[3.0.0, )"
+          },
           "OpenTK": {
             "target": "Package",
             "version": "[4.9.3, )"

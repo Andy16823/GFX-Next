@@ -21,6 +21,14 @@ namespace LibGFX.Graphics
         void UseVsync(bool value);
         void EnableDepthTest();
         void DisableDepthTest();
+        void EnableAlphaBlend();
+        void EnableAdditiveBlend();
+        void EnableMultiplicativeBlend();
+        void EnableScreenBlend();
+        (int srcFactor, int dstFactor) GetCurrentBlendMode();
+        void SetBlendMode(int srcFactor, int dstFactor);
+        void ResetBlendMode();
+        void DisableBlend();
         void SetViewport(Viewport viewport);
         void SetViewMatrix(Matrix4 matrix);
         void SetProjectionMatrix(Matrix4 matrix);
@@ -51,6 +59,9 @@ namespace LibGFX.Graphics
         void DrawTexture(Vector3 position, Vector3 rotation, Vector3 scale, Texture texture, Vector4 color);
         void DrawTexture(Vector3 position, Vector3 rotation, Vector3 scale, int textureId, Vector4 color);
         void DrawTexture(Vector3 position, Vector3 rotation, Vector3 scale, int textureId, Vector4 color, float[] uvbuffer);
+        Font LoadFont(String path, int fontsize = 48);
+        void DrawString2D(String text, Vector2 position, Font font, Vector4 color);
+        void DisposeFont(Font font);
         int GetError();
     }
 }

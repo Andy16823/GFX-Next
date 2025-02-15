@@ -1,4 +1,5 @@
-﻿using LibGFX.Core;
+﻿using FreeTypeSharp;
+using LibGFX.Core;
 using LibGFX.Graphics.Shader;
 using LibGFX.Graphics.Shapes;
 using LibGFX.Math;
@@ -10,8 +11,13 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+
+using static FreeTypeSharp.FT;
+using static FreeTypeSharp.FT_LOAD;
+using static FreeTypeSharp.FT_Render_Mode_;
 
 namespace LibGFX.Graphics
 {
@@ -34,6 +40,7 @@ namespace LibGFX.Graphics
             this.AddShaderProgram("ScreenShader", new ScreenShader());
             this.AddShaderProgram("RectShader", new RectShader());
             this.AddShaderProgram("SpriteShader", new SpriteShader());
+            this.AddShaderProgram("FontShader", new FontShader());
             foreach (ShaderProgram program in _programs.Values)
             {
                 this.BuildShaderProgram(program);
@@ -94,6 +101,60 @@ namespace LibGFX.Graphics
         public void DisableDepthTest()
         {
             GL.Disable(EnableCap.DepthTest);
+        }
+
+        public void EnableAlphaBlend()
+        {
+            GL.Enable(EnableCap.Blend);
+            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
+        }
+
+        public void EnableAdditiveBlend()
+        {
+            GL.Enable(EnableCap.Blend);
+            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.One);
+        }
+
+        public void EnableMultiplicativeBlend()
+        {
+            GL.Enable(EnableCap.Blend);
+            GL.BlendFunc(BlendingFactor.DstColor, BlendingFactor.Zero);
+        }
+
+        public void EnableScreenBlend()
+        {
+            GL.Enable(EnableCap.Blend);
+            GL.BlendFunc(BlendingFactor.OneMinusDstColor, BlendingFactor.One);
+        }
+
+        public (int srcFactor, int dstFactor) GetCurrentBlendMode()
+        {
+            int src, dst;
+            GL.GetInteger(GetPName.BlendSrc, out src);
+            GL.GetInteger(GetPName.BlendDst, out dst);
+
+            string srcName = ((BlendingFactor)src).ToString();
+            string dstName = ((BlendingFactor)dst).ToString();
+
+            Debug.WriteLine($"Current Blend Mode: {srcName}, {dstName}");
+            return (src, dst);
+        }
+
+        public void SetBlendMode(int srcFactor, int dstFactor)
+        {
+            GL.Enable(EnableCap.Blend);
+            GL.BlendFunc((BlendingFactor) srcFactor, (BlendingFactor) dstFactor);
+        }
+
+        public void ResetBlendMode()
+        {
+            GL.BlendFunc(BlendingFactor.One, BlendingFactor.Zero);
+            GL.BlendEquation(BlendEquationMode.FuncAdd);
+        }
+
+        public void DisableBlend()
+        {
+            GL.Disable(EnableCap.Blend);
         }
 
         public void SetViewport(Viewport viewport)
@@ -519,6 +580,139 @@ namespace LibGFX.Graphics
             GL.BindTexture(TextureTarget.Texture2D, 0);
         }
 
+        public Font LoadFont(String path, int fontsize = 42)
+        {
+            Font font = new Font();
+            GL.PixelStore(PixelStoreParameter.UnpackAlignment, 1);
+            unsafe
+            {
+                FT_LibraryRec_* lib;
+                FT_FaceRec_* face;
+                var error = FT_Init_FreeType(&lib);
 
+                error = FT_New_Face(lib, (byte*)Marshal.StringToHGlobalAnsi(path), 0, &face);
+                error = FT_Set_Char_Size(face, 0, 16 * fontsize, 300, 300);
+
+                for (int i = 0; i < 128; i++)
+                {
+                    char c = (char)i;
+                    var glyphIndex = FT_Get_Char_Index(face, c);
+
+                    if (FT_Load_Glyph(face, glyphIndex, FT_LOAD_DEFAULT) != FT_Error.FT_Err_Ok)
+                    {
+                        Debug.WriteLine($"Error while loading glype for char \"{c}\"");
+                        continue;
+                    }
+
+                    if(FT_Render_Glyph(face->glyph, FT_RENDER_MODE_NORMAL) != FT_Error.FT_Err_Ok)
+                    {
+                        Debug.WriteLine($"Error while render glype for char \"{c}\"");
+                        continue;
+                    }
+
+                    int width = (int) face->glyph->bitmap.width;
+                    int height = (int) face->glyph->bitmap.rows;
+                    int left = (int)face->glyph->bitmap_left;
+                    int top = (int) face->glyph->bitmap_top;
+                    IntPtr bufferPtr = (IntPtr)face->glyph->bitmap.buffer;
+
+                    int textureId = GL.GenTexture();
+                    GL.BindTexture(TextureTarget.Texture2D, textureId);
+                    GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.R8, width, height, 0, PixelFormat.Red, PixelType.UnsignedByte, bufferPtr);
+                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToEdge);
+                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToEdge);
+                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+
+                    var gfxChar = new Character()
+                    {
+                        textureId = textureId,
+                        size = new Vector2(width, height),
+                        bearing = new Vector2(left, top),
+                        advance = (Int32) face->glyph->advance.x
+                    };
+
+                    font.Characters.Add(c, gfxChar);
+                    Debug.WriteLine($"Loaded char {c}");
+                }
+
+                FT_Done_Face(face);
+                FT_Done_FreeType(lib);
+            }
+
+            font.VAO = GL.GenVertexArray();
+            font.VBO = GL.GenBuffer();
+
+            var size = sizeof(float) * 6 * 4;
+
+            GL.BindVertexArray(font.VAO);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, font.VBO);
+            GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)size, IntPtr.Zero, BufferUsageHint.DynamicDraw);
+            GL.EnableVertexAttribArray(0);
+            GL.VertexAttribPointer(0, 4, VertexAttribPointerType.Float, false, 4 * sizeof(float), 0);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+            GL.BindVertexArray(0);
+
+            return font;
+        }
+
+        public void DrawString2D(String text, Vector2 position, Font font, Vector4 color)
+        {
+            var scale = 1.0f;
+            float x = position.X;
+            float y = position.Y;
+
+            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
+            GL.Uniform4(this.GetUniformLocation(_currentProgram, "vertexColor"), color);
+            GL.BindVertexArray(font.VAO);
+
+            foreach (var c in text)
+            {
+                if(font.Characters.TryGetValue(c, out var character))
+                {
+                    GL.ActiveTexture(TextureUnit.Texture0);
+                    GL.BindTexture(TextureTarget.Texture2D, character.textureId);
+                    GL.Uniform1(this.GetUniformLocation(_currentProgram, "textureSampler"), 0);
+
+                    float xpos = x + character.bearing.X * scale;
+                    float ypos = y - (character.size.Y - character.bearing.Y) * scale;
+                    float w = character.size.X * scale;
+                    float h = character.size.Y * scale;
+
+                    float[] vertices = {
+                        xpos,     ypos + h,   0.0f, 0.0f,
+                        xpos,     ypos,       0.0f, 1.0f,
+                        xpos + w, ypos,       1.0f, 1.0f,
+
+                        xpos,     ypos + h,   0.0f, 0.0f,
+                        xpos + w, ypos,       1.0f, 1.0f,
+                        xpos + w, ypos + h,   1.0f, 0.0f
+                    };
+
+                    GL.BindBuffer(BufferTarget.ArrayBuffer, font.VBO);
+                    GL.BufferSubData(BufferTarget.ArrayBuffer, 0, vertices.Length * sizeof(float), vertices);
+                    GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+                    GL.DrawArrays(PrimitiveType.Triangles, 0, 6);
+
+                    float advance = (character.advance / 64.0f) * scale;
+                    x += advance;
+                }
+            }
+            GL.BindVertexArray(0);
+            GL.BindTexture(TextureTarget.Texture2D, 0);
+        }
+
+        public void DisposeFont(Font font)
+        {
+            Debug.WriteLine($"Disposing Font");
+            GL.DeleteVertexArray(font.VAO);
+            GL.DeleteBuffer(font.VBO);
+            foreach(var c in font.Characters)
+            {
+                GL.DeleteTexture(c.Value.textureId);
+                Debug.WriteLine($"Disosed font char {c.Key}");
+            }
+            Debug.WriteLine("Font disposed");
+        }
     }
 }
