@@ -583,82 +583,6 @@ namespace LibGFX.Graphics
         public Font LoadFont(String path, int fontsize = 42)
         {
             Font font = new Font();
-            GL.PixelStore(PixelStoreParameter.UnpackAlignment, 1);
-            unsafe
-            {
-                FT_LibraryRec_* lib;
-                FT_FaceRec_* face;
-                var error = FT_Init_FreeType(&lib);
-
-                error = FT_New_Face(lib, (byte*)Marshal.StringToHGlobalAnsi(path), 0, &face);
-                error = FT_Set_Char_Size(face, 0, 16 * fontsize, 300, 300);
-
-                for (int i = 0; i < 128; i++)
-                {
-                    char c = (char)i;
-                    var glyphIndex = FT_Get_Char_Index(face, c);
-
-                    if (FT_Load_Glyph(face, glyphIndex, FT_LOAD_DEFAULT) != FT_Error.FT_Err_Ok)
-                    {
-                        Debug.WriteLine($"Error while loading glype for char \"{c}\"");
-                        continue;
-                    }
-
-                    if(FT_Render_Glyph(face->glyph, FT_RENDER_MODE_NORMAL) != FT_Error.FT_Err_Ok)
-                    {
-                        Debug.WriteLine($"Error while render glype for char \"{c}\"");
-                        continue;
-                    }
-
-                    int width = (int) face->glyph->bitmap.width;
-                    int height = (int) face->glyph->bitmap.rows;
-                    int left = (int)face->glyph->bitmap_left;
-                    int top = (int) face->glyph->bitmap_top;
-                    IntPtr bufferPtr = (IntPtr)face->glyph->bitmap.buffer;
-
-                    int textureId = GL.GenTexture();
-                    GL.BindTexture(TextureTarget.Texture2D, textureId);
-                    GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.R8, width, height, 0, PixelFormat.Red, PixelType.UnsignedByte, bufferPtr);
-                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToEdge);
-                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToEdge);
-                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
-                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
-
-                    var gfxChar = new Character()
-                    {
-                        textureId = textureId,
-                        size = new Vector2(width, height),
-                        bearing = new Vector2(left, top),
-                        advance = (Int32) face->glyph->advance.x
-                    };
-
-                    font.Characters.Add(c, gfxChar);
-                    Debug.WriteLine($"Loaded char {c}");
-                }
-
-                FT_Done_Face(face);
-                FT_Done_FreeType(lib);
-            }
-
-            font.VAO = GL.GenVertexArray();
-            font.VBO = GL.GenBuffer();
-
-            var size = sizeof(float) * 6 * 4;
-
-            GL.BindVertexArray(font.VAO);
-            GL.BindBuffer(BufferTarget.ArrayBuffer, font.VBO);
-            GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)size, IntPtr.Zero, BufferUsageHint.DynamicDraw);
-            GL.EnableVertexAttribArray(0);
-            GL.VertexAttribPointer(0, 4, VertexAttribPointerType.Float, false, 4 * sizeof(float), 0);
-            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
-            GL.BindVertexArray(0);
-
-            return font;
-        }
-
-        public Font LoadFont2(String path, int fontsize = 42)
-        {
-            Font font = new Font();
             int cellWidth = fontsize * 2;
             int cellHeight = fontsize * 2;
             int numGlyphes = 128;
@@ -812,11 +736,7 @@ namespace LibGFX.Graphics
             Debug.WriteLine($"Disposing Font");
             GL.DeleteVertexArray(font.VAO);
             GL.DeleteBuffer(font.VBO);
-            foreach(var c in font.Characters)
-            {
-                GL.DeleteTexture(c.Value.textureId);
-                Debug.WriteLine($"Disosed font char {c.Key}");
-            }
+            GL.DeleteTexture(font.TextureId);
             Debug.WriteLine("Font disposed");
         }
     }
