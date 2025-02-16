@@ -29,13 +29,14 @@ namespace LibGFX.Graphics.Shader
                 in vec2 TexCoords;
                 out vec4 color;
 
-                uniform sampler2D textureSampler;
+                uniform sampler2DArray fontTexture;
+                uniform int glyphLayer;
                 uniform vec4 vertexColor;
 
                 void main()
                 {    
-                    vec4 sampled = vec4(1.0, 1.0, 1.0, texture(textureSampler, TexCoords).r);
-                    color = vertexColor * sampled;
+                    float alpha = texture(fontTexture, vec3(TexCoords, float(glyphLayer))).r;
+                    color = vertexColor * vec4(1.0, 1.0, 1.0, alpha);
                 }
             ");
         }

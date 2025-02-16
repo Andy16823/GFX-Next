@@ -656,23 +656,128 @@ namespace LibGFX.Graphics
             return font;
         }
 
+        public Font LoadFont2(String path, int fontsize = 42)
+        {
+            Font font = new Font();
+            int cellWidth = fontsize * 2;
+            int cellHeight = fontsize * 2;
+            int numGlyphes = 128;
+            GL.PixelStore(PixelStoreParameter.UnpackAlignment, 1);
+
+            unsafe
+            {
+                FT_LibraryRec_* lib;
+                FT_FaceRec_* face;
+                var error = FT_Init_FreeType(&lib);
+
+                error = FT_New_Face(lib, (byte*)Marshal.StringToHGlobalAnsi(path), 0, &face);
+                error = FT_Set_Char_Size(face, 0, 16 * fontsize, 300, 300);
+
+                int arrayTextureId = GL.GenTexture();
+                GL.BindTexture(TextureTarget.Texture2DArray, arrayTextureId);
+                GL.TexStorage3D(TextureTarget3d.Texture2DArray, 1, SizedInternalFormat.R8, cellWidth, cellHeight, numGlyphes);
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToEdge);
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToEdge);
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+
+                for (int i = 0; i < numGlyphes; i++)
+                {
+                    char c = (char)i;
+                    var glyphIndex = FT_Get_Char_Index(face, c);
+
+                    if (FT_Load_Glyph(face, glyphIndex, FT_LOAD_DEFAULT) != FT_Error.FT_Err_Ok)
+                    {
+                        Debug.WriteLine($"Error while loading glype for char \"{c}\"");
+                        continue;
+                    }
+
+                    if (FT_Render_Glyph(face->glyph, FT_RENDER_MODE_NORMAL) != FT_Error.FT_Err_Ok)
+                    {
+                        Debug.WriteLine($"Error while render glype for char \"{c}\"");
+                        continue;
+                    }
+
+                    int width = (int)face->glyph->bitmap.width;
+                    int height = (int)face->glyph->bitmap.rows;
+                    int left = (int)face->glyph->bitmap_left;
+                    int top = (int)face->glyph->bitmap_top;
+                    int paddingX = width - cellWidth;
+                    int paddingY = height - cellHeight;
+
+                    byte[] cellBuffer = new byte[cellWidth * cellHeight];
+                    for (int row = 0; row < height; row++)
+                    {
+                        for (int col = 0; col < width; col++)
+                        {
+                            int destX = col;
+                            int destY = row;
+                            if (destX < cellWidth && destY < cellHeight)
+                            {
+                                cellBuffer[destY * cellWidth + destX] = face->glyph->bitmap.buffer[row * face->glyph->bitmap.pitch + col];
+                            }
+                        }
+                    }
+                    GL.TexSubImage3D(TextureTarget.Texture2DArray, 0, 0, 0, i, cellWidth, cellHeight, 1, PixelFormat.Red, PixelType.UnsignedByte, cellBuffer);
+
+                    var gfxChar = new Character()
+                    {
+                        textureId = i,
+                        size = new Vector2(width, height),
+                        bearing = new Vector2(left, top),
+                        advance = (Int32)face->glyph->advance.x,
+                        padding = new Vector2(paddingX, paddingY)
+                    };
+
+                    font.Characters.Add(c, gfxChar);
+                    Debug.WriteLine($"Loaded char {c}");
+                }
+
+                font.TextureId = arrayTextureId;
+                font.TextureWidth = cellWidth;
+                font.TextureHeight = cellHeight;
+
+                GL.BindTexture(TextureTarget.Texture2DArray, 0);
+                FT_Done_Face(face);
+                FT_Done_FreeType(lib);
+            }
+
+            font.VAO = GL.GenVertexArray();
+            font.VBO = GL.GenBuffer();
+
+            var size = sizeof(float) * 6 * 4;
+
+            GL.BindVertexArray(font.VAO);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, font.VBO);
+            GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)size, IntPtr.Zero, BufferUsageHint.DynamicDraw);
+            GL.EnableVertexAttribArray(0);
+            GL.VertexAttribPointer(0, 4, VertexAttribPointerType.Float, false, 4 * sizeof(float), 0);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+            GL.BindVertexArray(0);
+
+            return font;
+        }
+
         public void DrawString2D(String text, Vector2 position, Font font, Vector4 color)
         {
             var scale = 1.0f;
             float x = position.X;
             float y = position.Y;
 
+            GL.ActiveTexture(TextureUnit.Texture0);
+            GL.BindTexture(TextureTarget.Texture2DArray, font.TextureId);
             GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
             GL.Uniform4(this.GetUniformLocation(_currentProgram, "vertexColor"), color);
+            
             GL.BindVertexArray(font.VAO);
 
             foreach (var c in text)
             {
                 if(font.Characters.TryGetValue(c, out var character))
                 {
-                    GL.ActiveTexture(TextureUnit.Texture0);
-                    GL.BindTexture(TextureTarget.Texture2D, character.textureId);
-                    GL.Uniform1(this.GetUniformLocation(_currentProgram, "textureSampler"), 0);
+                    GL.Uniform1(this.GetUniformLocation(_currentProgram, "glyphLayer"), character.textureId);
+                    var uv = Font.GetGlyphUV(character, font.TextureWidth, font.TextureHeight);
+
 
                     float xpos = x + character.bearing.X * scale;
                     float ypos = y - (character.size.Y - character.bearing.Y) * scale;
@@ -680,13 +785,13 @@ namespace LibGFX.Graphics
                     float h = character.size.Y * scale;
 
                     float[] vertices = {
-                        xpos,     ypos + h,   0.0f, 0.0f,
-                        xpos,     ypos,       0.0f, 1.0f,
-                        xpos + w, ypos,       1.0f, 1.0f,
+                        xpos,     ypos + h,   uv.u0, uv.v0, //0.0f, 0.0f,
+                        xpos,     ypos,       uv.u0, uv.v1, //0.0f, 1.0f,
+                        xpos + w, ypos,       uv.u1, uv.v1, //1.0f, 1.0f,
 
-                        xpos,     ypos + h,   0.0f, 0.0f,
-                        xpos + w, ypos,       1.0f, 1.0f,
-                        xpos + w, ypos + h,   1.0f, 0.0f
+                        xpos,     ypos + h,   uv.u0, uv.v0, //0.0f, 0.0f,
+                        xpos + w, ypos,       uv.u1, uv.v1, //1.0f, 1.0f,
+                        xpos + w, ypos + h,   uv.u1, uv.v0, //1.0f, 0.0f
                     };
 
                     GL.BindBuffer(BufferTarget.ArrayBuffer, font.VBO);
@@ -699,7 +804,7 @@ namespace LibGFX.Graphics
                 }
             }
             GL.BindVertexArray(0);
-            GL.BindTexture(TextureTarget.Texture2D, 0);
+            GL.BindTexture(TextureTarget.Texture2DArray, 0);
         }
 
         public void DisposeFont(Font font)
