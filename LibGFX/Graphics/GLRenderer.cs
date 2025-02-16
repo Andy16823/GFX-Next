@@ -667,15 +667,21 @@ namespace LibGFX.Graphics
             }
 
             font.VAO = GL.GenVertexArray();
-            font.VBO = GL.GenBuffer();
-
-            var size = sizeof(float) * 6 * 4;
-
             GL.BindVertexArray(font.VAO);
+
+            font.VBO = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, font.VBO);
-            GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)size, IntPtr.Zero, BufferUsageHint.DynamicDraw);
+            GL.BufferData(BufferTarget.ArrayBuffer, 0, IntPtr.Zero, BufferUsageHint.DynamicDraw);
             GL.EnableVertexAttribArray(0);
             GL.VertexAttribPointer(0, 4, VertexAttribPointerType.Float, false, 4 * sizeof(float), 0);
+            GL.VertexAttribDivisor(0, 0);
+
+            font.GLBO = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, font.GLBO);
+            GL.BufferData(BufferTarget.ArrayBuffer, 0, IntPtr.Zero, BufferUsageHint.DynamicDraw);
+            GL.EnableVertexAttribArray(1);
+            GL.VertexAttribIPointer(1, 1, VertexAttribIntegerType.Int, 0, 0);
+
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
             GL.BindVertexArray(0);
 
@@ -684,31 +690,33 @@ namespace LibGFX.Graphics
 
         public void DrawString2D(String text, Vector2 position, Font font, Vector4 color)
         {
+            // Create position & scale data
             var scale = 1.0f;
             float x = position.X;
             float y = position.Y;
 
+            // Create lists for the buffers
+            var vertices = new List<float>();
+            var glypheTextures = new List<int>();
+
+            // Bind the array texture and pass the font data to the shader
             GL.ActiveTexture(TextureUnit.Texture0);
             GL.BindTexture(TextureTarget.Texture2DArray, font.TextureId);
             GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
             GL.Uniform4(this.GetUniformLocation(_currentProgram, "vertexColor"), color);
-            
-            GL.BindVertexArray(font.VAO);
 
+            // Build the new buffer data
             foreach (var c in text)
             {
                 if(font.Characters.TryGetValue(c, out var character))
                 {
-                    GL.Uniform1(this.GetUniformLocation(_currentProgram, "glyphLayer"), character.textureId);
                     var uv = Font.GetGlyphUV(character, font.TextureWidth, font.TextureHeight);
-
-
                     float xpos = x + character.bearing.X * scale;
                     float ypos = y - (character.size.Y - character.bearing.Y) * scale;
                     float w = character.size.X * scale;
                     float h = character.size.Y * scale;
 
-                    float[] vertices = {
+                    float[] vertexdata = {
                         xpos,     ypos + h,   uv.u0, uv.v0, //0.0f, 0.0f,
                         xpos,     ypos,       uv.u0, uv.v1, //0.0f, 1.0f,
                         xpos + w, ypos,       uv.u1, uv.v1, //1.0f, 1.0f,
@@ -718,15 +726,32 @@ namespace LibGFX.Graphics
                         xpos + w, ypos + h,   uv.u1, uv.v0, //1.0f, 0.0f
                     };
 
-                    GL.BindBuffer(BufferTarget.ArrayBuffer, font.VBO);
-                    GL.BufferSubData(BufferTarget.ArrayBuffer, 0, vertices.Length * sizeof(float), vertices);
-                    GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
-                    GL.DrawArrays(PrimitiveType.Triangles, 0, 6);
+                    int[] glyphelayerdata = Enumerable.Repeat(character.textureId, 6).ToArray();
+
+                    vertices.AddRange(vertexdata);
+                    glypheTextures.AddRange(glyphelayerdata);
 
                     float advance = (character.advance / 64.0f) * scale;
                     x += advance;
                 }
             }
+
+            // Pass the new buffer data
+            var verticesArr = vertices.ToArray();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, font.VBO);
+            GL.BufferData(BufferTarget.ArrayBuffer, verticesArr.Length * sizeof(float), verticesArr, BufferUsageHint.DynamicDraw);
+
+            var layerIds = glypheTextures.ToArray();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, font.GLBO);
+            GL.BufferData(BufferTarget.ArrayBuffer, layerIds.Length * sizeof(int), layerIds, BufferUsageHint.DynamicDraw);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+
+            // Render the buffers
+            int vertexCount = verticesArr.Length / 4;
+            GL.BindVertexArray(font.VAO);
+            GL.DrawArrays(PrimitiveType.Triangles, 0, vertexCount);
+
+            // Reset to default values
             GL.BindVertexArray(0);
             GL.BindTexture(TextureTarget.Texture2DArray, 0);
         }
@@ -736,6 +761,7 @@ namespace LibGFX.Graphics
             Debug.WriteLine($"Disposing Font");
             GL.DeleteVertexArray(font.VAO);
             GL.DeleteBuffer(font.VBO);
+            GL.DeleteBuffer(font.GLBO);
             GL.DeleteTexture(font.TextureId);
             Debug.WriteLine("Font disposed");
         }

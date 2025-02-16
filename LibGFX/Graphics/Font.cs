@@ -25,6 +25,8 @@ namespace LibGFX.Graphics
         public int TextureId { get; set; }
         public int VAO;
         public int VBO;
+        public int GLBO;
+
 
         public Font()
         {
