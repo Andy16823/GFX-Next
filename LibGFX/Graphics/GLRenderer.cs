@@ -674,7 +674,6 @@ namespace LibGFX.Graphics
             GL.BufferData(BufferTarget.ArrayBuffer, 0, IntPtr.Zero, BufferUsageHint.DynamicDraw);
             GL.EnableVertexAttribArray(0);
             GL.VertexAttribPointer(0, 4, VertexAttribPointerType.Float, false, 4 * sizeof(float), 0);
-            GL.VertexAttribDivisor(0, 0);
 
             font.GLBO = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, font.GLBO);
