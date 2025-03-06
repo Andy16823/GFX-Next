@@ -60,7 +60,7 @@ namespace LibGFX.Graphics
         void DrawTexture(Vector3 position, Vector3 rotation, Vector3 scale, int textureId, Vector4 color);
         void DrawTexture(Vector3 position, Vector3 rotation, Vector3 scale, int textureId, Vector4 color, float[] uvbuffer);
         Font LoadFont(String path, int fontsize = 48);
-        void DrawString2D(String text, Vector2 position, Font font, Vector4 color);
+        void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f);
         void DisposeFont(Font font);
         int GetError();
     }

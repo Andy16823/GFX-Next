@@ -687,10 +687,9 @@ namespace LibGFX.Graphics
             return font;
         }
 
-        public void DrawString2D(String text, Vector2 position, Font font, Vector4 color)
+        public void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f)
         {
             // Create position & scale data
-            var scale = 1.0f;
             float x = position.X;
             float y = position.Y;
 
