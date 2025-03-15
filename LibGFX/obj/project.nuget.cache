@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "rhUPHXN0cGc=",
+  "dgSpecHash": "Rc7kRqrBim8=",
   "success": true,
   "projectFilePath": "C:\\Users\\andy1\\source\\repos\\LibGFX\\LibGFX\\LibGFX.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andy1\\.nuget\\packages\\freetypesharp\\3.0.0\\freetypesharp.3.0.0.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\opentk\\4.9.3\\opentk.4.9.3.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\opentk.audio.openal\\4.9.3\\opentk.audio.openal.4.9.3.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\opentk.compute\\4.9.3\\opentk.compute.4.9.3.nupkg.sha512",

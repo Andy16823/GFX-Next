@@ -9,6 +9,7 @@
       "LibGFX/1.0.0": {
         "dependencies": {
           "FreeTypeSharp": "3.0.0",
+          "Newtonsoft.Json": "13.0.3",
           "OpenTK": "4.9.3",
           "StbImageSharp": "2.30.15"
         },
@@ -48,6 +49,14 @@
             "rid": "win-x86",
             "assetType": "native",
             "fileVersion": "2.13.2.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.3.27908"
           }
         }
       },
@@ -218,6 +227,13 @@
       "sha512": "sha512-muhYzQEm5uZ4TVzdEZlPO+2zmNoJqVOcdamqfYZosUHg0V4tp6+we5mxPxh5Ib1ivYLBZlgEYey6sI8wNta26A==",
       "path": "freetypesharp/3.0.0",
       "hashPath": "freetypesharp.3.0.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "path": "newtonsoft.json/13.0.3",
+      "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
     },
     "OpenTK/4.9.3": {
       "type": "package",

@@ -51,7 +51,9 @@ namespace LibGFX.Graphics
         void BindShaderProgram(ShaderProgram shaderProgram);
         void UnbindShaderProgram();
         int GetUniformLocation(int program, String name);
-        void InitializeTexture(Texture texture);
+        void LoadMaterial(Material material);
+        void LoadTexture(Texture texture);
+        void DisposeMaterial(Material material);
         void DisposeTexture(Texture texture);
         void DrawRenderTarget(RenderTarget renderTarget);
         void DrawRect(Math.Rect rect, Vector4 color, float borderWidth = 1.0f, float rotation = 0.0f);

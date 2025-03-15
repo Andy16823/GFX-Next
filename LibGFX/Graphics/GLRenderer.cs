@@ -41,6 +41,7 @@ namespace LibGFX.Graphics
             this.AddShaderProgram("RectShader", new RectShader());
             this.AddShaderProgram("SpriteShader", new SpriteShader());
             this.AddShaderProgram("FontShader", new FontShader());
+            this.AddShaderProgram("MeshShader", new MeshShader());  
             foreach (ShaderProgram program in _programs.Values)
             {
                 this.BuildShaderProgram(program);
@@ -440,7 +441,88 @@ namespace LibGFX.Graphics
             return GL.GetUniformLocation(program, name);
         }
 
-        public void InitializeTexture(Texture texture)
+        public void LoadMaterial(Material material)
+        {
+            if(material.Flags == MaterialFlags.None)
+            {
+                if(material.BaseColor != null)
+                {
+                    this.LoadTexture(material.BaseColor);
+                }
+
+                if (material.Normal != null)
+                {
+                    this.LoadTexture(material.Normal);
+                }
+
+                if (material.Metallic != null)
+                {
+                    this.LoadTexture(material.Metallic);
+                }
+
+                if (material.Roughness != null)
+                {
+                    this.LoadTexture(material.Roughness);
+                }
+
+                if (material.AmbientOcclusion != null)
+                {
+                    this.LoadTexture(material.AmbientOcclusion);
+                }
+
+                if (material.Emissive != null)
+                {
+                    this.LoadTexture(material.Emissive);
+                }
+
+                if (material.Height != null)
+                {
+                    this.LoadTexture(material.Height);
+                }
+
+                material.Flags = MaterialFlags.Loaded;
+            }
+        }
+
+        public void DisposeMaterial(Material material)
+        {
+            Debug.WriteLine($"Disposing material {material.Name}");
+            if (material.Flags == MaterialFlags.Loaded)
+            {
+                if (material.BaseColor != null)
+                {
+                    this.DisposeTexture(material.BaseColor);
+                }
+                if (material.Normal != null)
+                {
+                    this.DisposeTexture(material.Normal);
+                }
+                if (material.Metallic != null)
+                {
+                    this.DisposeTexture(material.Metallic);
+                }
+                if (material.Roughness != null)
+                {
+                    this.DisposeTexture(material.Roughness);
+                }
+                if (material.AmbientOcclusion != null)
+                {
+                    this.DisposeTexture(material.AmbientOcclusion);
+                }
+                if (material.Emissive != null)
+                {
+                    this.DisposeTexture(material.Emissive);
+                }
+                if (material.Height != null)
+                {
+                    this.DisposeTexture(material.Height);
+                }
+                material.Flags = MaterialFlags.Disposed;
+            }
+            Debug.WriteLine($"Disposed material {material.Name}");
+        }
+
+        public void LoadTexture(Texture texture)
         {
             if(texture.Flags == TextureFlags.Loaded || texture.Flags == TextureFlags.Disposed)
             {
