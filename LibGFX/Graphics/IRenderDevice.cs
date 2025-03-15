@@ -62,6 +62,10 @@ namespace LibGFX.Graphics
         Font LoadFont(String path, int fontsize = 48);
         void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f);
         void DisposeFont(Font font);
+        void LoadMesh(Mesh mesh);
+        void DrawMesh(Vector3 position, Vector3 rotation, Vector3 scale, Mesh mesh);
+        void DisposeMesh(Mesh mesh);
+
         int GetError();
     }
 }

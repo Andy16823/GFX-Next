@@ -763,5 +763,98 @@ namespace LibGFX.Graphics
             GL.DeleteTexture(font.TextureId);
             Debug.WriteLine("Font disposed");
         }
+
+        public void LoadMesh(Mesh mesh)
+        {
+            // Create the vertex array object
+            int vao = GL.GenVertexArray();
+            GL.BindVertexArray(vao);
+
+            // Create the vertex buffer object
+            int vbo = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, vbo);
+            GL.BufferData(BufferTarget.ArrayBuffer, mesh.Vertices.Count * sizeof(float), mesh.Vertices.ToArray(), BufferUsageHint.DynamicDraw);
+            GL.EnableVertexAttribArray(0);
+            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 0, 0);
+
+            // Create the texture buffer object
+            int tbo = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, tbo);
+            GL.BufferData(BufferTarget.ArrayBuffer, mesh.TexCoords.Count * sizeof(float), mesh.TexCoords.ToArray(), BufferUsageHint.DynamicDraw);
+            GL.EnableVertexAttribArray(1);
+            GL.VertexAttribPointer(1, 2, VertexAttribPointerType.Float, false, 0, 0);
+
+            // Create the normal buffer object
+            int nbo = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, nbo);
+            GL.BufferData(BufferTarget.ArrayBuffer, mesh.Normals.Count * sizeof(float), mesh.Normals.ToArray(), BufferUsageHint.DynamicDraw);
+            GL.EnableVertexAttribArray(2);
+            GL.VertexAttribPointer(2, 3, VertexAttribPointerType.Float, false, 0, 0);
+
+            // Create the tangent buffer object
+            int tabo = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, tabo);
+            GL.BufferData(BufferTarget.ArrayBuffer, mesh.Tangents.Count * sizeof(float), mesh.Tangents.ToArray(), BufferUsageHint.DynamicDraw);
+            GL.EnableVertexAttribArray(3);
+            GL.VertexAttribPointer(3, 4, VertexAttribPointerType.Float, false, 0, 0);
+
+            // Create the index buffer object
+            int ibo = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ElementArrayBuffer, ibo);
+            GL.BufferData(BufferTarget.ElementArrayBuffer, mesh.Indices.Count * sizeof(uint), mesh.Indices.ToArray(), BufferUsageHint.DynamicDraw);
+
+            // Unbind the buffers
+            GL.BindVertexArray(0);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+
+            // Create the render data object
+            var renderData = new RenderData
+            {
+                VertexArray = vao,
+                VertexBuffer = vbo,
+                TextureBuffer = tbo,
+                NormalBuffer = nbo,
+                TangentBuffer = tabo,
+                IndexBuffer = ibo
+            };
+            mesh.RenderData = renderData;
+        }
+
+        public void DrawMesh(Vector3 position, Vector3 rotation, Vector3 scale, Mesh mesh)
+        {
+            // Create the model matrix
+            var mt_mat = Matrix4.CreateTranslation(position);
+            var mr_mat = Matrix4.CreateRotationX(Math.Math.ToRadians(rotation.X)) * Matrix4.CreateRotationY(Math.Math.ToRadians(rotation.Y)) * Matrix4.CreateRotationZ(Math.Math.ToRadians(rotation.Z));
+            var ms_mat = Matrix4.CreateScale(scale);
+            var m_mat = mt_mat * mr_mat * ms_mat;
+
+            // Bind the shader uniforms
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), false, ref m_mat);
+            GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), mesh.Material.VertexColor);
+
+            // Bind the textures
+            GL.ActiveTexture(TextureUnit.Texture0);
+            GL.BindTexture(TextureTarget.Texture2D, mesh.Material.BaseColor.TextureId);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "textureSampler"), 0);
+            GL.ActiveTexture(TextureUnit.Texture0);
+
+            // Draw the mesh    
+            GL.BindVertexArray(mesh.RenderData.VertexArray);
+            GL.DrawElements(BeginMode.Triangles, mesh.Indices.Count, DrawElementsType.UnsignedInt, 0);
+            GL.BindVertexArray(0);
+        }
+        public void DisposeMesh(Mesh mesh)
+        {
+            Debug.WriteLine($"Disposing Mesh {mesh.Name}");
+            GL.DeleteVertexArray(mesh.RenderData.VertexArray);
+            GL.DeleteBuffer(mesh.RenderData.VertexBuffer);
+            GL.DeleteBuffer(mesh.RenderData.TextureBuffer);
+            GL.DeleteBuffer(mesh.RenderData.NormalBuffer);
+            GL.DeleteBuffer(mesh.RenderData.TangentBuffer);
+            GL.DeleteBuffer(mesh.RenderData.IndexBuffer);
+            Debug.WriteLine($"Mesh {mesh.Name} disposed");
+        }
     }
 }
