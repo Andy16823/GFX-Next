@@ -22,6 +22,11 @@ namespace LibGFX.Core
                 Border = 0
             };
             _renderTarget = renderer.CreateRenderTarget(renderTargetDescriptor);
+
+            this.Layers.ForEach(l =>
+            {
+                l.Init(this, viewport, renderer);
+            });
         }
 
         public override void Render(Viewport viewport, IRenderDevice renderer, Camera camera)

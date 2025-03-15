@@ -26,12 +26,13 @@ namespace LibGFX.Graphics
         public Texture AmbientOcclusion { get; set; }
         public Texture Emissive { get; set; }
         public Texture Height { get; set; }
-        public Vector4 VertexColor { get; set; }
+        public Vector4 DiffuseColor { get; set; }
+        public float Opacity { get; set; }
         public MaterialFlags Flags { get; set; }
 
         public Material()
         {
-            VertexColor = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+            DiffuseColor = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
         }
 
         public static Material LoadMaterial(String file)
@@ -55,12 +56,13 @@ namespace LibGFX.Graphics
                 AmbientOcclusion = LoadTextureIfExists(jsonObject, "AmbientOcclusion", basePath),
                 Emissive = LoadTextureIfExists(jsonObject, "Emissive", basePath),
                 Height = LoadTextureIfExists(jsonObject, "Height", basePath),
-                VertexColor = new Vector4(
-                    jsonObject["VertexColor"][0].Value<float>(),
-                    jsonObject["VertexColor"][1].Value<float>(),
-                    jsonObject["VertexColor"][2].Value<float>(),
-                    jsonObject["VertexColor"][3].Value<float>()
-                )
+                DiffuseColor = new Vector4(
+                    jsonObject["DiffuseColor"][0].Value<float>(),
+                    jsonObject["DiffuseColor"][1].Value<float>(),
+                    jsonObject["DiffuseColor"][2].Value<float>(),
+                    jsonObject["DiffuseColor"][3].Value<float>()
+                ),
+                Opacity = jsonObject["Opacity"].Value<float>(),
             };
 
             return material;

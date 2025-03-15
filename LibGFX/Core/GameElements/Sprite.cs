@@ -17,8 +17,7 @@ namespace LibGFX.Core.GameElements
         {
             this.Name = name;   
             this.Color = new Vector4(1, 1, 1, 1);
-            this.Position = new Vector3(position);
-            this.Scale = new Vector3(scale);
+            this.Transform = new Math.Transform(position, scale);
             this.Texture = texture;
         }
 
@@ -26,8 +25,7 @@ namespace LibGFX.Core.GameElements
         {
             this.Name = name;
             this.Color = new Vector4(1, 1, 1, 1);
-            this.Position = position;
-            this.Scale = scale;
+            this.Transform = new Math.Transform(position, scale);
             this.Texture = texture;
         }
 
@@ -37,7 +35,7 @@ namespace LibGFX.Core.GameElements
             if(this.Visible)
             {
                 renderer.BindShaderProgram(renderer.GetShaderProgram("SpriteShader"));
-                renderer.DrawTexture(Position, Rotation, Scale, Texture.TextureId, Color);
+                renderer.DrawTexture(this.Transform, Texture.TextureId, Color);
                 renderer.UnbindRenderTarget();
             }
         }

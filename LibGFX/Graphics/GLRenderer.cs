@@ -611,25 +611,25 @@ namespace LibGFX.Graphics
             GL.BindVertexArray(0);
         }
 
-        public void DrawTexture(Vector3 position, Vector3 rotation, Vector3 scale, Texture texture, Vector4 color)
+        public void DrawTexture(Transform transform, Texture texture, Vector4 color)
         {
             if(texture.Flags == TextureFlags.Initialized)
             {
-                this.DrawTexture(position, rotation, scale, texture.TextureId, color);
+                this.DrawTexture(transform, texture.TextureId, color);
             }
         }
 
-        public void DrawTexture(Vector3 position, Vector3 rotation, Vector3 scale, int texture, Vector4 color)
+        public void DrawTexture(Transform transform, int texture, Vector4 color)
         {
             if (!_shapes.TryGetValue("SpriteShape", out var shape) || shape == null)
             {
                 throw new Exception("Shape 'SpriteShape' is missing or invalid.");
             }
 
-            this.DrawTexture(position, rotation, scale, texture, color, shape.GetUVCoords());
+            this.DrawTexture(transform, texture, color, shape.GetUVCoords());
         }
 
-        public void DrawTexture(Vector3 position, Vector3 rotation, Vector3 scale, int texture, Vector4 color, float[] uvbuffer)
+        public void DrawTexture(Transform transform, int texture, Vector4 color, float[] uvbuffer)
         {
             if (!_shapes.TryGetValue("SpriteShape", out var shape) || shape == null)
             {
@@ -641,10 +641,10 @@ namespace LibGFX.Graphics
             //GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(uvbuffer.Length * sizeof(float)), uvbuffer, BufferUsageHint.DynamicDraw);
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
 
-            var mt_mat = Matrix4.CreateTranslation(position);
-            var mr_mat = Matrix4.CreateRotationX(Math.Math.ToRadians(rotation.X)) * Matrix4.CreateRotationY(Math.Math.ToRadians(rotation.Y)) * Matrix4.CreateRotationZ(Math.Math.ToRadians(rotation.Z));
-            var ms_mat = Matrix4.CreateScale(scale);
-            var m_mat = mt_mat * mr_mat * ms_mat;
+            //var mt_mat = Matrix4.CreateTranslation(position);
+            //var mr_mat = Matrix4.CreateRotationX(Math.Math.ToRadians(rotation.X)) * Matrix4.CreateRotationY(Math.Math.ToRadians(rotation.Y)) * Matrix4.CreateRotationZ(Math.Math.ToRadians(rotation.Z));
+            //var ms_mat = Matrix4.CreateScale(scale);
+            var m_mat = transform.GetMatrix();
 
             GL.ActiveTexture(TextureUnit.Texture0);
             GL.BindTexture(TextureTarget.Texture2D, texture);
@@ -902,19 +902,19 @@ namespace LibGFX.Graphics
             mesh.RenderData = renderData;
         }
 
-        public void DrawMesh(Vector3 position, Vector3 rotation, Vector3 scale, Mesh mesh)
+        public void DrawMesh(Transform transform, Mesh mesh)
         {
             // Create the model matrix
-            var mt_mat = Matrix4.CreateTranslation(position);
-            var mr_mat = Matrix4.CreateRotationX(Math.Math.ToRadians(rotation.X)) * Matrix4.CreateRotationY(Math.Math.ToRadians(rotation.Y)) * Matrix4.CreateRotationZ(Math.Math.ToRadians(rotation.Z));
-            var ms_mat = Matrix4.CreateScale(scale);
-            var m_mat = mt_mat * mr_mat * ms_mat;
+            //var mt_mat = Matrix4.CreateTranslation(position);
+            //var mr_mat = Matrix4.CreateRotationX(Math.Math.ToRadians(rotation.X)) * Matrix4.CreateRotationY(Math.Math.ToRadians(rotation.Y)) * Matrix4.CreateRotationZ(Math.Math.ToRadians(rotation.Z));
+            //var ms_mat = Matrix4.CreateScale(scale);
+            var m_mat = transform.GetMatrix();
 
             // Bind the shader uniforms
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), false, ref m_mat);
-            GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), mesh.Material.VertexColor);
+            GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), mesh.Material.DiffuseColor);
 
             // Bind the textures
             GL.ActiveTexture(TextureUnit.Texture0);

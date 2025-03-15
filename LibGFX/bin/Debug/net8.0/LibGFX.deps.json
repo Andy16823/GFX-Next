@@ -11,7 +11,9 @@
           "FreeTypeSharp": "3.0.0",
           "Newtonsoft.Json": "13.0.3",
           "OpenTK": "4.9.3",
-          "StbImageSharp": "2.30.15"
+          "StbImageSharp": "2.30.15",
+          "StirlingLabs.Assimp.Net": "23.4.1",
+          "StirlingLabs.assimp.native.win-x64": "5.2.5"
         },
         "runtime": {
           "LibGFX.dll": {}
@@ -212,6 +214,47 @@
           }
         }
       },
+      "StirlingLabs.assimp.native.linux-x64/5.2.5.4": {
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libassimp.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "StirlingLabs.assimp.native.osx/5.2.5.4": {
+        "runtimeTargets": {
+          "runtimes/osx/native/libassimp.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "StirlingLabs.assimp.native.win-x64/5.2.5": {
+        "runtimeTargets": {
+          "runtimes/win-x64/native/assimp.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "5.2.5.0"
+          }
+        }
+      },
+      "StirlingLabs.Assimp.Net/23.4.1": {
+        "dependencies": {
+          "StirlingLabs.assimp.native.linux-x64": "5.2.5.4",
+          "StirlingLabs.assimp.native.osx": "5.2.5.4",
+          "StirlingLabs.assimp.native.win-x64": "5.2.5",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "runtime": {
+          "lib/net7.0/StirlingLabs.Assimp.Net.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        }
+      },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {}
     }
   },
@@ -318,6 +361,34 @@
       "sha512": "sha512-7QqbupVhz2kcFUPTgMw4iHR9rYDHGundzzee19Mwmd1typ2Lnv8EVJcLJxlkeBM2+4ex0NwsMtdbGSJctp1XCQ==",
       "path": "stbimagesharp/2.30.15",
       "hashPath": "stbimagesharp.2.30.15.nupkg.sha512"
+    },
+    "StirlingLabs.assimp.native.linux-x64/5.2.5.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rpVQ+yuCnKLOS9wslh0J79NvkYmH+4nLfCEp0t3B3aCAXMp1c5TOkT2vDyegxRuXZ+HFsKOQEMMCP+C9OHXaGA==",
+      "path": "stirlinglabs.assimp.native.linux-x64/5.2.5.4",
+      "hashPath": "stirlinglabs.assimp.native.linux-x64.5.2.5.4.nupkg.sha512"
+    },
+    "StirlingLabs.assimp.native.osx/5.2.5.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2FENRVb0J8USsbSqAVTp5npGcbHGkJB4g9slJUZ5MCGBzDj51+1A/uut0lE1nxy5blar1abr/j0Q2QYvZbfapw==",
+      "path": "stirlinglabs.assimp.native.osx/5.2.5.4",
+      "hashPath": "stirlinglabs.assimp.native.osx.5.2.5.4.nupkg.sha512"
+    },
+    "StirlingLabs.assimp.native.win-x64/5.2.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VNjF/f1F4DA2khtdUrPcPh7ihvB/SOrynOGXgPgTIAyAHlTitmZfz3UxpjUYnCoRS4Q2LU6jR2Wt/hT3aZH/QQ==",
+      "path": "stirlinglabs.assimp.native.win-x64/5.2.5",
+      "hashPath": "stirlinglabs.assimp.native.win-x64.5.2.5.nupkg.sha512"
+    },
+    "StirlingLabs.Assimp.Net/23.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bkWGvYrgU10D1Y7cRx1oZkycPu1YAqbujYCogpORDLFIYKOrn2BaOJmlOHu0GFV7Bhdw7JK7z/ELVLXXA0Uf+g==",
+      "path": "stirlinglabs.assimp.net/23.4.1",
+      "hashPath": "stirlinglabs.assimp.net.23.4.1.nupkg.sha512"
     },
     "System.Runtime.CompilerServices.Unsafe/6.0.0": {
       "type": "package",

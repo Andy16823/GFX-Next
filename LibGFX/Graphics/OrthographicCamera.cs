@@ -15,13 +15,12 @@ namespace LibGFX.Graphics
         {
             this.Near = -1.0f;
             this.Far = 1.0f;
-            this.Position = new Vector3(position);
-            this.Scale = new Vector3(scale);
+            this.Transform = new Transform(position, scale);
         }
 
         public float CalculateScreenCorrection(float screenWidth, float screenHeight)
         {
-            return System.Math.Min(screenWidth / Scale.X, screenHeight / Scale.Y);
+            return System.Math.Min(screenWidth / Transform.Scale.X, screenHeight / Transform.Scale.Y);
         }
 
         public override Matrix4 GetProjectionMatrix(Viewport viewport)
@@ -31,10 +30,10 @@ namespace LibGFX.Graphics
             float halfWidth = (viewport.Width / 2) / correction;
             float halfHeight = (viewport.Height / 2) / correction;
 
-            float left = this.Position.X - halfWidth;
-            float right = this.Position.X + halfWidth;
-            float bottom = this.Position.Y - halfHeight;
-            float top = this.Position.Y + halfHeight;
+            float left = this.Transform.Position.X - halfWidth;
+            float right = this.Transform.Position.X + halfWidth;
+            float bottom = this.Transform.Position.Y - halfHeight;
+            float top = this.Transform.Position.Y + halfHeight;
 
             return Matrix4.CreateOrthographicOffCenter(left, right, bottom, top, Near, Far);
         }

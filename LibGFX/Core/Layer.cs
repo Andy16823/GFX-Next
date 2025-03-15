@@ -20,6 +20,14 @@ namespace LibGFX.Core
             this.Elements = new List<GameElement>();
         }
 
+        public void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+        {
+            this.Elements.ForEach(e =>
+            {
+                e.Init(scene, viewport, renderer);
+            });
+        }
+
         public void RenderLayer(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             if (this.Visible)

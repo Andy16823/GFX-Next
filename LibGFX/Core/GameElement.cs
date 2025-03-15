@@ -1,4 +1,5 @@
 ﻿using LibGFX.Graphics;
+using LibGFX.Math;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,7 @@ namespace LibGFX.Core
     public abstract class GameElement
     {
         public String Name { get; set; }
-        public Vector3 Position { get; set; }
-        public Vector3 Rotation { get; set; }
-        public Vector3 Scale { get; set; }
+        public Transform Transform { get; set; } = new Transform();
         public bool Visible { get; set; } = true;
         public bool Enabled { get; set; } = true;
         public List<IGameBehavior> Behaviors { get; set; }

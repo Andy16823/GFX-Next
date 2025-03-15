@@ -65,6 +65,14 @@
             "StbImageSharp": {
               "target": "Package",
               "version": "[2.30.15, )"
+            },
+            "StirlingLabs.Assimp.Net": {
+              "target": "Package",
+              "version": "[23.4.1, )"
+            },
+            "StirlingLabs.assimp.native.win-x64": {
+              "target": "Package",
+              "version": "(, )"
             }
           },
           "imports": [

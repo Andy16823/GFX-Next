@@ -250,6 +250,56 @@
           "lib/netstandard2.0/StbImageSharp.dll": {}
         }
       },
+      "StirlingLabs.assimp.native.linux-x64/5.2.5.4": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libassimp.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          }
+        }
+      },
+      "StirlingLabs.assimp.native.osx/5.2.5.4": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/osx/native/libassimp.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          }
+        }
+      },
+      "StirlingLabs.assimp.native.win-x64/5.2.5": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/win-x64/native/assimp.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          }
+        }
+      },
+      "StirlingLabs.Assimp.Net/23.4.1": {
+        "type": "package",
+        "dependencies": {
+          "StirlingLabs.assimp.native.linux-x64": "[5.2.5.4, 23.4.1]",
+          "StirlingLabs.assimp.native.osx": "[5.2.5.4, 23.4.1]",
+          "StirlingLabs.assimp.native.win-x64": "[5.2.5.4, 23.4.1]",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/net7.0/StirlingLabs.Assimp.Net.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/StirlingLabs.Assimp.Net.dll": {}
+        },
+        "build": {
+          "build/StirlingLabs.Assimp.Net.props": {},
+          "build/StirlingLabs.Assimp.Net.targets": {}
+        },
+        "buildMultiTargeting": {
+          "buildCrossTargeting/StirlingLabs.Assimp.Net.props": {},
+          "buildCrossTargeting/StirlingLabs.Assimp.Net.targets": {}
+        }
+      },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {
         "type": "package",
         "compile": {
@@ -535,6 +585,72 @@
         "stbimagesharp.nuspec"
       ]
     },
+    "StirlingLabs.assimp.native.linux-x64/5.2.5.4": {
+      "sha512": "rpVQ+yuCnKLOS9wslh0J79NvkYmH+4nLfCEp0t3B3aCAXMp1c5TOkT2vDyegxRuXZ+HFsKOQEMMCP+C9OHXaGA==",
+      "type": "package",
+      "path": "stirlinglabs.assimp.native.linux-x64/5.2.5.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "docs/README.md",
+        "images/icon.png",
+        "runtimes/linux-x64/native/libassimp.so",
+        "stirlinglabs.assimp.native.linux-x64.5.2.5.4.nupkg.sha512",
+        "stirlinglabs.assimp.native.linux-x64.nuspec"
+      ]
+    },
+    "StirlingLabs.assimp.native.osx/5.2.5.4": {
+      "sha512": "2FENRVb0J8USsbSqAVTp5npGcbHGkJB4g9slJUZ5MCGBzDj51+1A/uut0lE1nxy5blar1abr/j0Q2QYvZbfapw==",
+      "type": "package",
+      "path": "stirlinglabs.assimp.native.osx/5.2.5.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "docs/README.md",
+        "images/icon.png",
+        "runtimes/osx/native/libassimp.dylib",
+        "stirlinglabs.assimp.native.osx.5.2.5.4.nupkg.sha512",
+        "stirlinglabs.assimp.native.osx.nuspec"
+      ]
+    },
+    "StirlingLabs.assimp.native.win-x64/5.2.5": {
+      "sha512": "VNjF/f1F4DA2khtdUrPcPh7ihvB/SOrynOGXgPgTIAyAHlTitmZfz3UxpjUYnCoRS4Q2LU6jR2Wt/hT3aZH/QQ==",
+      "type": "package",
+      "path": "stirlinglabs.assimp.native.win-x64/5.2.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "docs/README.md",
+        "images/icon.png",
+        "runtimes/win-x64/native/assimp.dll",
+        "stirlinglabs.assimp.native.win-x64.5.2.5.nupkg.sha512",
+        "stirlinglabs.assimp.native.win-x64.nuspec"
+      ]
+    },
+    "StirlingLabs.Assimp.Net/23.4.1": {
+      "sha512": "bkWGvYrgU10D1Y7cRx1oZkycPu1YAqbujYCogpORDLFIYKOrn2BaOJmlOHu0GFV7Bhdw7JK7z/ELVLXXA0Uf+g==",
+      "type": "package",
+      "path": "stirlinglabs.assimp.net/23.4.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "README.md",
+        "SL.png",
+        "build/StirlingLabs.Assimp.Net.props",
+        "build/StirlingLabs.Assimp.Net.targets",
+        "buildCrossTargeting/StirlingLabs.Assimp.Net.props",
+        "buildCrossTargeting/StirlingLabs.Assimp.Net.targets",
+        "lib/net6.0/AssimpNet.xml",
+        "lib/net6.0/StirlingLabs.Assimp.Net.dll",
+        "lib/net7.0/AssimpNet.xml",
+        "lib/net7.0/StirlingLabs.Assimp.Net.dll",
+        "lib/netstandard2.1/AssimpNet.xml",
+        "lib/netstandard2.1/StirlingLabs.Assimp.Net.dll",
+        "stirlinglabs.assimp.net.23.4.1.nupkg.sha512",
+        "stirlinglabs.assimp.net.nuspec"
+      ]
+    },
     "System.Runtime.CompilerServices.Unsafe/6.0.0": {
       "sha512": "/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
       "type": "package",
@@ -566,7 +682,9 @@
       "FreeTypeSharp >= 3.0.0",
       "Newtonsoft.Json >= 13.0.3",
       "OpenTK >= 4.9.3",
-      "StbImageSharp >= 2.30.15"
+      "StbImageSharp >= 2.30.15",
+      "StirlingLabs.Assimp.Net >= 23.4.1",
+      "StirlingLabs.assimp.native.win-x64"
     ]
   },
   "packageFolders": {
@@ -634,6 +752,14 @@
           "StbImageSharp": {
             "target": "Package",
             "version": "[2.30.15, )"
+          },
+          "StirlingLabs.Assimp.Net": {
+            "target": "Package",
+            "version": "[23.4.1, )"
+          },
+          "StirlingLabs.assimp.native.win-x64": {
+            "target": "Package",
+            "version": "(, )"
           }
         },
         "imports": [
@@ -655,5 +781,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1604",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Die Projektabhängigkeit \"StirlingLabs.assimp.native.win-x64\" enthält keine einschließliche Untergrenze. Schließen Sie eine Untergrenze in die Abhängigkeitsversion ein, um konsistente Wiederherstellungsergebnisse zu erzielen.",
+      "libraryId": "StirlingLabs.assimp.native.win-x64",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v8.0"
+      ]
+    }
+  ]
 }

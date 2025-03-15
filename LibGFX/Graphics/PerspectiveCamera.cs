@@ -30,23 +30,23 @@ namespace LibGFX.Graphics
         public override Matrix4 GetViewMatrix()
         {
             var front = this.GetCameraFront();
-            var frontPosition = this.Position + front;
+            var frontPosition = this.Transform.Position + front;
 
-            return Matrix4.LookAt(this.Position, frontPosition, new Vector3(0.0f, 1.0f, 0.0f));
+            return Matrix4.LookAt(this.Transform.Position, frontPosition, new Vector3(0.0f, 1.0f, 0.0f));
         }
 
         public Vector3 GetCameraFront()
         {
             Vector3 direction = new Vector3(0f);
-            direction.X = (float)(System.Math.Cos(Math.Math.ToRadians(this.Rotation.Y)) * System.Math.Cos(Math.Math.ToRadians(this.Rotation.X)));
-            direction.Y = (float)System.Math.Sin(Math.Math.ToRadians(this.Rotation.X));
-            direction.Z = (float)(System.Math.Sin(Math.Math.ToRadians(this.Rotation.Y)) * System.Math.Cos(Math.Math.ToRadians(this.Rotation.X)));
+            direction.X = (float)(System.Math.Cos(Math.Math.ToRadians(this.Transform.Rotation.Y)) * System.Math.Cos(Math.Math.ToRadians(this.Transform.Rotation.X)));
+            direction.Y = (float)System.Math.Sin(Math.Math.ToRadians(this.Transform.Rotation.X));
+            direction.Z = (float)(System.Math.Sin(Math.Math.ToRadians(this.Transform.Rotation.Y)) * System.Math.Cos(Math.Math.ToRadians(this.Transform.Rotation.X)));
             return direction.Normalized();
         }
 
         public float GetAspectRatio()
         {
-            return this.Scale.X / this.Scale.Y;
+            return this.Transform.Scale.X / this.Transform.Scale.Y;
         }
     }
 }

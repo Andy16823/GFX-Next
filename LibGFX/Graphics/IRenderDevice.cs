@@ -58,14 +58,14 @@ namespace LibGFX.Graphics
         void DrawRenderTarget(RenderTarget renderTarget);
         void DrawRect(Math.Rect rect, Vector4 color, float borderWidth = 1.0f, float rotation = 0.0f);
         void FillRect(Math.Rect rect, Vector4 color, float rotation = 0.0f);
-        void DrawTexture(Vector3 position, Vector3 rotation, Vector3 scale, Texture texture, Vector4 color);
-        void DrawTexture(Vector3 position, Vector3 rotation, Vector3 scale, int textureId, Vector4 color);
-        void DrawTexture(Vector3 position, Vector3 rotation, Vector3 scale, int textureId, Vector4 color, float[] uvbuffer);
+        void DrawTexture(Transform transform, Texture texture, Vector4 color);
+        void DrawTexture(Transform transform, int textureId, Vector4 color);
+        void DrawTexture(Transform transform, int textureId, Vector4 color, float[] uvbuffer);
         Font LoadFont(String path, int fontsize = 48);
         void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f);
         void DisposeFont(Font font);
         void LoadMesh(Mesh mesh);
-        void DrawMesh(Vector3 position, Vector3 rotation, Vector3 scale, Mesh mesh);
+        void DrawMesh(Transform transform, Mesh mesh);
         void DisposeMesh(Mesh mesh);
 
         int GetError();
