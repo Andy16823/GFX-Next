@@ -268,7 +268,7 @@
           }
         }
       },
-      "StirlingLabs.assimp.native.win-x64/5.2.5": {
+      "StirlingLabs.assimp.native.win-x64/5.2.5.4": {
         "type": "package",
         "runtimeTargets": {
           "runtimes/win-x64/native/assimp.dll": {
@@ -613,17 +613,17 @@
         "stirlinglabs.assimp.native.osx.nuspec"
       ]
     },
-    "StirlingLabs.assimp.native.win-x64/5.2.5": {
-      "sha512": "VNjF/f1F4DA2khtdUrPcPh7ihvB/SOrynOGXgPgTIAyAHlTitmZfz3UxpjUYnCoRS4Q2LU6jR2Wt/hT3aZH/QQ==",
+    "StirlingLabs.assimp.native.win-x64/5.2.5.4": {
+      "sha512": "F4dUpmBCpGXxldIzLkqwJJhJ2IGKZH6yZXwFquRr4RyF4xdp6Xnu0NQN3ml6D7cHW4QSuWnJ7auIRIjRa7ltVg==",
       "type": "package",
-      "path": "stirlinglabs.assimp.native.win-x64/5.2.5",
+      "path": "stirlinglabs.assimp.native.win-x64/5.2.5.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "docs/README.md",
         "images/icon.png",
         "runtimes/win-x64/native/assimp.dll",
-        "stirlinglabs.assimp.native.win-x64.5.2.5.nupkg.sha512",
+        "stirlinglabs.assimp.native.win-x64.5.2.5.4.nupkg.sha512",
         "stirlinglabs.assimp.native.win-x64.nuspec"
       ]
     },
@@ -684,7 +684,7 @@
       "OpenTK >= 4.9.3",
       "StbImageSharp >= 2.30.15",
       "StirlingLabs.Assimp.Net >= 23.4.1",
-      "StirlingLabs.assimp.native.win-x64"
+      "StirlingLabs.assimp.native.win-x64 >= 5.2.5.4"
     ]
   },
   "packageFolders": {
@@ -759,7 +759,7 @@
           },
           "StirlingLabs.assimp.native.win-x64": {
             "target": "Package",
-            "version": "(, )"
+            "version": "[5.2.5.4, )"
           }
         },
         "imports": [
@@ -781,17 +781,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1604",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Die Projektabhängigkeit \"StirlingLabs.assimp.native.win-x64\" enthält keine einschließliche Untergrenze. Schließen Sie eine Untergrenze in die Abhängigkeitsversion ein, um konsistente Wiederherstellungsergebnisse zu erzielen.",
-      "libraryId": "StirlingLabs.assimp.native.win-x64",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v8.0"
-      ]
-    }
-  ]
+  }
 }

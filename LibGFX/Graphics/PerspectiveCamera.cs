@@ -1,4 +1,5 @@
-﻿using LibGFX.Math;
+﻿using Assimp;
+using LibGFX.Math;
 using OpenTK.Core;
 using OpenTK.Mathematics;
 using System;
@@ -19,6 +20,14 @@ namespace LibGFX.Graphics
             this.Far = 1000.0f;
         }
 
+        public PerspectiveCamera(Vector3 position, Vector3 scale)
+        {
+            this.Near = 0.1f;
+            this.Far = 1000.0f;
+            this.Transform.Position = position;
+            this.Transform.Scale = scale;
+        }
+
         public override Matrix4 GetProjectionMatrix(Viewport viewport)
         {
             var fov = Math.Math.ToRadians(this.Fov);
@@ -37,10 +46,16 @@ namespace LibGFX.Graphics
 
         public Vector3 GetCameraFront()
         {
+            //Vector3 direction = new Vector3(0f);
+            //direction.X = (float)(System.Math.Cos(Math.Math.ToRadians(this.Transform.Rotation.Y)) * System.Math.Cos(Math.Math.ToRadians(this.Transform.Rotation.X)));
+            //direction.Y = (float)System.Math.Sin(Math.Math.ToRadians(this.Transform.Rotation.X));
+            //direction.Z = (float)(System.Math.Sin(Math.Math.ToRadians(this.Transform.Rotation.Y)) * System.Math.Cos(Math.Math.ToRadians(this.Transform.Rotation.X)));
+            //return direction.Normalized();
+
             Vector3 direction = new Vector3(0f);
-            direction.X = (float)(System.Math.Cos(Math.Math.ToRadians(this.Transform.Rotation.Y)) * System.Math.Cos(Math.Math.ToRadians(this.Transform.Rotation.X)));
+            direction.X = (float)(-System.Math.Sin(Math.Math.ToRadians(this.Transform.Rotation.Y)) * System.Math.Cos(Math.Math.ToRadians(this.Transform.Rotation.X)));
             direction.Y = (float)System.Math.Sin(Math.Math.ToRadians(this.Transform.Rotation.X));
-            direction.Z = (float)(System.Math.Sin(Math.Math.ToRadians(this.Transform.Rotation.Y)) * System.Math.Cos(Math.Math.ToRadians(this.Transform.Rotation.X)));
+            direction.Z = (float)(-System.Math.Cos(Math.Math.ToRadians(this.Transform.Rotation.Y)) * System.Math.Cos(Math.Math.ToRadians(this.Transform.Rotation.X)));
             return direction.Normalized();
         }
 

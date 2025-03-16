@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "33JGmIWTBHw=",
+  "dgSpecHash": "VFt9Bzt/tiI=",
   "success": true,
   "projectFilePath": "C:\\Users\\andy1\\source\\repos\\LibGFX\\LibGFX\\LibGFX.csproj",
   "expectedPackageFiles": [
@@ -20,20 +20,9 @@
     "C:\\Users\\andy1\\.nuget\\packages\\stbimagesharp\\2.30.15\\stbimagesharp.2.30.15.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\stirlinglabs.assimp.native.linux-x64\\5.2.5.4\\stirlinglabs.assimp.native.linux-x64.5.2.5.4.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\stirlinglabs.assimp.native.osx\\5.2.5.4\\stirlinglabs.assimp.native.osx.5.2.5.4.nupkg.sha512",
-    "C:\\Users\\andy1\\.nuget\\packages\\stirlinglabs.assimp.native.win-x64\\5.2.5\\stirlinglabs.assimp.native.win-x64.5.2.5.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\stirlinglabs.assimp.native.win-x64\\5.2.5.4\\stirlinglabs.assimp.native.win-x64.5.2.5.4.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\stirlinglabs.assimp.net\\23.4.1\\stirlinglabs.assimp.net.23.4.1.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1604",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Die Projektabhängigkeit \"StirlingLabs.assimp.native.win-x64\" enthält keine einschließliche Untergrenze. Schließen Sie eine Untergrenze in die Abhängigkeitsversion ein, um konsistente Wiederherstellungsergebnisse zu erzielen.",
-      "libraryId": "StirlingLabs.assimp.native.win-x64",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v8.0"
-      ]
-    }
-  ]
+  "logs": []
 }

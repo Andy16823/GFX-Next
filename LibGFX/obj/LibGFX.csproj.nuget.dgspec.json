@@ -72,7 +72,7 @@
             },
             "StirlingLabs.assimp.native.win-x64": {
               "target": "Package",
-              "version": "(, )"
+              "version": "[5.2.5.4, )"
             }
           },
           "imports": [

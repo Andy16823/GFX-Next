@@ -15,7 +15,9 @@ namespace LibGFX.Math
 
         public Transform()
         {
-            
+            this.Position = Vector3.Zero;
+            this.Rotation = Quaternion.Identity;
+            this.Scale = Vector3.One;
         }
 
         public Transform(Vector2 position, float rotationZ, Vector2 scale)

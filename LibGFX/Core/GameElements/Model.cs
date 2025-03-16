@@ -17,10 +17,9 @@ namespace LibGFX.Core.GameElements
     {
         public List<Graphics.Mesh> Meshes { get; set; }
 
-        public Model(String name, Vector3 location, Vector3 scale, String file)
+        public Model(String name, String file)
         {
             this.Name = name;
-            this.Transform = new Math.Transform(location, scale);
             this.Meshes = new List<Graphics.Mesh>();
 
             var directory = Path.GetDirectoryName(file);
