@@ -15,6 +15,8 @@ namespace LibGFX.Graphics
         public List<float> TexCoords { get; set; }
         public List<float> Tangents { get; set; }
         public List<int> Indices { get; set; }
+        public List<uint> BoneIDs { get; set; }
+        public List<float> BoneWeights { get; set; }
         public Vector3 LocalTranslation { get; set; }
         public Vector4 LocalRotation { get; set; }
         public Vector3 LocalScale { get; set; }

@@ -31,15 +31,20 @@ namespace LibGFX.Core.GameElements
         public Model(String name, String file)
         {
             this.Name = name;
-            this.Meshes = new List<Graphics.Mesh>();
-
             var directory = Path.GetDirectoryName(file);
-            var materials = new List<Graphics.Material>();
 
             // Load the model using Assimp
             var importer = new AssimpContext();
             importer.SetConfig(new NormalSmoothingAngleConfig(66.0f));
             var assimpScene = importer.ImportFile(file, PostProcessPreset.TargetRealTimeQuality | PostProcessSteps.PreTransformVertices);
+
+            var materials = ExtractMaterials(assimpScene, directory);
+            ExtractMeshes(assimpScene, materials);
+        }
+
+        private List<Graphics.Material> ExtractMaterials(Scene assimpScene, String directory)
+        {
+            var materials = new List<Graphics.Material>();
 
             // Load materials
             foreach (var asmat in assimpScene.Materials)
@@ -49,7 +54,7 @@ namespace LibGFX.Core.GameElements
                 material.Opacity = asmat.Opacity;
                 material.DiffuseColor = new Vector4(asmat.ColorDiffuse.R, asmat.ColorDiffuse.G, asmat.ColorDiffuse.B, asmat.ColorDiffuse.A);
 
-                if(asmat.HasTextureDiffuse)
+                if (asmat.HasTextureDiffuse)
                 {
                     material.BaseColor = Texture.LoadTexture(Path.Combine(directory, asmat.TextureDiffuse.FilePath));
                 }
@@ -61,8 +66,13 @@ namespace LibGFX.Core.GameElements
 
                 materials.Add(material);
             }
+            return materials;
+        }
 
-            // Load meshes
+        private void ExtractMeshes(Scene assimpScene, List<Graphics.Material> materials)
+        {
+            this.Meshes = new List<Graphics.Mesh>();
+
             foreach (var asmesh in assimpScene.Meshes)
             {
                 var mesh = new Graphics.Mesh();
