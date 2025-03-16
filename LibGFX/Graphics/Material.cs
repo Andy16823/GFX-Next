@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics
 {
+    /// <summary>
+    /// Represents the flags of a material
+    /// </summary>
     public enum MaterialFlags
     {
         None,
@@ -16,25 +19,80 @@ namespace LibGFX.Graphics
         Failed
     }
 
+    /// <summary>
+    /// Represents a material
+    /// </summary>
     public class Material
     {
+        /// <summary>
+        /// The name of the material
+        /// </summary>
         public String Name { get; set; }
+
+        /// <summary>
+        /// The base color texture of the material
+        /// </summary>
         public Texture BaseColor { get; set; }
+
+        /// <summary>
+        /// The normal texture of the material
+        /// </summary>
         public Texture Normal { get; set; }
+
+        /// <summary>
+        /// The metallic texture of the material
+        /// </summary>
         public Texture Metallic { get; set; }
+
+        /// <summary>
+        /// The roughness texture of the material
+        /// </summary>
         public Texture Roughness { get; set; }
+
+        /// <summary>
+        /// The ambient occlusion texture of the material
+        /// </summary>
         public Texture AmbientOcclusion { get; set; }
+
+        /// <summary>
+        /// The emissive texture of the material
+        /// </summary>
         public Texture Emissive { get; set; }
+
+        /// <summary>
+        /// The height texture of the material
+        /// </summary>
         public Texture Height { get; set; }
+
+        /// <summary>
+        /// The diffuse color of the material
+        /// </summary>
         public Vector4 DiffuseColor { get; set; }
+
+        /// <summary>
+        /// The opacity of the material
+        /// </summary>
         public float Opacity { get; set; }
+
+        /// <summary>
+        /// The flags of the material
+        /// </summary>
         public MaterialFlags Flags { get; set; }
 
+        /// <summary>
+        /// Creates a new material
+        /// </summary>
         public Material()
         {
             DiffuseColor = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
         }
 
+        /// <summary>
+        /// Loads a material from a file
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public static Material LoadMaterial(String file)
         {
             if (!File.Exists(file))
@@ -68,6 +126,13 @@ namespace LibGFX.Graphics
             return material;
         }
 
+        /// <summary>
+        /// Loads a texture if it exists
+        /// </summary>
+        /// <param name="jsonObject"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="basePath"></param>
+        /// <returns></returns>
         private static Texture LoadTextureIfExists(JObject jsonObject, string propertyName, string basePath)
         {
             if (jsonObject[propertyName].Value<String>() != "null")

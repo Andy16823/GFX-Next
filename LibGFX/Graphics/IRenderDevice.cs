@@ -2,6 +2,7 @@
 using LibGFX.Graphics.Shader;
 using LibGFX.Graphics.Shapes;
 using LibGFX.Math;
+using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -67,7 +68,18 @@ namespace LibGFX.Graphics
         void LoadMesh(Mesh mesh);
         void DrawMesh(Transform transform, Mesh mesh);
         void DisposeMesh(Mesh mesh);
-
+        void AddLightSource(string name, Light light);
+        void RemoveLightSource(string name);
+        IEnumerable<Light> GetAllLightSources();
+        T GetLightSource<T>() where T : Light;
+        void PrepareShader(String location, bool value);
+        void PrepareShader(String location, float value);
+        void PrepareShader(String location, int value);
+        void PrepareShader(String location, Vector2 value);
+        void PrepareShader(String location, Vector3 value);
+        void PrepareShader(String location, Vector4 value);
+        void PrepareShader(String location, Matrix4 value);
+        void PrepareShader(String location, TextureUnit textureUnit, Texture texture);
         int GetError();
     }
 }

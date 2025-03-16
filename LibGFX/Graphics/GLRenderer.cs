@@ -25,6 +25,7 @@ namespace LibGFX.Graphics
     {
         private Dictionary<String, ShaderProgram> _programs;
         private Dictionary<String, Shape> _shapes;
+        private Dictionary<String, Light> _lights;
         private IGLFWGraphicsContext _context;
         private Window _window;
         private Matrix4 _viewMatrix;
@@ -55,6 +56,8 @@ namespace LibGFX.Graphics
             {
                 this.InitShape(shape);
             }
+
+            _lights = new Dictionary<String, Light>();
 
             GL.Enable(EnableCap.Multisample);
         }
@@ -920,6 +923,10 @@ namespace LibGFX.Graphics
             GL.ActiveTexture(TextureUnit.Texture0);
             GL.BindTexture(TextureTarget.Texture2D, mesh.Material.BaseColor.TextureId);
             GL.Uniform1(GetUniformLocation(_currentProgram, "textureSampler"), 0);
+
+            GL.ActiveTexture(TextureUnit.Texture1);
+            GL.BindTexture(TextureTarget.Texture2D, mesh.Material.Normal.TextureId);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "normalSampler"), 1);
             GL.ActiveTexture(TextureUnit.Texture0);
 
             // Draw the mesh    
@@ -937,6 +944,77 @@ namespace LibGFX.Graphics
             GL.DeleteBuffer(mesh.RenderData.TangentBuffer);
             GL.DeleteBuffer(mesh.RenderData.IndexBuffer);
             Debug.WriteLine($"Mesh {mesh.Name} disposed");
+        }
+
+        public void AddLightSource(string name, Light light)
+        {
+            _lights.Add(name, light);
+        }
+
+        public void RemoveLightSource(string name)
+        {
+            _lights.Remove(name);
+        }
+
+        public IEnumerable<Light> GetAllLightSources()
+        {
+            return _lights.Values;
+        }
+
+        public T GetLightSource<T>() where T : Light
+        {
+            return _lights.Values.OfType<T>().FirstOrDefault();
+        }
+
+        public void PrepareShader(string location, bool value)
+        {
+            var locationId = this.GetUniformLocation(_currentProgram, location);
+            GL.Uniform1(locationId, value ? 1 : 0);
+        }
+
+        public void PrepareShader(string location, float value)
+        {
+            var locationId = this.GetUniformLocation(_currentProgram, location);
+            GL.Uniform1(locationId, value);
+        }
+
+        public void PrepareShader(string location, int value)
+        {
+            var locationId = this.GetUniformLocation(_currentProgram, location);
+            GL.Uniform1(locationId, value);
+        }
+
+        public void PrepareShader(string location, Vector2 value)
+        {
+            var locationId = this.GetUniformLocation(_currentProgram, location);
+            GL.Uniform2(locationId, value);
+        }
+
+        public void PrepareShader(string location, Vector3 value)
+        {
+            var locationId = this.GetUniformLocation(_currentProgram, location);
+            GL.Uniform3(locationId, value);
+        }
+
+        public void PrepareShader(string location, Vector4 value)
+        {
+            var locationId = this.GetUniformLocation(_currentProgram, location);
+            GL.Uniform4(locationId, value);
+        }
+
+        public void PrepareShader(string location, Matrix4 value)
+        {
+            var locationId = this.GetUniformLocation(_currentProgram, location);
+            GL.UniformMatrix4(locationId, false, ref value);
+        }
+
+        public void PrepareShader(String location, TextureUnit textureUnit, Texture texture)
+        {
+            var locationId = this.GetUniformLocation(_currentProgram, location);
+            GL.ActiveTexture(textureUnit);
+            GL.BindTexture(TextureTarget.Texture2D, texture.TextureId);
+            GL.Uniform1(locationId, textureUnit - TextureUnit.Texture0);
+            GL.ActiveTexture(TextureUnit.Texture0);
         }
     }
 }

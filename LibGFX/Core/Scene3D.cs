@@ -10,7 +10,14 @@ namespace LibGFX.Core
 {
     public class Scene3D : BaseScene
     {
+        public DirectionalLight Sun { get; set; }
+
         private RenderTarget _renderTarget;
+
+        public Scene3D()
+        {
+            this.Sun = new DirectionalLight();
+        }
 
         public override void DisposeScene(IRenderDevice renderer)
         {
@@ -39,6 +46,8 @@ namespace LibGFX.Core
             {
                 l.Init(this, viewport, renderer);
             });
+
+            renderer.AddLightSource("Sun", this.Sun);
         }
 
         public override void Render(Viewport viewport, IRenderDevice renderer, Camera camera)
