@@ -31,11 +31,30 @@ namespace LibGFX.Core.GameElements
         /// Gets or sets the mapping of bone names to bone information.
         /// </summary>
         public Dictionary<String, BoneInfo> BoneInfoMap { get; set; }
-        public List<Graphics.Animation3D.Animation> Animations { get; set; }
-        public Animator Animator { get; set; }
-        public bool HasAnimations { get; set; }
-        public float AnimationSpeed { get; set; } = 1.0f;
 
+        /// <summary>
+        /// The animations of the model
+        /// </summary>
+        public List<Graphics.Animation3D.Animation> Animations { get; set; }
+
+        /// <summary>
+        /// The animator of the model
+        /// </summary>
+        public Animator Animator { get; set; }
+
+        /// <summary>
+        /// Checks if the model has animations
+        /// </summary>
+        public bool HasAnimations { get; set; }
+
+        /// <summary>
+        /// The speed of the animation
+        /// </summary>
+        public float AnimationSpeed { get; set; } = 5.0f;
+
+        /// <summary>
+        /// The counter for the bones
+        /// </summary>
         public int BoneCounter;
 
 
@@ -48,6 +67,16 @@ namespace LibGFX.Core.GameElements
         {
             this.Name = name;
             this.BoneInfoMap = new Dictionary<String, BoneInfo>();
+            this.LoadModel(file);
+        }
+
+        /// <summary>
+        /// Loads the model from the specified file
+        /// </summary>
+        /// <param name="file"></param>
+        private void LoadModel(String file)
+        {
+            // Get the directory of the file
             var directory = Path.GetDirectoryName(file);
 
             // Load the model using Assimp
@@ -55,9 +84,11 @@ namespace LibGFX.Core.GameElements
             importer.SetConfig(new NormalSmoothingAngleConfig(66.0f));
             var assimpScene = importer.ImportFile(file, Assimp.PostProcessSteps.Triangulate | Assimp.PostProcessSteps.CalculateTangentSpace | Assimp.PostProcessSteps.JoinIdenticalVertices);
 
+            // Extract materials and meshes
             var materials = ExtractMaterials(assimpScene, directory);
             ExtractMeshes(assimpScene, materials);
 
+            // Extract animations
             this.HasAnimations = assimpScene.HasAnimations;
             if (this.HasAnimations)
             {
@@ -69,6 +100,10 @@ namespace LibGFX.Core.GameElements
             }
         }
 
+        /// <summary>
+        /// Extracts the animations from the scene
+        /// </summary>
+        /// <param name="scene"></param>
         private void ExtractAnimations(Scene scene)
         {
             Animations = new List<Graphics.Animation3D.Animation>();
@@ -81,6 +116,12 @@ namespace LibGFX.Core.GameElements
             this.Animator = new Graphics.Animation3D.Animator(this.Animations[1]);
         }
 
+        /// <summary>
+        /// Extracts the materials from the scene
+        /// </summary>
+        /// <param name="assimpScene"></param>
+        /// <param name="directory"></param>
+        /// <returns></returns>
         private List<Graphics.Material> ExtractMaterials(Scene assimpScene, String directory)
         {
             var materials = new List<Graphics.Material>();
@@ -108,6 +149,11 @@ namespace LibGFX.Core.GameElements
             return materials;
         }
 
+        /// <summary>
+        /// Extracts the meshes from the scene
+        /// </summary>
+        /// <param name="assimpScene"></param>
+        /// <param name="materials"></param>
         private void ExtractMeshes(Scene assimpScene, List<Graphics.Material> materials)
         {
             this.Meshes = new List<Graphics.Mesh>();
@@ -137,6 +183,12 @@ namespace LibGFX.Core.GameElements
             }
         }
 
+        /// <summary>
+        /// Extracts the bone weights for the vertices
+        /// </summary>
+        /// <param name="asmesh"></param>
+        /// <param name="scene"></param>
+        /// <param name="mesh"></param>
         private void ExtractBoneWeightForVertices(Assimp.Mesh asmesh, Assimp.Scene scene, Graphics.Mesh mesh)
         {
             for (int boneIndex = 0; boneIndex < asmesh.BoneCount; boneIndex++)
@@ -171,6 +223,12 @@ namespace LibGFX.Core.GameElements
             }
         }
 
+        /// <summary>
+        /// Sets the bone data for the vertex
+        /// </summary>
+        /// <param name="v"></param>
+        /// <param name="boneId"></param>
+        /// <param name="weight"></param>
         private void SetVertexBoneData(ref Vertex v, int boneId, float weight)
         {
             for (int i = 0; i < 4; ++i)
@@ -212,22 +270,21 @@ namespace LibGFX.Core.GameElements
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera)
         {
             base.Render(scene, viewport, renderer, camera);
-
             var light = renderer.GetLightSource<DirectionalLight>();
 
             if(this.HasAnimations)
             {
+                // Bind the shader program
                 renderer.BindShaderProgram(renderer.GetShaderProgram("AnimatedMeshShader"));
+
+                for (int i = 0; i < 100; i++)
+                {
+                    var matrix = Animator.FinalBoneMatrices[i];
+                    renderer.PrepareShader($"finalBonesMatrices[{i.ToString()}]", false, matrix);
+                }
+
                 foreach (var mesh in Meshes)
                 {
-                    for (int i = 0; i < 100; i++)
-                    {
-                        //var matrix = Matrix4.Identity;
-                        var matrix = Animator.FinalBoneMatrices[i];
-                        renderer.PrepareShader($"finalBonesMatrices[{i.ToString()}]", false, matrix);
-
-                        //renderer.PrepareShader($"finalBonesMatrices[{i.ToString()}]", matrix);
-                    }
                     if (light != null)
                     {
                         renderer.PrepareShader("lightPos", light.Position);
@@ -235,6 +292,7 @@ namespace LibGFX.Core.GameElements
                         renderer.PrepareShader("lightIntensity", light.Intensity);
                         renderer.PrepareShader("viewPos", camera.Transform.Position);
                     }
+
                     renderer.DrawMesh(Transform, mesh);
                 }
                 renderer.UnbindShaderProgram();

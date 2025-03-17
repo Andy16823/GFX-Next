@@ -65,6 +65,9 @@ namespace LibGFX.Graphics.Animation3D
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the Animator class.
+        /// </summary>
         public Animator()
         {
             this.CurrentTime = 0;
