@@ -1,8 +1,11 @@
 ﻿using FreeTypeSharp;
 using LibGFX.Core;
+using LibGFX.Core.GameElements;
 using LibGFX.Graphics.Shader;
 using LibGFX.Graphics.Shapes;
 using LibGFX.Math;
+using Microsoft.VisualBasic;
+using OpenTK.Core;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
@@ -43,6 +46,7 @@ namespace LibGFX.Graphics
             this.AddShaderProgram("SpriteShader", new SpriteShader());
             this.AddShaderProgram("FontShader", new FontShader());
             this.AddShaderProgram("MeshShader", new MeshShader());  
+            this.AddShaderProgram("AnimatedMeshShader", new AnimatedMeshShader());
             foreach (ShaderProgram program in _programs.Values)
             {
                 this.BuildShaderProgram(program);
@@ -852,36 +856,38 @@ namespace LibGFX.Graphics
         public void LoadMesh(Mesh mesh)
         {
             // Create the vertex array object
+            var vertexSize = Marshal.SizeOf<Vertex>(); // Der Abstand zwischen den Elementen der Struktur
             int vao = GL.GenVertexArray();
             GL.BindVertexArray(vao);
 
             // Create the vertex buffer object
             int vbo = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, vbo);
-            GL.BufferData(BufferTarget.ArrayBuffer, mesh.Vertices.Count * sizeof(float), mesh.Vertices.ToArray(), BufferUsageHint.DynamicDraw);
+            GL.BufferData(BufferTarget.ArrayBuffer, mesh.Vertices.Count * vertexSize, mesh.Vertices.ToArray(), BufferUsageHint.DynamicDraw);
+
+            // Position (3 floats)
             GL.EnableVertexAttribArray(0);
-            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 0, 0);
+            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, vertexSize, IntPtr.Zero);
 
-            // Create the texture buffer object
-            int tbo = GL.GenBuffer();
-            GL.BindBuffer(BufferTarget.ArrayBuffer, tbo);
-            GL.BufferData(BufferTarget.ArrayBuffer, mesh.TexCoords.Count * sizeof(float), mesh.TexCoords.ToArray(), BufferUsageHint.DynamicDraw);
+            // Texture Coordinates (2 floats)
             GL.EnableVertexAttribArray(1);
-            GL.VertexAttribPointer(1, 2, VertexAttribPointerType.Float, false, 0, 0);
+            GL.VertexAttribPointer(1, 2, VertexAttribPointerType.Float, false, vertexSize, Marshal.OffsetOf<Vertex>("TexCoord"));
 
-            // Create the normal buffer object
-            int nbo = GL.GenBuffer();
-            GL.BindBuffer(BufferTarget.ArrayBuffer, nbo);
-            GL.BufferData(BufferTarget.ArrayBuffer, mesh.Normals.Count * sizeof(float), mesh.Normals.ToArray(), BufferUsageHint.DynamicDraw);
+            // Normals (3 floats)
             GL.EnableVertexAttribArray(2);
-            GL.VertexAttribPointer(2, 3, VertexAttribPointerType.Float, false, 0, 0);
+            GL.VertexAttribPointer(2, 3, VertexAttribPointerType.Float, false, vertexSize, Marshal.OffsetOf<Vertex>("Normal"));
 
-            // Create the tangent buffer object
-            int tabo = GL.GenBuffer();
-            GL.BindBuffer(BufferTarget.ArrayBuffer, tabo);
-            GL.BufferData(BufferTarget.ArrayBuffer, mesh.Tangents.Count * sizeof(float), mesh.Tangents.ToArray(), BufferUsageHint.DynamicDraw);
+            // Tangents (3 floats)
             GL.EnableVertexAttribArray(3);
-            GL.VertexAttribPointer(3, 4, VertexAttribPointerType.Float, false, 0, 0);
+            GL.VertexAttribPointer(3, 4, VertexAttribPointerType.Float, false, vertexSize, Marshal.OffsetOf<Vertex>("Tangent"));
+
+            // BoneIDs (4 integers, use VertexAttribIPointer for integer attributes)
+            GL.EnableVertexAttribArray(4);
+            GL.VertexAttribIPointer(4, 4, VertexAttribIntegerType.Int, vertexSize, Marshal.OffsetOf<Vertex>("BoneIDs"));
+
+            // BoneWeights (4 floats)
+            GL.EnableVertexAttribArray(5);
+            GL.VertexAttribPointer(5, 4, VertexAttribPointerType.Float, false, vertexSize, Marshal.OffsetOf<Vertex>("BoneWeights"));
 
             // Create the index buffer object
             int ibo = GL.GenBuffer();
@@ -897,13 +903,14 @@ namespace LibGFX.Graphics
             {
                 VertexArray = vao,
                 VertexBuffer = vbo,
-                TextureBuffer = tbo,
-                NormalBuffer = nbo,
-                TangentBuffer = tabo,
+                TextureBuffer = 0,
+                NormalBuffer = 0,
+                TangentBuffer = 0,
                 IndexBuffer = ibo
             };
             mesh.RenderData = renderData;
         }
+
 
         public void DrawMesh(Transform transform, Mesh mesh)
         {
@@ -934,6 +941,7 @@ namespace LibGFX.Graphics
             GL.DrawElements(BeginMode.Triangles, mesh.Indices.Count, DrawElementsType.UnsignedInt, 0);
             GL.BindVertexArray(0);
         }
+
         public void DisposeMesh(Mesh mesh)
         {
             Debug.WriteLine($"Disposing Mesh {mesh.Name}");
@@ -1002,10 +1010,16 @@ namespace LibGFX.Graphics
             GL.Uniform4(locationId, value);
         }
 
-        public void PrepareShader(string location, Matrix4 value)
+        public void PrepareShader(string location, bool transpose, Matrix4 value)
         {
             var locationId = this.GetUniformLocation(_currentProgram, location);
-            GL.UniformMatrix4(locationId, false, ref value);
+            GL.UniformMatrix4(locationId, transpose, ref value);
+        }
+
+        public void PrepareShader(String location, int count, float[] value)
+        {
+            var locationId = this.GetUniformLocation(_currentProgram, location);
+            GL.UniformMatrix4(locationId, count, false, value);
         }
 
         public void PrepareShader(String location, TextureUnit textureUnit, Texture texture)
