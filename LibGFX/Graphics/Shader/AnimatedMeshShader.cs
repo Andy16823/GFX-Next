@@ -97,6 +97,7 @@ namespace LibGFX.Graphics.Shader
 
                     // Calculate diffuse lighting
                     vec3 lightDir = normalize(lightPos-position);
+                    //vec3 lightDir = normalize(position - lightPos);
                     float diff = max(dot(lightDir, n_normal), 0.0);
                     vec3 diffuse = diff*lightColor;
 
@@ -109,6 +110,7 @@ namespace LibGFX.Graphics.Shader
 
 
                     vec3 result = (ambient + diffuse + specular) * color;
+                    //fragColor = vec4(n_normal * 0.5 + 0.5, 1.0);
                     fragColor = vec4(result, 1.0);
                 }
             ");
