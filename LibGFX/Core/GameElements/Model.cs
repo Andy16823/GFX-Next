@@ -14,6 +14,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Light = LibGFX.Graphics.Light;
 
 namespace LibGFX.Core.GameElements
 {
@@ -274,46 +275,70 @@ namespace LibGFX.Core.GameElements
 
             if(this.HasAnimations)
             {
-                // Bind the shader program
-                renderer.BindShaderProgram(renderer.GetShaderProgram("AnimatedMeshShader"));
-
-                for (int i = 0; i < 100; i++)
-                {
-                    var matrix = Animator.FinalBoneMatrices[i];
-                    renderer.PrepareShader($"finalBonesMatrices[{i.ToString()}]", false, matrix);
-                }
-
-                foreach (var mesh in Meshes)
-                {
-                    if (light != null)
-                    {
-                        renderer.PrepareShader("lightPos", light.Position);
-                        renderer.PrepareShader("lightColor", light.Color.Xyz);
-                        renderer.PrepareShader("lightIntensity", light.Intensity);
-                        renderer.PrepareShader("viewPos", camera.Transform.Position);
-                    }
-
-                    renderer.DrawMesh(Transform, mesh);
-                }
-                renderer.UnbindShaderProgram();
+                RenderAnimatedModel(scene, viewport, renderer, camera, light);
             }
             else
             {
-                renderer.BindShaderProgram(renderer.GetShaderProgram("MeshShader"));
-                foreach (var mesh in Meshes)
-                {
-                    if (light != null)
-                    {
-                        renderer.PrepareShader("lightPos", light.Position);
-                        renderer.PrepareShader("lightColor", light.Color.Xyz);
-                        renderer.PrepareShader("lightIntensity", light.Intensity);
-                        renderer.PrepareShader("viewPos", camera.Transform.Position);
-                    }
-                    renderer.DrawMesh(Transform, mesh);
-                }
-                renderer.UnbindShaderProgram();
+                RenderStaticModel(scene, viewport, renderer, camera, light);
             }
         }
+
+        private void RenderAnimatedModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, Light light)
+        {
+            // Bind the shader program
+            renderer.BindShaderProgram(renderer.GetShaderProgram("AnimatedMeshShader"));
+
+            // Prepare the shader uniforms
+            renderer.PrepareShader("finalBonesMatrices", false, Animator.FinalBoneMatrices.ToArray());
+            if (light != null)
+            {
+                renderer.PrepareShader("lightPos", light.Position);
+                renderer.PrepareShader("lightColor", light.Color.Xyz);
+                renderer.PrepareShader("lightIntensity", light.Intensity);
+                renderer.PrepareShader("viewPos", camera.Transform.Position);
+            }
+
+            // Alter code mit mehreren uniforms bindings
+            //for (int i = 0; i < 100; i++)
+            //{
+            //    var matrix = Animator.FinalBoneMatrices[i];
+            //    renderer.PrepareShader($"finalBonesMatrices[{i.ToString()}]", false, matrix);
+            //}
+
+            // Draw the meshes
+            foreach (var mesh in Meshes)
+            {
+                renderer.DrawMesh(Transform, mesh);
+            }
+
+            // Unbind the shader program
+            renderer.UnbindShaderProgram();
+        }
+
+        private void RenderStaticModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, Light light)
+        {
+            // Bind the shader program
+            renderer.BindShaderProgram(renderer.GetShaderProgram("MeshShader"));
+
+            // Prepare the shader uniforms
+            if (light != null)
+            {
+                renderer.PrepareShader("lightPos", light.Position);
+                renderer.PrepareShader("lightColor", light.Color.Xyz);
+                renderer.PrepareShader("lightIntensity", light.Intensity);
+                renderer.PrepareShader("viewPos", camera.Transform.Position);
+            }
+
+            // Draw the meshes
+            foreach (var mesh in Meshes)
+            {
+                renderer.DrawMesh(Transform, mesh);
+            }
+
+            // Unbind the shader program
+            renderer.UnbindShaderProgram();
+        }
+
 
         /// <summary>
         /// Disposes the model

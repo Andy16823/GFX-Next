@@ -5,6 +5,7 @@ using LibGFX.Graphics.Shader;
 using LibGFX.Graphics.Shapes;
 using LibGFX.Math;
 using Microsoft.VisualBasic;
+using OpenTK.Compute.OpenCL;
 using OpenTK.Core;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
@@ -1020,6 +1021,39 @@ namespace LibGFX.Graphics
         {
             var locationId = this.GetUniformLocation(_currentProgram, location);
             GL.UniformMatrix4(locationId, count, false, value);
+        }
+
+        public void PrepareShader(String uniformName, bool transpose, Matrix4[] matrices)
+        {
+            var locationId = this.GetUniformLocation(_currentProgram, uniformName);
+
+            //float[] data = new float[matrices.Length * 16];
+            //for (int i = 0; i < matrices.Length; i++)
+            //{
+            //    // Manuelles Kopieren der Matrix-Werte in das Float-Array
+            //    data[i * 16 + 0] = matrices[i].M11;
+            //    data[i * 16 + 1] = matrices[i].M12;
+            //    data[i * 16 + 2] = matrices[i].M13;
+            //    data[i * 16 + 3] = matrices[i].M14;
+
+            //    data[i * 16 + 4] = matrices[i].M21;
+            //    data[i * 16 + 5] = matrices[i].M22;
+            //    data[i * 16 + 6] = matrices[i].M23;
+            //    data[i * 16 + 7] = matrices[i].M24;
+
+            //    data[i * 16 + 8] = matrices[i].M31;
+            //    data[i * 16 + 9] = matrices[i].M32;
+            //    data[i * 16 + 10] = matrices[i].M33;
+            //    data[i * 16 + 11] = matrices[i].M34;
+
+            //    data[i * 16 + 12] = matrices[i].M41;
+            //    data[i * 16 + 13] = matrices[i].M42;
+            //    data[i * 16 + 14] = matrices[i].M43;
+            //    data[i * 16 + 15] = matrices[i].M44;
+            //}
+            //GL.UniformMatrix4(locationId, matrices.Length, transpose, data);
+
+            GL.ProgramUniformMatrix4(_currentProgram, locationId, matrices.Length, transpose, ref matrices[0].Row0.X);
         }
 
         public void PrepareShader(String location, TextureUnit textureUnit, Texture texture)
