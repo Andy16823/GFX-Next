@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using LibGFX.Core;
+using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -99,12 +100,11 @@ namespace LibGFX.Graphics
             {
                 throw new ArgumentException($"Material file '{file}' does not exist.");
             }
-
             var basePath = Path.GetDirectoryName(file);
             var jsonString = File.ReadAllText(file);
             var jsonObject = JObject.Parse(jsonString);
 
-            Material material = new Material
+            var material = new Material()
             {
                 Name = jsonObject["Name"].Value<String>(),
                 BaseColor = LoadTextureIfExists(jsonObject, "BaseColor", basePath),
@@ -121,8 +121,8 @@ namespace LibGFX.Graphics
                     jsonObject["DiffuseColor"][3].Value<float>()
                 ),
                 Opacity = jsonObject["Opacity"].Value<float>(),
+                Flags = MaterialFlags.None
             };
-
             return material;
         }
 

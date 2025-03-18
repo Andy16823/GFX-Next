@@ -73,6 +73,10 @@
             "StirlingLabs.assimp.native.win-x64": {
               "target": "Package",
               "version": "[5.2.5.4, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[9.0.3, )"
             }
           },
           "imports": [

@@ -927,14 +927,23 @@ namespace LibGFX.Graphics
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), false, ref m_mat);
             GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), mesh.Material.DiffuseColor);
 
-            // Bind the textures
-            GL.ActiveTexture(TextureUnit.Texture0);
-            GL.BindTexture(TextureTarget.Texture2D, mesh.Material.BaseColor.TextureId);
-            GL.Uniform1(GetUniformLocation(_currentProgram, "textureSampler"), 0);
+            // Bind the BaseColor texture
+            if (mesh.Material.BaseColor != null && mesh.Material.BaseColor.Flags == TextureFlags.Initialized)
+            {
+                GL.ActiveTexture(TextureUnit.Texture0);
+                GL.BindTexture(TextureTarget.Texture2D, mesh.Material.BaseColor.TextureId);
+                GL.Uniform1(GetUniformLocation(_currentProgram, "textureSampler"), 0);
+            }
 
-            GL.ActiveTexture(TextureUnit.Texture1);
-            GL.BindTexture(TextureTarget.Texture2D, mesh.Material.Normal.TextureId);
-            GL.Uniform1(GetUniformLocation(_currentProgram, "normalSampler"), 1);
+            // Bind the Normal texture
+            if (mesh.Material.Normal != null  && mesh.Material.Normal.Flags == TextureFlags.Initialized)
+            {
+                GL.ActiveTexture(TextureUnit.Texture1);
+                GL.BindTexture(TextureTarget.Texture2D, mesh.Material.Normal.TextureId);
+                GL.Uniform1(GetUniformLocation(_currentProgram, "normalSampler"), 1);
+            }
+
+            // Reset the active texture unit
             GL.ActiveTexture(TextureUnit.Texture0);
 
             // Draw the mesh    
@@ -1026,33 +1035,6 @@ namespace LibGFX.Graphics
         public void PrepareShader(String uniformName, bool transpose, Matrix4[] matrices)
         {
             var locationId = this.GetUniformLocation(_currentProgram, uniformName);
-
-            //float[] data = new float[matrices.Length * 16];
-            //for (int i = 0; i < matrices.Length; i++)
-            //{
-            //    // Manuelles Kopieren der Matrix-Werte in das Float-Array
-            //    data[i * 16 + 0] = matrices[i].M11;
-            //    data[i * 16 + 1] = matrices[i].M12;
-            //    data[i * 16 + 2] = matrices[i].M13;
-            //    data[i * 16 + 3] = matrices[i].M14;
-
-            //    data[i * 16 + 4] = matrices[i].M21;
-            //    data[i * 16 + 5] = matrices[i].M22;
-            //    data[i * 16 + 6] = matrices[i].M23;
-            //    data[i * 16 + 7] = matrices[i].M24;
-
-            //    data[i * 16 + 8] = matrices[i].M31;
-            //    data[i * 16 + 9] = matrices[i].M32;
-            //    data[i * 16 + 10] = matrices[i].M33;
-            //    data[i * 16 + 11] = matrices[i].M34;
-
-            //    data[i * 16 + 12] = matrices[i].M41;
-            //    data[i * 16 + 13] = matrices[i].M42;
-            //    data[i * 16 + 14] = matrices[i].M43;
-            //    data[i * 16 + 15] = matrices[i].M44;
-            //}
-            //GL.UniformMatrix4(locationId, matrices.Length, transpose, data);
-
             GL.ProgramUniformMatrix4(_currentProgram, locationId, matrices.Length, transpose, ref matrices[0].Row0.X);
         }
 

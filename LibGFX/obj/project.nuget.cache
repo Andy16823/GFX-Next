@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "VFt9Bzt/tiI=",
+  "dgSpecHash": "+/2T3NWdDIw=",
   "success": true,
   "projectFilePath": "C:\\Users\\andy1\\source\\repos\\LibGFX\\LibGFX\\LibGFX.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andy1\\.nuget\\packages\\freetypesharp\\3.0.0\\freetypesharp.3.0.0.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\microsoft.win32.systemevents\\9.0.3\\microsoft.win32.systemevents.9.0.3.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\opentk\\4.9.3\\opentk.4.9.3.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\opentk.audio.openal\\4.9.3\\opentk.audio.openal.4.9.3.nupkg.sha512",
@@ -22,6 +23,7 @@
     "C:\\Users\\andy1\\.nuget\\packages\\stirlinglabs.assimp.native.osx\\5.2.5.4\\stirlinglabs.assimp.native.osx.5.2.5.4.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\stirlinglabs.assimp.native.win-x64\\5.2.5.4\\stirlinglabs.assimp.native.win-x64.5.2.5.4.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\stirlinglabs.assimp.net\\23.4.1\\stirlinglabs.assimp.net.23.4.1.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\system.drawing.common\\9.0.3\\system.drawing.common.9.0.3.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
