@@ -928,20 +928,28 @@ namespace LibGFX.Graphics
             GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), mesh.Material.DiffuseColor);
 
             // Bind the BaseColor texture
+            GL.ActiveTexture(TextureUnit.Texture0);
             if (mesh.Material.BaseColor != null && mesh.Material.BaseColor.Flags == TextureFlags.Initialized)
             {
-                GL.ActiveTexture(TextureUnit.Texture0);
                 GL.BindTexture(TextureTarget.Texture2D, mesh.Material.BaseColor.TextureId);
-                GL.Uniform1(GetUniformLocation(_currentProgram, "textureSampler"), 0);
             }
+            else
+            {
+                GL.BindTexture(TextureTarget.Texture2D, 0);
+            }
+            GL.Uniform1(GetUniformLocation(_currentProgram, "textureSampler"), 0);
 
             // Bind the Normal texture
+            GL.ActiveTexture(TextureUnit.Texture1);
             if (mesh.Material.Normal != null  && mesh.Material.Normal.Flags == TextureFlags.Initialized)
             {
-                GL.ActiveTexture(TextureUnit.Texture1);
                 GL.BindTexture(TextureTarget.Texture2D, mesh.Material.Normal.TextureId);
-                GL.Uniform1(GetUniformLocation(_currentProgram, "normalSampler"), 1);
             }
+            else
+            {
+                GL.BindTexture(TextureTarget.Texture2D, 0);
+            }
+            GL.Uniform1(GetUniformLocation(_currentProgram, "normalSampler"), 1);
 
             // Reset the active texture unit
             GL.ActiveTexture(TextureUnit.Texture0);
