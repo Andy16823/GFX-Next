@@ -1,8 +1,6 @@
 ﻿using BulletSharp;
 using LibGFX.Core;
-using LibGFX.Graphics;
 using LibGFX.Pyhsics.Behaviors;
-using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Pyhsics.Behaviors3D
 {
-    public class BoxRigidBody : RigidBody3D
+    public class CapsuleRigidBody : RigidBody3D
     {
-        public BoxRigidBody(PhysicsHandler physicsHandler) : base(physicsHandler)
+        public CapsuleRigidBody(PhysicsHandler physicsHandler) : base(physicsHandler)
         {
-            
+
         }
 
-        public void CreateRigidBody(float mass, int collisionGroup = -1, int collisionMask = -1)
+        public void CreateRigidBody(float mass, float radius = 0.5f, float height = 1.0f, int collisionGroup = -1, int collisionMask = -1)
         {
             var halfExtends = new System.Numerics.Vector3(0.5f, 0.5f, 0.5f);
             var element = this.Parent;
 
-            BoxShape boxShape = new BoxShape(halfExtends);
-            RigidBodyConstructionInfo info = new RigidBodyConstructionInfo(mass, null, boxShape, boxShape.CalculateLocalInertia(mass));
+            CapsuleShape capsuleShape = new CapsuleShape(radius, height);
+            RigidBodyConstructionInfo info = new RigidBodyConstructionInfo(mass, null, capsuleShape, capsuleShape.CalculateLocalInertia(mass));
             var btStartTransform = Utils.GetBtTransform(element, this.Offset);
 
             info.MotionState = new DefaultMotionState(btStartTransform);

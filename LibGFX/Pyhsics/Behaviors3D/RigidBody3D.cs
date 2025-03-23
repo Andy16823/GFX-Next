@@ -27,6 +27,11 @@ namespace LibGFX.Pyhsics.Behaviors
         public GameElement Parent { get; set; }
 
         /// <summary>
+        /// The offset of the rigid body
+        /// </summary>
+        public Vector3 Offset { get; set; }
+
+        /// <summary>
         /// Creates a new 3D rigid body
         /// </summary>
         /// <param name="physicsHandler"></param>
@@ -236,7 +241,7 @@ namespace LibGFX.Pyhsics.Behaviors
             System.Numerics.Vector3 position = RigidBody.WorldTransform.Translation;
             System.Numerics.Quaternion rotation = System.Numerics.Quaternion.CreateFromRotationMatrix(RigidBody.WorldTransform);
 
-            Parent.Transform.Position = (Vector3) position;
+            Parent.Transform.Position = (Vector3) position - this.Offset;
             Parent.Transform.Rotation = (Quaternion) rotation;
 
             RigidBody.Activate(true);

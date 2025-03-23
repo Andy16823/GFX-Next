@@ -52,6 +52,7 @@ namespace LibGFX.Graphics.Shader
                 uniform float lightIntensity;
                 uniform vec3 lightColor;
                 uniform vec3 viewPos;
+                uniform vec4 vertexColor;
 
                 void main() {
 
@@ -86,7 +87,7 @@ namespace LibGFX.Graphics.Shader
 
 
                     vec3 result = (ambient + diffuse + specular) * color;
-                    fragColor = vec4(result, 1.0);
+                    fragColor = vec4(result, 1.0) * vertexColor;
                 }
             ");
         }

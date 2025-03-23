@@ -88,5 +88,23 @@ namespace LibGFX.Graphics
         {
             return this.Transform.Scale.X / this.Transform.Scale.Y;
         }
+
+
+        public static Vector3 ScreenToWorldPosition3D(PerspectiveCamera camera, Viewport viewport, float sX, float sY)
+        {
+            var projectionMatrix = camera.GetProjectionMatrix(viewport);
+            var viewMatrix = camera.GetViewMatrix();
+
+            float x = ((float)sX / (float)viewport.Width) * 2.0f - 1.0f;
+            float y = 1.0f - ((float)sY / (float)viewport.Height) * 2.0f;
+            var ndc = new Vector4(x, y, -1.0f, 1.0f);
+
+            // Faster way (just one inverse)
+            Matrix4 m = (projectionMatrix * viewMatrix).Inverted();
+            Vector4 world = m * ndc;
+            world /= world.W;
+
+            return world.Xyz;
+        }
     }
 }

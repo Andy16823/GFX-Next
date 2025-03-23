@@ -5,6 +5,7 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -60,6 +61,11 @@ namespace LibGFX.Core
         public bool IsFocused()
         {
             return _window.IsFocused;
+        }
+
+        public Vector2 GetMousePosition()
+        {
+            return new Vector2(_window.MouseState.X, _window.MouseState.Y);
         }
     }
 }
