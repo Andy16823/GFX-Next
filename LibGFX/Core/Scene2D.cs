@@ -76,5 +76,10 @@ namespace LibGFX.Core
             });
         }
 
+        public override void UpdatePhysics()
+        {
+            this.PhysicsHandler.Process(this);
+        }
+
     }
 }

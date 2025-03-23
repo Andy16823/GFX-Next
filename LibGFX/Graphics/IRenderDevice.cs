@@ -57,6 +57,7 @@ namespace LibGFX.Graphics
         void DisposeMaterial(Material material);
         void DisposeTexture(Texture texture);
         void DrawRenderTarget(RenderTarget renderTarget);
+        void DrawLine(Vector3 start, Vector3 end, Vector4 color);
         void DrawRect(Math.Rect rect, Vector4 color, float borderWidth = 1.0f, float rotation = 0.0f);
         void FillRect(Math.Rect rect, Vector4 color, float rotation = 0.0f);
         void DrawTexture(Transform transform, Texture texture, Vector4 color);

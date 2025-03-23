@@ -48,6 +48,7 @@ namespace LibGFX.Graphics
             this.AddShaderProgram("FontShader", new FontShader());
             this.AddShaderProgram("MeshShader", new MeshShader());  
             this.AddShaderProgram("AnimatedMeshShader", new AnimatedMeshShader());
+            this.AddShaderProgram("LineShader", new LineShader());
             foreach (ShaderProgram program in _programs.Values)
             {
                 this.BuildShaderProgram(program);
@@ -57,6 +58,7 @@ namespace LibGFX.Graphics
             this.AddShape(new FramebufferShape());
             this.AddShape(new RectShape());
             this.AddShape(new SpriteShape());
+            this.AddShape(new LineShape());
             foreach (var shape in _shapes.Values)
             {
                 this.InitShape(shape);
@@ -571,6 +573,22 @@ namespace LibGFX.Graphics
                 GL.BindVertexArray(0);
                 GL.BindTexture(TextureTarget.Texture2D, 0);
             }
+        }
+
+        public void DrawLine(Vector3 start, Vector3 end, Vector4 color)
+        {
+            var shape = _shapes["LineShape"];
+            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
+            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
+            GL.Uniform4(this.GetUniformLocation(_currentProgram, "vertexColor"), color);
+
+            GL.BindBuffer(BufferTarget.ArrayBuffer, shape.VertexBuffer);
+            GL.BufferSubData(BufferTarget.ArrayBuffer, 0, (6 * sizeof(float)), new float[] { start.X, start.Y, start.Z, end.X, end.Y, end.Z });
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+
+            GL.BindVertexArray(shape.VertexArray);
+            GL.DrawElements(BeginMode.Lines, 2, DrawElementsType.UnsignedInt, 0);
+            GL.BindVertexArray(0);
         }
 
         public void DrawRect(Math.Rect rect, Vector4 color, float borderWidth = 1.0f, float rotation = 0.0f)

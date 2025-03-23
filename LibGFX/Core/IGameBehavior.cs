@@ -1,4 +1,5 @@
 ﻿using LibGFX.Graphics;
+using LibGFX.Pyhsics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,8 @@ namespace LibGFX.Core
         GameElement GetElement();
         void OnInit(BaseScene scene, Viewport viewport, IRenderDevice renderer);
         void OnRender(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera);
-        void OnCollide();
         void OnUpdate(BaseScene scene);
         void OnDispose(BaseScene scene, IRenderDevice renderer);
+        void OnCollide(Collision collision);
     }
 }

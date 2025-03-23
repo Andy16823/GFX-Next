@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LibGFX.Math;
+using OpenTK.Mathematics;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -42,5 +44,22 @@ namespace LibGFX.Core
 
             return bitmap;
         }
+
+        public static System.Numerics.Matrix4x4 GetBtTransform(GameElement element, Vector3 offsetLocation = default)
+        {
+            var location = (System.Numerics.Vector3) element.Transform.Position + (System.Numerics.Vector3) offsetLocation;
+            var rotation = (System.Numerics.Quaternion) element.Transform.Rotation;
+
+            var btTranslation = System.Numerics.Matrix4x4.CreateTranslation(location);
+            var btRotation = System.Numerics.Matrix4x4.CreateFromQuaternion(rotation);
+
+            return btRotation * btTranslation;
+        }
+
+        public static Vector3 ToRadians(Vector3 input)
+        {
+            return new Vector3(MathHelper.DegreesToRadians(input.X), MathHelper.DegreesToRadians(input.Y), MathHelper.DegreesToRadians(input.Z));
+        }
+
     }
 }

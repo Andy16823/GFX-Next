@@ -2,6 +2,7 @@
 using OpenTK.Graphics.OpenGL4;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +67,19 @@ namespace LibGFX.Core
                 layer.RenderLayer(this, viewport, renderer, camera);
             });
 
+            if(this.PhysicsHandler.DebugPhysics)
+            {
+                if(this.PhysicsHandler.HasDebugDrawer())
+                {
+                    renderer.DisableDepthTest();
+                    this.PhysicsHandler.DebugDraw(renderer);    
+                    renderer.EnableDepthTest();
+                }
+                else {
+                    Debug.Assert(this.PhysicsHandler.DebugPhysics, "DebugPhysics is enabled but no debug drawer is set");
+                }
+            }
+
             renderer.UnbindRenderTarget();
 
             // Clear Screen
@@ -84,6 +98,11 @@ namespace LibGFX.Core
             this.Layers.ForEach(l => {
                 l.Update(this);
             });
+        }
+
+        public override void UpdatePhysics()
+        {
+            this.PhysicsHandler.Process(this);
         }
     }
 }

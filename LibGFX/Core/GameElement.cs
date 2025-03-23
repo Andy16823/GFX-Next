@@ -1,5 +1,6 @@
 ﻿using LibGFX.Graphics;
 using LibGFX.Math;
+using LibGFX.Pyhsics;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -83,13 +84,10 @@ namespace LibGFX.Core
         /// <param name="scene"></param>
         public virtual void Update(BaseScene scene) 
         {
-            if (this.Enabled)
+            this.Behaviors.ForEach(b =>
             {
-                this.Behaviors.ForEach(b =>
-                {
-                    b.OnUpdate(scene);
-                });
-            }
+                b.OnUpdate(scene);
+            });
         }
 
         /// <summary>
@@ -102,6 +100,18 @@ namespace LibGFX.Core
             this.Behaviors.ForEach(b =>
             {
                 b.OnDispose(scene, renderer);
+            });
+        }
+
+        /// <summary>
+        /// Collides the game element
+        /// </summary>
+        /// <param name="collision"></param>
+        public virtual void Collide(Collision collision)
+        {
+            this.Behaviors.ForEach(b =>
+            {
+                b.OnCollide(collision);
             });
         }
 

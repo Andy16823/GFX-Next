@@ -237,7 +237,7 @@ namespace LibGFX.Math
             var mt_mat = Matrix4.CreateTranslation(Position);
             var mr_mat = Matrix4.CreateFromQuaternion(Rotation);
             var ms_mat = Matrix4.CreateScale(Scale);
-            var m_mat = mt_mat * mr_mat * ms_mat;
+            var m_mat = ms_mat * mr_mat * mt_mat;//  mt_mat * mr_mat * ms_mat;
 
             return m_mat;
         }

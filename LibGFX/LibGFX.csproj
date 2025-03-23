@@ -10,12 +10,18 @@
   <ItemGroup>
     <PackageReference Include="FreeTypeSharp" Version="3.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="OpenTK" Version="4.9.3">
+    <PackageReference Include="OpenTK" Version="4.9.4">
       <PrivateAssets></PrivateAssets>
     </PackageReference>
     <PackageReference Include="StbImageSharp" Version="2.30.15" />
     <PackageReference Include="StirlingLabs.Assimp.Net" Version="23.4.1" />
     <PackageReference Include="System.Drawing.Common" Version="9.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="BulletSharp">
+      <HintPath>..\..\..\..\Documents\GitHub\BulletSharpPInvoke\BulletSharp\bin\Release\netstandard2.1\BulletSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
