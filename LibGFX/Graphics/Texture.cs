@@ -1,4 +1,5 @@
-﻿using LibGFX.Math;
+﻿using LibGFX.Core;
+using LibGFX.Math;
 using StbImageSharp;
 using System;
 using System.Collections.Generic;
@@ -54,6 +55,12 @@ namespace LibGFX.Graphics
                 Flags = TextureFlags.Loaded
             };
             return texture;
+        }
+
+        public static Texture EmptyTexture(int width = 1, int height = 1)
+        {
+            var bitmap = Utils.CreateEmptyTexture(width, height);
+            return LoadTexture(bitmap);
         }
 
         private static byte[] ConvertBitmapToByteArray(Bitmap bitmap)
