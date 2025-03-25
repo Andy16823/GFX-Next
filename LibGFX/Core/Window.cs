@@ -67,5 +67,15 @@ namespace LibGFX.Core
         {
             return new Vector2(_window.MouseState.X, _window.MouseState.Y);
         }
+
+        public bool IsMouseDown(MouseButton button)
+        {
+            return _window.MouseState.IsButtonDown(button);
+        }
+
+        public bool IsMousePressed(MouseButton button)
+        {
+            return _window.MouseState.IsButtonPressed(button);
+        }
     }
 }

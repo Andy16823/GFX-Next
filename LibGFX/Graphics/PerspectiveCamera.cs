@@ -79,7 +79,8 @@ namespace LibGFX.Graphics
             //direction.Z = (float)(-System.Math.Cos(this.Transform.Rotation.Y) * System.Math.Cos(this.Transform.Rotation.X));
             //return direction.Normalized();
 
-            return -Vector3.Transform(Vector3.UnitZ, this.Transform.Rotation);
+            //return -Vector3.Transform(Vector3.UnitZ, this.Transform.Rotation);
+            return this.Transform.GetFront();
         }
 
         /// <summary>

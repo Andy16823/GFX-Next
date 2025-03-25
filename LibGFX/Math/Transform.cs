@@ -216,7 +216,7 @@ namespace LibGFX.Math
         /// <summary>
         /// Gets the forward direction based on the current rotation.
         /// </summary>
-        public Vector3 GetForward()
+        public Vector3 GetFront()
         {
             return -Vector3.Transform(Vector3.UnitZ, Rotation);
         }
