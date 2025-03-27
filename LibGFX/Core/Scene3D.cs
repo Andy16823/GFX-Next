@@ -82,10 +82,6 @@ namespace LibGFX.Core
 
             renderer.UnbindRenderTarget();
 
-            // Clear Screen
-            //renderer.GetFramebufferIndex();
-            renderer.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-            renderer.Clear((int)(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit));
             renderer.BindShaderProgram(renderer.GetShaderProgram("ScreenShader"));
             renderer.DrawRenderTarget(_renderTarget);
             renderer.UnbindShaderProgram();
