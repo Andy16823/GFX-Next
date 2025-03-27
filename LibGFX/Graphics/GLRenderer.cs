@@ -35,6 +35,8 @@ namespace LibGFX.Graphics
         private Matrix4 _viewMatrix;
         private Matrix4 _projectionMatrix;
         private int _currentProgram;
+        private bool _depthTestEnabled = false;
+        private Viewport _viewport;
 
         public void Init(Window window)
         {
@@ -104,13 +106,33 @@ namespace LibGFX.Graphics
             return (int) GL.GetError();
         }
 
+        public bool IsDepthTestEnabled()
+        {
+            //return GL.IsEnabled(EnableCap.DepthTest);
+            return _depthTestEnabled;
+        }
+
+        public void SetDepthTest(bool value)
+        {
+            if(value)
+            {
+                this.EnableDepthTest();
+            }
+            else
+            {
+                this.DisableDepthTest();
+            }
+        }
+
         public void EnableDepthTest()
         {
+            _depthTestEnabled = true;
             GL.Enable(EnableCap.DepthTest);
         }
 
         public void DisableDepthTest()
         {
+            _depthTestEnabled = false;
             GL.Disable(EnableCap.DepthTest);
         }
 
@@ -170,7 +192,13 @@ namespace LibGFX.Graphics
 
         public void SetViewport(Viewport viewport)
         {
+            _viewport = viewport;
             GL.Viewport(0, 0, viewport.Width, viewport.Height);
+        }
+
+        public Viewport GetViewport()
+        {
+            return _viewport;
         }
 
         public void SetViewMatrix(Matrix4 matrix)
@@ -565,6 +593,8 @@ namespace LibGFX.Graphics
             var shape = _shapes["FramebufferShape"];
             if (shape != null)
             {
+                var depthTest = this.IsDepthTestEnabled();
+                this.DisableDepthTest();
                 GL.ActiveTexture(TextureUnit.Texture0);
                 GL.BindTexture(TextureTarget.Texture2D, renderTarget.TextureID);
                 GL.Uniform1(this.GetUniformLocation(_currentProgram, "screenTexture"), 0);
@@ -572,6 +602,7 @@ namespace LibGFX.Graphics
                 GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);
                 GL.BindVertexArray(0);
                 GL.BindTexture(TextureTarget.Texture2D, 0);
+                this.SetDepthTest(depthTest);
             }
         }
 

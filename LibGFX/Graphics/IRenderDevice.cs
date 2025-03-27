@@ -20,6 +20,8 @@ namespace LibGFX.Graphics
         void MakeCurrent();
         void SwapBuffers();
         void UseVsync(bool value);
+        bool IsDepthTestEnabled();
+        void SetDepthTest(bool value);
         void EnableDepthTest();
         void DisableDepthTest();
         void EnableAlphaBlend();
@@ -31,6 +33,7 @@ namespace LibGFX.Graphics
         void ResetBlendMode();
         void DisableBlend();
         void SetViewport(Viewport viewport);
+        Viewport GetViewport();
         void SetViewMatrix(Matrix4 matrix);
         void SetProjectionMatrix(Matrix4 matrix);
         void Clear(int mask);

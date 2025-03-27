@@ -31,8 +31,10 @@ namespace LibGFX.Core
 
         public override void Render(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
+            var depthTest = renderer.IsDepthTestEnabled();
             var rectShader = renderer.GetShaderProgram("RectShader");
 
+            // Disable depth test and set the viewport, projection and view matrix
             renderer.DisableDepthTest();
             renderer.SetViewport(viewport);
             renderer.SetProjectionMatrix(camera.GetProjectionMatrix(viewport));
@@ -48,13 +50,13 @@ namespace LibGFX.Core
                 layer.RenderLayer(this, viewport, renderer, camera); 
             });
 
+            // Unbind the render target and set the depth test state back to the original state
             renderer.UnbindRenderTarget();
+            renderer.SetDepthTest(depthTest);
 
             renderer.BindShaderProgram(renderer.GetShaderProgram("ScreenShader"));
             renderer.DrawRenderTarget(_renderTarget);  
             renderer.UnbindShaderProgram();
-
-            //Debug.WriteLine($"error {renderer.GetError()}");
         }
 
         public override void Update()

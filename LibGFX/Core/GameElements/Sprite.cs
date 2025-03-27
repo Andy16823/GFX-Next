@@ -36,7 +36,7 @@ namespace LibGFX.Core.GameElements
             {
                 renderer.BindShaderProgram(renderer.GetShaderProgram("SpriteShader"));
                 renderer.DrawTexture(this.Transform, Texture.TextureId, Color);
-                renderer.UnbindRenderTarget();
+                renderer.UnbindShaderProgram();
             }
         }
     }

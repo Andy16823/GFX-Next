@@ -17,41 +17,41 @@ namespace LibGFX.Graphics.Primitives
 
             mesh.Vertices = new List<Vertex>
             {
-                // Vorderseite
+                // Vorderseite (Normale bleibt unverändert)
                 new Vertex { Position = new Vector3(-0.5f, -0.5f,  0.5f), TexCoord = new Vector2(0, 0), Normal = new Vector3(0, 0, 1), Tangent = new Vector4(1, 0, 0, 1) },
                 new Vertex { Position = new Vector3( 0.5f, -0.5f,  0.5f), TexCoord = new Vector2(1, 0), Normal = new Vector3(0, 0, 1), Tangent = new Vector4(1, 0, 0, 1) },
                 new Vertex { Position = new Vector3( 0.5f,  0.5f,  0.5f), TexCoord = new Vector2(1, 1), Normal = new Vector3(0, 0, 1), Tangent = new Vector4(1, 0, 0, 1) },
                 new Vertex { Position = new Vector3(-0.5f,  0.5f,  0.5f), TexCoord = new Vector2(0, 1), Normal = new Vector3(0, 0, 1), Tangent = new Vector4(1, 0, 0, 1) },
 
-                // Rückseite
-                new Vertex { Position = new Vector3(-0.5f, -0.5f, -0.5f), TexCoord = new Vector2(0, 0), Normal = new Vector3(0, 0, -1), Tangent = new Vector4(-1, 0, 0, 1) },
-                new Vertex { Position = new Vector3( 0.5f, -0.5f, -0.5f), TexCoord = new Vector2(1, 0), Normal = new Vector3(0, 0, -1), Tangent = new Vector4(-1, 0, 0, 1) },
-                new Vertex { Position = new Vector3( 0.5f,  0.5f, -0.5f), TexCoord = new Vector2(1, 1), Normal = new Vector3(0, 0, -1), Tangent = new Vector4(-1, 0, 0, 1) },
-                new Vertex { Position = new Vector3(-0.5f,  0.5f, -0.5f), TexCoord = new Vector2(0, 1), Normal = new Vector3(0, 0, -1), Tangent = new Vector4(-1, 0, 0, 1) },
+                // Rückseite (Normale umkehren)
+                new Vertex { Position = new Vector3(-0.5f, -0.5f, -0.5f), TexCoord = new Vector2(0, 0), Normal = new Vector3(0, 0, 1), Tangent = new Vector4(-1, 0, 0, 1) },
+                new Vertex { Position = new Vector3( 0.5f, -0.5f, -0.5f), TexCoord = new Vector2(1, 0), Normal = new Vector3(0, 0, 1), Tangent = new Vector4(-1, 0, 0, 1) },
+                new Vertex { Position = new Vector3( 0.5f,  0.5f, -0.5f), TexCoord = new Vector2(1, 1), Normal = new Vector3(0, 0, 1), Tangent = new Vector4(-1, 0, 0, 1) },
+                new Vertex { Position = new Vector3(-0.5f,  0.5f, -0.5f), TexCoord = new Vector2(0, 1), Normal = new Vector3(0, 0, 1), Tangent = new Vector4(-1, 0, 0, 1) },
 
-                // Linke Seite
-                new Vertex { Position = new Vector3(-0.5f, -0.5f, -0.5f), TexCoord = new Vector2(1, 0), Normal = new Vector3(-1, 0, 0), Tangent = new Vector4(0, 0, 1, 1) },
-                new Vertex { Position = new Vector3(-0.5f, -0.5f,  0.5f), TexCoord = new Vector2(0, 0), Normal = new Vector3(-1, 0, 0), Tangent = new Vector4(0, 0, 1, 1) },
-                new Vertex { Position = new Vector3(-0.5f,  0.5f,  0.5f), TexCoord = new Vector2(0, 1), Normal = new Vector3(-1, 0, 0), Tangent = new Vector4(0, 0, 1, 1) },
-                new Vertex { Position = new Vector3(-0.5f,  0.5f, -0.5f), TexCoord = new Vector2(1, 1), Normal = new Vector3(-1, 0, 0), Tangent = new Vector4(0, 0, 1, 1) },
+                // Linke Seite (Normale umkehren)
+                new Vertex { Position = new Vector3(-0.5f, -0.5f, -0.5f), TexCoord = new Vector2(1, 0), Normal = new Vector3(1, 0, 0), Tangent = new Vector4(0, 0, 1, 1) },
+                new Vertex { Position = new Vector3(-0.5f, -0.5f,  0.5f), TexCoord = new Vector2(0, 0), Normal = new Vector3(1, 0, 0), Tangent = new Vector4(0, 0, 1, 1) },
+                new Vertex { Position = new Vector3(-0.5f,  0.5f,  0.5f), TexCoord = new Vector2(0, 1), Normal = new Vector3(1, 0, 0), Tangent = new Vector4(0, 0, 1, 1) },
+                new Vertex { Position = new Vector3(-0.5f,  0.5f, -0.5f), TexCoord = new Vector2(1, 1), Normal = new Vector3(1, 0, 0), Tangent = new Vector4(0, 0, 1, 1) },
 
-                // Rechte Seite
-                new Vertex { Position = new Vector3(0.5f, -0.5f, -0.5f), TexCoord = new Vector2(0, 0), Normal = new Vector3(1, 0, 0), Tangent = new Vector4(0, 0, -1, 1) },
-                new Vertex { Position = new Vector3(0.5f, -0.5f,  0.5f), TexCoord = new Vector2(1, 0), Normal = new Vector3(1, 0, 0), Tangent = new Vector4(0, 0, -1, 1) },
-                new Vertex { Position = new Vector3(0.5f,  0.5f,  0.5f), TexCoord = new Vector2(1, 1), Normal = new Vector3(1, 0, 0), Tangent = new Vector4(0, 0, -1, 1) },
-                new Vertex { Position = new Vector3(0.5f,  0.5f, -0.5f), TexCoord = new Vector2(0, 1), Normal = new Vector3(1, 0, 0), Tangent = new Vector4(0, 0, -1, 1) },
+                // Rechte Seite (Normale umkehren)
+                new Vertex { Position = new Vector3(0.5f, -0.5f, -0.5f), TexCoord = new Vector2(0, 0), Normal = new Vector3(-1, 0, 0), Tangent = new Vector4(0, 0, -1, 1) },
+                new Vertex { Position = new Vector3(0.5f, -0.5f,  0.5f), TexCoord = new Vector2(1, 0), Normal = new Vector3(-1, 0, 0), Tangent = new Vector4(0, 0, -1, 1) },
+                new Vertex { Position = new Vector3(0.5f,  0.5f,  0.5f), TexCoord = new Vector2(1, 1), Normal = new Vector3(-1, 0, 0), Tangent = new Vector4(0, 0, -1, 1) },
+                new Vertex { Position = new Vector3(0.5f,  0.5f, -0.5f), TexCoord = new Vector2(0, 1), Normal = new Vector3(-1, 0, 0), Tangent = new Vector4(0, 0, -1, 1) },
 
-                // Unterseite
-                new Vertex { Position = new Vector3(-0.5f, -0.5f, -0.5f), TexCoord = new Vector2(0, 1), Normal = new Vector3(0, -1, 0), Tangent = new Vector4(1, 0, 0, 1) },
-                new Vertex { Position = new Vector3( 0.5f, -0.5f, -0.5f), TexCoord = new Vector2(1, 1), Normal = new Vector3(0, -1, 0), Tangent = new Vector4(1, 0, 0, 1) },
-                new Vertex { Position = new Vector3( 0.5f, -0.5f,  0.5f), TexCoord = new Vector2(1, 0), Normal = new Vector3(0, -1, 0), Tangent = new Vector4(1, 0, 0, 1) },
-                new Vertex { Position = new Vector3(-0.5f, -0.5f,  0.5f), TexCoord = new Vector2(0, 0), Normal = new Vector3(0, -1, 0), Tangent = new Vector4(1, 0, 0, 1) },
+                // Unterseite (Normale umkehren)
+                new Vertex { Position = new Vector3(-0.5f, -0.5f, -0.5f), TexCoord = new Vector2(0, 1), Normal = new Vector3(0, 1, 0), Tangent = new Vector4(1, 0, 0, 1) },
+                new Vertex { Position = new Vector3( 0.5f, -0.5f, -0.5f), TexCoord = new Vector2(1, 1), Normal = new Vector3(0, 1, 0), Tangent = new Vector4(1, 0, 0, 1) },
+                new Vertex { Position = new Vector3( 0.5f, -0.5f,  0.5f), TexCoord = new Vector2(1, 0), Normal = new Vector3(0, 1, 0), Tangent = new Vector4(1, 0, 0, 1) },
+                new Vertex { Position = new Vector3(-0.5f, -0.5f,  0.5f), TexCoord = new Vector2(0, 0), Normal = new Vector3(0, 1, 0), Tangent = new Vector4(1, 0, 0, 1) },
 
-                // Oberseite
-                new Vertex { Position = new Vector3(-0.5f,  0.5f, -0.5f), TexCoord = new Vector2(0, 1), Normal = new Vector3(0, 1, 0), Tangent = new Vector4(1, 0, 0, 1) },
-                new Vertex { Position = new Vector3( 0.5f,  0.5f, -0.5f), TexCoord = new Vector2(1, 1), Normal = new Vector3(0, 1, 0), Tangent = new Vector4(1, 0, 0, 1) },
-                new Vertex { Position = new Vector3( 0.5f,  0.5f,  0.5f), TexCoord = new Vector2(1, 0), Normal = new Vector3(0, 1, 0), Tangent = new Vector4(1, 0, 0, 1) },
-                new Vertex { Position = new Vector3(-0.5f,  0.5f,  0.5f), TexCoord = new Vector2(0, 0), Normal = new Vector3(0, 1, 0), Tangent = new Vector4(1, 0, 0, 1) }
+                // Oberseite (Normale umkehren)
+                new Vertex { Position = new Vector3(-0.5f,  0.5f, -0.5f), TexCoord = new Vector2(0, 1), Normal = new Vector3(0, -1, 0), Tangent = new Vector4(1, 0, 0, 1) },
+                new Vertex { Position = new Vector3( 0.5f,  0.5f, -0.5f), TexCoord = new Vector2(1, 1), Normal = new Vector3(0, -1, 0), Tangent = new Vector4(1, 0, 0, 1) },
+                new Vertex { Position = new Vector3( 0.5f,  0.5f,  0.5f), TexCoord = new Vector2(1, 0), Normal = new Vector3(0, -1, 0), Tangent = new Vector4(1, 0, 0, 1) },
+                new Vertex { Position = new Vector3(-0.5f,  0.5f,  0.5f), TexCoord = new Vector2(0, 0), Normal = new Vector3(0, -1, 0), Tangent = new Vector4(1, 0, 0, 1) }
             };
 
             mesh.Indices = new List<int>

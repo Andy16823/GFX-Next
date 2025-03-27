@@ -17,15 +17,19 @@ namespace LibGFX.UI
             var transform = new Transform();
             transform.Position = new Vector3(x, y, 0);
             transform.Scale = new Vector3(width, height, 0);
-            Transform.SetRotation(Vector3.Zero);
             this.Transform = transform;
 
             this.Camera = new OrthographicCamera(Vector2.Zero, new Vector2(width, height));
+            this.Controls = new Dictionary<string, Control>();
         }
 
         public override void Dispose(IRenderDevice renderer)
         {
-            throw new NotImplementedException();
+            renderer.DisposeRenderTarget(this.RenderTarget);
+            foreach (var control in this.Controls.Values)
+            {
+                control.Dispose(renderer, this);
+            }
         }
 
         public override void Init(IRenderDevice renderer)
@@ -52,25 +56,30 @@ namespace LibGFX.UI
 
         public override void Render(Viewport viewport, IRenderDevice renderer)
         {
+            // Get the current depth test state
+            bool depthTest = renderer.IsDepthTestEnabled();
+
+            // Enable depth test and set the viewport, projection and view matrix
             renderer.DisableDepthTest();
-            
             renderer.SetViewport(viewport);
             renderer.SetProjectionMatrix(this.Camera.GetProjectionMatrix(viewport));
             renderer.SetViewMatrix(this.Camera.GetViewMatrix());
 
+            // Render the canvas to the render target
             renderer.ResizeRenderTarget(this.RenderTarget, (int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
             renderer.BindRenderTarget(this.RenderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear((int)(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit));
-
             foreach (var control in this.Controls.Values)
             {
                 control.Render(renderer, this);
             }
 
+            // Unbind the render target and set the depth test state back to the original state
             renderer.UnbindRenderTarget();
+            renderer.SetDepthTest(depthTest);
 
-
+            // Render the render target to the screen
             renderer.BindShaderProgram(renderer.GetShaderProgram("ScreenShader"));
             renderer.DrawRenderTarget(this.RenderTarget);
             renderer.UnbindShaderProgram();
@@ -78,7 +87,10 @@ namespace LibGFX.UI
 
         public override void Update()
         {
-            
+            foreach (var control in this.Controls.Values)
+            {
+                control.Update(this);
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ namespace LibGFX.UI
     {
         public String Name { get; set; }
         public Transform Transform { get; set; }
+        public RenderTarget RenderTarget { get; set; }
 
         public abstract void Init(IRenderDevice renderer, Canvas canvas);
         public abstract void Update(Canvas canvas);
