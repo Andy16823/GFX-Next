@@ -630,7 +630,7 @@ namespace LibGFX.Graphics
             var mt_mat = Matrix4.CreateTranslation(rect.X, rect.Y, 0.0f);
             var mr_mat = Matrix4.CreateRotationZ(Math.Math.ToRadians(rotation));
             var ms_mat = Matrix4.CreateScale(rect.Width, rect.Height, 0.0f);
-            var m_mat = mt_mat * mr_mat * ms_mat;
+            var m_mat = ms_mat * mr_mat * mt_mat;// mt_mat * mr_mat * ms_mat;
 
             GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
             GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
@@ -653,7 +653,7 @@ namespace LibGFX.Graphics
             var mt_mat = Matrix4.CreateTranslation(rect.X, rect.Y, 0.0f);
             var mr_mat = Matrix4.CreateRotationZ(Math.Math.ToRadians(rotation));
             var ms_mat = Matrix4.CreateScale(rect.Width, rect.Height, 0.0f);
-            var m_mat = mt_mat * mr_mat * ms_mat;
+            var m_mat = ms_mat * mr_mat * mt_mat;// mt_mat * mr_mat * ms_mat;
 
             GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
             GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
@@ -826,11 +826,12 @@ namespace LibGFX.Graphics
             return font;
         }
 
-        public void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f)
-        {
+        public void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f, FontAlignment fontAlignment = FontAlignment.BottomLeft)
+        {   
             // Create position & scale data
             float x = position.X;
             float y = position.Y;
+            var offset = font.GetAlignmentOffset(text, fontAlignment, scale);
 
             // Create lists for the buffers
             var vertices = new List<float>();
@@ -848,8 +849,8 @@ namespace LibGFX.Graphics
                 if(font.Characters.TryGetValue(c, out var character))
                 {
                     var uv = Font.GetGlyphUV(character, font.TextureWidth, font.TextureHeight);
-                    float xpos = x + character.bearing.X * scale;
-                    float ypos = y - (character.size.Y - character.bearing.Y) * scale;
+                    float xpos = (x + character.bearing.X * scale) + offset.X;
+                    float ypos = (y - (character.size.Y - character.bearing.Y) * scale) + offset.Y;
                     float w = character.size.X * scale;
                     float h = character.size.Y * scale;
 

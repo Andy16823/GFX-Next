@@ -20,7 +20,18 @@ namespace LibGFX.Graphics
 
         public float CalculateScreenCorrection(float screenWidth, float screenHeight)
         {
-            return System.Math.Min(screenWidth / Transform.Scale.X, screenHeight / Transform.Scale.Y);
+            //return System.Math.Min(screenWidth / Transform.Scale.X, screenHeight / Transform.Scale.Y);
+            float screenAspectRatio = screenWidth / screenHeight;
+            float cameraAspectRatio = Transform.Scale.X / Transform.Scale.Y;
+
+            if (screenAspectRatio > cameraAspectRatio)
+            {
+                return screenHeight / Transform.Scale.Y;
+            }
+            else
+            {
+                return screenWidth / Transform.Scale.X;
+            }
         }
 
         public override Matrix4 GetProjectionMatrix(Viewport viewport)

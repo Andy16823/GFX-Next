@@ -58,6 +58,9 @@ namespace LibGFX.UI
         {
             // Get the current depth test state
             bool depthTest = renderer.IsDepthTestEnabled();
+            this.Camera.Transform.Scale = new Vector3(viewport.Width, viewport.Height, 0);
+            this.Transform.Scale = new Vector3(viewport.Width, viewport.Height, 0);
+
 
             // Enable depth test and set the viewport, projection and view matrix
             renderer.DisableDepthTest();

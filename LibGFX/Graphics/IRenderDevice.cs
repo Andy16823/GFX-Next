@@ -67,7 +67,7 @@ namespace LibGFX.Graphics
         void DrawTexture(Transform transform, int textureId, Vector4 color);
         void DrawTexture(Transform transform, int textureId, Vector4 color, float[] uvbuffer);
         Font LoadFont(String path, int fontsize = 48);
-        void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f);
+        void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f, FontAlignment alignment = FontAlignment.BottomLeft);
         void DisposeFont(Font font);
         void LoadMesh(Mesh mesh);
         void DrawMesh(Transform transform, Mesh mesh);

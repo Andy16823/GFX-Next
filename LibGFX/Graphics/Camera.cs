@@ -39,6 +39,15 @@ namespace LibGFX.Graphics
         public abstract Matrix4 GetProjectionMatrix(Viewport viewport);
 
         /// <summary>
+        /// Gets the aspect ratio of the camera
+        /// </summary>
+        /// <returns></returns>
+        public float GetAspectRatio()
+        {
+            return this.Transform.Scale.X / this.Transform.Scale.Y;
+        }
+
+        /// <summary>
         /// Sets the camera as the current camera
         /// </summary>
         public void SetAsCurrent()

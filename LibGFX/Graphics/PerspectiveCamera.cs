@@ -83,16 +83,6 @@ namespace LibGFX.Graphics
             return this.Transform.GetFront();
         }
 
-        /// <summary>
-        /// Gets the aspect ratio of the camera
-        /// </summary>
-        /// <returns></returns>
-        public float GetAspectRatio()
-        {
-            return this.Transform.Scale.X / this.Transform.Scale.Y;
-        }
-
-
         public static Vector3 ScreenToWorldPosition3D(PerspectiveCamera camera, Viewport viewport, float sX, float sY)
         {
             var projectionMatrix = camera.GetProjectionMatrix(viewport);
