@@ -1,17 +1,29 @@
-﻿using LibGFX.Graphics;
+﻿using LibGFX.Core;
+using LibGFX.Graphics;
 using LibGFX.Math;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LibGFX.UI
 {
+    /// <summary>
+    /// Represents a 2D canvas for rendering UI elements.
+    /// </summary>
     public class Canvas2D : Canvas
     {
+        /// <summary>
+        /// Creates a new instance of the Canvas2D class with the specified position and size.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
         public Canvas2D(float x, float y, float width, float height)
         {
             var transform = new Transform();
@@ -23,6 +35,10 @@ namespace LibGFX.UI
             this.Controls = new Dictionary<string, Control>();
         }
 
+        /// <summary>
+        /// Disposes the canvas and its controls.
+        /// </summary>
+        /// <param name="renderer"></param>
         public override void Dispose(IRenderDevice renderer)
         {
             renderer.DisposeRenderTarget(this.RenderTarget);
@@ -32,6 +48,10 @@ namespace LibGFX.UI
             }
         }
 
+        /// <summary>
+        /// Initializes the canvas and its controls.
+        /// </summary>
+        /// <param name="renderer"></param>
         public override void Init(IRenderDevice renderer)
         {
             //Width = (int)this.Transform.Scale.X,
@@ -54,6 +74,11 @@ namespace LibGFX.UI
             }
         }
 
+        /// <summary>
+        /// Renders the canvas and its controls to the specified viewport using the specified render device.
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
         public override void Render(Viewport viewport, IRenderDevice renderer)
         {
             // Get the current depth test state
@@ -88,12 +113,34 @@ namespace LibGFX.UI
             renderer.UnbindShaderProgram();
         }
 
-        public override void Update()
+        /// <summary>
+        /// Updates the canvas and its controls.
+        /// </summary>
+        public override void Update(Window window)
         {
             foreach (var control in this.Controls.Values)
             {
-                control.Update(this);
+                control.Update(this, window);
             }
+        }
+
+        /// <summary>
+        /// Gets the mouse position in the canvas.
+        /// </summary>
+        /// <param name="window"></param>
+        /// <returns></returns>
+        public override Vector2 GetMousePosition(Window window)
+        {
+            var currentMousePosition = window.GetMousePosition();
+            var currentViewport = window.GetViewport();
+
+            var x = currentMousePosition.X - (currentViewport.Width / 2);
+            var y = currentMousePosition.Y - (currentViewport.Height / 2);
+
+            x += this.Transform.Position.X;
+            y += this.Transform.Position.Y;
+
+            return new Vector2(x,y);
         }
     }
 }

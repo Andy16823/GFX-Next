@@ -9,8 +9,16 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics
 {
+    /// <summary>
+    /// Represents an orthographic camera.
+    /// </summary>
     public class OrthographicCamera : Camera
     {
+        /// <summary>
+        /// Creates a new instance of the OrthographicCamera class with the specified position and scale.
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="scale"></param>
         public OrthographicCamera(Vector2 position, Vector2 scale)
         {
             this.Near = -1.0f;
@@ -18,6 +26,12 @@ namespace LibGFX.Graphics
             this.Transform = new Transform(position, scale);
         }
 
+        /// <summary>
+        /// Calculates the screen correction factor based on the screen width and height.
+        /// </summary>
+        /// <param name="screenWidth"></param>
+        /// <param name="screenHeight"></param>
+        /// <returns></returns>
         public float CalculateScreenCorrection(float screenWidth, float screenHeight)
         {
             //return System.Math.Min(screenWidth / Transform.Scale.X, screenHeight / Transform.Scale.Y);
@@ -34,6 +48,11 @@ namespace LibGFX.Graphics
             }
         }
 
+        /// <summary>
+        /// Gets the projection matrix of the camera based on the viewport dimensions.
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <returns></returns>
         public override Matrix4 GetProjectionMatrix(Viewport viewport)
         {
             float correction = this.CalculateScreenCorrection(viewport.Width, viewport.Height);
@@ -49,6 +68,10 @@ namespace LibGFX.Graphics
             return Matrix4.CreateOrthographicOffCenter(left, right, bottom, top, Near, Far);
         }
 
+        /// <summary>
+        /// Gets the view matrix of the camera.
+        /// </summary>
+        /// <returns></returns>
         public override Matrix4 GetViewMatrix()
         {
             return Matrix4.LookAt(new Vector3(0f, 0f, 1f), new Vector3(0f, 0f, 0f), new Vector3(0f, 1f, 0f));

@@ -721,6 +721,11 @@ namespace LibGFX.Graphics
 
         public Font LoadFont(String path, int fontsize = 42)
         {
+            if (!Path.Exists(path))
+            {
+                throw new FileNotFoundException($"Font file not found: {path}");
+            }
+
             Font font = new Font();
             int cellWidth = fontsize * 2;
             int cellHeight = fontsize * 2;
