@@ -6,8 +6,6 @@ Welcome to the GFX Game Engine – an open-source framework designed to make gam
 
 If you have any questions about GFX, join our community on [Discord](https://discord.gg/qZRgRKedBs).
  
----
-
 ## **Overview**  
 GFX Game Engine is a lightweight yet robust framework built in **C#** for developing 2D and 3D games. Whether you're an indie developer or a hobbyist, GFX empowers you with tools for seamless scene management, rendering, physics simulation, and game logic customization.  
 
@@ -15,8 +13,6 @@ GFX Game Engine is a lightweight yet robust framework built in **C#** for develo
 - Simplifies game development with intuitive tools and APIs.  
 - Combines performance with flexibility for 2D and 3D workflows.  
 - Open-source with MIT licensing for unlimited creative freedom.  
-
----
 
 ## **Core Features**
 ### **Rendering**  
@@ -31,7 +27,6 @@ Physics are powered by **BulletSharp**, a wrapper for the Bullet Physics library
 - Fully integrated **layer system** for managing game elements such as sprites, 3D objects, and empty game objects.  
 - Support for **GameBehaviors** to simplify custom game logic implementation.  
 
----
 
 ## **Getting Started**
 Installation Guide for GFX (.NET 8)
