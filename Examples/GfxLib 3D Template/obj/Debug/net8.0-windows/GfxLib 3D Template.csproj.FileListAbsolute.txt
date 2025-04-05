@@ -1,0 +1,57 @@
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\obj\Debug\net8.0-windows\GfxLib 3D Template.csproj.AssemblyReference.cache
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\obj\Debug\net8.0-windows\GfxLib 3D Template.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\obj\Debug\net8.0-windows\GfxLib 3D Template.AssemblyInfoInputs.cache
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\obj\Debug\net8.0-windows\GfxLib 3D Template.AssemblyInfo.cs
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\obj\Debug\net8.0-windows\GfxLib 3D Template.csproj.CoreCompileInputs.cache
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\GfxLib 3D Template.exe
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\GfxLib 3D Template.deps.json
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\GfxLib 3D Template.runtimeconfig.json
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\GfxLib 3D Template.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\GfxLib 3D Template.pdb
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\FreeTypeSharp.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\LibGFX.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\Microsoft.Win32.SystemEvents.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\OpenTK.Audio.OpenAL.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\OpenTK.Compute.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\OpenTK.Core.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\OpenTK.Graphics.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\OpenTK.Input.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\OpenTK.Mathematics.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\OpenTK.Windowing.Common.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\OpenTK.Windowing.Desktop.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\OpenTK.Windowing.GraphicsLibraryFramework.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\StbImageSharp.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\StirlingLabs.Assimp.Net.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\System.Drawing.Common.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\System.Private.Windows.Core.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libfreetype.so
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\runtimes\osx\native\libfreetype.dylib
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\runtimes\win-arm64\native\freetype.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\runtimes\win-x64\native\freetype.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\runtimes\win-x86\native\freetype.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libglfw.so.3
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\runtimes\osx-arm64\native\libglfw.3.dylib
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\runtimes\osx-x64\native\libglfw.3.dylib
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\runtimes\win-x64\native\glfw3.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\runtimes\win-x86\native\glfw3.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libassimp.so
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\runtimes\osx\native\libassimp.dylib
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\runtimes\win-x64\native\assimp.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\obj\Debug\net8.0-windows\GfxLib 3.577EF678.Up2Date
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\obj\Debug\net8.0-windows\GfxLib 3D Template.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\obj\Debug\net8.0-windows\refint\GfxLib 3D Template.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\obj\Debug\net8.0-windows\GfxLib 3D Template.pdb
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\obj\Debug\net8.0-windows\GfxLib 3D Template.genruntimeconfig.cache
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\obj\Debug\net8.0-windows\ref\GfxLib 3D Template.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\BulletSharp.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\libbulletc.dll
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\Resources\Fonts\ARIAL.TTF
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\Resources\Models\Girly\girly.fbm\Ch03_1001_Diffuse.png
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\Resources\Models\Girly\girly.fbm\Ch03_1001_Glossiness.png
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\Resources\Models\Girly\girly.fbm\Ch03_1001_Normal.png
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\Resources\Models\Girly\girly.fbm\Ch03_1001_Specular.png
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\Resources\Models\Girly\girly.fbx
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\Resources\Materials\Checker\BaseColor.png
+C:\Users\andy1\source\repos\GfxLib 3D Template\GfxLib 3D Template\bin\Debug\net8.0-windows\Resources\Materials\Checker\material.json

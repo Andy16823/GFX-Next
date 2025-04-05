@@ -1,0 +1,12 @@
+{
+  "Name": "PartialMaterial",
+  "BaseColor": "BaseColor.png",
+  "Normal": "null",
+  "Metallic": "null",
+  "Roughness": "null",
+  "AmbientOcclusion": "null",
+  "Emissive": "null",
+  "Height": "null",
+  "DiffuseColor": [1.0, 1.0, 1.0, 1.0],
+  "Opacity": 1.0
+}

@@ -1,0 +1,12 @@
+C:\Users\andy1\source\repos\LibGFX\LibGFX\bin\Release\net8.0\LibGFX.deps.json
+C:\Users\andy1\source\repos\LibGFX\LibGFX\bin\Release\net8.0\LibGFX.dll
+C:\Users\andy1\source\repos\LibGFX\LibGFX\bin\Release\net8.0\LibGFX.pdb
+C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Release\net8.0\LibGFX.csproj.AssemblyReference.cache
+C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Release\net8.0\LibGFX.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Release\net8.0\LibGFX.AssemblyInfoInputs.cache
+C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Release\net8.0\LibGFX.AssemblyInfo.cs
+C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Release\net8.0\LibGFX.csproj.CoreCompileInputs.cache
+C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Release\net8.0\LibGFX.dll
+C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Release\net8.0\refint\LibGFX.dll
+C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Release\net8.0\LibGFX.pdb
+C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Release\net8.0\ref\LibGFX.dll

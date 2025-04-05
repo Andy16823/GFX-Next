@@ -5,10 +5,10 @@
   },
   "projects": {
     "C:\\Users\\andy1\\source\\repos\\LibGFX\\LibGFX\\LibGFX.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "restore": {
         "projectUniqueName": "C:\\Users\\andy1\\source\\repos\\LibGFX\\LibGFX\\LibGFX.csproj",
-        "projectName": "LibGFX",
+        "projectName": "GFX",
         "projectPath": "C:\\Users\\andy1\\source\\repos\\LibGFX\\LibGFX\\LibGFX.csproj",
         "packagesPath": "C:\\Users\\andy1\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\andy1\\source\\repos\\LibGFX\\LibGFX\\obj\\",
@@ -53,6 +53,10 @@
             "FreeTypeSharp": {
               "target": "Package",
               "version": "[3.0.0, )"
+            },
+            "Gfx.BulletSharp": {
+              "target": "Package",
+              "version": "[1.0.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

@@ -37,6 +37,15 @@
           }
         }
       },
+      "Gfx.BulletSharp/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/BulletSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/BulletSharp.dll": {}
+        }
+      },
       "Microsoft.Win32.SystemEvents/9.0.3": {
         "type": "package",
         "compile": {
@@ -399,6 +408,18 @@
         "runtimes/win-arm64/native/freetype.dll",
         "runtimes/win-x64/native/freetype.dll",
         "runtimes/win-x86/native/freetype.dll"
+      ]
+    },
+    "Gfx.BulletSharp/1.0.0": {
+      "sha512": "dSTcexhWktwBdKreOfP7JZoyu9YoRWowqoUTIN2DC48SUTtYnksPd/A0fEGY3YvMkXMHyBZ+dmVWJPCIPig6SQ==",
+      "type": "package",
+      "path": "gfx.bulletsharp/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gfx.bulletsharp.1.0.0.nupkg.sha512",
+        "gfx.bulletsharp.nuspec",
+        "lib/netstandard2.1/BulletSharp.dll"
       ]
     },
     "Microsoft.Win32.SystemEvents/9.0.3": {
@@ -796,6 +817,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "FreeTypeSharp >= 3.0.0",
+      "Gfx.BulletSharp >= 1.0.0",
       "Newtonsoft.Json >= 13.0.3",
       "OpenTK >= 4.9.4",
       "StbImageSharp >= 2.30.15",
@@ -809,10 +831,10 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "restore": {
       "projectUniqueName": "C:\\Users\\andy1\\source\\repos\\LibGFX\\LibGFX\\LibGFX.csproj",
-      "projectName": "LibGFX",
+      "projectName": "GFX",
       "projectPath": "C:\\Users\\andy1\\source\\repos\\LibGFX\\LibGFX\\LibGFX.csproj",
       "packagesPath": "C:\\Users\\andy1\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\andy1\\source\\repos\\LibGFX\\LibGFX\\obj\\",
@@ -857,6 +879,10 @@
           "FreeTypeSharp": {
             "target": "Package",
             "version": "[3.0.0, )"
+          },
+          "Gfx.BulletSharp": {
+            "target": "Package",
+            "version": "[1.0.0, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",

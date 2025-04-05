@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Pyhsics.Behaviors3D
 {
-    public class CapsuleRigidBody : RigidBody3D
+    public class CapsuleRigidBody : RigidBodyBehavior
     {
         public CapsuleRigidBody(PhysicsHandler physicsHandler) : base(physicsHandler)
         {

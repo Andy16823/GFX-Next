@@ -6,9 +6,6 @@ C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Debug\net8.0\LibGFX.csproj.CoreCom
 C:\Users\andy1\source\repos\LibGFX\LibGFX\bin\Debug\net8.0\LibGFX.deps.json
 C:\Users\andy1\source\repos\LibGFX\LibGFX\bin\Debug\net8.0\LibGFX.dll
 C:\Users\andy1\source\repos\LibGFX\LibGFX\bin\Debug\net8.0\LibGFX.pdb
-C:\Users\andy1\source\repos\LibGFX\LibGFX\bin\Debug\net8.0\BulletSharp.dll
-C:\Users\andy1\source\repos\LibGFX\LibGFX\bin\Debug\net8.0\BulletSharp.pdb
-C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Debug\net8.0\LibGFX.csproj.Up2Date
 C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Debug\net8.0\LibGFX.dll
 C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Debug\net8.0\refint\LibGFX.dll
 C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Debug\net8.0\LibGFX.pdb

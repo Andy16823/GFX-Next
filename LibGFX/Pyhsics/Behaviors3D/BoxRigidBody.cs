@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Pyhsics.Behaviors3D
 {
-    public class BoxRigidBody : RigidBody3D
+    public class BoxRigidBody : RigidBodyBehavior
     {
         public BoxRigidBody(PhysicsHandler physicsHandler) : base(physicsHandler)
         {
