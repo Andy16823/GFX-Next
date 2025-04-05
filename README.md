@@ -17,7 +17,7 @@ GFX Game Engine is a lightweight yet robust framework built in **C#** for develo
 
 ## **Core Features**
 ### **Rendering**  
-GFX leverages **OpenGL 4.5** for high-performance rendering, with support for custom shaders and materials. Supported 3D file formats include **Wavefront (.obj)**, **FBX**, **Collada**, and **GLTF**. Future plans include support for **Vulkan** and **DirectX 12**.  
+GFX leverages OpenGL 4.5 via OpenTK for high-performance rendering, with support for custom shaders and materials. Supported 3D file formats include Wavefront (.obj), FBX, Collada, and GLTF. Future plans include support for Vulkan and DirectX 12.
 
 ### **Physics**  
 Physics are powered by **BulletSharp**, a wrapper for the Bullet Physics library. The framework supports:  
