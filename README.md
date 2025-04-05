@@ -2,7 +2,7 @@
 
 [![NuGet Version](https://img.shields.io/nuget/v/GFX.svg?label=NuGet&color=blue)](https://www.nuget.org/packages/GFX)
 
-Welcome to the GFX Game Engine – an open-source framework designed to make game development simple, powerful, and accessible. With version 1.5.0, GFX now takes a big leap into 3D game development while continuing to provide a solid foundation for 2D projects.
+Welcome to the GFX Game Engine – an open-source framework designed to make game development simple, powerful, and accessible.
 
 If you have any questions about GFX, join our community on [Discord](https://discord.gg/qZRgRKedBs).
  
