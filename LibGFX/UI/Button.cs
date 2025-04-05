@@ -15,27 +15,47 @@ namespace LibGFX.UI
     /// <summary>
     /// Represents a label control that can be rendered on the screen.
     /// </summary>
-    public class Label : Control
+    public class Button : Control
     {
         /// <summary>
-        /// The text of the label
+        /// The text of the button
         /// </summary>
         public String Text { get; set; }
 
         /// <summary>
-        /// The font of the label
+        /// The font of the button
         /// </summary>
         public Font Font { get; set; }
 
         /// <summary>
-        /// The font scale of the label
+        /// The font scale of the button
         /// </summary>
         public float FontScale { get; set; }
 
         /// <summary>
-        /// The font alignment of the label
+        /// The font alignment of the button
         /// </summary>
         public FontAlignment Alignment { get; set; }
+
+        /// <summary>
+        /// The Color of the button
+        /// </summary>
+        public Vector4 BackgroundColor { get; set; } = new Vector4(0.2f, 0.2f, 0.2f, 0.85f);
+
+        /// <summary>
+        /// The Color of the button when hovered
+        /// </summary>
+        public Vector4 HoverColor { get; set; } = new Vector4(0.4f, 0.4f, 0.4f, 0.85f);
+
+        /// <summary>
+        /// The Color of the Font
+        /// </summary>
+        public Vector4 FontColor { get; set; } = new Vector4(1, 1, 1, 1);
+
+        /// <summary>
+        /// The Color of the Border
+        /// </summary>
+        public Vector4 BorderColor { get; set; } = new Vector4(0, 0, 0, 1.0f);
 
         private OrthographicCamera _camera;
         private Viewport _viewport;
@@ -51,7 +71,7 @@ namespace LibGFX.UI
         /// <param name="font"></param>
         /// <param name="fontscale"></param>
         /// <param name="alignment"></param>
-        public Label(String name, String text, Vector2 position, Vector2 scale, Font font, float fontscale = 1.0f, FontAlignment alignment = FontAlignment.Center)
+        public Button(String name, String text, Vector2 position, Vector2 scale, Font font, float fontscale = 1.0f, FontAlignment alignment = FontAlignment.Center)
         {
             this.Name = name;
             this.Transform = new Math.Transform();
@@ -64,6 +84,7 @@ namespace LibGFX.UI
 
             _camera = new OrthographicCamera(new Vector2(0, 0), new Vector2(scale.X, scale.Y));
             _viewport = new Viewport((int)scale.X, (int)scale.Y);
+            _color = this.BackgroundColor;
         }
 
         /// <summary>
@@ -73,7 +94,7 @@ namespace LibGFX.UI
         /// <param name="canvas"></param>
         public override void Dispose(IRenderDevice renderer, Canvas canvas)
         {
-            Debug.WriteLine($"Disposing {this.Name} Label");
+            Debug.WriteLine($"Disposing {this.Name} Button");
             this.DisposeEvents();
             renderer.DisposeRenderTarget(this.RenderTarget);
         }
@@ -117,8 +138,9 @@ namespace LibGFX.UI
             renderer.BindRenderTarget(this.RenderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear((int)(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit));
-            //renderer.BindShaderProgram(renderer.GetShaderProgram("RectShader"));
-            //renderer.FillRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y),_color);
+            renderer.BindShaderProgram(renderer.GetShaderProgram("RectShader"));
+            renderer.FillRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), _color);
+            renderer.DrawRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), this.BorderColor, 0.25f);
             renderer.BindShaderProgram(renderer.GetShaderProgram("FontShader"));
             renderer.DrawString2D(this.Text, new Vector2(0, 0), this.Font, new Vector4(1, 1, 1, 1), this.FontScale, this.Alignment);
             renderer.UnbindShaderProgram();
@@ -141,14 +163,41 @@ namespace LibGFX.UI
         /// <param name="canvas"></param>
         public override void Update(Canvas canvas, Window window)
         {
+            // Gets the mouse position in the canvas
             var mousePos = canvas.GetMousePosition(window);
-            if(this.Contains(mousePos))
+
+            // Check if the mouse is inside the button
+            if (this.Contains(mousePos))
             {
-                _color = new Vector4(0, 1, 0, 1);
+                // Check if the mouse is pressed
+                if (window.IsMouseDown(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton.Left))
+                {
+                    this.RaiseMouseEvent(mousePos, ControlEventType.MouseDown);
+                }
+
+                // Check if the mouse is released
+                if (window.IsMouseReleased(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton.Left))
+                {
+                    this.RaiseMouseEvent(mousePos, ControlEventType.MouseUp);
+                }
+
+                // Check if the control is hovered, if not, set the hovered state to true and rise the mouse enter event
+                if (!this.Hovered)
+                {
+                    this.Hovered = true;
+                    this.RaiseMouseEvent(mousePos, ControlEventType.MouseEnter);
+                    _color = this.HoverColor;
+                }
             }
             else
             {
-                _color = new Vector4(1, 0, 0, 1);
+                // Check if the control is hovered, if so, set the hovered state to false and rise the mouse leave event
+                if (this.Hovered)
+                {
+                    this.Hovered = false;
+                    this.RaiseMouseEvent(mousePos, ControlEventType.MouseLeave);
+                    _color = this.BackgroundColor;
+                }
             }
         }
     }

@@ -41,6 +41,7 @@ namespace LibGFX.UI
         /// <param name="renderer"></param>
         public override void Dispose(IRenderDevice renderer)
         {
+            Debug.WriteLine($"Disposing {this.Name} Canvas2D");
             renderer.DisposeRenderTarget(this.RenderTarget);
             foreach (var control in this.Controls.Values)
             {
@@ -139,6 +140,9 @@ namespace LibGFX.UI
 
             x += this.Transform.Position.X;
             y += this.Transform.Position.Y;
+
+            // invert y axis
+            y = -y;
 
             return new Vector2(x,y);
         }
