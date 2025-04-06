@@ -57,8 +57,10 @@ namespace LibGFX.Graphics
         int GetUniformLocation(int program, String name);
         void LoadMaterial(Material material);
         void LoadTexture(Texture texture);
+        void LoadCubemap(Cubemap cubemap);
         void DisposeMaterial(Material material);
         void DisposeTexture(Texture texture);
+        void DisposeCubemap(Cubemap cubemap);
         void DrawRenderTarget(RenderTarget renderTarget);
         void DrawLine(Vector3 start, Vector3 end, Vector4 color);
         void DrawRect(Math.Rect rect, Vector4 color, float borderWidth = 1.0f, float rotation = 0.0f);
@@ -66,6 +68,7 @@ namespace LibGFX.Graphics
         void DrawTexture(Transform transform, Texture texture, Vector4 color);
         void DrawTexture(Transform transform, int textureId, Vector4 color);
         void DrawTexture(Transform transform, int textureId, Vector4 color, float[] uvbuffer);
+        void DrawEnviromentTexture3D(Transform transform, Cubemap cubemap, Vector4 color);
         Font LoadFont(String path, int fontsize = 48);
         void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f, FontAlignment alignment = FontAlignment.BottomLeft);
         void DisposeFont(Font font);

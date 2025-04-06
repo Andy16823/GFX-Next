@@ -51,6 +51,7 @@ namespace LibGFX.Graphics
             this.AddShaderProgram("MeshShader", new MeshShader());  
             this.AddShaderProgram("AnimatedMeshShader", new AnimatedMeshShader());
             this.AddShaderProgram("LineShader", new LineShader());
+            this.AddShaderProgram("EnviromentShader", new EnviromentShader());
             foreach (ShaderProgram program in _programs.Values)
             {
                 this.BuildShaderProgram(program);
@@ -61,6 +62,7 @@ namespace LibGFX.Graphics
             this.AddShape(new RectShape());
             this.AddShape(new SpriteShape());
             this.AddShape(new LineShape());
+            this.AddShape(new CubeShape());
             foreach (var shape in _shapes.Values)
             {
                 this.InitShape(shape);
@@ -585,6 +587,58 @@ namespace LibGFX.Graphics
                 texture.Flags = TextureFlags.Disposed;
                 texture.TextureId = 0;
                 Debug.WriteLine($"Disposed texture");
+            }
+        }
+
+        public void LoadCubemap(Cubemap cubemap)
+        {
+            if (cubemap.Flags == CubemapFlags.Loaded || cubemap.Flags == CubemapFlags.Disposed)
+            {
+                cubemap.TextureId = GL.GenTexture();
+                GL.BindTexture(TextureTarget.TextureCubeMap, cubemap.TextureId);
+                GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+                GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+                GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToEdge);
+                GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToEdge);
+                GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureWrapR, (int)TextureWrapMode.ClampToEdge);
+
+                for (int i = 0; i < 6; i++)
+                {
+                    GL.TexImage2D(TextureTarget.TextureCubeMapPositiveX + i, 0, PixelInternalFormat.Rgba, cubemap.Width, cubemap.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, cubemap.Faces[i]);
+                }
+                GL.BindTexture(TextureTarget.TextureCubeMap, 0);
+                Debug.WriteLine($"Cubemap loaded with error {this.GetError()}");
+                cubemap.Flags = CubemapFlags.Initialized;
+            }
+        }
+
+        public void DrawEnviromentTexture3D(Transform transform, Cubemap cubemap, Vector4 color)
+        {
+            var m_mat = transform.GetMatrix();
+
+            var shape = _shapes["CubeShape"];
+            GL.DepthMask(false);
+            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
+            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
+            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "m_mat"), false, ref m_mat);
+            GL.ActiveTexture(TextureUnit.Texture0);
+            GL.BindTexture(TextureTarget.TextureCubeMap, cubemap.TextureId);
+            GL.Uniform1(this.GetUniformLocation(_currentProgram, "skybox"), 0);
+            GL.BindVertexArray(shape.VertexArray);
+            GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
+            GL.BindVertexArray(0);
+            GL.BindTexture(TextureTarget.Texture2D, 0);
+            GL.DepthMask(true);
+        }
+
+        public void DisposeCubemap(Cubemap cubemap)
+        {
+            if (cubemap.Flags == CubemapFlags.Initialized)
+            {
+                GL.DeleteTexture(cubemap.TextureId);
+                cubemap.Flags = CubemapFlags.Disposed;
+                cubemap.TextureId = 0;
+                Debug.WriteLine($"Disposed cubemap");
             }
         }
 

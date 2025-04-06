@@ -73,13 +73,6 @@ namespace LibGFX.Graphics
         /// <returns></returns>
         public Vector3 GetCameraFront()
         {
-            //Vector3 direction = new Vector3(0f);
-            //direction.X = (float)(-System.Math.Sin(this.Transform.Rotation.Y) * System.Math.Cos(this.Transform.Rotation.X));
-            //direction.Y = (float)System.Math.Sin(this.Transform.Rotation.X);
-            //direction.Z = (float)(-System.Math.Cos(this.Transform.Rotation.Y) * System.Math.Cos(this.Transform.Rotation.X));
-            //return direction.Normalized();
-
-            //return -Vector3.Transform(Vector3.UnitZ, this.Transform.Rotation);
             return this.Transform.GetFront();
         }
 
