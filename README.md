@@ -32,7 +32,7 @@ Physics are powered by **BulletSharp**, a wrapper for the Bullet Physics library
 Installation Guide for GFX (.NET 8)
 
 1. Install the GFX NuGet Package `dotnet add package GFX`
-2. Download the Native Dependency [(libbulletc)](https://gfx-engine.org/downloads/)
+2. Download the Native Dependency. **You can find it within the .Net-8 tab.**  [(libbulletc)](https://gfx-engine.org/downloads/)
 3. Extract the file and place the libbulletc binary in your project folder (next to your .csproj).
 4. Ensure the native library is copied to your build output folder
 
