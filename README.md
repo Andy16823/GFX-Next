@@ -7,30 +7,31 @@ Welcome to the GFX Game Engine – an open-source framework designed to make gam
 If you have any questions about GFX, join our community on [Discord](https://discord.gg/qZRgRKedBs).
  
 ## **Overview**  
-The GFX Game Engine is a lightwell framework for creating 2D and 3D games in C# with .Net 8 and contains modules for rendering, graphics, animation and audio.
+The GFX Game Engine is a lightweight framework for creating 2D and 3D games in C# with .NET 8. It includes modules for rendering, graphics, animation, and audio.
 
 **Why Choose GFX?**  
-- Easy creation of 3D and 2D scenes
-- Own behaviour system for creating the game logic'
-- Powerful physics simulation thanks to BulletSharp a wrapper from Bullet3
-- Loading of multiple 3D model formats thanks to Assimp integration 
-- Rendering through OpenGL using OpentTK.
-- 3D Audio through OpenAL (Todo)
-- Open-source with MIT licensing for unlimited creative freedom.  
+- Effortless creation of 2D and 3D scenes
+- Custom behavior system for defining game logic
+- Powerful physics simulation using BulletSharp (a Bullet3 wrapper)
+- Support for multiple 3D model formats via Assimp integration
+- Rendering powered by OpenGL through OpenTK
+- 3D audio support with OpenAL (coming soon)
+- Open-source and MIT-licensed for unlimited creative freedom
 
 ## **Core Features**
 ### **Rendering**  
-GFX leverages OpenGL 4.5 via OpenTK for high-performance rendering, with support for custom shaders and materials. Supported 3D file formats include Wavefront (.obj), FBX, Collada, and GLTF. Future plans include support for Vulkan and DirectX 12.
+GFX utilizes OpenGL 4.5 via OpenTK for high-performance rendering, with full support for custom shaders and materials. Supported 3D file formats include Wavefront (.obj), FBX, Collada, and GLTF.
+Future roadmap: support for Vulkan and DirectX 12.
 
 ### **Physics**  
-Physics are powered by **BulletSharp**, a wrapper for the Bullet Physics library. The framework supports:  
+Physics in GFX are powered by **BulletSharp**, a .NET wrapper for the robust Bullet Physics library. Features include:
+
 - **PhysicHandler3D** and **PhysicHandler2D** for seamless simulations.  
 - Custom physics handlers to suit advanced gameplay needs.  
 
 ### **2D & 3D Game Development**  
 - Fully integrated **layer system** for managing game elements such as sprites, 3D objects, and empty game objects.  
 - Support for **GameBehaviors** to simplify custom game logic implementation.  
-
 
 ## **Getting Started**
 Installation Guide for GFX (.NET 8)
