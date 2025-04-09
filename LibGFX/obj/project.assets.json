@@ -37,13 +37,19 @@
           }
         }
       },
-      "Gfx.BulletSharp/1.0.0": {
+      "GFX.BulletSharp/1.0.1": {
         "type": "package",
         "compile": {
           "lib/netstandard2.1/BulletSharp.dll": {}
         },
         "runtime": {
           "lib/netstandard2.1/BulletSharp.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win-x64/native/libbulletc.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          }
         }
       },
       "Microsoft.Win32.SystemEvents/9.0.3": {
@@ -410,16 +416,19 @@
         "runtimes/win-x86/native/freetype.dll"
       ]
     },
-    "Gfx.BulletSharp/1.0.0": {
-      "sha512": "dSTcexhWktwBdKreOfP7JZoyu9YoRWowqoUTIN2DC48SUTtYnksPd/A0fEGY3YvMkXMHyBZ+dmVWJPCIPig6SQ==",
+    "GFX.BulletSharp/1.0.1": {
+      "sha512": "MdGYw9pEecE1iYVxUVMA0I+doxrau5oeOjnuVw+O6d95gJR/hk1c2/n4cOx8kG2+mt0RdyafohwA6Z5mLql4qg==",
       "type": "package",
-      "path": "gfx.bulletsharp/1.0.0",
+      "path": "gfx.bulletsharp/1.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "gfx.bulletsharp.1.0.0.nupkg.sha512",
+        "gfx.bulletsharp.1.0.1.nupkg.sha512",
         "gfx.bulletsharp.nuspec",
-        "lib/netstandard2.1/BulletSharp.dll"
+        "lib/netstandard2.1/BulletSharp.dll",
+        "licenses/LICENSE_Bullet.txt",
+        "licenses/LICENSE_BulletSharp.txt",
+        "runtimes/win-x64/native/libbulletc.dll"
       ]
     },
     "Microsoft.Win32.SystemEvents/9.0.3": {
@@ -817,7 +826,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "FreeTypeSharp >= 3.0.0",
-      "Gfx.BulletSharp >= 1.0.0",
+      "Gfx.BulletSharp >= 1.0.1",
       "Newtonsoft.Json >= 13.0.3",
       "OpenTK >= 4.9.4",
       "StbImageSharp >= 2.30.15",
@@ -831,7 +840,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.0.1",
+    "version": "1.0.2",
     "restore": {
       "projectUniqueName": "C:\\Users\\andy1\\source\\repos\\LibGFX\\LibGFX\\LibGFX.csproj",
       "projectName": "GFX",
@@ -882,7 +891,7 @@
           },
           "Gfx.BulletSharp": {
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.0.1, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",

@@ -14,7 +14,7 @@
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="FreeTypeSharp" version="3.0.0" exclude="Build,Analyzers" />
-        <dependency id="Gfx.BulletSharp" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Gfx.BulletSharp" version="1.0.1" exclude="Build,Analyzers" />
         <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
         <dependency id="OpenTK" version="4.9.4" exclude="Build,Analyzers" />
         <dependency id="StbImageSharp" version="2.30.15" exclude="Build,Analyzers" />

@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\andy1\\source\\repos\\LibGFX\\LibGFX\\LibGFX.csproj": {
-      "version": "1.0.1",
+      "version": "1.0.2",
       "restore": {
         "projectUniqueName": "C:\\Users\\andy1\\source\\repos\\LibGFX\\LibGFX\\LibGFX.csproj",
         "projectName": "GFX",
@@ -56,7 +56,7 @@
             },
             "Gfx.BulletSharp": {
               "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[1.0.1, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

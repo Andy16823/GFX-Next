@@ -12,12 +12,12 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageId>GFX</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="FreeTypeSharp" Version="3.0.0" />
-    <PackageReference Include="Gfx.BulletSharp" Version="1.0.0" />
+    <PackageReference Include="Gfx.BulletSharp" Version="1.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="OpenTK" Version="4.9.4">
       <PrivateAssets></PrivateAssets>

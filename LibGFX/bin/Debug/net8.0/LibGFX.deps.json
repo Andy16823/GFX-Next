@@ -9,7 +9,7 @@
       "LibGFX/1.0.1": {
         "dependencies": {
           "FreeTypeSharp": "3.0.0",
-          "Gfx.BulletSharp": "1.0.0",
+          "GFX.BulletSharp": "1.0.1",
           "Newtonsoft.Json": "13.0.3",
           "OpenTK": "4.9.4",
           "StbImageSharp": "2.30.15",
@@ -56,11 +56,18 @@
           }
         }
       },
-      "Gfx.BulletSharp/1.0.0": {
+      "GFX.BulletSharp/1.0.1": {
         "runtime": {
           "lib/netstandard2.1/BulletSharp.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win-x64/native/libbulletc.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -307,12 +314,12 @@
       "path": "freetypesharp/3.0.0",
       "hashPath": "freetypesharp.3.0.0.nupkg.sha512"
     },
-    "Gfx.BulletSharp/1.0.0": {
+    "GFX.BulletSharp/1.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dSTcexhWktwBdKreOfP7JZoyu9YoRWowqoUTIN2DC48SUTtYnksPd/A0fEGY3YvMkXMHyBZ+dmVWJPCIPig6SQ==",
-      "path": "gfx.bulletsharp/1.0.0",
-      "hashPath": "gfx.bulletsharp.1.0.0.nupkg.sha512"
+      "sha512": "sha512-MdGYw9pEecE1iYVxUVMA0I+doxrau5oeOjnuVw+O6d95gJR/hk1c2/n4cOx8kG2+mt0RdyafohwA6Z5mLql4qg==",
+      "path": "gfx.bulletsharp/1.0.1",
+      "hashPath": "gfx.bulletsharp.1.0.1.nupkg.sha512"
     },
     "Microsoft.Win32.SystemEvents/9.0.3": {
       "type": "package",

@@ -38,6 +38,13 @@ namespace LibGFX.Graphics
         private bool _depthTestEnabled = false;
         private Viewport _viewport;
 
+        public enum ClearMask
+        {
+            Color = ClearBufferMask.ColorBufferBit,
+            Depth = ClearBufferMask.DepthBufferBit,
+            Stencil = ClearBufferMask.StencilBufferBit
+        }
+
         public void Init(Window window)
         {
             _window = window;

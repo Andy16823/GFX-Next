@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>GFX</id>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <title>GFX</title>
     <authors>Andy16823</authors>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -25,6 +25,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="C:\Users\andy1\source\repos\LibGFX\LibGFX\bin\Debug\net8.0\LibGFX.dll" target="lib\net8.0\LibGFX.dll" />
+    <file src="C:\Users\andy1\source\repos\LibGFX\LibGFX\bin\Release\net8.0\LibGFX.dll" target="lib\net8.0\LibGFX.dll" />
   </files>
 </package>

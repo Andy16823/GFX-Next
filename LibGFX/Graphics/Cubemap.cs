@@ -1,10 +1,12 @@
 ﻿using LibGFX.Math;
+using Newtonsoft.Json.Linq;
 using StbImageSharp;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
 namespace LibGFX.Graphics
@@ -92,6 +94,44 @@ namespace LibGFX.Graphics
             }
 
             cubemap.Flags = CubemapFlags.Loaded;
+            return cubemap;
+        }
+
+        /// <summary>
+        /// Loads a cubemap from a JSON file
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="swapYAxisFaces"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static Cubemap LoadCubemap(string file, bool swapYAxisFaces = true)
+        {
+            // Check if the file exists
+            if (!File.Exists(file))
+            {
+                throw new ArgumentException($"Cubemap file '{file}' does not exist.");
+            }
+
+            // Check if the file is a JSON file
+            if (Path.GetExtension(file).ToLower() != ".json")
+            {
+                throw new ArgumentException($"Cubemap file '{file}' is not a JSON file.");
+            }
+
+            // Load the JSON file and parse it
+            var basePath = Path.GetDirectoryName(file);
+            var jsonString = File.ReadAllText(file);
+            var jsonObject = JObject.Parse(jsonString);
+
+            // Create the faces list and load the cubemap
+            var faces = new List<string>();
+            faces.Add(Path.Combine(basePath, jsonObject["cubemap"]["px"].Value<string>()));
+            faces.Add(Path.Combine(basePath, jsonObject["cubemap"]["nx"].Value<string>()));
+            faces.Add(Path.Combine(basePath, jsonObject["cubemap"]["py"].Value<string>()));
+            faces.Add(Path.Combine(basePath, jsonObject["cubemap"]["ny"].Value<string>()));
+            faces.Add(Path.Combine(basePath, jsonObject["cubemap"]["pz"].Value<string>()));
+            faces.Add(Path.Combine(basePath, jsonObject["cubemap"]["nz"].Value<string>()));
+            var cubemap = LoadCubemap(faces.ToArray(), swapYAxisFaces);
             return cubemap;
         }
     }
