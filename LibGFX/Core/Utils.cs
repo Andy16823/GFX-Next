@@ -56,6 +56,13 @@ namespace LibGFX.Core
             return btRotation * btTranslation;
         }
 
+        public static System.Numerics.Matrix4x4 GetBtTransform(System.Numerics.Vector3 location, System.Numerics.Quaternion rotation, Vector3 offsetLocation = default)
+        {
+            var btTranslation = System.Numerics.Matrix4x4.CreateTranslation(location + (System.Numerics.Vector3)offsetLocation);
+            var btRotation = System.Numerics.Matrix4x4.CreateFromQuaternion(rotation);
+            return btRotation * btTranslation;
+        }
+
         public static Vector3 ToRadians(Vector3 input)
         {
             return new Vector3(MathHelper.DegreesToRadians(input.X), MathHelper.DegreesToRadians(input.Y), MathHelper.DegreesToRadians(input.Z));

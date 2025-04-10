@@ -124,10 +124,12 @@ namespace LibGFX.Core
             renderer.ResizeRenderTarget(_renderTarget, viewport.Width, viewport.Height);
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            renderer.Clear((int)(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit));
+            //renderer.Clear((int)(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit));
+            renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
+
 
             // Render the enviroment texture if available
-            if(this.EnviromentTexture != null && this.RenderEnviromentTexture)
+            if (this.EnviromentTexture != null && this.RenderEnviromentTexture)
             {
                 this.EnviromentTransform.Position = camera.Transform.Position;
                 renderer.BindShaderProgram(renderer.GetShaderProgram("EnviromentShader"));

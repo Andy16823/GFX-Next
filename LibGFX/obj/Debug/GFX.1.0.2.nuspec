@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>GFX</id>
+    <version>1.0.2</version>
+    <title>GFX</title>
+    <authors>Andy16823</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <projectUrl>https://gfx-engine.org/</projectUrl>
+    <description>Package Description</description>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="FreeTypeSharp" version="3.0.0" exclude="Build,Analyzers" />
+        <dependency id="Gfx.BulletSharp" version="1.0.1" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+        <dependency id="OpenTK" version="4.9.4" exclude="Build,Analyzers" />
+        <dependency id="StbImageSharp" version="2.30.15" exclude="Build,Analyzers" />
+        <dependency id="StirlingLabs.Assimp.Net" version="23.4.1" exclude="Build,Analyzers" />
+        <dependency id="StirlingLabs.assimp.native.win-x64" version="5.2.5.4" exclude="Build,Analyzers" />
+        <dependency id="System.Drawing.Common" version="9.0.3" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\andy1\source\repos\LibGFX\LibGFX\bin\Debug\net8.0\LibGFX.dll" target="lib\net8.0\LibGFX.dll" />
+  </files>
+</package>

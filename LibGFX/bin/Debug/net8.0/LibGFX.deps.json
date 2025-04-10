@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "LibGFX/1.0.1": {
+      "LibGFX/1.0.2": {
         "dependencies": {
           "FreeTypeSharp": "3.0.0",
           "GFX.BulletSharp": "1.0.1",
@@ -302,7 +302,7 @@
     }
   },
   "libraries": {
-    "LibGFX/1.0.1": {
+    "LibGFX/1.0.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

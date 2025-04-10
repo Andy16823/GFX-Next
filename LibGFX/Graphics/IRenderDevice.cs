@@ -36,7 +36,7 @@ namespace LibGFX.Graphics
         Viewport GetViewport();
         void SetViewMatrix(Matrix4 matrix);
         void SetProjectionMatrix(Matrix4 matrix);
-        void Clear(int mask);
+        void Clear(RenderFlags.ClearFlags clearFlags);
         void ClearColor(float r, float g, float b, float a);
         void Flush();
         RenderTarget CreateRenderTarget(RenderTargetDescriptor constructorInfo);

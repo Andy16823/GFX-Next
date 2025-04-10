@@ -33,7 +33,7 @@ namespace LibGFX.Graphics
         public List<Vertex> Vertices { get; set; }
         public List<int> Indices { get; set; }
         public Vector3 LocalTranslation { get; set; }
-        public Vector4 LocalRotation { get; set; }
+        public Quaternion LocalRotation { get; set; }
         public Vector3 LocalScale { get; set; }
         public Material Material { get; set; }
         public RenderData RenderData { get; set; }
@@ -43,9 +43,17 @@ namespace LibGFX.Graphics
             Vertices = new List<Vertex>();
             Indices = new List<int>();
             LocalTranslation = Vector3.Zero;
-            LocalRotation = Vector4.Zero;
+            LocalRotation = Quaternion.Identity;
             LocalScale = Vector3.One;
             RenderData = new RenderData();
+        }
+
+        public Matrix4 GetTransform()
+        {
+            Matrix4 translation = Matrix4.CreateTranslation(LocalTranslation);
+            Matrix4 rotation = Matrix4.CreateFromQuaternion(LocalRotation);
+            Matrix4 scale = Matrix4.CreateScale(LocalScale);
+            return scale * rotation * translation;
         }
     }
 }

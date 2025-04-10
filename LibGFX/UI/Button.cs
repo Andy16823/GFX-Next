@@ -137,7 +137,9 @@ namespace LibGFX.UI
             // Render the text to the render target
             renderer.BindRenderTarget(this.RenderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            renderer.Clear((int)(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit));
+            //renderer.Clear((int)(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit));
+            renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
+
             renderer.BindShaderProgram(renderer.GetShaderProgram("RectShader"));
             renderer.FillRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), _color);
             renderer.DrawRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), this.BorderColor, 0.25f);

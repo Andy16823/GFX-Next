@@ -72,6 +72,57 @@ namespace LibGFX.Core.GameElements
         }
 
         /// <summary>
+        /// Overrides the mesh scale of the model
+        /// </summary>
+        /// <param name="value"></param>
+        public void OverrideMeshScale(Vector3 value)
+        {
+            foreach (var mesh in Meshes)
+            {
+                mesh.LocalScale = value;
+            }
+        }
+
+        /// <summary>
+        /// Overrides the mesh scale of the model
+        /// </summary>
+        /// <param name="value"></param>
+        public void OverrideMeshScale(float value)
+        {
+            foreach (var mesh in Meshes)
+            {
+                mesh.LocalScale = new Vector3(value);
+            }
+        }
+
+        /// <summary>
+        /// Overrides the scale of a single mesh
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="value"></param>
+        public void OverrideSingleMeshScale(int index, Vector3 value)
+        {
+            if (index < Meshes.Count)
+            {
+                Meshes[index].LocalScale = value;
+            }
+        }
+
+        /// <summary>
+        /// Overrides the scale of a single mesh
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public void OverrideSingleMeshScale(String name, Vector3 value)
+        {
+            var mesh = Meshes.FirstOrDefault(m => m.Name == name);
+            if (mesh != null)
+            {
+                mesh.LocalScale = value;
+            }
+        }
+
+        /// <summary>
         /// Loads the model from the specified file
         /// </summary>
         /// <param name="file"></param>
@@ -98,6 +149,42 @@ namespace LibGFX.Core.GameElements
             else
             {
                 this.Animator = new Animator();
+            }
+
+            // Load the transforms of the model
+            LoadTransforms(assimpScene);
+        }
+
+        /// <summary>
+        /// Loads the transforms of the model
+        /// </summary>
+        /// <param name="assimpScene"></param>
+        private void LoadTransforms(Scene assimpScene)
+        {
+            this.LoadNodeTransformRecursive(assimpScene.RootNode, Matrix4x4.Identity);
+        }
+
+        /// <summary>
+        /// Recursively loads the transforms of the nodes in the model
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="parentTransform"></param>
+        private void LoadNodeTransformRecursive(Node node, Matrix4x4 parentTransform)
+        {
+            var currentTransform = parentTransform * node.Transform;
+
+            foreach (var meshIndex in node.MeshIndices)
+            {
+                var mesh = this.Meshes[meshIndex];
+                currentTransform.Decompose(out Assimp.Vector3D scale, out Assimp.Quaternion rotation, out Assimp.Vector3D translation);
+                mesh.LocalTranslation = new Vector3(translation.X, translation.Y, translation.Z);
+                mesh.LocalRotation = new OpenTK.Mathematics.Quaternion(rotation.X, rotation.Y, rotation.Z, rotation.W);
+                mesh.LocalScale = new Vector3(scale.X, scale.Y, scale.Z);
+            }
+
+            foreach(var child in node.Children)
+            {
+                LoadNodeTransformRecursive(child, currentTransform);
             }
         }
 

@@ -38,13 +38,6 @@ namespace LibGFX.Graphics
         private bool _depthTestEnabled = false;
         private Viewport _viewport;
 
-        public enum ClearMask
-        {
-            Color = ClearBufferMask.ColorBufferBit,
-            Depth = ClearBufferMask.DepthBufferBit,
-            Stencil = ClearBufferMask.StencilBufferBit
-        }
-
         public void Init(Window window)
         {
             _window = window;
@@ -85,9 +78,26 @@ namespace LibGFX.Graphics
             _context.SwapInterval = value ? 1 : 0;
         }
 
-        public void Clear(int mask)
+        public void Clear(RenderFlags.ClearFlags clearFlags)
         {
-            GL.Clear((ClearBufferMask)mask);
+            ClearBufferMask mask = 0;
+
+            if ((clearFlags & RenderFlags.ClearFlags.Color) != 0)
+            {
+                mask |= ClearBufferMask.ColorBufferBit;
+            }
+
+            if ((clearFlags & RenderFlags.ClearFlags.Depth) != 0)
+            {
+                mask |= ClearBufferMask.DepthBufferBit;
+            }
+
+            if ((clearFlags & RenderFlags.ClearFlags.Stencil) != 0)
+            {
+                mask |= ClearBufferMask.StencilBufferBit;
+            }
+
+            GL.Clear(mask);
         }
 
         public void ClearColor(float r, float g, float b, float a)
@@ -1035,7 +1045,7 @@ namespace LibGFX.Graphics
             //var mt_mat = Matrix4.CreateTranslation(position);
             //var mr_mat = Matrix4.CreateRotationX(Math.Math.ToRadians(rotation.X)) * Matrix4.CreateRotationY(Math.Math.ToRadians(rotation.Y)) * Matrix4.CreateRotationZ(Math.Math.ToRadians(rotation.Z));
             //var ms_mat = Matrix4.CreateScale(scale);
-            var m_mat = transform.GetMatrix();
+            var m_mat = mesh.GetTransform() * transform.GetMatrix();
 
             // Bind the shader uniforms
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
