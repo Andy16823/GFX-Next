@@ -215,9 +215,13 @@ namespace LibGFX.Math
 
         /// <summary>
         /// Gets the forward direction based on the current rotation.
+        /// Inverted is used to get the opposite direction. Used for bullet physics.
         /// </summary>
-        public Vector3 GetFront()
+        public Vector3 GetFront(bool inverted = false)
         {
+            if(inverted) {
+                return Vector3.Transform(Vector3.UnitZ, Rotation);
+            }
             return -Vector3.Transform(Vector3.UnitZ, Rotation);
         }
 

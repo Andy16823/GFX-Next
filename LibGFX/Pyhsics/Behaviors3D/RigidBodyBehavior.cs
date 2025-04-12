@@ -94,6 +94,25 @@ namespace LibGFX.Pyhsics.Behaviors
         }
 
         /// <summary>
+        /// Applies an impulse to the rigid body at a specified position
+        /// </summary>
+        /// <param name="impulse"></param>
+        /// <param name="relPos"></param>
+        public void ApplyImpulse(Vector3 impulse, Vector3 relPos)
+        {
+            RigidBody.ApplyImpulse((System.Numerics.Vector3)impulse, (System.Numerics.Vector3)relPos);
+        }
+
+        /// <summary>
+        /// Applies a central impulse to the rigid body
+        /// </summary>
+        /// <param name="impulse"></param>
+        public void ApplyCentralImpulse(Vector3 impulse)
+        {
+            RigidBody.ApplyCentralImpulse((System.Numerics.Vector3)impulse);
+        }
+
+        /// <summary>
         /// Translates the rigid body
         /// </summary>
         /// <param name="translation"></param>
