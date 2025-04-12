@@ -450,7 +450,7 @@ namespace LibGFX.Core.GameElements
         public void PlayAnimation(String name)
         {
             var animation = this.FindAnimation(name);
-            if (animation != null)
+            if (animation != null && this.Animator.CurrentAnimation != animation)
             {
                 this.Animator.LoadAnimation(animation);
             }

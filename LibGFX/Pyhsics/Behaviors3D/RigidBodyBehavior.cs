@@ -40,12 +40,30 @@ namespace LibGFX.Pyhsics.Behaviors
         }
 
         /// <summary>
+        /// Returns the current linear velocity of the rigid body
+        /// </summary>
+        /// <returns></returns>
+        public Vector3 GetLinearVelocity()
+        {
+            return (Vector3)RigidBody.LinearVelocity;
+        }
+
+        /// <summary>
         /// Sets the linear velocity of the rigid body
         /// </summary>
         /// <param name="velocity"></param>
         public void SetLinearVelocity(Vector3 velocity)
         {
             RigidBody.LinearVelocity = (System.Numerics.Vector3)velocity;
+        }
+
+        /// <summary>
+        /// Returns the current angular velocity of the rigid body
+        /// </summary>
+        /// <returns></returns>
+        public Vector3 GetAngularVelocity()
+        {
+            return (Vector3)RigidBody.AngularVelocity;
         }
 
         /// <summary>

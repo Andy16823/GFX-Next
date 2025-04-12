@@ -148,5 +148,39 @@ namespace LibGFX.Core
         {
             _window.MousePosition = position;
         }
+
+        /// <summary>
+        /// Sets the mouse position to the specified coordinates.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public void SetMousePosition(float x, float y)
+        {
+            this.SetMousePosition(new Vector2(x, y));
+        }
+
+        /// <summary>
+        /// Hides the mouse cursor.
+        /// </summary>
+        public void HideCursor()
+        {
+            _window.CursorState = CursorState.Hidden;
+        }
+
+        /// <summary>
+        /// Shows the mouse cursor.
+        /// </summary>
+        public void ShowCursor()
+        {
+            _window.CursorState = CursorState.Normal;
+        }
+
+        /// <summary>
+        /// Closes the window.
+        /// </summary>
+        public void Close()
+        {
+            _window.Close();
+        }   
     }
 }
