@@ -55,7 +55,7 @@ namespace LibGFX.Core
         }
 
         /// <summary>
-        /// Gets the window context.
+        /// Gets the window _context.
         /// </summary>
         /// <returns></returns>
         public IGLFWGraphicsContext GetContext()

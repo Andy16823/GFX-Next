@@ -76,7 +76,7 @@ namespace LibGFX.UI
         }
 
         /// <summary>
-        /// Renders the canvas and its controls to the specified viewport using the specified render device.
+        /// Renders the canvas and its controls to the specified viewport using the specified render _device.
         /// </summary>
         /// <param name="viewport"></param>
         /// <param name="renderer"></param>
