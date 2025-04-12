@@ -116,5 +116,53 @@ namespace LibGFX.Core
         {
             return new Vector3(MathHelper.DegreesToRadians(input.X), MathHelper.DegreesToRadians(input.Y), MathHelper.DegreesToRadians(input.Z));
         }
+
+        public static float CalculateYaw(Vector3 point1, Vector3 point2)
+        {
+            // Berechne die Differenzen zwischen den Koordinaten
+            double deltaX = point2.X - point1.X;
+            double deltaZ = point2.Z - point1.Z;
+
+            // Verwende Atan2, um den Winkel zu berechnen (in Radian)
+            float radians = (float)System.Math.Atan2(deltaZ, deltaX);
+
+            // Konvertiere den Winkel von Radian nach Grad
+            float angle = (float)(radians * (180 / System.Math.PI));
+
+            return angle;
+        }
+
+        /// <summary>
+        /// Calculates the pitch angle from point1 to point2.
+        /// </summary>
+        /// <param name="point1">The starting point.</param>
+        /// <param name="point2">The target point.</param>
+        /// <returns>The pitch angle in degrees.</returns>
+        public static float CalculatePitch(Vector3 point1, Vector3 point2)
+        {
+            // Berechne die Differenzen zwischen den Koordinaten
+            double deltaY = point2.Y - point1.Y;
+            double horizontalDistance = System.Math.Sqrt((point2.X - point1.X) * (point2.X - point1.X) + (point2.Z - point1.Z) * (point2.Z - point1.Z));
+
+            // Verwende Atan2, um den Pitch-Winkel zu berechnen (in Radian)
+            float radians = (float)System.Math.Atan2(deltaY, horizontalDistance);
+
+            // Konvertiere den Winkel von Radian nach Grad
+            float pitch = (float)(radians * (180 / System.Math.PI));
+
+            return pitch;
+        }
+
+        public static Quaternion LookAt(Vector3 campos, Vector3 targetpos)
+        {
+            // Berechne den Vektor von der Kamera zum Ziel
+            var direction = targetpos - campos;
+
+            // Erzeuge eine Matrix, die die Kamera in die richtige Richtung ausrichtet
+            var matrix = Matrix4.LookAt(campos, campos + direction, -Vector3.UnitY);
+
+            // Extrahiere die Rotation der Matrix und gebe sie als Quaternion zurück
+            return matrix.ExtractRotation();
+        }
     }
 }

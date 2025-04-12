@@ -242,6 +242,44 @@ namespace LibGFX.Math
             return m_mat;
         }
 
+
+        /// <summary>
+        /// Rotates the transform to look at a specific target point.
+        /// </summary>
+        /// <param name="target"></param>
+        public void Towards(Vector3 target)
+        {
+            Vector3 direction = Vector3.Normalize(this.Position - target); // Richtung ZUM Ziel
+            Vector3 up = Vector3.UnitY;
+
+            // Prüfen auf Gimbal Lock
+            if (MathF.Abs(Vector3.Dot(direction, up)) > 0.999f)
+                up = Vector3.UnitZ;
+
+            this.Rotation = LookRotation(direction, up);
+        }
+
+        /// <summary>
+        /// Creates a rotation that looks in the specified forward direction with the specified up direction.
+        /// </summary>
+        /// <param name="forward"></param>
+        /// <param name="up"></param>
+        /// <returns></returns>
+        private static Quaternion LookRotation(Vector3 forward, Vector3 up)
+        {
+            forward = Vector3.Normalize(forward);
+            Vector3 right = Vector3.Normalize(Vector3.Cross(up, forward));
+            Vector3 correctedUp = Vector3.Cross(forward, right);
+
+            Matrix3 rotationMatrix = new Matrix3(
+                right.X, correctedUp.X, forward.X,
+                right.Y, correctedUp.Y, forward.Y,
+                right.Z, correctedUp.Z, forward.Z
+            );
+
+            return Quaternion.FromMatrix(rotationMatrix);
+        }
+
         /// <summary>
         /// Converts degrees to radians.
         /// </summary>
