@@ -129,5 +129,28 @@ namespace LibGFX.Audio
         {
             AL.SourcePause(source.SourceId);
         }
+
+        public void SetAudioSourceRange(AudioSource source, float min, float max)
+        {
+            AL.Source(source.SourceId, ALSourcef.ReferenceDistance, min);
+            AL.Source(source.SourceId, ALSourcef.MaxDistance, max);
+        }
+
+        public Vector3 GetAudioSourcePosition(AudioSource source)
+        {
+            AL.GetSource(source.SourceId, ALSource3f.Position, out float x, out float y, out float z);
+            return new Vector3(x, y, z);
+        }
+
+        public void SetAudioSourceTime(AudioSource source, float time)
+        {
+            AL.Source(source.SourceId, ALSourcef.SecOffset, time);
+        }
+
+        public float GetAudioSourceTime(AudioSource source)
+        {
+            AL.GetSource(source.SourceId, ALSourcef.SecOffset, out float time);
+            return time;
+        }
     }
 }

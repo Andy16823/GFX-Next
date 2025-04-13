@@ -78,6 +78,52 @@ namespace LibGFX.Core
         }
 
         /// <summary>
+        /// Finds all elements with a specific type
+        /// Uses parallel processing to speed up the search
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public virtual ICollection<GameElement> FindElements<T>()
+        {
+            List<GameElement> elements = new List<GameElement>();
+            this.Layers.AsParallel().ForAll(layer =>
+            {
+                foreach (var element in layer.Elements)
+                {
+                    if (element is T)
+                    {
+                        elements.Add(element);
+                    }
+                }
+            });
+            return elements;
+        }
+
+        /// <summary>
+        /// Finds all elements with a specific behavior
+        /// Uses parallel processing to speed up the search
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public virtual ICollection<GameElement> FindElementsWithBehaviors<T>()
+        {
+            List<GameElement> elements = new List<GameElement>();
+
+            this.Layers.AsParallel().ForAll(layer =>
+            {
+                foreach (var element in layer.Elements)
+                {
+                    if (element.Behaviors.Any(b => b is T))
+                    {
+                        elements.Add(element);
+                    }
+                }
+            });
+
+            return elements;
+        }
+
+        /// <summary>
         /// Initializes the scene
         /// </summary>
         /// <param name="viewport"></param>

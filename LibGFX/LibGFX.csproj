@@ -16,6 +16,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Loaders\AudioLoader.cs~RF97f82ac.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FreeTypeSharp" Version="3.0.0" />
     <PackageReference Include="Gfx.BulletSharp" Version="1.0.1" />
     <PackageReference Include="NAudio" Version="2.2.1" />

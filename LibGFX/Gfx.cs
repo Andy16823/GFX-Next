@@ -1,6 +1,11 @@
-﻿using LibGFX.Core;
+﻿using LibGFX.Assets;
+using LibGFX.Assets.Loaders;
+using LibGFX.Audio;
+using LibGFX.Core;
+using LibGFX.Core.GameElements;
 using LibGFX.Graphics;
 using OpenTK.Windowing.Common;
+using System.Diagnostics;
 using System.Reflection.Metadata;
 
 namespace LibGFX
@@ -15,17 +20,27 @@ namespace LibGFX
         /// </summary>
         public ServiceContainer Services { get; } = new();
 
+        /// <summary>
+        /// The asset manager for managing assets.
+        /// </summary>
+        public AssetManager AssetManager { get; set; }
+
         private static readonly object _lock = new object();
         private static GFX _instance;
         private Window? _window;
-        private Dictionary<String, Object> _assets;
 
         /// <summary>
         /// Private constructor to prevent instantiation from outside.
         /// </summary>
         private GFX()
         {
-            _assets = new Dictionary<string, object>();
+            Debug.WriteLine("GFX instance created.");
+            AssetManager = new AssetManager();
+            AssetManager.RegisterLoader<Texture>(new TextureLoader());
+            AssetManager.RegisterLoader<AudioClip>(new AudioLoader());
+            AssetManager.RegisterLoader<Material>(new MaterialLoader());
+            AssetManager.RegisterLoader<Model>(new ModelLoader());
+            AssetManager.RegisterLoader<Cubemap>(new CubemapLoader());
         }
 
         /// <summary>
@@ -73,60 +88,11 @@ namespace LibGFX
         }
 
         /// <summary>
-        /// Adds an asset to the asset manager.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="name"></param>
-        /// <param name="asset"></param>
-        /// <exception cref="ArgumentException"></exception>
-        public void AddAsset<T>(string name, T asset)
-        {
-            if (!_assets.TryAdd(name, asset))
-            {
-                throw new ArgumentException($"An asset with the name '{name}' already exists.");
-            }
-        }
-
-        /// <summary>
-        /// Gets an asset from the asset manager.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        /// <exception cref="KeyNotFoundException"></exception>
-        public T GetAsset<T>(string name)
-        {
-            if (_assets.TryGetValue(name, out var asset))
-            {
-                return (T)asset;
-            }
-            throw new KeyNotFoundException($"Asset with the name '{name}' was not found.");
-        }
-
-        /// <summary>
-        /// Loads a texture from the specified path and adds it to the asset manager.
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        /// <exception cref="FileNotFoundException"></exception>
-        public Texture LoadTexture(String path)
-        {
-            if (File.Exists(path))
-            {
-                var filename = Path.GetFileName(path);
-                var texture = Texture.LoadTexture(path);
-                this.AddAsset<Texture>(filename, texture);
-                return texture;
-            }
-            throw new FileNotFoundException($"File {path} does not exist.");
-        }
-
-        /// <summary>
         /// Disposes the GFX instance and clears all assets.
         /// </summary>
         public void Dispose()
         {
-            _assets.Clear();
+            AssetManager.UnloadAllAssets();
         }
     }
 }
