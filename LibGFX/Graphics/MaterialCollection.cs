@@ -2,17 +2,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LibGFX.Graphics
 {
+    /// <summary>
+    /// Represents a collection of materials.
+    /// </summary>
     public class MaterialCollection : IEnumerable<Material>
     {
+        /// <summary>
+        /// The collection of materials.
+        /// </summary>
         private readonly Dictionary<string, Material> _materials = new();
 
+        /// <summary>
+        /// The number of materials in the collection.
+        /// </summary>
         public int Count => this._materials.Count;
 
+        /// <summary>
+        /// Gets a material by index.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public Material this[int index] => this.GetMaterial(index);
+
+        /// <summary>
+        /// Gets or sets a material by name.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public Material this[string name]
+        {
+            get => this.GetMaterial(name);
+            set => this.Set(name, value);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the MaterialCollection class.
+        /// </summary>
+        /// <param name="material"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
         public void Add(Material material)
         {
             if (material == null)
@@ -23,6 +57,28 @@ namespace LibGFX.Graphics
             if (!this._materials.TryAdd(material.Name, material))
             {
                 throw new ArgumentException($"Material with name {material.Name} already exists.");
+            }
+        }
+
+        /// <summary>
+        /// Sets a material in the collection by name. If the material does not exist, it will be added.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="material"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public void Set(string name, Material material)
+        {
+            if (material == null)
+            {
+                throw new ArgumentNullException(nameof(material));
+            }
+            if (this._materials.ContainsKey(name))
+            {
+                this._materials[name] = material;
+            }
+            else
+            {
+                this.Add(material);
             }
         }
 
@@ -125,6 +181,13 @@ namespace LibGFX.Graphics
             }
         }
 
+        /// <summary>
+        /// Executes an action for a single material by index.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="action"></param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <exception cref="KeyNotFoundException"></exception>
         public void SingleMaterialAction(int index, Action<Material> action)
         {
             if (index < 0 || index >= this._materials.Count)
@@ -142,6 +205,12 @@ namespace LibGFX.Graphics
             }
         }
 
+        /// <summary>
+        /// Executes an action for a single material by name.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="action"></param>
+        /// <exception cref="KeyNotFoundException"></exception>
         public void SingleMaterialAction(String name, Action<Material> action)
         {
             if (this._materials.TryGetValue(name, out var material))
@@ -154,11 +223,19 @@ namespace LibGFX.Graphics
             }
         }
 
+        /// <summary>
+        /// Gets an enumerator that iterates through the collection of materials.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerator<Material> GetEnumerator()
         {
             return _materials.Values.GetEnumerator();
         }
 
+        /// <summary>
+        /// Gets an enumerator that iterates through the collection of materials.
+        /// </summary>
+        /// <returns></returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();

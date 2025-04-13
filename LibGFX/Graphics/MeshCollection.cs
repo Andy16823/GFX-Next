@@ -28,6 +28,24 @@ namespace LibGFX.Graphics
         public int Count => this._meshes.Count;
 
         /// <summary>
+        /// Gets the mesh at the specified index.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public Mesh this[int index] => this.GetMesh(index);
+
+        /// <summary>
+        /// Gets or sets the mesh by name.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public Mesh this[string name]
+        {
+            get => this.GetMesh(name);
+            set => this.Set(name, value);
+        }
+
+        /// <summary>
         /// Adds a mesh to the collection.
         /// </summary>
         /// <param name="mesh"></param>
@@ -43,6 +61,28 @@ namespace LibGFX.Graphics
             if(!this._meshes.TryAdd(mesh.Name, mesh))
             {
                 throw new ArgumentException($"Mesh with name {mesh.Name} already exists.");
+            }
+        }
+
+        /// <summary>
+        /// Sets a mesh in the collection by name. If the mesh does not exist, it will be added.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="mesh"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public void Set(string name, Mesh mesh)
+        {
+            if (mesh == null)
+            {
+                throw new ArgumentNullException(nameof(mesh));
+            }
+            if (this._meshes.ContainsKey(name))
+            {
+                this._meshes[name] = mesh;
+            }
+            else
+            {
+                this.Add(mesh);
             }
         }
 
