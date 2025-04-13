@@ -130,6 +130,19 @@ namespace LibGFX.Assets
         }
 
         /// <summary>
+        /// Executes an action for each asset of a specific type in the asset manager.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="action"></param>
+        public void ForeachAsset<T>(Action<T> action) where T : class
+        {
+            foreach (var asset in _assets.Values.OfType<T>())
+            {
+                action(asset);
+            }
+        }
+
+        /// <summary>
         /// Unloads an asset from the asset manager.
         /// </summary>
         /// <param name="path"></param>

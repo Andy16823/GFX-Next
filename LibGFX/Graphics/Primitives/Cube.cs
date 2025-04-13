@@ -9,10 +9,9 @@ namespace LibGFX.Graphics.Primitives
 {
     public class Cube : IPrimitive
     {
-        public Mesh GetMesh(Material material)
+        public Mesh GetMesh()
         {
             var mesh = new Mesh();
-            mesh.Material = material;
             mesh.Name = "Cube";
 
             mesh.Vertices = new List<Vertex>

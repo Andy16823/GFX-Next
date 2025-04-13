@@ -1039,7 +1039,7 @@ namespace LibGFX.Graphics
         }
 
 
-        public void DrawMesh(Transform transform, Mesh mesh)
+        public void DrawMesh(Transform transform, Mesh mesh, Material material)
         {
             // Create the model matrix
             //var mt_mat = Matrix4.CreateTranslation(position);
@@ -1051,13 +1051,13 @@ namespace LibGFX.Graphics
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), false, ref m_mat);
-            GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), mesh.Material.DiffuseColor);
+            GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), material.DiffuseColor);
 
             // Bind the BaseColor texture
             GL.ActiveTexture(TextureUnit.Texture0);
-            if (mesh.Material.BaseColor != null && mesh.Material.BaseColor.Flags == TextureFlags.Initialized)
+            if (material.BaseColor != null && material.BaseColor.Flags == TextureFlags.Initialized)
             {
-                GL.BindTexture(TextureTarget.Texture2D, mesh.Material.BaseColor.TextureId);
+                GL.BindTexture(TextureTarget.Texture2D, material.BaseColor.TextureId);
             }
             else
             {
@@ -1067,9 +1067,9 @@ namespace LibGFX.Graphics
 
             // Bind the Normal texture
             GL.ActiveTexture(TextureUnit.Texture1);
-            if (mesh.Material.Normal != null  && mesh.Material.Normal.Flags == TextureFlags.Initialized)
+            if (material.Normal != null  && material.Normal.Flags == TextureFlags.Initialized)
             {
-                GL.BindTexture(TextureTarget.Texture2D, mesh.Material.Normal.TextureId);
+                GL.BindTexture(TextureTarget.Texture2D, material.Normal.TextureId);
             }
             else
             {

@@ -35,7 +35,7 @@ namespace LibGFX.Graphics
         public Vector3 LocalTranslation { get; set; }
         public Quaternion LocalRotation { get; set; }
         public Vector3 LocalScale { get; set; }
-        public Material Material { get; set; }
+        //public int Material { get; set; }
         public RenderData RenderData { get; set; }
 
         public Mesh()

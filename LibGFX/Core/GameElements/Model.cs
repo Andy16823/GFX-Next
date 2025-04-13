@@ -18,15 +18,33 @@ using Light = LibGFX.Graphics.Light;
 
 namespace LibGFX.Core.GameElements
 {
+    public struct MeshMaterialPair
+    {
+        public String MeshName;
+        public int MaterialIndex;
+    }
+
+
     /// <summary>
     /// Represents a 3D model
     /// </summary>
     public class Model : GameElement
     {
+
         /// <summary>
         /// The meshes of the model
         /// </summary>
-        public List<Graphics.Mesh> Meshes { get; set; }
+        public MeshCollection Meshes { get; set; }
+
+        /// <summary>
+        /// The materials of the model
+        /// </summary>
+        public MaterialCollection Materials { get; set; }
+
+        /// <summary>
+        /// The pair of meshes and materials
+        /// </summary>
+        public List<MeshMaterialPair> MeshMaterials { get; set; }
 
         /// <summary>
         /// Gets or sets the mapping of bone names to bone information.
@@ -68,6 +86,10 @@ namespace LibGFX.Core.GameElements
         {
             this.Name = name;
             this.BoneInfoMap = new Dictionary<String, BoneInfo>();
+            this.Meshes = new MeshCollection();
+            this.Materials = new MaterialCollection();
+            this.MeshMaterials = new List<MeshMaterialPair>();
+
             this.LoadModel(file);
         }
 
@@ -77,10 +99,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="value"></param>
         public void OverrideMeshScale(Vector3 value)
         {
-            foreach (var mesh in Meshes)
-            {
-                mesh.LocalScale = value;
-            }
+            this.Meshes.ForEach(m => m.LocalScale = value);
         }
 
         /// <summary>
@@ -89,10 +108,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="value"></param>
         public void OverrideMeshScale(float value)
         {
-            foreach (var mesh in Meshes)
-            {
-                mesh.LocalScale = new Vector3(value);
-            }
+            this.Meshes.ForEach(m => m.LocalScale = new Vector3(value));
         }
 
         /// <summary>
@@ -102,10 +118,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="value"></param>
         public void OverrideSingleMeshScale(int index, Vector3 value)
         {
-            if (index < Meshes.Count)
-            {
-                Meshes[index].LocalScale = value;
-            }
+            this.Meshes.SingleMeshAction(index, m => m.LocalScale = value);
         }
 
         /// <summary>
@@ -115,11 +128,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="value"></param>
         public void OverrideSingleMeshScale(String name, Vector3 value)
         {
-            var mesh = Meshes.FirstOrDefault(m => m.Name == name);
-            if (mesh != null)
-            {
-                mesh.LocalScale = value;
-            }
+            this.Meshes.SingleMeshAction(name, m => m.LocalScale = value);
         }
 
         /// <summary>
@@ -137,8 +146,8 @@ namespace LibGFX.Core.GameElements
             var assimpScene = importer.ImportFile(file, Assimp.PostProcessSteps.Triangulate | Assimp.PostProcessSteps.CalculateTangentSpace | Assimp.PostProcessSteps.JoinIdenticalVertices);
 
             // Extract materials and meshes
-            var materials = ExtractMaterials(assimpScene, directory);
-            ExtractMeshes(assimpScene, materials);
+            ExtractMaterials(assimpScene, directory);
+            ExtractMeshes(assimpScene);
 
             // Extract animations
             this.HasAnimations = assimpScene.HasAnimations;
@@ -175,7 +184,7 @@ namespace LibGFX.Core.GameElements
 
             foreach (var meshIndex in node.MeshIndices)
             {
-                var mesh = this.Meshes[meshIndex];
+                var mesh = this.Meshes.GetMesh(meshIndex);
                 currentTransform.Decompose(out Assimp.Vector3D scale, out Assimp.Quaternion rotation, out Assimp.Vector3D translation);
                 mesh.LocalTranslation = new Vector3(translation.X, translation.Y, translation.Z);
                 mesh.LocalRotation = new OpenTK.Mathematics.Quaternion(rotation.X, rotation.Y, rotation.Z, rotation.W);
@@ -210,7 +219,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="assimpScene"></param>
         /// <param name="directory"></param>
         /// <returns></returns>
-        private List<Graphics.Material> ExtractMaterials(Scene assimpScene, String directory)
+        private void ExtractMaterials(Scene assimpScene, String directory)
         {
             var materials = new List<Graphics.Material>();
 
@@ -234,7 +243,8 @@ namespace LibGFX.Core.GameElements
 
                 materials.Add(material);
             }
-            return materials;
+
+            this.Materials.AddRange(materials);
         }
 
         /// <summary>
@@ -242,15 +252,14 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         /// <param name="assimpScene"></param>
         /// <param name="materials"></param>
-        private void ExtractMeshes(Scene assimpScene, List<Graphics.Material> materials)
+        private void ExtractMeshes(Scene assimpScene)
         {
-            this.Meshes = new List<Graphics.Mesh>();
+            var meshes = new List<Graphics.Mesh>();
 
             foreach (var asmesh in assimpScene.Meshes)
             {
                 var mesh = new Graphics.Mesh();
                 mesh.Name = asmesh.Name;
-                mesh.Material = materials[asmesh.MaterialIndex];
 
                 for (int i = 0; i < asmesh.VertexCount; i++)
                 {
@@ -267,8 +276,15 @@ namespace LibGFX.Core.GameElements
 
                 mesh.Indices.AddRange(asmesh.GetIndices());
                 ExtractBoneWeightForVertices(asmesh, assimpScene, mesh);
-                this.Meshes.Add(mesh);
+                meshes.Add(mesh);
+
+                var meshMaterialPair = new MeshMaterialPair();
+                meshMaterialPair.MeshName = asmesh.Name;
+                meshMaterialPair.MaterialIndex = asmesh.MaterialIndex;
+                this.MeshMaterials.Add(meshMaterialPair);
             }
+
+            this.Meshes.AddRange(meshes);
         }
 
         /// <summary>
@@ -340,11 +356,17 @@ namespace LibGFX.Core.GameElements
         public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             base.Init(scene, viewport, renderer);
-            foreach (var mesh in Meshes)
+
+            this.Materials.ForEach(material =>
+            {
+                renderer.LoadMaterial(material);
+            });
+
+            this.Meshes.ForEach(mesh =>
             {
                 renderer.LoadMesh(mesh);
-                renderer.LoadMaterial(mesh.Material);
-            }
+                
+            });
             Debug.WriteLine($"Initialized Model {Name} with error {renderer.GetError()}");
         }
 
@@ -393,10 +415,12 @@ namespace LibGFX.Core.GameElements
             //}
 
             // Draw the meshes
-            foreach (var mesh in Meshes)
+            this.MeshMaterials.ForEach(pair =>
             {
-                renderer.DrawMesh(Transform, mesh);
-            }
+                var mesh = this.Meshes.GetMesh(pair.MeshName);
+                var material = this.Materials.GetMaterial(pair.MaterialIndex);
+                renderer.DrawMesh(Transform, mesh, material);
+            });
 
             // Unbind the shader program
             renderer.UnbindShaderProgram();
@@ -416,11 +440,12 @@ namespace LibGFX.Core.GameElements
                 renderer.PrepareShader("viewPos", camera.Transform.Position);
             }
 
-            // Draw the meshes
-            foreach (var mesh in Meshes)
+            this.MeshMaterials.ForEach(pair =>
             {
-                renderer.DrawMesh(Transform, mesh);
-            }
+                var mesh = this.Meshes.GetMesh(pair.MeshName);
+                var material = this.Materials.GetMaterial(pair.MaterialIndex);
+                renderer.DrawMesh(Transform, mesh, material);
+            });
 
             // Unbind the shader program
             renderer.UnbindShaderProgram();
@@ -436,11 +461,17 @@ namespace LibGFX.Core.GameElements
         {
             base.Dispose(scene, renderer);
             Debug.WriteLine($"Disposing Model {Name}");   
-            foreach (var mesh in Meshes)
+
+            this.Materials.ForEach(material =>
+            {
+                renderer.DisposeMaterial(material);
+            });
+
+            this.Meshes.ForEach(mesh =>
             {
                 renderer.DisposeMesh(mesh);
-                renderer.DisposeMaterial(mesh.Material);
-            }
+            });
+
             Debug.WriteLine($"Disposed Model {Name}");
         }
 

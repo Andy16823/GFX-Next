@@ -43,16 +43,16 @@ namespace LibGFX.Pyhsics.Behaviors3D
 
             var compoundShape = new CompoundShape();
 
-            foreach (var mesh in model.Meshes)
+            model.Meshes.ForEach(mesh =>
             {
                 var indices = mesh.Indices.ToArray();
                 var vertices = mesh.Vertices.SelectMany(v => new float[] { v.Position.X, v.Position.Y, v.Position.Z }).ToArray();
                 var triangleShape = new BvhTriangleMeshShape(new TriangleIndexVertexArray(indices, vertices), true);
 
-                var meshTransform = Utils.GetBtTransform((System.Numerics.Vector3) mesh.LocalTranslation, (System.Numerics.Quaternion) mesh.LocalRotation);
+                var meshTransform = Utils.GetBtTransform((System.Numerics.Vector3)mesh.LocalTranslation, (System.Numerics.Quaternion)mesh.LocalRotation);
                 compoundShape.LocalScaling = (System.Numerics.Vector3)mesh.LocalScale;
                 compoundShape.AddChildShape(meshTransform, triangleShape);
-            }
+            });
 
             var btStartTransform = Utils.GetBtTransform(model, this.Offset);
             compoundShape.CalculateLocalInertia(mass);

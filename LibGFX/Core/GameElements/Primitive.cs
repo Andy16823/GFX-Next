@@ -12,18 +12,18 @@ namespace LibGFX.Core.GameElements
     public class Primitive : GameElement
     {
         public Mesh Mesh { get; set; }
+        public Material Material { get; set; }
 
         public Primitive(String name, Material material, IPrimitive primitive) 
         {
             this.Name = name;
-            this.Mesh = primitive.GetMesh(material);
-
+            this.Mesh = primitive.GetMesh();
+            this.Material = material;
         }
 
         public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             base.Init(scene, viewport, renderer);
-            renderer.LoadMaterial(this.Mesh.Material);
             renderer.LoadMesh(this.Mesh);
         }
 
@@ -39,14 +39,13 @@ namespace LibGFX.Core.GameElements
                 renderer.PrepareShader("lightIntensity", light.Intensity);
                 renderer.PrepareShader("viewPos", camera.Transform.Position);
             }
-            renderer.DrawMesh(this.Transform, Mesh);
+            renderer.DrawMesh(this.Transform, Mesh, Material);
             renderer.UnbindShaderProgram();
         }
 
         public override void Dispose(BaseScene scene, IRenderDevice renderer)
         {
             base.Dispose(scene, renderer);
-            renderer.DisposeMaterial(this.Mesh.Material);
             renderer.DisposeMesh(this.Mesh);
         }
     }

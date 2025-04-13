@@ -10,10 +10,9 @@ namespace LibGFX.Graphics.Primitives
 {
     public class Quad : IPrimitive
     {
-        public Mesh GetMesh(Material material)
+        public Mesh GetMesh()
         {
             var mesh = new Mesh();
-            mesh.Material = material;
             mesh.Name = "Quad";
 
             mesh.Vertices = new List<Vertex>

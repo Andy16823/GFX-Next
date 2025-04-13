@@ -8,6 +8,6 @@ namespace LibGFX.Graphics.Primitives
 {
     public interface IPrimitive
     {
-        Mesh GetMesh(Material material);    
+        Mesh GetMesh();    
     }
 }
