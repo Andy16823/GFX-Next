@@ -2,11 +2,11 @@
 using LibGFX.Core.GameElements;
 using LibGFX.Graphics;
 using LibGFX.Pyhsics;
+using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -67,14 +67,14 @@ namespace LibGFX.Audio
         /// <summary>
         /// The range of the audio source
         /// </summary>
-        public Vector2 Range { get => _range; set => SetRange(value); }
+        public Vector3 Range { get => _range; set => SetRange(value); }
 
         private GameElement _gameElement;
         private IAudioDevice _audioDevice;
         private AudioClip _audioClip;
         private PlayMode _playMode = PlayMode.Once;
         private float _gain = 1.0f;
-        private Vector2 _range = new Vector2(1.0f, float.PositiveInfinity);
+        private Vector3 _range = new Vector3(1.0f, float.PositiveInfinity, 1.0f);
 
         /// <summary>
         /// Creates a new audio source
@@ -128,12 +128,12 @@ namespace LibGFX.Audio
         /// Sets the range of the audio source
         /// </summary>
         /// <param name="value"></param>
-        public void SetRange(Vector2 value)
+        public void SetRange(Vector3 value)
         {
             _range = value;
             if (this.State != AudioSourceState.None || this.State != AudioSourceState.Disposed)
             {
-                _audioDevice.SetAudioSourceRange(this, value.X, value.Y);
+                _audioDevice.SetAudioSourceRange(this, value.X, value.Y, value.Z);
             }
         }
 
@@ -239,7 +239,7 @@ namespace LibGFX.Audio
             _audioDevice.LoadAudioSource(this);
             _audioDevice.SetAudioSourcePosition(this, _gameElement.Transform.Position);
             _audioDevice.SetAudioSourceGain(this, _gain);
-            _audioDevice.SetAudioSourceRange(this, _range.X, _range.Y);
+            _audioDevice.SetAudioSourceRange(this, _range.X, _range.Y, _range.Z);
 
             // Sets the audio clip for the audio source if it is not null
             if (_audioClip != null)

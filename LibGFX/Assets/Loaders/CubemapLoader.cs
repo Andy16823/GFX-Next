@@ -14,6 +14,13 @@ namespace LibGFX.Assets.Loaders
     {
         public bool ShouldCache => true;
 
+        public bool CanCreate => false;
+
+        public T Create<T>(string id, Action<T>? initializer = null, object? creationArgs = null) where T : class
+        {
+            throw new NotImplementedException();
+        }
+
         public T Load<T>(string path) where T : class
         {
             if (typeof(T) == typeof(Cubemap))

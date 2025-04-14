@@ -33,6 +33,23 @@ namespace LibGFX.Assets
         }
 
         /// <summary>
+        /// Tries to load an asset from the specified path.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="path"></param>
+        /// <param name="asset"></param>
+        /// <returns></returns>
+        public bool TryLoad<T>(string path, out T? asset) where T : class
+        {
+            asset = this.Load<T>(path);
+            if(asset == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
         /// Loads a new asset from the specified path, bypassing the cache.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -117,6 +134,80 @@ namespace LibGFX.Assets
             }
 
             return (T)asset;
+        }
+
+        /// <summary>
+        /// Creates a new asset of the specified type with the given ID and optional initializer.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="id"></param>
+        /// <param name="initializer"></param>
+        /// <param name="creationArgs"></param>
+        /// <returns></returns>
+        /// <exception cref="NotSupportedException"></exception>
+        /// <exception cref="InvalidOperationException"></exception>
+        public T Create<T>(string id, Action<T>? initializer = null, object? creationArgs = null) where T : class
+        {
+            if (!_loaders.TryGetValue(typeof(T), out var loader))
+            {
+                throw new NotSupportedException($"No loader found for asset type '{typeof(T)}'.");
+            }
+            if (!loader.CanCreate)
+            {
+                throw new InvalidOperationException($"Loader for asset type '{typeof(T)}' does not support creation.");
+            }
+            var asset = loader.Create<T>(id, initializer, creationArgs);
+            if(loader.ShouldCache)
+            {
+                _assets.Add(id, asset);
+            }
+
+            return (T)asset;
+        }
+
+        /// <summary>
+        /// Tries to create a new asset of the specified type with the given ID and optional initializer.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="id"></param>
+        /// <param name="asset"></param>
+        /// <param name="initializer"></param>
+        /// <param name="creationArgs"></param>
+        /// <returns></returns>
+        public bool TryCreate<T>(string id, out T? asset, Action<T>? initializer = null, object? creationArgs = null) where T : class
+        {
+            // Check if an loader is registered for the asset type
+            if (!_loaders.TryGetValue(typeof(T), out var loader))
+            {
+                asset = null;
+                return false;
+            }
+            // Check if the loader can create assets
+            if (!loader.CanCreate)
+            {
+                asset = null;
+                return false;
+            }
+            // Check if an asset with the same ID already exists
+            if (loader.ShouldCache && _assets.ContainsKey(id))
+            {
+                asset = null;
+                return false;
+            }
+            // Create the asset
+            asset = loader.Create<T>(id, initializer, creationArgs);
+            // Check if the asset was created successfully
+            if (asset == null)
+            {
+                return false;
+            }
+            // Cache the asset if the loader supports caching
+            if (loader.ShouldCache)
+            {
+                _assets.Add(id, asset);
+            }
+            // Return true to indicate success
+            return true;
         }
 
         /// <summary>

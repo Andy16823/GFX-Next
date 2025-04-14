@@ -25,6 +25,12 @@ namespace LibGFX.Audio
         public void MakeCurrent()
         {
             ALC.MakeContextCurrent(_context);
+            AL.DistanceModel(ALDistanceModel.LinearDistanceClamped);
+        }
+
+        public void SetDistanceModel()
+        {
+
         }
 
         public void LoadAudioClip(AudioClip clip)
@@ -130,10 +136,11 @@ namespace LibGFX.Audio
             AL.SourcePause(source.SourceId);
         }
 
-        public void SetAudioSourceRange(AudioSource source, float min, float max)
+        public void SetAudioSourceRange(AudioSource source, float min, float max, float rollof)
         {
             AL.Source(source.SourceId, ALSourcef.ReferenceDistance, min);
             AL.Source(source.SourceId, ALSourcef.MaxDistance, max);
+            AL.Source(source.SourceId, ALSourcef.RolloffFactor, rollof);
         }
 
         public Vector3 GetAudioSourcePosition(AudioSource source)
@@ -151,6 +158,12 @@ namespace LibGFX.Audio
         {
             AL.GetSource(source.SourceId, ALSourcef.SecOffset, out float time);
             return time;
+        }
+
+        public Vector3 GetAudioListenerPosition()
+        {
+            AL.GetListener(ALListener3f.Position, out float x, out float y, out float z);
+            return new Vector3(x, y, z);
         }
     }
 }

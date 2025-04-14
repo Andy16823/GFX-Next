@@ -1,4 +1,5 @@
-﻿using OpenTK.Mathematics;
+﻿using NAudio.Wave;
+using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,11 @@ namespace LibGFX.Audio
         /// Makes the audio device current
         /// </summary>
         void MakeCurrent();
+
+        /// <summary>
+        /// Sets the distance model for the audio device
+        /// </summary>
+        void SetDistanceModel();
 
         /// <summary>
         /// Loads an audio clip into memory
@@ -55,6 +61,12 @@ namespace LibGFX.Audio
         /// </summary>
         /// <param name="position"></param>
         void SetAudioListenerPosition(Vector3 position);
+
+        /// <summary>
+        /// Gets the position of the audio listener
+        /// </summary>
+        /// <returns></returns>
+        Vector3 GetAudioListenerPosition();
 
         /// <summary>
         /// Sets the orientation of the audio listener
@@ -110,7 +122,7 @@ namespace LibGFX.Audio
         /// <param name="source"></param>
         /// <param name="min"></param>
         /// <param name="max"></param>
-        void SetAudioSourceRange(AudioSource source, float min, float max);
+        void SetAudioSourceRange(AudioSource source, float min, float max, float rollof);
 
         /// <summary>
         /// Sets the looping state of the audio source

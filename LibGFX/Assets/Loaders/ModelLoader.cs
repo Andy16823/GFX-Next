@@ -12,8 +12,37 @@ namespace LibGFX.Assets.Loaders
     /// </summary>
     public class ModelLoader : IAssetLoader
     {
+        /// <summary>
+        /// Indicates whether the asset should be cached.
+        /// </summary>
         public bool ShouldCache => false;
 
+        /// <summary>
+        /// Indicates whether the asset loader can create new assets.
+        /// </summary>
+        public bool CanCreate => false;
+
+        /// <summary>
+        /// Creates a new model asset with the specified ID and optional initializer.
+        /// Note: This functionality is not supported in this loader.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="id"></param>
+        /// <param name="initializer"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public T Create<T>(string id, Action<T>? initializer = null, object? creationArgs = null) where T : class
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Loads a model asset from the specified path.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        /// <exception cref="NotSupportedException"></exception>
         public T Load<T>(string path) where T : class
         {
             if (typeof(T) == typeof(Model))
