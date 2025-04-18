@@ -1192,7 +1192,7 @@ namespace LibGFX.Graphics
             GL.BindBuffer(BufferTarget.ArrayBuffer, container.TransformInstanceBuffer);
             GL.BufferData<Matrix4>(BufferTarget.ArrayBuffer, transformSize, buffers.Item1, BufferUsageHint.DynamicDraw);
 
-            int extraSize = (sizeof(float) * 4) * buffers.Item2.Length;
+            int extraSize = sizeof(float) * buffers.Item2.Length;
             GL.BindBuffer(BufferTarget.ArrayBuffer, container.ExtraInstanceBuffer);
             GL.BufferData(BufferTarget.ArrayBuffer, extraSize, buffers.Item2, BufferUsageHint.DynamicDraw);
 
@@ -1214,7 +1214,7 @@ namespace LibGFX.Graphics
             GL.BindBuffer(BufferTarget.ArrayBuffer, container.TransformInstanceBuffer);
             GL.BufferData<Matrix4>(BufferTarget.ArrayBuffer, transformSize, buffers.Item1, BufferUsageHint.DynamicDraw);
 
-            int extraSize = (sizeof(float) * 4) * buffers.Item2.Length;
+            int extraSize = sizeof(float) * buffers.Item2.Length;
             GL.BindBuffer(BufferTarget.ArrayBuffer, container.ExtraInstanceBuffer);
             GL.BufferData(BufferTarget.ArrayBuffer, extraSize, buffers.Item2, BufferUsageHint.DynamicDraw);
 

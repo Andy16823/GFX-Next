@@ -49,6 +49,7 @@ namespace LibGFX.Graphics.Shader
                 in vec3 normal;
                 in vec2 texCoord;
                 in vec4 tangent;
+                in vec4 extras;
 
                 out vec4 fragColor;
                 uniform sampler2D textureSampler;
@@ -60,6 +61,10 @@ namespace LibGFX.Graphics.Shader
                 uniform vec4 vertexColor;
 
                 void main() {
+
+                    if(extras.x == 0.0) {
+                        discard;
+                    }
 
                     // Sample the base color texture
                     vec3 color = texture(textureSampler, texCoord).rgb;

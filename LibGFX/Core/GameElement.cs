@@ -23,17 +23,17 @@ namespace LibGFX.Core
         /// <summary>
         /// The transform of the game element
         /// </summary>
-        public Transform Transform { get; set; } = new Transform();
+        public virtual Transform Transform { get; set; } = new Transform();
 
         /// <summary>
         /// Determines if the game element is visible
         /// </summary>
-        public bool Visible { get; set; } = true;
+        public virtual bool Visible { get; set; } = true;
 
         /// <summary>
         /// Determines if the game element is enabled
         /// </summary>
-        public bool Enabled { get; set; } = true;
+        public virtual bool Enabled { get; set; } = true;
 
         /// <summary>
         /// The behaviors of the game element
