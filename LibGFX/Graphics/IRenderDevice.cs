@@ -75,6 +75,13 @@ namespace LibGFX.Graphics
         void LoadMesh(Mesh mesh);
         void DrawMesh(Transform transform, Mesh mesh, Material material);
         void DisposeMesh(Mesh mesh);
+        void LoadInstanceContainer(RenderInstanceContainer container);
+        void BindMeshForInstance(RenderInstanceContainer container, Mesh mesh);
+        void LoadInstances(RenderInstanceContainer container);
+        int AddRenderInstance(RenderInstanceContainer container, Transform transform);
+        void UpdateInstance(RenderInstanceContainer container, int instanceIndex);
+        void DrawInstances(RenderInstanceContainer container, Material material);
+        void DisposeInstanceContainer(RenderInstanceContainer container);
         void AddLightSource(string name, Light light);
         void RemoveLightSource(string name);
         IEnumerable<Light> GetAllLightSources();

@@ -52,6 +52,7 @@ namespace LibGFX.Graphics
             this.AddShaderProgram("AnimatedMeshShader", new AnimatedMeshShader());
             this.AddShaderProgram("LineShader", new LineShader());
             this.AddShaderProgram("EnviromentShader", new EnviromentShader());
+            this.AddShaderProgram("InstancedShader3D", new InstancedShader3D());
             foreach (ShaderProgram program in _programs.Values)
             {
                 this.BuildShaderProgram(program);
@@ -1096,6 +1097,211 @@ namespace LibGFX.Graphics
             GL.DeleteBuffer(mesh.RenderData.TangentBuffer);
             GL.DeleteBuffer(mesh.RenderData.IndexBuffer);
             Debug.WriteLine($"Mesh {mesh.Name} disposed");
+        }
+
+        public void LoadInstanceContainer(RenderInstanceContainer container)
+        {
+            Debug.WriteLine($"Loading instance container");
+
+            var vecSize = sizeof(float) * 4;
+            var vao = GL.GenVertexArray();
+            GL.BindVertexArray(vao);
+
+            var mbo = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, mbo);
+
+            GL.EnableVertexAttribArray(4);
+            GL.VertexAttribPointer(4, 4, VertexAttribPointerType.Float, false, 4 * vecSize, 0);
+            GL.VertexAttribDivisor(4, 1);
+
+            GL.EnableVertexAttribArray(5);
+            GL.VertexAttribPointer(5, 4, VertexAttribPointerType.Float, false, 4 * vecSize, (IntPtr)vecSize);
+            GL.VertexAttribDivisor(5, 1);
+
+            GL.EnableVertexAttribArray(6);
+            GL.VertexAttribPointer(6, 4, VertexAttribPointerType.Float, false, 4 * vecSize, (IntPtr)(2 * vecSize));
+            GL.VertexAttribDivisor(6, 1);
+
+            GL.EnableVertexAttribArray(7);
+            GL.VertexAttribPointer(7, 4, VertexAttribPointerType.Float, false, 4 * vecSize, (IntPtr)(3 * vecSize));
+            GL.VertexAttribDivisor(7, 1);
+
+            var ebo = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, ebo);
+            GL.EnableVertexAttribArray(8);
+            GL.VertexAttribPointer(8, 4, VertexAttribPointerType.Float, false, 0, 0);
+            GL.VertexAttribDivisor(8, 1);
+
+            GL.BindVertexArray(0);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+
+            container.InstanceVAO = vao;
+            container.TransformInstanceBuffer = mbo;
+            container.ExtraInstanceBuffer = ebo;
+            container.State = InstanceContainerState.Initialized;
+
+            Debug.WriteLine($"Instance container loaded");
+        }
+
+        public void BindMeshForInstance(RenderInstanceContainer container, Mesh mesh)
+        {
+            if(container.State == InstanceContainerState.None || container.State == InstanceContainerState.Disposed)
+            {
+                throw new Exception("Invalid instance container or mesh render data.");
+            }
+
+            var vertexSize = Marshal.SizeOf<Vertex>();
+
+            GL.BindVertexArray(container.InstanceVAO);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, mesh.RenderData.VertexBuffer);
+
+            GL.EnableVertexAttribArray(0);
+            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, vertexSize, IntPtr.Zero);
+
+            // Texture Coordinates (2 floats)
+            GL.EnableVertexAttribArray(1);
+            GL.VertexAttribPointer(1, 2, VertexAttribPointerType.Float, false, vertexSize, Marshal.OffsetOf<Vertex>("TexCoord"));
+
+            // Normals (3 floats)
+            GL.EnableVertexAttribArray(2);
+            GL.VertexAttribPointer(2, 3, VertexAttribPointerType.Float, false, vertexSize, Marshal.OffsetOf<Vertex>("Normal"));
+
+            // Tangents (3 floats)
+            GL.EnableVertexAttribArray(3);
+            GL.VertexAttribPointer(3, 4, VertexAttribPointerType.Float, false, vertexSize, Marshal.OffsetOf<Vertex>("Tangent"));
+
+            GL.BindBuffer(BufferTarget.ElementArrayBuffer, mesh.RenderData.IndexBuffer);
+
+            GL.BindVertexArray(0);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+
+            container.State = InstanceContainerState.Bound;
+            container.Mesh = mesh;
+        }
+
+        public void LoadInstances(RenderInstanceContainer container)
+        {
+            if (container.State == InstanceContainerState.None || container.State == InstanceContainerState.Disposed)
+            {
+                throw new Exception("Invalid instance container.");
+            }
+
+            var buffers = container.GetInstancesBuffers();
+
+            int transformSize = Marshal.SizeOf<Matrix4>() * buffers.Item1.Length;
+            GL.BindBuffer(BufferTarget.ArrayBuffer, container.TransformInstanceBuffer);
+            GL.BufferData<Matrix4>(BufferTarget.ArrayBuffer, transformSize, buffers.Item1, BufferUsageHint.DynamicDraw);
+
+            int extraSize = (sizeof(float) * 4) * buffers.Item2.Length;
+            GL.BindBuffer(BufferTarget.ArrayBuffer, container.ExtraInstanceBuffer);
+            GL.BufferData(BufferTarget.ArrayBuffer, extraSize, buffers.Item2, BufferUsageHint.DynamicDraw);
+
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+        }
+
+        public int AddRenderInstance(RenderInstanceContainer container, Transform transform)
+        {
+            var newInstanceId = container.Instances.Count;
+
+            var newInstance = new RenderInstance();
+            newInstance.Transform = transform;
+            newInstance.Visible = true;
+            container.Instances.Add(newInstance);
+
+            var buffers = container.GetInstancesBuffers();
+
+            int transformSize = Marshal.SizeOf<Matrix4>() * buffers.Item1.Length;
+            GL.BindBuffer(BufferTarget.ArrayBuffer, container.TransformInstanceBuffer);
+            GL.BufferData<Matrix4>(BufferTarget.ArrayBuffer, transformSize, buffers.Item1, BufferUsageHint.DynamicDraw);
+
+            int extraSize = (sizeof(float) * 4) * buffers.Item2.Length;
+            GL.BindBuffer(BufferTarget.ArrayBuffer, container.ExtraInstanceBuffer);
+            GL.BufferData(BufferTarget.ArrayBuffer, extraSize, buffers.Item2, BufferUsageHint.DynamicDraw);
+
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+
+            return newInstanceId;
+        }
+
+        public void UpdateInstance(RenderInstanceContainer container, int instanceIndex)
+        {
+            if (container.State == InstanceContainerState.None || container.State == InstanceContainerState.Disposed)
+            {
+                throw new Exception("Invalid instance container.");
+            }
+
+            if (instanceIndex < 0 || instanceIndex >= container.Instances.Count)
+            {
+                throw new ArgumentOutOfRangeException(nameof(instanceIndex), "Instance index is out of range.");
+            }
+
+            // Update the instance transform
+            var transform = container.Instances[instanceIndex].Transform.GetMatrix();
+            int matrixSize = Marshal.SizeOf<Matrix4>();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, container.TransformInstanceBuffer);
+            GL.BufferSubData(BufferTarget.ArrayBuffer, (IntPtr)(instanceIndex * matrixSize), matrixSize, ref transform);
+
+            // Update the instance extras
+            var extras = container.Instances[instanceIndex].GetExtras();
+            int vec4Size = Marshal.SizeOf<Vector4>();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, container.ExtraInstanceBuffer);
+            GL.BufferSubData<Vector4>(BufferTarget.ArrayBuffer, (IntPtr)(instanceIndex * vec4Size), vec4Size, ref extras);
+
+            // Unbind the buffer
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+        }
+
+        public void DrawInstances(RenderInstanceContainer container, Material material)
+        {
+            var meshMatrix = container.Mesh.GetTransform();
+
+            // Bind the shader uniforms
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "mesh_matrix"), false, ref meshMatrix);
+            GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), material.DiffuseColor);
+
+            // Bind the BaseColor texture
+            GL.ActiveTexture(TextureUnit.Texture0);
+            if (material.BaseColor != null && material.BaseColor.Flags == TextureFlags.Initialized)
+            {
+                GL.BindTexture(TextureTarget.Texture2D, material.BaseColor.TextureId);
+            }
+            else
+            {
+                GL.BindTexture(TextureTarget.Texture2D, 0);
+            }
+            GL.Uniform1(GetUniformLocation(_currentProgram, "textureSampler"), 0);
+
+            // Bind the Normal texture
+            GL.ActiveTexture(TextureUnit.Texture1);
+            if (material.Normal != null && material.Normal.Flags == TextureFlags.Initialized)
+            {
+                GL.BindTexture(TextureTarget.Texture2D, material.Normal.TextureId);
+            }
+            else
+            {
+                GL.BindTexture(TextureTarget.Texture2D, 0);
+            }
+            GL.Uniform1(GetUniformLocation(_currentProgram, "normalSampler"), 1);
+
+            // Reset the active texture unit
+            GL.ActiveTexture(TextureUnit.Texture0);
+
+            // Draw the mesh    
+            GL.BindVertexArray(container.InstanceVAO);
+            GL.DrawElementsInstanced(PrimitiveType.Triangles, container.Mesh.Indices.Count, DrawElementsType.UnsignedInt, IntPtr.Zero, container.Instances.Count);
+            GL.BindVertexArray(0);
+        }
+
+        public void DisposeInstanceContainer(RenderInstanceContainer container)
+        {
+            Debug.WriteLine($"Disposing Instance Container");
+            GL.DeleteVertexArray(container.InstanceVAO);
+            GL.DeleteBuffer(container.TransformInstanceBuffer);
+            GL.DeleteBuffer(container.ExtraInstanceBuffer);
+            container.State = InstanceContainerState.Disposed;
+            Debug.WriteLine($"Disposed Instance Container");
         }
 
         public void AddLightSource(string name, Light light)
