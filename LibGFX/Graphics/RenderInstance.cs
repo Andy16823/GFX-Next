@@ -25,6 +25,13 @@ namespace LibGFX.Graphics
         public bool Visible { get; set; }
 
         /// <summary>
+        /// The UV transform of the instance.
+        /// X, Y reprensents the scale of the UV coordinates.
+        /// Z, W represents the offset of the UV coordinates.
+        /// </summary>
+        public Vector4 UVTransofrom { get; set; } = new Vector4(1, 1, 0, 0);
+
+        /// <summary>
         /// Gets the model matrix of the instance.
         /// </summary>
         /// <returns></returns>

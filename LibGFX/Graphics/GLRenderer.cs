@@ -1132,12 +1132,19 @@ namespace LibGFX.Graphics
             GL.VertexAttribPointer(8, 4, VertexAttribPointerType.Float, false, 0, 0);
             GL.VertexAttribDivisor(8, 1);
 
+            var uvtbo = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, uvtbo);
+            GL.EnableVertexAttribArray(9);
+            GL.VertexAttribPointer(9, 4, VertexAttribPointerType.Float, false, 0, 0);
+            GL.VertexAttribDivisor(9, 1);
+
             GL.BindVertexArray(0);
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
 
             container.InstanceVAO = vao;
             container.TransformInstanceBuffer = mbo;
             container.ExtraInstanceBuffer = ebo;
+            container.UVInstanceBuffer = uvtbo;
             container.State = InstanceContainerState.Initialized;
 
             Debug.WriteLine($"Instance container loaded");
@@ -1179,6 +1186,31 @@ namespace LibGFX.Graphics
             container.Mesh = mesh;
         }
 
+
+        private void SetInstanceBuffers(RenderInstanceContainer container) {
+
+            // Get the instance buffers
+            var buffers = container.GetInstancesBuffers();
+
+            // Set the transform instance buffer
+            int transformSize = Marshal.SizeOf<Matrix4>() * buffers.Item1.Length;
+            GL.BindBuffer(BufferTarget.ArrayBuffer, container.TransformInstanceBuffer);
+            GL.BufferData<Matrix4>(BufferTarget.ArrayBuffer, transformSize, buffers.Item1, BufferUsageHint.DynamicDraw);
+
+            // Set the extra instance buffer
+            int extraSize = sizeof(float) * buffers.Item2.Length;
+            GL.BindBuffer(BufferTarget.ArrayBuffer, container.ExtraInstanceBuffer);
+            GL.BufferData(BufferTarget.ArrayBuffer, extraSize, buffers.Item2, BufferUsageHint.DynamicDraw);
+
+            // Set the uv instance buffer
+            int uvSize = Marshal.SizeOf<Vector4>() * buffers.Item3.Length;
+            GL.BindBuffer(BufferTarget.ArrayBuffer, container.UVInstanceBuffer);
+            GL.BufferData<Vector4>(BufferTarget.ArrayBuffer, uvSize, buffers.Item3, BufferUsageHint.DynamicDraw);
+
+            // Unbind the buffers
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+        }
+
         public void LoadInstances(RenderInstanceContainer container)
         {
             if (container.State == InstanceContainerState.None || container.State == InstanceContainerState.Disposed)
@@ -1186,17 +1218,7 @@ namespace LibGFX.Graphics
                 throw new Exception("Invalid instance container.");
             }
 
-            var buffers = container.GetInstancesBuffers();
-
-            int transformSize = Marshal.SizeOf<Matrix4>() * buffers.Item1.Length;
-            GL.BindBuffer(BufferTarget.ArrayBuffer, container.TransformInstanceBuffer);
-            GL.BufferData<Matrix4>(BufferTarget.ArrayBuffer, transformSize, buffers.Item1, BufferUsageHint.DynamicDraw);
-
-            int extraSize = sizeof(float) * buffers.Item2.Length;
-            GL.BindBuffer(BufferTarget.ArrayBuffer, container.ExtraInstanceBuffer);
-            GL.BufferData(BufferTarget.ArrayBuffer, extraSize, buffers.Item2, BufferUsageHint.DynamicDraw);
-
-            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+            this.SetInstanceBuffers(container);
         }
 
         public int AddRenderInstance(RenderInstanceContainer container, Transform transform)
@@ -1208,17 +1230,7 @@ namespace LibGFX.Graphics
             newInstance.Visible = true;
             container.Instances.Add(newInstance);
 
-            var buffers = container.GetInstancesBuffers();
-
-            int transformSize = Marshal.SizeOf<Matrix4>() * buffers.Item1.Length;
-            GL.BindBuffer(BufferTarget.ArrayBuffer, container.TransformInstanceBuffer);
-            GL.BufferData<Matrix4>(BufferTarget.ArrayBuffer, transformSize, buffers.Item1, BufferUsageHint.DynamicDraw);
-
-            int extraSize = sizeof(float) * buffers.Item2.Length;
-            GL.BindBuffer(BufferTarget.ArrayBuffer, container.ExtraInstanceBuffer);
-            GL.BufferData(BufferTarget.ArrayBuffer, extraSize, buffers.Item2, BufferUsageHint.DynamicDraw);
-
-            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+            this.SetInstanceBuffers(container);
 
             return newInstanceId;
         }
@@ -1235,17 +1247,23 @@ namespace LibGFX.Graphics
                 throw new ArgumentOutOfRangeException(nameof(instanceIndex), "Instance index is out of range.");
             }
 
+            var matrixSize = Marshal.SizeOf<Matrix4>();
+            var vec4Size = Marshal.SizeOf<Vector4>();
+
             // Update the instance transform
             var transform = container.Instances[instanceIndex].Transform.GetMatrix();
-            int matrixSize = Marshal.SizeOf<Matrix4>();
             GL.BindBuffer(BufferTarget.ArrayBuffer, container.TransformInstanceBuffer);
             GL.BufferSubData(BufferTarget.ArrayBuffer, (IntPtr)(instanceIndex * matrixSize), matrixSize, ref transform);
 
             // Update the instance extras
             var extras = container.Instances[instanceIndex].GetExtras();
-            int vec4Size = Marshal.SizeOf<Vector4>();
             GL.BindBuffer(BufferTarget.ArrayBuffer, container.ExtraInstanceBuffer);
             GL.BufferSubData<Vector4>(BufferTarget.ArrayBuffer, (IntPtr)(instanceIndex * vec4Size), vec4Size, ref extras);
+
+            // Update the instance UVs
+            var uvs = container.Instances[instanceIndex].UVTransofrom;
+            GL.BindBuffer(BufferTarget.ArrayBuffer, container.UVInstanceBuffer);
+            GL.BufferSubData<Vector4>(BufferTarget.ArrayBuffer, (IntPtr)(instanceIndex * vec4Size), vec4Size, ref uvs);
 
             // Unbind the buffer
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
@@ -1300,6 +1318,7 @@ namespace LibGFX.Graphics
             GL.DeleteVertexArray(container.InstanceVAO);
             GL.DeleteBuffer(container.TransformInstanceBuffer);
             GL.DeleteBuffer(container.ExtraInstanceBuffer);
+            GL.DeleteBuffer(container.UVInstanceBuffer);
             container.State = InstanceContainerState.Disposed;
             Debug.WriteLine($"Disposed Instance Container");
         }

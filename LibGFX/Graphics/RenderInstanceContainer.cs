@@ -40,6 +40,11 @@ namespace LibGFX.Graphics
         public int ExtraInstanceBuffer { get; set; }
 
         /// <summary>
+        /// The buffer for the UV transform data of the instances.
+        /// </summary>
+        public int UVInstanceBuffer { get; set; }
+
+        /// <summary>
         /// The list of render instances in the container.
         /// </summary>
         public List<RenderInstance> Instances { get; set; }
@@ -66,10 +71,11 @@ namespace LibGFX.Graphics
         /// Gets the model matrices and extra data for the instances in the container.
         /// </summary>
         /// <returns></returns>
-        public (Matrix4[], float[]) GetInstancesBuffers()
+        public (Matrix4[], float[], Vector4[]) GetInstancesBuffers()
         {
             List<Matrix4> matrices = new List<Matrix4>();
             List<float> extras = new List<float>();
+            List<Vector4> uvTransforms = new List<Vector4>();
 
             foreach (var instance in this.Instances)
             {
@@ -79,9 +85,11 @@ namespace LibGFX.Graphics
                 extras.Add(extra.Y);
                 extras.Add(extra.Z);
                 extras.Add(extra.W);
+
+                uvTransforms.Add(instance.UVTransofrom);
             }
 
-            return (matrices.ToArray(), extras.ToArray());
+            return (matrices.ToArray(), extras.ToArray(), uvTransforms.ToArray());
         }
 
         /// <summary>

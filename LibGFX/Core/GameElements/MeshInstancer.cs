@@ -1,5 +1,6 @@
 ﻿using LibGFX.Graphics;
 using LibGFX.Math;
+using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,7 +65,7 @@ namespace LibGFX.Core.GameElements
         /// Adds a new instance of the mesh to the instancer.
         /// </summary>
         /// <param name="transform"></param>
-        public int AddInstance(Transform transform)
+        public int AddInstance(Transform transform, bool visible = true)
         {
             var instanceId = this.InstanceContainer.AddInstance(transform, true);
             return instanceId;
@@ -134,6 +135,29 @@ namespace LibGFX.Core.GameElements
 
             var handle = new InstanceHandle(this, instanceId);
             return handle;
+        }
+
+        /// <summary>
+        /// Bakes a specified number of instances into the instancer. 
+        /// This instances are hidden untill you set them to visible.
+        /// </summary>
+        /// <param name="instanceCount"></param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public void BakeInstances(uint instanceCount = 10)
+        {
+            if (instanceCount == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(instanceCount), "Instance count must be greater than zero.");
+            }
+
+            for (uint i = 0; i < instanceCount; i++)
+            {
+                var transform = new Transform();
+                transform.Position = Vector3.Zero;
+                transform.Rotation = Quaternion.Identity;
+                transform.Scale = Vector3.One;
+                this.AddInstance(transform, false);
+            }
         }
     }
 }
