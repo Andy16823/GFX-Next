@@ -69,10 +69,17 @@ namespace LibGFX.Graphics.Shader
                 in vec4 tangent;
 
                 out vec4 fragColor;
-                uniform vec3 lightPos;
-                uniform float lightIntensity;
-                uniform vec3 lightColor;
                 uniform vec3 viewPos;
+
+                struct Light {
+                    vec3 lightPos;
+                    vec3 lightColor;
+                    float lightIntensity;
+                    vec3 ambient;
+                    vec3 specular;
+                };
+                uniform Light light;
+
 
                 struct Material {
                     sampler2D textureSampler;
@@ -98,20 +105,20 @@ namespace LibGFX.Graphics.Shader
                     vec3 n_normal = normalize(TBN * normalMap);
 
                     // Calculate ambient lighting
-                    vec3 ambient = lightIntensity*lightColor;
+                    vec3 ambient = light.lightIntensity * light.lightColor;
 
                     // Calculate diffuse lighting
-                    vec3 lightDir = normalize(lightPos-position);
-                    //vec3 lightDir = normalize(position - lightPos);
+                    vec3 lightDir = normalize(light.lightPos-position);
+                    //vec3 lightDir = normalize(position - light.lightPos);
                     float diff = max(dot(lightDir, n_normal), 0.0);
-                    vec3 diffuse = diff*lightColor;
+                    vec3 diffuse = diff * light.lightColor;
 
                     // Calculate specular lighting
                     vec3 viewDir = normalize(viewPos-position);
                     float spec = 0.0;
                     vec3 halfwayDir = normalize(lightDir+viewDir);
                     spec = pow(max(dot(n_normal, halfwayDir), 0.0), 64.0);
-                    vec3 specular = spec*lightColor;
+                    vec3 specular = spec * light.lightColor;
 
 
                     vec3 result = (ambient + diffuse + specular) * color;

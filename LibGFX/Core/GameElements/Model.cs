@@ -401,18 +401,11 @@ namespace LibGFX.Core.GameElements
             renderer.PrepareShader("finalBonesMatrices", false, Animator.FinalBoneMatrices.ToArray());
             if (light != null)
             {
-                renderer.PrepareShader("lightPos", light.Position);
-                renderer.PrepareShader("lightColor", light.Color.Xyz);
-                renderer.PrepareShader("lightIntensity", light.Intensity);
+                renderer.PrepareShader("light.lightPos", light.Position);
+                renderer.PrepareShader("light.lightColor", light.Color.Xyz);
+                renderer.PrepareShader("light.lightIntensity", light.Intensity);
                 renderer.PrepareShader("viewPos", camera.Transform.Position);
             }
-
-            // Alter code mit mehreren uniforms bindings
-            //for (int i = 0; i < 100; i++)
-            //{
-            //    var matrix = Animator.FinalBoneMatrices[i];
-            //    renderer.PrepareShader($"finalBonesMatrices[{i.ToString()}]", false, matrix);
-            //}
 
             // Draw the meshes
             this.MeshMaterials.ForEach(pair =>
@@ -434,10 +427,10 @@ namespace LibGFX.Core.GameElements
             // Prepare the shader uniforms
             if (light != null)
             {
-                renderer.PrepareShader("lightPos", light.Position);
-                renderer.PrepareShader("lightColor", light.Color.Xyz);
-                renderer.PrepareShader("lightIntensity", light.Intensity);
-                renderer.PrepareShader("viewPos", camera.Transform.Position);
+                renderer.PrepareShader("light.lightPos", light.Position);
+                renderer.PrepareShader("light.lightColor", light.Color.Xyz);
+                renderer.PrepareShader("light.lightIntensity", light.Intensity);
+                renderer.PrepareShader("light.viewPos", camera.Transform.Position);
             }
 
             this.MeshMaterials.ForEach(pair =>
