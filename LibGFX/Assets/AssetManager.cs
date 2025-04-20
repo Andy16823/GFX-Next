@@ -91,7 +91,7 @@ namespace LibGFX.Assets
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public void AddAsset<T>(string name, T asset) where T : class
+        public T AddAsset<T>(string name, T asset) where T : class
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -105,6 +105,7 @@ namespace LibGFX.Assets
             {
                 throw new InvalidOperationException($"Asset with name '{name}' already exists.");
             }
+            return (T) asset;
         }
 
         /// <summary>

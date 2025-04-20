@@ -71,21 +71,17 @@ namespace LibGFX.Graphics
         /// Gets the model matrices and extra data for the instances in the container.
         /// </summary>
         /// <returns></returns>
-        public (Matrix4[], float[], Vector4[]) GetInstancesBuffers()
+        public (Matrix4[], Vector4[], Vector4[]) GetInstancesBuffers()
         {
             List<Matrix4> matrices = new List<Matrix4>();
-            List<float> extras = new List<float>();
+            List<Vector4> extras = new List<Vector4>();
             List<Vector4> uvTransforms = new List<Vector4>();
 
             foreach (var instance in this.Instances)
             {
                 matrices.Add(instance.GetMatrix());
                 var extra = instance.GetExtras();
-                extras.Add(extra.X);
-                extras.Add(extra.Y);
-                extras.Add(extra.Z);
-                extras.Add(extra.W);
-
+                extras.Add(extra);
                 uvTransforms.Add(instance.UVTransofrom);
             }
 

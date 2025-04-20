@@ -8,6 +8,17 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics
 {
+
+    /// <summary>
+    /// An enum with the states of the mesh
+    /// </summary>
+    public enum MeshState
+    {
+        None,
+        Initialized,
+        Disposed
+    }
+
     /// <summary>
     /// Represents a vertex for the rendering pipeline
     /// </summary>
@@ -21,22 +32,59 @@ namespace LibGFX.Graphics
         public Vector4 BoneWeights;
     }
 
+    /// <summary>
+    /// Represents a bone information for the rendering pipeline
+    /// </summary>
     public struct BoneInfo
     {
         public int id;
         public Matrix4 offset;
     }
 
+    /// <summary>
+    /// Represents a mesh for the rendering pipeline
+    /// </summary>
     public class Mesh
     {
+        /// <summary>
+        /// The name of the mesh.
+        /// </summary>
         public String Name { get; set; }
+
+        /// <summary>
+        /// The vertices of the mesh.
+        /// </summary>
         public List<Vertex> Vertices { get; set; }
+
+        /// <summary>
+        /// The indices of the mesh.
+        /// </summary>
         public List<int> Indices { get; set; }
+
+        /// <summary>
+        /// The local translation of the mesh.
+        /// </summary>
         public Vector3 LocalTranslation { get; set; }
+
+        /// <summary>
+        /// the local rotation of the mesh.
+        /// </summary>
         public Quaternion LocalRotation { get; set; }
+
+        /// <summary>
+        /// The local scale of the mesh.
+        /// </summary>
         public Vector3 LocalScale { get; set; }
-        //public int Material { get; set; }
+
+        /// <summary>
+        /// The render data associated with the mesh.
+        /// </summary>
         public RenderData RenderData { get; set; }
+
+        /// <summary>
+        /// The state of the mesh.
+        /// </summary>
+        public MeshState State { get; set; } = MeshState.None;
 
         public Mesh()
         {

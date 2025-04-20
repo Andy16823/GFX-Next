@@ -1037,11 +1037,17 @@ namespace LibGFX.Graphics
                 IndexBuffer = ibo
             };
             mesh.RenderData = renderData;
+            mesh.State = MeshState.Initialized;
         }
 
 
         public void DrawMesh(Transform transform, Mesh mesh, Material material)
         {
+            if (mesh.State == MeshState.None || mesh.State == MeshState.Disposed)
+            {
+                throw new Exception("Invalid mesh render data.");
+            }
+
             // Create the model matrix
             //var mt_mat = Matrix4.CreateTranslation(position);
             //var mr_mat = Matrix4.CreateRotationX(Math.Math.ToRadians(rotation.X)) * Matrix4.CreateRotationY(Math.Math.ToRadians(rotation.Y)) * Matrix4.CreateRotationZ(Math.Math.ToRadians(rotation.Z));
@@ -1097,6 +1103,9 @@ namespace LibGFX.Graphics
             GL.DeleteBuffer(mesh.RenderData.TangentBuffer);
             GL.DeleteBuffer(mesh.RenderData.IndexBuffer);
             Debug.WriteLine($"Mesh {mesh.Name} disposed");
+
+            mesh.RenderData = new RenderData();
+            mesh.State = MeshState.Disposed;
         }
 
         public void LoadInstanceContainer(RenderInstanceContainer container)
@@ -1154,7 +1163,12 @@ namespace LibGFX.Graphics
         {
             if(container.State == InstanceContainerState.None || container.State == InstanceContainerState.Disposed)
             {
-                throw new Exception("Invalid instance container or mesh render data.");
+                throw new Exception("Invalid instance container.");
+            }
+
+            if (mesh.State == MeshState.None || mesh.State == MeshState.Disposed)
+            {
+                throw new Exception("Invalid mesh render data.");
             }
 
             var vertexSize = Marshal.SizeOf<Vertex>();
@@ -1191,19 +1205,21 @@ namespace LibGFX.Graphics
 
             // Get the instance buffers
             var buffers = container.GetInstancesBuffers();
+            var matrixSize = Marshal.SizeOf<Matrix4>();
+            var vec4Size = Marshal.SizeOf<Vector4>();
 
             // Set the transform instance buffer
-            int transformSize = Marshal.SizeOf<Matrix4>() * buffers.Item1.Length;
+            int transformSize = matrixSize * buffers.Item1.Length;
             GL.BindBuffer(BufferTarget.ArrayBuffer, container.TransformInstanceBuffer);
             GL.BufferData<Matrix4>(BufferTarget.ArrayBuffer, transformSize, buffers.Item1, BufferUsageHint.DynamicDraw);
 
             // Set the extra instance buffer
-            int extraSize = sizeof(float) * buffers.Item2.Length;
+            int extraSize = vec4Size * buffers.Item2.Length;
             GL.BindBuffer(BufferTarget.ArrayBuffer, container.ExtraInstanceBuffer);
-            GL.BufferData(BufferTarget.ArrayBuffer, extraSize, buffers.Item2, BufferUsageHint.DynamicDraw);
+            GL.BufferData<Vector4>(BufferTarget.ArrayBuffer, extraSize, buffers.Item2, BufferUsageHint.DynamicDraw);
 
             // Set the uv instance buffer
-            int uvSize = Marshal.SizeOf<Vector4>() * buffers.Item3.Length;
+            int uvSize = vec4Size * buffers.Item3.Length;
             GL.BindBuffer(BufferTarget.ArrayBuffer, container.UVInstanceBuffer);
             GL.BufferData<Vector4>(BufferTarget.ArrayBuffer, uvSize, buffers.Item3, BufferUsageHint.DynamicDraw);
 

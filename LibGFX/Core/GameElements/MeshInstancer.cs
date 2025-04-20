@@ -141,7 +141,7 @@ namespace LibGFX.Core.GameElements
         /// Bakes a specified number of instances into the instancer. 
         /// This instances are hidden untill you set them to visible.
         /// </summary>
-        /// <param name="instanceCount"></param>
+        /// <param name="instanceCount">The amount of instances you want bake</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void BakeInstances(uint instanceCount = 10)
         {
