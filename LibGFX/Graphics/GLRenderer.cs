@@ -1058,7 +1058,7 @@ namespace LibGFX.Graphics
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), false, ref m_mat);
-            GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), material.DiffuseColor);
+            GL.Uniform4(GetUniformLocation(_currentProgram, "material.vertexColor"), material.DiffuseColor);
 
             // Bind the BaseColor texture
             GL.ActiveTexture(TextureUnit.Texture0);
@@ -1070,7 +1070,7 @@ namespace LibGFX.Graphics
             {
                 GL.BindTexture(TextureTarget.Texture2D, 0);
             }
-            GL.Uniform1(GetUniformLocation(_currentProgram, "textureSampler"), 0);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "material.textureSampler"), 0);
 
             // Bind the Normal texture
             GL.ActiveTexture(TextureUnit.Texture1);
@@ -1082,7 +1082,7 @@ namespace LibGFX.Graphics
             {
                 GL.BindTexture(TextureTarget.Texture2D, 0);
             }
-            GL.Uniform1(GetUniformLocation(_currentProgram, "normalSampler"), 1);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "material.normalSampler"), 1);
 
             // Reset the active texture unit
             GL.ActiveTexture(TextureUnit.Texture0);
@@ -1293,7 +1293,7 @@ namespace LibGFX.Graphics
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "mesh_matrix"), false, ref meshMatrix);
-            GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), material.DiffuseColor);
+            GL.Uniform4(GetUniformLocation(_currentProgram, "material.vertexColor"), material.DiffuseColor);
 
             // Bind the BaseColor texture
             GL.ActiveTexture(TextureUnit.Texture0);
@@ -1305,7 +1305,7 @@ namespace LibGFX.Graphics
             {
                 GL.BindTexture(TextureTarget.Texture2D, 0);
             }
-            GL.Uniform1(GetUniformLocation(_currentProgram, "textureSampler"), 0);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "material.textureSampler"), 0);
 
             // Bind the Normal texture
             GL.ActiveTexture(TextureUnit.Texture1);
@@ -1317,7 +1317,7 @@ namespace LibGFX.Graphics
             {
                 GL.BindTexture(TextureTarget.Texture2D, 0);
             }
-            GL.Uniform1(GetUniformLocation(_currentProgram, "normalSampler"), 1);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "material.normalSampler"), 1);
 
             // Reset the active texture unit
             GL.ActiveTexture(TextureUnit.Texture0);

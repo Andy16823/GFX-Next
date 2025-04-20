@@ -69,17 +69,22 @@ namespace LibGFX.Graphics.Shader
                 in vec4 tangent;
 
                 out vec4 fragColor;
-                uniform sampler2D textureSampler;
-                uniform sampler2D normalSampler;
                 uniform vec3 lightPos;
                 uniform float lightIntensity;
                 uniform vec3 lightColor;
                 uniform vec3 viewPos;
 
+                struct Material {
+                    sampler2D textureSampler;
+                    sampler2D normalSampler;
+                    vec4 vertexColor;
+                };
+                uniform Material material;
+
                 void main()
                 {
                     // Sample the base color texture
-                    vec3 color = texture(textureSampler, texCoord).rgb;
+                    vec3 color = texture(material.textureSampler, texCoord).rgb;
 
                     // Reconstruct the TBN matrix (Tangent, Bitangent, Normal)
                     vec3 T = normalize(tangent.xyz); // Extract Tangent (vec3 part of tangent)
@@ -88,7 +93,7 @@ namespace LibGFX.Graphics.Shader
                     mat3 TBN = mat3(T, B, N);
 
                     // Sample the normal map and transform to world space
-                    vec3 normalMap = texture(normalSampler, texCoord).rgb;
+                    vec3 normalMap = texture(material.normalSampler, texCoord).rgb;
                     normalMap = normalMap * 2.0 - 1.0; // Transform from [0,1] to [-1,1]
                     vec3 n_normal = normalize(TBN * normalMap);
 
