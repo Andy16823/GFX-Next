@@ -1111,34 +1111,11 @@ namespace LibGFX.Graphics
         public void LoadInstanceContainer(RenderInstanceContainer container)
         {
             Debug.WriteLine($"Loading instance container");
-
-            var vecSize = sizeof(float) * 4;
-            var vao = GL.GenVertexArray();
-            GL.BindVertexArray(vao);
-
-            var mbo = GL.GenBuffer();
-
-            var ebo = GL.GenBuffer();
-            GL.BindBuffer(BufferTarget.ArrayBuffer, ebo);
-            GL.EnableVertexAttribArray(8);
-            GL.VertexAttribPointer(8, 4, VertexAttribPointerType.Float, false, 0, 0);
-            GL.VertexAttribDivisor(8, 1);
-
-            var uvtbo = GL.GenBuffer();
-            GL.BindBuffer(BufferTarget.ArrayBuffer, uvtbo);
-            GL.EnableVertexAttribArray(9);
-            GL.VertexAttribPointer(9, 4, VertexAttribPointerType.Float, false, 0, 0);
-            GL.VertexAttribDivisor(9, 1);
-
-            GL.BindVertexArray(0);
-            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
-
-            container.InstanceVAO = vao;
-            container.TransformInstanceBuffer = mbo;
-            container.ExtraInstanceBuffer = ebo;
-            container.UVInstanceBuffer = uvtbo;
+            container.InstanceVAO = GL.GenVertexArray();
+            container.TransformInstanceBuffer = GL.GenBuffer();
+            container.ExtraInstanceBuffer = GL.GenBuffer();
+            container.UVInstanceBuffer = GL.GenBuffer();
             container.State = InstanceContainerState.Initialized;
-
             Debug.WriteLine($"Instance container loaded");
         }
 
@@ -1305,7 +1282,10 @@ namespace LibGFX.Graphics
             // Reset the active texture unit
             GL.ActiveTexture(TextureUnit.Texture0);
 
+            // Bind the instance buffers
             GL.BindBufferBase(BufferRangeTarget.ShaderStorageBuffer, 0, container.TransformInstanceBuffer);
+            GL.BindBufferBase(BufferRangeTarget.ShaderStorageBuffer, 1, container.ExtraInstanceBuffer);
+            GL.BindBufferBase(BufferRangeTarget.ShaderStorageBuffer, 2, container.UVInstanceBuffer);
 
             // Draw the mesh    
             GL.BindVertexArray(container.InstanceVAO);

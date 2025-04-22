@@ -17,11 +17,13 @@ namespace LibGFX.Graphics.Shader
                 layout(location = 1) in vec2 inTexCoord;
                 layout(location = 2) in vec3 inNormal;
                 layout(location = 3) in vec4 inTangent;
-                layout(location = 4) in mat4 inModelMatrix;
-                layout(location = 8) in vec4 inExtras;
 
                 layout(binding = 0, std430, row_major) buffer matrixBuffer {
                     mat4 modelMatrices[];
+                };
+
+                layout(std430, binding = 1) buffer extrasBuffer {
+                    vec4 extraBuffer[];
                 };
 
                 out vec3 position;
@@ -41,7 +43,7 @@ namespace LibGFX.Graphics.Shader
                     normal = inNormal * transpose(inverse(mat3(m_mat)));
                     texCoord = inTexCoord;
                     tangent = inTangent;
-                    extras = inExtras;
+                    extras = extraBuffer[gl_InstanceID];
                     gl_Position = vec4(inPosition, 1.0) * mvp;
                 }
             ");
