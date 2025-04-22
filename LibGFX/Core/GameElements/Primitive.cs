@@ -34,10 +34,12 @@ namespace LibGFX.Core.GameElements
             renderer.BindShaderProgram(renderer.GetShaderProgram("MeshShader"));
             if (light != null)
             {
-                renderer.PrepareShader("lightPos", light.Position);
-                renderer.PrepareShader("lightColor", light.Color.Xyz);
-                renderer.PrepareShader("lightIntensity", light.Intensity);
-                renderer.PrepareShader("viewPos", camera.Transform.Position);
+                renderer.PrepareShader("light.lightPos", light.Position);
+                renderer.PrepareShader("light.lightColor", light.Color.Xyz);
+                renderer.PrepareShader("light.lightIntensity", light.Intensity);
+                renderer.PrepareShader("light.ambient", light.Ambient);
+                renderer.PrepareShader("light.specular", light.Specular);
+                renderer.PrepareShader("light.viewPos", camera.Transform.Position);
             }
             renderer.DrawMesh(this.Transform, Mesh, Material);
             renderer.UnbindShaderProgram();

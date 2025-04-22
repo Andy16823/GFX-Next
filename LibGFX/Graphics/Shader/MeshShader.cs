@@ -28,12 +28,12 @@ namespace LibGFX.Graphics.Shader
                 uniform mat4 m_mat;
 
                 void main() {
-                    mat4 mvp = p_mat*v_mat*m_mat;
-                    position = vec3(m_mat*vec4(inPosition, 1.0));
-                    normal = transpose(inverse(mat3(m_mat)))*inNormal;
+                    mat4 mvp = m_mat*v_mat*p_mat;
+                    position = vec3(vec4(inPosition, 1.0) * m_mat);
+                    normal = inNormal * transpose(inverse(mat3(m_mat)));
                     texCoord = inTexCoord;
                     tangent = inTangent;
-                    gl_Position = mvp*vec4(inPosition, 1.0);
+                    gl_Position = vec4(inPosition, 1.0) * mvp;
                 }
             ");
 
@@ -65,39 +65,23 @@ namespace LibGFX.Graphics.Shader
                 uniform Material material;
 
                 void main() {
+                    vec3 norm = normalize(-normal);
+                    vec3 lightDir = normalize(light.lightPos - position);
+                    float diff = max(dot(norm, lightDir), 0.0);
 
-                    // Sample the base color texture
-                    vec3 color = texture(material.textureSampler, texCoord).rgb;
-
-                    // Reconstruct the TBN matrix (Tangent, Bitangent, Normal)
-                    vec3 T = normalize(tangent.xyz); // Extract Tangent (vec3 part of tangent)
-                    vec3 N = normalize(normal); // Use the interpolated normal
-                    vec3 B = cross(N, T) * tangent.w; // Compute Bitangent and flip if w < 0
-                    mat3 TBN = mat3(T, B, N);
-
-                    // Sample the normal map and transform to world space
-                    vec3 normalMap = texture(material.normalSampler, texCoord).rgb;
-                    normalMap = normalMap * 2.0 - 1.0; // Transform from [0,1] to [-1,1]
-                    vec3 n_normal = normalize(TBN * normalMap);
+                    vec3 viewDir = normalize(viewPos - position);
+                    vec3 reflectDir = reflect(-lightDir, norm);
+                    float spec = pow(max(dot(viewDir, reflectDir), 0.0), 64.0);
 
                     // Calculate ambient lighting
-                    vec3 ambient = light.lightIntensity * light.lightColor;
+                    vec3 ambient = light.ambient * vec3(texture(material.textureSampler, texCoord));
+                    vec3 diffuse = light.lightColor  * diff * vec3(texture(material.textureSampler, texCoord)); 
+                    vec3 specular = light.specular * spec;
 
-                    // Calculate diffuse lighting
-                    vec3 lightDir = normalize(light.lightPos-position);
-                    float diff = max(dot(lightDir, n_normal), 0.0);
-                    vec3 diffuse = diff * light.lightColor;
-
-                    // Calculate specular lighting
-                    vec3 viewDir = normalize(viewPos-position);
-                    float spec = 0.0;
-                    vec3 halfwayDir = normalize(lightDir+viewDir);
-                    spec = pow(max(dot(n_normal, halfwayDir), 0.0), 64.0);
-                    vec3 specular = spec * light.lightColor;
-
-
-                    vec3 result = (ambient + diffuse + specular) * color;
-                    fragColor = vec4(result, 1.0) * material.vertexColor;
+                    // reflect fragColor = vec4(normalize(reflectDir) * 0.5 + 0.5, 1.0);
+                    fragColor = vec4(ambient + diffuse + specular, 1.0); 
+                    // normal test: fragColor = vec4(normalize(normal) * 0.5 + 0.5, 1.0);
+                    //fragColor = vec4(ambient + diffuse + specular, 1.0) * material.vertexColor;
                 }
             ");
         }

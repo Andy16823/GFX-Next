@@ -11,7 +11,7 @@ namespace LibGFX.Graphics.Shader
         public InstancedShader3D()
         {
             this.VertexShader = new Shader(@"
-                #version 330 core
+                #version 430 core
 
                 layout(location = 0) in vec3 inPosition;
                 layout(location = 1) in vec2 inTexCoord;
@@ -19,6 +19,10 @@ namespace LibGFX.Graphics.Shader
                 layout(location = 3) in vec4 inTangent;
                 layout(location = 4) in mat4 inModelMatrix;
                 layout(location = 8) in vec4 inExtras;
+
+                layout(binding = 0, std430, row_major) buffer matrixBuffer {
+                    mat4 modelMatrices[];
+                };
 
                 out vec3 position;
                 out vec3 normal;
@@ -31,19 +35,19 @@ namespace LibGFX.Graphics.Shader
                 uniform mat4 mesh_matrix;
 
                 void main() {
-                    mat4 m_mat = inModelMatrix *  mesh_matrix;
-                    mat4 mvp = p_mat * v_mat * m_mat;
-                    position = vec3(m_mat * vec4(inPosition, 1.0));
-                    normal = transpose(inverse(mat3(m_mat)))*inNormal;
+                    mat4 m_mat = mesh_matrix * modelMatrices[gl_InstanceID]; 
+                    mat4 mvp = m_mat * v_mat * p_mat;
+                    position = vec3(vec4(inPosition, 1.0) * m_mat);
+                    normal = inNormal * transpose(inverse(mat3(m_mat)));
                     texCoord = inTexCoord;
                     tangent = inTangent;
                     extras = inExtras;
-                    gl_Position = mvp * vec4(inPosition, 1.0);
+                    gl_Position = vec4(inPosition, 1.0) * mvp;
                 }
             ");
 
             this.FragmentShader = new Shader(@"
-                #version 330 core
+                #version 430 core
 
                 in vec3 position;
                 in vec3 normal;

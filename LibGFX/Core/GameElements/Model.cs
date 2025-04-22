@@ -392,7 +392,7 @@ namespace LibGFX.Core.GameElements
             }
         }
 
-        private void RenderAnimatedModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, Light light)
+        private void RenderAnimatedModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, DirectionalLight light)
         {
             // Bind the shader program
             renderer.BindShaderProgram(renderer.GetShaderProgram("AnimatedMeshShader"));
@@ -404,6 +404,8 @@ namespace LibGFX.Core.GameElements
                 renderer.PrepareShader("light.lightPos", light.Position);
                 renderer.PrepareShader("light.lightColor", light.Color.Xyz);
                 renderer.PrepareShader("light.lightIntensity", light.Intensity);
+                renderer.PrepareShader("light.ambient", light.Ambient);
+                renderer.PrepareShader("light.specular", light.Specular);
                 renderer.PrepareShader("viewPos", camera.Transform.Position);
             }
 
@@ -419,7 +421,7 @@ namespace LibGFX.Core.GameElements
             renderer.UnbindShaderProgram();
         }
 
-        private void RenderStaticModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, Light light)
+        private void RenderStaticModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, DirectionalLight light)
         {
             // Bind the shader program
             renderer.BindShaderProgram(renderer.GetShaderProgram("MeshShader"));
@@ -430,6 +432,8 @@ namespace LibGFX.Core.GameElements
                 renderer.PrepareShader("light.lightPos", light.Position);
                 renderer.PrepareShader("light.lightColor", light.Color.Xyz);
                 renderer.PrepareShader("light.lightIntensity", light.Intensity);
+                renderer.PrepareShader("light.ambient", light.Ambient);
+                renderer.PrepareShader("light.specular", light.Specular);
                 renderer.PrepareShader("light.viewPos", camera.Transform.Position);
             }
 

@@ -1055,9 +1055,9 @@ namespace LibGFX.Graphics
             var m_mat = mesh.GetTransform() * transform.GetMatrix();
 
             // Bind the shader uniforms
-            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
-            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
-            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), false, ref m_mat);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
             GL.Uniform4(GetUniformLocation(_currentProgram, "material.vertexColor"), material.DiffuseColor);
 
             // Bind the BaseColor texture
@@ -1117,23 +1117,6 @@ namespace LibGFX.Graphics
             GL.BindVertexArray(vao);
 
             var mbo = GL.GenBuffer();
-            GL.BindBuffer(BufferTarget.ArrayBuffer, mbo);
-
-            GL.EnableVertexAttribArray(4);
-            GL.VertexAttribPointer(4, 4, VertexAttribPointerType.Float, false, 4 * vecSize, 0);
-            GL.VertexAttribDivisor(4, 1);
-
-            GL.EnableVertexAttribArray(5);
-            GL.VertexAttribPointer(5, 4, VertexAttribPointerType.Float, false, 4 * vecSize, (IntPtr)vecSize);
-            GL.VertexAttribDivisor(5, 1);
-
-            GL.EnableVertexAttribArray(6);
-            GL.VertexAttribPointer(6, 4, VertexAttribPointerType.Float, false, 4 * vecSize, (IntPtr)(2 * vecSize));
-            GL.VertexAttribDivisor(6, 1);
-
-            GL.EnableVertexAttribArray(7);
-            GL.VertexAttribPointer(7, 4, VertexAttribPointerType.Float, false, 4 * vecSize, (IntPtr)(3 * vecSize));
-            GL.VertexAttribDivisor(7, 1);
 
             var ebo = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, ebo);
@@ -1290,9 +1273,9 @@ namespace LibGFX.Graphics
             var meshMatrix = container.Mesh.GetTransform();
 
             // Bind the shader uniforms
-            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
-            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
-            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "mesh_matrix"), false, ref meshMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "mesh_matrix"), true, ref meshMatrix);
             GL.Uniform4(GetUniformLocation(_currentProgram, "material.vertexColor"), material.DiffuseColor);
 
             // Bind the BaseColor texture
@@ -1321,6 +1304,8 @@ namespace LibGFX.Graphics
 
             // Reset the active texture unit
             GL.ActiveTexture(TextureUnit.Texture0);
+
+            GL.BindBufferBase(BufferRangeTarget.ShaderStorageBuffer, 0, container.TransformInstanceBuffer);
 
             // Draw the mesh    
             GL.BindVertexArray(container.InstanceVAO);
