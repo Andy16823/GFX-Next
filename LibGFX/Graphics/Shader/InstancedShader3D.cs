@@ -97,9 +97,7 @@ namespace LibGFX.Graphics.Shader
                     vec3 diffuse = dirLight.lightColor  * diff * vec3(texture(material.textureSampler, texCoord)); 
                     vec3 specular = dirLight.specular * spec * vec3(texture(material.specularSampler, texCoord));
 
-                    // reflect fragColor = vec4(normalize(reflectDir) * 0.5 + 0.5, 1.0);
                     fragColor = vec4(ambient + diffuse + specular, 1.0); 
-                    // normal test: fragColor = vec4(normalize(normal) * 0.5 + 0.5, 1.0);
                     //fragColor = vec4(ambient + diffuse + specular, 1.0) * material.vertexColor;
                 }
             ");

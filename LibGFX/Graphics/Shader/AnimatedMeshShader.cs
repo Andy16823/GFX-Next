@@ -106,7 +106,6 @@ namespace LibGFX.Graphics.Shader
                     vec3 specular = dirLight.specular * spec * vec3(texture(material.specularSampler, texCoord));
 
                     fragColor = vec4(ambient + diffuse + specular, 1.0); 
-                    //fragColor = vec4(ambient + diffuse + specular, 1.0) * material.vertexColor;
                 }
             ");
         }

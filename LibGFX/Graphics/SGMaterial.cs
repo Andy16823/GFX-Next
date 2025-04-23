@@ -10,17 +10,56 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics
 {
+    /// <summary>
+    /// Represents a material used in rendering.
+    /// Uses the Specular-Glossiness workflow.
+    /// </summary>
     public class SGMaterial : IMaterial
     {
+        /// <summary>
+        /// The name of the material.
+        /// </summary>
         public String Name { get; set; }
-        public float Opacity { get; set; }
-        public Vector4 Color { get; set; }
-        public MaterialFlags Flags { get; set; }
-        public Texture DiffuseTexture { get; set; }
-        public Texture NormalTexture { get; set; }
-        public Texture SpecularTexture { get; set; }
-        public float Shininess { get; set; } = 32.0f;
 
+        /// <summary>
+        /// The opacity of the material.
+        /// </summary>
+        public float Opacity { get; set; }
+
+        /// <summary>
+        /// The color of the material.
+        /// </summary>
+        public Vector4 Color { get; set; }
+
+        /// <summary>
+        /// The flags of the material.
+        /// </summary>
+        public MaterialFlags Flags { get; set; }
+
+        /// <summary>
+        /// The diffuse texture of the material.
+        /// </summary>
+        public Texture DiffuseTexture { get; set; }
+
+        /// <summary>
+        /// The normal texture of the material.
+        /// </summary>
+        public Texture NormalTexture { get; set; }
+
+        /// <summary>
+        /// The specular texture of the material.
+        /// </summary>
+        public Texture SpecularTexture { get; set; }
+
+        /// <summary>
+        /// The shininess of the material.
+        /// </summary>
+        public float Shininess { get; set; } = 64.0f;
+
+        /// <summary>
+        /// Initializes the material.
+        /// </summary>
+        /// <param name="renderDevice"></param>
         public void Init(IRenderDevice renderDevice)
         {
             Debug.WriteLine($"Loading material {Name}");
@@ -30,9 +69,14 @@ namespace LibGFX.Graphics
             Flags = MaterialFlags.Loaded;
         }
 
+        /// <summary>
+        /// Prepares the material for rendering.
+        /// </summary>
+        /// <param name="renderDevice"></param>
         public void Use(IRenderDevice renderDevice)
         {
             renderDevice.PrepareShader("material.shininess", Shininess);
+            renderDevice.PrepareShader("material.vertexColor", this.Color);
             if(this.DiffuseTexture != null)
             {
                 renderDevice.PrepareShader("material.textureSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, DiffuseTexture);
@@ -62,6 +106,10 @@ namespace LibGFX.Graphics
 
         }
 
+        /// <summary>
+        /// Disposes the material and its resources.
+        /// </summary>
+        /// <param name="renderDevice"></param>
         public void Dispose(IRenderDevice renderDevice)
         {
             Debug.WriteLine($"Disposing material {Name}");
@@ -71,6 +119,12 @@ namespace LibGFX.Graphics
             Flags = MaterialFlags.Disposed;
         }
 
+        /// <summary>
+        /// Loads a material from a JSON file.
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public static SGMaterial LoadFromFile(String file)
         {
             if (!File.Exists(file))

@@ -231,6 +231,11 @@ namespace LibGFX.Core.GameElements
                 material.Opacity = asmat.Opacity;
                 material.Color = new Vector4(asmat.ColorDiffuse.R, asmat.ColorDiffuse.G, asmat.ColorDiffuse.B, asmat.ColorDiffuse.A);
 
+                if(asmat.Shininess > 0)
+                {
+                    material.Shininess = asmat.Shininess;
+                }
+
                 if (asmat.HasTextureDiffuse)
                 {
                     material.DiffuseTexture = Texture.LoadTexture(Path.Combine(directory, asmat.TextureDiffuse.FilePath));
@@ -243,8 +248,6 @@ namespace LibGFX.Core.GameElements
 
                 if (asmat.HasTextureSpecular)
                 {
-                    Debug.WriteLine("Specular texture found");
-                    Debug.WriteLine(asmat.TextureSpecular.FilePath);
                     material.SpecularTexture = Texture.LoadTexture(Path.Combine(directory, asmat.TextureSpecular.FilePath));
                 }
 
