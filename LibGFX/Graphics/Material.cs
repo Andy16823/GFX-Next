@@ -66,6 +66,11 @@ namespace LibGFX.Graphics
         public Texture Height { get; set; }
 
         /// <summary>
+        /// The specular texture of the material
+        /// </summary>
+        public Texture Specular { get; set; }
+
+        /// <summary>
         /// The diffuse color of the material
         /// </summary>
         public Vector4 DiffuseColor { get; set; }
@@ -74,6 +79,11 @@ namespace LibGFX.Graphics
         /// The opacity of the material
         /// </summary>
         public float Opacity { get; set; }
+
+        /// <summary>
+        /// The shininess of the material
+        /// </summary>
+        public float Shininess { get; set; } = 32.0f;
 
         /// <summary>
         /// The flags of the material

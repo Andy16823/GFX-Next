@@ -44,7 +44,6 @@ namespace LibGFX.Core
         /// </summary>
         public Scene3D()
         {
-            this.Sun = new DirectionalLight();
             this.EnviromentTransform = new Transform();
             this.EnviromentTransform.Position = new Vector3(0.0f, 0.0f, 0.0f);
             this.EnviromentTransform.Scale = new Vector3(1.0f, 1.0f, 1.0f);

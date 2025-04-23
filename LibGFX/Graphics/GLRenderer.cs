@@ -1059,6 +1059,7 @@ namespace LibGFX.Graphics
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
             GL.Uniform4(GetUniformLocation(_currentProgram, "material.vertexColor"), material.DiffuseColor);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "material.shininess"), material.Shininess);
 
             // Bind the BaseColor texture
             GL.ActiveTexture(TextureUnit.Texture0);
@@ -1083,6 +1084,18 @@ namespace LibGFX.Graphics
                 GL.BindTexture(TextureTarget.Texture2D, 0);
             }
             GL.Uniform1(GetUniformLocation(_currentProgram, "material.normalSampler"), 1);
+
+            // Bind the specular texture
+            GL.ActiveTexture(TextureUnit.Texture2);
+            if(material.Specular != null && material.Specular.Flags == TextureFlags.Initialized)
+            {
+                GL.BindTexture(TextureTarget.Texture2D, material.Specular.TextureId);
+            }
+            else
+            {
+                GL.BindTexture(TextureTarget.Texture2D, 0);
+            }
+            GL.Uniform1(GetUniformLocation(_currentProgram, "material.specularSampler"), 2);
 
             // Reset the active texture unit
             GL.ActiveTexture(TextureUnit.Texture0);
@@ -1254,6 +1267,7 @@ namespace LibGFX.Graphics
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "mesh_matrix"), true, ref meshMatrix);
             GL.Uniform4(GetUniformLocation(_currentProgram, "material.vertexColor"), material.DiffuseColor);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "material.shininess"), material.Shininess);
 
             // Bind the BaseColor texture
             GL.ActiveTexture(TextureUnit.Texture0);
@@ -1278,6 +1292,18 @@ namespace LibGFX.Graphics
                 GL.BindTexture(TextureTarget.Texture2D, 0);
             }
             GL.Uniform1(GetUniformLocation(_currentProgram, "material.normalSampler"), 1);
+
+            // Bind the specular texture
+            GL.ActiveTexture(TextureUnit.Texture2);
+            if (material.Specular != null && material.Specular.Flags == TextureFlags.Initialized)
+            {
+                GL.BindTexture(TextureTarget.Texture2D, material.Specular.TextureId);
+            }
+            else
+            {
+                GL.BindTexture(TextureTarget.Texture2D, 0);
+            }
+            GL.Uniform1(GetUniformLocation(_currentProgram, "material.specularSampler"), 2);
 
             // Reset the active texture unit
             GL.ActiveTexture(TextureUnit.Texture0);

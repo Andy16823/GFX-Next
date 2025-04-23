@@ -98,11 +98,11 @@ namespace LibGFX.Core.GameElements
             // Prepare the shader uniforms
             if (light != null)
             {
-                renderer.PrepareShader("light.lightPos", light.Position);
-                renderer.PrepareShader("light.lightColor", light.Color.Xyz);
-                renderer.PrepareShader("light.lightIntensity", light.Intensity);
-                renderer.PrepareShader("light.ambient", light.Ambient);
-                renderer.PrepareShader("light.specular", light.Specular);
+                renderer.PrepareShader("dirLight.direction", light.Direction);
+                renderer.PrepareShader("dirLight.lightColor", light.Color.Xyz);
+                renderer.PrepareShader("dirLight.lightIntensity", light.Intensity);
+                renderer.PrepareShader("dirLight.ambient", light.Ambient);
+                renderer.PrepareShader("dirLight.specular", light.Specular);
                 renderer.PrepareShader("viewPos", camera.Transform.Position);
             }
 
