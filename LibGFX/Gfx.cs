@@ -38,7 +38,7 @@ namespace LibGFX
             AssetManager = new AssetManager();
             AssetManager.RegisterLoader<Texture>(new TextureLoader());
             AssetManager.RegisterLoader<AudioClip>(new AudioLoader());
-            AssetManager.RegisterLoader<Material>(new MaterialLoader());
+            AssetManager.RegisterLoader<SGMaterial>(new SGMaterialLoader());
             AssetManager.RegisterLoader<Model>(new ModelLoader());
             AssetManager.RegisterLoader<Cubemap>(new CubemapLoader());
             AssetManager.RegisterLoader<MeshCollection>(new MeshLoader());

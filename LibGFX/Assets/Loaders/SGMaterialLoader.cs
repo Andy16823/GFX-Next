@@ -11,7 +11,7 @@ namespace LibGFX.Assets.Loaders
     /// <summary>
     /// Loader for material assets.
     /// </summary>
-    public class MaterialLoader : IAssetLoader
+    public class SGMaterialLoader : IAssetLoader
     {
         /// <summary>
         /// Indicates whether the asset should be cached.
@@ -33,9 +33,9 @@ namespace LibGFX.Assets.Loaders
         /// <exception cref="NotSupportedException"></exception>
         public T Create<T>(string id, Action<T>? initializer = null, object? creationArgs = null) where T : class
         {
-            if(typeof(T) == typeof(Material))
+            if(typeof(T) == typeof(SGMaterial))
             {
-                var material = new Material();
+                var material = new SGMaterial();
                 initializer?.Invoke(material as T);
                 return material as T;
             }
@@ -51,10 +51,10 @@ namespace LibGFX.Assets.Loaders
         /// <exception cref="NotSupportedException"></exception>
         public T Load<T>(string path) where T : class
         {
-            if (typeof(T) == typeof(Material))
+            if (typeof(T) == typeof(SGMaterial))
             {
                 var name = Path.GetFileNameWithoutExtension(path);
-                return Material.LoadMaterial(path) as T;
+                return SGMaterial.LoadFromFile(path) as T;
             }
             throw new NotSupportedException($"Asset type '{typeof(T)}' is not supported.");
         }

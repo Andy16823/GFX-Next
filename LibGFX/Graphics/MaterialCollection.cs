@@ -11,12 +11,12 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a collection of materials.
     /// </summary>
-    public class MaterialCollection : IEnumerable<Material>
+    public class MaterialCollection : IEnumerable<IMaterial>
     {
         /// <summary>
         /// The collection of materials.
         /// </summary>
-        private readonly Dictionary<string, Material> _materials = new();
+        private readonly Dictionary<string, IMaterial> _materials = new();
 
         /// <summary>
         /// The number of materials in the collection.
@@ -28,14 +28,14 @@ namespace LibGFX.Graphics
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        public Material this[int index] => this.GetMaterial(index);
+        public IMaterial this[int index] => this.GetMaterial(index);
 
         /// <summary>
         /// Gets or sets a material by name.
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public Material this[string name]
+        public IMaterial this[string name]
         {
             get => this.GetMaterial(name);
             set => this.Set(name, value);
@@ -47,7 +47,7 @@ namespace LibGFX.Graphics
         /// <param name="material"></param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
-        public void Add(Material material)
+        public void Add(IMaterial material)
         {
             if (material == null)
             {
@@ -66,7 +66,7 @@ namespace LibGFX.Graphics
         /// <param name="name"></param>
         /// <param name="material"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public void Set(string name, Material material)
+        public void Set(string name, IMaterial material)
         {
             if (material == null)
             {
@@ -87,7 +87,7 @@ namespace LibGFX.Graphics
         /// </summary>
         /// <param name="materials"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public void AddRange(IEnumerable<Material> materials)
+        public void AddRange(IEnumerable<IMaterial> materials)
         {
             if (materials == null)
             {
@@ -105,7 +105,7 @@ namespace LibGFX.Graphics
         /// <param name="name"></param>
         /// <returns></returns>
         /// <exception cref="KeyNotFoundException"></exception>
-        public Material GetMaterial(String name)
+        public IMaterial GetMaterial(String name)
         {
             if (this._materials.TryGetValue(name, out var material))
             {
@@ -120,7 +120,7 @@ namespace LibGFX.Graphics
         /// <param name="index"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public Material GetMaterial(int index)
+        public IMaterial GetMaterial(int index)
         {
             if (index < 0 || index >= this._materials.Count)
             {
@@ -164,7 +164,7 @@ namespace LibGFX.Graphics
         /// Gets all materials in the collection.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Material> GetAll()
+        public IEnumerable<IMaterial> GetAll()
         {
             return this._materials.Values;
         }
@@ -173,7 +173,7 @@ namespace LibGFX.Graphics
         /// Iterates over all materials in the collection and applies the action to each material.
         /// </summary>
         /// <param name="action"></param>
-        public void ForEach(Action<Material> action)
+        public void ForEach(Action<IMaterial> action)
         {
             foreach (var material in this._materials.Values)
             {
@@ -188,7 +188,7 @@ namespace LibGFX.Graphics
         /// <param name="action"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <exception cref="KeyNotFoundException"></exception>
-        public void SingleMaterialAction(int index, Action<Material> action)
+        public void SingleMaterialAction(int index, Action<IMaterial> action)
         {
             if (index < 0 || index >= this._materials.Count)
             {
@@ -211,7 +211,7 @@ namespace LibGFX.Graphics
         /// <param name="name"></param>
         /// <param name="action"></param>
         /// <exception cref="KeyNotFoundException"></exception>
-        public void SingleMaterialAction(String name, Action<Material> action)
+        public void SingleMaterialAction(String name, Action<IMaterial> action)
         {
             if (this._materials.TryGetValue(name, out var material))
             {
@@ -227,7 +227,7 @@ namespace LibGFX.Graphics
         /// Gets an enumerator that iterates through the collection of materials.
         /// </summary>
         /// <returns></returns>
-        public IEnumerator<Material> GetEnumerator()
+        public IEnumerator<IMaterial> GetEnumerator()
         {
             return _materials.Values.GetEnumerator();
         }

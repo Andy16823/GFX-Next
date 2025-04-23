@@ -221,29 +221,31 @@ namespace LibGFX.Core.GameElements
         /// <returns></returns>
         private void ExtractMaterials(Scene assimpScene, String directory)
         {
-            var materials = new List<Graphics.Material>();
+            var materials = new List<Graphics.IMaterial>();
 
             // Load materials
             foreach (var asmat in assimpScene.Materials)
             {
-                var material = new Graphics.Material();
+                var material = new Graphics.SGMaterial();
                 material.Name = asmat.Name;
                 material.Opacity = asmat.Opacity;
-                material.DiffuseColor = new Vector4(asmat.ColorDiffuse.R, asmat.ColorDiffuse.G, asmat.ColorDiffuse.B, asmat.ColorDiffuse.A);
+                material.Color = new Vector4(asmat.ColorDiffuse.R, asmat.ColorDiffuse.G, asmat.ColorDiffuse.B, asmat.ColorDiffuse.A);
 
                 if (asmat.HasTextureDiffuse)
                 {
-                    material.BaseColor = Texture.LoadTexture(Path.Combine(directory, asmat.TextureDiffuse.FilePath));
+                    material.DiffuseTexture = Texture.LoadTexture(Path.Combine(directory, asmat.TextureDiffuse.FilePath));
                 }
 
                 if (asmat.HasTextureNormal)
                 {
-                    material.Normal = Texture.LoadTexture(Path.Combine(directory, asmat.TextureNormal.FilePath));
+                    material.NormalTexture = Texture.LoadTexture(Path.Combine(directory, asmat.TextureNormal.FilePath));
                 }
 
                 if (asmat.HasTextureSpecular)
                 {
-                    material.Specular = Texture.LoadTexture(Path.Combine(directory, asmat.TextureSpecular.FilePath));
+                    Debug.WriteLine("Specular texture found");
+                    Debug.WriteLine(asmat.TextureSpecular.FilePath);
+                    material.SpecularTexture = Texture.LoadTexture(Path.Combine(directory, asmat.TextureSpecular.FilePath));
                 }
 
                 materials.Add(material);
@@ -364,7 +366,7 @@ namespace LibGFX.Core.GameElements
 
             this.Materials.ForEach(material =>
             {
-                renderer.LoadMaterial(material);
+                material.Init(renderer);
             });
 
             this.Meshes.ForEach(mesh =>
@@ -466,7 +468,7 @@ namespace LibGFX.Core.GameElements
 
             this.Materials.ForEach(material =>
             {
-                renderer.DisposeMaterial(material);
+                material.Dispose(renderer);
             });
 
             this.Meshes.ForEach(mesh =>

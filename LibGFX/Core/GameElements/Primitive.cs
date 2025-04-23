@@ -12,9 +12,9 @@ namespace LibGFX.Core.GameElements
     public class Primitive : GameElement
     {
         public Mesh Mesh { get; set; }
-        public Material Material { get; set; }
+        public IMaterial Material { get; set; }
 
-        public Primitive(String name, Material material, IPrimitive primitive) 
+        public Primitive(String name, IMaterial material, IPrimitive primitive) 
         {
             this.Name = name;
             this.Mesh = primitive.GetMesh();

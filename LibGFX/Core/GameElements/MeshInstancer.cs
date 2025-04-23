@@ -17,7 +17,7 @@ namespace LibGFX.Core.GameElements
         /// <summary>
         /// The material used for rendering the mesh instances.
         /// </summary>
-        public Material Material { get; set; }
+        public IMaterial Material { get; set; }
 
         /// <summary>
         /// The mesh to be instanced.
@@ -35,7 +35,7 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         /// <param name="mesh"></param>
         /// <param name="material"></param>
-        public MeshInstancer(Mesh mesh, Material material)
+        public MeshInstancer(Mesh mesh, IMaterial material)
         {
             this.Mesh = mesh;
             this.Material = material;

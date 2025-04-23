@@ -55,10 +55,8 @@ namespace LibGFX.Graphics
         void BindShaderProgram(ShaderProgram shaderProgram);
         void UnbindShaderProgram();
         int GetUniformLocation(int program, String name);
-        void LoadMaterial(Material material);
         void LoadTexture(Texture texture);
         void LoadCubemap(Cubemap cubemap);
-        void DisposeMaterial(Material material);
         void DisposeTexture(Texture texture);
         void DisposeCubemap(Cubemap cubemap);
         void DrawRenderTarget(RenderTarget renderTarget);
@@ -73,14 +71,14 @@ namespace LibGFX.Graphics
         void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f, FontAlignment alignment = FontAlignment.BottomLeft);
         void DisposeFont(Font font);
         void LoadMesh(Mesh mesh);
-        void DrawMesh(Transform transform, Mesh mesh, Material material);
+        void DrawMesh(Transform transform, Mesh mesh, IMaterial material);
         void DisposeMesh(Mesh mesh);
         void LoadInstanceContainer(RenderInstanceContainer container);
         void BindMeshForInstance(RenderInstanceContainer container, Mesh mesh);
         void LoadInstances(RenderInstanceContainer container);
         int AddRenderInstance(RenderInstanceContainer container, Transform transform);
         void UpdateInstance(RenderInstanceContainer container, int instanceIndex);
-        void DrawInstances(RenderInstanceContainer container, Material material);
+        void DrawInstances(RenderInstanceContainer container, IMaterial material);
         void DisposeInstanceContainer(RenderInstanceContainer container);
         void AddLightSource(string name, Light light);
         void RemoveLightSource(string name);
@@ -95,6 +93,7 @@ namespace LibGFX.Graphics
         void PrepareShader(String location, bool transpose, Matrix4 value);
         void PrepareShader(String location, int count, float[] value);
         void PrepareShader(String uniformName, bool transpose, Matrix4[] matrices);
+        void PrepareShader(String location, TextureUnit textureUnit, int value);
         void PrepareShader(String location, TextureUnit textureUnit, Texture texture);
         int GetError();
     }

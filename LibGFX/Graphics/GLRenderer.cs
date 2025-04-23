@@ -499,112 +499,37 @@ namespace LibGFX.Graphics
             return GL.GetUniformLocation(program, name);
         }
 
-        public void LoadMaterial(Material material)
-        {
-            if(material.Flags == MaterialFlags.None)
-            {
-                if(material.BaseColor != null)
-                {
-                    this.LoadTexture(material.BaseColor);
-                }
-
-                if (material.Normal != null)
-                {
-                    this.LoadTexture(material.Normal);
-                }
-
-                if (material.Metallic != null)
-                {
-                    this.LoadTexture(material.Metallic);
-                }
-
-                if (material.Roughness != null)
-                {
-                    this.LoadTexture(material.Roughness);
-                }
-
-                if (material.AmbientOcclusion != null)
-                {
-                    this.LoadTexture(material.AmbientOcclusion);
-                }
-
-                if (material.Emissive != null)
-                {
-                    this.LoadTexture(material.Emissive);
-                }
-
-                if (material.Height != null)
-                {
-                    this.LoadTexture(material.Height);
-                }
-
-                material.Flags = MaterialFlags.Loaded;
-            }
-        }
-
-        public void DisposeMaterial(Material material)
-        {
-            Debug.WriteLine($"Disposing material {material.Name}");
-            if (material.Flags == MaterialFlags.Loaded)
-            {
-                if (material.BaseColor != null)
-                {
-                    this.DisposeTexture(material.BaseColor);
-                }
-                if (material.Normal != null)
-                {
-                    this.DisposeTexture(material.Normal);
-                }
-                if (material.Metallic != null)
-                {
-                    this.DisposeTexture(material.Metallic);
-                }
-                if (material.Roughness != null)
-                {
-                    this.DisposeTexture(material.Roughness);
-                }
-                if (material.AmbientOcclusion != null)
-                {
-                    this.DisposeTexture(material.AmbientOcclusion);
-                }
-                if (material.Emissive != null)
-                {
-                    this.DisposeTexture(material.Emissive);
-                }
-                if (material.Height != null)
-                {
-                    this.DisposeTexture(material.Height);
-                }
-                material.Flags = MaterialFlags.Disposed;
-            }
-            Debug.WriteLine($"Disposed material {material.Name}");
-        }
-
         public void LoadTexture(Texture texture)
         {
-            if(texture.Flags == TextureFlags.Loaded || texture.Flags == TextureFlags.Disposed)
+            if(texture != null)
             {
-                texture.TextureId = GL.GenTexture();
-                GL.BindTexture(TextureTarget.Texture2D, texture.TextureId);
-                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.Repeat);
-                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.Repeat);
-                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter,(int)TextureMinFilter.Linear);
-                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter,(int)TextureMagFilter.Linear);
-                GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, texture.Width, texture.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, texture.TextureData);
-                GL.BindTexture(TextureTarget.Texture2D, 0);
-                Debug.WriteLine($"Texture loaded with error {this.GetError()}");
-                texture.Flags = TextureFlags.Initialized;
+                if (texture.Flags == TextureFlags.Loaded || texture.Flags == TextureFlags.Disposed)
+                {
+                    texture.TextureId = GL.GenTexture();
+                    GL.BindTexture(TextureTarget.Texture2D, texture.TextureId);
+                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.Repeat);
+                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.Repeat);
+                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+                    GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, texture.Width, texture.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, texture.TextureData);
+                    GL.BindTexture(TextureTarget.Texture2D, 0);
+                    Debug.WriteLine($"Texture loaded with error {this.GetError()}");
+                    texture.Flags = TextureFlags.Initialized;
+                }
             }
         }
 
         public void DisposeTexture(Texture texture)
         {
-            if (texture.Flags == TextureFlags.Initialized)
+            if (texture != null)
             {
-                GL.DeleteTexture(texture.TextureId);
-                texture.Flags = TextureFlags.Disposed;
-                texture.TextureId = 0;
-                Debug.WriteLine($"Disposed texture");
+                if (texture.Flags == TextureFlags.Initialized)
+                {
+                    GL.DeleteTexture(texture.TextureId);
+                    texture.Flags = TextureFlags.Disposed;
+                    texture.TextureId = 0;
+                    Debug.WriteLine($"Disposed texture");
+                }
             }
         }
 
@@ -1041,7 +966,7 @@ namespace LibGFX.Graphics
         }
 
 
-        public void DrawMesh(Transform transform, Mesh mesh, Material material)
+        public void DrawMesh(Transform transform, Mesh mesh, IMaterial material)
         {
             if (mesh.State == MeshState.None || mesh.State == MeshState.Disposed)
             {
@@ -1058,47 +983,9 @@ namespace LibGFX.Graphics
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
-            GL.Uniform4(GetUniformLocation(_currentProgram, "material.vertexColor"), material.DiffuseColor);
-            GL.Uniform1(GetUniformLocation(_currentProgram, "material.shininess"), material.Shininess);
 
-            // Bind the BaseColor texture
-            GL.ActiveTexture(TextureUnit.Texture0);
-            if (material.BaseColor != null && material.BaseColor.Flags == TextureFlags.Initialized)
-            {
-                GL.BindTexture(TextureTarget.Texture2D, material.BaseColor.TextureId);
-            }
-            else
-            {
-                GL.BindTexture(TextureTarget.Texture2D, 0);
-            }
-            GL.Uniform1(GetUniformLocation(_currentProgram, "material.textureSampler"), 0);
-
-            // Bind the Normal texture
-            GL.ActiveTexture(TextureUnit.Texture1);
-            if (material.Normal != null  && material.Normal.Flags == TextureFlags.Initialized)
-            {
-                GL.BindTexture(TextureTarget.Texture2D, material.Normal.TextureId);
-            }
-            else
-            {
-                GL.BindTexture(TextureTarget.Texture2D, 0);
-            }
-            GL.Uniform1(GetUniformLocation(_currentProgram, "material.normalSampler"), 1);
-
-            // Bind the specular texture
-            GL.ActiveTexture(TextureUnit.Texture2);
-            if(material.Specular != null && material.Specular.Flags == TextureFlags.Initialized)
-            {
-                GL.BindTexture(TextureTarget.Texture2D, material.Specular.TextureId);
-            }
-            else
-            {
-                GL.BindTexture(TextureTarget.Texture2D, 0);
-            }
-            GL.Uniform1(GetUniformLocation(_currentProgram, "material.specularSampler"), 2);
-
-            // Reset the active texture unit
-            GL.ActiveTexture(TextureUnit.Texture0);
+            // Use the material
+            material.Use(this);
 
             // Draw the mesh    
             GL.BindVertexArray(mesh.RenderData.VertexArray);
@@ -1258,7 +1145,7 @@ namespace LibGFX.Graphics
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
         }
 
-        public void DrawInstances(RenderInstanceContainer container, Material material)
+        public void DrawInstances(RenderInstanceContainer container, IMaterial material)
         {
             var meshMatrix = container.Mesh.GetTransform();
 
@@ -1266,47 +1153,9 @@ namespace LibGFX.Graphics
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "mesh_matrix"), true, ref meshMatrix);
-            GL.Uniform4(GetUniformLocation(_currentProgram, "material.vertexColor"), material.DiffuseColor);
-            GL.Uniform1(GetUniformLocation(_currentProgram, "material.shininess"), material.Shininess);
 
-            // Bind the BaseColor texture
-            GL.ActiveTexture(TextureUnit.Texture0);
-            if (material.BaseColor != null && material.BaseColor.Flags == TextureFlags.Initialized)
-            {
-                GL.BindTexture(TextureTarget.Texture2D, material.BaseColor.TextureId);
-            }
-            else
-            {
-                GL.BindTexture(TextureTarget.Texture2D, 0);
-            }
-            GL.Uniform1(GetUniformLocation(_currentProgram, "material.textureSampler"), 0);
-
-            // Bind the Normal texture
-            GL.ActiveTexture(TextureUnit.Texture1);
-            if (material.Normal != null && material.Normal.Flags == TextureFlags.Initialized)
-            {
-                GL.BindTexture(TextureTarget.Texture2D, material.Normal.TextureId);
-            }
-            else
-            {
-                GL.BindTexture(TextureTarget.Texture2D, 0);
-            }
-            GL.Uniform1(GetUniformLocation(_currentProgram, "material.normalSampler"), 1);
-
-            // Bind the specular texture
-            GL.ActiveTexture(TextureUnit.Texture2);
-            if (material.Specular != null && material.Specular.Flags == TextureFlags.Initialized)
-            {
-                GL.BindTexture(TextureTarget.Texture2D, material.Specular.TextureId);
-            }
-            else
-            {
-                GL.BindTexture(TextureTarget.Texture2D, 0);
-            }
-            GL.Uniform1(GetUniformLocation(_currentProgram, "material.specularSampler"), 2);
-
-            // Reset the active texture unit
-            GL.ActiveTexture(TextureUnit.Texture0);
+            // Use the material
+            material.Use(this);
 
             // Bind the instance buffers
             GL.BindBufferBase(BufferRangeTarget.ShaderStorageBuffer, 0, container.TransformInstanceBuffer);
@@ -1404,13 +1253,18 @@ namespace LibGFX.Graphics
             GL.ProgramUniformMatrix4(_currentProgram, locationId, matrices.Length, transpose, ref matrices[0].Row0.X);
         }
 
-        public void PrepareShader(String location, TextureUnit textureUnit, Texture texture)
+        public void PrepareShader(String location, TextureUnit textureUnit, int value)
         {
             var locationId = this.GetUniformLocation(_currentProgram, location);
             GL.ActiveTexture(textureUnit);
-            GL.BindTexture(TextureTarget.Texture2D, texture.TextureId);
+            GL.BindTexture(TextureTarget.Texture2D, value);
             GL.Uniform1(locationId, textureUnit - TextureUnit.Texture0);
             GL.ActiveTexture(TextureUnit.Texture0);
+        }
+
+        public void PrepareShader(String location, TextureUnit textureUnit, Texture texture)
+        {
+            this.PrepareShader(location, textureUnit, texture.TextureId);
         }
     }
 }

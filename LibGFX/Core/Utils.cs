@@ -1,4 +1,6 @@
-﻿using LibGFX.Math;
+﻿using LibGFX.Graphics;
+using LibGFX.Math;
+using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -163,6 +165,16 @@ namespace LibGFX.Core
 
             // Extrahiere die Rotation der Matrix und gebe sie als Quaternion zurück
             return matrix.ExtractRotation();
+        }
+
+        public static Texture LoadTextureIfExists(JObject jsonObject, string propertyName, string basePath)
+        {
+            if (jsonObject[propertyName].Value<String>() != "null")
+            {
+                var texturePath = Path.Combine(basePath, jsonObject[propertyName].Value<String>());
+                return Texture.LoadTexture(texturePath);
+            }
+            return null;
         }
     }
 }
