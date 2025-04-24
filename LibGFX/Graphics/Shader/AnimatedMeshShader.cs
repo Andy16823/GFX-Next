@@ -91,7 +91,7 @@ namespace LibGFX.Graphics.Shader
                 uniform Material material;
 
                 mat3 getTBN(vec4 tangent, vec3 normal, bool flipnormal) {
-                   if (!flipnormal) {
+                   if (flipnormal == true) {
                         normal = -normal;
                     }
                     vec3 T = normalize(tangent.xyz);
@@ -125,7 +125,8 @@ namespace LibGFX.Graphics.Shader
                     vec3 diffuse = dirLight.lightColor  * diff * vec3(texture(material.textureSampler, texCoord)); 
                     vec3 specular = dirLight.specular * spec * vec3(texture(material.specularSampler, texCoord));
 
-                    fragColor = vec4(ambient + diffuse + specular, 1.0); 
+                    float alpha = texture(material.textureSampler, texCoord).a;
+                    fragColor = vec4(ambient+diffuse+specular, alpha);
                 }
             ");
         }

@@ -231,7 +231,6 @@ namespace LibGFX.Core.GameElements
                 material.Name = asmat.Name;
                 material.Opacity = asmat.Opacity;
                 material.Color = new Vector4(asmat.ColorDiffuse.R, asmat.ColorDiffuse.G, asmat.ColorDiffuse.B, asmat.ColorDiffuse.A);
-                material.FlipNormal = true;
 
                 if(asmat.Shininess > 0)
                 {
