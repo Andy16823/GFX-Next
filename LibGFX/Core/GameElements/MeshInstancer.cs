@@ -1,4 +1,5 @@
 ﻿using LibGFX.Graphics;
+using LibGFX.Graphics.Materials;
 using LibGFX.Math;
 using OpenTK.Mathematics;
 using System;

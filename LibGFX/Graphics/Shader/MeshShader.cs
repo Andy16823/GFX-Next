@@ -63,24 +63,42 @@ namespace LibGFX.Graphics.Shader
                     sampler2D specularSampler;
                     vec4 vertexColor;
                     float shininess;
+                    bool flipNormal;
                 };
                 uniform Material material;
 
+                mat3 getTBN(vec4 tangent, vec3 normal, bool flipnormal) {
+                   if (flipnormal) {
+                        normal = -normal;
+                    }
+                    vec3 T = normalize(tangent.xyz);
+                    vec3 N = normalize(normal);
+                    vec3 B = cross(N, T)*tangent.w;
+                    mat3 TBN = mat3(T, B, N);
+                    return TBN;
+                }
+
                 void main() {
-                    vec3 norm = normalize(-normal);
+
+                    mat3 TBN = getTBN(tangent, normal, material.flipNormal);
+
+                    vec3 normalMap = texture(material.normalSampler, texCoord).rgb;
+                    normalMap = normalMap*2.0-1.0;
+
+                    vec3 norm = normalize(TBN*normalMap);
                     vec3 lightDir = normalize(-dirLight.direction);
                     float diff = max(dot(norm, lightDir), 0.0);
 
-                    vec3 viewDir = normalize(viewPos - position);
+                    vec3 viewDir = normalize(viewPos-position);
                     vec3 reflectDir = reflect(-lightDir, norm);
                     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
 
                     // Calculate ambient lighting
-                    vec3 ambient = dirLight.ambient * vec3(texture(material.textureSampler, texCoord));
-                    vec3 diffuse = dirLight.lightColor  * diff * vec3(texture(material.textureSampler, texCoord)); 
-                    vec3 specular = dirLight.specular * spec * vec3(texture(material.specularSampler, texCoord));
+                    vec3 ambient = dirLight.ambient*vec3(texture(material.textureSampler, texCoord));
+                    vec3 diffuse = dirLight.lightColor*diff*vec3(texture(material.textureSampler, texCoord));
+                    vec3 specular = dirLight.specular*spec*vec3(texture(material.specularSampler, texCoord));
 
-                    fragColor = vec4(ambient + diffuse + specular, 1.0); 
+                    fragColor = vec4(ambient+diffuse+specular, 1.0);
                 }
             ");
         }

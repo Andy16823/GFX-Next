@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibGFX.Graphics
+namespace LibGFX.Graphics.Materials
 {
     /// <summary>
     /// Represents a material used in rendering.
@@ -19,7 +19,7 @@ namespace LibGFX.Graphics
         /// <summary>
         /// The name of the material.
         /// </summary>
-        public String Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// The opacity of the material.
@@ -57,6 +57,11 @@ namespace LibGFX.Graphics
         public float Shininess { get; set; } = 64.0f;
 
         /// <summary>
+        /// Indicates whether the normal map should be flipped.
+        /// </summary>
+        public bool FlipNormal { get; set; } = false;
+
+        /// <summary>
         /// Initializes the material.
         /// </summary>
         /// <param name="renderDevice"></param>
@@ -76,8 +81,9 @@ namespace LibGFX.Graphics
         public void Use(IRenderDevice renderDevice)
         {
             renderDevice.PrepareShader("material.shininess", Shininess);
-            renderDevice.PrepareShader("material.vertexColor", this.Color);
-            if(this.DiffuseTexture != null)
+            renderDevice.PrepareShader("material.vertexColor", Color);
+            renderDevice.PrepareShader("material.flipNormal", FlipNormal);
+            if (DiffuseTexture != null)
             {
                 renderDevice.PrepareShader("material.textureSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, DiffuseTexture);
             }
@@ -85,8 +91,8 @@ namespace LibGFX.Graphics
             {
                 renderDevice.PrepareShader("material.textureSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, 0);
             }
-            
-            if(this.NormalTexture != null)
+
+            if (NormalTexture != null)
             {
                 renderDevice.PrepareShader("material.normalSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture1, NormalTexture);
             }
@@ -94,8 +100,8 @@ namespace LibGFX.Graphics
             {
                 renderDevice.PrepareShader("material.normalSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture1, 0);
             }
-            
-            if(this.SpecularTexture != null)
+
+            if (SpecularTexture != null)
             {
                 renderDevice.PrepareShader("material.specularSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture2, SpecularTexture);
             }
@@ -125,7 +131,7 @@ namespace LibGFX.Graphics
         /// <param name="file"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public static SGMaterial LoadFromFile(String file)
+        public static SGMaterial LoadFromFile(string file)
         {
             if (!File.Exists(file))
             {
@@ -137,7 +143,7 @@ namespace LibGFX.Graphics
 
             var material = new SGMaterial()
             {
-                Name = jsonObject["Name"].Value<String>(),
+                Name = jsonObject["Name"].Value<string>(),
                 DiffuseTexture = Utils.LoadTextureIfExists(jsonObject, "BaseColor", basePath),
                 NormalTexture = Utils.LoadTextureIfExists(jsonObject, "Normal", basePath),
                 SpecularTexture = Utils.LoadTextureIfExists(jsonObject, "Specular", basePath),

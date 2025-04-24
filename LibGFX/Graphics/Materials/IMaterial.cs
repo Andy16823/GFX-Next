@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibGFX.Graphics
+namespace LibGFX.Graphics.Materials
 {
     public enum MaterialFlags
     {
@@ -17,9 +17,10 @@ namespace LibGFX.Graphics
 
     public interface IMaterial
     {
-        public String Name { get; set; }
+        public string Name { get; set; }
         public float Opacity { get; set; }
         public Vector4 Color { get; set; }
+        public bool FlipNormal { get; set; }
         public MaterialFlags Flags { get; set; }
         public void Init(IRenderDevice renderDevice);
         public void Use(IRenderDevice renderDevice);

@@ -1,6 +1,7 @@
 ﻿using FreeTypeSharp;
 using LibGFX.Core;
 using LibGFX.Core.GameElements;
+using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Shader;
 using LibGFX.Graphics.Shapes;
 using LibGFX.Math;

@@ -86,12 +86,32 @@ namespace LibGFX.Graphics.Shader
                     sampler2D specularSampler;
                     vec4 vertexColor;
                     float shininess;
+                    bool flipNormal;
                 };
                 uniform Material material;
 
+                mat3 getTBN(vec4 tangent, vec3 normal, bool flipnormal) {
+                   if (!flipnormal) {
+                        normal = -normal;
+                    }
+                    vec3 T = normalize(tangent.xyz);
+                    vec3 N = normalize(normal);
+                    vec3 B = cross(N, T)*tangent.w;
+                    mat3 TBN = mat3(T, B, N);
+                    return TBN;
+                }
+
                 void main()
                 {
-                    vec3 norm = normalize(normal);
+                    mat3 TBN = getTBN(tangent, normal, material.flipNormal);
+
+                    vec3 normalMap = texture(material.normalSampler, texCoord).rgb;
+                    normalMap = normalMap * 2.0 - 1.0; // Transform from [0,1] to [-1,1]
+
+                    //vec3 norm = normalize(-normal);
+                    vec3 norm = normalize(TBN * normalMap);
+
+                    //vec3 norm = normalize(normal);
                     // Flipping the lightsource
                     vec3 lightDir = normalize(dirLight.direction);
                     float diff = max(dot(norm, lightDir), 0.0);

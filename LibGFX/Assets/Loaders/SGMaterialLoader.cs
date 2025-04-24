@@ -1,4 +1,4 @@
-﻿using LibGFX.Graphics;
+﻿using LibGFX.Graphics.Materials;
 using NAudio.MediaFoundation;
 using System;
 using System.Collections.Generic;

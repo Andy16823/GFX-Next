@@ -2,6 +2,7 @@
 using Assimp.Configs;
 using LibGFX.Graphics;
 using LibGFX.Graphics.Animation3D;
+using LibGFX.Graphics.Materials;
 using LibGFX.Math;
 using OpenTK.Compute.OpenCL;
 using OpenTK.Core;
@@ -221,15 +222,16 @@ namespace LibGFX.Core.GameElements
         /// <returns></returns>
         private void ExtractMaterials(Scene assimpScene, String directory)
         {
-            var materials = new List<Graphics.IMaterial>();
+            var materials = new List<IMaterial>();
 
             // Load materials
             foreach (var asmat in assimpScene.Materials)
             {
-                var material = new Graphics.SGMaterial();
+                var material = new Graphics.Materials.SGMaterial();
                 material.Name = asmat.Name;
                 material.Opacity = asmat.Opacity;
                 material.Color = new Vector4(asmat.ColorDiffuse.R, asmat.ColorDiffuse.G, asmat.ColorDiffuse.B, asmat.ColorDiffuse.A);
+                material.FlipNormal = true;
 
                 if(asmat.Shininess > 0)
                 {
