@@ -32,7 +32,6 @@ namespace LibGFX.Core
         public override void Render(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             var depthTest = renderer.IsDepthTestEnabled();
-            var rectShader = renderer.GetShaderProgram("RectShader");
 
             // Disable depth test and set the viewport, projection and view matrix
             renderer.DisableDepthTest();
@@ -52,13 +51,26 @@ namespace LibGFX.Core
                 layer.RenderLayer(this, viewport, renderer, camera); 
             });
 
+            if (this.PhysicsHandler.DebugPhysics)
+            {
+                if (this.PhysicsHandler.HasDebugDrawer())
+                {
+                    this.PhysicsHandler.DebugDraw(renderer);
+                }
+                else
+                {
+                    Debug.Assert(this.PhysicsHandler.DebugPhysics, "DebugPhysics is enabled but no debug drawer is set");
+                }
+            }
+
             // Unbind the render target and set the depth test state back to the original state
             renderer.UnbindRenderTarget();
-            renderer.SetDepthTest(depthTest);
 
             renderer.BindShaderProgram(renderer.GetShaderProgram("ScreenShader"));
             renderer.DrawRenderTarget(_renderTarget);  
             renderer.UnbindShaderProgram();
+
+            renderer.SetDepthTest(depthTest);
         }
 
         public override void Update()
