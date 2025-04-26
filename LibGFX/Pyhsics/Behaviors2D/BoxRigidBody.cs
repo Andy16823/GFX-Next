@@ -10,12 +10,26 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Pyhsics.Behaviors2D
 {
+    /// <summary>
+    /// Represents a 2D box rigid body behavior
+    /// </summary>
     public class BoxRigidBody : RigidBodyBehavior
     {
+        /// <summary>
+        /// Creates a new 2D box rigid body
+        /// </summary>
+        /// <param name="physicsHandler"></param>
         public BoxRigidBody(PhysicsHandler physicsHandler) : base(physicsHandler)
         {
         }
 
+        /// <summary>
+        /// Creates a 2D box rigid body with the given mass and half extends
+        /// </summary>
+        /// <param name="mass"></param>
+        /// <param name="halfExtends"></param>
+        /// <param name="collisionGroup"></param>
+        /// <param name="collisionMask"></param>
         public void CreateRigidBody(float mass, Vector3 halfExtends, int collisionGroup = -1, int collisionMask = -1)
         {
             var boxShape = new Box2DShape((System.Numerics.Vector3)halfExtends);
@@ -35,11 +49,24 @@ namespace LibGFX.Pyhsics.Behaviors2D
             info.Dispose();
         }
 
+        /// <summary>
+        /// Creates a 2D box rigid body with the given mass and half extends
+        /// </summary>
+        /// <param name="mass"></param>
+        /// <param name="halfExtends"></param>
+        /// <param name="collisionGroup"></param>
+        /// <param name="collisionMask"></param>
         public void CreateRigidBody(float mass, float halfExtends, int collisionGroup = -1, int collisionMask = -1)
         {
             CreateRigidBody(mass, new Vector3(halfExtends), collisionGroup, collisionMask);
         }
 
+        /// <summary>
+        /// Creates a 2D box rigid body with the given mass
+        /// </summary>
+        /// <param name="mass"></param>
+        /// <param name="collisionGroup"></param>
+        /// <param name="collisionMask"></param>
         public void CreateRigidBody(float mass, int collisionGroup = -1, int collisionMask = -1)
         {
             CreateRigidBody(mass, new Vector3(0.5f, 0.5f, 0.0f), collisionGroup, collisionMask);

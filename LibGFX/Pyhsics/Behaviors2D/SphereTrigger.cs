@@ -8,12 +8,25 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Pyhsics.Behaviors2D
 {
+    /// <summary>
+    /// Represents a sphere trigger collider in 2D physics
+    /// </summary>
     public class SphereTrigger : TriggerBehavior
     {
+        /// <summary>
+        /// Creates a new sphere trigger collider
+        /// </summary>
+        /// <param name="physicsHandler"></param>
         public SphereTrigger(PhysicsHandler physicsHandler) : base(physicsHandler)
         {
         }
 
+        /// <summary>
+        /// Creates a sphere trigger collider with the given radius and collision groups
+        /// </summary>
+        /// <param name="radius"></param>
+        /// <param name="collisionGroup"></param>
+        /// <param name="collisionMask"></param>
         public void CreateTrigger(float radius = 0.5f, int collisionGroup = -1, int collisionMask = -1)
         {
             var btStartTransform = Utils.GetBtTransform(Parent, this.Offset);

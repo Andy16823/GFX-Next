@@ -10,19 +10,39 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Pyhsics.Behaviors2D
 {
+    /// <summary>
+    /// Represents a 2D trigger collider behavior
+    /// </summary>
     public class TriggerBehavior : PhysicsBehavior
     {
+        /// <summary>
+        /// The trigger object
+        /// </summary>
         public GhostObject Trigger { get; set; }
 
+        /// <summary>
+        /// The offset of the trigger
+        /// </summary>
         public Vector3 Offset { get; set; } = Vector3.Zero;
 
+        /// <summary>
+        /// The parent game element
+        /// </summary>
         public GameElement Parent { get; set; }
 
+        /// <summary>
+        /// Creates a new 2D trigger collider
+        /// </summary>
+        /// <param name="physicsHandler"></param>
         public TriggerBehavior(PhysicsHandler physicsHandler) : base(physicsHandler)
         {
 
         }
 
+        /// <summary>
+        /// Translates the trigger by the given value
+        /// </summary>
+        /// <param name="value"></param>
         public void Translate(Vector3 value)
         {
             System.Numerics.Matrix4x4 translation = System.Numerics.Matrix4x4.CreateTranslation((System.Numerics.Vector3)value);
@@ -31,12 +51,20 @@ namespace LibGFX.Pyhsics.Behaviors2D
             this.Trigger.WorldTransform = rotaionMatrx * translation;
         }
 
+        /// <summary>
+        /// Rotates the trigger by the given value
+        /// </summary>
+        /// <param name="rotation"></param>
         public void Rotate(Vector3 rotation)
         {
             var radRotation = Utils.ToRadians(rotation);
             this.Rotate(Quaternion.FromEulerAngles(radRotation));
         }
 
+        /// <summary>
+        /// Rotates the trigger by the given value
+        /// </summary>
+        /// <param name="rotation"></param>
         public void Rotate(Quaternion rotation)
         {
             System.Numerics.Matrix4x4 transform = this.Trigger.WorldTransform;
@@ -44,31 +72,55 @@ namespace LibGFX.Pyhsics.Behaviors2D
             this.Trigger.WorldTransform = transform;
         }
 
+        /// <summary>
+        /// Gets the rotation of the trigger
+        /// </summary>
+        /// <returns></returns>
         public Quaternion GetRotation()
         {
             var rotation = Trigger.WorldTransform.GetBasis();
             return (Quaternion)System.Numerics.Quaternion.CreateFromRotationMatrix(rotation);
         }
+
+        /// <summary>
+        /// Gets the location of the trigger
+        /// </summary>
+        /// <returns></returns>
         public Vector3 GetLocation()
         {
             return (Vector3)Trigger.WorldTransform.Translation;
         }
 
+        /// <summary>
+        /// Gets the parent game element
+        /// </summary>
+        /// <returns></returns>
         public override GameElement GetElement()
         {
             return Parent;
         }
 
+        /// <summary>
+        /// Sets the parent game element
+        /// </summary>
+        /// <param name="gameElement"></param>
         public override void SetElement(GameElement gameElement)
         {
             this.Parent = gameElement;
         }
 
+        /// <summary>
+        /// Gets the physics object
+        /// </summary>
+        /// <returns></returns>
         public override object GetPhysicsObject()
         {
             return this.Trigger;
         }
 
+        /// <summary>
+        /// Removes the collider from the physics handler
+        /// </summary>
         public virtual void RemoveCollider()
         {
             this.PhysicsHandler.RemoveElement(this);
@@ -76,26 +128,52 @@ namespace LibGFX.Pyhsics.Behaviors2D
             this.Trigger.Dispose();
         }
 
+        /// <summary>
+        /// Handles the collision event
+        /// </summary>
+        /// <param name="collision"></param>
         public override void OnCollide(Collision collision)
         {
 
         }
 
+        /// <summary>
+        /// Disposes the trigger collider
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="renderer"></param>
         public override void OnDispose(BaseScene scene, IRenderDevice renderer)
         {
             this.RemoveCollider();
         }
 
+        /// <summary>
+        /// Initializes the trigger collider
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
         public override void OnInit(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
 
         }
 
+        /// <summary>
+        /// Renders the trigger collider
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        /// <param name="camera"></param>
         public override void OnRender(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
 
         }
 
+        /// <summary>
+        /// Updates the trigger collider
+        /// </summary>
+        /// <param name="scene"></param>
         public override void OnUpdate(BaseScene scene)
         {
             System.Numerics.Vector3 position = Trigger.WorldTransform.Translation;

@@ -8,12 +8,28 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Pyhsics.Behaviors2D
 {
+    /// <summary>
+    /// Represents a 2D capsule rigid body
+    /// </summary>
     public class CapsuleRigidBody : RigidBodyBehavior
     {
+
+        /// <summary>
+        /// Creates a new 2D capsule rigid body
+        /// </summary>
+        /// <param name="physicsHandler"></param>
         public CapsuleRigidBody(PhysicsHandler physicsHandler) : base(physicsHandler)
         {
         }
 
+        /// <summary>
+        /// Creates a 2D capsule rigid body with the given mass, radius, and height
+        /// </summary>
+        /// <param name="mass"></param>
+        /// <param name="radius"></param>
+        /// <param name="height"></param>
+        /// <param name="collisionGroup"></param>
+        /// <param name="collisionMask"></param>
         public void CreateRigidBody(float mass, float radius, float height, int collisionGroup = -1, int collisionMask = -1)
         {
             CapsuleShape capsuleShape = new CapsuleShape(radius, height);

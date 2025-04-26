@@ -8,12 +8,26 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Pyhsics.Behaviors2D
 {
+    /// <summary>
+    /// Represents a capsule trigger collider in 2D physics
+    /// </summary>
     public class CapsuleTrigger : TriggerBehavior
     {
+        /// <summary>
+        /// Creates a new capsule trigger collider
+        /// </summary>
+        /// <param name="physicsHandler"></param>
         public CapsuleTrigger(PhysicsHandler physicsHandler) : base(physicsHandler)
         {
         }
 
+        /// <summary>
+        /// Creates a capsule trigger collider with the given radius, height and collision groups
+        /// </summary>
+        /// <param name="radius"></param>
+        /// <param name="height"></param>
+        /// <param name="collisionGroup"></param>
+        /// <param name="collisionMask"></param>
         public void CreateTrigger(float radius = 0.5f, float height = 0.5f, int collisionGroup = -1, int collisionMask = -1)
         {
             var btStartTransform = Utils.GetBtTransform(Parent, this.Offset);

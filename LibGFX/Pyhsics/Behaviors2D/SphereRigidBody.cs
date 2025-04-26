@@ -8,12 +8,26 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Pyhsics.Behaviors2D
 {
+    /// <summary>
+    /// Represents a 2D sphere rigid body
+    /// </summary>
     public class SphereRigidBody : RigidBodyBehavior
     {
+        /// <summary>
+        /// Creates a new 2D sphere rigid body
+        /// </summary>
+        /// <param name="physicsHandler"></param>
         public SphereRigidBody(PhysicsHandler physicsHandler) : base(physicsHandler)
         {
         }
 
+        /// <summary>
+        /// Creates a 2D sphere rigid body with the given mass and radius
+        /// </summary>
+        /// <param name="mass"></param>
+        /// <param name="radius"></param>
+        /// <param name="collisionGroup"></param>
+        /// <param name="collisionMask"></param>
         public void CreateRigidBody(float mass, float radius, int collisionGroup = -1, int collisionMask = -1)
         {
             var shape = new Convex2DShape(new SphereShape(radius));
