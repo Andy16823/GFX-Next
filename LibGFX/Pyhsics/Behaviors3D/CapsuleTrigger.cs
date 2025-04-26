@@ -45,14 +45,5 @@ namespace LibGFX.Pyhsics.Behaviors3D
             Trigger.CollisionFlags = CollisionFlags.NoContactResponse;
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
         }
-
-        /// <summary>
-        /// Gets the physics object
-        /// </summary>
-        /// <returns></returns>
-        public override object GetPhysicsObject()
-        {
-            return this.Trigger;
-        }
     }
 }

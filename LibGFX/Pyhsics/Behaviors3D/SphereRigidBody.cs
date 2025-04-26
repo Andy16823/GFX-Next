@@ -9,13 +9,27 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Pyhsics.Behaviors3D
 {
+    /// <summary>
+    /// Represents a 3D sphere rigid body
+    /// </summary>
     public class SphereRigidBody : RigidBodyBehavior
     {
+        /// <summary>
+        /// Creates a new 3D sphere rigid body
+        /// </summary>
+        /// <param name="physicsHandler"></param>
         public SphereRigidBody(PhysicsHandler physicsHandler) : base(physicsHandler)
         {
 
         }
 
+        /// <summary>
+        /// Creates a sphere rigid body with the given mass, radius, collision group and collision mask
+        /// </summary>
+        /// <param name="mass"></param>
+        /// <param name="radius"></param>
+        /// <param name="collisionGroup"></param>
+        /// <param name="collisionMask"></param>
         public void CreateRigidBody(float mass, float radius = 0.5f, int collisionGroup = -1, int collisionMask = -1)
         {
             var halfExtends = new System.Numerics.Vector3(0.5f, 0.5f, 0.5f);
@@ -33,11 +47,6 @@ namespace LibGFX.Pyhsics.Behaviors3D
 
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
             info.Dispose();
-        }
-
-        public override object GetPhysicsObject()
-        {
-            return RigidBody;
         }
     }
 }

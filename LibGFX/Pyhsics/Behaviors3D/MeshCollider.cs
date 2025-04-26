@@ -50,14 +50,5 @@ namespace LibGFX.Pyhsics.Behaviors3D
             Collider.WorldTransform = btStartTransform;
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
         }
-
-        /// <summary>
-        /// Gets the physics object
-        /// </summary>
-        /// <returns></returns>
-        public override object GetPhysicsObject()
-        {
-            return this.Collider;
-        }
     }
 }

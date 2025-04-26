@@ -49,14 +49,5 @@ namespace LibGFX.Pyhsics.Behaviors3D
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
             info.Dispose();
         }
-
-        /// <summary>
-        /// Gets the physics object
-        /// </summary>
-        /// <returns></returns>
-        public override object GetPhysicsObject()
-        {
-            return RigidBody;
-        }
     }
 }

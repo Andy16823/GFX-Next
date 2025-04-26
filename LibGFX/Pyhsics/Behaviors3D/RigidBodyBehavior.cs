@@ -199,6 +199,15 @@ namespace LibGFX.Pyhsics.Behaviors
         }
 
         /// <summary>
+        /// Gets the physics object
+        /// </summary>
+        /// <returns></returns>
+        public override object GetPhysicsObject()
+        {
+            return this.RigidBody;
+        }
+
+        /// <summary>
         /// Removes the rigid body
         /// </summary>
         public virtual void RemoveRigidBody()

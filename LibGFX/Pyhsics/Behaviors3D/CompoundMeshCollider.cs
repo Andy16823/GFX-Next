@@ -64,14 +64,5 @@ namespace LibGFX.Pyhsics.Behaviors3D
             Collider.CollisionShape.LocalScaling = (System.Numerics.Vector3) model.Transform.Scale;
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
         }
-
-        /// <summary>
-        /// Gets the physics object
-        /// </summary>
-        /// <returns></returns>
-        public override object GetPhysicsObject()
-        {
-            return this.Collider;
-        }
     }
 }
