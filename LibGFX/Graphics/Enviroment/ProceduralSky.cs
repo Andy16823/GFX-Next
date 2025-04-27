@@ -17,6 +17,11 @@ namespace LibGFX.Graphics.Enviroment
         public Vector3 SunColor { get; set; } = new Vector3(1.0f, 0.9f, 0.7f); 
         public float SunSize { get; set; } = 800.0f;
         public float SunIntensity { get; set; } = 1.5f;
+        public float SkylineOffset { get; set; } = 0.0f;
+        public float SkylineScale { get; set; } = 1.0f;
+        public bool Coverage { get; set; }
+        public Texture CoverageTexture { get; set; }
+        public float CoverageFactor { get; set; } = 1.0f;
 
         public ProceduralSky()
         {
@@ -48,6 +53,16 @@ namespace LibGFX.Graphics.Enviroment
             renderer.PrepareShader("sunColor", SunColor);
             renderer.PrepareShader("sunSize", SunSize);
             renderer.PrepareShader("sunIntensity", SunIntensity);
+            renderer.PrepareShader("skylineOffset", SkylineOffset);
+            renderer.PrepareShader("skylineScale", SkylineScale);
+
+            if (this.Coverage)
+            {
+                renderer.PrepareShader("coverage", Coverage);
+                renderer.PrepareShader("coverageTexture", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, CoverageTexture);
+                renderer.PrepareShader("coverageFactor", CoverageFactor);
+            }
+
             renderer.PrepareShader("p_mat", true, projectionMatrix);
             renderer.PrepareShader("v_mat", true, viewMatrix);
             renderer.PrepareShader("m_mat", true, Transform.GetMatrix());
