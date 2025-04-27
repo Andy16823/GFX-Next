@@ -14,7 +14,7 @@ namespace LibGFX.Graphics.Shader
                 #version 410 core
                 layout (location = 0) in vec3 inPosition;
 
-                out vec3 TexCoords;
+                out vec3 position;
 
                 uniform mat4 p_mat;
                 uniform mat4 v_mat;
@@ -22,7 +22,7 @@ namespace LibGFX.Graphics.Shader
 
                 void main()
                 {
-                    TexCoords = inPosition;
+                    position = inPosition;
                     gl_Position = vec4(inPosition, 1.0) * m_mat * v_mat * p_mat;
                 }  
             ");
@@ -31,7 +31,7 @@ namespace LibGFX.Graphics.Shader
                 #version 410 core
                 out vec4 fragColor;
 
-                in vec3 TexCoords;
+                in vec3 position;
 
                 uniform vec3 skyTopColor;
                 uniform vec3 skyBottomColor;
@@ -43,7 +43,7 @@ namespace LibGFX.Graphics.Shader
                 void main()
                 {
                     // Normalisiere die Richtung
-                    vec3 dir = normalize(TexCoords);
+                    vec3 dir = normalize(position);
 
                     // Himmel-Hintergrund: Interpolation zwischen Boden- und Himmelsfarbe
                     float t = dir.y * 0.5 + 0.5;
