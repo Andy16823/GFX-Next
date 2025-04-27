@@ -1,5 +1,6 @@
 ﻿using LibGFX.Core;
 using LibGFX.Math;
+using OpenTK.Mathematics;
 using StbImageSharp;
 using System;
 using System.Collections.Generic;
@@ -85,6 +86,7 @@ namespace LibGFX.Graphics
             return pixelData;
         }
 
+        [Obsolete("Use GetUVTransform(Rect area) instead.")]
         public float[] GetSubImageUVCords(Rect area)
         {
             float span_x = 1.0f / (float) Width;
@@ -105,6 +107,21 @@ namespace LibGFX.Graphics
                 top_right_x, top_right_y,
                 bottom_right_x, bottom_right_y
             ];
+        }
+
+        /// <summary>
+        /// Get the UV transform for a given area of the texture.
+        /// </summary>
+        /// <param name="area"></param>
+        /// <returns></returns>
+        public Vector4 GetUVTransform(Rect area)
+        {
+            float scaleX = (float)area.Width / Width;
+            float scaleY = (float)area.Height / Height;
+            float offsetX = (float)area.X / Width;
+            float offsetY = (float)area.Y / Height;
+
+            return new Vector4(scaleX, scaleY, offsetX, offsetY);
         }
     }
 }

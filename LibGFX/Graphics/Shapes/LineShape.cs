@@ -8,6 +8,11 @@ namespace LibGFX.Graphics.Shapes
 {
     public class LineShape : Shape
     {
+        public override int GetIndexCount()
+        {
+            return 2;
+        }
+
         public override string GetShapeName()
         {
             return "LineShape";

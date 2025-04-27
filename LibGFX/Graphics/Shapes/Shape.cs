@@ -16,6 +16,7 @@ namespace LibGFX.Graphics.Shapes
         public int IndexBuffer { get; set; }
         public int TangentBuffer { get; set; }
 
+        public abstract int GetIndexCount();
         public abstract float[] GetVertices();
         public abstract float[] GetUVCoords();
         public abstract float[] GetNormals();

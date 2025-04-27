@@ -8,6 +8,11 @@ namespace LibGFX.Graphics.Shapes
 {
     public class RectShape : Shape
     {
+        public override int GetIndexCount()
+        {
+            return 6;
+        }
+
         public override bool HasTangents()
         {
             return false;

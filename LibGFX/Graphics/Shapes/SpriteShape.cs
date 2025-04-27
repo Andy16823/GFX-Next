@@ -8,6 +8,11 @@ namespace LibGFX.Graphics.Shapes
 {
     public class SpriteShape : Shape
     {
+        public override int GetIndexCount()
+        {
+            return 6;
+        }
+
         public override string GetShapeName()
         {
             return "SpriteShape";

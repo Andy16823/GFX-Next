@@ -9,10 +9,41 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Core
 {
+    /// <summary>
+    /// Represents a 2D scene
+    /// </summary>
     public class Scene2D : BaseScene
     {
+        /// <summary>
+        /// The render target of the scene
+        /// </summary>
         private RenderTarget _renderTarget;
 
+        /// <summary>
+        /// Creates a new 2D scene
+        /// </summary>
+        public Scene2D() : base()
+        {
+            
+        }
+
+        /// <summary>
+        /// Creates a new 2D scene with the given layers
+        /// </summary>
+        /// <param name="layers"></param>
+        public Scene2D(params String[] layers) : base()
+        {
+            foreach (var item in layers)
+            {
+                this.Layers.Add(new Layer(item));
+            }
+        }
+
+        /// <summary>
+        /// Initializes the scene
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
         public override void Init(Viewport viewport, IRenderDevice renderer)
         {
             var renderTargetDescriptor = new RenderTargetDescriptor()
@@ -29,6 +60,12 @@ namespace LibGFX.Core
             });
         }
 
+        /// <summary>
+        /// Renders the scene
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        /// <param name="camera"></param>
         public override void Render(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             var depthTest = renderer.IsDepthTestEnabled();
@@ -43,7 +80,6 @@ namespace LibGFX.Core
             renderer.ResizeRenderTarget(_renderTarget, viewport.Width, viewport.Height);
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            //renderer.Clear((int)(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit));
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
 
 
@@ -73,6 +109,9 @@ namespace LibGFX.Core
             renderer.SetDepthTest(depthTest);
         }
 
+        /// <summary>
+        /// Updates the scene
+        /// </summary>
         public override void Update()
         {
             this.Layers.ForEach(l => { 
@@ -80,6 +119,10 @@ namespace LibGFX.Core
             });
         }
 
+        /// <summary>
+        /// Disposes the scene
+        /// </summary>
+        /// <param name="renderer"></param>
         public override void DisposeScene(IRenderDevice renderer)
         {
             this.Layers.ForEach(l =>
@@ -88,6 +131,9 @@ namespace LibGFX.Core
             });
         }
 
+        /// <summary>
+        /// Updates the physics of the scene
+        /// </summary>
         public override void UpdatePhysics()
         {
             this.PhysicsHandler.Process(this);

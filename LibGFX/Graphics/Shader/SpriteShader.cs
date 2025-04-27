@@ -40,9 +40,11 @@ namespace LibGFX.Graphics.Shader
                 out vec4 fragColor; 
 
                 uniform sampler2D textureSampler;
+                uniform vec4 uvTransform;
 
                 void main() {
-                    fragColor = texture(textureSampler, texCoord) * vColor;
+                    vec2 transformedTexCoord = texCoord * uvTransform.xy + uvTransform.zw;
+                    fragColor = texture(textureSampler, transformedTexCoord) * vColor;
                 }
             ");
         }

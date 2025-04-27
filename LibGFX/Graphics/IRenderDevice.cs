@@ -50,7 +50,9 @@ namespace LibGFX.Graphics
         void DisposeShaderProgram(ShaderProgram shaderProgram);
         void AddShaderProgram(String name, ShaderProgram shaderProgram);
         void AddShape(Shape shape);
+        Shape GetShape(String name);
         void InitShape(Shape shape);
+        void DrawShape(Shape shape);
         void DisposeShape(Shape shape);
         ShaderProgram GetShaderProgram(String name);
         void BindShaderProgram(ShaderProgram shaderProgram);
@@ -66,8 +68,8 @@ namespace LibGFX.Graphics
         void FillRect(Math.Rect rect, Vector4 color, float rotation = 0.0f);
         void DrawTexture(Transform transform, Texture texture, Vector4 color);
         void DrawTexture(Transform transform, int textureId, Vector4 color);
-        void DrawTexture(Transform transform, int textureId, Vector4 color, float[] uvbuffer);
-        void DrawEnviromentTexture3D(Transform transform, Cubemap cubemap, Vector4 color);
+        void DrawTexture(Transform transform, int textureId, Vector4 color, Vector4 uvTransform);
+        void DrawCubemap(Transform transform, Cubemap cubemap, Vector4 color);
         Font LoadFont(String path, int fontsize = 48);
         void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f, FontAlignment alignment = FontAlignment.BottomLeft);
         void DisposeFont(Font font);

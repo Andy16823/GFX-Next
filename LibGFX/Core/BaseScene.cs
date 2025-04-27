@@ -30,6 +30,29 @@ namespace LibGFX.Core
         }
 
         /// <summary>
+        /// Tries to add a layer to the scene
+        /// </summary>
+        /// <param name="layerName"></param>
+        /// <param name="element"></param>
+        /// <returns></returns>
+        public bool TryAddGameElement(String layerName, GameElement element)
+        {
+            if(element == null || String.IsNullOrEmpty(layerName))
+            {
+                return false;
+            }
+
+            var layer = this.FindLayer(layerName);
+            if (layer != null)
+            {
+                layer.Elements.Add(element); 
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
         /// Finds a layer by name
         /// </summary>
         /// <param name="name"></param>

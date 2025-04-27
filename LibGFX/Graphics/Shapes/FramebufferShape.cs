@@ -11,6 +11,11 @@ namespace LibGFX.Graphics.Shapes
         public override bool HasNormals() => false;
         public override bool HasTangents() => false;
 
+        public override int GetIndexCount()
+        {
+            return 6;
+        }
+
         public override string GetShapeName()
         {
             return "FramebufferShape";

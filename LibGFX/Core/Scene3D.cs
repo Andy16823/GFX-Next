@@ -1,4 +1,5 @@
 ﻿using LibGFX.Graphics;
+using LibGFX.Graphics.Enviroment;
 using LibGFX.Math;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
@@ -28,11 +29,7 @@ namespace LibGFX.Core
         /// <summary>
         /// The enviroment texture of the scene
         /// </summary>
-        public Cubemap EnviromentTexture { get; set; }
-        /// <summary>
-        /// The enviroment transform of the scene
-        /// </summary>
-        public Transform EnviromentTransform { get; set; }
+        public IEnviroment Enviroment { get; set; }
 
         /// <summary>
         /// The render target of the scene  
@@ -44,9 +41,7 @@ namespace LibGFX.Core
         /// </summary>
         public Scene3D()
         {
-            this.EnviromentTransform = new Transform();
-            this.EnviromentTransform.Position = new Vector3(0.0f, 0.0f, 0.0f);
-            this.EnviromentTransform.Scale = new Vector3(1.0f, 1.0f, 1.0f);
+
         }
 
         /// <summary>
@@ -56,9 +51,9 @@ namespace LibGFX.Core
         public override void DisposeScene(IRenderDevice renderer)
         {
             // Dispose the enviroment texture if available
-            if (this.EnviromentTexture != null)
+            if (this.Enviroment != null)
             {
-                renderer.DisposeCubemap(this.EnviromentTexture);
+                this.Enviroment.Dispose(renderer);
             }
 
             // Dispose all layers and their elements
@@ -88,9 +83,9 @@ namespace LibGFX.Core
             _renderTarget = renderer.CreateRenderTarget(renderTargetDescriptor);
 
             // Load the enviroment texture if available
-            if (this.EnviromentTexture != null)
+            if (this.Enviroment != null)
             {
-                renderer.LoadCubemap(this.EnviromentTexture);
+                this.Enviroment.Init(renderer);
             }
 
             // Init all layers and there elements
@@ -128,12 +123,9 @@ namespace LibGFX.Core
 
 
             // Render the enviroment texture if available
-            if (this.EnviromentTexture != null && this.RenderEnviromentTexture)
+            if (this.Enviroment != null && this.RenderEnviromentTexture)
             {
-                this.EnviromentTransform.Position = camera.Transform.Position;
-                renderer.BindShaderProgram(renderer.GetShaderProgram("EnviromentShader"));
-                renderer.DrawEnviromentTexture3D(this.EnviromentTransform, this.EnviromentTexture, Vector4.Zero);
-                renderer.UnbindShaderProgram();
+                this.Enviroment.Render(renderer, camera, viewport);
             }
 
             this.Layers.ForEach(layer => {

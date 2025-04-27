@@ -8,6 +8,11 @@ namespace LibGFX.Graphics.Shapes
 {
     public class CubeShape : Shape
     {
+        public override int GetIndexCount()
+        {
+            return 36;
+        }
+
         public override bool HasTangents()
         {
             return false;

@@ -8,10 +8,25 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Core.GameElements
 {
+    /// <summary>
+    /// Represents a sprite
+    /// </summary>
     public class Sprite : GameElement
     {
+        /// <summary>
+        /// The color of the sprite
+        /// </summary>
         public Vector4 Color { get; set; }
+
+        /// <summary>
+        /// The texture of the sprite
+        /// </summary>
         public Texture Texture { get; set; }
+
+        /// <summary>
+        /// The UV transform of the sprite
+        /// </summary>
+        public Vector4 UVTransform { get; set; } = Vector4.One;
 
         public Sprite(String name, Vector2 position, Vector2 scale, Texture texture)
         {
@@ -35,7 +50,7 @@ namespace LibGFX.Core.GameElements
             if(this.Visible)
             {
                 renderer.BindShaderProgram(renderer.GetShaderProgram("SpriteShader"));
-                renderer.DrawTexture(this.Transform, Texture.TextureId, Color);
+                renderer.DrawTexture(this.Transform, Texture.TextureId, Color, UVTransform);
                 renderer.UnbindShaderProgram();
             }
         }

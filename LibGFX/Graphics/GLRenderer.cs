@@ -357,6 +357,18 @@ namespace LibGFX.Graphics
             _shapes.Add(shape.GetShapeName(), shape);
         }
 
+        public Shape GetShape(String name)
+        {
+            if (_shapes.TryGetValue(name, out var shape))
+            {
+                return shape;
+            }
+            else
+            {
+                throw new Exception($"Shape {name} not found");
+            }
+        }
+
         public void InitShape(Shape shape)
         {
             shape.VertexArray = GL.GenVertexArray();
@@ -433,6 +445,20 @@ namespace LibGFX.Graphics
             GL.BindBuffer(BufferTarget.ElementArrayBuffer, 0);
 
             Debug.WriteLine($"Created shape {shape.GetShapeName()} with error {this.GetError()}");
+        }
+
+        public void DrawShape(Shape shape)
+        {
+            if (shape.VertexArray != 0)
+            {
+                GL.BindVertexArray(shape.VertexArray);
+                GL.DrawElements(BeginMode.Triangles, shape.GetIndexCount(), DrawElementsType.UnsignedInt, 0);
+                GL.BindVertexArray(0);
+            }
+            else
+            {
+                Debug.WriteLine($"Shape {shape.GetShapeName()} is not initialized");
+            }
         }
 
         public void DisposeShape(Shape shape)
@@ -556,7 +582,7 @@ namespace LibGFX.Graphics
             }
         }
 
-        public void DrawEnviromentTexture3D(Transform transform, Cubemap cubemap, Vector4 color)
+        public void DrawCubemap(Transform transform, Cubemap cubemap, Vector4 color)
         {
             var m_mat = transform.GetMatrix();
 
@@ -681,28 +707,21 @@ namespace LibGFX.Graphics
                 throw new Exception("Shape 'SpriteShape' is missing or invalid.");
             }
 
-            this.DrawTexture(transform, texture, color, shape.GetUVCoords());
+            this.DrawTexture(transform, texture, color, Vector4.One);
         }
 
-        public void DrawTexture(Transform transform, int texture, Vector4 color, float[] uvbuffer)
+        public void DrawTexture(Transform transform, int texture, Vector4 color, Vector4 uvTransform)
         {
             if (!_shapes.TryGetValue("SpriteShape", out var shape) || shape == null)
             {
                 throw new Exception("Shape 'SpriteShape' is missing or invalid.");
             }
-
-            GL.BindBuffer(BufferTarget.ArrayBuffer, shape.TextureBuffer);
-            GL.BufferSubData(BufferTarget.ArrayBuffer, (IntPtr) 0, (IntPtr) (uvbuffer.Length * sizeof(float)), uvbuffer);
-            //GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(uvbuffer.Length * sizeof(float)), uvbuffer, BufferUsageHint.DynamicDraw);
-            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
-
-            //var mt_mat = Matrix4.CreateTranslation(position);
-            //var mr_mat = Matrix4.CreateRotationX(Math.Math.ToRadians(rotation.X)) * Matrix4.CreateRotationY(Math.Math.ToRadians(rotation.Y)) * Matrix4.CreateRotationZ(Math.Math.ToRadians(rotation.Z));
-            //var ms_mat = Matrix4.CreateScale(scale);
             var m_mat = transform.GetMatrix();
 
             GL.ActiveTexture(TextureUnit.Texture0);
             GL.BindTexture(TextureTarget.Texture2D, texture);
+
+            GL.Uniform4(this.GetUniformLocation(_currentProgram, "uvTransform"), uvTransform);
             GL.Uniform1(this.GetUniformLocation(_currentProgram, "textureSampler"), 0);
 
             GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
