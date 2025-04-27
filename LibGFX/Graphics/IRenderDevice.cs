@@ -21,6 +21,7 @@ namespace LibGFX.Graphics
         void MakeCurrent();
         void SwapBuffers();
         void UseVsync(bool value);
+        void SetDepthMask(bool value);
         bool IsDepthTestEnabled();
         void SetDepthTest(bool value);
         void EnableDepthTest();
@@ -37,6 +38,8 @@ namespace LibGFX.Graphics
         Viewport GetViewport();
         void SetViewMatrix(Matrix4 matrix);
         void SetProjectionMatrix(Matrix4 matrix);
+        Matrix4 GetViewMatrix();
+        Matrix4 GetProjectionMatrix();
         void Clear(RenderFlags.ClearFlags clearFlags);
         void ClearColor(float r, float g, float b, float a);
         void Flush();

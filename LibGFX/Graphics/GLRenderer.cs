@@ -54,6 +54,8 @@ namespace LibGFX.Graphics
             this.AddShaderProgram("LineShader", new LineShader());
             this.AddShaderProgram("EnviromentShader", new EnviromentShader());
             this.AddShaderProgram("InstancedShader3D", new InstancedShader3D());
+            this.AddShaderProgram("ProceduralSkyShader", new ProceduralSkyShader());
+
             foreach (ShaderProgram program in _programs.Values)
             {
                 this.BuildShaderProgram(program);
@@ -78,6 +80,11 @@ namespace LibGFX.Graphics
         public void UseVsync(bool value)
         {
             _context.SwapInterval = value ? 1 : 0;
+        }
+
+        public void SetDepthMask(bool value)
+        {
+            GL.DepthMask(value);
         }
 
         public void Clear(RenderFlags.ClearFlags clearFlags)
@@ -230,6 +237,16 @@ namespace LibGFX.Graphics
         public void SetProjectionMatrix(Matrix4 matrix)
         {
             _projectionMatrix = matrix;
+        }
+
+        public Matrix4 GetViewMatrix()
+        {
+            return _viewMatrix;
+        }
+
+        public Matrix4 GetProjectionMatrix()
+        {
+            return _projectionMatrix;
         }
 
         public RenderTarget CreateRenderTarget(RenderTargetDescriptor constructorInfo)
@@ -452,7 +469,8 @@ namespace LibGFX.Graphics
             if (shape.VertexArray != 0)
             {
                 GL.BindVertexArray(shape.VertexArray);
-                GL.DrawElements(BeginMode.Triangles, shape.GetIndexCount(), DrawElementsType.UnsignedInt, 0);
+                GL.DrawArrays(PrimitiveType.Triangles, 0, shape.GetIndexCount());
+                //GL.DrawElements(BeginMode.Triangles, shape.GetIndexCount(), DrawElementsType.UnsignedInt, 0);
                 GL.BindVertexArray(0);
             }
             else
