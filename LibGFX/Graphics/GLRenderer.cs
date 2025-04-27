@@ -55,6 +55,7 @@ namespace LibGFX.Graphics
             this.AddShaderProgram("EnviromentShader", new EnviromentShader());
             this.AddShaderProgram("InstancedShader3D", new InstancedShader3D());
             this.AddShaderProgram("ProceduralSkyShader", new ProceduralSkyShader());
+            this.AddShaderProgram("InstancedShader2D", new InstancedShader2D());
 
             foreach (ShaderProgram program in _programs.Values)
             {
@@ -1179,7 +1180,7 @@ namespace LibGFX.Graphics
             GL.BufferSubData<Vector4>(BufferTarget.ArrayBuffer, (IntPtr)(instanceIndex * vec4Size), vec4Size, ref extras);
 
             // Update the instance UVs
-            var uvs = container.Instances[instanceIndex].UVTransofrom;
+            var uvs = container.Instances[instanceIndex].UVTransform;
             GL.BindBuffer(BufferTarget.ArrayBuffer, container.UVInstanceBuffer);
             GL.BufferSubData<Vector4>(BufferTarget.ArrayBuffer, (IntPtr)(instanceIndex * vec4Size), vec4Size, ref uvs);
 

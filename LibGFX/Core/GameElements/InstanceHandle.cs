@@ -1,5 +1,6 @@
 ﻿using LibGFX.Graphics;
 using LibGFX.Math;
+using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace LibGFX.Core.GameElements
         /// <summary>
         /// The mesh instancer that this handle belongs to.
         /// </summary>
-        public MeshInstancer Instancer { get; set; }
+        public RenderInstanceContainer InstanceContainer { get; set; }
 
         /// <summary>
         /// The ID of the instance in the instancer.
@@ -30,11 +31,11 @@ namespace LibGFX.Core.GameElements
         {
             get
             {
-                return Instancer.InstanceContainer.Instances[InstanceID].Transform;
+                return InstanceContainer.Instances[InstanceID].Transform;
             }
             set
             {
-                Instancer.InstanceContainer.Instances[InstanceID].Transform = value;
+                InstanceContainer.Instances[InstanceID].Transform = value;
             }
         }
 
@@ -45,11 +46,26 @@ namespace LibGFX.Core.GameElements
         {
             get
             {
-                return Instancer.InstanceContainer.Instances[InstanceID].Visible;
+                return InstanceContainer.Instances[InstanceID].Visible;
             }
             set
             {
-                Instancer.InstanceContainer.Instances[InstanceID].Visible = value;
+                InstanceContainer.Instances[InstanceID].Visible = value;
+            }
+        }
+
+        /// <summary>
+        /// The UV transform of the instance.
+        /// </summary>
+        public Vector4 UVTransform
+        {
+            get
+            {
+                return InstanceContainer.Instances[InstanceID].UVTransform;
+            }
+            set
+            {
+                InstanceContainer.Instances[InstanceID].UVTransform = value;
             }
         }
 
@@ -58,9 +74,9 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         /// <param name="instancer"></param>
         /// <param name="instanceId"></param>
-        public InstanceHandle(MeshInstancer instancer, int instanceId)
+        public InstanceHandle(RenderInstanceContainer instanceContainer, int instanceId)
         {
-            this.Instancer = instancer;
+            this.InstanceContainer = instanceContainer;
             this.InstanceID = instanceId;
         }
 
@@ -85,7 +101,7 @@ namespace LibGFX.Core.GameElements
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             base.Render(scene, viewport, renderer, camera);
-            renderer.UpdateInstance(Instancer.InstanceContainer, InstanceID);
+            renderer.UpdateInstance(InstanceContainer, InstanceID);
         }
     }
 }

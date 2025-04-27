@@ -82,7 +82,7 @@ namespace LibGFX.Graphics
                 matrices.Add(instance.GetMatrix());
                 var extra = instance.GetExtras();
                 extras.Add(extra);
-                uvTransforms.Add(instance.UVTransofrom);
+                uvTransforms.Add(instance.UVTransform);
             }
 
             return (matrices.ToArray(), extras.ToArray(), uvTransforms.ToArray());

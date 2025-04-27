@@ -29,7 +29,7 @@ namespace LibGFX.Graphics
         /// X, Y reprensents the scale of the UV coordinates.
         /// Z, W represents the offset of the UV coordinates.
         /// </summary>
-        public Vector4 UVTransofrom { get; set; } = new Vector4(1, 1, 0, 0);
+        public Vector4 UVTransform { get; set; } = new Vector4(1, 1, 0, 0);
 
         /// <summary>
         /// Gets the model matrix of the instance.

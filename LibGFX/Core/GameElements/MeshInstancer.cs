@@ -146,7 +146,7 @@ namespace LibGFX.Core.GameElements
                 throw new ArgumentOutOfRangeException(nameof(instanceId), "Instance ID is out of range.");
             }
 
-            var handle = new InstanceHandle(this, instanceId);
+            var handle = new InstanceHandle(this.InstanceContainer, instanceId);
             return handle;
         }
 

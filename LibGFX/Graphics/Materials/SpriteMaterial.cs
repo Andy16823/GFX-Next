@@ -83,7 +83,7 @@ namespace LibGFX.Graphics.Materials
         /// <param name="renderDevice"></param>
         public void Use(IRenderDevice renderDevice)
         {
-            
+            renderDevice.PrepareShader("textureSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, Texture);
         }
     }
 }
