@@ -20,7 +20,6 @@ namespace LibGFX.Graphics.Materials
     {
         public string Name { get; set; }
         public MaterialFlags Flags { get; set; }
-        public ShaderProgram Shader { get; set; }
         public void Init(IRenderDevice renderDevice);
         public void Use(IRenderDevice renderDevice);
         public void Dispose(IRenderDevice renderDevice);

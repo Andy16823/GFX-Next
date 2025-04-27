@@ -3,6 +3,7 @@ using Assimp.Configs;
 using LibGFX.Graphics;
 using LibGFX.Graphics.Animation3D;
 using LibGFX.Graphics.Materials;
+using LibGFX.Graphics.Shader;
 using LibGFX.Math;
 using OpenTK.Compute.OpenCL;
 using OpenTK.Core;
@@ -46,6 +47,11 @@ namespace LibGFX.Core.GameElements
         /// The pair of meshes and materials
         /// </summary>
         public List<MeshMaterialPair> MeshMaterials { get; set; }
+
+        /// <summary>
+        /// The name of the model
+        /// </summary>
+        public ShaderProgram Shader { get; set; }
 
         /// <summary>
         /// Gets or sets the mapping of bone names to bone information.
@@ -378,6 +384,19 @@ namespace LibGFX.Core.GameElements
                 renderer.LoadMesh(mesh);
                 
             });
+
+            if(this.Shader == null)
+            {
+                if (this.HasAnimations)
+                {
+                    this.Shader = renderer.GetShaderProgram("AnimatedMeshShader");
+                }
+                else
+                {
+                    this.Shader = renderer.GetShaderProgram("MeshShader");
+                }
+            }
+
             Debug.WriteLine($"Initialized Model {Name} with error {renderer.GetError()}");
         }
 
@@ -406,7 +425,7 @@ namespace LibGFX.Core.GameElements
         private void RenderAnimatedModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, DirectionalLight light)
         {
             // Bind the shader program
-            renderer.BindShaderProgram(renderer.GetShaderProgram("AnimatedMeshShader"));
+            renderer.BindShaderProgram(this.Shader);
 
             // Prepare the shader uniforms
             renderer.PrepareShader("finalBonesMatrices", false, Animator.FinalBoneMatrices.ToArray());
@@ -435,7 +454,7 @@ namespace LibGFX.Core.GameElements
         private void RenderStaticModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, DirectionalLight light)
         {
             // Bind the shader program
-            renderer.BindShaderProgram(renderer.GetShaderProgram("MeshShader"));
+            renderer.BindShaderProgram(this.Shader);
 
             // Prepare the shader uniforms
             if (light != null)

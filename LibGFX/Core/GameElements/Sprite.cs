@@ -31,6 +31,11 @@ namespace LibGFX.Core.GameElements
         public SpriteMaterial Material { get; set; }
 
         /// <summary>
+        /// The shader program used for rendering the sprite
+        /// </summary>
+        public ShaderProgram Shader { get; set; }
+
+        /// <summary>
         /// Creates a new sprite
         /// </summary>
         /// <param name="name"></param>
@@ -70,9 +75,9 @@ namespace LibGFX.Core.GameElements
         {
             base.Init(scene, viewport, renderer);
 
-            if(this.Material.Shader == null)
+            if(this.Shader == null)
             {
-                this.Material.Shader = renderer.GetShaderProgram("SpriteShader");
+                this.Shader = renderer.GetShaderProgram("SpriteShader");
             }
         }
 
@@ -88,7 +93,7 @@ namespace LibGFX.Core.GameElements
             base.Render(scene, viewport, renderer, camera);
             if(this.Visible)
             {
-                renderer.BindShaderProgram(this.Material.Shader);
+                renderer.BindShaderProgram(this.Shader);
                 renderer.DrawTexture(this.Transform, this.Material.Texture.TextureId, Color, UVTransform);
                 renderer.UnbindShaderProgram();
             }

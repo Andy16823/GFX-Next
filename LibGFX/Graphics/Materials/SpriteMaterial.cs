@@ -25,11 +25,6 @@ namespace LibGFX.Graphics.Materials
         public MaterialFlags Flags { get; set; }
 
         /// <summary>
-        /// The shader program used by the material.
-        /// </summary>
-        public ShaderProgram Shader { get; set; }
-
-        /// <summary>
         /// The texture of the material.
         /// </summary>
         public Texture Texture { get; set; }
@@ -47,10 +42,9 @@ namespace LibGFX.Graphics.Materials
         /// </summary>
         /// <param name="texture"></param>
         /// <param name="shader"></param>
-        public SpriteMaterial(Texture texture, ShaderProgram shader)
+        public SpriteMaterial(Texture texture)
         {
             this.Texture = texture;
-            this.Shader = shader;
         }
 
         /// <summary>

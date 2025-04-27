@@ -33,11 +33,6 @@ namespace LibGFX.Graphics.Materials
         public Vector4 Color { get; set; }
 
         /// <summary>
-        /// The shader program used by the material.
-        /// </summary>
-        public ShaderProgram Shader { get; set; }
-
-        /// <summary>
         /// The flags of the material.
         /// </summary>
         public MaterialFlags Flags { get; set; }

@@ -1,5 +1,6 @@
 ﻿using LibGFX.Graphics;
 using LibGFX.Graphics.Materials;
+using LibGFX.Graphics.Shader;
 using LibGFX.Math;
 using OpenTK.Mathematics;
 using System;
@@ -30,6 +31,10 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         public RenderInstanceContainer InstanceContainer { get; set; }
 
+        /// <summary>
+        /// The shader program used for rendering the mesh instances.
+        /// </summary>
+        public ShaderProgram Shader { get; set; }
 
         /// <summary>
         /// Creates a new instance of the MeshInstancer class.
@@ -59,6 +64,11 @@ namespace LibGFX.Core.GameElements
             if (this.InstanceContainer.Instances.Count > 0)
             {
                 renderer.LoadInstances(this.InstanceContainer);
+            }
+
+            if (this.Shader == null)
+            {
+                this.Shader = renderer.GetShaderProgram("InstancedShader3D");
             }
         }
 
@@ -93,7 +103,7 @@ namespace LibGFX.Core.GameElements
             base.Render(scene, viewport, renderer, camera);
 
             // Bind the shader program
-            renderer.BindShaderProgram(renderer.GetShaderProgram("InstancedShader3D"));
+            renderer.BindShaderProgram(this.Shader);
             var light = renderer.GetLightSource<DirectionalLight>();
 
             // Prepare the shader uniforms

@@ -1,6 +1,7 @@
 ﻿using LibGFX.Graphics;
 using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Primitives;
+using LibGFX.Graphics.Shader;
 using LibGFX.Math;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace LibGFX.Core.GameElements
     {
         public Mesh Mesh { get; set; }
         public IMaterial Material { get; set; }
+        public ShaderProgram Shader { get; set; }
 
         public Primitive(String name, IMaterial material, IPrimitive primitive) 
         {
@@ -26,13 +28,18 @@ namespace LibGFX.Core.GameElements
         {
             base.Init(scene, viewport, renderer);
             renderer.LoadMesh(this.Mesh);
+
+            if(this.Shader == null)
+            {
+                this.Shader = renderer.GetShaderProgram("MeshShader");
+            }
         }
 
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             base.Render(scene, viewport, renderer, camera);
             var light = renderer.GetLightSource<DirectionalLight>();
-            renderer.BindShaderProgram(renderer.GetShaderProgram("MeshShader"));
+            renderer.BindShaderProgram(this.Shader);
             if (light != null)
             {
                 renderer.PrepareShader("dirLight.direction", light.Direction);
