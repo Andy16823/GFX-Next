@@ -1,4 +1,6 @@
 ﻿using LibGFX.Graphics;
+using LibGFX.Graphics.Materials;
+using LibGFX.Graphics.Shader;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -19,38 +21,75 @@ namespace LibGFX.Core.GameElements
         public Vector4 Color { get; set; }
 
         /// <summary>
-        /// The texture of the sprite
-        /// </summary>
-        public Texture Texture { get; set; }
-
-        /// <summary>
         /// The UV transform of the sprite
         /// </summary>
         public Vector4 UVTransform { get; set; } = Vector4.One;
 
-        public Sprite(String name, Vector2 position, Vector2 scale, Texture texture)
+        /// <summary>
+        /// The material of the sprite
+        /// </summary>
+        public SpriteMaterial Material { get; set; }
+
+        /// <summary>
+        /// Creates a new sprite
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="position"></param>
+        /// <param name="scale"></param>
+        /// <param name="material"></param>
+        public Sprite(String name, Vector2 position, Vector2 scale, SpriteMaterial material)
         {
             this.Name = name;   
             this.Color = new Vector4(1, 1, 1, 1);
             this.Transform = new Math.Transform(position, scale);
-            this.Texture = texture;
+            this.Material = material;
         }
 
-        public Sprite(String name, Vector3 position, Vector3 scale, Texture texture)
+        /// <summary>
+        /// Creates a new sprite
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="position"></param>
+        /// <param name="scale"></param>
+        /// <param name="material"></param>
+        public Sprite(String name, Vector3 position, Vector3 scale, SpriteMaterial material)
         {
             this.Name = name;
             this.Color = new Vector4(1, 1, 1, 1);
             this.Transform = new Math.Transform(position, scale);
-            this.Texture = texture;
+            this.Material = material;
         }
 
+        /// <summary>
+        /// Initializes the sprite
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+        {
+            base.Init(scene, viewport, renderer);
+
+            if(this.Material.Shader == null)
+            {
+                this.Material.Shader = renderer.GetShaderProgram("SpriteShader");
+            }
+        }
+
+        /// <summary>
+        /// Renders the sprite
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        /// <param name="camera"></param>
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             base.Render(scene, viewport, renderer, camera);
             if(this.Visible)
             {
-                renderer.BindShaderProgram(renderer.GetShaderProgram("SpriteShader"));
-                renderer.DrawTexture(this.Transform, Texture.TextureId, Color, UVTransform);
+                renderer.BindShaderProgram(this.Material.Shader);
+                renderer.DrawTexture(this.Transform, this.Material.Texture.TextureId, Color, UVTransform);
                 renderer.UnbindShaderProgram();
             }
         }

@@ -216,9 +216,24 @@ namespace LibGFX.Assets
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public IEnumerable<T> GetAllAssets<T>() where T : class
+        public IEnumerable<T> GetAllAssets<T>(bool assignables = true) where T : class
         {
-            return _assets.Values.OfType<T>();
+            Type targetType = typeof(T);
+
+            foreach (var asset in _assets.Values)
+            {
+                if (assignables)
+                {
+                    if (targetType.IsAssignableFrom(asset.GetType()))
+                    {
+                        yield return asset as T;
+                    }
+                }
+                else if (asset is T)
+                {
+                    yield return asset as T;
+                }
+            }
         }
 
         /// <summary>
@@ -228,9 +243,13 @@ namespace LibGFX.Assets
         /// <param name="action"></param>
         public void ForeachAsset<T>(Action<T> action) where T : class
         {
-            foreach (var asset in _assets.Values.OfType<T>())
+            Type targetType = typeof(T);
+            foreach (var asset in _assets.Values)
             {
-                action(asset);
+                if (targetType.IsAssignableFrom(asset.GetType()))
+                {
+                    action(asset as T);
+                }
             }
         }
 

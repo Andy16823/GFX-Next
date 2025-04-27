@@ -1,4 +1,5 @@
 ﻿using LibGFX.Core;
+using LibGFX.Graphics.Shader;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -30,6 +31,11 @@ namespace LibGFX.Graphics.Materials
         /// The color of the material.
         /// </summary>
         public Vector4 Color { get; set; }
+
+        /// <summary>
+        /// The shader program used by the material.
+        /// </summary>
+        public ShaderProgram Shader { get; set; }
 
         /// <summary>
         /// The flags of the material.
@@ -68,6 +74,12 @@ namespace LibGFX.Graphics.Materials
         public void Init(IRenderDevice renderDevice)
         {
             Debug.WriteLine($"Loading material {Name}");
+            if(this.Flags != MaterialFlags.None)
+            {
+                Debug.WriteLine($"Material {Name} is already loaded.");
+                return;
+            }
+
             renderDevice.LoadTexture(DiffuseTexture);
             renderDevice.LoadTexture(NormalTexture);
             renderDevice.LoadTexture(SpecularTexture);

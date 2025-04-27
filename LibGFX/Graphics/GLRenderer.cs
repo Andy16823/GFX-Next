@@ -336,10 +336,12 @@ namespace LibGFX.Graphics
             {
                 GL.GetProgramInfoLog(shaderProgram.ProgramID, out string log);
                 Debug.WriteLine($"Shader Program Linking Failed: {log}");
+                shaderProgram.Flags = ShaderFlags.Failed;
             }
             else
             {
                 Debug.WriteLine($"Shader Program {shaderProgram.ProgramID} created with error {GL.GetError()}");
+                shaderProgram.Flags = ShaderFlags.Loaded;
             }
 
             GL.DeleteShader(shaderProgram.VertexShader.ShaderID);
@@ -355,7 +357,10 @@ namespace LibGFX.Graphics
         }
         public void DisposeShaderProgram(ShaderProgram shaderProgram)
         {
+            Debug.WriteLine($"Disposing shader program {shaderProgram.ProgramID}");
             GL.DeleteProgram(shaderProgram.ProgramID);
+            shaderProgram.ProgramID = 0;
+            shaderProgram.Flags = ShaderFlags.Disposed;
             Debug.WriteLine($"ShaderProgram {shaderProgram.GetType().ToString()} deleted");
         }
 
@@ -529,6 +534,10 @@ namespace LibGFX.Graphics
 
         public void BindShaderProgram(ShaderProgram shaderProgram)
         {
+            if(_currentProgram == shaderProgram.ProgramID)
+            {
+                return;
+            }
             GL.UseProgram(shaderProgram.ProgramID);
             _currentProgram = shaderProgram.ProgramID;
         }
@@ -720,11 +729,6 @@ namespace LibGFX.Graphics
 
         public void DrawTexture(Transform transform, int texture, Vector4 color)
         {
-            if (!_shapes.TryGetValue("SpriteShape", out var shape) || shape == null)
-            {
-                throw new Exception("Shape 'SpriteShape' is missing or invalid.");
-            }
-
             this.DrawTexture(transform, texture, color, Vector4.One);
         }
 
