@@ -61,7 +61,7 @@ namespace LibGFX.Graphics.Enviroment
         /// <summary>
         /// The coverage of the clouds
         /// </summary>
-        public bool Coverage { get; set; }
+        public bool Coverage { get; set; } = false;
 
         /// <summary>
         /// The texture used for the cloud coverage
@@ -103,10 +103,7 @@ namespace LibGFX.Graphics.Enviroment
         /// <exception cref="Exception"></exception>
         public void Init(IRenderDevice renderer)
         {
-            if(this.Coverage && this.CoverageTexture == null)
-            {
-                throw new Exception("Coverage texture is null, but coverage is enabled.");
-            }
+
         }
 
         /// <summary>
@@ -132,7 +129,10 @@ namespace LibGFX.Graphics.Enviroment
             renderer.PrepareShader("skylineOffset", SkylineOffset);
             renderer.PrepareShader("skylineScale", SkylineScale);
             renderer.PrepareShader("coverage", Coverage);
-            renderer.PrepareShader("coverageTexture", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, CoverageTexture);
+            if(CoverageTexture != null)
+            {
+                renderer.PrepareShader("coverageTexture", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, CoverageTexture);
+            }
             renderer.PrepareShader("coverageFactor", CoverageFactor);
             renderer.PrepareShader("cloudColor", CloudColor);
             renderer.PrepareShader("p_mat", true, projectionMatrix);
