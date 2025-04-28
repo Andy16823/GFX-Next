@@ -47,10 +47,12 @@ namespace LibGFX.Graphics.Shader
                 in vec2 texCoord;
                 in vec4 tangent;  
 
-                uniform vec3 albedo;
-                uniform float metallic;
-                uniform float roughness;
-                uniform float ao;
+                uniform sampler2D albedoMap;
+                uniform sampler2D normalMap;
+                uniform sampler2D metallicMap;
+                uniform sampler2D roughnessMap;
+                uniform sampler2D aoMap;
+
                 uniform vec3 camPos;
                 uniform int numLights;
                 const float PI = 3.14159265359;
@@ -107,7 +109,31 @@ namespace LibGFX.Graphics.Shader
                     return F0 + (1.0 - F0) * pow(clamp(1.0 - cosTheta, 0.0, 1.0), 5.0);
                 }; 
 
+                vec3 getNormalFromMap()
+                {
+                    vec3 tangentNormal = texture(normalMap, texCoord).xyz * 2.0 - 1.0;
+
+                    vec3 Q1  = dFdx(position);
+                    vec3 Q2  = dFdy(position);
+                    vec2 st1 = dFdx(texCoord);
+                    vec2 st2 = dFdy(texCoord);
+
+                    vec3 N   = normalize(normal);
+                    vec3 T  = normalize(Q1*st2.t - Q2*st1.t);
+                    vec3 B  = -normalize(cross(N, T));
+                    mat3 TBN = mat3(T, B, N);
+
+                    return normalize(TBN * tangentNormal);
+                }
+
                 void main() {
+
+                    vec3 albedo = pow(texture(albedoMap, texCoord).rgb, vec3(2.2));
+                    vec3 normal = getNormalFromMap();
+                    float metallic  = texture(metallicMap, texCoord).r;
+                    float roughness = texture(roughnessMap, texCoord).r;
+                    float ao = texture(aoMap, texCoord).r;
+
                     vec3 N = normalize(normal);
                     vec3 V = normalize(camPos - position);
 

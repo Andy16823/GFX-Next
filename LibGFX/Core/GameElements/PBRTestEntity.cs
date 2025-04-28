@@ -22,16 +22,17 @@ namespace LibGFX.Core.GameElements
         private PointLightData[] lightDatas = new PointLightData[4];
         private int lightSsboBufferID = 0;
 
-        public PBRTestEntity(String name) 
+        public PBRTestEntity(String name, PBRMaterial material) 
         {
             this.Name = name;
             this.Mesh = new Cube().GetMesh();
-            this.Material = new PBRMaterial();
+            this.Material = material;
             this.Transform = new Transform();
 
-            lights.Add(new PointLight(new Vector3(0, 0, 10), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
-            lights.Add(new PointLight(new Vector3(10, 0, 0), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
-            lights.Add(new PointLight(new Vector3(0, -10, 0), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
+            lights.Add(new PointLight(new Vector3(0, 0, -5), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
+            lights.Add(new PointLight(new Vector3(-5, 0, 0), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
+            lights.Add(new PointLight(new Vector3(0, 5, 0), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
+            lights.Add(new PointLight(new Vector3(0, -5, 0), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
 
             for (int i = 0; i < lights.Count; i++)
             {
@@ -42,6 +43,7 @@ namespace LibGFX.Core.GameElements
         public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             base.Init(scene, viewport, renderer);
+            Material.Init(renderer);
             renderer.LoadMesh(this.Mesh);
 
             this.lightSsboBufferID = renderer.CreateBuffer<PointLightData>(lightDatas, true);
