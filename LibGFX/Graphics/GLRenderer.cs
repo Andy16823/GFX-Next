@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,6 +57,7 @@ namespace LibGFX.Graphics
             this.AddShaderProgram("InstancedShader3D", new InstancedShader3D());
             this.AddShaderProgram("ProceduralSkyShader", new ProceduralSkyShader());
             this.AddShaderProgram("InstancedShader2D", new InstancedShader2D());
+            this.AddShaderProgram("PBRMeshShader", new PBRMeshShader());
 
             foreach (ShaderProgram program in _programs.Values)
             {
@@ -1242,6 +1244,45 @@ namespace LibGFX.Graphics
             return _lights.Values.OfType<T>().FirstOrDefault();
         }
 
+        public int CreateEmptyBuffer()
+        {
+            return GL.GenBuffer();
+        }
+
+        public int CreateBuffer<T>(T[] data, bool dynamic = false) where T : unmanaged
+        {
+            int bufferId = GL.GenBuffer();
+            this.BindBufferData<T>(bufferId, data, dynamic);
+            return bufferId;
+        }
+
+        public void BindBufferData<T>(int buffer, T[] data, bool dynamic = false) where T : unmanaged
+        {
+            int dataSize = Unsafe.SizeOf<T>();
+            var bufferUsageHint = dynamic ? BufferUsageHint.DynamicDraw : BufferUsageHint.StaticDraw;
+            GL.BindBuffer(BufferTarget.ArrayBuffer, buffer);
+            GL.BufferData(BufferTarget.ArrayBuffer, data.Length * dataSize, data, bufferUsageHint);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+        }
+
+        public void EditBufferData<T>(int buffer, T[] data, int offset) where T : unmanaged
+        {
+            int dataSize = Unsafe.SizeOf<T>();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, buffer);
+            GL.BufferSubData(BufferTarget.ArrayBuffer, (offset * dataSize), data.Length * dataSize, data);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+        }
+
+        public void DisposeBuffer(int buffer)
+        {
+            GL.DeleteBuffer(buffer);
+        }
+
+        public void BindShaderStorageBuffer(int binding, int buffer)
+        {
+            GL.BindBufferBase(BufferRangeTarget.ShaderStorageBuffer, binding, buffer);
+        }
+
         public void PrepareShader(string location, bool value)
         {
             var locationId = this.GetUniformLocation(_currentProgram, location);
@@ -1309,5 +1350,20 @@ namespace LibGFX.Graphics
         {
             this.PrepareShader(location, textureUnit, texture.TextureId);
         }
+
+        public void PrepareShader(String location, int textureUnit, int texture)
+        {
+            var locationId = this.GetUniformLocation(_currentProgram, location);
+            var unit = TextureUnit.Texture0 + textureUnit;
+            GL.ActiveTexture(unit);
+            GL.BindTexture(TextureTarget.Texture2D, texture);
+            GL.Uniform1(locationId, textureUnit);
+            GL.ActiveTexture(TextureUnit.Texture0);
+        }
+
+        public void PrepareShader(String location, int textureUnit, Texture texture)
+        {
+            this.PrepareShader(location, textureUnit, texture.TextureId);
+        }        
     }
 }

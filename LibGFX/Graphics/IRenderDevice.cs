@@ -90,6 +90,12 @@ namespace LibGFX.Graphics
         void RemoveLightSource(string name);
         IEnumerable<Light> GetAllLightSources();
         T GetLightSource<T>() where T : Light;
+        int CreateEmptyBuffer();
+        int CreateBuffer<T>(T[] data, bool dynamic = false) where T : unmanaged;
+        void BindBufferData<T>(int buffer, T[] data, bool dynamic = false) where T : unmanaged;
+        void EditBufferData<T>(int buffer, T[] data, int offset) where T : unmanaged;
+        void DisposeBuffer(int buffer);
+        void BindShaderStorageBuffer(int binding, int buffer);
         void PrepareShader(String location, bool value);
         void PrepareShader(String location, float value);
         void PrepareShader(String location, int value);
@@ -101,6 +107,8 @@ namespace LibGFX.Graphics
         void PrepareShader(String uniformName, bool transpose, Matrix4[] matrices);
         void PrepareShader(String location, TextureUnit textureUnit, int value);
         void PrepareShader(String location, TextureUnit textureUnit, Texture texture);
+        void PrepareShader(String location, int textureUnit, int value);
+        void PrepareShader(String location, int textureUnit, Texture texture);
         int GetError();
     }
 }
