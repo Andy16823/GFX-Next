@@ -12,13 +12,35 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Core.GameElements
 {
+    /// <summary>
+    /// Represents a sprite instancer that can render multiple instances of a sprite using instancing.
+    /// </summary>
     public class SpriteInstancer : GameElement
     {
+        /// <summary>
+        /// The material used for rendering the sprite instances.
+        /// </summary>
         public IMaterial Material { get; set; }
+
+        /// <summary>
+        /// The mesh used for rendering the sprite instances.
+        /// </summary>
         public Mesh Mesh { get; internal set; }
+
+        /// <summary>
+        /// The instance container that holds the instances of the sprite.
+        /// </summary>
         public RenderInstanceContainer InstanceContainer { get; set; }
+
+        /// <summary>
+        /// The shader program used for rendering the sprite instances.
+        /// </summary>
         public ShaderProgram Shader { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SpriteInstancer"/> class with the specified material.
+        /// </summary>
+        /// <param name="material"></param>
         public SpriteInstancer(IMaterial material)
         {
             this.Mesh = new Quad().GetMesh();
@@ -26,6 +48,25 @@ namespace LibGFX.Core.GameElements
             this.InstanceContainer = new RenderInstanceContainer();
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SpriteInstancer"/> class with the specified material and number of instances.
+        /// </summary>
+        /// <param name="material"></param>
+        /// <param name="instances"></param>
+        public SpriteInstancer(IMaterial material, uint instances)
+        {
+            this.Mesh = new Quad().GetMesh();
+            this.Material = material;
+            this.InstanceContainer = new RenderInstanceContainer();
+            this.BakeInstances((uint)instances);
+        }
+
+        /// <summary>
+        /// Initializes the sprite instancer with the specified scene, viewport, and renderer.
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
         public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             base.Init(scene, viewport, renderer);
@@ -44,6 +85,13 @@ namespace LibGFX.Core.GameElements
             }
         }
 
+        /// <summary>
+        /// Adds a new instance to the sprite instancer with the specified transform and UV transform.
+        /// </summary>
+        /// <param name="transform"></param>
+        /// <param name="uvTransform"></param>
+        /// <param name="visible"></param>
+        /// <returns></returns>
         public int AddInstance(Transform transform, Vector4 uvTransform, bool visible = true)
         {
             var instanceId = this.InstanceContainer.AddInstance(transform, true);
@@ -52,6 +100,13 @@ namespace LibGFX.Core.GameElements
             return instanceId;
         }
 
+        /// <summary>
+        /// Renders the sprite instancer using the specified scene, viewport, renderer, and camera.
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        /// <param name="camera"></param>
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             base.Render(scene, viewport, renderer, camera);
@@ -62,12 +117,23 @@ namespace LibGFX.Core.GameElements
             renderer.UnbindShaderProgram();
         }
 
+        /// <summary>
+        /// Disposes the sprite instancer and its resources.
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="renderer"></param>
         public override void Dispose(BaseScene scene, IRenderDevice renderer)
         {
             base.Dispose(scene, renderer);
             renderer.DisposeInstanceContainer(this.InstanceContainer);
         }
 
+        /// <summary>
+        /// Creates a new instance handle for the specified instance ID.
+        /// </summary>
+        /// <param name="instanceId"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public InstanceHandle CreateInstanceHandle(int instanceId)
         {
             if (instanceId < 0 || instanceId >= this.InstanceContainer.Instances.Count)
@@ -79,6 +145,11 @@ namespace LibGFX.Core.GameElements
             return handle;
         }
 
+        /// <summary>
+        /// Bakes the specified number of instances into the sprite instancer.
+        /// </summary>
+        /// <param name="instanceCount"></param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void BakeInstances(uint instanceCount = 10)
         {
             if (instanceCount == 0)
