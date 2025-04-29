@@ -1,4 +1,5 @@
 ﻿using LibGFX.Graphics;
+using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Shader;
 using OpenTK.Mathematics;
@@ -24,6 +25,11 @@ namespace LibGFX.Core.GameElements
         /// The UV transform of the sprite
         /// </summary>
         public Vector4 UVTransform { get; set; } = Vector4.One;
+
+        /// <summary>
+        /// The UV scale of the sprite
+        /// </summary>
+        public Vector2 UVScale { get; set; } = Vector2.One;
 
         /// <summary>
         /// The material of the sprite
@@ -94,7 +100,14 @@ namespace LibGFX.Core.GameElements
             if(this.Visible)
             {
                 renderer.BindShaderProgram(this.Shader);
-                renderer.DrawTexture(this.Transform, this.Material.Texture.TextureId, Color, UVTransform);
+
+
+                if (scene.LightManager != null)
+                {
+                    scene.LightManager.BindLights(viewport, renderer, camera);
+                }
+
+                renderer.DrawTexture(this.Transform, this.Material.Texture.TextureId, Color, UVTransform, UVScale);
                 renderer.UnbindShaderProgram();
             }
         }

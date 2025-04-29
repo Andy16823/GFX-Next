@@ -1,5 +1,6 @@
 ﻿using LibGFX.Graphics;
 using LibGFX.Graphics.Enviroment;
+using LibGFX.Graphics.Lights;
 using LibGFX.Math;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;

@@ -2,6 +2,7 @@
 using Assimp.Configs;
 using LibGFX.Graphics;
 using LibGFX.Graphics.Animation3D;
+using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Shader;
 using LibGFX.Math;
@@ -16,7 +17,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Light = LibGFX.Graphics.Light;
+using Light = LibGFX.Graphics.Lights.Light;
 
 namespace LibGFX.Core.GameElements
 {

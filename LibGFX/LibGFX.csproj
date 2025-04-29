@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <None Remove="Assets\Loaders\AudioLoader.cs~RF97f82ac.TMP" />
+    <None Remove="Graphics\Lights\Light2DHandler.cs~RF5ca3f556.TMP" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using LibGFX.Core;
+using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Shader;
 using LibGFX.Graphics.Shapes;
@@ -72,6 +73,7 @@ namespace LibGFX.Graphics
         void DrawTexture(Transform transform, Texture texture, Vector4 color);
         void DrawTexture(Transform transform, int textureId, Vector4 color);
         void DrawTexture(Transform transform, int textureId, Vector4 color, Vector4 uvTransform);
+        void DrawTexture(Transform transform, int textureId, Vector4 color, Vector4 uvTransform, Vector2 uvScale);
         void DrawCubemap(Transform transform, Cubemap cubemap, Vector4 color);
         Font LoadFont(String path, int fontsize = 48);
         void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f, FontAlignment alignment = FontAlignment.BottomLeft);

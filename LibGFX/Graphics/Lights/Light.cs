@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibGFX.Graphics
+namespace LibGFX.Graphics.Lights
 {
     public abstract class Light
     {

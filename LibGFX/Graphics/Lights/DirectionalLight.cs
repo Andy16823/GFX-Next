@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibGFX.Graphics
+namespace LibGFX.Graphics.Lights
 {
     public class DirectionalLight : Light
     {
@@ -15,12 +15,12 @@ namespace LibGFX.Graphics
 
         public DirectionalLight(Vector3 direction, Vector4 color, float intensity)
         {
-            this.Position = Vector3.PositiveInfinity;
-            this.Direction = direction;
-            this.Color = color;
-            this.Intensity = intensity;
-            this.Ambient = new Vector3(0.2f, 0.2f, 0.2f);
-            this.Specular = new Vector3(1.0f, 1.0f, 1.0f);
+            Position = Vector3.PositiveInfinity;
+            Direction = direction;
+            Color = color;
+            Intensity = intensity;
+            Ambient = new Vector3(0.2f, 0.2f, 0.2f);
+            Specular = new Vector3(1.0f, 1.0f, 1.0f);
         }
     }
 }

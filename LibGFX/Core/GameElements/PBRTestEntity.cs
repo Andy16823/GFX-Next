@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenTK.Mathematics;
+using LibGFX.Graphics.Lights;
 
 namespace LibGFX.Core.GameElements
 {

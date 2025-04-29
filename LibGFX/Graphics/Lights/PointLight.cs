@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibGFX.Graphics
+namespace LibGFX.Graphics.Lights
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct PointLightData
@@ -21,18 +21,18 @@ namespace LibGFX.Graphics
     {
         public PointLight(Vector3 postion, Vector4 color)
         {
-            this.Position = postion;
-            this.Color = color;
-            this.Intensity = 1.0f;
+            Position = postion;
+            Color = color;
+            Intensity = 1.0f;
         }
 
         public PointLightData ToStruct()
         {
             return new PointLightData()
             {
-                Position = this.Position,
-                Intensity = this.Intensity,
-                Color = this.Color
+                Position = Position,
+                Intensity = Intensity,
+                Color = Color
             };
         }
     }

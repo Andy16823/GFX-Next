@@ -70,8 +70,8 @@ namespace LibGFX.Core
         /// <returns></returns>
         public static System.Numerics.Matrix4x4 GetBtTransform(GameElement element, Vector3 offsetLocation = default)
         {
-            var location = (System.Numerics.Vector3) element.Transform.Position + (System.Numerics.Vector3) offsetLocation;
-            var rotation = (System.Numerics.Quaternion) element.Transform.Rotation;
+            var location = (System.Numerics.Vector3)element.Transform.Position + (System.Numerics.Vector3)offsetLocation;
+            var rotation = (System.Numerics.Quaternion)element.Transform.Rotation;
 
             var btTranslation = System.Numerics.Matrix4x4.CreateTranslation(location);
             var btRotation = System.Numerics.Matrix4x4.CreateFromQuaternion(rotation);
@@ -175,6 +175,23 @@ namespace LibGFX.Core
                 return Texture.LoadTexture(texturePath);
             }
             return null;
+        }
+
+        public static Vector4 GetUVTransformFromTilemap(int width, int height, int cellWidth, int cellHeight, int tileX, int tileY)
+        {
+            float cellsX = (float)width / cellWidth;
+            float cellsY = (float)height / cellHeight;
+
+            float cellX = (float) tileX * cellWidth;
+            float flippedTileY = cellsY - tileY - 1;
+            float cellY = flippedTileY * cellHeight;
+
+            float scaleX = (float)cellWidth / width;
+            float scaleY = (float)cellHeight / height;
+            float offsetX = (float)cellX / width;
+            float offsetY = (float)cellY / height;
+
+            return new Vector4(scaleX, scaleY, offsetX, offsetY);
         }
     }
 }

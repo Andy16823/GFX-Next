@@ -1,4 +1,5 @@
 ﻿using LibGFX.Graphics;
+using LibGFX.Graphics.Lights;
 using LibGFX.Pyhsics;
 using OpenTK.Graphics.OpenGL;
 using System;
@@ -22,6 +23,11 @@ namespace LibGFX.Core
         public PhysicsHandler PhysicsHandler { get; set; }
 
         /// <summary>
+        /// The light handler of the scene
+        /// </summary>
+        public ILightManager LightManager { get; set; }
+
+        /// <summary>
         /// Creates a new scene
         /// </summary>
         protected BaseScene()
@@ -35,7 +41,7 @@ namespace LibGFX.Core
         /// <param name="layerName"></param>
         /// <param name="element"></param>
         /// <returns></returns>
-        public bool TryAddGameElement(String layerName, GameElement element)
+        public bool AddGameElement(String layerName, GameElement element)
         {
             if(element == null || String.IsNullOrEmpty(layerName))
             {

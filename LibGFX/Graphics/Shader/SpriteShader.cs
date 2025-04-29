@@ -24,8 +24,8 @@ namespace LibGFX.Graphics.Shader
                 uniform vec4 vertexColor;
 
                 void main() {
-                    mat4 mvp = p_mat * v_mat * m_mat;
-                    gl_Position = mvp * vec4(inPosition, 1.0);
+                    mat4 mvp = m_mat * v_mat * p_mat;
+                    gl_Position = vec4(inPosition, 1.0) * mvp;
                     texCoord = inTexCoord;
                     vColor = vertexColor;
                 }
@@ -41,9 +41,12 @@ namespace LibGFX.Graphics.Shader
 
                 uniform sampler2D textureSampler;
                 uniform vec4 uvTransform;
+                uniform vec2 uvScale;
 
                 void main() {
-                    vec2 transformedTexCoord = texCoord * uvTransform.xy + uvTransform.zw;
+                    vec2 localUV = fract(texCoord * uvScale);
+                    vec2 transformedTexCoord = localUV * uvTransform.xy + uvTransform.zw;
+
                     fragColor = texture(textureSampler, transformedTexCoord) * vColor;
                 }
             ");

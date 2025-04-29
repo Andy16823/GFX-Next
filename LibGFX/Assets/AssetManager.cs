@@ -12,6 +12,7 @@ namespace LibGFX.Assets
     /// </summary>
     public class AssetManager
     {
+        public String AssemblyPath { get => this.GetAssemblyPath(); }
         private readonly Dictionary<object, IAssetLoader> _loaders = new();
         private readonly Dictionary<string, object> _assets = new();
 
@@ -271,6 +272,13 @@ namespace LibGFX.Assets
         public void UnloadAllAssets()
         {
             _assets.Clear();
+        }
+
+        private String GetAssemblyPath()
+        {
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var location = assembly.Location;
+            return System.IO.Path.GetDirectoryName(location) ?? string.Empty;
         }
     }
 }

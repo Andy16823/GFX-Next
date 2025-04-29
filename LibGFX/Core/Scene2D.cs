@@ -1,4 +1,5 @@
 ﻿using LibGFX.Graphics;
+using LibGFX.Graphics.Lights;
 using OpenTK.Graphics.OpenGL4;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace LibGFX.Core
         /// </summary>
         public Scene2D() : base()
         {
-            
+            this.LightManager = new Light2DManager();
         }
 
         /// <summary>
@@ -33,10 +34,30 @@ namespace LibGFX.Core
         /// <param name="layers"></param>
         public Scene2D(params String[] layers) : base()
         {
+            this.LightManager = new Light2DManager();
+
             foreach (var item in layers)
             {
                 this.Layers.Add(new Layer(item));
             }
+        }
+
+        public void SetDirectionalLight(DirectionalLight2D light)
+        {
+            var lightManager = this.LightManager as Light2DManager;
+            lightManager.DirectionalLight = light;
+        }
+
+        public DirectionalLight2D GetDirectionalLight()
+        {
+            var lightManager = this.LightManager as Light2DManager;
+            return lightManager.DirectionalLight;
+        }
+
+        public void AddPointLight(PointLight2D light)
+        {
+            var lightManager = this.LightManager as Light2DManager;
+            lightManager.Lights.Add(light);
         }
 
         /// <summary>
@@ -58,6 +79,8 @@ namespace LibGFX.Core
             {
                 l.Init(this, viewport, renderer);
             });
+
+            this.LightManager.Init(renderer);
         }
 
         /// <summary>
@@ -129,6 +152,8 @@ namespace LibGFX.Core
             {
                 l.Dispose(this, renderer);
             });
+
+            this.LightManager.Dispose(renderer);
         }
 
         /// <summary>

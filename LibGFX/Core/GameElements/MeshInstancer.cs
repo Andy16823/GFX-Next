@@ -1,4 +1,5 @@
 ﻿using LibGFX.Graphics;
+using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Shader;
 using LibGFX.Math;

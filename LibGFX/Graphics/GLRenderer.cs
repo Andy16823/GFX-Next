@@ -1,6 +1,7 @@
 ﻿using FreeTypeSharp;
 using LibGFX.Core;
 using LibGFX.Core.GameElements;
+using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Shader;
 using LibGFX.Graphics.Shapes;
@@ -58,6 +59,7 @@ namespace LibGFX.Graphics
             this.AddShaderProgram("ProceduralSkyShader", new ProceduralSkyShader());
             this.AddShaderProgram("InstancedShader2D", new InstancedShader2D());
             this.AddShaderProgram("PBRMeshShader", new PBRMeshShader());
+            this.AddShaderProgram("LitSpriteShader", new LitSpriteShader());
 
             foreach (ShaderProgram program in _programs.Values)
             {
@@ -735,7 +737,12 @@ namespace LibGFX.Graphics
             this.DrawTexture(transform, texture, color, Vector4.One);
         }
 
-        public void DrawTexture(Transform transform, int texture, Vector4 color, Vector4 uvTransform)
+        public void DrawTexture(Transform transform, int textureId, Vector4 color, Vector4 uvTransform)
+        {
+            this.DrawTexture(transform, textureId, color, uvTransform, Vector2.One);
+        }
+
+        public void DrawTexture(Transform transform, int textureId, Vector4 color, Vector4 uvTransform, Vector2 uvScale)
         {
             if (!_shapes.TryGetValue("SpriteShape", out var shape) || shape == null)
             {
@@ -744,14 +751,15 @@ namespace LibGFX.Graphics
             var m_mat = transform.GetMatrix();
 
             GL.ActiveTexture(TextureUnit.Texture0);
-            GL.BindTexture(TextureTarget.Texture2D, texture);
-
-            GL.Uniform4(this.GetUniformLocation(_currentProgram, "uvTransform"), uvTransform);
+            GL.BindTexture(TextureTarget.Texture2D, textureId);
             GL.Uniform1(this.GetUniformLocation(_currentProgram, "textureSampler"), 0);
 
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "m_mat"), false, ref m_mat);
+            GL.Uniform4(this.GetUniformLocation(_currentProgram, "uvTransform"), uvTransform);
+            GL.Uniform2(this.GetUniformLocation(_currentProgram, "uvScale"), uvScale);
+
+            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
+            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
+            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
             GL.Uniform4(this.GetUniformLocation(_currentProgram, "vertexColor"), color);
 
             GL.BindVertexArray(shape.VertexArray);
