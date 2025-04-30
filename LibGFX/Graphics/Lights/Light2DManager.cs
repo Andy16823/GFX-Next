@@ -117,11 +117,11 @@ namespace LibGFX.Graphics.Lights
             //Debug.WriteLine($"Nearby chunks: {nearbyChunks.Count()}");
 
             var culledLights = new List<Point2DLightData>();
-            foreach (var chunk in nearbyChunks)
+            Parallel.ForEach(nearbyChunks, chunk =>
             {
-                if (Chunks.ContainsKey(chunk))
+                if (Chunks.TryGetValue(chunk, out var chunkLights))
                 {
-                    Parallel.ForEach(Chunks[chunk].Lights, light =>
+                    foreach (var light in chunkLights.Lights)
                     {
                         if (Vector2.DistanceSquared(camera.Transform.Position.Xy, light.Position.Xy) < cullRadius * cullRadius)
                         {
@@ -130,9 +130,9 @@ namespace LibGFX.Graphics.Lights
                                 culledLights.Add(light.ToStruct());
                             }
                         }
-                    });
+                    }
                 }
-            }
+            });
 
             //Debug.WriteLine($"Culled lights: {culledLights.Count}");
             return culledLights;
@@ -147,6 +147,12 @@ namespace LibGFX.Graphics.Lights
             this.LightSSBO = renderDevice.CreateEmptyBuffer();
         }
 
+        /// <summary>
+        /// Culls the lights based on the camera's view and the viewport.
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        /// <param name="camera"></param>
         public void CullLights(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             var newBufferData = CullChunkLights(camera, this.ChunkSize).ToArray();
