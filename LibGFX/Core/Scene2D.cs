@@ -74,18 +74,7 @@ namespace LibGFX.Core
         public void AddPointLight(PointLight2D light)
         {
             var lightManager = this.LightManager as Light2DManager;
-            lightManager.Lights.Add(light);
-        }
-
-        /// <summary>
-        /// Gets the point light at the given index
-        /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        public PointLight2D GetPointLight(int index)
-        {
-            var lightManager = this.LightManager as Light2DManager;
-            return lightManager.Lights[index];
+            lightManager.AddPointLight(light);
         }
 
         /// <summary>
@@ -95,7 +84,7 @@ namespace LibGFX.Core
         public void RemovePointLight(PointLight2D light)
         {
             var lightManager = this.LightManager as Light2DManager;
-            lightManager.Lights.Remove(light);
+            lightManager.RemovePointLight(light);
         }
 
         /// <summary>

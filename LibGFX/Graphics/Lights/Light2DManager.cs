@@ -11,6 +11,19 @@ using System.Threading.Tasks;
 namespace LibGFX.Graphics.Lights
 {
     /// <summary>
+    /// Represents an chunk of lights in the scene.
+    /// </summary>
+    public class Light2DChunk
+    {
+        public List<PointLight2D> Lights { get; set; }
+
+        public Light2DChunk()
+        {
+            Lights = new List<PointLight2D>();
+        }
+    }
+
+    /// <summary>
     /// Manages 2D lights in the scene.
     /// </summary>
     public class Light2DManager : ILightManager
@@ -21,21 +34,108 @@ namespace LibGFX.Graphics.Lights
         public DirectionalLight2D DirectionalLight { get; set; }
 
         /// <summary>
-        /// The list of point lights in the scene.
+        /// The dictionary of light chunks, where the key is a tuple of chunk coordinates (x, y).
         /// </summary>
-        public List<PointLight2D> Lights { get; set; }
+        public Dictionary<(int, int), Light2DChunk> Chunks { get; set; } = new Dictionary<(int, int), Light2DChunk>();
 
         /// <summary>
         /// The shader storage buffer object (SSBO) for the lights.
         /// </summary>
         public int LightSSBO { get; set; }
 
+        public float ChunkSize { get; set; } = 4000;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Light2DManager"/> class.
         /// </summary>
         public Light2DManager()
         {
-            this.Lights = new List<PointLight2D>();
+
+        }
+
+        /// <summary>
+        /// Adds a directional light to the scene.
+        /// </summary>
+        /// <param name="light"></param>
+        public void AddPointLight(PointLight2D light)
+        {
+            var chunk = GetChunk(light.Position.X, light.Position.Y, this.ChunkSize);
+            if (!Chunks.ContainsKey(chunk))
+            {
+                Chunks[chunk] = new Light2DChunk();
+            }
+
+            Chunks[chunk].Lights.Add(light);
+        }
+
+        /// <summary>
+        /// Removes a point light from the scene.
+        /// </summary>
+        /// <param name="light"></param>
+        public void RemovePointLight(PointLight2D light)
+        {
+            var chunk = GetChunk(light.Position.X, light.Position.Y, this.ChunkSize);
+            if (Chunks.ContainsKey(chunk))
+            {
+                Chunks[chunk].Lights.Remove(light);
+                Debug.WriteLine($"Removed light from chunk {chunk} at position {light.Position}");
+            }
+        }
+
+        /// <summary>
+        /// Finds nearby chunks based on the given coordinates and chunk size.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="chunkSize"></param>
+        /// <returns></returns>
+        public IEnumerable<(int, int)> FindNearbyChunks(float x, float y, float chunkSize)
+        {
+            var chunk = GetChunk(x, y, chunkSize);
+
+            for (int i = -1; i <= 1; i++)
+            {
+                for (int j = -1; j <= 1; j++)
+                {
+                    yield return (chunk.Item1 + i, chunk.Item2 + j);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets the lights in the nearby chunks based on the given coordinates and chunk size.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="chunkSize"></param>
+        /// <returns></returns>
+        public IEnumerable<Point2DLightData> CullChunkLights(Camera camera, float chunkSize)
+        {
+            var cullRadius = camera.Transform.Scale.X / 2.0f;
+
+            var nearbyChunks = FindNearbyChunks(camera.Transform.Position.X, camera.Transform.Position.Y, chunkSize);
+            //Debug.WriteLine($"Nearby chunks: {nearbyChunks.Count()}");
+
+            var culledLights = new List<Point2DLightData>();
+            foreach (var chunk in nearbyChunks)
+            {
+                if (Chunks.ContainsKey(chunk))
+                {
+                    Parallel.ForEach(Chunks[chunk].Lights, light =>
+                    {
+                        if (Vector2.DistanceSquared(camera.Transform.Position.Xy, light.Position.Xy) < cullRadius * cullRadius)
+                        {
+                            lock (culledLights)
+                            {
+                                culledLights.Add(light.ToStruct());
+                            }
+                        }
+                    });
+                }
+            }
+
+            //Debug.WriteLine($"Culled lights: {culledLights.Count}");
+            return culledLights;
         }
 
         /// <summary>
@@ -44,19 +144,13 @@ namespace LibGFX.Graphics.Lights
         /// <param name="renderDevice"></param>
         public void Init(IRenderDevice renderDevice)
         {
-            var lightInfos = new List<Point2DLightData>();
-            foreach (var light in Lights)
-            {
-                lightInfos.Add(light.ToStruct());
-            }
-            this.LightSSBO = renderDevice.CreateBuffer<Point2DLightData>(lightInfos.ToArray(), true);
+            this.LightSSBO = renderDevice.CreateEmptyBuffer();
         }
 
         public void CullLights(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            var newBufferData = CullLights(camera).ToArray();
+            var newBufferData = CullChunkLights(camera, this.ChunkSize).ToArray();
             renderer.BindBufferData<Point2DLightData>(LightSSBO, newBufferData, true);
-            //Debug.WriteLine($"LightSSBO: {this.LightSSBO} - {newBufferData.Length} lights");
         }
 
         /// <summary>
@@ -79,34 +173,14 @@ namespace LibGFX.Graphics.Lights
         }
 
         /// <summary>
-        /// Culls the lights based on the camera's position and scale.
-        /// </summary>
-        /// <param name="camera"></param>
-        /// <returns></returns>
-        private IEnumerable<Point2DLightData> CullLights(Camera camera)
-        {
-            var cullRadius = camera.Transform.Scale.X / 2.0f;
-            var culledLights = new ConcurrentBag<Point2DLightData>();
-
-            Parallel.ForEach(this.Lights, light =>
-            {
-                if (Vector2.DistanceSquared(camera.Transform.Position.Xy, light.Position.Xy) < cullRadius * cullRadius)
-                {
-                    culledLights.Add(light.ToStruct());
-                }
-            });
-
-            return culledLights.ToList();
-        }
-
-        /// <summary>
         /// Disposes of the light manager and releases any resources.
         /// </summary>
         /// <param name="renderDevice"></param>
         public void Dispose(IRenderDevice renderDevice)
         {
             renderDevice.DisposeBuffer(this.LightSSBO);
-            this.Lights.Clear();
+            this.LightSSBO = 0;
+            this.Chunks.Clear();
         }
 
         /// <summary>
@@ -117,18 +191,21 @@ namespace LibGFX.Graphics.Lights
         /// <exception cref="ArgumentException"></exception>
         public int GetLightCount<T>() where T : Light
         {
-            if (typeof(T) == typeof(PointLight2D))
-            {
-                return this.Lights.Count;
-            }
-            else if (typeof(T) == typeof(DirectionalLight2D))
-            {
-                return this.DirectionalLight != null ? 1 : 0;
-            }
-            else
-            {
-                throw new ArgumentException($"Unsupported light type: {typeof(T)}");
-            }
+            return 0;
+        }
+
+        /// <summary>
+        /// Gets the chunk coordinates based on the given x and y coordinates and chunk size.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="chunkSize"></param>
+        /// <returns></returns>
+        public (int, int) GetChunk(float x, float y, float chunkSize)
+        {
+            int chunkX = (int)MathF.Floor(x / chunkSize);
+            int chunkY = (int)MathF.Floor(y / chunkSize);
+            return (chunkX, chunkY);
         }
     }
 }
