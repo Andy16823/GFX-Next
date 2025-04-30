@@ -18,6 +18,14 @@ namespace LibGFX.Graphics.Lights
         public void Init(IRenderDevice renderDevice);
 
         /// <summary>
+        /// Culls the lights based on the camera's view and the viewport.
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        /// <param name="camera"></param>
+        public void CullLights(Viewport viewport, IRenderDevice renderer, Camera camera);
+
+        /// <summary>
         /// Binds the lights to the shader program for rendering.
         /// </summary>
         /// <param name="viewport"></param>

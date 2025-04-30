@@ -129,6 +129,12 @@ namespace LibGFX.Core
         /// <param name="camera"></param>
         public override void Render(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
+            if(this.LightManager != null)
+            {
+                //Debug.WriteLine("Culling lights");  
+                this.LightManager.CullLights(viewport, renderer, camera);
+            }
+
             var depthTest = renderer.IsDepthTestEnabled();
 
             // Disable depth test and set the viewport, projection and view matrix

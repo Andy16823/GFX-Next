@@ -1,6 +1,7 @@
 ﻿using Assimp;
 using OpenTK.Mathematics;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -51,6 +52,13 @@ namespace LibGFX.Graphics.Lights
             this.LightSSBO = renderDevice.CreateBuffer<Point2DLightData>(lightInfos.ToArray(), true);
         }
 
+        public void CullLights(Viewport viewport, IRenderDevice renderer, Camera camera)
+        {
+            var newBufferData = CullLights(camera).ToArray();
+            renderer.BindBufferData<Point2DLightData>(LightSSBO, newBufferData, true);
+            //Debug.WriteLine($"LightSSBO: {this.LightSSBO} - {newBufferData.Length} lights");
+        }
+
         /// <summary>
         /// Binds the lights to the shader program for rendering.
         /// </summary>
@@ -64,10 +72,7 @@ namespace LibGFX.Graphics.Lights
                 Debug.WriteLine("No directional light found");
                 return;
             }
-            var newBufferData = CullLights(camera).ToArray();
-            renderer.BindBufferData<Point2DLightData>(LightSSBO, newBufferData, true);
-            Debug.WriteLine($"LightSSBO: {this.LightSSBO} - {newBufferData.Length} lights");
-
+            
             renderer.PrepareShader("dirLightColor", DirectionalLight.Color.Xyz);
             renderer.PrepareShader("dirLightIntensity", DirectionalLight.Intensity);
             renderer.BindShaderStorageBuffer(4, this.LightSSBO);
@@ -81,14 +86,17 @@ namespace LibGFX.Graphics.Lights
         private IEnumerable<Point2DLightData> CullLights(Camera camera)
         {
             var cullRadius = camera.Transform.Scale.X / 2.0f;
+            var culledLights = new ConcurrentBag<Point2DLightData>();
 
-            foreach (var light in this.Lights)
+            Parallel.ForEach(this.Lights, light =>
             {
                 if (Vector2.DistanceSquared(camera.Transform.Position.Xy, light.Position.Xy) < cullRadius * cullRadius)
                 {
-                    yield return light.ToStruct();
+                    culledLights.Add(light.ToStruct());
                 }
-            }
+            });
+
+            return culledLights.ToList();
         }
 
         /// <summary>
