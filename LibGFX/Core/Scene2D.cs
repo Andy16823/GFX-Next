@@ -21,6 +21,11 @@ namespace LibGFX.Core
         private RenderTarget _renderTarget;
 
         /// <summary>
+        /// Sets the main light manager for the scene
+        /// </summary>
+        public DirectionalLight2D SceneLight { get => this.GetDirectionalLight(); set => this.SetDirectionalLight(value); }
+
+        /// <summary>
         /// Creates a new 2D scene
         /// </summary>
         public Scene2D() : base()
@@ -42,22 +47,55 @@ namespace LibGFX.Core
             }
         }
 
+        /// <summary>
+        /// Sets the directional light for the scene
+        /// </summary>
+        /// <param name="light"></param>
         public void SetDirectionalLight(DirectionalLight2D light)
         {
             var lightManager = this.LightManager as Light2DManager;
             lightManager.DirectionalLight = light;
         }
 
+        /// <summary>
+        /// Gets the directional light for the scene
+        /// </summary>
+        /// <returns></returns>
         public DirectionalLight2D GetDirectionalLight()
         {
             var lightManager = this.LightManager as Light2DManager;
             return lightManager.DirectionalLight;
         }
 
+        /// <summary>
+        /// Adds a point light to the scene
+        /// </summary>
+        /// <param name="light"></param>
         public void AddPointLight(PointLight2D light)
         {
             var lightManager = this.LightManager as Light2DManager;
             lightManager.Lights.Add(light);
+        }
+
+        /// <summary>
+        /// Gets the point light at the given index
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public PointLight2D GetPointLight(int index)
+        {
+            var lightManager = this.LightManager as Light2DManager;
+            return lightManager.Lights[index];
+        }
+
+        /// <summary>
+        /// Removes a point light from the scene
+        /// </summary>
+        /// <param name="light"></param>
+        public void RemovePointLight(PointLight2D light)
+        {
+            var lightManager = this.LightManager as Light2DManager;
+            lightManager.Lights.Remove(light);
         }
 
         /// <summary>

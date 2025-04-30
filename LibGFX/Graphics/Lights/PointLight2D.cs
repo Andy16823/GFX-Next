@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Lights
 {
+    /// <summary>
+    /// Represents the data structure for a 2D point light for the shader.
+    /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct Point2DLightData
     {
@@ -17,10 +20,23 @@ namespace LibGFX.Graphics.Lights
         public Vector4 RadiusIntensity;
     }
 
+    /// <summary>
+    /// Represents a 2D point light in the scene.
+    /// </summary>
     public class PointLight2D : Light
     {
+        /// <summary>
+        /// The Radius of the light.
+        /// </summary>
         public float Radius { get; set; }
 
+        /// <summary>
+        /// Creates a new instance of the <see cref="PointLight2D"/> class.
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="color"></param>
+        /// <param name="radius"></param>
+        /// <param name="intensity"></param>
         public PointLight2D(Vector2 position, Vector3 color, float radius, float intensity)
         {
             Position = new Vector3(position.X, position.Y, 1);
@@ -29,6 +45,10 @@ namespace LibGFX.Graphics.Lights
             Radius = radius;
         }
 
+        /// <summary>
+        /// Converts the light data to a structure for use in the shader.
+        /// </summary>
+        /// <returns></returns>
         public Point2DLightData ToStruct()
         {
             return new Point2DLightData()

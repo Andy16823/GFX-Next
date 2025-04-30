@@ -24,6 +24,11 @@ namespace LibGFX.Assets
         /// <returns></returns>
         public T Load<T>(string path) where T : class
         {
+            if(this.LooksLikeFilePath(path))
+            {
+                path = Path.IsPathRooted(path) ? path : Path.Combine(AssemblyPath, path);
+            }
+
             if (_assets.TryGetValue(path, out var asset))
             {
                 return (T)asset;
@@ -274,6 +279,20 @@ namespace LibGFX.Assets
             _assets.Clear();
         }
 
+        /// <summary>
+        /// Checks if the input string looks like a file path.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private bool LooksLikeFilePath(string input)
+        {
+            return input.Contains("/") || input.Contains("\\") || Path.HasExtension(input);
+        }
+
+        /// <summary>
+        /// Gets the assembly path of the executing assembly.
+        /// </summary>
+        /// <returns></returns>
         private String GetAssemblyPath()
         {
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
