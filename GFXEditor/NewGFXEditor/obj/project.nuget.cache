@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "vxQd3jdbS8Q=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\andy1\\source\\repos\\NewGFXEditor\\NewGFXEditor\\NewGFXEditor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\andy1\\.nuget\\packages\\microsoft.win32.systemevents\\9.0.4\\microsoft.win32.systemevents.9.0.4.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\opentk\\4.9.4\\opentk.4.9.4.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\opentk.audio.openal\\4.9.4\\opentk.audio.openal.4.9.4.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\opentk.compute\\4.9.4\\opentk.compute.4.9.4.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\opentk.core\\4.9.4\\opentk.core.4.9.4.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\opentk.glcontrol\\4.0.2\\opentk.glcontrol.4.0.2.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\opentk.graphics\\4.9.4\\opentk.graphics.4.9.4.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\opentk.input\\4.9.4\\opentk.input.4.9.4.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\opentk.mathematics\\4.9.4\\opentk.mathematics.4.9.4.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\opentk.redist.glfw\\3.4.0.44\\opentk.redist.glfw.3.4.0.44.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\opentk.windowing.common\\4.9.4\\opentk.windowing.common.4.9.4.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\opentk.windowing.desktop\\4.9.4\\opentk.windowing.desktop.4.9.4.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\opentk.windowing.graphicslibraryframework\\4.9.4\\opentk.windowing.graphicslibraryframework.4.9.4.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\system.drawing.common\\9.0.4\\system.drawing.common.9.0.4.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
