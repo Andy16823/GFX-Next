@@ -41,17 +41,15 @@ namespace LibGFX.Graphics
         private bool _depthTestEnabled = false;
         private Viewport _viewport;
 
-        public void Init(Window window)
+        public void Init(IGLFWGraphicsContext context)
         {
-            _window = window;
-            _context = _window.GetContext();
-
+            _context = context;
             _programs = new Dictionary<String, ShaderProgram>();
             this.AddShaderProgram("ScreenShader", new ScreenShader());
             this.AddShaderProgram("RectShader", new RectShader());
             this.AddShaderProgram("SpriteShader", new SpriteShader());
             this.AddShaderProgram("FontShader", new FontShader());
-            this.AddShaderProgram("MeshShader", new MeshShader());  
+            this.AddShaderProgram("MeshShader", new MeshShader());
             this.AddShaderProgram("AnimatedMeshShader", new AnimatedMeshShader());
             this.AddShaderProgram("LineShader", new LineShader());
             this.AddShaderProgram("EnviromentShader", new EnviromentShader());
@@ -80,6 +78,12 @@ namespace LibGFX.Graphics
             _lights = new Dictionary<String, Light>();
 
             GL.Enable(EnableCap.Multisample);
+        }
+
+        public void Init(Window window)
+        {
+            _window = window;
+            this.Init(window.GetContext());
         }
 
         public void UseVsync(bool value)

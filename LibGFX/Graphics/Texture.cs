@@ -89,8 +89,8 @@ namespace LibGFX.Graphics
         [Obsolete("Use GetUVTransform(Rect area) instead.")]
         public float[] GetSubImageUVCords(Rect area)
         {
-            float span_x = 1.0f / (float) Width;
-            float span_y = 1.0f / (float) Height;
+            float span_x = 1.0f / (float)Width;
+            float span_y = 1.0f / (float)Height;
 
             float bottom_left_x = span_x * area.X;
             float bottom_left_y = span_y * area.Y;
@@ -122,6 +122,67 @@ namespace LibGFX.Graphics
             float offsetY = (float)area.Y / Height;
 
             return new Vector4(scaleX, scaleY, offsetX, offsetY);
+        }
+
+        /// <summary>
+        /// Convert the texture data to a Bitmap.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public Bitmap ToBitmap()
+        {
+            if (TextureData == null)
+                throw new InvalidOperationException("Texture data is null.");
+
+            Bitmap bitmap = new Bitmap(Width, Height, PixelFormat.Format32bppArgb);
+
+            BitmapData bmpData = bitmap.LockBits(
+                new Rectangle(0, 0, Width, Height),
+                ImageLockMode.WriteOnly,
+                PixelFormat.Format32bppArgb
+            );
+
+            IntPtr ptr = bmpData.Scan0;
+            int bytes = Width * Height * 4;
+
+            // RGBA -> ARGB (Windows expects BGRA, so a swap is needed)
+            byte[] argbData = new byte[bytes];
+            for (int i = 0; i < bytes; i += 4)
+            {
+                byte r = TextureData[i];
+                byte g = TextureData[i + 1];
+                byte b = TextureData[i + 2];
+                byte a = TextureData[i + 3];
+
+                argbData[i] = b; // Blue
+                argbData[i + 1] = g; // Green
+                argbData[i + 2] = r; // Red
+                argbData[i + 3] = a; // Alpha
+            }
+
+            Marshal.Copy(argbData, 0, ptr, bytes);
+            bitmap.UnlockBits(bmpData);
+
+            return bitmap;
+        }
+
+        public Texture Copy()
+        {
+            Texture copy = new Texture
+            {
+                TextureId = 0,
+                Width = this.Width,
+                Height = this.Height,
+                Flags = TextureFlags.Loaded
+            };
+
+            if (this.TextureData != null)
+            {
+                copy.TextureData = new byte[this.TextureData.Length];
+                Array.Copy(this.TextureData, copy.TextureData, this.TextureData.Length);
+            }
+
+            return copy;
         }
     }
 }

@@ -40,9 +40,17 @@ namespace LibGFX.Core
         /// <summary>
         /// Creates a new 3D scene
         /// </summary>
-        public Scene3D()
+        public Scene3D() : base()
         {
 
+        }
+
+        public Scene3D(params String[] layers) : base()
+        {
+            foreach (var item in layers)
+            {
+                this.Layers.Add(new Layer(item));
+            }
         }
 
         /// <summary>
@@ -133,7 +141,7 @@ namespace LibGFX.Core
                 layer.RenderLayer(this, viewport, renderer, camera);
             });
 
-            if(this.PhysicsHandler.DebugPhysics)
+            if(this.PhysicsHandler != null && this.PhysicsHandler.DebugPhysics)
             {
                 if(this.PhysicsHandler.HasDebugDrawer())
                 {

@@ -28,6 +28,21 @@ namespace LibGFX.Math
         public Vector3 Scale { get; set; }
 
         /// <summary>
+        /// Gets the forward direction based on the current rotation.
+        /// </summary>
+        public Vector3 Forward { get => this.GetFront();}
+
+        /// <summary>
+        /// Gets the Right direction based on the current rotation.
+        /// </summary>
+        public Vector3 Right { get => this.GetRight(); }
+
+        /// <summary>
+        /// Gets the Up direction based on the current rotation.
+        /// </summary>
+        public Vector3 Up { get => this.GetUp(); }
+
+        /// <summary>
         /// Creates a new instance of the Transform class.
         /// </summary>
         public Transform()
@@ -231,6 +246,17 @@ namespace LibGFX.Math
         public Vector3 GetRight()
         {
             return Vector3.Transform(Vector3.UnitX, Rotation);
+        }
+
+        /// <summary>
+        /// Gets the right direction based on the current rotation, but flattens it to the XZ plane.
+        /// </summary>
+        /// <returns></returns>
+        public Vector3 GetRightFlat()
+        {
+            var right = this.GetRight();
+            right.Y = 0;
+            return Vector3.Normalize(right);
         }
 
         /// <summary>

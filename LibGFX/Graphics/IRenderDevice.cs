@@ -6,6 +6,7 @@ using LibGFX.Graphics.Shapes;
 using LibGFX.Math;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
+using OpenTK.Windowing.Desktop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace LibGFX.Graphics
 {
     public interface IRenderDevice
     {
+        void Init(IGLFWGraphicsContext context);
         void Init(Window window);
         void Dispose();
         void MakeCurrent();
