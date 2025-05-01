@@ -81,6 +81,7 @@
             tabPage2 = new TabPage();
             tabPage3 = new TabPage();
             propertyGrid1 = new PropertyGrid();
+            importMaterialToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -247,7 +248,7 @@
             // 
             // extrasToolStripMenuItem
             // 
-            extrasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { anpassenToolStripMenuItem, optionenToolStripMenuItem, toolStripSeparator8, materialEditorToolStripMenuItem });
+            extrasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { anpassenToolStripMenuItem, optionenToolStripMenuItem, toolStripSeparator8, materialEditorToolStripMenuItem, importMaterialToolStripMenuItem });
             extrasToolStripMenuItem.Name = "extrasToolStripMenuItem";
             extrasToolStripMenuItem.Size = new Size(49, 20);
             extrasToolStripMenuItem.Text = "E&xtras";
@@ -255,24 +256,24 @@
             // anpassenToolStripMenuItem
             // 
             anpassenToolStripMenuItem.Name = "anpassenToolStripMenuItem";
-            anpassenToolStripMenuItem.Size = new Size(151, 22);
+            anpassenToolStripMenuItem.Size = new Size(180, 22);
             anpassenToolStripMenuItem.Text = "&Anpassen";
             // 
             // optionenToolStripMenuItem
             // 
             optionenToolStripMenuItem.Name = "optionenToolStripMenuItem";
-            optionenToolStripMenuItem.Size = new Size(151, 22);
+            optionenToolStripMenuItem.Size = new Size(180, 22);
             optionenToolStripMenuItem.Text = "&Optionen";
             // 
             // toolStripSeparator8
             // 
             toolStripSeparator8.Name = "toolStripSeparator8";
-            toolStripSeparator8.Size = new Size(148, 6);
+            toolStripSeparator8.Size = new Size(177, 6);
             // 
             // materialEditorToolStripMenuItem
             // 
             materialEditorToolStripMenuItem.Name = "materialEditorToolStripMenuItem";
-            materialEditorToolStripMenuItem.Size = new Size(151, 22);
+            materialEditorToolStripMenuItem.Size = new Size(180, 22);
             materialEditorToolStripMenuItem.Text = "Material Editor";
             // 
             // hilfeToolStripMenuItem
@@ -503,6 +504,13 @@
             propertyGrid1.Size = new Size(286, 213);
             propertyGrid1.TabIndex = 0;
             // 
+            // importMaterialToolStripMenuItem
+            // 
+            importMaterialToolStripMenuItem.Name = "importMaterialToolStripMenuItem";
+            importMaterialToolStripMenuItem.Size = new Size(180, 22);
+            importMaterialToolStripMenuItem.Text = "Import Material";
+            importMaterialToolStripMenuItem.Click += importMaterialToolStripMenuItem_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -588,5 +596,6 @@
         private TabPage tabPage2;
         private TabPage tabPage3;
         private PropertyGrid propertyGrid1;
+        private ToolStripMenuItem importMaterialToolStripMenuItem;
     }
 }

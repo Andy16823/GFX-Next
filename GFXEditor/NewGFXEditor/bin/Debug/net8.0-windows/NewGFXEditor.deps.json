@@ -8,8 +8,10 @@
     ".NETCoreApp,Version=v8.0": {
       "NewGFXEditor/1.0.0": {
         "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
           "OpenTK": "4.9.4",
           "OpenTK.GLControl": "4.0.2",
+          "StbImageSharp": "2.30.15",
           "System.Drawing.Common": "9.0.4",
           "LibGFX": "1.0.2.0"
         },
@@ -30,6 +32,14 @@
             "assetType": "runtime",
             "assemblyVersion": "9.0.0.0",
             "fileVersion": "9.0.425.16305"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.3.27908"
           }
         }
       },
@@ -184,6 +194,14 @@
           }
         }
       },
+      "StbImageSharp/2.30.15": {
+        "runtime": {
+          "lib/netstandard2.0/StbImageSharp.dll": {
+            "assemblyVersion": "2.30.15.0",
+            "fileVersion": "2.30.15.0"
+          }
+        }
+      },
       "System.Drawing.Common/9.0.4": {
         "dependencies": {
           "Microsoft.Win32.SystemEvents": "9.0.4"
@@ -222,6 +240,13 @@
       "sha512": "sha512-kHgtAkXhNEP8oGuAVe3Q5admxsdMlSdWE2rXcA9FfeGDZJQawPccmZgnOswgW3ugUPSJt7VH+TMQPz65mnhGSQ==",
       "path": "microsoft.win32.systemevents/9.0.4",
       "hashPath": "microsoft.win32.systemevents.9.0.4.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "path": "newtonsoft.json/13.0.3",
+      "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
     },
     "OpenTK/4.9.4": {
       "type": "package",
@@ -306,6 +331,13 @@
       "sha512": "sha512-wNlxnPrD7veMV8EGTTi/sCDeg5V8w/18vC0aw0Ao69eNneD7YSq9Ad+C389rVA957eHNR6Xieu/5qzHQeEOyxQ==",
       "path": "opentk.windowing.graphicslibraryframework/4.9.4",
       "hashPath": "opentk.windowing.graphicslibraryframework.4.9.4.nupkg.sha512"
+    },
+    "StbImageSharp/2.30.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7QqbupVhz2kcFUPTgMw4iHR9rYDHGundzzee19Mwmd1typ2Lnv8EVJcLJxlkeBM2+4ex0NwsMtdbGSJctp1XCQ==",
+      "path": "stbimagesharp/2.30.15",
+      "hashPath": "stbimagesharp.2.30.15.nupkg.sha512"
     },
     "System.Drawing.Common/9.0.4": {
       "type": "package",

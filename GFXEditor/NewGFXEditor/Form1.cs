@@ -119,9 +119,23 @@ namespace NewGFXEditor
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if(this.treeView1.SelectedNode != null)
+            if (this.treeView1.SelectedNode != null)
             {
                 this.propertyGrid1.SelectedObject = this.treeView1.SelectedNode.Tag;
+            }
+        }
+
+        private void importMaterialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var material = _assetManager.Load<SGMaterial>(openFileDialog.FileName);
+                if (material != null)
+                {
+                    var materialEditor = new MaterialEditor(_assetManager, material);
+                    materialEditor.Show();
+                }
             }
         }
     }

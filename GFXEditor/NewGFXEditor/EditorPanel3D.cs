@@ -24,6 +24,8 @@ namespace NewGFXEditor
         public IRenderDevice Renderer { get => _renderer;}
 
         public event EditorEventHandler EditorLoaded;
+        public event EditorEventHandler EditorUnloaded;
+        public event EditorEventHandler EditorPaint;
 
         Control _host;
         GLControl _glControl1;
