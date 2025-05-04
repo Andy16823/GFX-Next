@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RJ5OzhTlqAA=",
+  "dgSpecHash": "xR6OMEWjgrQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\andy1\\source\\repos\\NewGFXEditor\\NewGFXEditor\\NewGFXEditor.csproj",
   "expectedPackageFiles": [
@@ -20,6 +20,10 @@
     "C:\\Users\\andy1\\.nuget\\packages\\opentk.windowing.desktop\\4.9.4\\opentk.windowing.desktop.4.9.4.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\opentk.windowing.graphicslibraryframework\\4.9.4\\opentk.windowing.graphicslibraryframework.4.9.4.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\stbimagesharp\\2.30.15\\stbimagesharp.2.30.15.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\stirlinglabs.assimp.native.linux-x64\\5.2.5.4\\stirlinglabs.assimp.native.linux-x64.5.2.5.4.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\stirlinglabs.assimp.native.osx\\5.2.5.4\\stirlinglabs.assimp.native.osx.5.2.5.4.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\stirlinglabs.assimp.native.win-x64\\5.2.5.4\\stirlinglabs.assimp.native.win-x64.5.2.5.4.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\stirlinglabs.assimp.net\\23.4.1\\stirlinglabs.assimp.net.23.4.1.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\system.drawing.common\\9.0.4\\system.drawing.common.9.0.4.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],

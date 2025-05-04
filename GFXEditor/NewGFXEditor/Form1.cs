@@ -12,6 +12,7 @@ using LibGFX.Graphics.Primitives;
 using LibGFX.Pyhsics;
 using LibGFX.Pyhsics.Behaviors3D;
 using LibGFX.UI;
+using NewGFXEditor.Editor;
 using OpenTK.GLControl;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
@@ -29,6 +30,7 @@ namespace NewGFXEditor
         public BaseScene Scene { get; set; }
         public EditorPanel3D Editor { get => _editorPanel3D; }
         public AssetManager AssetManager { get => _assetManager; }
+        public Gizmo TransformGizmo { get; set; }
 
         PhysicsHandler3D _phyisicHandler3D;
         AssetManager _assetManager;
@@ -143,6 +145,8 @@ namespace NewGFXEditor
             _phyisicHandler3D.Process(Scene);
             this.Scene.Render(_editorPanel3D.Viewport, _editorPanel3D.Renderer, Camera);
 
+            this.TransformGizmo.RenderGizmo(_editorPanel3D.Renderer, Camera, _editorPanel3D.Viewport);
+
             _colorIDPicker.PrepareSceneForPicking(_editorPanel3D.Renderer, _editorPanel3D.Viewport, Camera, Scene);
 
             this.pictureBox1.Image = _colorIDPicker.FramebufferToBitmap();
@@ -217,6 +221,9 @@ namespace NewGFXEditor
 
             // Create a cube and add it to the scene
             this.CreateQube(new Vector3(0, 0, 0), new Vector3(1, 1, 1), Vector3.Zero, blankMaterial);
+
+            // Load Gizmos
+            TransformGizmo = new Gizmo("Assets/Gizmos/Transform/TransformGizmo.obj");
         }
 
         private void UpdateSceneTree()
@@ -275,6 +282,8 @@ namespace NewGFXEditor
             _phyisicHandler3D.DebugPhysics = true;
 
             _colorIDPicker.Init(_editorPanel3D.Renderer, _editorPanel3D.Viewport);
+
+            TransformGizmo.Init(_editorPanel3D.Renderer);
         }
 
         private void Form1_Load(object sender, EventArgs e)

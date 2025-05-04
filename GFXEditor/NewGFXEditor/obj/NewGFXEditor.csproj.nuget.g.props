@@ -13,4 +13,7 @@
     <SourceRoot Include="C:\Users\andy1\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)stirlinglabs.assimp.net\23.4.1\build\StirlingLabs.Assimp.Net.props" Condition="Exists('$(NuGetPackageRoot)stirlinglabs.assimp.net\23.4.1\build\StirlingLabs.Assimp.Net.props')" />
+  </ImportGroup>
 </Project>

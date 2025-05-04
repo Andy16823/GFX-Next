@@ -42,3 +42,9 @@ C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\N
 C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\StbImageSharp.dll
 C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\BulletSharp.dll
 C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\runtimes\win-x64\native\libbulletc.dll
+C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\Assets\Gizmos\Transform\TransformGizmo.mtl
+C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\Assets\Gizmos\Transform\TransformGizmo.obj
+C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\StirlingLabs.Assimp.Net.dll
+C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libassimp.so
+C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\runtimes\osx\native\libassimp.dylib
+C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\runtimes\win-x64\native\assimp.dll
