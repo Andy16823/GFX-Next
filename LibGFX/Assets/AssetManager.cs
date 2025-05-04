@@ -67,6 +67,16 @@ namespace LibGFX.Assets
         }
 
         /// <summary>
+        /// Gets the asset count for a specific asset type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public int GetAssetCount<T>() where T : class
+        {
+            return _assets.OfType<T>().Count();
+        }
+
+        /// <summary>
         /// Registers a loader for a specific asset type.
         /// </summary>
         /// <typeparam name="T"></typeparam>

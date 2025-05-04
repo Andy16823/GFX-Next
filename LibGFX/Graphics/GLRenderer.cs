@@ -86,6 +86,16 @@ namespace LibGFX.Graphics
             this.Init(window.GetContext());
         }
 
+        public void SetContext(IGLFWGraphicsContext context)
+        {
+            _context = context;
+        }
+
+        public IGLFWGraphicsContext GetContext()
+        {
+            return _context;
+        }
+
         public void UseVsync(bool value)
         {
             _context.SwapInterval = value ? 1 : 0;
@@ -312,6 +322,39 @@ namespace LibGFX.Graphics
         public void UnbindRenderTarget()
         {
             GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
+        }
+
+        public int GetCurrentRenderTargetID()
+        {
+            int currentFramebuffer;
+            GL.GetInteger(GetPName.FramebufferBinding, out currentFramebuffer);
+            return currentFramebuffer;
+        }
+
+        public Vector2i GetRenderTargetSize(RenderTarget renderTarget)
+        {
+            int width, height;
+            GL.GetTextureLevelParameter(renderTarget.TextureID, 0, GetTextureParameter.TextureWidth, out width);
+            GL.GetTextureLevelParameter(renderTarget.TextureID, 0, GetTextureParameter.TextureHeight, out height);
+            return new Vector2i(width, height);
+        }
+
+        public byte[] GetRenderTargetData(RenderTarget renderTarget)
+        {
+            var renderTargetSize = this.GetRenderTargetSize(renderTarget);
+            return this.GetRenderTargetData(renderTarget, renderTargetSize.X, renderTargetSize.Y);
+        }
+
+        public byte[] GetRenderTargetData(RenderTarget renderTarget, int width, int height)
+        {
+            var oldRenderTarget = this.GetCurrentRenderTargetID();
+
+            byte[] data = new byte[width * height * 4];
+            GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.FramebufferID);
+            GL.ReadPixels(0, 0, width, height, PixelFormat.Bgra, PixelType.UnsignedByte, data);
+            GL.BindFramebuffer(FramebufferTarget.Framebuffer, oldRenderTarget);
+
+            return data;
         }
 
         public int GetFramebufferIndex()

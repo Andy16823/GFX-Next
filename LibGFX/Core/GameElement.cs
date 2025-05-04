@@ -36,6 +36,11 @@ namespace LibGFX.Core
         public virtual bool Enabled { get; set; } = true;
 
         /// <summary>
+        /// The ID of the game element
+        /// </summary>
+        public Guid id { get; set; } = new Guid();
+
+        /// <summary>
         /// The behaviors of the game element
         /// </summary>
         public List<IGameBehavior> Behaviors { get; set; }

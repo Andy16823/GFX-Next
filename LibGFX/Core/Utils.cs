@@ -5,7 +5,9 @@ using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -192,6 +194,25 @@ namespace LibGFX.Core
             float offsetY = (float)cellY / height;
 
             return new Vector4(scaleX, scaleY, offsetX, offsetY);
+        }
+
+        public static System.Drawing.Bitmap ByteBGRAToBitmap(byte[] pixels, int width, int height)
+        {
+            Bitmap bitmap = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+
+            BitmapData data = bitmap.LockBits(
+                new Rectangle(0, 0, width, height),
+                ImageLockMode.WriteOnly,
+                PixelFormat.Format32bppArgb);
+
+            // Daten kopieren
+            Marshal.Copy(pixels, 0, data.Scan0, pixels.Length);
+            bitmap.UnlockBits(data);
+
+            // Vertikal spiegeln – OpenGLs Ursprung ist unten links
+            bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
+
+            return bitmap;
         }
     }
 }

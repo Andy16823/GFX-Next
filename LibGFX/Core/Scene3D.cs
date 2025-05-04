@@ -103,7 +103,10 @@ namespace LibGFX.Core
                 l.Init(this, viewport, renderer);
             });
 
-            renderer.AddLightSource("Sun", this.Sun);
+            if(this.Sun != null)
+            {
+                renderer.AddLightSource("Sun", this.Sun);
+            }
         }
 
         /// <summary>

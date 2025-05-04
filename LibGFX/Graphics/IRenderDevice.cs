@@ -19,6 +19,8 @@ namespace LibGFX.Graphics
     public interface IRenderDevice
     {
         void Init(IGLFWGraphicsContext context);
+        void SetContext(IGLFWGraphicsContext context);
+        IGLFWGraphicsContext GetContext();
         void Init(Window window);
         void Dispose();
         void MakeCurrent();
@@ -50,6 +52,10 @@ namespace LibGFX.Graphics
         void BindRenderTarget(RenderTarget renderTarget); 
         void ResizeRenderTarget(RenderTarget renderTarget, int width, int height);
         void UnbindRenderTarget();
+        int GetCurrentRenderTargetID();
+        Vector2i GetRenderTargetSize(RenderTarget renderTarget);
+        byte[] GetRenderTargetData(RenderTarget renderTarget);
+        byte[] GetRenderTargetData(RenderTarget renderTarget, int width, int height);
         int GetFramebufferIndex();
         void DisposeRenderTarget(RenderTarget renderTarget);
         void BuildShaderProgram(ShaderProgram shaderProgram);
