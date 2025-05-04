@@ -66,6 +66,7 @@ namespace LibGFX.Graphics
         void InitShape(Shape shape);
         void DrawShape(Shape shape);
         void DisposeShape(Shape shape);
+        bool ExistsShaderProgram(String name);
         ShaderProgram GetShaderProgram(String name);
         void BindShaderProgram(ShaderProgram shaderProgram);
         void UnbindShaderProgram();

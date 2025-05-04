@@ -59,5 +59,10 @@ namespace LibGFX.Core.GameElements
             base.Dispose(scene, renderer);
             renderer.DisposeMesh(this.Mesh);
         }
+
+        public override (Mesh, IMaterial)[]? GetMeshes()
+        {
+            return new (Mesh, IMaterial)[] { (this.Mesh, this.Material) };
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using LibGFX.Graphics;
+using LibGFX.Graphics.Materials;
 using LibGFX.Math;
 using LibGFX.Pyhsics;
 using OpenTK.Mathematics;
@@ -38,7 +39,7 @@ namespace LibGFX.Core
         /// <summary>
         /// The ID of the game element
         /// </summary>
-        public Guid id { get; set; } = new Guid();
+        public Guid ID { get; set; }
 
         /// <summary>
         /// The behaviors of the game element
@@ -51,6 +52,7 @@ namespace LibGFX.Core
         protected GameElement()
         {
             this.Behaviors = new List<IGameBehavior>();
+            this.ID = Guid.NewGuid();
         }
 
         /// <summary>
@@ -141,6 +143,15 @@ namespace LibGFX.Core
         public T GetBehavior<T>() where T : IGameBehavior
         {
             return this.Behaviors.OfType<T>().FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Returns the meshes and materials of the game element
+        /// </summary>
+        /// <returns></returns>
+        public virtual (Mesh, IMaterial)[]? GetMeshes()
+        {
+            return null;
         }
     }
 }

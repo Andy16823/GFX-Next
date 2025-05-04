@@ -421,6 +421,11 @@ namespace LibGFX.Graphics
             _programs.Add(name, shaderProgram);
         }
 
+        public bool ExistsShaderProgram(string name)
+        {
+            return _programs.ContainsKey(name);
+        }
+
         public ShaderProgram GetShaderProgram(string name)
         {
             return _programs[name];

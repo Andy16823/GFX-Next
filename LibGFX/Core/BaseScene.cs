@@ -59,6 +59,75 @@ namespace LibGFX.Core
         }
 
         /// <summary>
+        /// Gets all elements in the scene
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<GameElement> GetAllElements()
+        {
+            List<GameElement> elements = new List<GameElement>();
+            foreach (var layer in Layers)
+            {
+                elements.AddRange(layer.Elements);
+            }
+            return elements;
+        }
+
+        /// <summary>
+        /// Executes an action for each element in the scene
+        /// </summary>
+        /// <param name="action"></param>
+        public void ForEachElement(Action<GameElement> action)
+        {
+            foreach (var layer in Layers)
+            {
+                foreach (var element in layer.Elements)
+                {
+                    action(element);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Finds an element by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public GameElement? GetElementByID(String id)
+        {
+            foreach (var layer in Layers)
+            {
+                foreach (var element in layer.Elements)
+                {
+                    if (element.ID.ToString() == id)
+                    {
+                        return element;
+                    }
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Finds an element by ID where the ID is an integer hash code of the GUID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public GameElement? GetElementByID(int id)
+        {
+            foreach (var layer in Layers)
+            {
+                foreach (var element in layer.Elements)
+                {
+                    if (element.ID.GetHashCode() == id)
+                    {
+                        return element;
+                    }
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Finds a layer by name
         /// </summary>
         /// <param name="name"></param>
