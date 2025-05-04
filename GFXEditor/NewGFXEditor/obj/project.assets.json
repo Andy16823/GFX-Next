@@ -2,6 +2,21 @@
   "version": 3,
   "targets": {
     "net8.0-windows7.0": {
+      "GFX.BulletSharp/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/BulletSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/BulletSharp.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win-x64/native/libbulletc.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          }
+        }
+      },
       "Microsoft.Win32.SystemEvents/9.0.4": {
         "type": "package",
         "compile": {
@@ -297,6 +312,21 @@
     }
   },
   "libraries": {
+    "GFX.BulletSharp/1.0.1": {
+      "sha512": "MdGYw9pEecE1iYVxUVMA0I+doxrau5oeOjnuVw+O6d95gJR/hk1c2/n4cOx8kG2+mt0RdyafohwA6Z5mLql4qg==",
+      "type": "package",
+      "path": "gfx.bulletsharp/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gfx.bulletsharp.1.0.1.nupkg.sha512",
+        "gfx.bulletsharp.nuspec",
+        "lib/netstandard2.1/BulletSharp.dll",
+        "licenses/LICENSE_Bullet.txt",
+        "licenses/LICENSE_BulletSharp.txt",
+        "runtimes/win-x64/native/libbulletc.dll"
+      ]
+    },
     "Microsoft.Win32.SystemEvents/9.0.4": {
       "sha512": "kHgtAkXhNEP8oGuAVe3Q5admxsdMlSdWE2rXcA9FfeGDZJQawPccmZgnOswgW3ugUPSJt7VH+TMQPz65mnhGSQ==",
       "type": "package",
@@ -638,6 +668,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "GFX.BulletSharp >= 1.0.1",
       "Newtonsoft.Json >= 13.0.3",
       "OpenTK >= 4.9.4",
       "OpenTK.GLControl >= 4.0.2",
@@ -695,6 +726,10 @@
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
+          "GFX.BulletSharp": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"

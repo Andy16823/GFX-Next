@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,8 @@ namespace NewGFXEditor
 {
     public partial class MaterialEditor : Form
     {
+        public Bitmap MaterialPreview { get; set; }
+
         EditorPanel3D _editorPanel3D;
         SGMaterial _material;
         Mesh _mesh;
@@ -30,10 +33,15 @@ namespace NewGFXEditor
         DirectionalLight _light;
         bool _dragCamera = false;
         Vector2 _mousePos = Vector2.Zero;
+        Form1 _parent;
 
-        public MaterialEditor(AssetManager assetManager, SGMaterial material, EditorPanel3D parentEditor)
+        RenderTarget _renderTarget;
+
+        public MaterialEditor(Form1 parent, SGMaterial material)
         {
             InitializeComponent();
+
+            _parent = parent;
 
             var imageList = new ImageList();
             this.listView1.View = View.LargeIcon;
@@ -69,11 +77,11 @@ namespace NewGFXEditor
                 this.listView1.Items.Add(item);
             }
 
-            _editorPanel3D = new EditorPanel3D(this.splitContainer1.Panel2, parentEditor.GLControl);
-            _editorPanel3D.Renderer = parentEditor.Renderer;
+            _editorPanel3D = new EditorPanel3D(this.splitContainer1.Panel2, parent.Editor.GLControl);
             _editorPanel3D.EditorLoaded += EditorPanel3D_EditorLoaded;
             _editorPanel3D.BeforeRender += _editorPanel3D_BeforeRender;
             _editorPanel3D.OnRender += EditorPanel3D_EditorPaint;
+            _editorPanel3D.AfterRender += EditorPanel3D_AfterRender;
             _editorPanel3D.OnMouseDown += EditorPanel3D_OnMouseDown;
             _editorPanel3D.OnMouseMove += EditorPanel3D_OnMouseMove;
             _editorPanel3D.OnMouseUp += EditorPanel3D_OnMouseUp;
@@ -81,14 +89,14 @@ namespace NewGFXEditor
             _camera = new PerspectiveCamera(new Vector3(0f, 0f, -2.5f), new Vector3(800, 600, 0));
             _camera.LookAt(new Vector3(0, 0, 0));
 
-            _mesh = new Cube().GetMesh();
+            _mesh = new Sphere().GetMesh();
             _transform = new Transform();
             _transform.Position = new Vector3(0, 0, 0);
-            _transform.Scale = new Vector3(1, 1, 1);
+            _transform.Scale = new Vector3(1.5f, 1.5f, 1.5f);
 
             _material = material;
 
-            _light = new DirectionalLight(new Vector3(0f, 5f, -5f), new Vector4(1, 1, 1, 1), 1.5f); 
+            _light = new DirectionalLight(new Vector3(0f, 5f, -5f), new Vector4(1, 1, 1, 1), 1.5f);
         }
 
         private void EditorPanel3D_OnMouseUp(object sender, MouseEventArgs e)
@@ -119,35 +127,72 @@ namespace NewGFXEditor
             }
         }
 
+        private void RenderFramebuffer(IRenderDevice renderer, Viewport viewport)
+        {
+            var dephTest = renderer.IsDepthTestEnabled();
+            var shader = renderer.GetShaderProgram("MeshShader");
+
+            renderer.SetViewport(viewport);
+            renderer.SetProjectionMatrix(_camera.GetProjectionMatrix(viewport));
+            renderer.SetViewMatrix(_camera.GetViewMatrix());
+
+            // Render the scene to the render target
+            renderer.ResizeRenderTarget(_renderTarget, viewport.Width, viewport.Height);
+            renderer.BindRenderTarget(_renderTarget);
+            renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+            renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
+
+            renderer.EnableDepthTest();
+            renderer.BindShaderProgram(shader);
+            renderer.PrepareShader("dirLight.direction", _light.Direction);
+            renderer.PrepareShader("dirLight.lightColor", _light.Color.Xyz);
+            renderer.PrepareShader("dirLight.lightIntensity", _light.Intensity);
+            renderer.PrepareShader("dirLight.ambient", _light.Ambient);
+            renderer.PrepareShader("dirLight.specular", _light.Specular);
+            renderer.PrepareShader("viewPos", _camera.Transform.Position);
+            renderer.DrawMesh(_transform, _mesh, _material);
+            renderer.UnbindShaderProgram();
+            renderer.DisableDepthTest();
+            renderer.UnbindRenderTarget();
+        }
+
         private void _editorPanel3D_BeforeRender(object sender, EventArgs e)
         {
-            _editorPanel3D.Renderer.SetViewport(new Viewport(_editorPanel3D.GLControl.Width, _editorPanel3D.GLControl.Height));
-
+            var viewport = new Viewport(_editorPanel3D.GLControl.Width, _editorPanel3D.GLControl.Height);
+            _editorPanel3D.Renderer.SetViewport(viewport);
             _editorPanel3D.ResizeCamera(_camera);
-            _editorPanel3D.Renderer.SetProjectionMatrix(_camera.GetProjectionMatrix(_editorPanel3D.Viewport));
-            _editorPanel3D.Renderer.SetViewMatrix(_camera.GetViewMatrix());
+            RenderFramebuffer(_editorPanel3D.Renderer, viewport);
         }
 
         private void EditorPanel3D_EditorPaint(object sender, EventArgs e)
         {
-            var shader = _editorPanel3D.Renderer.GetShaderProgram("MeshShader");
+            var renderer = _editorPanel3D.Renderer;
 
-            _editorPanel3D.Renderer.EnableDepthTest();
-            _editorPanel3D.Renderer.BindShaderProgram(shader);
-            _editorPanel3D.Renderer.PrepareShader("dirLight.direction", _light.Direction);
-            _editorPanel3D.Renderer.PrepareShader("dirLight.lightColor", _light.Color.Xyz);
-            _editorPanel3D.Renderer.PrepareShader("dirLight.lightIntensity", _light.Intensity);
-            _editorPanel3D.Renderer.PrepareShader("dirLight.ambient", _light.Ambient);
-            _editorPanel3D.Renderer.PrepareShader("dirLight.specular", _light.Specular);
-            _editorPanel3D.Renderer.PrepareShader("viewPos", _camera.Transform.Position);
-            _editorPanel3D.Renderer.DrawMesh(_transform, _mesh, _material);
-            _editorPanel3D.Renderer.UnbindShaderProgram();
-            _editorPanel3D.Renderer.DisableDepthTest();
+            renderer.BindShaderProgram(renderer.GetShaderProgram("ScreenShader"));
+            renderer.DrawRenderTarget(_renderTarget);
+            renderer.UnbindShaderProgram();
+        }
 
+        private void EditorPanel3D_AfterRender(object sender, EventArgs e)
+        {
+
+            if (_editorPanel3D.Renderer.GetError() != 0)
+            {
+                throw new Exception($"Render Error {_editorPanel3D.Renderer.GetError()}");
+            }
         }
 
         private void EditorPanel3D_EditorLoaded(object sender, EventArgs e)
         {
+            var viewport = _editorPanel3D.Viewport;
+            var renderTargetDescriptor = new RenderTargetDescriptor()
+            {
+                Width = viewport.Width,
+                Height = viewport.Height,
+                Border = 0
+            };
+            _renderTarget = _editorPanel3D.Renderer.CreateRenderTarget(renderTargetDescriptor);
+
             _editorPanel3D.Renderer.LoadMesh(_mesh);
         }
 
@@ -163,7 +208,20 @@ namespace NewGFXEditor
 
         private void MaterialEditor_FormClosing(object sender, FormClosingEventArgs e)
         {
+            _editorPanel3D.Dispose();
+            _editorPanel3D.Renderer.DisposeRenderTarget(_renderTarget);
             _editorPanel3D.Renderer.DisposeMesh(_mesh);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var renderer = _editorPanel3D.Renderer;
+            var size = renderer.GetRenderTargetSize(_renderTarget);
+            var pixeldata = renderer.GetRenderTargetData(_renderTarget, size.X, size.Y);
+            var bitmap = Utils.ByteBGRAToBitmap(pixeldata, size.X, size.Y);
+            this.pictureBox1.Image = bitmap;
+
+            _parent.SetMaterialThumbnail(_material.Name, bitmap);
         }
     }
 }

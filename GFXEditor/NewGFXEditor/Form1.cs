@@ -1,17 +1,25 @@
+using LibGFX;
 using LibGFX.Assets;
 using LibGFX.Assets.Loaders;
 using LibGFX.Audio;
 using LibGFX.Core;
 using LibGFX.Core.GameElements;
 using LibGFX.Graphics;
+using LibGFX.Graphics.Enviroment;
 using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Primitives;
+using LibGFX.Pyhsics;
+using LibGFX.Pyhsics.Behaviors3D;
+using LibGFX.UI;
 using OpenTK.GLControl;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using System.Diagnostics;
 using System.Security.Authentication.ExtendedProtection;
+using System.Windows.Forms;
+using static System.Formats.Asn1.AsnWriter;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace NewGFXEditor
 {
@@ -19,12 +27,16 @@ namespace NewGFXEditor
     {
         public Camera Camera { get; set; }
         public BaseScene Scene { get; set; }
+        public EditorPanel3D Editor { get => _editorPanel3D; }
+        public AssetManager AssetManager { get => _assetManager; }
 
+        PhysicsHandler3D _phyisicHandler3D;
         AssetManager _assetManager;
         EditorPanel3D _editorPanel3D;
         bool _dragCamera = false;
         Vector2 _mousePos;
-
+        GameElement _selectedElement = null;
+        ColorIDPicker _colorIDPicker = new ColorIDPicker();
 
         public Form1()
         {
@@ -58,6 +70,26 @@ namespace NewGFXEditor
             UpdateSceneTree();
         }
 
+        public void CreateQube(Vector3 position, Vector3 scale, Vector3 rotation, SGMaterial material)
+        {
+            var cube = new Primitive("Cube", material, new Cube());
+            cube.Transform.Position = position;
+            cube.Transform.Scale = scale;
+            cube.Transform.Rotate(rotation);
+            Scene.AddGameElement("OBJECT_LAYER", cube);
+        }
+
+        public void SetMaterialThumbnail(String materialName, Bitmap bitmap)
+        {
+            if (this.materialImageList.Images.ContainsKey(materialName))
+            {
+                this.materialImageList.Images.RemoveByKey(materialName);
+            }
+
+            this.materialImageList.Images.Add(materialName, bitmap);
+            UpdateMaterialListView();
+        }
+
         private void EditorPanel3D_OnMouseUp(object sender, MouseEventArgs e)
         {
             _dragCamera = false;
@@ -84,21 +116,40 @@ namespace NewGFXEditor
                     _mousePos = new Vector2(e.X, e.Y);
                 }
             }
+
+            if (e.Button == MouseButtons.Left)
+            {
+                ColorPickResult result;
+                GameElement element;
+                _colorIDPicker.PerformScenePick(Scene, e.X, e.Y, out result, out element);
+
+                if(result.Success)
+                {
+                    _selectedElement = element;
+                    this.propertyGrid1.SelectedObject = _selectedElement;
+                }
+            }
         }
 
 
         private void EditorPanel3D_BeforeRender(object sender, EventArgs e)
         {
+            _editorPanel3D.Renderer.SetViewport(new Viewport(_editorPanel3D.GLControl.Width, _editorPanel3D.GLControl.Height));
             _editorPanel3D.ResizeCamera(Camera);
         }
 
         private void EditorPanel3D_OnRender(object sender, EventArgs e)
         {
+            _phyisicHandler3D.Process(Scene);
             this.Scene.Render(_editorPanel3D.Viewport, _editorPanel3D.Renderer, Camera);
+
+            _colorIDPicker.PrepareSceneForPicking(_editorPanel3D.Renderer, _editorPanel3D.Viewport, Camera, Scene);
+
+            this.pictureBox1.Image = _colorIDPicker.FramebufferToBitmap();
         }
         private void EditorPanel3D_AfterRender(object sender, EventArgs e)
         {
-            
+
         }
 
         private void EditorPanel3D_OnKeyDown(object sender, KeyEventArgs e)
@@ -138,23 +189,34 @@ namespace NewGFXEditor
             scene3d.Sun = new DirectionalLight(new Vector3(-0.2f, 1.0f, -0.3f), new Vector4(1, 1, 1, 1), 1.5f);
             Scene = scene3d;
 
+            scene3d.Enviroment = new ProceduralSky();
+
+            // Create the physics handler
+            _phyisicHandler3D = new PhysicsHandler3D(Vector3.Zero);
+            scene3d.PhysicsHandler = _phyisicHandler3D;
+
             var blankDiffuseBitmap = Utils.CreateEmptyTexture(1, 1);
             var blankNormalBitmap = Utils.CreateEmptyNormalMap(1, 1);
 
             // Load assets
             var blankMaterial = new SGMaterial();
-            blankMaterial.Name = "BlankMaterial";
+            blankMaterial.Name = "e_BlankMaterial";
             blankMaterial.DiffuseTexture = Texture.LoadTexture(blankDiffuseBitmap);
             blankMaterial.NormalTexture = Texture.LoadTexture(blankNormalBitmap);
             blankMaterial.SpecularTexture = Texture.LoadTexture(blankDiffuseBitmap);
             _assetManager.AddAsset<SGMaterial>(blankMaterial.Name, blankMaterial);
 
-            // Create a cube
-            var cube = new Primitive("Cube", blankMaterial, new Cube());
-            cube.Transform.Position = new Vector3(0, 0, 0);
-            cube.Transform.Scale = new Vector3(1, 1, 1);
-            Scene.AddGameElement("OBJECT_LAYER", cube);
+            var cubeMesh = new Cube().GetMesh();
+            _assetManager.AddAsset<Mesh>("e_CubeMesh", cubeMesh);
 
+            var sphereMesh = new Sphere().GetMesh();
+            _assetManager.AddAsset<Mesh>("e_SphereMesh", sphereMesh);
+
+            var planeMesh = new Quad().GetMesh();
+            _assetManager.AddAsset<Mesh>("e_PlaneMesh", planeMesh);
+
+            // Create a cube and add it to the scene
+            this.CreateQube(new Vector3(0, 0, 0), new Vector3(1, 1, 1), Vector3.Zero, blankMaterial);
         }
 
         private void UpdateSceneTree()
@@ -178,6 +240,22 @@ namespace NewGFXEditor
             this.treeView1.ExpandAll();
         }
 
+        private void UpdateMaterialListView()
+        {
+            this.materialListView.Items.Clear();
+
+            _assetManager.ForeachAsset<IMaterial>(material =>
+            {
+                if (this.materialImageList.Images.ContainsKey(material.Name))
+                {
+                    var item = new ListViewItem(material.Name, material.Name);
+                    item.Tag = material;
+                    this.materialListView.Items.Add(item);
+                }
+            });
+
+        }
+
         private void EditorPanel3D_EditorLoaded(object sender, EventArgs e)
         {
             _assetManager.ForeachAsset<IMaterial>(material =>
@@ -185,7 +263,18 @@ namespace NewGFXEditor
                 material.Init(_editorPanel3D.Renderer);
             });
 
+            _assetManager.ForeachAsset<Mesh>(mesh =>
+            {
+                _editorPanel3D.Renderer.LoadMesh(mesh);
+            });
+
             this.Scene.Init(_editorPanel3D.Viewport, _editorPanel3D.Renderer);
+
+            _phyisicHandler3D.PhysicsWorld.DebugDrawer = new DebugDrawer(_editorPanel3D.Renderer);
+            _phyisicHandler3D.PhysicsWorld.DebugDrawer.DebugMode = BulletSharp.DebugDrawModes.DrawAabb;
+            _phyisicHandler3D.DebugPhysics = true;
+
+            _colorIDPicker.Init(_editorPanel3D.Renderer, _editorPanel3D.Viewport);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -206,36 +295,138 @@ namespace NewGFXEditor
             }
         }
 
+        public void ImportMaterial(String path, bool showEditor = true)
+        {
+            var material = _assetManager.Load<SGMaterial>(path);
+            if (material != null)
+            {
+                if (material.DiffuseTexture == null)
+                {
+                    var blankDiffuseBitmap = Utils.CreateEmptyTexture(1, 1);
+                    material.DiffuseTexture = Texture.LoadTexture(blankDiffuseBitmap);
+                }
+
+                if (material.NormalTexture == null)
+                {
+                    var blankNormalBitmap = Utils.CreateEmptyNormalMap(1, 1);
+                    material.NormalTexture = Texture.LoadTexture(blankNormalBitmap);
+                }
+
+                if (material.SpecularTexture == null)
+                {
+                    var blankDiffuseBitmap = Utils.CreateEmptyTexture(1, 1);
+                    material.SpecularTexture = Texture.LoadTexture(blankDiffuseBitmap);
+                }
+
+
+                material.Init(_editorPanel3D.Renderer);
+                if(showEditor)
+                {
+                    var materialEditor = new MaterialEditor(this, material);
+                    materialEditor.Show();
+                }
+                else
+                {
+                    this.SetMaterialThumbnail(material.Name, material.DiffuseTexture.ToBitmap());
+                    this.UpdateMaterialListView();
+                }
+            }
+        }
+
         private void importMaterialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                var material = _assetManager.Load<SGMaterial>(openFileDialog.FileName);
-                if (material != null)
+                this.ImportMaterial(openFileDialog.FileName);
+            }
+        }
+
+        private static SGMaterial CreateMaterial(String name)
+        {
+            var material = new SGMaterial();
+            material.Name = name;
+
+            var blankDiffuseBitmap = Utils.CreateEmptyTexture(512, 512);
+            material.DiffuseTexture = Texture.LoadTexture(blankDiffuseBitmap);
+
+            var blankNormalBitmap = Utils.CreateEmptyNormalMap(512, 512);
+            material.NormalTexture = Texture.LoadTexture(blankNormalBitmap);
+
+            var blankSpecularBitmap = Utils.CreateEmptyTexture(512, 512);
+            material.SpecularTexture = Texture.LoadTexture(blankSpecularBitmap);
+
+            material.Color = new Vector4(1, 1, 1, 1);
+
+            return material;
+        }
+
+        public void CreateMaterial()
+        {
+            var materialCount = _assetManager.GetAssetCount<SGMaterial>();
+            var blankMaterial = CreateMaterial($"material_{materialCount}");
+            blankMaterial.Init(_editorPanel3D.Renderer);
+            _assetManager.AddAsset<SGMaterial>(blankMaterial.Name, blankMaterial);
+
+            var materialEditor = new MaterialEditor(this, blankMaterial);
+            materialEditor.Show();
+        }
+
+        private void materialEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.CreateMaterial();
+        }
+
+        public void AssignSelectedMaterial()
+        {
+            if (_selectedElement != null)
+            {
+                if (_selectedElement.GetType() == typeof(Primitive))
                 {
-                    if(material.DiffuseTexture == null)
+                    var primitive = (Primitive)_selectedElement;
+                    if (this.materialListView.SelectedItems.Count > 0)
                     {
-                        var blankDiffuseBitmap = Utils.CreateEmptyTexture(1, 1);
-                        material.DiffuseTexture = Texture.LoadTexture(blankDiffuseBitmap);
+                        var selectedItem = this.materialListView.SelectedItems[0];
+                        var material = (SGMaterial)selectedItem.Tag;
+                        primitive.Material = material;
+                        _editorPanel3D.Redraw();
                     }
-
-                    if(material.NormalTexture == null)
-                    {
-                        var blankNormalBitmap = Utils.CreateEmptyNormalMap(1, 1);
-                        material.NormalTexture = Texture.LoadTexture(blankNormalBitmap);
-                    }
-
-                    if (material.SpecularTexture == null)
-                    {
-                        var blankDiffuseBitmap = Utils.CreateEmptyTexture(1, 1);
-                        material.SpecularTexture = Texture.LoadTexture(blankDiffuseBitmap);
-                    }
-
-                    material.Init(_editorPanel3D.Renderer);
-                    var materialEditor = new MaterialEditor(_assetManager, material, _editorPanel3D);
-                    materialEditor.Show();
                 }
+            }
+        }
+
+        private void assignSelectedMaterialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AssignSelectedMaterial();
+        }
+
+        private void materialListView_DoubleClick(object sender, EventArgs e)
+        {
+            AssignSelectedMaterial();
+        }
+
+        private void materialListView_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                foreach (string file in files)
+                {
+                    ImportMaterial(file, false);
+                }
+            }
+        }
+
+        private void materialListView_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
             }
         }
     }

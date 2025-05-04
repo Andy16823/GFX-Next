@@ -40,3 +40,5 @@ C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\r
 C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\obj\Debug\net8.0-windows\NewGFXEditor.MaterialEditor.resources
 C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\StbImageSharp.dll
+C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\BulletSharp.dll
+C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\runtimes\win-x64\native\libbulletc.dll

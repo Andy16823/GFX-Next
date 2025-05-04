@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             menuStrip1 = new MenuStrip();
             dateiToolStripMenuItem = new ToolStripMenuItem();
@@ -55,6 +56,8 @@
             optionenToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator8 = new ToolStripSeparator();
             materialEditorToolStripMenuItem = new ToolStripMenuItem();
+            importMaterialToolStripMenuItem = new ToolStripMenuItem();
+            assignSelectedMaterialToolStripMenuItem = new ToolStripMenuItem();
             hilfeToolStripMenuItem = new ToolStripMenuItem();
             inhaltToolStripMenuItem = new ToolStripMenuItem();
             indexToolStripMenuItem = new ToolStripMenuItem();
@@ -79,9 +82,14 @@
             tabPage1 = new TabPage();
             treeView1 = new TreeView();
             tabPage2 = new TabPage();
+            materialListView = new ListView();
+            materialImageList = new ImageList(components);
             tabPage3 = new TabPage();
             propertyGrid1 = new PropertyGrid();
-            importMaterialToolStripMenuItem = new ToolStripMenuItem();
+            tabPage4 = new TabPage();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            groupBox1 = new GroupBox();
+            pictureBox1 = new PictureBox();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -93,6 +101,11 @@
             splitContainer2.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            tabPage4.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -248,7 +261,7 @@
             // 
             // extrasToolStripMenuItem
             // 
-            extrasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { anpassenToolStripMenuItem, optionenToolStripMenuItem, toolStripSeparator8, materialEditorToolStripMenuItem, importMaterialToolStripMenuItem });
+            extrasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { anpassenToolStripMenuItem, optionenToolStripMenuItem, toolStripSeparator8, materialEditorToolStripMenuItem, importMaterialToolStripMenuItem, assignSelectedMaterialToolStripMenuItem });
             extrasToolStripMenuItem.Name = "extrasToolStripMenuItem";
             extrasToolStripMenuItem.Size = new Size(49, 20);
             extrasToolStripMenuItem.Text = "E&xtras";
@@ -256,25 +269,40 @@
             // anpassenToolStripMenuItem
             // 
             anpassenToolStripMenuItem.Name = "anpassenToolStripMenuItem";
-            anpassenToolStripMenuItem.Size = new Size(180, 22);
+            anpassenToolStripMenuItem.Size = new Size(202, 22);
             anpassenToolStripMenuItem.Text = "&Anpassen";
             // 
             // optionenToolStripMenuItem
             // 
             optionenToolStripMenuItem.Name = "optionenToolStripMenuItem";
-            optionenToolStripMenuItem.Size = new Size(180, 22);
+            optionenToolStripMenuItem.Size = new Size(202, 22);
             optionenToolStripMenuItem.Text = "&Optionen";
             // 
             // toolStripSeparator8
             // 
             toolStripSeparator8.Name = "toolStripSeparator8";
-            toolStripSeparator8.Size = new Size(177, 6);
+            toolStripSeparator8.Size = new Size(199, 6);
             // 
             // materialEditorToolStripMenuItem
             // 
             materialEditorToolStripMenuItem.Name = "materialEditorToolStripMenuItem";
-            materialEditorToolStripMenuItem.Size = new Size(180, 22);
-            materialEditorToolStripMenuItem.Text = "Material Editor";
+            materialEditorToolStripMenuItem.Size = new Size(202, 22);
+            materialEditorToolStripMenuItem.Text = "Create Material";
+            materialEditorToolStripMenuItem.Click += materialEditorToolStripMenuItem_Click;
+            // 
+            // importMaterialToolStripMenuItem
+            // 
+            importMaterialToolStripMenuItem.Name = "importMaterialToolStripMenuItem";
+            importMaterialToolStripMenuItem.Size = new Size(202, 22);
+            importMaterialToolStripMenuItem.Text = "Import Material";
+            importMaterialToolStripMenuItem.Click += importMaterialToolStripMenuItem_Click;
+            // 
+            // assignSelectedMaterialToolStripMenuItem
+            // 
+            assignSelectedMaterialToolStripMenuItem.Name = "assignSelectedMaterialToolStripMenuItem";
+            assignSelectedMaterialToolStripMenuItem.Size = new Size(202, 22);
+            assignSelectedMaterialToolStripMenuItem.Text = "Assign Selected Material";
+            assignSelectedMaterialToolStripMenuItem.Click += assignSelectedMaterialToolStripMenuItem_Click;
             // 
             // hilfeToolStripMenuItem
             // 
@@ -448,6 +476,7 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
+            tabControl1.Controls.Add(tabPage4);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Multiline = true;
@@ -478,6 +507,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(materialListView);
             tabPage2.Location = new Point(27, 4);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -485,6 +515,26 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Materials";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // materialListView
+            // 
+            materialListView.AllowDrop = true;
+            materialListView.Dock = DockStyle.Fill;
+            materialListView.LargeImageList = materialImageList;
+            materialListView.Location = new Point(3, 3);
+            materialListView.Name = "materialListView";
+            materialListView.Size = new Size(249, 395);
+            materialListView.TabIndex = 0;
+            materialListView.UseCompatibleStateImageBehavior = false;
+            materialListView.DragDrop += materialListView_DragDrop;
+            materialListView.DragEnter += materialListView_DragEnter;
+            materialListView.DoubleClick += materialListView_DoubleClick;
+            // 
+            // materialImageList
+            // 
+            materialImageList.ColorDepth = ColorDepth.Depth32Bit;
+            materialImageList.ImageSize = new Size(64, 64);
+            materialImageList.TransparentColor = Color.Transparent;
             // 
             // tabPage3
             // 
@@ -504,12 +554,47 @@
             propertyGrid1.Size = new Size(286, 213);
             propertyGrid1.TabIndex = 0;
             // 
-            // importMaterialToolStripMenuItem
+            // tabPage4
             // 
-            importMaterialToolStripMenuItem.Name = "importMaterialToolStripMenuItem";
-            importMaterialToolStripMenuItem.Size = new Size(180, 22);
-            importMaterialToolStripMenuItem.Text = "Import Material";
-            importMaterialToolStripMenuItem.Click += importMaterialToolStripMenuItem_Click;
+            tabPage4.Controls.Add(flowLayoutPanel1);
+            tabPage4.Location = new Point(27, 4);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Padding = new Padding(3);
+            tabPage4.Size = new Size(255, 401);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Render Channel";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(groupBox1);
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.Location = new Point(3, 3);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(249, 395);
+            flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanel1.WrapContents = false;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(pictureBox1);
+            groupBox1.Location = new Point(3, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(243, 162);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.Location = new Point(3, 19);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(237, 140);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // Form1
             // 
@@ -538,6 +623,11 @@
             splitContainer2.ResumeLayout(false);
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
+            tabPage4.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -597,5 +687,12 @@
         private TabPage tabPage3;
         private PropertyGrid propertyGrid1;
         private ToolStripMenuItem importMaterialToolStripMenuItem;
+        private ListView materialListView;
+        private ImageList materialImageList;
+        private ToolStripMenuItem assignSelectedMaterialToolStripMenuItem;
+        private TabPage tabPage4;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private GroupBox groupBox1;
+        private PictureBox pictureBox1;
     }
 }
