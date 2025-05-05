@@ -85,11 +85,11 @@
             materialListView = new ListView();
             materialImageList = new ImageList(components);
             tabPage3 = new TabPage();
-            propertyGrid1 = new PropertyGrid();
             tabPage4 = new TabPage();
             flowLayoutPanel1 = new FlowLayoutPanel();
             groupBox1 = new GroupBox();
             pictureBox1 = new PictureBox();
+            propertyGrid1 = new PropertyGrid();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -546,14 +546,6 @@
             tabPage3.Text = "Models";
             tabPage3.UseVisualStyleBackColor = true;
             // 
-            // propertyGrid1
-            // 
-            propertyGrid1.Dock = DockStyle.Fill;
-            propertyGrid1.Location = new Point(0, 0);
-            propertyGrid1.Name = "propertyGrid1";
-            propertyGrid1.Size = new Size(286, 213);
-            propertyGrid1.TabIndex = 0;
-            // 
             // tabPage4
             // 
             tabPage4.Controls.Add(flowLayoutPanel1);
@@ -596,6 +588,14 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // propertyGrid1
+            // 
+            propertyGrid1.Dock = DockStyle.Fill;
+            propertyGrid1.Location = new Point(0, 0);
+            propertyGrid1.Name = "propertyGrid1";
+            propertyGrid1.Size = new Size(286, 213);
+            propertyGrid1.TabIndex = 0;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -608,6 +608,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "GFX 3D World Editor";
+            FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             KeyDown += Form1_KeyDown;
             menuStrip1.ResumeLayout(false);

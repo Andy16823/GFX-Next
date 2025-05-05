@@ -1,6 +1,7 @@
 ﻿using LibGFX.Core;
 using LibGFX.Graphics;
 using LibGFX.Graphics.Lights;
+using LibGFX.Math;
 using NewGFXEditor.Shader;
 using OpenTK.Mathematics;
 using System;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibGFX.Graphics.Materials;
 
 namespace NewGFXEditor
 {
@@ -18,7 +20,7 @@ namespace NewGFXEditor
         public Vector4 Color;
     }
 
-    internal class ColorIDPicker
+    public class ColorIDPicker
     {
         /// <summary>
         /// Render target for the ID picking pass.
@@ -134,6 +136,15 @@ namespace NewGFXEditor
         }
 
         /// <summary>
+        /// Disposes the render target.
+        /// </summary>
+        /// <param name="renderer"></param>
+        public void Dispose(IRenderDevice renderer)
+        {
+            renderer.DisposeRenderTarget(RenderTarget);
+        }
+
+        /// <summary>
         /// Prepares the scene for picking by rendering each game element with a unique ID.
         /// </summary>
         /// <param name="renderer"></param>
@@ -202,6 +213,14 @@ namespace NewGFXEditor
 
                 renderer.DrawMesh(element.Transform, mesh, material);
             }
+        }
+
+        public void RenderMesh(IRenderDevice renderer, Transform transform, Mesh mesh, IMaterial material, int id)
+        {
+            // Bind the uniforms for the specific element
+            var colorId = IdToVec4(id);
+            renderer.PrepareShader("colorId", colorId);
+            renderer.DrawMesh(transform, mesh, material);
         }
 
         /// <summary>

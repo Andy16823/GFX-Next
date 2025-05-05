@@ -18,14 +18,28 @@ using System.Threading.Tasks;
 
 namespace NewGFXEditor.Editor
 {
+    public enum GizmoActiveAxis
+    {
+        None,
+        X,
+        Y,
+        Z
+    }
+
     public class Gizmo
     {
+        public delegate void GizmoMoveDelegate(Vector3 newPosition);
+
         public MeshCollection Meshes { get; set; }
         public MaterialCollection Materials { get; set; }
         public List<MeshMaterialPair> MeshMaterials { get; set; }
         public Transform Transform { get; set; }
         public ShaderProgram Shader { get; set; } = new GizmoShader();
+        public ColorIDPicker Picker { get; set; } = new ColorIDPicker();
+        public GizmoActiveAxis ActiveAxis { get; set; } = GizmoActiveAxis.None;
+        public bool Enabled { get; set; } = false;
 
+        public event GizmoMoveDelegate GizmoMoved;
 
         public Gizmo(String file)
         {
@@ -49,7 +63,7 @@ namespace NewGFXEditor.Editor
             LoadNodeTransformRecursive(assimpScene.RootNode, Matrix4x4.Identity);
         }
 
-        public void Init(IRenderDevice renderDevice)
+        public void Init(IRenderDevice renderDevice, Viewport viewport)
         {
             renderDevice.BuildShaderProgram(this.Shader);
 
@@ -57,18 +71,35 @@ namespace NewGFXEditor.Editor
             {
                 renderDevice.LoadMesh(mesh);
             }
+
             foreach (var material in this.Materials)
             {
                 material.Init(renderDevice);
             }
+
+            this.Picker.Init(renderDevice, viewport);
         }
         
         public void RenderGizmo(IRenderDevice renderDevice, LibGFX.Graphics.Camera camera, Viewport viewport)
         {
-            renderDevice.SetViewMatrix(camera.GetViewMatrix());
+            // Render the gizmo with ID picking
+            Picker.StartIdRenderPass(renderDevice, viewport, camera);
+            int id = 1;
+            foreach (var pair in MeshMaterials)
+            {
+                var mesh = this.Meshes.GetMesh(pair.MeshName);
+                var material = this.Materials.GetMaterial(pair.MaterialIndex);
+                Picker.RenderMesh(renderDevice, Transform, mesh, material, id);
+                id++;
+            }
+            Picker.EndIdRenderPass(renderDevice);
+
+            // Render the gizmo with the actual shader
+            if(!this.Enabled)
+                return;
+
             renderDevice.SetProjectionMatrix(camera.GetProjectionMatrix(viewport));
             renderDevice.BindShaderProgram(this.Shader);
-
             foreach (var pair in MeshMaterials)
             {
                 var mesh = this.Meshes.GetMesh(pair.MeshName);
@@ -89,6 +120,119 @@ namespace NewGFXEditor.Editor
                 material.Dispose(renderDevice);
             }
             renderDevice.DisposeShaderProgram(this.Shader);
+            this.Picker.Dispose(renderDevice);
+        }
+
+        public void ScaleGizmo(PerspectiveCamera camera, Viewport viewport, float desiredPixelHeight = 100f)
+        {
+            if (this.Enabled == false)
+                return;
+
+            Vector3 cameraPos = camera.Transform.Position;
+            float distance = (this.Transform.Position - cameraPos).Length;
+
+            float fovRadians = MathHelper.DegreesToRadians(camera.Fov);
+            float screenHeightAtDistance = 2.0f * distance * (float)System.Math.Tan(fovRadians / 2.0f);
+
+            float pixelToWorld = screenHeightAtDistance / viewport.Height;
+            float desiredWorldHeight = desiredPixelHeight * pixelToWorld;
+
+            this.Transform.Scale = new Vector3(desiredWorldHeight);
+        }
+
+        public bool PickGizmo(int mosueX, int mouseY)
+        {
+            if(!this.Enabled)
+                return false;
+
+            ColorPickResult reuslt;
+            this.Picker.PerformPick(mosueX, mouseY, out reuslt);
+
+            if (reuslt.Success)
+            {
+                int id = reuslt.Id;
+                // Find the corresponding mesh and material
+                var pair = this.MeshMaterials[id];
+                var mesh = this.Meshes.GetMesh(pair.MeshName);
+
+                if(mesh.Name.StartsWith("Gizmo_X", StringComparison.OrdinalIgnoreCase)) {
+                    this.ActiveAxis = GizmoActiveAxis.X;
+                    return true;
+                }
+                else if(mesh.Name.StartsWith("Gizmo_Y", StringComparison.OrdinalIgnoreCase))
+                {
+                    this.ActiveAxis = GizmoActiveAxis.Y;
+                    return true;
+                }
+                else if (mesh.Name.StartsWith("Gizmo_Z", StringComparison.OrdinalIgnoreCase))
+                {
+                    this.ActiveAxis = GizmoActiveAxis.Z;
+                    return true;
+                }
+            }
+            this.ActiveAxis = GizmoActiveAxis.None;
+            return false;
+        }
+
+        public void ReleaseGizmo()
+        {
+            this.ActiveAxis = GizmoActiveAxis.None;
+        }
+
+        public void MoveAlongAxis2D(PerspectiveCamera camera, Viewport viewport, int prevMouseX, int prevMouseY, int currMouseX, int currMouseY)
+        {
+            if (this.ActiveAxis == GizmoActiveAxis.None || this.Enabled == false)
+                return;
+
+            Vector3 axisWorld = GetAxisDirection(this.ActiveAxis);
+            Matrix4 view = camera.GetViewMatrix();
+            Matrix4 projection = camera.GetProjectionMatrix(viewport);
+
+            Vector4 gizmoWorld = new Vector4(Transform.Position, 1.0f);
+            Vector4 gizmoClip = gizmoWorld * view * projection;
+            gizmoClip /= gizmoClip.W;
+
+            Vector3 gizmoScreen = new Vector3(
+                (gizmoClip.X * 0.5f + 0.5f) * viewport.Width, 
+                (1.0f - (gizmoClip.Y * 0.5f + 0.5f)) * viewport.Height, 
+                0);
+
+            Vector4 endWorld = new Vector4(this.Transform.Position + axisWorld, 1.0f);
+            Vector4 endClip = endWorld * view * projection;
+            endClip /= endClip.W;
+
+            Vector3 endScreen = new Vector3(
+                (endClip.X * 0.5f + 0.5f) * viewport.Width, 
+                (1.0f - (endClip.Y * 0.5f + 0.5f)) * viewport.Height, 
+                0);
+
+            Vector2 axisScreenDir = (endScreen - gizmoScreen).Xy.Normalized();
+            Vector2 mouseDelta = new Vector2(currMouseX - prevMouseX, currMouseY - prevMouseY);
+
+            float movementOnAxis = Vector2.Dot(mouseDelta, axisScreenDir);
+            float scaleFactor = 0.01f; // ggf. dynamisch skalieren
+
+            this.Transform.Position += axisWorld * movementOnAxis * scaleFactor;
+
+            if (this.GizmoMoved != null)
+            {
+                this.GizmoMoved(this.Transform.Position);
+            }
+        }
+
+        private Vector3 GetAxisDirection(GizmoActiveAxis axis)
+        {
+            switch (axis)
+            {
+                case GizmoActiveAxis.X:
+                    return new Vector3(1, 0, 0);
+                case GizmoActiveAxis.Y:
+                    return new Vector3(0, 1, 0);
+                case GizmoActiveAxis.Z:
+                    return new Vector3(0, 0, 1);
+                default:
+                    return Vector3.Zero;
+            }
         }
 
         private void ExtractMaterials(Scene assimpScene)

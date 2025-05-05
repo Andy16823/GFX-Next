@@ -16,6 +16,7 @@ using NewGFXEditor.Editor;
 using OpenTK.GLControl;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
+using System.CodeDom;
 using System.Diagnostics;
 using System.Security.Authentication.ExtendedProtection;
 using System.Windows.Forms;
@@ -95,15 +96,28 @@ namespace NewGFXEditor
         private void EditorPanel3D_OnMouseUp(object sender, MouseEventArgs e)
         {
             _dragCamera = false;
+            this.TransformGizmo.ReleaseGizmo();
         }
 
         private void EditorPanel3D_OnMouseMove(object sender, MouseEventArgs e)
         {
+            bool setNewMousePos = false;
+            if (TransformGizmo.ActiveAxis != GizmoActiveAxis.None)
+            {
+                TransformGizmo.MoveAlongAxis2D((PerspectiveCamera)Camera, _editorPanel3D.Viewport, (int)_mousePos.X, (int)_mousePos.Y, e.X, e.Y);
+                setNewMousePos = true;
+            }
+
             if (_dragCamera)
             {
                 var delataX = e.X - _mousePos.X;
                 var delataY = e.Y - _mousePos.Y;
                 Camera.Transform.Rotate(new Vector3(-delataY * 0.1f, -delataX * 0.1f, 0.0f));
+                setNewMousePos = true;
+            }
+
+            if (setNewMousePos)
+            {
                 _mousePos = new Vector2(e.X, e.Y);
             }
         }
@@ -121,14 +135,29 @@ namespace NewGFXEditor
 
             if (e.Button == MouseButtons.Left)
             {
-                ColorPickResult result;
-                GameElement element;
-                _colorIDPicker.PerformScenePick(Scene, e.X, e.Y, out result, out element);
-
-                if(result.Success)
+                var gizmoPicked = this.TransformGizmo.PickGizmo(e.X, e.Y);
+                if (gizmoPicked)
                 {
-                    _selectedElement = element;
-                    this.propertyGrid1.SelectedObject = _selectedElement;
+                    _mousePos = new Vector2(e.X, e.Y);
+                }
+                else
+                {
+                    ColorPickResult result;
+                    GameElement element;
+                    _colorIDPicker.PerformScenePick(Scene, e.X, e.Y, out result, out element);
+
+                    if (result.Success)
+                    {
+                        _selectedElement = element;
+                        this.propertyGrid1.SelectedObject = _selectedElement;
+                        this.TransformGizmo.Enabled = true;
+                        this.TransformGizmo.Transform.Position = _selectedElement.Transform.Position;
+                    }
+                    else
+                    {
+                        this.TransformGizmo.Enabled = false;
+                        _selectedElement = null;
+                    }
                 }
             }
         }
@@ -145,11 +174,12 @@ namespace NewGFXEditor
             _phyisicHandler3D.Process(Scene);
             this.Scene.Render(_editorPanel3D.Viewport, _editorPanel3D.Renderer, Camera);
 
+            this.TransformGizmo.ScaleGizmo((PerspectiveCamera)Camera, _editorPanel3D.Viewport, 25.0f);
             this.TransformGizmo.RenderGizmo(_editorPanel3D.Renderer, Camera, _editorPanel3D.Viewport);
 
             _colorIDPicker.PrepareSceneForPicking(_editorPanel3D.Renderer, _editorPanel3D.Viewport, Camera, Scene);
 
-            this.pictureBox1.Image = _colorIDPicker.FramebufferToBitmap();
+            this.pictureBox1.Image = this.TransformGizmo.Picker.FramebufferToBitmap();
         }
         private void EditorPanel3D_AfterRender(object sender, EventArgs e)
         {
@@ -224,6 +254,15 @@ namespace NewGFXEditor
 
             // Load Gizmos
             TransformGizmo = new Gizmo("Assets/Gizmos/Transform/TransformGizmo.obj");
+            TransformGizmo.GizmoMoved += TransformGizmo_GizmoMoved;
+        }
+
+        private void TransformGizmo_GizmoMoved(Vector3 newPosition)
+        {
+            if (_selectedElement != null)
+            {
+                _selectedElement.Transform.Position = newPosition;
+            }
         }
 
         private void UpdateSceneTree()
@@ -283,7 +322,7 @@ namespace NewGFXEditor
 
             _colorIDPicker.Init(_editorPanel3D.Renderer, _editorPanel3D.Viewport);
 
-            TransformGizmo.Init(_editorPanel3D.Renderer);
+            TransformGizmo.Init(_editorPanel3D.Renderer, _editorPanel3D.Viewport);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -329,7 +368,7 @@ namespace NewGFXEditor
 
 
                 material.Init(_editorPanel3D.Renderer);
-                if(showEditor)
+                if (showEditor)
                 {
                     var materialEditor = new MaterialEditor(this, material);
                     materialEditor.Show();
@@ -437,6 +476,26 @@ namespace NewGFXEditor
             {
                 e.Effect = DragDropEffects.None;
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var renderer = _editorPanel3D.Renderer;
+
+            _assetManager.ForeachAsset<IMaterial>(material =>
+            {
+                material.Dispose(renderer);
+            });
+
+            _assetManager.ForeachAsset<Mesh>(mesh =>
+            {
+                renderer.DisposeMesh(mesh);
+            });
+
+            Scene.DisposeScene(renderer);
+            _colorIDPicker.Dispose(renderer);
+            TransformGizmo.Dispose(renderer);
+            renderer.Dispose();
         }
     }
 }
