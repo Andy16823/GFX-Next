@@ -108,8 +108,8 @@ namespace LibGFX.Graphics.Shader
                     float diff = max(dot(norm, lightDir), 0.0);
 
                     vec3 viewDir = normalize(viewPos - position);
-                    vec3 reflectDir = reflect(-lightDir, norm);
-                    float spec = pow(max(dot(viewDir, -reflectDir), 0.0), material.shininess);
+                    vec3 reflectDir = reflect(lightDir, norm);
+                    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
 
                     // Calculate ambient lighting
                     vec3 ambient = dirLight.ambient * vec3(texture(material.textureSampler, texCoord));
