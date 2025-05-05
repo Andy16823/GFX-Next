@@ -51,11 +51,13 @@
             einfügenToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator4 = new ToolStripSeparator();
             allesauswählenToolStripMenuItem = new ToolStripMenuItem();
+            createToolStripMenuItem = new ToolStripMenuItem();
+            cubeToolStripMenuItem = new ToolStripMenuItem();
+            sphereToolStripMenuItem = new ToolStripMenuItem();
+            quadToolStripMenuItem = new ToolStripMenuItem();
             extrasToolStripMenuItem = new ToolStripMenuItem();
-            anpassenToolStripMenuItem = new ToolStripMenuItem();
-            optionenToolStripMenuItem = new ToolStripMenuItem();
-            toolStripSeparator8 = new ToolStripSeparator();
             materialEditorToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator8 = new ToolStripSeparator();
             importMaterialToolStripMenuItem = new ToolStripMenuItem();
             assignSelectedMaterialToolStripMenuItem = new ToolStripMenuItem();
             hilfeToolStripMenuItem = new ToolStripMenuItem();
@@ -75,6 +77,7 @@
             einfügenToolStripButton = new ToolStripButton();
             toolStripSeparator7 = new ToolStripSeparator();
             hilfeToolStripButton = new ToolStripButton();
+            layerComboBox = new ToolStripComboBox();
             statusStrip1 = new StatusStrip();
             splitContainer1 = new SplitContainer();
             splitContainer2 = new SplitContainer();
@@ -110,7 +113,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { dateiToolStripMenuItem, bearbeitenToolStripMenuItem, extrasToolStripMenuItem, hilfeToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { dateiToolStripMenuItem, bearbeitenToolStripMenuItem, createToolStripMenuItem, extrasToolStripMenuItem, hilfeToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1247, 24);
@@ -259,29 +262,40 @@
             allesauswählenToolStripMenuItem.Size = new Size(191, 22);
             allesauswählenToolStripMenuItem.Text = "&Alles auswählen";
             // 
+            // createToolStripMenuItem
+            // 
+            createToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cubeToolStripMenuItem, sphereToolStripMenuItem, quadToolStripMenuItem });
+            createToolStripMenuItem.Name = "createToolStripMenuItem";
+            createToolStripMenuItem.Size = new Size(53, 20);
+            createToolStripMenuItem.Text = "Create";
+            // 
+            // cubeToolStripMenuItem
+            // 
+            cubeToolStripMenuItem.Name = "cubeToolStripMenuItem";
+            cubeToolStripMenuItem.Size = new Size(180, 22);
+            cubeToolStripMenuItem.Text = "Cube";
+            cubeToolStripMenuItem.Click += cubeToolStripMenuItem_Click;
+            // 
+            // sphereToolStripMenuItem
+            // 
+            sphereToolStripMenuItem.Name = "sphereToolStripMenuItem";
+            sphereToolStripMenuItem.Size = new Size(180, 22);
+            sphereToolStripMenuItem.Text = "Sphere";
+            sphereToolStripMenuItem.Click += sphereToolStripMenuItem_Click;
+            // 
+            // quadToolStripMenuItem
+            // 
+            quadToolStripMenuItem.Name = "quadToolStripMenuItem";
+            quadToolStripMenuItem.Size = new Size(180, 22);
+            quadToolStripMenuItem.Text = "Quad";
+            quadToolStripMenuItem.Click += quadToolStripMenuItem_Click;
+            // 
             // extrasToolStripMenuItem
             // 
-            extrasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { anpassenToolStripMenuItem, optionenToolStripMenuItem, toolStripSeparator8, materialEditorToolStripMenuItem, importMaterialToolStripMenuItem, assignSelectedMaterialToolStripMenuItem });
+            extrasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { materialEditorToolStripMenuItem, toolStripSeparator8, importMaterialToolStripMenuItem, assignSelectedMaterialToolStripMenuItem });
             extrasToolStripMenuItem.Name = "extrasToolStripMenuItem";
-            extrasToolStripMenuItem.Size = new Size(49, 20);
-            extrasToolStripMenuItem.Text = "E&xtras";
-            // 
-            // anpassenToolStripMenuItem
-            // 
-            anpassenToolStripMenuItem.Name = "anpassenToolStripMenuItem";
-            anpassenToolStripMenuItem.Size = new Size(202, 22);
-            anpassenToolStripMenuItem.Text = "&Anpassen";
-            // 
-            // optionenToolStripMenuItem
-            // 
-            optionenToolStripMenuItem.Name = "optionenToolStripMenuItem";
-            optionenToolStripMenuItem.Size = new Size(202, 22);
-            optionenToolStripMenuItem.Text = "&Optionen";
-            // 
-            // toolStripSeparator8
-            // 
-            toolStripSeparator8.Name = "toolStripSeparator8";
-            toolStripSeparator8.Size = new Size(199, 6);
+            extrasToolStripMenuItem.Size = new Size(67, 20);
+            extrasToolStripMenuItem.Text = "Materials";
             // 
             // materialEditorToolStripMenuItem
             // 
@@ -289,6 +303,11 @@
             materialEditorToolStripMenuItem.Size = new Size(202, 22);
             materialEditorToolStripMenuItem.Text = "Create Material";
             materialEditorToolStripMenuItem.Click += materialEditorToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator8
+            // 
+            toolStripSeparator8.Name = "toolStripSeparator8";
+            toolStripSeparator8.Size = new Size(199, 6);
             // 
             // importMaterialToolStripMenuItem
             // 
@@ -342,7 +361,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { neuToolStripButton, öffnenToolStripButton, speichernToolStripButton, druckenToolStripButton, toolStripSeparator6, ausschneidenToolStripButton, kopierenToolStripButton, einfügenToolStripButton, toolStripSeparator7, hilfeToolStripButton });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { neuToolStripButton, öffnenToolStripButton, speichernToolStripButton, druckenToolStripButton, toolStripSeparator6, ausschneidenToolStripButton, kopierenToolStripButton, einfügenToolStripButton, toolStripSeparator7, hilfeToolStripButton, layerComboBox });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1247, 25);
@@ -430,6 +449,13 @@
             hilfeToolStripButton.Name = "hilfeToolStripButton";
             hilfeToolStripButton.Size = new Size(23, 22);
             hilfeToolStripButton.Text = "Hi&lfe";
+            // 
+            // layerComboBox
+            // 
+            layerComboBox.Alignment = ToolStripItemAlignment.Right;
+            layerComboBox.Name = "layerComboBox";
+            layerComboBox.Size = new Size(121, 25);
+            layerComboBox.SelectedIndexChanged += layerComboBox_SelectedIndexChanged;
             // 
             // statusStrip1
             // 
@@ -657,8 +683,6 @@
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripMenuItem allesauswählenToolStripMenuItem;
         private ToolStripMenuItem extrasToolStripMenuItem;
-        private ToolStripMenuItem anpassenToolStripMenuItem;
-        private ToolStripMenuItem optionenToolStripMenuItem;
         private ToolStripMenuItem hilfeToolStripMenuItem;
         private ToolStripMenuItem inhaltToolStripMenuItem;
         private ToolStripMenuItem indexToolStripMenuItem;
@@ -695,5 +719,10 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private GroupBox groupBox1;
         private PictureBox pictureBox1;
+        private ToolStripMenuItem createToolStripMenuItem;
+        private ToolStripMenuItem cubeToolStripMenuItem;
+        private ToolStripMenuItem sphereToolStripMenuItem;
+        private ToolStripMenuItem quadToolStripMenuItem;
+        private ToolStripComboBox layerComboBox;
     }
 }

@@ -7,6 +7,7 @@ using LibGFX.Graphics;
 using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Shader;
 using LibGFX.Math;
+using Microsoft.VisualBasic.Devices;
 using NewGFXEditor.Shader;
 using OpenTK.Mathematics;
 using System;
@@ -18,6 +19,9 @@ using System.Threading.Tasks;
 
 namespace NewGFXEditor.Editor
 {
+    /// <summary>
+    /// Enum to represent the active axis of the gizmo.
+    /// </summary>
     public enum GizmoActiveAxis
     {
         None,
@@ -26,26 +30,77 @@ namespace NewGFXEditor.Editor
         Z
     }
 
+    /// <summary>
+    /// Class representing a gizmo for 3D transformations.
+    /// </summary>
     public class Gizmo
     {
+        /// <summary>
+        /// Delegate for handling gizmo movement events.
+        /// </summary>
+        /// <param name="newPosition"></param>
         public delegate void GizmoMoveDelegate(Vector3 newPosition);
 
+        /// <summary>
+        /// Collection of meshes that make up the gizmo.
+        /// </summary>
         public MeshCollection Meshes { get; set; }
+
+        /// <summary>
+        /// Collection of materials used by the gizmo.
+        /// </summary>
         public MaterialCollection Materials { get; set; }
+
+        /// <summary>
+        /// List of mesh-material pairs for the gizmo.
+        /// </summary>
         public List<MeshMaterialPair> MeshMaterials { get; set; }
+
+        /// <summary>
+        /// Transform object representing the gizmo's position, rotation, and scale.
+        /// </summary>
         public Transform Transform { get; set; }
+
+        /// <summary>
+        /// Shader program used for rendering the gizmo.
+        /// </summary>
         public ShaderProgram Shader { get; set; } = new GizmoShader();
+
+        /// <summary>
+        /// Picker object for ID picking.
+        /// </summary>
         public ColorIDPicker Picker { get; set; } = new ColorIDPicker();
+
+        /// <summary>
+        /// Active axis of the gizmo.
+        /// </summary>
         public GizmoActiveAxis ActiveAxis { get; set; } = GizmoActiveAxis.None;
+
+        /// <summary>
+        /// Flag indicating whether the gizmo is enabled or not.
+        /// </summary>
         public bool Enabled { get; set; } = false;
 
+        /// <summary>
+        /// Event triggered when the gizmo is moved.
+        /// </summary>
         public event GizmoMoveDelegate GizmoMoved;
 
+        /// <summary>
+        /// Flag indicating whether to swap the X and Z axes.
+        /// </summary>
+        private bool _swapXZAxes = false;
+
+        /// <summary>
+        /// Constructor for the Gizmo class.
+        /// </summary>
+        /// <param name="file"></param>
         public Gizmo(String file)
         {
             Transform = new Transform();
             Transform.Position = new Vector3(0, 0, 0);
             Transform.Scale = new Vector3(0.5f, 0.5f, 0.5f);
+            Transform.Rotate(0.0f, 180.0f, 0.0f);
 
             Meshes = new MeshCollection();
             Materials = new MaterialCollection();
@@ -63,6 +118,11 @@ namespace NewGFXEditor.Editor
             LoadNodeTransformRecursive(assimpScene.RootNode, Matrix4x4.Identity);
         }
 
+        /// <summary>
+        /// Initializes the gizmo with the specified render device and viewport.
+        /// </summary>
+        /// <param name="renderDevice"></param>
+        /// <param name="viewport"></param>
         public void Init(IRenderDevice renderDevice, Viewport viewport)
         {
             renderDevice.BuildShaderProgram(this.Shader);
@@ -80,8 +140,17 @@ namespace NewGFXEditor.Editor
             this.Picker.Init(renderDevice, viewport);
         }
         
+        /// <summary>
+        /// Renders the gizmo using the specified render device, camera, and viewport.
+        /// </summary>
+        /// <param name="renderDevice"></param>
+        /// <param name="camera"></param>
+        /// <param name="viewport"></param>
         public void RenderGizmo(IRenderDevice renderDevice, LibGFX.Graphics.Camera camera, Viewport viewport)
         {
+            // Scale the gizmo based on the camera and viewport
+            this.ScaleGizmo((PerspectiveCamera)camera, viewport, 25.0f);
+
             // Render the gizmo with ID picking
             Picker.StartIdRenderPass(renderDevice, viewport, camera);
             int id = 1;
@@ -109,6 +178,10 @@ namespace NewGFXEditor.Editor
             renderDevice.UnbindShaderProgram();
         }
 
+        /// <summary>
+        /// Disposes of the gizmo resources.
+        /// </summary>
+        /// <param name="renderDevice"></param>
         public void Dispose(IRenderDevice renderDevice)
         {
             foreach (var mesh in this.Meshes)
@@ -123,6 +196,32 @@ namespace NewGFXEditor.Editor
             this.Picker.Dispose(renderDevice);
         }
 
+        /// <summary>
+        /// Highlights the gizmo based on mouse position.
+        /// </summary>
+        /// <param name="mouseX"></param>
+        /// <param name="mouseY"></param>
+        public void HighlightGizmo(int mouseX, int mouseY)
+        {
+            if(this.Enabled == false)
+                return;
+
+            ColorPickResult reuslt;
+            this.Picker.PerformPick(mouseX, mouseY, out reuslt);
+            this.UnhoverMaterials();
+
+            if (reuslt.Success)
+            {
+                this.HoverMaterial(reuslt.Id);
+            }
+        }
+
+        /// <summary>
+        /// Scales the gizmo based on the camera and viewport.
+        /// </summary>
+        /// <param name="camera"></param>
+        /// <param name="viewport"></param>
+        /// <param name="desiredPixelHeight"></param>
         public void ScaleGizmo(PerspectiveCamera camera, Viewport viewport, float desiredPixelHeight = 100f)
         {
             if (this.Enabled == false)
@@ -140,6 +239,12 @@ namespace NewGFXEditor.Editor
             this.Transform.Scale = new Vector3(desiredWorldHeight);
         }
 
+        /// <summary>
+        /// Checks if the gizmo was picked by the mouse.
+        /// </summary>
+        /// <param name="mosueX"></param>
+        /// <param name="mouseY"></param>
+        /// <returns></returns>
         public bool PickGizmo(int mosueX, int mouseY)
         {
             if(!this.Enabled)
@@ -174,17 +279,29 @@ namespace NewGFXEditor.Editor
             return false;
         }
 
+        /// <summary>
+        /// Releases the gizmo, setting the active axis to none.
+        /// </summary>
         public void ReleaseGizmo()
         {
             this.ActiveAxis = GizmoActiveAxis.None;
         }
 
+        /// <summary>
+        /// Moves the gizmo along the specified axis based on mouse movement.
+        /// </summary>
+        /// <param name="camera"></param>
+        /// <param name="viewport"></param>
+        /// <param name="prevMouseX"></param>
+        /// <param name="prevMouseY"></param>
+        /// <param name="currMouseX"></param>
+        /// <param name="currMouseY"></param>
         public void MoveAlongAxis2D(PerspectiveCamera camera, Viewport viewport, int prevMouseX, int prevMouseY, int currMouseX, int currMouseY)
         {
             if (this.ActiveAxis == GizmoActiveAxis.None || this.Enabled == false)
                 return;
 
-            Vector3 axisWorld = GetAxisDirection(this.ActiveAxis);
+            Vector3 axisWorld = GetAxisDirection(this.ActiveAxis, _swapXZAxes);
             Matrix4 view = camera.GetViewMatrix();
             Matrix4 projection = camera.GetProjectionMatrix(viewport);
 
@@ -220,21 +337,64 @@ namespace NewGFXEditor.Editor
             }
         }
 
-        private Vector3 GetAxisDirection(GizmoActiveAxis axis)
+        /// <summary>
+        /// Unhovers all materials in the gizmo.
+        /// </summary>
+        private void UnhoverMaterials()
+        {
+            foreach (var pair in this.MeshMaterials)
+            {
+                var mesh = this.Meshes.GetMesh(pair.MeshName);
+                var mat = (GizmoMaterial)this.Materials.GetMaterial(pair.MaterialIndex);
+                mat.Hovered = false;
+            }
+        }
+
+        /// <summary>
+        /// Sets the hovered state of a specific material based on its ID.
+        /// </summary>
+        /// <param name="id"></param>
+        private void HoverMaterial(int id)
+        {
+            var pair = this.MeshMaterials[id];
+            var material = (GizmoMaterial)this.Materials.GetMaterial(pair.MaterialIndex);
+            material.Hovered = true;
+        }
+
+        /// <summary>
+        /// Gets the direction of the specified axis.
+        /// </summary>
+        /// <param name="axis"></param>
+        /// <returns></returns>
+        private Vector3 GetAxisDirection(GizmoActiveAxis axis, bool swapXZ = false)
         {
             switch (axis)
             {
                 case GizmoActiveAxis.X:
-                    return new Vector3(1, 0, 0);
+                    if(swapXZ)
+                    {
+                        return Vector3.UnitZ;
+                    }
+
+                    return Vector3.UnitX;
                 case GizmoActiveAxis.Y:
-                    return new Vector3(0, 1, 0);
+                    return Vector3.UnitY;
                 case GizmoActiveAxis.Z:
-                    return new Vector3(0, 0, 1);
+                    if (swapXZ)
+                    {
+                        return Vector3.UnitX;
+                    }
+
+                    return Vector3.UnitZ;
                 default:
                     return Vector3.Zero;
             }
         }
 
+        /// <summary>
+        /// Extracts materials from the Assimp scene and adds them to the gizmo's material collection.
+        /// </summary>
+        /// <param name="assimpScene"></param>
         private void ExtractMaterials(Scene assimpScene)
         {
             var materials = new List<IMaterial>();
@@ -252,6 +412,10 @@ namespace NewGFXEditor.Editor
             this.Materials.AddRange(materials);
         }
 
+        /// <summary>
+        /// Extracts meshes from the Assimp scene and adds them to the gizmo's mesh collection.
+        /// </summary>
+        /// <param name="assimpScene"></param>
         private void ExtractMeshes(Scene assimpScene)
         {
             var meshes = new List<LibGFX.Graphics.Mesh>();
@@ -284,6 +448,11 @@ namespace NewGFXEditor.Editor
             this.Meshes.AddRange(meshes);
         }
 
+        /// <summary>
+        /// Recursively loads the transform of each node in the Assimp scene.
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="parentTransform"></param>
         private void LoadNodeTransformRecursive(Node node, Matrix4x4 parentTransform)
         {
             var currentTransform = parentTransform * node.Transform;

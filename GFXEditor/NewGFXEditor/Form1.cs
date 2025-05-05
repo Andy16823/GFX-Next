@@ -40,6 +40,7 @@ namespace NewGFXEditor
         Vector2 _mousePos;
         GameElement _selectedElement = null;
         ColorIDPicker _colorIDPicker = new ColorIDPicker();
+        Layer _selectedLayer = null;
 
         public Form1()
         {
@@ -70,16 +71,34 @@ namespace NewGFXEditor
             LoadStartupAssets();
 
             // Load the scene tree
-            UpdateSceneTree();
+            this.UpdateGUI();
         }
 
-        public void CreateQube(Vector3 position, Vector3 scale, Vector3 rotation, SGMaterial material)
+        public Primitive CreateQube(Vector3 position, Vector3 scale, Vector3 rotation, SGMaterial material)
         {
             var cube = new Primitive("Cube", material, new Cube());
             cube.Transform.Position = position;
             cube.Transform.Scale = scale;
             cube.Transform.Rotate(rotation);
-            Scene.AddGameElement("OBJECT_LAYER", cube);
+            return cube;
+        }
+
+        public Primitive CreateSphere(Vector3 position, Vector3 scale, Vector3 rotation, SGMaterial material)
+        {
+            var sphere = new Primitive("Sphere", material, new Sphere());
+            sphere.Transform.Position = position;
+            sphere.Transform.Scale = scale;
+            sphere.Transform.Rotate(rotation);
+            return sphere;
+        }
+
+        public Primitive CreateQuad(Vector3 position, Vector3 scale, Vector3 rotation, SGMaterial material)
+        {
+            var quad = new Primitive("Quad", material, new Quad());
+            quad.Transform.Position = position;
+            quad.Transform.Scale = scale;
+            quad.Transform.Rotate(rotation);
+            return quad;
         }
 
         public void SetMaterialThumbnail(String materialName, Bitmap bitmap)
@@ -101,6 +120,8 @@ namespace NewGFXEditor
 
         private void EditorPanel3D_OnMouseMove(object sender, MouseEventArgs e)
         {
+            TransformGizmo.HighlightGizmo(e.X, e.Y);
+
             bool setNewMousePos = false;
             if (TransformGizmo.ActiveAxis != GizmoActiveAxis.None)
             {
@@ -174,7 +195,6 @@ namespace NewGFXEditor
             _phyisicHandler3D.Process(Scene);
             this.Scene.Render(_editorPanel3D.Viewport, _editorPanel3D.Renderer, Camera);
 
-            this.TransformGizmo.ScaleGizmo((PerspectiveCamera)Camera, _editorPanel3D.Viewport, 25.0f);
             this.TransformGizmo.RenderGizmo(_editorPanel3D.Renderer, Camera, _editorPanel3D.Viewport);
 
             _colorIDPicker.PrepareSceneForPicking(_editorPanel3D.Renderer, _editorPanel3D.Viewport, Camera, Scene);
@@ -214,7 +234,7 @@ namespace NewGFXEditor
         private void LoadStartupAssets()
         {
             // Create the 3D Cameara
-            var perspectiveCamera = new PerspectiveCamera(new Vector3(10, 5, 0), new Vector3(800, 600, 0));
+            var perspectiveCamera = new PerspectiveCamera(new Vector3(0, 5, -10), new Vector3(800, 600, 0));
             perspectiveCamera.LookAt(new Vector3(0, 0, 0));
             Camera = perspectiveCamera;
 
@@ -250,7 +270,8 @@ namespace NewGFXEditor
             _assetManager.AddAsset<Mesh>("e_PlaneMesh", planeMesh);
 
             // Create a cube and add it to the scene
-            this.CreateQube(new Vector3(0, 0, 0), new Vector3(1, 1, 1), Vector3.Zero, blankMaterial);
+            var cube = this.CreateQube(new Vector3(0, 0, 0), new Vector3(1, 1, 1), Vector3.Zero, blankMaterial);
+            Scene.AddGameElement("OBJECT_LAYER", cube);
 
             // Load Gizmos
             TransformGizmo = new Gizmo("Assets/Gizmos/Transform/TransformGizmo.obj");
@@ -263,6 +284,13 @@ namespace NewGFXEditor
             {
                 _selectedElement.Transform.Position = newPosition;
             }
+        }
+
+        private void UpdateGUI()
+        {
+            this.UpdateSceneTree();
+            this.UpdateMaterialListView();
+            this.UpdateLayersCombobox();
         }
 
         private void UpdateSceneTree()
@@ -300,6 +328,24 @@ namespace NewGFXEditor
                 }
             });
 
+        }
+
+        private void UpdateLayersCombobox()
+        {
+            this.layerComboBox.Items.Clear();
+            foreach (var layer in Scene.Layers)
+            {
+                this.layerComboBox.Items.Add(layer.Name);
+            }
+
+            if (_selectedLayer != null)
+            {
+                this.layerComboBox.SelectedItem = _selectedLayer.Name;
+            }
+            else
+            {
+                this.layerComboBox.SelectedIndex = 0;
+            }
         }
 
         private void EditorPanel3D_EditorLoaded(object sender, EventArgs e)
@@ -496,6 +542,44 @@ namespace NewGFXEditor
             _colorIDPicker.Dispose(renderer);
             TransformGizmo.Dispose(renderer);
             renderer.Dispose();
+        }
+
+        private void layerComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.SelectLayerFromName(this.layerComboBox.SelectedItem.ToString());
+        }
+
+        private void SelectLayerFromName(String name)
+        {
+            foreach (var layer in Scene.Layers)
+            {
+                if (layer.Name == name)
+                {
+                    _selectedLayer = layer;
+                    break;
+                }
+            }
+        }
+
+        private void cubeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var primitive = this.CreateQube(new Vector3(0, 0, 0), new Vector3(1, 1, 1), Vector3.Zero, _assetManager.Load<SGMaterial>("e_BlankMaterial"));
+            primitive.Init(Scene, _editorPanel3D.Viewport, _editorPanel3D.Renderer);
+            Scene.AddGameElement(_selectedLayer.Name, primitive);
+        }
+
+        private void sphereToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var primitive = this.CreateSphere(new Vector3(0, 0, 0), new Vector3(1, 1, 1), Vector3.Zero, _assetManager.Load<SGMaterial>("e_BlankMaterial"));
+            primitive.Init(Scene, _editorPanel3D.Viewport, _editorPanel3D.Renderer);
+            Scene.AddGameElement(_selectedLayer.Name, primitive);
+        }
+
+        private void quadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var primitive = this.CreateQuad(new Vector3(0, 0, 0), new Vector3(1, 1, 1), Vector3.Zero, _assetManager.Load<SGMaterial>("e_BlankMaterial"));
+            primitive.Init(Scene, _editorPanel3D.Viewport, _editorPanel3D.Renderer);
+            Scene.AddGameElement(_selectedLayer.Name, primitive);
         }
     }
 }

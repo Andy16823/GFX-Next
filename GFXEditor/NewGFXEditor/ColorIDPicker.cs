@@ -101,6 +101,11 @@ namespace NewGFXEditor
         /// <returns></returns>
         public Vector4 BgraToRgba(byte[] framebufferData, int index)
         {
+            if(index < 0 || index + 3 >= framebufferData.Length)
+            {
+                return new Vector4(0, 0, 0, 0); // Invalid index
+            }
+
             // BGRA -> RGBA Umwandlung
             byte b = framebufferData[index];     // Blau (BGRA[0])
             byte g = framebufferData[index + 1]; // Grün (BGRA[1])

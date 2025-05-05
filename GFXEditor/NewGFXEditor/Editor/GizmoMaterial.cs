@@ -14,6 +14,7 @@ namespace NewGFXEditor.Editor
         public string Name { get; set; }
         public MaterialFlags Flags { get; set; }
         public Vector4 VertexColor { get; set; }
+        public bool Hovered { get; set; } = false;
 
         public void Dispose(IRenderDevice renderDevice)
         {
@@ -27,7 +28,14 @@ namespace NewGFXEditor.Editor
 
         public void Use(IRenderDevice renderDevice)
         {
-            renderDevice.PrepareShader("vertexColor", this.VertexColor);
+            if(this.Hovered)
+            {
+                renderDevice.PrepareShader("vertexColor", new Vector4(1, 1, 0, 1));
+            }
+            else
+            {
+                renderDevice.PrepareShader("vertexColor", this.VertexColor);
+            }
         }
     }
 }
