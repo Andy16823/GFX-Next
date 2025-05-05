@@ -581,5 +581,44 @@ namespace NewGFXEditor
             primitive.Init(Scene, _editorPanel3D.Viewport, _editorPanel3D.Renderer);
             Scene.AddGameElement(_selectedLayer.Name, primitive);
         }
+
+        private void editPositionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_selectedElement != null)
+            {
+                var vec3Editor = new Vec3Editor(_selectedElement.Transform.Position);
+                if (vec3Editor.ShowDialog() == DialogResult.OK)
+                {
+                    _selectedElement.Transform.Position = vec3Editor.Value;
+                    _editorPanel3D.Redraw();
+                }
+            }
+        }
+
+        private void editRotationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_selectedElement != null)
+            {
+                var vec3Editor = new Vec3Editor(_selectedElement.Transform.GetEulerAngles());
+                if (vec3Editor.ShowDialog() == DialogResult.OK)
+                {
+                    _selectedElement.Transform.Rotate(vec3Editor.Value);
+                    _editorPanel3D.Redraw();
+                }
+            }
+        }
+
+        private void editScaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(_selectedElement != null)
+            {
+                var vec3Editor = new Vec3Editor(_selectedElement.Transform.Scale);
+                if (vec3Editor.ShowDialog() == DialogResult.OK)
+                {
+                    _selectedElement.Transform.Scale = vec3Editor.Value;
+                    _editorPanel3D.Redraw();
+                }
+            }
+        }
     }
 }

@@ -51,6 +51,10 @@
             einfügenToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator4 = new ToolStripSeparator();
             allesauswählenToolStripMenuItem = new ToolStripMenuItem();
+            selectionToolStripMenuItem = new ToolStripMenuItem();
+            editPositionToolStripMenuItem = new ToolStripMenuItem();
+            editRotationToolStripMenuItem = new ToolStripMenuItem();
+            editScaleToolStripMenuItem = new ToolStripMenuItem();
             createToolStripMenuItem = new ToolStripMenuItem();
             cubeToolStripMenuItem = new ToolStripMenuItem();
             sphereToolStripMenuItem = new ToolStripMenuItem();
@@ -113,7 +117,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { dateiToolStripMenuItem, bearbeitenToolStripMenuItem, createToolStripMenuItem, extrasToolStripMenuItem, hilfeToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { dateiToolStripMenuItem, bearbeitenToolStripMenuItem, selectionToolStripMenuItem, createToolStripMenuItem, extrasToolStripMenuItem, hilfeToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1247, 24);
@@ -262,6 +266,37 @@
             allesauswählenToolStripMenuItem.Size = new Size(191, 22);
             allesauswählenToolStripMenuItem.Text = "&Alles auswählen";
             // 
+            // selectionToolStripMenuItem
+            // 
+            selectionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editPositionToolStripMenuItem, editRotationToolStripMenuItem, editScaleToolStripMenuItem });
+            selectionToolStripMenuItem.Name = "selectionToolStripMenuItem";
+            selectionToolStripMenuItem.Size = new Size(67, 20);
+            selectionToolStripMenuItem.Text = "Selection";
+            // 
+            // editPositionToolStripMenuItem
+            // 
+            editPositionToolStripMenuItem.Name = "editPositionToolStripMenuItem";
+            editPositionToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.T;
+            editPositionToolStripMenuItem.Size = new Size(185, 22);
+            editPositionToolStripMenuItem.Text = "Edit Position";
+            editPositionToolStripMenuItem.Click += editPositionToolStripMenuItem_Click;
+            // 
+            // editRotationToolStripMenuItem
+            // 
+            editRotationToolStripMenuItem.Name = "editRotationToolStripMenuItem";
+            editRotationToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.R;
+            editRotationToolStripMenuItem.Size = new Size(185, 22);
+            editRotationToolStripMenuItem.Text = "Edit Rotation";
+            editRotationToolStripMenuItem.Click += editRotationToolStripMenuItem_Click;
+            // 
+            // editScaleToolStripMenuItem
+            // 
+            editScaleToolStripMenuItem.Name = "editScaleToolStripMenuItem";
+            editScaleToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.S;
+            editScaleToolStripMenuItem.Size = new Size(185, 22);
+            editScaleToolStripMenuItem.Text = "Edit Scale";
+            editScaleToolStripMenuItem.Click += editScaleToolStripMenuItem_Click;
+            // 
             // createToolStripMenuItem
             // 
             createToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cubeToolStripMenuItem, sphereToolStripMenuItem, quadToolStripMenuItem });
@@ -272,21 +307,21 @@
             // cubeToolStripMenuItem
             // 
             cubeToolStripMenuItem.Name = "cubeToolStripMenuItem";
-            cubeToolStripMenuItem.Size = new Size(180, 22);
+            cubeToolStripMenuItem.Size = new Size(110, 22);
             cubeToolStripMenuItem.Text = "Cube";
             cubeToolStripMenuItem.Click += cubeToolStripMenuItem_Click;
             // 
             // sphereToolStripMenuItem
             // 
             sphereToolStripMenuItem.Name = "sphereToolStripMenuItem";
-            sphereToolStripMenuItem.Size = new Size(180, 22);
+            sphereToolStripMenuItem.Size = new Size(110, 22);
             sphereToolStripMenuItem.Text = "Sphere";
             sphereToolStripMenuItem.Click += sphereToolStripMenuItem_Click;
             // 
             // quadToolStripMenuItem
             // 
             quadToolStripMenuItem.Name = "quadToolStripMenuItem";
-            quadToolStripMenuItem.Size = new Size(180, 22);
+            quadToolStripMenuItem.Size = new Size(110, 22);
             quadToolStripMenuItem.Text = "Quad";
             quadToolStripMenuItem.Click += quadToolStripMenuItem_Click;
             // 
@@ -724,5 +759,9 @@
         private ToolStripMenuItem sphereToolStripMenuItem;
         private ToolStripMenuItem quadToolStripMenuItem;
         private ToolStripComboBox layerComboBox;
+        private ToolStripMenuItem selectionToolStripMenuItem;
+        private ToolStripMenuItem editPositionToolStripMenuItem;
+        private ToolStripMenuItem editRotationToolStripMenuItem;
+        private ToolStripMenuItem editScaleToolStripMenuItem;
     }
 }

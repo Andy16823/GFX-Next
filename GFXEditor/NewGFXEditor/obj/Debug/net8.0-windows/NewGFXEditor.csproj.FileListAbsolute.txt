@@ -48,3 +48,4 @@ C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\S
 C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libassimp.so
 C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\runtimes\osx\native\libassimp.dylib
 C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\bin\Debug\net8.0-windows\runtimes\win-x64\native\assimp.dll
+C:\Users\andy1\source\repos\NewGFXEditor\NewGFXEditor\obj\Debug\net8.0-windows\NewGFXEditor.Vec3Editor.resources
