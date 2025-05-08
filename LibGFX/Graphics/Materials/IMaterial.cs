@@ -19,7 +19,9 @@ namespace LibGFX.Graphics.Materials
     public interface IMaterial
     {
         public string Name { get; set; }
+        public Guid ID { get; }
         public MaterialFlags Flags { get; set; }
+
         public void Init(IRenderDevice renderDevice);
         public void Use(IRenderDevice renderDevice);
         public void Dispose(IRenderDevice renderDevice);

@@ -58,10 +58,20 @@ namespace LibGFX.Graphics
                 throw new ArgumentNullException(nameof(mesh));
             }
             
-            if(!this._meshes.TryAdd(mesh.Name, mesh))
+            if(!this._meshes.TryAdd(mesh.ID.ToString(), mesh))
             {
                 throw new ArgumentException($"Mesh with name {mesh.Name} already exists.");
             }
+        }
+
+        /// <summary>
+        /// Checks if a mesh exists in the collection by name.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public bool Exists(string name)
+        {
+            return this._meshes.ContainsKey(name);
         }
 
         /// <summary>

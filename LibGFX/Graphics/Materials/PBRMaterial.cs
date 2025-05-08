@@ -12,6 +12,7 @@ namespace LibGFX.Graphics.Materials
     public class PBRMaterial : IMaterial
     {
         public string Name { get; set; }
+        public Guid ID { get; } = Guid.NewGuid();
         public MaterialFlags Flags { get; set; }
         public Vector3 Albedo { get; set; } = new Vector3(1, 1, 0);
         public float Metallic { get; set; } = 1.0f;

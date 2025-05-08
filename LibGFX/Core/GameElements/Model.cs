@@ -292,7 +292,7 @@ namespace LibGFX.Core.GameElements
                 meshes.Add(mesh);
 
                 var meshMaterialPair = new MeshMaterialPair();
-                meshMaterialPair.MeshName = asmesh.Name;
+                meshMaterialPair.MeshName = mesh.ID.ToString();
                 meshMaterialPair.MaterialIndex = asmesh.MaterialIndex;
                 this.MeshMaterials.Add(meshMaterialPair);
             }

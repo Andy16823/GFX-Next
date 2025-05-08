@@ -20,6 +20,11 @@ namespace LibGFX.Graphics.Materials
         public string Name { get; set; }
 
         /// <summary>
+        /// The unique identifier of the material.
+        /// </summary>
+        public Guid ID { get; } = Guid.NewGuid();
+
+        /// <summary>
         /// The Material flags.
         /// </summary>
         public MaterialFlags Flags { get; set; }

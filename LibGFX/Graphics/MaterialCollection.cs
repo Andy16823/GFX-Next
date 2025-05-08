@@ -55,7 +55,7 @@ namespace LibGFX.Graphics
                 throw new ArgumentNullException(nameof(material));
             }
 
-            if (!this._materials.TryAdd(material.Name, material))
+            if (!this._materials.TryAdd(material.ID.ToString(), material))
             {
                 throw new ArgumentException($"Material with name {material.Name} already exists.");
             }

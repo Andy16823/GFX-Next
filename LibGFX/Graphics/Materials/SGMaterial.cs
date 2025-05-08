@@ -23,6 +23,11 @@ namespace LibGFX.Graphics.Materials
         public string Name { get; set; }
 
         /// <summary>
+        /// The unique identifier of the material.
+        /// </summary>
+        public Guid ID { get; } = Guid.NewGuid();
+
+        /// <summary>
         /// The opacity of the material.
         /// </summary>
         public float Opacity { get; set; }
