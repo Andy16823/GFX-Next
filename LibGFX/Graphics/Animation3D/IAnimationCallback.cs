@@ -8,6 +8,8 @@ namespace LibGFX.Graphics.Animation3D
 {
     /// <summary>
     /// Interface for animation callbacks.
+    /// With this interface, you can create custom callbacks that are triggered at specific frames during the animation.
+    /// You can also control the activation state of the callback.
     /// </summary>
     public interface IAnimationCallback
     {
@@ -32,6 +34,12 @@ namespace LibGFX.Graphics.Animation3D
         /// <param name="deltaTime"></param>
         /// <param name="frame"></param>
         /// <param name="totalFrames"></param>
-        public void OnTriggered(float deltaTime, int frame, int totalFrames);
+        public void OnTriggered(float time);
+
+        /// <summary>
+        /// Called when the animation ends.
+        /// </summary>
+        /// <param name="time"></param>
+        public void OnAnimationEnd(float time);
     }
 }

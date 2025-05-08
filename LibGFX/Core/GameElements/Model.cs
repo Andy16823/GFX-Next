@@ -547,21 +547,6 @@ namespace LibGFX.Core.GameElements
             {
                 float animationSpeed = this.AnimationSpeed / 100f;
                 Animator.UpdateAnimation(animationSpeed);
-                //if (Animator.CurrentAnimation != null && Animator.Play)
-                //{
-                //    foreach (var callback in AnimationCallbacks)
-                //    {
-                //        if (callback.AnimationName.Equals(Animator.CurrentAnimation.Name) && Animator.CurrentAnimation.GetKeyFrameIndex(Animator.CurrentTime) == callback.Frame && !callback.CallbackRised)
-                //        {
-                //            callback.Callback(game, this);
-                //            callback.CallbackRised = true;
-                //        }
-                //        else if (callback.CallbackRised && Animator.CurrentAnimation.GetKeyFrameIndex(Animator.CurrentTime) != callback.Frame)
-                //        {
-                //            callback.CallbackRised = false;
-                //        }
-                //    }
-                //}
             }
         }
     }

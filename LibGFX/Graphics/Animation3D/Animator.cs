@@ -95,9 +95,13 @@ namespace LibGFX.Graphics.Animation3D
                 if (CurrentAnimation != null)
                 {
                     this.CurrentTime += CurrentAnimation.TicksPerSecond * dt;
-                    if (CurrentTime >= CurrentAnimation.Duration && !this.Loop)
+                    if (CurrentTime >= CurrentAnimation.Duration)
                     {
-                        return;
+                        foreach (var callback in AnimationCallbacks)
+                        {
+                            callback.OnAnimationEnd(CurrentTime);
+                        }
+                        if (!this.Loop) return;
                     }
                     CurrentTime = CurrentTime % CurrentAnimation.Duration;
                     CalculateBoneTransform(CurrentAnimation.RootNode, Matrix4.Identity);
@@ -107,10 +111,9 @@ namespace LibGFX.Graphics.Animation3D
                     {
                         if (callback.Active && callback.Animation == CurrentAnimation && callback.TriggerFrames.Contains(CurrentAnimation.GetKeyFrameIndex(CurrentTime)))
                         {
-                            callback.OnTriggered(dt, (int)CurrentTime, (int)CurrentAnimation.Duration);
+                            callback.OnTriggered(CurrentTime);
                         }
                     }
-
                 }
             }
         }

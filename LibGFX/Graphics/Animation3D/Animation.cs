@@ -161,16 +161,10 @@ namespace LibGFX.Graphics.Animation3D
         }
 
         /// <summary>
-        /// Gets the keyframe index at a specific animation time based on the first bone.
+        /// Calculates the keyframe index based on the specified animation time.
         /// </summary>
-        /// <param name="animationTime">The time within the animation to find the keyframe index for.</param>
-        /// <returns>
-        /// The highest keyframe index (position, rotation, or scale) at the specified animation time.
-        /// </returns>
-        /// <remarks>
-        /// This method assumes that all keyframe lists (positions, rotations, scales) are synchronized and have the same number of keyframes.
-        /// It calculates the keyframe index for the first bone in the list.
-        /// </remarks>
+        /// <param name="animationTime"></param>
+        /// <returns></returns>
         public int GetKeyFrameIndex(float animationTime)
         {
             int totalFrames = this.AnimationLength();
