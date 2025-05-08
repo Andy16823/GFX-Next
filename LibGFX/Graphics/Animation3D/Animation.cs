@@ -107,19 +107,19 @@ namespace LibGFX.Graphics.Animation3D
                 var channel = animation.NodeAnimationChannels[i];
                 string boneName = channel.NodeName;
 
-                if (!model.BoneInfoMap.ContainsKey(boneName))
+                if (!model.Skeleton.BoneInfoMap.ContainsKey(boneName))
                 {
                     BoneInfo boneinfo = new BoneInfo();
-                    boneinfo.id = model.BoneCounter;
+                    boneinfo.id = model.Skeleton.BoneCounter;
 
                     // why no offset????
-                    model.BoneInfoMap.Add(boneName, boneinfo);
-                    model.BoneCounter++;
+                    model.Skeleton.BoneInfoMap.Add(boneName, boneinfo);
+                    model.Skeleton.BoneCounter++;
                 }
-                Bones.Add(new Bone(boneName, model.BoneInfoMap[boneName].id, channel));
+                Bones.Add(new Bone(boneName, model.Skeleton.BoneInfoMap[boneName].id, channel));
             }
 
-            BoneInfoMap = model.BoneInfoMap;
+            BoneInfoMap = model.Skeleton.BoneInfoMap;
         }
 
         /// <summary>

@@ -57,7 +57,7 @@ namespace LibGFX.Core.GameElements
         /// <summary>
         /// Gets or sets the mapping of bone names to bone information.
         /// </summary>
-        public Dictionary<String, BoneInfo> BoneInfoMap { get; set; }
+        //public Dictionary<String, BoneInfo> BoneInfoMap { get; set; }
 
         /// <summary>
         /// The animations of the model
@@ -82,7 +82,9 @@ namespace LibGFX.Core.GameElements
         /// <summary>
         /// The counter for the bones
         /// </summary>
-        public int BoneCounter;
+        //public int BoneCounter;
+
+        public Skeleton Skeleton { get; set; }
 
 
         /// <summary>
@@ -93,7 +95,8 @@ namespace LibGFX.Core.GameElements
         public Model(String name, String file)
         {
             this.Name = name;
-            this.BoneInfoMap = new Dictionary<String, BoneInfo>();
+            this.Skeleton = new Skeleton();
+            //this.BoneInfoMap = new Dictionary<String, BoneInfo>();
             this.Meshes = new MeshCollection();
             this.Materials = new MaterialCollection();
             this.MeshMaterials = new List<MeshMaterialPair>();
@@ -317,18 +320,18 @@ namespace LibGFX.Core.GameElements
             {
                 int boneId = -1;
                 var boneName = asmesh.Bones[boneIndex].Name;
-                if (!BoneInfoMap.ContainsKey(boneName))
+                if (!Skeleton.BoneInfoMap.ContainsKey(boneName))
                 {
                     var boneInfo = new BoneInfo();
-                    boneInfo.id = BoneCounter;
+                    boneInfo.id = Skeleton.BoneCounter;
                     boneInfo.offset = Math.Math.ToTKMatrix(asmesh.Bones[boneIndex].OffsetMatrix);
-                    BoneInfoMap.Add(boneName, boneInfo);
-                    boneId = BoneCounter;
-                    BoneCounter++;
+                    Skeleton.BoneInfoMap.Add(boneName, boneInfo);
+                    boneId = Skeleton.BoneCounter;
+                    Skeleton.BoneCounter++;
                 }
                 else
                 {
-                    boneId = BoneInfoMap[boneName].id;
+                    boneId = Skeleton.BoneInfoMap[boneName].id;
                 }
 
                 var weights = asmesh.Bones[boneIndex].VertexWeights;

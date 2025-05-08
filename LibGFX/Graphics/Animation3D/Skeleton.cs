@@ -20,5 +20,10 @@ namespace LibGFX.Graphics.Animation3D
         /// The number of bones in the skeleton.
         /// </summary>
         public int BoneCounter;
+
+        public Skeleton()
+        {
+            this.BoneInfoMap = new Dictionary<String, BoneInfo>();
+        }
     }
 }
