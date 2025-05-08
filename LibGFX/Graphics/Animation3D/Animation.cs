@@ -173,13 +173,10 @@ namespace LibGFX.Graphics.Animation3D
         /// </remarks>
         public int GetKeyFrameIndex(float animationTime)
         {
-            var bone = this.Bones[0];
-            int positionIndex = bone.GetPositionIndex(animationTime);
-            int rotationIndex = bone.GetRotationIndex(animationTime);
-            int scaleIndex = bone.GetScaleIndex(animationTime);
+            int totalFrames = this.AnimationLength();
+            int frame = (int)((animationTime / Duration) * totalFrames);
 
-            // Assuming all keyframe lists (positions, rotations, scales) are synchronized and have the same number of keyframes
-            return System.Math.Max(positionIndex, System.Math.Max(rotationIndex, scaleIndex));
+            return frame;
         }
     }
 }

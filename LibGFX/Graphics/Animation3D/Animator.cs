@@ -51,6 +51,11 @@ namespace LibGFX.Graphics.Animation3D
         public bool Loop { get; set; } = true;
 
         /// <summary>
+        /// List of animation callbacks to be triggered during playback.
+        /// </summary>
+        public List<IAnimationCallback> AnimationCallbacks { get; set; } = new List<IAnimationCallback>();
+
+        /// <summary>
         /// Initializes a new instance of the Animator class with the specified animation.
         /// </summary>
         public Animator(Animation animation)
@@ -96,6 +101,16 @@ namespace LibGFX.Graphics.Animation3D
                     }
                     CurrentTime = CurrentTime % CurrentAnimation.Duration;
                     CalculateBoneTransform(CurrentAnimation.RootNode, Matrix4.Identity);
+
+                    // Trigger animation callbacks
+                    foreach (var callback in AnimationCallbacks)
+                    {
+                        if (callback.Active && callback.Animation == CurrentAnimation && callback.TriggerFrames.Contains(CurrentAnimation.GetKeyFrameIndex(CurrentTime)))
+                        {
+                            callback.OnTriggered(dt, (int)CurrentTime, (int)CurrentAnimation.Duration);
+                        }
+                    }
+
                 }
             }
         }

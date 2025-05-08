@@ -55,11 +55,6 @@ namespace LibGFX.Core.GameElements
         public ShaderProgram Shader { get; set; }
 
         /// <summary>
-        /// Gets or sets the mapping of bone names to bone information.
-        /// </summary>
-        //public Dictionary<String, BoneInfo> BoneInfoMap { get; set; }
-
-        /// <summary>
         /// The animations of the model
         /// </summary>
         public List<Graphics.Animation3D.Animation> Animations { get; set; }
@@ -80,10 +75,8 @@ namespace LibGFX.Core.GameElements
         public float AnimationSpeed { get; set; } = 5.0f;
 
         /// <summary>
-        /// The counter for the bones
+        /// The Skeleton of the model
         /// </summary>
-        //public int BoneCounter;
-
         public Skeleton Skeleton { get; set; }
 
 
@@ -96,7 +89,6 @@ namespace LibGFX.Core.GameElements
         {
             this.Name = name;
             this.Skeleton = new Skeleton();
-            //this.BoneInfoMap = new Dictionary<String, BoneInfo>();
             this.Meshes = new MeshCollection();
             this.Materials = new MaterialCollection();
             this.MeshMaterials = new List<MeshMaterialPair>();
