@@ -54,7 +54,7 @@ namespace LibGFX.Graphics
         /// <summary>
         /// The unique identifier of the mesh.
         /// </summary>
-        public Guid ID { get; set; } = Guid.NewGuid();
+        public Guid ID { get; } = Guid.NewGuid();
 
         /// <summary>
         /// The vertices of the mesh.

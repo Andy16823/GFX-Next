@@ -27,25 +27,25 @@ namespace LibGFX.Graphics
         /// <summary>
         /// Gets a material by index.
         /// </summary>
-        /// <param name="index"></param>
+        /// <param materialKey="index"></param>
         /// <returns></returns>
         public IMaterial this[int index] => this.GetMaterial(index);
 
         /// <summary>
-        /// Gets or sets a material by name.
+        /// Gets or sets a material by materialKey.
         /// </summary>
-        /// <param name="name"></param>
+        /// <param materialKey="materialKey"></param>
         /// <returns></returns>
-        public IMaterial this[string name]
+        public IMaterial this[string materialKey]
         {
-            get => this.GetMaterial(name);
-            set => this.Set(name, value);
+            get => this.GetMaterial(materialKey);
+            set => this.Set(materialKey, value);
         }
 
         /// <summary>
         /// Initializes a new instance of the MaterialCollection class.
         /// </summary>
-        /// <param name="material"></param>
+        /// <param materialKey="material"></param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
         public void Add(IMaterial material)
@@ -62,20 +62,20 @@ namespace LibGFX.Graphics
         }
 
         /// <summary>
-        /// Sets a material in the collection by name. If the material does not exist, it will be added.
+        /// Sets a material in the collection by materialKey. If the material does not exist, it will be added.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="material"></param>
+        /// <param materialKey="materialKey"></param>
+        /// <param materialKey="material"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public void Set(string name, IMaterial material)
+        public void Set(string materialKey, IMaterial material)
         {
             if (material == null)
             {
                 throw new ArgumentNullException(nameof(material));
             }
-            if (this._materials.ContainsKey(name))
+            if (this._materials.ContainsKey(materialKey))
             {
-                this._materials[name] = material;
+                this._materials[materialKey] = material;
             }
             else
             {
@@ -86,7 +86,7 @@ namespace LibGFX.Graphics
         /// <summary>
         /// Adds a range of materials to the collection.
         /// </summary>
-        /// <param name="materials"></param>
+        /// <param materialKey="materials"></param>
         /// <exception cref="ArgumentNullException"></exception>
         public void AddRange(IEnumerable<IMaterial> materials)
         {
@@ -101,24 +101,24 @@ namespace LibGFX.Graphics
         }
 
         /// <summary>
-        /// Gets a material by name.
+        /// Gets a material by materialKey.
         /// </summary>
-        /// <param name="name"></param>
+        /// <param materialKey="materialKey"></param>
         /// <returns></returns>
         /// <exception cref="KeyNotFoundException"></exception>
-        public IMaterial GetMaterial(String name)
+        public IMaterial GetMaterial(String materialKey)
         {
-            if (this._materials.TryGetValue(name, out var material))
+            if (_materials.TryGetValue(materialKey, out var material))
             {
                 return material;
             }
-            throw new KeyNotFoundException($"Material with name {name} not found.");
+            throw new KeyNotFoundException($"Material with key {materialKey} not found.");
         }
 
         /// <summary>
         /// Gets a material by index.
         /// </summary>
-        /// <param name="index"></param>
+        /// <param materialKey="index"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public IMaterial GetMaterial(int index)
@@ -127,7 +127,7 @@ namespace LibGFX.Graphics
             {
                 throw new ArgumentOutOfRangeException(nameof(index), "Index is out of range.");
             }
-            return this._materials.ElementAt(index).Value;
+            return _materials.ElementAt(index).Value;
         }
 
         /// <summary>
@@ -135,30 +135,30 @@ namespace LibGFX.Graphics
         /// </summary>
         public void Clear()
         {
-            this._materials.Clear();
+            _materials.Clear();
         }
 
         /// <summary>
-        /// Removes a material by name.
+        /// Removes a material by materialKey.
         /// </summary>
-        /// <param name="name"></param>
+        /// <param materialKey="materialKey"></param>
         /// <exception cref="KeyNotFoundException"></exception>
-        public void Remove(String name)
+        public void Remove(String materialKey)
         {
-            if (!this._materials.Remove(name))
+            if (!_materials.Remove(materialKey))
             {
-                throw new KeyNotFoundException($"Material with name {name} not found.");
+                throw new KeyNotFoundException($"Material with name {materialKey} not found.");
             }
         }
 
         /// <summary>
         /// Checks if a material exists in the collection.
         /// </summary>
-        /// <param name="name"></param>
+        /// <param materialKey="materialKey"></param>
         /// <returns></returns>
-        public bool Contains(String name)
+        public bool Contains(String materialKey)
         {
-            return this._materials.ContainsKey(name);
+            return _materials.ContainsKey(materialKey);
         }
 
         /// <summary>
@@ -167,16 +167,16 @@ namespace LibGFX.Graphics
         /// <returns></returns>
         public IEnumerable<IMaterial> GetAll()
         {
-            return this._materials.Values;
+            return _materials.Values;
         }
 
         /// <summary>
         /// Iterates over all materials in the collection and applies the action to each material.
         /// </summary>
-        /// <param name="action"></param>
+        /// <param materialKey="action"></param>
         public void ForEach(Action<IMaterial> action)
         {
-            foreach (var material in this._materials.Values)
+            foreach (var material in _materials.Values)
             {
                 action(material);
             }
@@ -185,8 +185,8 @@ namespace LibGFX.Graphics
         /// <summary>
         /// Executes an action for a single material by index.
         /// </summary>
-        /// <param name="index"></param>
-        /// <param name="action"></param>
+        /// <param materialKey="index"></param>
+        /// <param materialKey="action"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <exception cref="KeyNotFoundException"></exception>
         public void SingleMaterialAction(int index, Action<IMaterial> action)
@@ -207,20 +207,20 @@ namespace LibGFX.Graphics
         }
 
         /// <summary>
-        /// Executes an action for a single material by name.
+        /// Executes an action for a single material by materialKey.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="action"></param>
+        /// <param materialKey="materialKey"></param>
+        /// <param materialKey="action"></param>
         /// <exception cref="KeyNotFoundException"></exception>
-        public void SingleMaterialAction(String name, Action<IMaterial> action)
+        public void SingleMaterialAction(String materialKey, Action<IMaterial> action)
         {
-            if (this._materials.TryGetValue(name, out var material))
+            if (_materials.TryGetValue(materialKey, out var material))
             {
                 action(material);
             }
             else
             {
-                throw new KeyNotFoundException($"Material with name {name} not found.");
+                throw new KeyNotFoundException($"Material with key {materialKey} not found.");
             }
         }
 
