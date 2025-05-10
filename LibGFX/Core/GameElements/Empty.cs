@@ -7,8 +7,16 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Core.GameElements
 {
+    /// <summary>
+    /// Represents an empty game element that does not have any visual representation.
+    /// </summary>
     public class Empty : GameElement
     {
+        /// <summary>
+        /// Creates a new instance of the Empty class.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="position"></param>
         public Empty(String name, Vector3 position)
         {
             this.Name = name;

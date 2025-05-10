@@ -72,7 +72,7 @@ namespace LibGFX.Core.GameElements
         /// <summary>
         /// The speed of the animation
         /// </summary>
-        public float AnimationSpeed { get; set; } = 5.0f;
+        public float AnimationSpeed { get; set; } = 1.0f;
 
         /// <summary>
         /// The Skeleton of the model
@@ -545,7 +545,8 @@ namespace LibGFX.Core.GameElements
             
             if(this.HasAnimations)
             {
-                float animationSpeed = this.AnimationSpeed / 100f;
+                float deltaTimeInSeconds = scene.RenderStats.DeltaTime / 1000f;
+                float animationSpeed = deltaTimeInSeconds * this.AnimationSpeed;
                 Animator.UpdateAnimation(animationSpeed);
             }
         }
