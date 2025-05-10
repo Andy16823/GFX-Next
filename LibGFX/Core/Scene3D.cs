@@ -107,6 +107,9 @@ namespace LibGFX.Core
             {
                 renderer.AddLightSource("Sun", this.Sun);
             }
+
+            // Start the render stats
+            this.RenderStats.Start();
         }
 
         /// <summary>
@@ -117,6 +120,9 @@ namespace LibGFX.Core
         /// <param name="camera"></param>
         public override void Render(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
+            // Start new frame for the render stats
+            this.RenderStats.NewFrame();
+
             // Get the current depth test state
             var dephTest = renderer.IsDepthTestEnabled();
 

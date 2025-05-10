@@ -108,6 +108,8 @@ namespace LibGFX.Core
             });
 
             this.LightManager.Init(renderer);
+
+            this.RenderStats.Start();
         }
 
         /// <summary>
@@ -118,7 +120,9 @@ namespace LibGFX.Core
         /// <param name="camera"></param>
         public override void Render(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            if(this.LightManager != null)
+            this.RenderStats.NewFrame();
+
+            if (this.LightManager != null)
             {
                 //Debug.WriteLine("Culling lights");  
                 this.LightManager.CullLights(viewport, renderer, camera);

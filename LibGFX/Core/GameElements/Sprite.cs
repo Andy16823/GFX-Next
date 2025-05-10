@@ -1,10 +1,12 @@
 ﻿using LibGFX.Graphics;
+using LibGFX.Graphics.Animation2D;
 using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Shader;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +44,11 @@ namespace LibGFX.Core.GameElements
         public ShaderProgram Shader { get; set; }
 
         /// <summary>
+        /// The animator of the sprite
+        /// </summary>
+        public Animator Animator { get; set; }
+
+        /// <summary>
         /// Creates a new sprite
         /// </summary>
         /// <param name="name"></param>
@@ -54,6 +61,7 @@ namespace LibGFX.Core.GameElements
             this.Color = new Vector4(1, 1, 1, 1);
             this.Transform = new Math.Transform(position, scale);
             this.Material = material;
+            this.Animator = new Animator();
         }
 
         /// <summary>
@@ -69,6 +77,7 @@ namespace LibGFX.Core.GameElements
             this.Color = new Vector4(1, 1, 1, 1);
             this.Transform = new Math.Transform(position, scale);
             this.Material = material;
+            this.Animator = new Animator();
         }
 
         /// <summary>
@@ -109,6 +118,26 @@ namespace LibGFX.Core.GameElements
 
                 renderer.DrawTexture(this.Transform, this.Material.Texture.TextureId, Color, UVTransform, UVScale);
                 renderer.UnbindShaderProgram();
+            }
+        }
+
+        /// <summary>
+        /// Updates the sprite
+        /// </summary>
+        /// <param name="scene"></param>
+        public override void Update(BaseScene scene)
+        {
+            base.Update(scene);
+            float deltaTime = scene.RenderStats.DeltaTime;
+            if (this.Animator != null)
+            {
+                this.Animator.Update(deltaTime);
+                var (material, uvTransform) = this.Animator.GetCurrentFrame();
+                if (material != null)
+                {
+                    this.Material = material;
+                    this.UVTransform = uvTransform;
+                }
             }
         }
     }

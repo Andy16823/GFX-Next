@@ -28,11 +28,18 @@ namespace LibGFX.Core
         public ILightManager LightManager { get; set; }
 
         /// <summary>
+        /// The render stats of the scene. 
+        /// It contain the fps, delta time.
+        /// </summary>
+        public RenderStats RenderStats { get; set; }
+
+        /// <summary>
         /// Creates a new scene
         /// </summary>
         protected BaseScene()
         {
-            this.Layers = new List<Layer>();    
+            this.Layers = new List<Layer>(); 
+            this.RenderStats = new RenderStats();
         }
 
         /// <summary>

@@ -214,5 +214,14 @@ namespace LibGFX.Core
 
             return bitmap;
         }
+
+        /// <summary>
+        /// Gets the current time in milliseconds since the Unix epoch.
+        /// </summary>
+        /// <returns></returns>
+        public static long GetCurrentTimeMillis()
+        {
+            return DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        }
     }
 }
