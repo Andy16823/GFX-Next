@@ -19,11 +19,6 @@ namespace LibGFX.Core
     public class Scene3D : BaseScene
     {
         /// <summary>
-        /// The sun light of the scene
-        /// </summary>
-        public DirectionalLight Sun { get; set; }
-
-        /// <summary>
         /// Determines if the enviroment texture should be rendered
         /// </summary>
         public bool RenderEnviromentTexture { get; set; } = true;
@@ -42,11 +37,12 @@ namespace LibGFX.Core
         /// </summary>
         public Scene3D() : base()
         {
-
+            this.LightManager = new Light3DManager();
         }
 
         public Scene3D(params String[] layers) : base()
         {
+            this.LightManager = new Light3DManager();
             foreach (var item in layers)
             {
                 this.Layers.Add(new Layer(item));
@@ -103,9 +99,14 @@ namespace LibGFX.Core
                 l.Init(this, viewport, renderer);
             });
 
-            if(this.Sun != null)
+            var lightManager = this.LightManager as Light3DManager;
+            if(lightManager != null)
             {
-                renderer.AddLightSource("Sun", this.Sun);
+                lightManager.Init(renderer);
+                if (lightManager.DirectionalLight != null)
+                {
+                    renderer.AddLightSource("Sun", lightManager.DirectionalLight);
+                }
             }
 
             // Start the render stats
@@ -122,6 +123,11 @@ namespace LibGFX.Core
         {
             // Start new frame for the render stats
             this.RenderStats.NewFrame();
+
+            if (this.LightManager != null)
+            {
+                this.LightManager.CullLights(viewport, renderer, camera);
+            }
 
             // Get the current depth test state
             var dephTest = renderer.IsDepthTestEnabled();

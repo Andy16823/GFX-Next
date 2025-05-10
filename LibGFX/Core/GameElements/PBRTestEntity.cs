@@ -19,8 +19,8 @@ namespace LibGFX.Core.GameElements
         public IMaterial Material { get; set; }
         public ShaderProgram Shader { get; set; }
 
-        private List<PointLight> lights = new List<PointLight>();
-        private PointLightData[] lightDatas = new PointLightData[4];
+        private List<PointLight3D> lights = new List<PointLight3D>();
+        private PointLight3DData[] lightDatas = new PointLight3DData[4];
         private int lightSsboBufferID = 0;
 
         public PBRTestEntity(String name, PBRMaterial material) 
@@ -30,10 +30,10 @@ namespace LibGFX.Core.GameElements
             this.Material = material;
             this.Transform = new Transform();
 
-            lights.Add(new PointLight(new Vector3(0, 0, -5), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
-            lights.Add(new PointLight(new Vector3(-5, 0, 0), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
-            lights.Add(new PointLight(new Vector3(0, 5, 0), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
-            lights.Add(new PointLight(new Vector3(0, -5, 0), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
+            lights.Add(new PointLight3D(new Vector3(0, 0, -5), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
+            lights.Add(new PointLight3D(new Vector3(-5, 0, 0), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
+            lights.Add(new PointLight3D(new Vector3(0, 5, 0), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
+            lights.Add(new PointLight3D(new Vector3(0, -5, 0), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
 
             for (int i = 0; i < lights.Count; i++)
             {
@@ -47,7 +47,7 @@ namespace LibGFX.Core.GameElements
             Material.Init(renderer);
             renderer.LoadMesh(this.Mesh);
 
-            this.lightSsboBufferID = renderer.CreateBuffer<PointLightData>(lightDatas, true);
+            this.lightSsboBufferID = renderer.CreateBuffer<PointLight3DData>(lightDatas, true);
 
             if(this.Shader == null)
             {

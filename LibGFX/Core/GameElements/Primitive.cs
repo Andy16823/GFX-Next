@@ -73,15 +73,11 @@ namespace LibGFX.Core.GameElements
         {
             base.Render(scene, viewport, renderer, camera);
             var light = renderer.GetLightSource<DirectionalLight>();
+
             renderer.BindShaderProgram(this.Shader);
-            if (light != null)
+            if (scene.LightManager != null)
             {
-                renderer.PrepareShader("dirLight.direction", light.Direction);
-                renderer.PrepareShader("dirLight.lightColor", light.Color.Xyz);
-                renderer.PrepareShader("dirLight.lightIntensity", light.Intensity);
-                renderer.PrepareShader("dirLight.ambient", light.Ambient);
-                renderer.PrepareShader("dirLight.specular", light.Specular);
-                renderer.PrepareShader("viewPos", camera.Transform.Position);
+                scene.LightManager.BindLights(viewport, renderer, camera);
             }
             renderer.DrawMesh(this.Transform, Mesh, Material);
             renderer.UnbindShaderProgram();
