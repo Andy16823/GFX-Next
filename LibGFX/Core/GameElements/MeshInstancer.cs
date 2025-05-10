@@ -106,18 +106,11 @@ namespace LibGFX.Core.GameElements
             // Bind the shader program
             renderer.BindShaderProgram(this.Shader);
             var light = renderer.GetLightSource<DirectionalLight>();
-
-            // Prepare the shader uniforms
-            if (light != null)
+            renderer.PrepareShader("viewPos", camera.Transform.Position);
+            if(scene.LightManager != null)
             {
-                renderer.PrepareShader("dirLight.direction", light.Direction);
-                renderer.PrepareShader("dirLight.lightColor", light.Color.Xyz);
-                renderer.PrepareShader("dirLight.lightIntensity", light.Intensity);
-                renderer.PrepareShader("dirLight.ambient", light.Ambient);
-                renderer.PrepareShader("dirLight.specular", light.Specular);
-                renderer.PrepareShader("viewPos", camera.Transform.Position);
+                scene.LightManager.BindLights(viewport, renderer, camera);
             }
-
             renderer.DrawInstances(InstanceContainer, this.Material);
 
             // Unbind the shader program

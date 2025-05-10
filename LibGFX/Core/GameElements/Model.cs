@@ -422,18 +422,14 @@ namespace LibGFX.Core.GameElements
         {
             // Bind the shader program
             renderer.BindShaderProgram(this.Shader);
+            if (scene.LightManager != null)
+            {
+                scene.LightManager.BindLights(viewport, renderer, camera);
+            }
 
             // Prepare the shader uniforms
-            renderer.PrepareShader("finalBonesMatrices", false, Animator.FinalBoneMatrices.ToArray());
-            if (light != null)
-            {
-                renderer.PrepareShader("dirLight.direction", light.Direction);
-                renderer.PrepareShader("dirLight.lightColor", light.Color.Xyz);
-                renderer.PrepareShader("dirLight.lightIntensity", light.Intensity);
-                renderer.PrepareShader("dirLight.ambient", light.Ambient);
-                renderer.PrepareShader("dirLight.specular", light.Specular);
-                renderer.PrepareShader("viewPos", camera.Transform.Position);
-            }
+            renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
+            renderer.PrepareShader("viewPos", camera.Transform.Position);
 
             // Draw the meshes
             this.MeshMaterials.ForEach(pair =>
@@ -451,17 +447,11 @@ namespace LibGFX.Core.GameElements
         {
             // Bind the shader program
             renderer.BindShaderProgram(this.Shader);
-
-            // Prepare the shader uniforms
-            if (light != null)
+            if(scene.LightManager != null)
             {
-                renderer.PrepareShader("dirLight.direction", light.Direction);
-                renderer.PrepareShader("dirLight.lightColor", light.Color.Xyz);
-                renderer.PrepareShader("dirLight.lightIntensity", light.Intensity);
-                renderer.PrepareShader("dirLight.ambient", light.Ambient);
-                renderer.PrepareShader("dirLight.specular", light.Specular);
-                renderer.PrepareShader("viewPos", camera.Transform.Position);
+                scene.LightManager.BindLights(viewport, renderer, camera);
             }
+            renderer.PrepareShader("viewPos", camera.Transform.Position);
 
             this.MeshMaterials.ForEach(pair =>
             {

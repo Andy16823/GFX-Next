@@ -103,10 +103,6 @@ namespace LibGFX.Core
             if(lightManager != null)
             {
                 lightManager.Init(renderer);
-                if (lightManager.DirectionalLight != null)
-                {
-                    renderer.AddLightSource("Sun", lightManager.DirectionalLight);
-                }
             }
 
             // Start the render stats

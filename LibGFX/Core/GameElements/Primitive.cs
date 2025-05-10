@@ -75,6 +75,7 @@ namespace LibGFX.Core.GameElements
             var light = renderer.GetLightSource<DirectionalLight>();
 
             renderer.BindShaderProgram(this.Shader);
+            renderer.PrepareShader("viewPos", camera.Transform.Position);
             if (scene.LightManager != null)
             {
                 scene.LightManager.BindLights(viewport, renderer, camera);
