@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Lights
 {
+    /// <summary>
+    /// Represents a chunk of lights in the scene.
+    /// </summary>
     public class Light3DChunk
     {
         public List<PointLight3D> Lights { get; set; }
@@ -18,19 +21,41 @@ namespace LibGFX.Graphics.Lights
         }
     }
 
+    /// <summary>
+    /// Manages 3D lights in the scene.
+    /// </summary>
     public class Light3DManager : ILightManager
     {
+        /// <summary>
+        /// The directional light in the scene.
+        /// </summary>
         public DirectionalLight DirectionalLight { get; set; }
-        public Dictionary<(int, int, int), Light3DChunk> Chunks { get; set; }
-        public float ChunkSize { get; set; } = 4000;
 
+        /// <summary>
+        /// The dictionary of light chunks, where the key is a tuple of chunk coordinates (x, y, z).
+        /// </summary>
+        public Dictionary<(int, int, int), Light3DChunk> Chunks { get; set; }
+
+        /// <summary>
+        /// The chunk size for the lights. This is used to determine the size of each chunk in the scene.
+        /// </summary>
+        public float ChunkSize { get; internal set; } = 100f;
+
+        // the point light SSBO
         private int _pointLightsSSBO;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Light3DManager"/> class.
+        /// </summary>
         public Light3DManager()
         {
             Chunks = new Dictionary<(int, int, int), Light3DChunk>();
         }
 
+        /// <summary>
+        /// Adds an point light to the light manager.
+        /// </summary>
+        /// <param name="light"></param>
         public void AddPointLight(PointLight3D light)
         {
             var chunk = this.GetChunk(light.Position.X, light.Position.Y, light.Position.Z, this.ChunkSize);
@@ -41,6 +66,12 @@ namespace LibGFX.Graphics.Lights
             Chunks[chunk].Lights.Add(light);
         }
 
+        /// <summary>
+        /// Binds the lights to the shader.
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        /// <param name="camera"></param>
         public void BindLights(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             renderer.PrepareShader("dirLight.direction", DirectionalLight.Direction);
@@ -51,6 +82,12 @@ namespace LibGFX.Graphics.Lights
             renderer.BindShaderStorageBuffer(4, _pointLightsSSBO);
         }
 
+        /// <summary>
+        /// Culls the lights
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        /// <param name="camera"></param>
         public void CullLights(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             var chunk = this.GetChunk(camera.Transform.Position.X, camera.Transform.Position.Y, camera.Transform.Position.Z, 10f);
@@ -59,22 +96,43 @@ namespace LibGFX.Graphics.Lights
             Debug.WriteLine($"Culled lights: {culledLights.Count()}");
         }
 
+        /// <summary>
+        /// Disposes of the light manager and releases any resources.
+        /// </summary>
+        /// <param name="renderDevice"></param>
         public void Dispose(IRenderDevice renderDevice)
         {
             renderDevice.DisposeBuffer(_pointLightsSSBO);
             _pointLightsSSBO = 0;
         }
 
+        /// <summary>
+        /// Gets the light count of the specified type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public int GetLightCount<T>() where T : Light
         {
             return this.GetTotalLightCount();
         }
 
+        /// <summary>
+        /// Initializes the light manager with the given render device.
+        /// </summary>
+        /// <param name="renderDevice"></param>
         public void Init(IRenderDevice renderDevice)
         {
             _pointLightsSSBO = renderDevice.CreateEmptyBuffer();
         }
 
+        /// <summary>
+        /// Gets the chunk coordinates based on the given x, y, and z coordinates and chunk size.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        /// <param name="chunkSize"></param>
+        /// <returns></returns>
         private (int, int, int) GetChunk(float x, float y, float z, float chunkSize)
         {
             int chunkX = (int)MathF.Floor(x / chunkSize);
@@ -83,6 +141,14 @@ namespace LibGFX.Graphics.Lights
             return (chunkX, chunkY, chunkZ);
         }
 
+        /// <summary>
+        /// Finds the nearby chunks based on the given x, y, z coordinates and chunk size.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        /// <param name="chunkSize"></param>
+        /// <returns></returns>
         private IEnumerable<(int, int, int)> FindNearbyChunks(float x, float y, float z, float chunkSize)
         {
             var chunk = this.GetChunk(x, y, z, chunkSize);
@@ -99,6 +165,10 @@ namespace LibGFX.Graphics.Lights
             }
         }
 
+        /// <summary>
+        /// Gets the total light count in the scene.
+        /// </summary>
+        /// <returns></returns>
         private int GetTotalLightCount()
         {
             int count = 0;
@@ -109,6 +179,13 @@ namespace LibGFX.Graphics.Lights
             return count;
         }
 
+        /// <summary>
+        /// Culls the lights in the nearby chunks based on the camera's view and the viewport.
+        /// </summary>
+        /// <param name="camera"></param>
+        /// <param name="viewport"></param>
+        /// <param name="chunkSize"></param>
+        /// <returns></returns>
         private IEnumerable<PointLight3DData> CullChunkLights(Camera camera, Viewport viewport, float chunkSize)
         {
             var nearbyChunkks = this.FindNearbyChunks(camera.Transform.Position.X, camera.Transform.Position.Y, camera.Transform.Position.Z, chunkSize);
@@ -123,11 +200,42 @@ namespace LibGFX.Graphics.Lights
                         if (camera.IsAABBInFrustum(viewport, lightAABB.min, lightAABB.max))
                         {
                             culledLights.Add(light.ToStruct());
-                        }    
+                        }
                     }
                 }
             }
             return culledLights;
+        }
+
+        /// <summary>
+        /// Gets all the lights in the scene.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<PointLight3D> GetAllLights()
+        {
+            foreach (var chunk in Chunks)
+            {
+                foreach (var light in chunk.Value.Lights)
+                {
+                    yield return light;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Resizes the chunk size and re-adds all the lights to the new chunks.
+        /// </summary>
+        /// <param name="newSize"></param>
+        public void ResizeChunkSize(float newSize)
+        {
+            var lights = this.GetAllLights().ToList();
+
+            this.ChunkSize = newSize;
+            this.Chunks.Clear();
+            foreach (var light in lights)
+            {
+                this.AddPointLight(light);
+            }
         }
     }
 }
