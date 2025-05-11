@@ -27,40 +27,94 @@ namespace LibGFX.Graphics.Lights
     /// </summary>
     public class PointLight3D : Light
     {
-        public float Range { get; set; }
-        public float Constant { get; set; }
-        public float Linear { get; set; }
-        public float Quadratic { get; set; }
+        /// <summary>
+        /// The range of the light.
+        /// </summary>
+        public float Range { get => _range; set => SetRange(value); }
+
+        /// <summary>
+        /// The constant of the light. It get calculated based on the range and intensity.
+        /// </summary>
+        public float Constant { get; internal set; }
+
+        /// <summary>
+        /// The linear attenuation of the light. It get calculated based on the range and intensity.
+        /// </summary>
+        public float Linear { get; internal set; }
+
+        /// <summary>
+        /// The quadratic attenuation of the light. It get calculated based on the range and intensity.
+        /// </summary>
+        public float Quadratic { get; internal set; }
+
+        /// <summary>
+        /// The ambient color of the light.
+        /// </summary>
         public Vector4 Ambient { get; set; }
+
+        /// <summary>
+        /// The specular color of the light.
+        /// </summary>
         public Vector4 Specular { get; set; }
+
+        /// <summary>
+        /// The intensity of the light.
+        /// </summary>
+        public override float Intensity { get => _intensity; set => SetIntensity(value); }
+
+        // light intensity
+        private float _intensity;
+
+        // light range
+        private float _range;
 
         /// <summary>
         /// Creates a new instance of the <see cref="PointLight3D"/> class.
         /// </summary>
         /// <param name="postion"></param>
         /// <param name="color"></param>
-        public PointLight3D(Vector3 position, Vector4 color, float range = 10f)
+        public PointLight3D(Vector3 position, Vector4 color, float range = 10f, float intesity = 1.0f)
         {
             Position = position;
             Color = color;
-            Intensity = 1.0f;
 
             Ambient = new Vector4(0.05f);
             Specular = new Vector4(1.0f);
 
-            SetRange(range);
+
+            this.SetRange(range);
+            this.SetIntensity(intesity);
+        }
+
+        /// <summary>
+        /// Sets the intensity of the light and calculates the attenuation coefficients.
+        /// </summary>
+        /// <param name="intensity"></param>
+        private void SetIntensity(float intensity)
+        {
+            _intensity = intensity;
+            CalculateLightIntensitiy();
+        }
+
+        /// <summary>
+        /// Sets the range of the light and calculates the attenuation coefficients.
+        /// </summary>
+        /// <param name="range"></param>
+        private void SetRange(float range)
+        {
+            _range = range;
+            CalculateLightIntensitiy();
         }
 
         /// <summary>
         /// Sets the attenuation coefficients for the light based on a given range.
         /// </summary>
         /// <param name="range"></param>
-        public void SetRange(float range)
+        public void CalculateLightIntensitiy()
         {
             Constant = 1.0f;
-            Linear = 4.5f / range;
-            Quadratic = 75.0f / (range * range);
-            Range = range;
+            Linear = 4.5f / Intensity;
+            Quadratic = 75.0f / (Range * Range);
         }
 
         /// <summary>

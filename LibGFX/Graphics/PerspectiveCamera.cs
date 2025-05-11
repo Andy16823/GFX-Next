@@ -109,6 +109,12 @@ namespace LibGFX.Graphics
             this.Transform.Towards(target);
         }
 
+        /// <summary>
+        /// Checks if a point is in the frustum of the camera
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="point"></param>
+        /// <returns></returns>
         public override bool IsPointInFrustum(Viewport viewport, Vector3 point)
         {
             var projectionMatrix = this.GetProjectionMatrix(viewport);
@@ -117,7 +123,6 @@ namespace LibGFX.Graphics
             Matrix4 viewProjection = viewMatrix * projectionMatrix;
             Vector4 clipSpacePos = new Vector4(point, 1.0f) * viewProjection;
 
-            // Homogene Division durchführen
             if (clipSpacePos.W == 0.0f)
                 return false;
 
@@ -125,13 +130,19 @@ namespace LibGFX.Graphics
             clipSpacePos.Y /= clipSpacePos.W;
             clipSpacePos.Z /= clipSpacePos.W;
 
-            // Im NDC-Raum muss alles zwischen -1 und 1 liegen
             return
                 clipSpacePos.X >= -1.0f && clipSpacePos.X <= 1.0f &&
                 clipSpacePos.Y >= -1.0f && clipSpacePos.Y <= 1.0f &&
                 clipSpacePos.Z >= -1.0f && clipSpacePos.Z <= 1.0f;
         }
 
+        /// <summary>
+        /// Checks if a axis-aligned bounding box (AABB) is in the frustum of the camera
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public override bool IsAABBInFrustum(Viewport viewport, Vector3 min, Vector3 max)
         {
             var projectionMatrix = GetProjectionMatrix(viewport);
@@ -143,6 +154,11 @@ namespace LibGFX.Graphics
             return IntersectsFrustum(planes, min, max);
         }
 
+        /// <summary>
+        /// Extracts the frustum planes from the view-projection matrix
+        /// </summary>
+        /// <param name="vp"></param>
+        /// <returns></returns>
         public static Plane[] ExtractFrustumPlanes(Matrix4 vp)
         {
             Plane[] planes = new Plane[6];
@@ -206,6 +222,13 @@ namespace LibGFX.Graphics
             return planes;
         }
 
+        /// <summary>
+        /// Checks if a bounding box intersects with the frustum defined by the planes
+        /// </summary>
+        /// <param name="planes"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public static bool IntersectsFrustum(Plane[] planes, Vector3 min, Vector3 max)
         {
             foreach (var plane in planes)

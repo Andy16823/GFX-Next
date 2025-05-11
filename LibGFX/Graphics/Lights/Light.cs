@@ -15,16 +15,16 @@ namespace LibGFX.Graphics.Lights
         /// <summary>
         /// The color of the light.
         /// </summary>
-        public Vector4 Color { get; set; }
+        public virtual Vector4 Color { get; set; }
 
         /// <summary>
         /// The position of the light.
         /// </summary>
-        public Vector3 Position { get; set; }
+        public virtual Vector3 Position { get; set; }
 
         /// <summary>
         /// The intensity of the light.
         /// </summary>
-        public float Intensity { get; set; }
+        public virtual float Intensity { get; set; }
     }
 }
