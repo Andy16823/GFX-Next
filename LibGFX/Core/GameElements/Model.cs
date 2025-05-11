@@ -213,7 +213,7 @@ namespace LibGFX.Core.GameElements
                 this.Animations.Add(animation);
             }
 
-            this.Animator = new Graphics.Animation3D.Animator(this.Animations[1]);
+            this.Animator = new Graphics.Animation3D.Animator(this.Animations[0]);
         }
 
         /// <summary>
