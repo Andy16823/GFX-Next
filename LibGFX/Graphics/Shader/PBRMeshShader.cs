@@ -59,9 +59,11 @@ namespace LibGFX.Graphics.Shader
 
                 struct PointLightData
                 {
-                    vec3 position;
-                    float intensity;
-                    vec4 color;
+                    vec4 position;
+                    vec4 constantLinearQuadratic;
+                    vec4 ambient;
+                    vec4 diffuse;
+                    vec4 specular;
                 };
 
                 layout(std430, binding = 0) buffer PointLights
@@ -144,8 +146,8 @@ namespace LibGFX.Graphics.Shader
                     vec3 Lo = vec3(0.0);
                     for(int i = 0; i < numLights; ++i) 
                     {
-                        vec3 lightPosition = lights[i].position;
-                        vec3 lightColor = lights[i].color.rgb;
+                        vec3 lightPosition = lights[i].position.xyz;
+                        vec3 lightColor = lights[i].diffuse.rgb;
 
                         // light direction
                         // calculate per-light radiance

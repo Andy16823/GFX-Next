@@ -107,6 +107,7 @@ namespace LibGFX.Graphics
         void EditBufferData<T>(int buffer, T[] data, int offset) where T : unmanaged;
         void DisposeBuffer(int buffer);
         void BindShaderStorageBuffer(int binding, int buffer);
+        void UnbindShaderStorageBuffer(int binding);
         void PrepareShader(String location, bool value);
         void PrepareShader(String location, float value);
         void PrepareShader(String location, int value);

@@ -1343,6 +1343,11 @@ namespace LibGFX.Graphics
             GL.BindBufferBase(BufferRangeTarget.ShaderStorageBuffer, binding, buffer);
         }
 
+        public void UnbindShaderStorageBuffer(int binding)
+        {
+            GL.BindBufferBase(BufferRangeTarget.ShaderStorageBuffer, binding, 0);
+        }
+
         public void PrepareShader(string location, bool value)
         {
             var locationId = this.GetUniformLocation(_currentProgram, location);

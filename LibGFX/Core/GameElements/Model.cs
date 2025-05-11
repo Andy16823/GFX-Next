@@ -420,18 +420,14 @@ namespace LibGFX.Core.GameElements
 
         private void RenderAnimatedModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, DirectionalLight light)
         {
-            // Bind the shader program
             renderer.BindShaderProgram(this.Shader);
+            renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
+            renderer.PrepareShader("viewPos", camera.Transform.Position);
             if (scene.LightManager != null)
             {
                 scene.LightManager.BindLights(viewport, renderer, camera);
             }
 
-            // Prepare the shader uniforms
-            renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
-            renderer.PrepareShader("viewPos", camera.Transform.Position);
-
-            // Draw the meshes
             this.MeshMaterials.ForEach(pair =>
             {
                 var mesh = this.Meshes.GetMesh(pair.MeshName);
@@ -439,19 +435,17 @@ namespace LibGFX.Core.GameElements
                 renderer.DrawMesh(Transform, mesh, material);
             });
 
-            // Unbind the shader program
             renderer.UnbindShaderProgram();
         }
 
         private void RenderStaticModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, DirectionalLight light)
         {
-            // Bind the shader program
             renderer.BindShaderProgram(this.Shader);
+            renderer.PrepareShader("viewPos", camera.Transform.Position);
             if(scene.LightManager != null)
             {
                 scene.LightManager.BindLights(viewport, renderer, camera);
             }
-            renderer.PrepareShader("viewPos", camera.Transform.Position);
 
             this.MeshMaterials.ForEach(pair =>
             {
@@ -460,7 +454,6 @@ namespace LibGFX.Core.GameElements
                 renderer.DrawMesh(Transform, mesh, material);
             });
 
-            // Unbind the shader program
             renderer.UnbindShaderProgram();
         }
 
