@@ -76,5 +76,15 @@ namespace LibGFX.Graphics
         {
             return Matrix4.LookAt(new Vector3(0f, 0f, 1f), new Vector3(0f, 0f, 0f), new Vector3(0f, 1f, 0f));
         }
+
+        public override bool IsAABBInFrustum(Viewport viewport, Vector3 min, Vector3 max)
+        {
+            return true;
+        }
+
+        public override bool IsPointInFrustum(Viewport viewport, Vector3 point)
+        {
+            return true;
+        }
     }
 }

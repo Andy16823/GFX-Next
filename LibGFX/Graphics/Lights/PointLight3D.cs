@@ -27,6 +27,7 @@ namespace LibGFX.Graphics.Lights
     /// </summary>
     public class PointLight3D : Light
     {
+        public float Range { get; set; }
         public float Constant { get; set; }
         public float Linear { get; set; }
         public float Quadratic { get; set; }
@@ -38,16 +39,28 @@ namespace LibGFX.Graphics.Lights
         /// </summary>
         /// <param name="postion"></param>
         /// <param name="color"></param>
-        public PointLight3D(Vector3 postion, Vector4 color)
+        public PointLight3D(Vector3 position, Vector4 color, float range = 10f)
         {
-            Position = postion;
+            Position = position;
             Color = color;
             Intensity = 1.0f;
-            Ambient = new Vector4(0.05f, 0.05f, 0.05f, 1.0f);
-            Specular = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+
+            Ambient = new Vector4(0.05f);
+            Specular = new Vector4(1.0f);
+
+            SetRange(range);
+        }
+
+        /// <summary>
+        /// Sets the attenuation coefficients for the light based on a given range.
+        /// </summary>
+        /// <param name="range"></param>
+        public void SetRange(float range)
+        {
             Constant = 1.0f;
-            Linear = 0.09f;
-            Quadratic = 0.032f;
+            Linear = 4.5f / range;
+            Quadratic = 75.0f / (range * range);
+            Range = range;
         }
 
         /// <summary>
@@ -64,6 +77,22 @@ namespace LibGFX.Graphics.Lights
                 Diffuse = Color * Intensity,
                 Specular = Specular
             };
+        }
+
+        /// <summary>
+        /// Calculates the axis-aligned bounding box (AABB) of the light based on its range.
+        /// </summary>
+        /// <param name="minThreshold"></param>
+        /// <returns></returns>
+        public (Vector3 min, Vector3 max) GetAABB(float minThreshold = 0.01f)
+        {
+            float range = this.Range;
+            Vector3 center = Position;
+
+            Vector3 min = center - new Vector3(range);
+            Vector3 max = center + new Vector3(range);
+
+            return (min, max);
         }
     }
 }

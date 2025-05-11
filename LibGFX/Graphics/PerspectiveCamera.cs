@@ -108,5 +108,121 @@ namespace LibGFX.Graphics
         {
             this.Transform.Towards(target);
         }
+
+        public override bool IsPointInFrustum(Viewport viewport, Vector3 point)
+        {
+            var projectionMatrix = this.GetProjectionMatrix(viewport);
+            var viewMatrix = this.GetViewMatrix();
+
+            Matrix4 viewProjection = viewMatrix * projectionMatrix;
+            Vector4 clipSpacePos = new Vector4(point, 1.0f) * viewProjection;
+
+            // Homogene Division durchführen
+            if (clipSpacePos.W == 0.0f)
+                return false;
+
+            clipSpacePos.X /= clipSpacePos.W;
+            clipSpacePos.Y /= clipSpacePos.W;
+            clipSpacePos.Z /= clipSpacePos.W;
+
+            // Im NDC-Raum muss alles zwischen -1 und 1 liegen
+            return
+                clipSpacePos.X >= -1.0f && clipSpacePos.X <= 1.0f &&
+                clipSpacePos.Y >= -1.0f && clipSpacePos.Y <= 1.0f &&
+                clipSpacePos.Z >= -1.0f && clipSpacePos.Z <= 1.0f;
+        }
+
+        public override bool IsAABBInFrustum(Viewport viewport, Vector3 min, Vector3 max)
+        {
+            var projectionMatrix = GetProjectionMatrix(viewport);
+            var viewMatrix = GetViewMatrix();
+            Matrix4 viewProjection = viewMatrix * projectionMatrix;
+
+            var planes = ExtractFrustumPlanes(viewProjection);
+
+            return IntersectsFrustum(planes, min, max);
+        }
+
+        public static Plane[] ExtractFrustumPlanes(Matrix4 vp)
+        {
+            Plane[] planes = new Plane[6];
+
+            // Left
+            planes[0] = new Plane(
+                vp.M14 + vp.M11,
+                vp.M24 + vp.M21,
+                vp.M34 + vp.M31,
+                vp.M44 + vp.M41
+            );
+
+            // Right
+            planes[1] = new Plane(
+                vp.M14 - vp.M11,
+                vp.M24 - vp.M21,
+                vp.M34 - vp.M31,
+                vp.M44 - vp.M41
+            );
+
+            // Bottom
+            planes[2] = new Plane(
+                vp.M14 + vp.M12,
+                vp.M24 + vp.M22,
+                vp.M34 + vp.M32,
+                vp.M44 + vp.M42
+            );
+
+            // Top
+            planes[3] = new Plane(
+                vp.M14 - vp.M12,
+                vp.M24 - vp.M22,
+                vp.M34 - vp.M32,
+                vp.M44 - vp.M42
+            );
+
+            // Near
+            planes[4] = new Plane(
+                vp.M13,
+                vp.M23,
+                vp.M33,
+                vp.M43
+            );
+
+            // Far
+            planes[5] = new Plane(
+                vp.M14 - vp.M13,
+                vp.M24 - vp.M23,
+                vp.M34 - vp.M33,
+                vp.M44 - vp.M43
+            );
+
+            // Normalize planes
+            for (int i = 0; i < 6; i++)
+            {
+                float length = planes[i].Normal.Length;
+                planes[i].Normal /= length;
+                planes[i].D /= length;
+            }
+
+            return planes;
+        }
+
+        public static bool IntersectsFrustum(Plane[] planes, Vector3 min, Vector3 max)
+        {
+            foreach (var plane in planes)
+            {
+                Vector3 positiveVertex = new Vector3(
+                    plane.Normal.X >= 0 ? max.X : min.X,
+                    plane.Normal.Y >= 0 ? max.Y : min.Y,
+                    plane.Normal.Z >= 0 ? max.Z : min.Z
+                );
+
+                if (Vector3.Dot(plane.Normal, positiveVertex) + plane.D < 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }
