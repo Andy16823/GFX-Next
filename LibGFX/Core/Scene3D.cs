@@ -33,16 +33,33 @@ namespace LibGFX.Core
         private RenderTarget _renderTarget;
 
         /// <summary>
+        /// The light manager for the 3D scene
+        /// </summary>
+        public override ILightManager LightManager { get => _lightManager; }
+
+        /// <summary>
+        /// Sets the directional light for the scene
+        /// </summary>
+        public DirectionalLight DirectionalLight { get => this.GetDirectionalLight(); set => this.SetDirectionalLight(value); }
+
+        // The light manager for the 3D scene
+        private Light3DManager _lightManager;
+
+        /// <summary>
         /// Creates a new 3D scene
         /// </summary>
         public Scene3D() : base()
         {
-            this.LightManager = new Light3DManager();
+            _lightManager = new Light3DManager();
         }
 
+        /// <summary>
+        /// Creates a new 3D scene with the given layers
+        /// </summary>
+        /// <param name="layers"></param>
         public Scene3D(params String[] layers) : base()
         {
-            this.LightManager = new Light3DManager();
+            _lightManager = new Light3DManager();
             foreach (var item in layers)
             {
                 this.Layers.Add(new Layer(item));
@@ -69,6 +86,9 @@ namespace LibGFX.Core
 
             // Dispose the render target
             renderer.DisposeRenderTarget(_renderTarget);
+
+            // Dispose the light manager
+            _lightManager.Dispose(renderer);
         }
 
         /// <summary>
@@ -191,6 +211,33 @@ namespace LibGFX.Core
         public override void UpdatePhysics()
         {
             this.PhysicsHandler.Process(this);
+        }
+
+        /// <summary>
+        /// Sets the directional light of the scene
+        /// </summary>
+        /// <param name="light"></param>
+        public void SetDirectionalLight(DirectionalLight light)
+        {
+            _lightManager.DirectionalLight = light;
+        }
+
+        /// <summary>
+        /// Gets the directional light of the scene
+        /// </summary>
+        /// <returns></returns>
+        public DirectionalLight GetDirectionalLight()
+        {
+            return _lightManager.DirectionalLight;
+        }
+
+        /// <summary>
+        /// Adds a point light to the scene
+        /// </summary>
+        /// <param name="light"></param>
+        public void AddPointLight(PointLight3D light)
+        {
+            _lightManager.AddPointLight(light);
         }
     }
 }

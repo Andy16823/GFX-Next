@@ -25,12 +25,17 @@ namespace LibGFX.Core
         /// </summary>
         public DirectionalLight2D SceneLight { get => this.GetDirectionalLight(); set => this.SetDirectionalLight(value); }
 
+        public override ILightManager LightManager { get => _lightManager; }
+
+        private Light2DManager _lightManager;
+
+
         /// <summary>
         /// Creates a new 2D scene
         /// </summary>
         public Scene2D() : base()
         {
-            this.LightManager = new Light2DManager();
+            _lightManager = new Light2DManager();
         }
 
         /// <summary>
@@ -39,8 +44,7 @@ namespace LibGFX.Core
         /// <param name="layers"></param>
         public Scene2D(params String[] layers) : base()
         {
-            this.LightManager = new Light2DManager();
-
+            _lightManager = new Light2DManager();
             foreach (var item in layers)
             {
                 this.Layers.Add(new Layer(item));
@@ -53,8 +57,7 @@ namespace LibGFX.Core
         /// <param name="light"></param>
         public void SetDirectionalLight(DirectionalLight2D light)
         {
-            var lightManager = this.LightManager as Light2DManager;
-            lightManager.DirectionalLight = light;
+            _lightManager.DirectionalLight = light;
         }
 
         /// <summary>
@@ -63,8 +66,7 @@ namespace LibGFX.Core
         /// <returns></returns>
         public DirectionalLight2D GetDirectionalLight()
         {
-            var lightManager = this.LightManager as Light2DManager;
-            return lightManager.DirectionalLight;
+            return _lightManager.DirectionalLight;
         }
 
         /// <summary>
@@ -73,8 +75,7 @@ namespace LibGFX.Core
         /// <param name="light"></param>
         public void AddPointLight(PointLight2D light)
         {
-            var lightManager = this.LightManager as Light2DManager;
-            lightManager.AddPointLight(light);
+            _lightManager.AddPointLight(light);
         }
 
         /// <summary>
@@ -83,8 +84,7 @@ namespace LibGFX.Core
         /// <param name="light"></param>
         public void RemovePointLight(PointLight2D light)
         {
-            var lightManager = this.LightManager as Light2DManager;
-            lightManager.RemovePointLight(light);
+            _lightManager.RemovePointLight(light);
         }
 
         /// <summary>

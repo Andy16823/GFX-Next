@@ -15,23 +15,23 @@ namespace LibGFX.Core
         /// <summary>
         /// The Layers of the scene
         /// </summary>
-        public List<Layer> Layers { get; set; }
+        public virtual List<Layer> Layers { get; set; }
 
         /// <summary>
         /// The physics handler of the scene
         /// </summary>
-        public PhysicsHandler PhysicsHandler { get; set; }
+        public virtual PhysicsHandler PhysicsHandler { get; set; }
 
         /// <summary>
         /// The light handler of the scene
         /// </summary>
-        public ILightManager LightManager { get; set; }
+        public virtual ILightManager LightManager { get; set; }
 
         /// <summary>
         /// The render stats of the scene. 
         /// It contain the fps, delta time.
         /// </summary>
-        public RenderStats RenderStats { get; set; }
+        public virtual RenderStats RenderStats { get; set; }
 
         /// <summary>
         /// Creates a new scene
