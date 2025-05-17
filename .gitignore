@@ -1,0 +1,4 @@
+# Ignoriere alle bin-Verzeichnisse im Projekt
+**/bin/
+**/obj/
+**/packages/
