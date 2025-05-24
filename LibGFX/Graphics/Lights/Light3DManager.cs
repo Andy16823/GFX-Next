@@ -93,7 +93,7 @@ namespace LibGFX.Graphics.Lights
             var chunk = this.GetChunk(camera.Transform.Position.X, camera.Transform.Position.Y, camera.Transform.Position.Z, 10f);
             var culledLights = this.CullChunkLights(camera, viewport, this.ChunkSize);
             renderer.BindBufferData<PointLight3DData>(_pointLightsSSBO, culledLights.ToArray(), true);
-            Debug.WriteLine($"Culled lights: {culledLights.Count()}");
+            //Debug.WriteLine($"Culled lights: {culledLights.Count()}");
         }
 
         /// <summary>

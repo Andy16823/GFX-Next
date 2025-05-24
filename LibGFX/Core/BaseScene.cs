@@ -1,4 +1,5 @@
-﻿using LibGFX.Graphics;
+﻿using LibGFX.Core.GameElements;
+using LibGFX.Graphics;
 using LibGFX.Graphics.Lights;
 using LibGFX.Pyhsics;
 using OpenTK.Graphics.OpenGL;
@@ -34,12 +35,18 @@ namespace LibGFX.Core
         public virtual RenderStats RenderStats { get; set; }
 
         /// <summary>
+        /// List of scene behaviors
+        /// </summary>
+        public List<ISceneBehavior> SceneBehaviors { get; set; }
+
+        /// <summary>
         /// Creates a new scene
         /// </summary>
         protected BaseScene()
         {
             this.Layers = new List<Layer>(); 
             this.RenderStats = new RenderStats();
+            this.SceneBehaviors = new List<ISceneBehavior>();
         }
 
         /// <summary>
@@ -226,6 +233,41 @@ namespace LibGFX.Core
             });
 
             return elements;
+        }
+
+        /// <summary>
+        /// Adds a scene behavior to the scene
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="behavior"></param>
+        /// <returns></returns>
+        public virtual T AddSceneBehavior<T>(ISceneBehavior behavior) where T : ISceneBehavior
+        {
+            this.SceneBehaviors.Add(behavior);
+            return (T)behavior;
+        }
+
+        /// <summary>
+        /// Gets a scene behavior from the scene
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public virtual T GetSceneBehavior<T>() where T : ISceneBehavior
+        {
+            return this.SceneBehaviors.OfType<T>().FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Removes a scene behavior from the scene
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public virtual void RemoveSceneBehavior<T>() where T : ISceneBehavior
+        {
+            var behavior = this.GetSceneBehavior<T>();
+            if (behavior != null)
+            {
+                this.SceneBehaviors.Remove(behavior);
+            }
         }
 
         /// <summary>

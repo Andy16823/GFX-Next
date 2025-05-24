@@ -84,6 +84,12 @@ namespace LibGFX.Core
                 l.Dispose(this, renderer);
             });
 
+            // Dispose the scene behaviors
+            this.SceneBehaviors.ForEach(behavior =>
+            {
+                behavior.OnDispose(this, renderer);
+            });
+
             // Dispose the render target
             renderer.DisposeRenderTarget(_renderTarget);
 
@@ -119,11 +125,18 @@ namespace LibGFX.Core
                 l.Init(this, viewport, renderer);
             });
 
+            // Initialize the light manager
             var lightManager = this.LightManager as Light3DManager;
             if(lightManager != null)
             {
                 lightManager.Init(renderer);
             }
+
+            // Initialize the scene behaviors
+            this.SceneBehaviors.ForEach(behavior =>
+            {
+                behavior.OnInit(this, viewport, renderer);
+            });
 
             // Start the render stats
             this.RenderStats.Start();
@@ -140,6 +153,13 @@ namespace LibGFX.Core
             // Start new frame for the render stats
             this.RenderStats.NewFrame();
 
+            // Process the scene behaviors
+            this.SceneBehaviors.ForEach(behavior =>
+            {
+                behavior.BeforeRender(this, viewport, renderer, camera);
+            });
+
+            // Cull the lights in the scene
             if (this.LightManager != null)
             {
                 this.LightManager.CullLights(viewport, renderer, camera);
@@ -158,9 +178,7 @@ namespace LibGFX.Core
             renderer.ResizeRenderTarget(_renderTarget, viewport.Width, viewport.Height);
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            //renderer.Clear((int)(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit));
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
-
 
             // Render the enviroment texture if available
             if (this.Enviroment != null && this.RenderEnviromentTexture)
@@ -168,11 +186,13 @@ namespace LibGFX.Core
                 this.Enviroment.Render(renderer, camera, viewport);
             }
 
+            // Render all layers in the scene
             this.Layers.ForEach(layer => {
                 layer.RenderLayer(this, viewport, renderer, camera);
             });
 
-            if(this.PhysicsHandler != null && this.PhysicsHandler.DebugPhysics)
+            // Debug draw the physics if enabled
+            if (this.PhysicsHandler != null && this.PhysicsHandler.DebugPhysics)
             {
                 if(this.PhysicsHandler.HasDebugDrawer())
                 {
@@ -184,6 +204,12 @@ namespace LibGFX.Core
                     Debug.Assert(this.PhysicsHandler.DebugPhysics, "DebugPhysics is enabled but no debug drawer is set");
                 }
             }
+
+            // Process the scene behaviors after rendering
+            this.SceneBehaviors.ForEach(behavior =>
+            {
+                behavior.AfterRender(this, viewport, renderer, camera);
+            });
 
             // Unbind the render target and set the depth test state back to the original state
             renderer.UnbindRenderTarget();
@@ -200,8 +226,18 @@ namespace LibGFX.Core
         /// </summary>
         public override void Update()
         {
+            this.SceneBehaviors.ForEach(behavior =>
+            {
+                behavior.BeforeUpdate(this);
+            });
+
             this.Layers.ForEach(l => {
                 l.Update(this);
+            });
+
+            this.SceneBehaviors.ForEach(behavior =>
+            {
+                behavior.AfterUpdate(this);
             });
         }
 
@@ -210,7 +246,17 @@ namespace LibGFX.Core
         /// </summary>
         public override void UpdatePhysics()
         {
+            this.SceneBehaviors.ForEach(behavior =>
+            {
+                behavior.BeforePhysicsUpdate(this, this.PhysicsHandler);
+            });
+
             this.PhysicsHandler.Process(this);
+
+            this.SceneBehaviors.ForEach(behavior =>
+            {
+                behavior.AfterPhysicsUpdate(this, this.PhysicsHandler);
+            });
         }
 
         /// <summary>

@@ -94,6 +94,7 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public override void Init(Viewport viewport, IRenderDevice renderer)
         {
+            // Create an new render target for the scene
             var renderTargetDescriptor = new RenderTargetDescriptor()
             {
                 Width = viewport.Width,
@@ -102,13 +103,22 @@ namespace LibGFX.Core
             };
             _renderTarget = renderer.CreateRenderTarget(renderTargetDescriptor);
 
+            // Iinitialize the layers of the scene
             this.Layers.ForEach(l =>
             {
                 l.Init(this, viewport, renderer);
             });
 
+            // Initialize the light manager
             this.LightManager.Init(renderer);
 
+            // Call the init behaviors for the scene
+            this.SceneBehaviors.ForEach(behavior =>
+            {
+                behavior.OnInit(this, viewport, renderer);
+            });
+
+            // Start the render stats for the scene
             this.RenderStats.Start();
         }
 
@@ -120,14 +130,22 @@ namespace LibGFX.Core
         /// <param name="camera"></param>
         public override void Render(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
+            // Start a new frame for the render stats
             this.RenderStats.NewFrame();
 
+            // Call before render behaviors
+            this.SceneBehaviors.ForEach(behavior =>
+            {
+                behavior.BeforeRender(this, viewport, renderer, camera);
+            });
+
+            // Cull lights in the scene
             if (this.LightManager != null)
             {
-                //Debug.WriteLine("Culling lights");  
                 this.LightManager.CullLights(viewport, renderer, camera);
             }
 
+            // Get the current depth test state
             var depthTest = renderer.IsDepthTestEnabled();
 
             // Disable depth test and set the viewport, projection and view matrix
@@ -142,11 +160,12 @@ namespace LibGFX.Core
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
 
-
+            // Render the layers of the scene
             this.Layers.ForEach(layer => { 
                 layer.RenderLayer(this, viewport, renderer, camera); 
             });
 
+            // Debug draw the physics if enabled
             if (this.PhysicsHandler.DebugPhysics)
             {
                 if (this.PhysicsHandler.HasDebugDrawer())
@@ -159,13 +178,21 @@ namespace LibGFX.Core
                 }
             }
 
+            // Call after render behaviors
+            this.SceneBehaviors.ForEach(behavior =>
+            {
+                behavior.AfterRender(this, viewport, renderer, camera);
+            });
+
             // Unbind the render target and set the depth test state back to the original state
             renderer.UnbindRenderTarget();
 
+            // Render the render target to the screen
             renderer.BindShaderProgram(renderer.GetShaderProgram("ScreenShader"));
             renderer.DrawRenderTarget(_renderTarget);  
             renderer.UnbindShaderProgram();
 
+            // Restore the depth test state
             renderer.SetDepthTest(depthTest);
         }
 
@@ -174,8 +201,21 @@ namespace LibGFX.Core
         /// </summary>
         public override void Update()
         {
+            // Call the before update behaviors for the scene
+            this.SceneBehaviors.ForEach(behavior =>
+            {
+                behavior.BeforeUpdate(this);
+            });
+
+            // Update the scene
             this.Layers.ForEach(l => { 
                 l.Update(this); 
+            });
+
+            // Call the after update behaviors for the scene
+            this.SceneBehaviors.ForEach(behavior =>
+            {
+                behavior.AfterUpdate(this);
             });
         }
 
@@ -185,11 +225,21 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public override void DisposeScene(IRenderDevice renderer)
         {
+            // Dispose the layers of the scene
             this.Layers.ForEach(l =>
             {
                 l.Dispose(this, renderer);
             });
 
+            // Call the dispose behaviors for the scene
+            this.SceneBehaviors.ForEach(behavior => {
+                behavior.OnDispose(this, renderer);
+            });
+
+            // Dispose the render target of the scene
+            renderer.DisposeRenderTarget(_renderTarget);
+
+            // Dispose the light manager
             this.LightManager.Dispose(renderer);
         }
 
@@ -198,7 +248,17 @@ namespace LibGFX.Core
         /// </summary>
         public override void UpdatePhysics()
         {
+            this.SceneBehaviors.ForEach(behavior =>
+            {
+                behavior.BeforePhysicsUpdate(this, this.PhysicsHandler);
+            });
+
             this.PhysicsHandler.Process(this);
+
+            this.SceneBehaviors.ForEach(behavior =>
+            {
+                behavior.AfterPhysicsUpdate(this, this.PhysicsHandler);
+            });
         }
 
     }
