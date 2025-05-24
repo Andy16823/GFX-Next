@@ -158,6 +158,9 @@ namespace LibGFX.Graphics.Shader
                     } 
 
                     float alpha = texture(material.textureSampler, texCoord).a;
+                    result *= material.vertexColor.rgb;
+                    alpha *= material.vertexColor.a;
+
                     fragColor = vec4(result, alpha);
                 }
             ");

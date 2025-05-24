@@ -74,7 +74,7 @@ namespace LibGFX.Graphics.Materials
         public void Init(IRenderDevice renderDevice)
         {
             Debug.WriteLine($"Loading material {Name}");
-            if(this.Flags != MaterialFlags.None)
+            if (this.Flags != MaterialFlags.None)
             {
                 Debug.WriteLine($"Material {Name} is already loaded.");
                 return;
@@ -169,6 +169,28 @@ namespace LibGFX.Graphics.Materials
                 Flags = MaterialFlags.None
             };
             return material;
+        }
+
+        public static SGMaterial CreateMaterial(String materialName, Vector4 color)
+        {
+            return new SGMaterial
+            {
+                Name = materialName,
+                DiffuseTexture = Texture.LoadTexture(Utils.CreateEmptyTexture(1, 1)),
+                NormalTexture = Texture.LoadTexture(Utils.CreateEmptyNormalMap(1, 1)),
+                SpecularTexture = null,
+                Color = color,
+                Opacity = 1.0f,
+            };
+        }
+
+        /// <summary>
+        /// Creates a default material with empty textures and white color.
+        /// </summary>
+        /// <returns></returns>
+        public static SGMaterial CreateDefaultMaterial(String materialName)
+        {
+            return CreateMaterial(materialName, Vector4.One);
         }
     }
 }

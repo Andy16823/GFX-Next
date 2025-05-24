@@ -17,6 +17,13 @@ namespace LibGFX.Core.GameElements
     /// </summary>
     public class Primitive : GameElement
     {
+        public enum PrimitiveType
+        {
+            Quad,
+            Cube,
+            Sphere
+        }
+
         /// <summary>
         /// The name of the primitive.
         /// </summary>
@@ -42,6 +49,34 @@ namespace LibGFX.Core.GameElements
         {
             this.Name = name;
             this.Mesh = primitive.GetMesh();
+            this.Material = material;
+        }
+
+        /// <summary>
+        /// Creates a new instance of the Primitive class with a specified type.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="material"></param>
+        /// <param name="type"></param>
+        /// <exception cref="ArgumentException"></exception>
+        public Primitive(String name, IMaterial material, PrimitiveType type = PrimitiveType.Cube)
+        {
+            this.Name = name;
+
+            switch (type)
+            {
+                case PrimitiveType.Quad:
+                    this.Mesh = new Quad().GetMesh();
+                    break;
+                case PrimitiveType.Cube:
+                    this.Mesh = new Cube().GetMesh();
+                    break;
+                case PrimitiveType.Sphere:
+                    this.Mesh = new Sphere().GetMesh();
+                    break;
+                default:
+                    throw new ArgumentException("Unsupported primitive type: " + type);
+            }
             this.Material = material;
         }
 
