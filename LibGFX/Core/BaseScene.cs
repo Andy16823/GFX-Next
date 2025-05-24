@@ -1,7 +1,7 @@
 ﻿using LibGFX.Core.GameElements;
 using LibGFX.Graphics;
 using LibGFX.Graphics.Lights;
-using LibGFX.Pyhsics;
+using LibGFX.Physics;
 using OpenTK.Graphics.OpenGL;
 using System;
 using System.Collections.Generic;

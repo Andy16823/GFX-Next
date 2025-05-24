@@ -1,7 +1,7 @@
 ﻿using LibGFX.Graphics;
 using LibGFX.Graphics.Materials;
 using LibGFX.Math;
-using LibGFX.Pyhsics;
+using LibGFX.Physics;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
