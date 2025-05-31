@@ -132,7 +132,7 @@ namespace LibGFX.Graphics.Animation2D
         public Vector4 GetUVTransform()
         {
             int column = (CurrentFrame % TotalColumns) + StartColumn;
-            return Material.Texture.GetUVTransform(new LibGFX.Math.Rect(column * CellWidth, StartRow * CellHeight, CellWidth, CellHeight));
+            return Material.Texture.GetSubImage(new LibGFX.Math.Rect(column * CellWidth, StartRow * CellHeight, CellWidth, CellHeight));
         }
     }
 }

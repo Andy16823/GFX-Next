@@ -16,6 +16,14 @@ namespace LibGFX.Core
     /// </summary>
     public class Window
     {
+        public enum WindowState
+        {
+            Normal = OpenTK.Windowing.Common.WindowState.Normal,
+            Maximized = OpenTK.Windowing.Common.WindowState.Maximized,
+            Minimized = OpenTK.Windowing.Common.WindowState.Minimized,
+            Fullscreen = OpenTK.Windowing.Common.WindowState.Fullscreen
+        }
+
         private GameWindow _window;
 
         /// <summary>
@@ -31,7 +39,7 @@ namespace LibGFX.Core
                 ClientSize = viewport.ToVector2I(),
                 Title = title,
                 NumberOfSamples = 8,
-                WindowState = windowState
+                WindowState = (OpenTK.Windowing.Common.WindowState)windowState
             };
 
             _window = new GameWindow(GameWindowSettings.Default, windowSettings);

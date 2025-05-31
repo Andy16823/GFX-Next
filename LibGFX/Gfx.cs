@@ -5,9 +5,9 @@ using LibGFX.Core;
 using LibGFX.Core.GameElements;
 using LibGFX.Graphics;
 using LibGFX.Graphics.Materials;
-using OpenTK.Windowing.Common;
 using System.Diagnostics;
 using System.Reflection.Metadata;
+using static LibGFX.Core.Window;
 
 namespace LibGFX
 {

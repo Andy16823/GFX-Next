@@ -24,6 +24,14 @@ namespace LibGFX.Graphics
         Failed
     }
 
+    [Flags]
+    public enum TextureMirrorMode
+    {
+        None = 0,
+        Horizontal = 1,
+        Vertical = 2
+    }
+
     public class Texture
     {
         public int TextureId { get; set; }
@@ -114,12 +122,76 @@ namespace LibGFX.Graphics
         /// </summary>
         /// <param name="area"></param>
         /// <returns></returns>
-        public Vector4 GetUVTransform(Rect area)
+        public Vector4 GetSubImage(Rect area)
         {
-            float scaleX = (float)area.Width / Width;
-            float scaleY = (float)area.Height / Height;
-            float offsetX = (float)area.X / Width;
-            float offsetY = (float)area.Y / Height;
+            return this.GetSubImage(area.X, area.Y, area.Width, area.Height);
+        }
+
+        /// <summary>
+        /// Gets the sub-image UV transforms for a specified area of the texture.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <returns></returns>
+        public Vector4 GetSubImage(float x, float y, float width, float height)
+        {
+            float scaleX = (float)width / this.Width;
+            float scaleY = (float)height / this.Height;
+            float offsetX = (float) x / Width;
+            float offsetY = (float) y / Height;
+
+            return new Vector4(scaleX, scaleY, offsetX, offsetY);
+        }
+
+        /// <summary>
+        /// Get a safe UV transform for a given area of the texture, avoiding edge artifacts.
+        /// Used for tilemaps and similar scenarios where you want to avoid sampling the edges of the texture.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <returns></returns>
+        public Vector4 GetSafeUVTransform(float x, float y, float width, float height)
+        {
+            float texelW = 1.0f / this.Width;
+            float texelH = 1.0f / this.Height;
+
+            float safeWidth = (float)width / this.Width - texelW;
+            float safeHeight = (float)height / this.Height - texelH;
+
+            float offsetX = ((float)x / this.Width) + texelW * 0.5f;
+            float offsetY = ((float)y / this.Height) + texelH * 0.5f;
+
+            return new Vector4(safeWidth, safeHeight, offsetX, offsetY);
+        }
+
+        /// <summary>
+        /// Mirror the UV transform based on the specified mirror mode.
+        /// </summary>
+        /// <param name="uvTransform"></param>
+        /// <param name="mode"></param>
+        /// <returns></returns>
+        public static Vector4 MirrorUVTransform(Vector4 uvTransform, TextureMirrorMode mode)
+        {
+            float scaleX = uvTransform.X;
+            float scaleY = uvTransform.Y;
+            float offsetX = uvTransform.Z;
+            float offsetY = uvTransform.W;
+
+            if ((mode & TextureMirrorMode.Horizontal) != 0)
+            {
+                scaleX = -scaleX;
+                offsetX = offsetX + uvTransform.X;
+            }
+
+            if ((mode & TextureMirrorMode.Vertical) != 0)
+            {
+                scaleY = -scaleY;
+                offsetY = offsetY + uvTransform.Y;
+            }
 
             return new Vector4(scaleX, scaleY, offsetX, offsetY);
         }

@@ -49,6 +49,11 @@ namespace LibGFX.Core.GameElements
         public Animator Animator { get; set; }
 
         /// <summary>
+        /// The mirror mode of the sprite's texture
+        /// </summary>
+        public TextureMirrorMode MirrorMode { get; set; } = TextureMirrorMode.None;
+
+        /// <summary>
         /// Creates a new sprite
         /// </summary>
         /// <param name="name"></param>
@@ -57,7 +62,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="material"></param>
         public Sprite(String name, Vector2 position, Vector2 scale, SpriteMaterial material)
         {
-            this.Name = name;   
+            this.Name = name;
             this.Color = new Vector4(1, 1, 1, 1);
             this.Transform = new Math.Transform(position, scale);
             this.Material = material;
@@ -90,9 +95,9 @@ namespace LibGFX.Core.GameElements
         {
             base.Init(scene, viewport, renderer);
 
-            if(this.Shader == null)
+            if (this.Shader == null)
             {
-                this.Shader = renderer.GetShaderProgram("SpriteShader");
+                this.Shader = renderer.GetShaderProgram("LitSpriteShader");
             }
         }
 
@@ -106,7 +111,7 @@ namespace LibGFX.Core.GameElements
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             base.Render(scene, viewport, renderer, camera);
-            if(this.Visible)
+            if (this.Visible)
             {
                 renderer.BindShaderProgram(this.Shader);
 
@@ -116,7 +121,12 @@ namespace LibGFX.Core.GameElements
                     scene.LightManager.BindLights(viewport, renderer, camera);
                 }
 
-                renderer.DrawTexture(this.Transform, this.Material.Texture.TextureId, Color, UVTransform, UVScale);
+                var uvTransform = this.UVTransform;
+                if (this.MirrorMode != TextureMirrorMode.None)
+                {
+                    uvTransform = Texture.MirrorUVTransform(uvTransform, this.MirrorMode);
+                }
+                renderer.DrawTexture(this.Transform, this.Material.Texture.TextureId, Color, uvTransform, UVScale);
                 renderer.UnbindShaderProgram();
             }
         }
@@ -139,6 +149,117 @@ namespace LibGFX.Core.GameElements
                     this.UVTransform = uvTransform;
                 }
             }
+        }
+
+        /// <summary>
+        /// Gets an image sub-region from the sprite's texture and sets the UV transform accordingly.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        public void SubImage(float x, float y, float width, float height)
+        {
+            if (this.Material != null)
+            {
+                this.UVTransform = this.Material.Texture.GetSafeUVTransform(x, y, width, height);
+
+            }
+        }
+
+        /// <summary>
+        /// Sets the mirror mode for the sprite's texture.
+        /// </summary>
+        /// <param name="mode"></param>
+        public void SetMirrorMode(TextureMirrorMode mode)
+        {
+            this.MirrorMode = mode;
+        }
+
+        /// <summary>
+        /// Adds an animation to the sprite's animator.
+        /// </summary>
+        /// <param name="animation"></param>
+        public void AddAnimation(Animation animation)
+        {
+            if (this.Animator != null)
+            {
+                this.Animator.Animations.Add(animation);
+            }
+        }
+
+        /// <summary>
+        /// Plays an animation by name using the sprite's animator.
+        /// </summary>
+        /// <param name="name"></param>
+        public void PlayAnimation(String name)
+        {
+            if (this.Animator != null)
+            {
+                this.Animator.PlayAnimation(name);
+            }
+        }
+
+        /// <summary>
+        /// Stops the currently playing animation on the sprite's animator.
+        /// </summary>
+        public void StopAnimation()
+        {
+            if (this.Animator != null)
+            {
+                this.Animator.Stop();
+            }
+        }
+
+        /// <summary>
+        /// Adds an animation callback to the sprite's animator.
+        /// </summary>
+        /// <param name="callback"></param>
+        public void AddAnimationCallback(IAnimationCallback callback)
+        {
+            if (this.Animator != null)
+            {
+                this.Animator.AnimationCallbacks.Add(callback);
+            }
+        }
+
+        /// <summary>
+        /// Sets whether the animation should loop or not in the sprite's animator.
+        /// </summary>
+        /// <param name="loop"></param>
+        public void SetAnimationLoop(bool loop)
+        {
+            if (this.Animator != null)
+            {
+                this.Animator.Loop = loop;
+            }
+        }
+
+        /// <summary>
+        /// Gets the current animation from the sprite's animator.
+        /// </summary>
+        /// <returns></returns>
+        public Animation GetCurrentAnimation()
+        {
+            if (this.Animator != null)
+            {
+                return this.Animator.CurrentAnimation;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Finds an animation by name in the sprite's animator.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public Animation FindAnimation(String name)
+        {
+            if (this.Animator != null)
+            {
+                return this.Animator.Animations.FirstOrDefault(a => a.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+            }
+            return null;
         }
     }
 }
