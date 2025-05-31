@@ -68,10 +68,11 @@ The GFX Game Engine is a lightweight framework for creating 2D and 3D games in C
 
 - **Active Discord community**  
   Get help, share your projects, and discuss ideas with other developers.
+  
+A solid foundation for 2D and 3D projects using modern C#/.NET – flexible, modular, and cross-platform.
 
 ---
 
-A solid foundation for 2D and 3D projects using modern C#/.NET – flexible, modular, and cross-platform.
   
 ### **Getting Started**
 Installation Guide for GFX (.NET 8)
