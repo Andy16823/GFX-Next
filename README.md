@@ -10,14 +10,52 @@ If you have any questions about GFX, join our community on [Discord](https://dis
 ## **Overview**  
 The GFX Game Engine is a lightweight framework for creating 2D and 3D games in C# with .NET 8. It includes modules for rendering, graphics, animation, and audio.
 
-**Why Choose GFX?**  
-- Effortless creation of 2D and 3D scenes
-- Custom behavior system for defining game logic
-- Powerful physics simulation using BulletSharp (a Bullet3 wrapper)
-- Support for multiple 3D model formats via Assimp integration
-- Rendering powered by OpenGL through OpenTK
-- 3D audio support with OpenAL (coming soon)
-- Open-source and MIT-licensed for unlimited creative freedom
+**Features**  
+
+- **Simple creation of 2D and 3D scenes**  
+  Manage scenes with a minimal and clear structure.
+
+- **Custom behavior system**  
+  Define game logic using a modular, component-based system.
+
+- **Physics simulation with BulletSharp**  
+  Integrated Bullet3 physics via the BulletSharp wrapper.
+
+- **Support for multiple 3D model formats (Assimp)**  
+  Import formats like FBX, OBJ, DAE, and others using Assimp.
+
+- **Rendering with OpenGL via OpenTK**  
+  Cross-platform rendering backend using OpenGL.
+
+- **Instanced rendering support**  
+  Efficient rendering of many instances of the same mesh.
+
+- **3D audio using OpenAL**  
+  Spatial and positional audio support through OpenAL.
+
+- **2D lighting with clustered forward rendering**  
+  Real-time lighting support for 2D scenes.
+
+- **3D lighting with clustered forward rendering**  
+  Efficient handling of multiple dynamic lights in 3D.
+
+- **Skeletal animation**  
+  Bone-based animations for animated 3D models.
+
+- **Abstract and extensible architecture**  
+  Designed to be easily adaptable to different workflows and needs.
+
+- **Asset loading system**  
+  Built-in loader with support for custom file formats.
+
+- **Easy installation via NuGet**  
+  Available as a NuGet package for quick integration.
+
+- **MIT licensed and open source**  
+  Free to use, modify, and distribute.
+
+- **Active community on Discord**  
+  Get support, share projects, and give feedback in an active Discord server.
 
 ## **Core Features**
 ### **Rendering**
