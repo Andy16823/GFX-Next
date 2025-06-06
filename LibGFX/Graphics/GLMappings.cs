@@ -1,4 +1,5 @@
-﻿using OpenTK.Audio.OpenAL;
+﻿using BulletSharp;
+using OpenTK.Audio.OpenAL;
 using OpenTK.Graphics.OpenGL4;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,12 @@ namespace LibGFX.Graphics
     /// </summary>
     public class GLMappings
     {
+        /// <summary>
+        /// Converts a RenderFlags.TextureFilterMode to OpenGL TextureMinFilter.
+        /// </summary>
+        /// <param name="mode"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static int ToGLMinFilter(RenderFlags.TextureFilterMode mode) => mode switch
         {
             RenderFlags.TextureFilterMode.Nearest => (int)OpenTK.Graphics.OpenGL4.TextureMinFilter.Nearest,
@@ -22,6 +29,12 @@ namespace LibGFX.Graphics
             _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
         };
 
+        /// <summary>
+        /// Converts a RenderFlags.TextureFilterMode to OpenGL TextureMagFilter.
+        /// </summary>
+        /// <param name="mode"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static int ToGLMagFilter(RenderFlags.TextureFilterMode mode) => mode switch
         {
             RenderFlags.TextureFilterMode.Nearest => (int)OpenTK.Graphics.OpenGL4.TextureMagFilter.Nearest,
@@ -29,6 +42,12 @@ namespace LibGFX.Graphics
             _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
         };
 
+        /// <summary>
+        /// Converts a RenderFlags.TextureWrapMode to OpenGL TextureWrapMode.
+        /// </summary>
+        /// <param name="mode"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static int ToGL(RenderFlags.TextureWrapMode mode) => mode switch
         {
             RenderFlags.TextureWrapMode.ClampToEdge => (int)OpenTK.Graphics.OpenGL4.TextureWrapMode.ClampToEdge,
@@ -37,17 +56,29 @@ namespace LibGFX.Graphics
             _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
         };
 
-        public static int ToGL(RenderFlags.PixelFormatHint hint) => hint switch
+        /// <summary>
+        /// Converts a RenderFlags.ColorFormatLayout to OpenGL PixelFormat.
+        /// </summary>
+        /// <param name="hint"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static PixelFormat ToGL(RenderFlags.ColorFormatLayout hint) => hint switch
         {
-            RenderFlags.PixelFormatHint.R => (int)OpenTK.Graphics.OpenGL4.PixelFormat.Red,
-            RenderFlags.PixelFormatHint.RG => (int)OpenTK.Graphics.OpenGL4.PixelFormat.Rg,
-            RenderFlags.PixelFormatHint.RGB => (int)OpenTK.Graphics.OpenGL4.PixelFormat.Rgb,
-            RenderFlags.PixelFormatHint.RGBA => (int)OpenTK.Graphics.OpenGL4.PixelFormat.Rgba,
-            RenderFlags.PixelFormatHint.Depth => (int)OpenTK.Graphics.OpenGL4.PixelFormat.DepthComponent,
-            RenderFlags.PixelFormatHint.DepthStencil => (int)OpenTK.Graphics.OpenGL4.PixelFormat.DepthStencil,
+            RenderFlags.ColorFormatLayout.R => PixelFormat.Red,
+            RenderFlags.ColorFormatLayout.RG => PixelFormat.Rg,
+            RenderFlags.ColorFormatLayout.RGB => PixelFormat.Rgb,
+            RenderFlags.ColorFormatLayout.RGBA => PixelFormat.Rgba,
+            RenderFlags.ColorFormatLayout.Depth => PixelFormat.DepthComponent,
+            RenderFlags.ColorFormatLayout.DepthStencil => PixelFormat.DepthStencil,
             _ => throw new ArgumentOutOfRangeException(nameof(hint), hint, null)
         };
 
+        /// <summary>
+        /// Converts a RenderFlags.ColorFormatHint to OpenGL PixelInternalFormat.
+        /// </summary>
+        /// <param name="hint"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static PixelInternalFormat ToGL(RenderFlags.ColorFormatHint hint) => hint switch
         {
             RenderFlags.ColorFormatHint.R8 => PixelInternalFormat.R8,
@@ -74,21 +105,37 @@ namespace LibGFX.Graphics
             RenderFlags.ColorFormatHint.Depth24Stencil8 => PixelInternalFormat.Depth24Stencil8,
             RenderFlags.ColorFormatHint.Depth32FStencil8 => PixelInternalFormat.Depth32fStencil8,
 
+            RenderFlags.ColorFormatHint.RGBA => PixelInternalFormat.Rgba,
+            RenderFlags.ColorFormatHint.RGB => PixelInternalFormat.Rgb,
+            RenderFlags.ColorFormatHint.Depth => PixelInternalFormat.DepthComponent,
+            RenderFlags.ColorFormatHint.DepthStencil => PixelInternalFormat.DepthStencil,
+
             _ => throw new ArgumentOutOfRangeException(nameof(hint), hint, null)
         };
 
-        public static int ToGL(RenderFlags.ColorFormatType type) => type switch
+        /// <summary>
+        /// Converts a RenderFlags.ColorFormatType to OpenGL PixelType.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static PixelType ToGL(RenderFlags.ColorFormatType type) => type switch
         {
-            RenderFlags.ColorFormatType.UnsignedByte => (int)OpenTK.Graphics.OpenGL4.PixelType.UnsignedByte,
-            RenderFlags.ColorFormatType.UnsignedShort => (int)OpenTK.Graphics.OpenGL4.PixelType.UnsignedShort,
-            RenderFlags.ColorFormatType.UnsignedInt => (int)OpenTK.Graphics.OpenGL4.PixelType.UnsignedInt,
-            RenderFlags.ColorFormatType.UnsignedInt24_8 => (int)OpenTK.Graphics.OpenGL4.PixelType.UnsignedInt248,
-            RenderFlags.ColorFormatType.Float => (int)OpenTK.Graphics.OpenGL4.PixelType.Float,
-            RenderFlags.ColorFormatType.HalfFloat => (int)OpenTK.Graphics.OpenGL4.PixelType.HalfFloat,
+            RenderFlags.ColorFormatType.UnsignedByte => PixelType.UnsignedByte,
+            RenderFlags.ColorFormatType.UnsignedShort => PixelType.UnsignedShort,
+            RenderFlags.ColorFormatType.UnsignedInt => PixelType.UnsignedInt,
+            RenderFlags.ColorFormatType.UnsignedInt24_8 => PixelType.UnsignedInt248,
+            RenderFlags.ColorFormatType.Float => PixelType.Float,
+            RenderFlags.ColorFormatType.HalfFloat => PixelType.HalfFloat,
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
 
         };
 
+        /// <summary>
+        /// Converts RenderFlags.ClearFlags to OpenGL ClearBufferMask.
+        /// </summary>
+        /// <param name="flags"></param>
+        /// <returns></returns>
         public static ClearBufferMask ToGL(RenderFlags.ClearFlags flags)
         {
             ClearBufferMask mask = 0;
@@ -105,5 +152,22 @@ namespace LibGFX.Graphics
             return mask;
         }
 
+        /// <summary>
+        /// Returns the best depth-stencil format based on the specified flags.
+        /// </summary>
+        /// <param name="depth"></param>
+        /// <param name="stencil"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static RenderbufferStorage GetBestDepthStencilFormat(bool depth, bool stencil)
+        {
+            return (depth, stencil) switch
+            {
+                (true, true) => RenderbufferStorage.Depth24Stencil8,
+                (true, false) => RenderbufferStorage.DepthComponent24,
+                (false, true) => RenderbufferStorage.StencilIndex8,
+                _ => throw new ArgumentException("At least one of depth or stencil must be true.")
+            };
+        }
     }
 }

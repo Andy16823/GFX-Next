@@ -94,14 +94,7 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public override void Init(Viewport viewport, IRenderDevice renderer)
         {
-            // Create an new render target for the scene
-            var renderTargetDescriptor = new RenderTargetDescriptor()
-            {
-                Width = viewport.Width,
-                Height = viewport.Height,
-                Border = 0
-            };
-            _renderTarget = renderer.CreateRenderTarget(renderTargetDescriptor);
+            _renderTarget = renderer.CreateRenderTarget(RenderTargetDescriptor.Default(viewport.Width, viewport.Height));
 
             // Iinitialize the layers of the scene
             this.Layers.ForEach(l =>

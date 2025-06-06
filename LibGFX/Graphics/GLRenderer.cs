@@ -251,7 +251,7 @@ namespace LibGFX.Graphics
             return _projectionMatrix;
         }
 
-        public RenderTarget CreateRenderTarget(RenderTargetDescriptor constructorInfo)
+        public RenderTarget CreateRenderTarget(RenderTargetDescriptor descriptor)
         {
             RenderTarget renderTarget = new RenderTarget();
 
@@ -260,15 +260,21 @@ namespace LibGFX.Graphics
 
             renderTarget.TextureID = GL.GenTexture();
             GL.BindTexture(TextureTarget.Texture2D, renderTarget.TextureID);
-            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, constructorInfo.Width, constructorInfo.Height, constructorInfo.Border, PixelFormat.Rgba, PixelType.UnsignedByte, 0);
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+            GL.TexImage2D(TextureTarget.Texture2D, 0, GLMappings.ToGL(descriptor.Format), descriptor.Width, descriptor.Height, descriptor.Border, GLMappings.ToGL(descriptor.Layout), GLMappings.ToGL(descriptor.Type), 0);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, GLMappings.ToGLMinFilter(descriptor.FilterMode));
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, GLMappings.ToGLMagFilter(descriptor.FilterMode));
             GL.FramebufferTexture2D(FramebufferTarget.Framebuffer, FramebufferAttachment.ColorAttachment0, TextureTarget.Texture2D, renderTarget.TextureID, 0);
 
-            renderTarget.RenderBufferID = GL.GenRenderbuffer();
-            GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, renderTarget.RenderBufferID);
-            GL.RenderbufferStorage(RenderbufferTarget.Renderbuffer, RenderbufferStorage.Depth24Stencil8, constructorInfo.Width, constructorInfo.Height);
-            GL.FramebufferRenderbuffer(FramebufferTarget.Framebuffer, FramebufferAttachment.DepthStencilAttachment, RenderbufferTarget.Renderbuffer, renderTarget.RenderBufferID);
+            if(descriptor.UseDepth || descriptor.UseStencil)
+            {
+                renderTarget.RenderBufferID = GL.GenRenderbuffer();
+                var depthFormat = GLMappings.GetBestDepthStencilFormat(descriptor.UseDepth, descriptor.UseStencil);
+
+                GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, renderTarget.RenderBufferID);
+                GL.RenderbufferStorage(RenderbufferTarget.Renderbuffer, depthFormat, descriptor.Width, descriptor.Height);
+                GL.FramebufferRenderbuffer(FramebufferTarget.Framebuffer, FramebufferAttachment.DepthStencilAttachment, RenderbufferTarget.Renderbuffer, renderTarget.RenderBufferID);
+            }
+            
 
             if(GL.CheckFramebufferStatus(FramebufferTarget.Framebuffer) == FramebufferErrorCode.FramebufferComplete)
             {

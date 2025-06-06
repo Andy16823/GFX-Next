@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics
 {
+    /// <summary>
+    /// Represents various render flags and settings used in the graphics rendering pipeline.
+    /// </summary>
     public class RenderFlags
     {
+        /// <summary>
+        /// Flags to specify which buffers to clear before rendering.
+        /// </summary>
         [Flags] 
         public enum ClearFlags
         {
@@ -17,6 +23,9 @@ namespace LibGFX.Graphics
             Stencil = 4,
         }
 
+        /// <summary>
+        /// Texture filtering modes used for texture sampling.
+        /// </summary>
         public enum TextureFilterMode
         {
             Nearest,
@@ -25,6 +34,9 @@ namespace LibGFX.Graphics
             MipmapLinear
         }
 
+        /// <summary>
+        /// Texture wrapping modes used to determine how textures are sampled outside their normal range.
+        /// </summary>
         public enum TextureWrapMode
         {
             ClampToEdge,
@@ -32,6 +44,9 @@ namespace LibGFX.Graphics
             MirroredRepeat
         }
 
+        /// <summary>
+        /// Hints for color formats used in textures and render targets.
+        /// </summary>
         public enum ColorFormatHint
         {
             // 8-Bit pro Kanal
@@ -59,10 +74,19 @@ namespace LibGFX.Graphics
             Depth24,
             Depth32,
             Depth24Stencil8,
-            Depth32FStencil8
+            Depth32FStencil8,
+
+            // Others
+            RGB,
+            RGBA,
+            Depth,
+            DepthStencil
         }
 
-        public enum PixelFormatHint
+        /// <summary>
+        /// Represents the layout of color formats used in textures and render targets.
+        /// </summary>
+        public enum ColorFormatLayout
         {
             R,
             RG,
@@ -72,6 +96,9 @@ namespace LibGFX.Graphics
             DepthStencil
         }
 
+        /// <summary>
+        /// Represents the type of color format used in textures and render targets.
+        /// </summary>
         public enum ColorFormatType
         {
             UnsignedByte,

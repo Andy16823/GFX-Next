@@ -61,13 +61,7 @@ namespace LibGFX.UI
             //Stencil = false,
             //Multisample = false,
             //Format = RenderTargetFormat.RGBA8
-            var renderTargetDescriptor = new RenderTargetDescriptor()
-            {
-                Width = (int)this.Transform.Scale.X,
-                Height = (int)this.Transform.Scale.Y,
-                Border = 0
-            };
-            this.RenderTarget = renderer.CreateRenderTarget(renderTargetDescriptor);
+            this.RenderTarget = renderer.CreateRenderTarget(RenderTargetDescriptor.Default((int) this.Transform.Scale.X, (int) this.Transform.Scale.Y));
 
             foreach (var control in this.Controls.Values)
             {

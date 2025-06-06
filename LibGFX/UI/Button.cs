@@ -106,13 +106,7 @@ namespace LibGFX.UI
         /// <param name="canvas"></param>
         public override void Init(IRenderDevice renderer, Canvas canvas)
         {
-            var renderTargetDescriptor = new RenderTargetDescriptor()
-            {
-                Width = (int)this.Transform.Scale.X,
-                Height = (int)this.Transform.Scale.Y,
-                Border = 0
-            };
-            this.RenderTarget = renderer.CreateRenderTarget(renderTargetDescriptor);
+            this.RenderTarget = renderer.CreateRenderTarget(RenderTargetDescriptor.Default((int) this.Transform.Scale.X, (int) this.Transform.Scale.Y));
         }
 
         /// <summary>

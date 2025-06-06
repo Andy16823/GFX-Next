@@ -104,14 +104,7 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public override void Init(Viewport viewport, IRenderDevice renderer)
         {
-            // Create Render Target for the scene
-            var renderTargetDescriptor = new RenderTargetDescriptor()
-            {
-                Width = viewport.Width,
-                Height = viewport.Height,
-                Border = 0
-            };
-            _renderTarget = renderer.CreateRenderTarget(renderTargetDescriptor);
+            _renderTarget = renderer.CreateRenderTarget(RenderTargetDescriptor.Default(viewport.Width, viewport.Height));
 
             // Load the enviroment texture if available
             if (this.Enviroment != null)
