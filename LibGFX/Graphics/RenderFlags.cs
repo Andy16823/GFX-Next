@@ -16,5 +16,20 @@ namespace LibGFX.Graphics
             Depth = 2,
             Stencil = 4,
         }
+
+        public enum TextureFilterMode
+        {
+            Nearest,
+            Linear,
+            MipmapNearest,
+            MipmapLinear
+        }
+
+        public enum TextureWrapMode
+        {
+            ClampToEdge,
+            Repeat,
+            MirroredRepeat
+        }
     }
 }

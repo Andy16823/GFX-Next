@@ -108,24 +108,7 @@ namespace LibGFX.Graphics
 
         public void Clear(RenderFlags.ClearFlags clearFlags)
         {
-            ClearBufferMask mask = 0;
-
-            if ((clearFlags & RenderFlags.ClearFlags.Color) != 0)
-            {
-                mask |= ClearBufferMask.ColorBufferBit;
-            }
-
-            if ((clearFlags & RenderFlags.ClearFlags.Depth) != 0)
-            {
-                mask |= ClearBufferMask.DepthBufferBit;
-            }
-
-            if ((clearFlags & RenderFlags.ClearFlags.Stencil) != 0)
-            {
-                mask |= ClearBufferMask.StencilBufferBit;
-            }
-
-            GL.Clear(mask);
+            GL.Clear(GLMappings.ToGL(clearFlags));
         }
 
         public void ClearColor(float r, float g, float b, float a)
@@ -612,16 +595,21 @@ namespace LibGFX.Graphics
 
         public void LoadTexture(Texture texture)
         {
+            LoadTexture(texture, TextureOptions.Default);
+        }
+
+        public void LoadTexture(Texture texture, TextureOptions textureOptions)
+        {
             if(texture != null)
             {
                 if (texture.Flags == TextureFlags.Loaded || texture.Flags == TextureFlags.Disposed)
                 {
                     texture.TextureId = GL.GenTexture();
                     GL.BindTexture(TextureTarget.Texture2D, texture.TextureId);
-                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.Repeat);
-                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.Repeat);
-                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
-                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, GLMappings.ToGL(textureOptions.WrapS));
+                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, GLMappings.ToGL(textureOptions.WrapT));
+                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, GLMappings.ToGLMinFilter(textureOptions.MinFilter));
+                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, GLMappings.ToGLMagFilter(textureOptions.MagFilter));
                     GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, texture.Width, texture.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, texture.TextureData);
                     GL.BindTexture(TextureTarget.Texture2D, 0);
                     Debug.WriteLine($"Texture loaded with error {this.GetError()}");

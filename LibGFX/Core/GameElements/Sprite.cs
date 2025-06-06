@@ -162,7 +162,7 @@ namespace LibGFX.Core.GameElements
         {
             if (this.Material != null)
             {
-                this.UVTransform = this.Material.Texture.GetSafeUVTransform(x, y, width, height);
+                this.UVTransform = this.Material.Texture.GetSubImage(x, y, width, height);
 
             }
         }

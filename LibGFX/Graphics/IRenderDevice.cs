@@ -72,6 +72,7 @@ namespace LibGFX.Graphics
         void UnbindShaderProgram();
         int GetUniformLocation(int program, String name);
         void LoadTexture(Texture texture);
+        void LoadTexture(Texture texture, TextureOptions textureOptions);
         void LoadCubemap(Cubemap cubemap);
         void DisposeTexture(Texture texture);
         void DisposeCubemap(Cubemap cubemap);

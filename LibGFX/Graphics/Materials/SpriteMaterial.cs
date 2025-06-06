@@ -77,7 +77,7 @@ namespace LibGFX.Graphics.Materials
                 return;
             }
 
-            renderDevice.LoadTexture(Texture);
+            renderDevice.LoadTexture(Texture, TextureOptions.PixelPerfect);
             Flags = MaterialFlags.Loaded;
             Debug.WriteLine($"Loaded material {Name}");
         }
