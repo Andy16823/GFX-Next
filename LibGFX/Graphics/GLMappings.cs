@@ -12,7 +12,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Class containing mappings to OpenGL attributes
     /// </summary>
-    public class GLMappings
+    internal class GLMappings
     {
         /// <summary>
         /// Converts a RenderFlags.TextureFilterMode to OpenGL TextureMinFilter.
@@ -20,7 +20,7 @@ namespace LibGFX.Graphics
         /// <param name="mode"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static int ToGLMinFilter(RenderFlags.TextureFilterMode mode) => mode switch
+        internal static int ToGLMinFilter(RenderFlags.TextureFilterMode mode) => mode switch
         {
             RenderFlags.TextureFilterMode.Nearest => (int)OpenTK.Graphics.OpenGL4.TextureMinFilter.Nearest,
             RenderFlags.TextureFilterMode.Linear => (int)OpenTK.Graphics.OpenGL4.TextureMinFilter.Linear,
@@ -35,14 +35,14 @@ namespace LibGFX.Graphics
         /// <param name="mode"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static int ToGLMagFilter(RenderFlags.TextureFilterMode mode) => mode switch
+        internal static int ToGLMagFilter(RenderFlags.TextureFilterMode mode) => mode switch
         {
             RenderFlags.TextureFilterMode.Nearest => (int)OpenTK.Graphics.OpenGL4.TextureMagFilter.Nearest,
             RenderFlags.TextureFilterMode.Linear => (int)OpenTK.Graphics.OpenGL4.TextureMagFilter.Linear,
             _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
         };
 
-        public static DrawBufferMode ToDrawBuffer(RenderFlags.RenderBufferMode access) => access switch
+        internal static DrawBufferMode ToDrawBuffer(RenderFlags.RenderBufferMode access) => access switch
         {
             RenderFlags.RenderBufferMode.None => DrawBufferMode.None,
             RenderFlags.RenderBufferMode.FrontLeft => DrawBufferMode.FrontLeft,
@@ -86,7 +86,7 @@ namespace LibGFX.Graphics
             _ => throw new ArgumentOutOfRangeException(nameof(access), access, null)
         };
 
-        public static ReadBufferMode ToReadBuffer(RenderFlags.RenderBufferMode access) => access switch
+        internal static ReadBufferMode ToReadBuffer(RenderFlags.RenderBufferMode access) => access switch
         {
             RenderFlags.RenderBufferMode.None => ReadBufferMode.None,
             RenderFlags.RenderBufferMode.FrontLeft => ReadBufferMode.FrontLeft,
@@ -120,7 +120,7 @@ namespace LibGFX.Graphics
         /// <param name="mode"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static int ToGL(RenderFlags.TextureWrapMode mode) => mode switch
+        internal static int ToGL(RenderFlags.TextureWrapMode mode) => mode switch
         {
             RenderFlags.TextureWrapMode.ClampToEdge => (int)OpenTK.Graphics.OpenGL4.TextureWrapMode.ClampToEdge,
             RenderFlags.TextureWrapMode.Repeat => (int)OpenTK.Graphics.OpenGL4.TextureWrapMode.Repeat,
@@ -135,7 +135,7 @@ namespace LibGFX.Graphics
         /// <param name="hint"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static PixelFormat ToGL(RenderFlags.ColorFormatLayout hint) => hint switch
+        internal static PixelFormat ToGL(RenderFlags.ColorFormatLayout hint) => hint switch
         {
             RenderFlags.ColorFormatLayout.R => PixelFormat.Red,
             RenderFlags.ColorFormatLayout.RG => PixelFormat.Rg,
@@ -152,7 +152,7 @@ namespace LibGFX.Graphics
         /// <param name="hint"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static PixelInternalFormat ToGL(RenderFlags.ColorFormatHint hint) => hint switch
+        internal static PixelInternalFormat ToGL(RenderFlags.ColorFormatHint hint) => hint switch
         {
             RenderFlags.ColorFormatHint.R8 => PixelInternalFormat.R8,
             RenderFlags.ColorFormatHint.RG8 => PixelInternalFormat.Rg8,
@@ -192,7 +192,7 @@ namespace LibGFX.Graphics
         /// <param name="type"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static PixelType ToGL(RenderFlags.ColorFormatType type) => type switch
+        internal static PixelType ToGL(RenderFlags.ColorFormatType type) => type switch
         {
             RenderFlags.ColorFormatType.UnsignedByte => PixelType.UnsignedByte,
             RenderFlags.ColorFormatType.UnsignedShort => PixelType.UnsignedShort,
@@ -203,7 +203,7 @@ namespace LibGFX.Graphics
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
         };
 
-        public static FramebufferAttachment ToGL(RenderFlags.RenderAttachmentPoint attachment) => attachment switch
+        internal static FramebufferAttachment ToGL(RenderFlags.RenderAttachmentPoint attachment) => attachment switch
         {
             RenderFlags.RenderAttachmentPoint.Color0 => FramebufferAttachment.ColorAttachment0,
             RenderFlags.RenderAttachmentPoint.Color1 => FramebufferAttachment.ColorAttachment1,
@@ -224,7 +224,7 @@ namespace LibGFX.Graphics
         /// </summary>
         /// <param name="flags"></param>
         /// <returns></returns>
-        public static ClearBufferMask ToGL(RenderFlags.ClearFlags flags)
+        internal static ClearBufferMask ToGL(RenderFlags.ClearFlags flags)
         {
             ClearBufferMask mask = 0;
 
@@ -247,7 +247,7 @@ namespace LibGFX.Graphics
         /// <param name="stencil"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public static RenderbufferStorage GetBestDepthStencilFormat(bool depth, bool stencil)
+        internal static RenderbufferStorage GetBestDepthStencilFormat(bool depth, bool stencil)
         {
             return (depth, stencil) switch
             {
