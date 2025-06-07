@@ -14,13 +14,12 @@ namespace LibGFX.Graphics
         public int TextureID;
         public int FramebufferID;
         public int RenderBufferID;
-
         public RenderFlags.ColorFormatHint Format;
         public RenderFlags.ColorFormatLayout Layout;
         public RenderFlags.ColorFormatType Type;
-
         public bool UseDepth;
         public bool UseStencil;
+        public int Samples;
 
         public bool HasRenderBuffer => RenderBufferID != 0;
     }

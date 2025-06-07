@@ -34,7 +34,7 @@ namespace LibGFX.Graphics
 
         public bool IsDepthTexture => AttachmentPoint == RenderFlags.RenderAttachmentPoint.Depth || AttachmentPoint == RenderFlags.RenderAttachmentPoint.DepthStencil;
 
-        public static RenderTargetDescriptor Default(int width, int height) => new RenderTargetDescriptor
+        public static RenderTargetDescriptor Default(int width, int height, int samples = 0) => new RenderTargetDescriptor
         {
             Width = width,
             Height = height,

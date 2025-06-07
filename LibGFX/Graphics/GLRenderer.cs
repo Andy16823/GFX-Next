@@ -259,6 +259,7 @@ namespace LibGFX.Graphics
             renderTarget.Type = descriptor.Type;
             renderTarget.UseDepth = descriptor.UseDepth;
             renderTarget.UseStencil = descriptor.UseStencil;
+            renderTarget.Samples = descriptor.Samples;
 
             renderTarget.FramebufferID = GL.GenFramebuffer();
             GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.FramebufferID);
@@ -287,7 +288,15 @@ namespace LibGFX.Graphics
                 var depthFormat = GLMappings.GetBestDepthStencilFormat(descriptor.UseDepth, descriptor.UseStencil);
 
                 GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, renderTarget.RenderBufferID);
-                GL.RenderbufferStorage(RenderbufferTarget.Renderbuffer, depthFormat, descriptor.Width, descriptor.Height);
+                if(descriptor.Samples > 0)
+                {
+                    GL.RenderbufferStorageMultisample(RenderbufferTarget.Renderbuffer, descriptor.Samples, depthFormat, descriptor.Width, descriptor.Height);
+                }
+                else
+                {
+                    GL.RenderbufferStorage(RenderbufferTarget.Renderbuffer, depthFormat, descriptor.Width, descriptor.Height);
+                }
+
                 GL.FramebufferRenderbuffer(FramebufferTarget.Framebuffer, FramebufferAttachment.DepthStencilAttachment, RenderbufferTarget.Renderbuffer, renderTarget.RenderBufferID);
             }
             
@@ -323,7 +332,14 @@ namespace LibGFX.Graphics
             {
                 var depthFormat = GLMappings.GetBestDepthStencilFormat(renderTarget.UseDepth, renderTarget.UseStencil);
                 GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, renderTarget.RenderBufferID);
-                GL.RenderbufferStorage(RenderbufferTarget.Renderbuffer, depthFormat, width, height);
+                if (renderTarget.Samples > 0)
+                {
+                    GL.RenderbufferStorageMultisample(RenderbufferTarget.Renderbuffer, renderTarget.Samples, depthFormat, width, height);
+                }
+                else
+                {
+                    GL.RenderbufferStorage(RenderbufferTarget.Renderbuffer, depthFormat, width, height);
+                }
                 GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, 0);
             }
         }
