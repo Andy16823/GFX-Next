@@ -254,6 +254,11 @@ namespace LibGFX.Graphics
         public RenderTarget CreateRenderTarget(RenderTargetDescriptor descriptor)
         {
             RenderTarget renderTarget = new RenderTarget();
+            renderTarget.Format = descriptor.Format;
+            renderTarget.Layout = descriptor.Layout;
+            renderTarget.Type = descriptor.Type;
+            renderTarget.UseDepth = descriptor.UseDepth;
+            renderTarget.UseStencil = descriptor.UseStencil;
 
             renderTarget.FramebufferID = GL.GenFramebuffer();
             GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.FramebufferID);
@@ -263,9 +268,20 @@ namespace LibGFX.Graphics
             GL.TexImage2D(TextureTarget.Texture2D, 0, GLMappings.ToGL(descriptor.Format), descriptor.Width, descriptor.Height, descriptor.Border, GLMappings.ToGL(descriptor.Layout), GLMappings.ToGL(descriptor.Type), 0);
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, GLMappings.ToGLMinFilter(descriptor.FilterMode));
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, GLMappings.ToGLMagFilter(descriptor.FilterMode));
-            GL.FramebufferTexture2D(FramebufferTarget.Framebuffer, FramebufferAttachment.ColorAttachment0, TextureTarget.Texture2D, renderTarget.TextureID, 0);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, GLMappings.ToGL(descriptor.WrapS));
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, GLMappings.ToGL(descriptor.WrapT));
 
-            if(descriptor.UseDepth || descriptor.UseStencil)
+            if(descriptor.WrapS == RenderFlags.TextureWrapMode.ClampToBorder || descriptor.WrapT == RenderFlags.TextureWrapMode.ClampToBorder)
+            {
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureBorderColor, [descriptor.BorderColor.X, descriptor.BorderColor.Y, descriptor.BorderColor.Z, descriptor.BorderColor.W]);
+            }
+
+            GL.FramebufferTexture2D(FramebufferTarget.Framebuffer, GLMappings.ToGL(descriptor.AttachmentPoint), TextureTarget.Texture2D, renderTarget.TextureID, 0);
+
+            GL.DrawBuffer(GLMappings.ToDrawBuffer(descriptor.DrawBufferMode));
+            GL.ReadBuffer(GLMappings.ToReadBuffer(descriptor.ReadBufferMode));
+
+            if ((descriptor.UseDepth || descriptor.UseStencil) && !descriptor.IsDepthTexture)
             {
                 renderTarget.RenderBufferID = GL.GenRenderbuffer();
                 var depthFormat = GLMappings.GetBestDepthStencilFormat(descriptor.UseDepth, descriptor.UseStencil);
@@ -300,12 +316,16 @@ namespace LibGFX.Graphics
         public void ResizeRenderTarget(RenderTarget renderTarget, int width, int height)
         {
             GL.BindTexture(TextureTarget.Texture2D, renderTarget.TextureID);
-            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, width, height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, 0);
+            GL.TexImage2D(TextureTarget.Texture2D, 0, GLMappings.ToGL(renderTarget.Format), width, height, 0, GLMappings.ToGL(renderTarget.Layout), GLMappings.ToGL(renderTarget.Type), 0);
             GL.BindTexture(TextureTarget.Texture2D, 0);
 
-            GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, renderTarget.RenderBufferID);
-            GL.RenderbufferStorage(RenderbufferTarget.Renderbuffer, RenderbufferStorage.Depth24Stencil8, width, height);
-            GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, 0);
+            if (renderTarget.HasRenderBuffer)
+            {
+                var depthFormat = GLMappings.GetBestDepthStencilFormat(renderTarget.UseDepth, renderTarget.UseStencil);
+                GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, renderTarget.RenderBufferID);
+                GL.RenderbufferStorage(RenderbufferTarget.Renderbuffer, depthFormat, width, height);
+                GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, 0);
+            }
         }
 
         public void UnbindRenderTarget()

@@ -41,7 +41,8 @@ namespace LibGFX.Graphics
         {
             ClampToEdge,
             Repeat,
-            MirroredRepeat
+            MirroredRepeat,
+            ClampToBorder
         }
 
         /// <summary>
@@ -107,6 +108,70 @@ namespace LibGFX.Graphics
             UnsignedInt24_8,
             UnsignedShort,
             UnsignedInt
+        }
+
+        /// <summary>
+        /// Attachment points for render targets, specifying where to attach textures or buffers.
+        /// </summary>
+        public enum RenderAttachmentPoint
+        {
+            Color0,
+            Color1,
+            Color2,
+            Color3,
+            Color4,
+            Color5,
+            Color6,
+            Color7,
+            Depth,
+            DepthStencil,
+            Stencil
+        }
+
+        /// <summary>
+        /// Modes for rendering buffers, specifying which buffer to use for rendering operations.
+        /// </summary>
+        public enum RenderBufferMode
+        {
+            None,
+            FrontLeft,
+            FrontRight,
+            BackLeft,
+            BackRight,
+            Left,
+            Right,
+            Color0,
+            Color1,
+            Color2,
+            Color3,
+            Color4,
+            Color5,
+            Color6,
+            Color7,
+            Color8,
+            Color9,
+            Color10,
+            Color11,
+            Color12,
+            Color13,
+            Color14,
+            Color15,
+            Color16,
+            Color17,
+            Color18,
+            Color19,
+            Color20,
+            Color21,
+            Color22,
+            Color23,
+            Color24,
+            Color25,
+            Color26,
+            Color27,
+            Color28,
+            Color29,
+            Color30,
+            Color31,
         }
 
     }
