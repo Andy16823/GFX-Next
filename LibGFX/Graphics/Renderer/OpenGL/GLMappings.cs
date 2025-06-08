@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibGFX.Graphics
+namespace LibGFX.Graphics.Renderer.OpenGL
 {
     /// <summary>
     /// Class containing mappings to OpenGL attributes
@@ -22,10 +22,10 @@ namespace LibGFX.Graphics
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         internal static int ToGLMinFilter(RenderFlags.TextureFilterMode mode) => mode switch
         {
-            RenderFlags.TextureFilterMode.Nearest => (int)OpenTK.Graphics.OpenGL4.TextureMinFilter.Nearest,
-            RenderFlags.TextureFilterMode.Linear => (int)OpenTK.Graphics.OpenGL4.TextureMinFilter.Linear,
-            RenderFlags.TextureFilterMode.MipmapNearest => (int)OpenTK.Graphics.OpenGL4.TextureMinFilter.NearestMipmapNearest,
-            RenderFlags.TextureFilterMode.MipmapLinear => (int)OpenTK.Graphics.OpenGL4.TextureMinFilter.LinearMipmapLinear,
+            RenderFlags.TextureFilterMode.Nearest => (int)TextureMinFilter.Nearest,
+            RenderFlags.TextureFilterMode.Linear => (int)TextureMinFilter.Linear,
+            RenderFlags.TextureFilterMode.MipmapNearest => (int)TextureMinFilter.NearestMipmapNearest,
+            RenderFlags.TextureFilterMode.MipmapLinear => (int)TextureMinFilter.LinearMipmapLinear,
             _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
         };
 
@@ -37,8 +37,8 @@ namespace LibGFX.Graphics
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         internal static int ToGLMagFilter(RenderFlags.TextureFilterMode mode) => mode switch
         {
-            RenderFlags.TextureFilterMode.Nearest => (int)OpenTK.Graphics.OpenGL4.TextureMagFilter.Nearest,
-            RenderFlags.TextureFilterMode.Linear => (int)OpenTK.Graphics.OpenGL4.TextureMagFilter.Linear,
+            RenderFlags.TextureFilterMode.Nearest => (int)TextureMagFilter.Nearest,
+            RenderFlags.TextureFilterMode.Linear => (int)TextureMagFilter.Linear,
             _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
         };
 
@@ -122,10 +122,10 @@ namespace LibGFX.Graphics
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         internal static int ToGL(RenderFlags.TextureWrapMode mode) => mode switch
         {
-            RenderFlags.TextureWrapMode.ClampToEdge => (int)OpenTK.Graphics.OpenGL4.TextureWrapMode.ClampToEdge,
-            RenderFlags.TextureWrapMode.Repeat => (int)OpenTK.Graphics.OpenGL4.TextureWrapMode.Repeat,
-            RenderFlags.TextureWrapMode.MirroredRepeat => (int)OpenTK.Graphics.OpenGL4.TextureWrapMode.MirroredRepeat,
-            RenderFlags.TextureWrapMode.ClampToBorder => (int)OpenTK.Graphics.OpenGL4.TextureWrapMode.ClampToBorder,
+            RenderFlags.TextureWrapMode.ClampToEdge => (int)TextureWrapMode.ClampToEdge,
+            RenderFlags.TextureWrapMode.Repeat => (int)TextureWrapMode.Repeat,
+            RenderFlags.TextureWrapMode.MirroredRepeat => (int)TextureWrapMode.MirroredRepeat,
+            RenderFlags.TextureWrapMode.ClampToBorder => (int)TextureWrapMode.ClampToBorder,
             _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
         };
 

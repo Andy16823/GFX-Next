@@ -26,13 +26,13 @@ using static FreeTypeSharp.FT;
 using static FreeTypeSharp.FT_LOAD;
 using static FreeTypeSharp.FT_Render_Mode_;
 
-namespace LibGFX.Graphics
+namespace LibGFX.Graphics.Renderer.OpenGL
 {
     public class GLRenderer : IRenderDevice
     {
-        private Dictionary<String, ShaderProgram> _programs;
-        private Dictionary<String, Shape> _shapes;
-        private Dictionary<String, Light> _lights;
+        private Dictionary<string, ShaderProgram> _programs;
+        private Dictionary<string, Shape> _shapes;
+        private Dictionary<string, Light> _lights;
         private IGLFWGraphicsContext _context;
         private Window _window;
         private Matrix4 _viewMatrix;
@@ -44,38 +44,38 @@ namespace LibGFX.Graphics
         public void Init(IGLFWGraphicsContext context)
         {
             _context = context;
-            _programs = new Dictionary<String, ShaderProgram>();
-            this.AddShaderProgram("ScreenShader", new ScreenShader());
-            this.AddShaderProgram("RectShader", new RectShader());
-            this.AddShaderProgram("SpriteShader", new SpriteShader());
-            this.AddShaderProgram("FontShader", new FontShader());
-            this.AddShaderProgram("MeshShader", new MeshShader());
-            this.AddShaderProgram("AnimatedMeshShader", new AnimatedMeshShader());
-            this.AddShaderProgram("LineShader", new LineShader());
-            this.AddShaderProgram("EnviromentShader", new EnviromentShader());
-            this.AddShaderProgram("InstancedShader3D", new InstancedShader3D());
-            this.AddShaderProgram("ProceduralSkyShader", new ProceduralSkyShader());
-            this.AddShaderProgram("InstancedShader2D", new InstancedShader2D());
-            this.AddShaderProgram("PBRMeshShader", new PBRMeshShader());
-            this.AddShaderProgram("LitSpriteShader", new LitSpriteShader());
+            _programs = new Dictionary<string, ShaderProgram>();
+            AddShaderProgram("ScreenShader", new ScreenShader());
+            AddShaderProgram("RectShader", new RectShader());
+            AddShaderProgram("SpriteShader", new SpriteShader());
+            AddShaderProgram("FontShader", new FontShader());
+            AddShaderProgram("MeshShader", new MeshShader());
+            AddShaderProgram("AnimatedMeshShader", new AnimatedMeshShader());
+            AddShaderProgram("LineShader", new LineShader());
+            AddShaderProgram("EnviromentShader", new EnviromentShader());
+            AddShaderProgram("InstancedShader3D", new InstancedShader3D());
+            AddShaderProgram("ProceduralSkyShader", new ProceduralSkyShader());
+            AddShaderProgram("InstancedShader2D", new InstancedShader2D());
+            AddShaderProgram("PBRMeshShader", new PBRMeshShader());
+            AddShaderProgram("LitSpriteShader", new LitSpriteShader());
 
             foreach (ShaderProgram program in _programs.Values)
             {
-                this.BuildShaderProgram(program);
+                BuildShaderProgram(program);
             }
 
-            _shapes = new Dictionary<String, Shape>();
-            this.AddShape(new FramebufferShape());
-            this.AddShape(new RectShape());
-            this.AddShape(new SpriteShape());
-            this.AddShape(new LineShape());
-            this.AddShape(new CubeShape());
+            _shapes = new Dictionary<string, Shape>();
+            AddShape(new FramebufferShape());
+            AddShape(new RectShape());
+            AddShape(new SpriteShape());
+            AddShape(new LineShape());
+            AddShape(new CubeShape());
             foreach (var shape in _shapes.Values)
             {
-                this.InitShape(shape);
+                InitShape(shape);
             }
 
-            _lights = new Dictionary<String, Light>();
+            _lights = new Dictionary<string, Light>();
 
             GL.Enable(EnableCap.Multisample);
         }
@@ -83,7 +83,7 @@ namespace LibGFX.Graphics
         public void Init(Window window)
         {
             _window = window;
-            this.Init(window.GetContext());
+            Init(window.GetContext());
         }
 
         public void SetContext(IGLFWGraphicsContext context)
@@ -133,7 +133,7 @@ namespace LibGFX.Graphics
 
         public int GetError()
         {
-            return (int) GL.GetError();
+            return (int)GL.GetError();
         }
 
         public bool IsDepthTestEnabled()
@@ -144,13 +144,13 @@ namespace LibGFX.Graphics
 
         public void SetDepthTest(bool value)
         {
-            if(value)
+            if (value)
             {
-                this.EnableDepthTest();
+                EnableDepthTest();
             }
             else
             {
-                this.DisableDepthTest();
+                DisableDepthTest();
             }
         }
 
@@ -206,7 +206,7 @@ namespace LibGFX.Graphics
         public void SetBlendMode(int srcFactor, int dstFactor)
         {
             GL.Enable(EnableCap.Blend);
-            GL.BlendFunc((BlendingFactor) srcFactor, (BlendingFactor) dstFactor);
+            GL.BlendFunc((BlendingFactor)srcFactor, (BlendingFactor)dstFactor);
         }
 
         public void ResetBlendMode()
@@ -272,7 +272,7 @@ namespace LibGFX.Graphics
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, GLMappings.ToGL(descriptor.WrapS));
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, GLMappings.ToGL(descriptor.WrapT));
 
-            if(descriptor.WrapS == RenderFlags.TextureWrapMode.ClampToBorder || descriptor.WrapT == RenderFlags.TextureWrapMode.ClampToBorder)
+            if (descriptor.WrapS == RenderFlags.TextureWrapMode.ClampToBorder || descriptor.WrapT == RenderFlags.TextureWrapMode.ClampToBorder)
             {
                 GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureBorderColor, [descriptor.BorderColor.X, descriptor.BorderColor.Y, descriptor.BorderColor.Z, descriptor.BorderColor.W]);
             }
@@ -288,7 +288,7 @@ namespace LibGFX.Graphics
                 var depthFormat = GLMappings.GetBestDepthStencilFormat(descriptor.UseDepth, descriptor.UseStencil);
 
                 GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, renderTarget.RenderBufferID);
-                if(descriptor.Samples > 0)
+                if (descriptor.Samples > 0)
                 {
                     GL.RenderbufferStorageMultisample(RenderbufferTarget.Renderbuffer, descriptor.Samples, depthFormat, descriptor.Width, descriptor.Height);
                 }
@@ -299,9 +299,9 @@ namespace LibGFX.Graphics
 
                 GL.FramebufferRenderbuffer(FramebufferTarget.Framebuffer, FramebufferAttachment.DepthStencilAttachment, RenderbufferTarget.Renderbuffer, renderTarget.RenderBufferID);
             }
-            
 
-            if(GL.CheckFramebufferStatus(FramebufferTarget.Framebuffer) == FramebufferErrorCode.FramebufferComplete)
+
+            if (GL.CheckFramebufferStatus(FramebufferTarget.Framebuffer) == FramebufferErrorCode.FramebufferComplete)
             {
                 Debug.WriteLine("Framebuffer Created");
             }
@@ -366,13 +366,13 @@ namespace LibGFX.Graphics
 
         public byte[] GetRenderTargetData(RenderTarget renderTarget)
         {
-            var renderTargetSize = this.GetRenderTargetSize(renderTarget);
-            return this.GetRenderTargetData(renderTarget, renderTargetSize.X, renderTargetSize.Y);
+            var renderTargetSize = GetRenderTargetSize(renderTarget);
+            return GetRenderTargetData(renderTarget, renderTargetSize.X, renderTargetSize.Y);
         }
 
         public byte[] GetRenderTargetData(RenderTarget renderTarget, int width, int height)
         {
-            var oldRenderTarget = this.GetCurrentRenderTargetID();
+            var oldRenderTarget = GetCurrentRenderTargetID();
 
             byte[] data = new byte[width * height * 4];
             GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.FramebufferID);
@@ -400,8 +400,8 @@ namespace LibGFX.Graphics
 
         public void BuildShaderProgram(ShaderProgram shaderProgram)
         {
-            this.CompileShader(shaderProgram.VertexShader, ShaderType.VertexShader);
-            this.CompileShader(shaderProgram.FragmentShader, ShaderType.FragmentShader);
+            CompileShader(shaderProgram.VertexShader, ShaderType.VertexShader);
+            CompileShader(shaderProgram.FragmentShader, ShaderType.FragmentShader);
 
             shaderProgram.ProgramID = GL.CreateProgram();
             GL.AttachShader(shaderProgram.ProgramID, shaderProgram.VertexShader.ShaderID);
@@ -430,7 +430,7 @@ namespace LibGFX.Graphics
             shader.ShaderID = GL.CreateShader(type);
             GL.ShaderSource(shader.ShaderID, shader.Source);
             GL.CompileShader(shader.ShaderID);
-            Debug.WriteLine($"Compiled shader with error {this.GetError()}");
+            Debug.WriteLine($"Compiled shader with error {GetError()}");
         }
         public void DisposeShaderProgram(ShaderProgram shaderProgram)
         {
@@ -461,7 +461,7 @@ namespace LibGFX.Graphics
             _shapes.Add(shape.GetShapeName(), shape);
         }
 
-        public Shape GetShape(String name)
+        public Shape GetShape(string name)
         {
             if (_shapes.TryGetValue(name, out var shape))
             {
@@ -479,7 +479,7 @@ namespace LibGFX.Graphics
             GL.BindVertexArray(shape.VertexArray);
 
             var vBufferHint = BufferUsageHint.StaticDraw;
-            if(shape.DynamicVertices())
+            if (shape.DynamicVertices())
             {
                 vBufferHint = BufferUsageHint.DynamicDraw;
             }
@@ -487,11 +487,11 @@ namespace LibGFX.Graphics
             var vertices = shape.GetVertices();
             shape.VertexBuffer = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, shape.VertexBuffer);
-            GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(vertices.Length * sizeof(float)), vertices, vBufferHint);
+            GL.BufferData(BufferTarget.ArrayBuffer, (nint)(vertices.Length * sizeof(float)), vertices, vBufferHint);
             GL.EnableVertexAttribArray(0);
             GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 0, 0);
 
-            if(shape.HasUvCoords())
+            if (shape.HasUvCoords())
             {
                 var uvBufferHint = BufferUsageHint.StaticDraw;
                 if (shape.DynamicUVCoords())
@@ -502,12 +502,12 @@ namespace LibGFX.Graphics
                 var uvcoords = shape.GetUVCoords();
                 shape.TextureBuffer = GL.GenBuffer();
                 GL.BindBuffer(BufferTarget.ArrayBuffer, shape.TextureBuffer);
-                GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(uvcoords.Length * sizeof(float)), uvcoords, uvBufferHint);
+                GL.BufferData(BufferTarget.ArrayBuffer, (nint)(uvcoords.Length * sizeof(float)), uvcoords, uvBufferHint);
                 GL.EnableVertexAttribArray(1);
                 GL.VertexAttribPointer(1, 2, VertexAttribPointerType.Float, false, 0, 0);
             }
 
-            if(shape.HasNormals())
+            if (shape.HasNormals())
             {
                 var nBufferHint = BufferUsageHint.StaticDraw;
                 if (shape.DynamicNormals())
@@ -518,7 +518,7 @@ namespace LibGFX.Graphics
                 var normals = shape.GetNormals();
                 shape.NormalBuffer = GL.GenBuffer();
                 GL.BindBuffer(BufferTarget.ArrayBuffer, shape.NormalBuffer);
-                GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(normals.Length * sizeof(float)), normals, nBufferHint);
+                GL.BufferData(BufferTarget.ArrayBuffer, (nint)(normals.Length * sizeof(float)), normals, nBufferHint);
                 GL.EnableVertexAttribArray(2);
                 GL.VertexAttribPointer(2, 3, VertexAttribPointerType.Float, false, 0, 0);
             }
@@ -534,21 +534,21 @@ namespace LibGFX.Graphics
                 var tangents = shape.GetTangents();
                 shape.TangentBuffer = GL.GenBuffer();
                 GL.BindBuffer(BufferTarget.ArrayBuffer, shape.TangentBuffer);
-                GL.BufferData(BufferTarget.ArrayBuffer, (IntPtr)(tangents.Length * sizeof(float)), tangents, tBufferHint);
+                GL.BufferData(BufferTarget.ArrayBuffer, (nint)(tangents.Length * sizeof(float)), tangents, tBufferHint);
                 GL.EnableVertexAttribArray(3);
                 GL.VertexAttribPointer(3, 4, VertexAttribPointerType.Float, false, 0, 0);
             }
 
-            var indicies = shape.GetIndices();  
+            var indicies = shape.GetIndices();
             shape.IndexBuffer = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ElementArrayBuffer, shape.IndexBuffer);
-            GL.BufferData(BufferTarget.ElementArrayBuffer, (IntPtr)(indicies.Length * sizeof(uint)), indicies, BufferUsageHint.StaticDraw);
+            GL.BufferData(BufferTarget.ElementArrayBuffer, (nint)(indicies.Length * sizeof(uint)), indicies, BufferUsageHint.StaticDraw);
 
             GL.BindVertexArray(0);
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
             GL.BindBuffer(BufferTarget.ElementArrayBuffer, 0);
 
-            Debug.WriteLine($"Created shape {shape.GetShapeName()} with error {this.GetError()}");
+            Debug.WriteLine($"Created shape {shape.GetShapeName()} with error {GetError()}");
         }
 
         public void DrawShape(Shape shape)
@@ -568,7 +568,7 @@ namespace LibGFX.Graphics
 
         public void DisposeShape(Shape shape)
         {
-            if(shape.VertexBuffer != 0)
+            if (shape.VertexBuffer != 0)
             {
                 GL.DeleteBuffer(shape.VertexBuffer);
                 shape.VertexBuffer = 0;
@@ -580,7 +580,7 @@ namespace LibGFX.Graphics
                 shape.TextureBuffer = 0;
             }
 
-            if(shape.NormalBuffer != 0)
+            if (shape.NormalBuffer != 0)
             {
                 GL.DeleteBuffer(shape.NormalBuffer);
                 shape.NormalBuffer = 0;
@@ -605,18 +605,18 @@ namespace LibGFX.Graphics
         {
             foreach (var shader in _programs)
             {
-                this.DisposeShaderProgram(shader.Value);
+                DisposeShaderProgram(shader.Value);
             }
 
             foreach (var shape in _shapes)
             {
-                this.DisposeShape(shape.Value);
+                DisposeShape(shape.Value);
             }
         }
 
         public void BindShaderProgram(ShaderProgram shaderProgram)
         {
-            if(_currentProgram == shaderProgram.ProgramID)
+            if (_currentProgram == shaderProgram.ProgramID)
             {
                 return;
             }
@@ -630,7 +630,7 @@ namespace LibGFX.Graphics
             _currentProgram = 0;
         }
 
-        public int GetUniformLocation(int program, String name)
+        public int GetUniformLocation(int program, string name)
         {
             return GL.GetUniformLocation(program, name);
         }
@@ -642,7 +642,7 @@ namespace LibGFX.Graphics
 
         public void LoadTexture(Texture texture, TextureOptions textureOptions)
         {
-            if(texture != null)
+            if (texture != null)
             {
                 if (texture.Flags == TextureFlags.Loaded || texture.Flags == TextureFlags.Disposed)
                 {
@@ -654,7 +654,7 @@ namespace LibGFX.Graphics
                     GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, GLMappings.ToGLMagFilter(textureOptions.MagFilter));
                     GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, texture.Width, texture.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, texture.TextureData);
                     GL.BindTexture(TextureTarget.Texture2D, 0);
-                    Debug.WriteLine($"Texture loaded with error {this.GetError()}");
+                    Debug.WriteLine($"Texture loaded with error {GetError()}");
                     texture.Flags = TextureFlags.Initialized;
                 }
             }
@@ -691,7 +691,7 @@ namespace LibGFX.Graphics
                     GL.TexImage2D(TextureTarget.TextureCubeMapPositiveX + i, 0, PixelInternalFormat.Rgba, cubemap.Width, cubemap.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, cubemap.Faces[i]);
                 }
                 GL.BindTexture(TextureTarget.TextureCubeMap, 0);
-                Debug.WriteLine($"Cubemap loaded with error {this.GetError()}");
+                Debug.WriteLine($"Cubemap loaded with error {GetError()}");
                 cubemap.Flags = CubemapFlags.Initialized;
             }
         }
@@ -702,12 +702,12 @@ namespace LibGFX.Graphics
 
             var shape = _shapes["CubeShape"];
             GL.DepthMask(false);
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "m_mat"), false, ref m_mat);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), false, ref m_mat);
             GL.ActiveTexture(TextureUnit.Texture0);
             GL.BindTexture(TextureTarget.TextureCubeMap, cubemap.TextureId);
-            GL.Uniform1(this.GetUniformLocation(_currentProgram, "skybox"), 0);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "skybox"), 0);
             GL.BindVertexArray(shape.VertexArray);
             GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
             GL.BindVertexArray(0);
@@ -731,28 +731,28 @@ namespace LibGFX.Graphics
             var shape = _shapes["FramebufferShape"];
             if (shape != null)
             {
-                var depthTest = this.IsDepthTestEnabled();
-                this.DisableDepthTest();
+                var depthTest = IsDepthTestEnabled();
+                DisableDepthTest();
                 GL.ActiveTexture(TextureUnit.Texture0);
                 GL.BindTexture(TextureTarget.Texture2D, renderTarget.TextureID);
-                GL.Uniform1(this.GetUniformLocation(_currentProgram, "screenTexture"), 0);
+                GL.Uniform1(GetUniformLocation(_currentProgram, "screenTexture"), 0);
                 GL.BindVertexArray(shape.VertexArray);
                 GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);
                 GL.BindVertexArray(0);
                 GL.BindTexture(TextureTarget.Texture2D, 0);
-                this.SetDepthTest(depthTest);
+                SetDepthTest(depthTest);
             }
         }
 
         public void DrawLine(Vector3 start, Vector3 end, Vector4 color)
         {
             var shape = _shapes["LineShape"];
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
-            GL.Uniform4(this.GetUniformLocation(_currentProgram, "vertexColor"), color);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
+            GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), color);
 
             GL.BindBuffer(BufferTarget.ArrayBuffer, shape.VertexBuffer);
-            GL.BufferSubData(BufferTarget.ArrayBuffer, 0, (6 * sizeof(float)), new float[] { start.X, start.Y, start.Z, end.X, end.Y, end.Z });
+            GL.BufferSubData(BufferTarget.ArrayBuffer, 0, 6 * sizeof(float), new float[] { start.X, start.Y, start.Z, end.X, end.Y, end.Z });
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
 
             GL.BindVertexArray(shape.VertexArray);
@@ -760,7 +760,7 @@ namespace LibGFX.Graphics
             GL.BindVertexArray(0);
         }
 
-        public void DrawRect(Math.Rect rect, Vector4 color, float borderWidth = 1.0f, float rotation = 0.0f)
+        public void DrawRect(Rect rect, Vector4 color, float borderWidth = 1.0f, float rotation = 0.0f)
         {
             var shape = _shapes["RectShape"];
             var aspect = rect.Width / rect.Height;
@@ -770,20 +770,20 @@ namespace LibGFX.Graphics
             var ms_mat = Matrix4.CreateScale(rect.Width, rect.Height, 0.0f);
             var m_mat = ms_mat * mr_mat * mt_mat;// mt_mat * mr_mat * ms_mat;
 
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "m_mat"), false, ref m_mat);
-            GL.Uniform4(this.GetUniformLocation(_currentProgram, "vertexColor"), color);
-            GL.Uniform1(this.GetUniformLocation(_currentProgram, "aspect"), aspect);
-            GL.Uniform1(this.GetUniformLocation(_currentProgram, "borderWidth"), borderWidth);
-            GL.Uniform1(this.GetUniformLocation(_currentProgram, "wireframe"), 1);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), false, ref m_mat);
+            GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), color);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "aspect"), aspect);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "borderWidth"), borderWidth);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "wireframe"), 1);
 
             GL.BindVertexArray(shape.VertexArray);
             GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);
             GL.BindVertexArray(0);
         }
 
-        public void FillRect(Math.Rect rect, Vector4 color, float rotation = 0)
+        public void FillRect(Rect rect, Vector4 color, float rotation = 0)
         {
             var shape = _shapes["RectShape"];
             var aspect = rect.Width / rect.Height;
@@ -793,13 +793,13 @@ namespace LibGFX.Graphics
             var ms_mat = Matrix4.CreateScale(rect.Width, rect.Height, 0.0f);
             var m_mat = ms_mat * mr_mat * mt_mat;// mt_mat * mr_mat * ms_mat;
 
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "m_mat"), false, ref m_mat);
-            GL.Uniform4(this.GetUniformLocation(_currentProgram, "vertexColor"), color);
-            GL.Uniform1(this.GetUniformLocation(_currentProgram, "aspect"), aspect);
-            GL.Uniform1(this.GetUniformLocation(_currentProgram, "borderWidth"), 0.0f);
-            GL.Uniform1(this.GetUniformLocation(_currentProgram, "wireframe"), 0);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), false, ref m_mat);
+            GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), color);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "aspect"), aspect);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "borderWidth"), 0.0f);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "wireframe"), 0);
 
             GL.BindVertexArray(shape.VertexArray);
             GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);
@@ -808,20 +808,20 @@ namespace LibGFX.Graphics
 
         public void DrawTexture(Transform transform, Texture texture, Vector4 color)
         {
-            if(texture.Flags == TextureFlags.Initialized)
+            if (texture.Flags == TextureFlags.Initialized)
             {
-                this.DrawTexture(transform, texture.TextureId, color);
+                DrawTexture(transform, texture.TextureId, color);
             }
         }
 
         public void DrawTexture(Transform transform, int texture, Vector4 color)
         {
-            this.DrawTexture(transform, texture, color, Vector4.One);
+            DrawTexture(transform, texture, color, Vector4.One);
         }
 
         public void DrawTexture(Transform transform, int textureId, Vector4 color, Vector4 uvTransform)
         {
-            this.DrawTexture(transform, textureId, color, uvTransform, Vector2.One);
+            DrawTexture(transform, textureId, color, uvTransform, Vector2.One);
         }
 
         public void DrawTexture(Transform transform, int textureId, Vector4 color, Vector4 uvTransform, Vector2 uvScale)
@@ -834,15 +834,15 @@ namespace LibGFX.Graphics
 
             GL.ActiveTexture(TextureUnit.Texture0);
             GL.BindTexture(TextureTarget.Texture2D, textureId);
-            GL.Uniform1(this.GetUniformLocation(_currentProgram, "textureSampler"), 0);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "textureSampler"), 0);
 
-            GL.Uniform4(this.GetUniformLocation(_currentProgram, "uvTransform"), uvTransform);
-            GL.Uniform2(this.GetUniformLocation(_currentProgram, "uvScale"), uvScale);
+            GL.Uniform4(GetUniformLocation(_currentProgram, "uvTransform"), uvTransform);
+            GL.Uniform2(GetUniformLocation(_currentProgram, "uvScale"), uvScale);
 
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
-            GL.Uniform4(this.GetUniformLocation(_currentProgram, "vertexColor"), color);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
+            GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), color);
 
             GL.BindVertexArray(shape.VertexArray);
             GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);
@@ -851,7 +851,7 @@ namespace LibGFX.Graphics
             GL.BindTexture(TextureTarget.Texture2D, 0);
         }
 
-        public Font LoadFont(String path, int fontsize = 42)
+        public Font LoadFont(string path, int fontsize = 42)
         {
             if (!Path.Exists(path))
             {
@@ -900,8 +900,8 @@ namespace LibGFX.Graphics
 
                     int width = (int)face->glyph->bitmap.width;
                     int height = (int)face->glyph->bitmap.rows;
-                    int left = (int)face->glyph->bitmap_left;
-                    int top = (int)face->glyph->bitmap_top;
+                    int left = face->glyph->bitmap_left;
+                    int top = face->glyph->bitmap_top;
                     int paddingX = width - cellWidth;
                     int paddingY = height - cellHeight;
 
@@ -925,7 +925,7 @@ namespace LibGFX.Graphics
                         textureId = i,
                         size = new Vector2(width, height),
                         bearing = new Vector2(left, top),
-                        advance = (Int32)face->glyph->advance.x,
+                        advance = (int)face->glyph->advance.x,
                         padding = new Vector2(paddingX, paddingY)
                     };
 
@@ -947,13 +947,13 @@ namespace LibGFX.Graphics
 
             font.VBO = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, font.VBO);
-            GL.BufferData(BufferTarget.ArrayBuffer, 0, IntPtr.Zero, BufferUsageHint.DynamicDraw);
+            GL.BufferData(BufferTarget.ArrayBuffer, 0, nint.Zero, BufferUsageHint.DynamicDraw);
             GL.EnableVertexAttribArray(0);
             GL.VertexAttribPointer(0, 4, VertexAttribPointerType.Float, false, 4 * sizeof(float), 0);
 
             font.GLBO = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, font.GLBO);
-            GL.BufferData(BufferTarget.ArrayBuffer, 0, IntPtr.Zero, BufferUsageHint.DynamicDraw);
+            GL.BufferData(BufferTarget.ArrayBuffer, 0, nint.Zero, BufferUsageHint.DynamicDraw);
             GL.EnableVertexAttribArray(1);
             GL.VertexAttribIPointer(1, 1, VertexAttribIntegerType.Int, 0, 0);
 
@@ -963,8 +963,8 @@ namespace LibGFX.Graphics
             return font;
         }
 
-        public void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f, FontAlignment fontAlignment = FontAlignment.BottomLeft)
-        {   
+        public void DrawString2D(string text, Vector2 position, Font font, Vector4 color, float scale = 1.0f, FontAlignment fontAlignment = FontAlignment.BottomLeft)
+        {
             // Create position & scale data
             float x = position.X;
             float y = position.Y;
@@ -977,17 +977,17 @@ namespace LibGFX.Graphics
             // Bind the array texture and pass the font data to the shader
             GL.ActiveTexture(TextureUnit.Texture0);
             GL.BindTexture(TextureTarget.Texture2DArray, font.TextureId);
-            GL.UniformMatrix4(this.GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
-            GL.Uniform4(this.GetUniformLocation(_currentProgram, "vertexColor"), color);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
+            GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), color);
 
             // Build the new buffer data
             foreach (var c in text)
             {
-                if(font.Characters.TryGetValue(c, out var character))
+                if (font.Characters.TryGetValue(c, out var character))
                 {
                     var uv = Font.GetGlyphUV(character, font.TextureWidth, font.TextureHeight);
-                    float xpos = (x + character.bearing.X * scale) + offset.X;
-                    float ypos = (y - (character.size.Y - character.bearing.Y) * scale) + offset.Y;
+                    float xpos = x + character.bearing.X * scale + offset.X;
+                    float ypos = y - (character.size.Y - character.bearing.Y) * scale + offset.Y;
                     float w = character.size.X * scale;
                     float h = character.size.Y * scale;
 
@@ -1006,7 +1006,7 @@ namespace LibGFX.Graphics
                     vertices.AddRange(vertexdata);
                     glypheTextures.AddRange(glyphelayerdata);
 
-                    float advance = (character.advance / 64.0f) * scale;
+                    float advance = character.advance / 64.0f * scale;
                     x += advance;
                 }
             }
@@ -1055,7 +1055,7 @@ namespace LibGFX.Graphics
 
             // Position (3 floats)
             GL.EnableVertexAttribArray(0);
-            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, vertexSize, IntPtr.Zero);
+            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, vertexSize, nint.Zero);
 
             // Texture Coordinates (2 floats)
             GL.EnableVertexAttribArray(1);
@@ -1156,7 +1156,7 @@ namespace LibGFX.Graphics
 
         public void BindMeshForInstance(RenderInstanceContainer container, Mesh mesh)
         {
-            if(container.State == InstanceContainerState.None || container.State == InstanceContainerState.Disposed)
+            if (container.State == InstanceContainerState.None || container.State == InstanceContainerState.Disposed)
             {
                 throw new Exception("Invalid instance container.");
             }
@@ -1172,7 +1172,7 @@ namespace LibGFX.Graphics
             GL.BindBuffer(BufferTarget.ArrayBuffer, mesh.RenderData.VertexBuffer);
 
             GL.EnableVertexAttribArray(0);
-            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, vertexSize, IntPtr.Zero);
+            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, vertexSize, nint.Zero);
 
             // Texture Coordinates (2 floats)
             GL.EnableVertexAttribArray(1);
@@ -1196,7 +1196,8 @@ namespace LibGFX.Graphics
         }
 
 
-        private void SetInstanceBuffers(RenderInstanceContainer container) {
+        private void SetInstanceBuffers(RenderInstanceContainer container)
+        {
 
             // Get the instance buffers
             var buffers = container.GetInstancesBuffers();
@@ -1206,17 +1207,17 @@ namespace LibGFX.Graphics
             // Set the transform instance buffer
             int transformSize = matrixSize * buffers.Item1.Length;
             GL.BindBuffer(BufferTarget.ArrayBuffer, container.TransformInstanceBuffer);
-            GL.BufferData<Matrix4>(BufferTarget.ArrayBuffer, transformSize, buffers.Item1, BufferUsageHint.DynamicDraw);
+            GL.BufferData(BufferTarget.ArrayBuffer, transformSize, buffers.Item1, BufferUsageHint.DynamicDraw);
 
             // Set the extra instance buffer
             int extraSize = vec4Size * buffers.Item2.Length;
             GL.BindBuffer(BufferTarget.ArrayBuffer, container.ExtraInstanceBuffer);
-            GL.BufferData<Vector4>(BufferTarget.ArrayBuffer, extraSize, buffers.Item2, BufferUsageHint.DynamicDraw);
+            GL.BufferData(BufferTarget.ArrayBuffer, extraSize, buffers.Item2, BufferUsageHint.DynamicDraw);
 
             // Set the uv instance buffer
             int uvSize = vec4Size * buffers.Item3.Length;
             GL.BindBuffer(BufferTarget.ArrayBuffer, container.UVInstanceBuffer);
-            GL.BufferData<Vector4>(BufferTarget.ArrayBuffer, uvSize, buffers.Item3, BufferUsageHint.DynamicDraw);
+            GL.BufferData(BufferTarget.ArrayBuffer, uvSize, buffers.Item3, BufferUsageHint.DynamicDraw);
 
             // Unbind the buffers
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
@@ -1229,7 +1230,7 @@ namespace LibGFX.Graphics
                 throw new Exception("Invalid instance container.");
             }
 
-            this.SetInstanceBuffers(container);
+            SetInstanceBuffers(container);
         }
 
         public int AddRenderInstance(RenderInstanceContainer container, Transform transform)
@@ -1241,7 +1242,7 @@ namespace LibGFX.Graphics
             newInstance.Visible = true;
             container.Instances.Add(newInstance);
 
-            this.SetInstanceBuffers(container);
+            SetInstanceBuffers(container);
 
             return newInstanceId;
         }
@@ -1264,17 +1265,17 @@ namespace LibGFX.Graphics
             // Update the instance transform
             var transform = container.Instances[instanceIndex].Transform.GetMatrix();
             GL.BindBuffer(BufferTarget.ArrayBuffer, container.TransformInstanceBuffer);
-            GL.BufferSubData(BufferTarget.ArrayBuffer, (IntPtr)(instanceIndex * matrixSize), matrixSize, ref transform);
+            GL.BufferSubData(BufferTarget.ArrayBuffer, instanceIndex * matrixSize, matrixSize, ref transform);
 
             // Update the instance extras
             var extras = container.Instances[instanceIndex].GetExtras();
             GL.BindBuffer(BufferTarget.ArrayBuffer, container.ExtraInstanceBuffer);
-            GL.BufferSubData<Vector4>(BufferTarget.ArrayBuffer, (IntPtr)(instanceIndex * vec4Size), vec4Size, ref extras);
+            GL.BufferSubData(BufferTarget.ArrayBuffer, instanceIndex * vec4Size, vec4Size, ref extras);
 
             // Update the instance UVs
             var uvs = container.Instances[instanceIndex].UVTransform;
             GL.BindBuffer(BufferTarget.ArrayBuffer, container.UVInstanceBuffer);
-            GL.BufferSubData<Vector4>(BufferTarget.ArrayBuffer, (IntPtr)(instanceIndex * vec4Size), vec4Size, ref uvs);
+            GL.BufferSubData(BufferTarget.ArrayBuffer, instanceIndex * vec4Size, vec4Size, ref uvs);
 
             // Unbind the buffer
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
@@ -1299,7 +1300,7 @@ namespace LibGFX.Graphics
 
             // Draw the mesh    
             GL.BindVertexArray(container.InstanceVAO);
-            GL.DrawElementsInstanced(PrimitiveType.Triangles, container.Mesh.Indices.Count, DrawElementsType.UnsignedInt, IntPtr.Zero, container.Instances.Count);
+            GL.DrawElementsInstanced(PrimitiveType.Triangles, container.Mesh.Indices.Count, DrawElementsType.UnsignedInt, nint.Zero, container.Instances.Count);
             GL.BindVertexArray(0);
         }
 
@@ -1342,7 +1343,7 @@ namespace LibGFX.Graphics
         public int CreateBuffer<T>(T[] data, bool dynamic = false) where T : unmanaged
         {
             int bufferId = GL.GenBuffer();
-            this.BindBufferData<T>(bufferId, data, dynamic);
+            BindBufferData(bufferId, data, dynamic);
             return bufferId;
         }
 
@@ -1359,7 +1360,7 @@ namespace LibGFX.Graphics
         {
             int dataSize = Unsafe.SizeOf<T>();
             GL.BindBuffer(BufferTarget.ArrayBuffer, buffer);
-            GL.BufferSubData(BufferTarget.ArrayBuffer, (offset * dataSize), data.Length * dataSize, data);
+            GL.BufferSubData(BufferTarget.ArrayBuffer, offset * dataSize, data.Length * dataSize, data);
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
         }
 
@@ -1380,75 +1381,75 @@ namespace LibGFX.Graphics
 
         public void PrepareShader(string location, bool value)
         {
-            var locationId = this.GetUniformLocation(_currentProgram, location);
+            var locationId = GetUniformLocation(_currentProgram, location);
             GL.Uniform1(locationId, value ? 1 : 0);
         }
 
         public void PrepareShader(string location, float value)
         {
-            var locationId = this.GetUniformLocation(_currentProgram, location);
+            var locationId = GetUniformLocation(_currentProgram, location);
             GL.Uniform1(locationId, value);
         }
 
         public void PrepareShader(string location, int value)
         {
-            var locationId = this.GetUniformLocation(_currentProgram, location);
+            var locationId = GetUniformLocation(_currentProgram, location);
             GL.Uniform1(locationId, value);
         }
 
         public void PrepareShader(string location, Vector2 value)
         {
-            var locationId = this.GetUniformLocation(_currentProgram, location);
+            var locationId = GetUniformLocation(_currentProgram, location);
             GL.Uniform2(locationId, value);
         }
 
         public void PrepareShader(string location, Vector3 value)
         {
-            var locationId = this.GetUniformLocation(_currentProgram, location);
+            var locationId = GetUniformLocation(_currentProgram, location);
             GL.Uniform3(locationId, value);
         }
 
         public void PrepareShader(string location, Vector4 value)
         {
-            var locationId = this.GetUniformLocation(_currentProgram, location);
+            var locationId = GetUniformLocation(_currentProgram, location);
             GL.Uniform4(locationId, value);
         }
 
         public void PrepareShader(string location, bool transpose, Matrix4 value)
         {
-            var locationId = this.GetUniformLocation(_currentProgram, location);
+            var locationId = GetUniformLocation(_currentProgram, location);
             GL.UniformMatrix4(locationId, transpose, ref value);
         }
 
-        public void PrepareShader(String location, int count, float[] value)
+        public void PrepareShader(string location, int count, float[] value)
         {
-            var locationId = this.GetUniformLocation(_currentProgram, location);
+            var locationId = GetUniformLocation(_currentProgram, location);
             GL.UniformMatrix4(locationId, count, false, value);
         }
 
-        public void PrepareShader(String uniformName, bool transpose, Matrix4[] matrices)
+        public void PrepareShader(string uniformName, bool transpose, Matrix4[] matrices)
         {
-            var locationId = this.GetUniformLocation(_currentProgram, uniformName);
+            var locationId = GetUniformLocation(_currentProgram, uniformName);
             GL.ProgramUniformMatrix4(_currentProgram, locationId, matrices.Length, transpose, ref matrices[0].Row0.X);
         }
 
-        public void PrepareShader(String location, TextureUnit textureUnit, int value)
+        public void PrepareShader(string location, TextureUnit textureUnit, int value)
         {
-            var locationId = this.GetUniformLocation(_currentProgram, location);
+            var locationId = GetUniformLocation(_currentProgram, location);
             GL.ActiveTexture(textureUnit);
             GL.BindTexture(TextureTarget.Texture2D, value);
             GL.Uniform1(locationId, textureUnit - TextureUnit.Texture0);
             GL.ActiveTexture(TextureUnit.Texture0);
         }
 
-        public void PrepareShader(String location, TextureUnit textureUnit, Texture texture)
+        public void PrepareShader(string location, TextureUnit textureUnit, Texture texture)
         {
-            this.PrepareShader(location, textureUnit, texture.TextureId);
+            PrepareShader(location, textureUnit, texture.TextureId);
         }
 
-        public void PrepareShader(String location, int textureUnit, int texture)
+        public void PrepareShader(string location, int textureUnit, int texture)
         {
-            var locationId = this.GetUniformLocation(_currentProgram, location);
+            var locationId = GetUniformLocation(_currentProgram, location);
             var unit = TextureUnit.Texture0 + textureUnit;
             GL.ActiveTexture(unit);
             GL.BindTexture(TextureTarget.Texture2D, texture);
@@ -1456,9 +1457,9 @@ namespace LibGFX.Graphics
             GL.ActiveTexture(TextureUnit.Texture0);
         }
 
-        public void PrepareShader(String location, int textureUnit, Texture texture)
+        public void PrepareShader(string location, int textureUnit, Texture texture)
         {
-            this.PrepareShader(location, textureUnit, texture.TextureId);
-        }        
+            PrepareShader(location, textureUnit, texture.TextureId);
+        }
     }
 }

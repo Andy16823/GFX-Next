@@ -42,6 +42,11 @@ namespace LibGFX.Core
         /// </summary>
         public DirectionalLight DirectionalLight { get => this.GetDirectionalLight(); set => this.SetDirectionalLight(value); }
 
+        /// <summary>
+        /// The number of samples for the scene rendering
+        /// </summary>
+        public uint Samples { get; set; } = 4;
+
         // The light manager for the 3D scene
         private Light3DManager _lightManager;
 
@@ -104,7 +109,7 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public override void Init(Viewport viewport, IRenderDevice renderer)
         {
-            _renderTarget = renderer.CreateRenderTarget(RenderTargetDescriptor.Default(viewport.Width, viewport.Height, 8));
+            _renderTarget = renderer.CreateRenderTarget(RenderTargetDescriptor.Default(viewport.Width, viewport.Height, (int) this.Samples));
 
             // Load the enviroment texture if available
             if (this.Enviroment != null)
