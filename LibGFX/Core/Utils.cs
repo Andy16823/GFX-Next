@@ -184,7 +184,7 @@ namespace LibGFX.Core
             float cellsX = (float)width / cellWidth;
             float cellsY = (float)height / cellHeight;
 
-            float cellX = (float) tileX * cellWidth;
+            float cellX = (float)tileX * cellWidth;
             float flippedTileY = cellsY - tileY - 1;
             float cellY = flippedTileY * cellHeight;
 
@@ -222,6 +222,33 @@ namespace LibGFX.Core
         public static long GetCurrentTimeMillis()
         {
             return DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        }
+
+        /// <summary>
+        /// Converts a local position to a world position using the given transform.
+        /// </summary>
+        /// <param name="transform"></param>
+        /// <param name="localPosition"></param>
+        /// <returns></returns>
+        public static Vector3 LocalToWorldPositon(Transform transform, Vector3 localPosition)
+        {
+            var modelMatrix = transform.GetMatrix();
+            var worldPosition = Vector3.TransformPosition(localPosition, modelMatrix);
+            return worldPosition;
+        }
+
+        /// <summary>
+        /// Converts a world position to a local position using the given transform.
+        /// </summary>
+        /// <param name="transform"></param>
+        /// <param name="worldPosition"></param>
+        /// <returns></returns>
+        public static Vector3 WorldToLocalPosition(Transform transform, Vector3 worldPosition)
+        {
+            var modelMatrix = transform.GetMatrix();
+            var inverseModelMatrix = Matrix4.Invert(modelMatrix);
+            var localPosition = Vector3.TransformPosition(worldPosition, inverseModelMatrix);
+            return localPosition;
         }
     }
 }
