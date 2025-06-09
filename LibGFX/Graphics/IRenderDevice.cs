@@ -117,6 +117,9 @@ namespace LibGFX.Graphics
         void PrepareShader(String location, Vector4 value);
         void PrepareShader(String location, bool transpose, Matrix4 value);
         void PrepareShader(String location, int count, float[] value);
+        void PrepareShaderVec2Array(String location, int count, float[] value);
+        void PrepareShaderVec3Array(String location, int count, float[] value);
+        void PrepareShaderVec4Array(String location, int count, float[] value);
         void PrepareShader(String uniformName, bool transpose, Matrix4[] matrices);
         void PrepareShader(String location, TextureUnit textureUnit, int value);
         void PrepareShader(String location, TextureUnit textureUnit, Texture texture);

@@ -31,6 +31,16 @@ namespace LibGFX.Physics.Behaviors2D
         public GameElement Parent { get; set; }
 
         /// <summary>
+        /// The linear velocity of the rigid body
+        /// </summary>
+        public Vector3 LinearVelocity { get => this.GetLinearVelocity(); set => this.SetLinearVelocity(value); }
+
+        /// <summary>
+        /// The angular factor of the rigid body
+        /// </summary>
+        public Vector3 AngularVelocity { get => this.GetAngularVelocity(); set => this.SetAngularVelocity(value); }
+
+        /// <summary>
         /// Creates a new 2D rigid body behavior
         /// </summary>
         /// <param name="physicsHandler"></param>

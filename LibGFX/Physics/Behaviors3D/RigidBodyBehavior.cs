@@ -32,6 +32,16 @@ namespace LibGFX.Physics.Behaviors
         public Vector3 Offset { get; set; }
 
         /// <summary>
+        /// Gets or sets the angular and linear velocity of the rigid body
+        /// </summary>
+        public Vector3 AngularVelocity { get => this.GetAngularVelocity(); set => this.SetAngularVelocity(value); }
+
+        /// <summary>
+        /// Gets or sets the linear velocity of the rigid body
+        /// </summary>
+        public Vector3 LinearVelocity { get => this.GetLinearVelocity(); set => this.SetLinearVelocity(value); }
+
+        /// <summary>
         /// Creates a new 3D rigid body
         /// </summary>
         /// <param name="physicsHandler"></param>
@@ -110,6 +120,34 @@ namespace LibGFX.Physics.Behaviors
         public void ApplyCentralImpulse(Vector3 impulse)
         {
             RigidBody.ApplyCentralImpulse((System.Numerics.Vector3)impulse);
+        }
+
+        /// <summary>
+        /// Applies a force to the rigid body at a specified position
+        /// </summary>
+        /// <param name="force"></param>
+        /// <param name="relPos"></param>
+        public void ApplyForce(Vector3 force, Vector3 relPos)
+        {
+            RigidBody.ApplyForce((System.Numerics.Vector3)force, (System.Numerics.Vector3)relPos);
+        }
+
+        /// <summary>
+        /// Applies a central force to the rigid body
+        /// </summary>
+        /// <param name="force"></param>
+        public void ApplyCentralForce(Vector3 force)
+        {
+            RigidBody.ApplyCentralForce((System.Numerics.Vector3)force);
+        }
+
+        /// <summary>
+        /// Applies a torque to the rigid body
+        /// </summary>
+        /// <param name="torque"></param>
+        public void ApplyTorque(Vector3 torque)
+        {
+            RigidBody.ApplyTorque((System.Numerics.Vector3)torque);
         }
 
         /// <summary>

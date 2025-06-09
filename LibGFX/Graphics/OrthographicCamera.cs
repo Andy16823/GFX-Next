@@ -86,5 +86,10 @@ namespace LibGFX.Graphics
         {
             return true;
         }
+
+        public override void LookAt(Vector3 target)
+        {
+            this.Transform.Position = target;
+        }
     }
 }

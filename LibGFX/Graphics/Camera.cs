@@ -56,6 +56,12 @@ namespace LibGFX.Graphics
         public abstract bool IsAABBInFrustum(Viewport viewport, Vector3 min, Vector3 max);
 
         /// <summary>
+        /// Looks at a target point in 3D space
+        /// </summary>
+        /// <param name="target"></param>
+        public abstract void LookAt(Vector3 target);
+
+        /// <summary>
         /// Gets the aspect ratio of the camera
         /// </summary>
         /// <returns></returns>

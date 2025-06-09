@@ -1,4 +1,5 @@
-﻿using OpenTK.Mathematics;
+﻿using LibGFX.Core;
+using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -308,6 +309,46 @@ namespace LibGFX.Math
             );
 
             return Quaternion.FromMatrix(rotationMatrix);
+        }
+
+        /// <summary>
+        /// Transforms a direction vector using the transform's rotation and scale.
+        /// </summary>
+        /// <param name="transform"></param>
+        /// <param name="direction"></param>
+        /// <param name="rotationSpaceOnly"></param>
+        /// <returns></returns>
+        public static Vector3 TransformDirection(Transform transform, Vector3 direction, bool rotationSpaceOnly = true)
+        {
+            var matrix = transform.GetMatrix();
+            if (rotationSpaceOnly)
+            {
+                matrix.ClearTranslation();
+                matrix.ClearScale();
+            }
+            return Vector3.TransformNormal(direction, matrix);
+        }
+
+        /// <summary>
+        /// Converts a local position to a world position using the transform's position, rotation, and scale.
+        /// </summary>
+        /// <param name="transform"></param>
+        /// <param name="localPosition"></param>
+        /// <returns></returns>
+        public static Vector3 LocalToWorldPositon(Transform transform, Vector3 localPosition)
+        {
+            return Utils.LocalToWorldPositon(transform, localPosition);
+        }
+
+        /// <summary>
+        /// Converts a world position to a local position using the transform's position, rotation, and scale.
+        /// </summary>
+        /// <param name="transform"></param>
+        /// <param name="worldPosition"></param>
+        /// <returns></returns>
+        public static Vector3 WorldToLocalPosition(Transform transform, Vector3 worldPosition)
+        {
+            return Utils.WorldToLocalPosition(transform, worldPosition);
         }
 
         /// <summary>

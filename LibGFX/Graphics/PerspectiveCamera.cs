@@ -104,7 +104,7 @@ namespace LibGFX.Graphics
         /// Looks at the target position
         /// </summary>
         /// <param name="target"></param>
-        public void LookAt(Vector3 target)
+        public override void LookAt(Vector3 target)
         {
             this.Transform.Towards(target);
         }

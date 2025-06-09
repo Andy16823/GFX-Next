@@ -1424,7 +1424,25 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         public void PrepareShader(string location, int count, float[] value)
         {
             var locationId = GetUniformLocation(_currentProgram, location);
-            GL.UniformMatrix4(locationId, count, false, value);
+            GL.Uniform1(locationId, count, value);
+        }
+
+        public void PrepareShaderVec2Array(string location, int count, float[] value)
+        {
+            var locationId = GetUniformLocation(_currentProgram, location);
+            GL.Uniform2(locationId, count, value);
+        }
+
+        public void PrepareShaderVec3Array(string location, int count, float[] value)
+        {
+            var locationId = GetUniformLocation(_currentProgram, location);
+            GL.Uniform3(locationId, count, value);
+        }
+
+        public void PrepareShaderVec4Array(string location, int count, float[] value)
+        {
+            var locationId = GetUniformLocation(_currentProgram, location);
+            GL.Uniform4(locationId, count, value);
         }
 
         public void PrepareShader(string uniformName, bool transpose, Matrix4[] matrices)
