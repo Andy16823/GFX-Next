@@ -1479,5 +1479,16 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         {
             PrepareShader(location, textureUnit, texture.TextureId);
         }
+
+        public void PrepareShader(String location, int textureUnit, Cubemap cubemap)
+        {
+            var locationId = GetUniformLocation(_currentProgram, location);
+            var unit = TextureUnit.Texture0 + textureUnit;
+            GL.ActiveTexture(unit);
+            GL.BindTexture(TextureTarget.TextureCubeMap, cubemap.TextureId);
+            GL.Uniform1(locationId, textureUnit);
+            GL.ActiveTexture(TextureUnit.Texture0);
+        }
+
     }
 }

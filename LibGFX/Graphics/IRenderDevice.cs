@@ -125,6 +125,7 @@ namespace LibGFX.Graphics
         void PrepareShader(String location, TextureUnit textureUnit, Texture texture);
         void PrepareShader(String location, int textureUnit, int value);
         void PrepareShader(String location, int textureUnit, Texture texture);
+        void PrepareShader(String location, int textureUnit, Cubemap cubemap);
         int GetError();
     }
 }
