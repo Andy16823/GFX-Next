@@ -103,5 +103,36 @@ namespace LibGFX.Core.GameElements
             base.Render(scene, viewport, renderer, camera);
             renderer.UpdateInstance(InstanceContainer, InstanceID);
         }
+
+        /// <summary>
+        /// Computes the axis-aligned bounding box (AABB) for the instance handle.
+        /// </summary>
+        public override void ComputeAABB()
+        {
+            var mesh = this.InstanceContainer.Mesh;
+
+            if (mesh == null)
+            {
+                this.AABB = new AABB(Vector3.Zero, Vector3.Zero);
+                return;
+            }
+
+            if (mesh.Vertices == null || mesh.Vertices.Count == 0)
+            {
+                this.AABB = new AABB(Vector3.Zero, Vector3.Zero);
+                return;
+            }
+
+            var min = new Vector3(float.MinValue);
+            var max = new Vector3(float.MaxValue);
+
+            foreach (var vertex in mesh.Vertices)
+            {
+                min = Vector3.ComponentMin(min, vertex.Position);
+                max = Vector3.ComponentMax(max, vertex.Position);
+            }
+
+            this.AABB = new AABB(min, max);
+        }
     }
 }

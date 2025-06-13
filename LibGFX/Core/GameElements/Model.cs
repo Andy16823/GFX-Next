@@ -94,6 +94,7 @@ namespace LibGFX.Core.GameElements
             this.MeshMaterials = new List<MeshMaterialPair>();
 
             this.LoadModel(file);
+            this.ComputeAABB();
         }
 
         /// <summary>
@@ -532,6 +533,29 @@ namespace LibGFX.Core.GameElements
                 float animationSpeed = deltaTimeInSeconds * this.AnimationSpeed;
                 Animator.UpdateAnimation(animationSpeed);
             }
+        }
+
+        public override void ComputeAABB()
+        {
+            if(this.Meshes.Count == 0)
+            {
+                this.AABB = new AABB(Vector3.Zero, Vector3.Zero);
+                return;
+            }
+
+            var min = new Vector3(float.MinValue);
+            var max = new Vector3(float.MaxValue);
+
+            foreach (var mesh in Meshes)
+            {
+                foreach (var vertex in mesh.Vertices)
+                {
+                    min = Vector3.ComponentMin(min, vertex.Position);
+                    max = Vector3.ComponentMax(max, vertex.Position);
+                }
+            }
+
+            this.AABB = new AABB(min, max);
         }
     }
 }

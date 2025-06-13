@@ -3,6 +3,7 @@ using LibGFX.Graphics.Animation2D;
 using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Shader;
+using LibGFX.Math;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -53,6 +54,7 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         public TextureMirrorMode MirrorMode { get; set; } = TextureMirrorMode.None;
 
+
         /// <summary>
         /// Creates a new sprite
         /// </summary>
@@ -67,6 +69,7 @@ namespace LibGFX.Core.GameElements
             this.Transform = new Math.Transform(position, scale);
             this.Material = material;
             this.Animator = new Animator();
+            this.ComputeAABB(); 
         }
 
         /// <summary>
@@ -83,6 +86,7 @@ namespace LibGFX.Core.GameElements
             this.Transform = new Math.Transform(position, scale);
             this.Material = material;
             this.Animator = new Animator();
+            this.ComputeAABB(); 
         }
 
         /// <summary>
@@ -260,6 +264,24 @@ namespace LibGFX.Core.GameElements
                 return this.Animator.Animations.FirstOrDefault(a => a.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
             }
             return null;
+        }
+
+        /// <summary>
+        /// Computes the axis-aligned bounding box (AABB) of the sprite based on its transform.
+        /// </summary>
+        public override void ComputeAABB()
+        {
+            var min = new Vector3(
+                this.Transform.Position.X - this.Transform.Scale.X / 2,
+                this.Transform.Position.Y - this.Transform.Scale.Y / 2,
+                0);
+
+            var max = new Vector3(
+                this.Transform.Position.X + this.Transform.Scale.X / 2,
+                this.Transform.Position.Y + this.Transform.Scale.Y / 2,
+                0);
+
+            this.AABB = new AABB(min, max);
         }
     }
 }

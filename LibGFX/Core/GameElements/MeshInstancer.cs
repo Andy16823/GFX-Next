@@ -165,5 +165,10 @@ namespace LibGFX.Core.GameElements
                 this.AddInstance(transform, false);
             }
         }
+
+        public override void ComputeAABB()
+        {
+            this.AABB = AABB.Zero;
+        }
     }
 }

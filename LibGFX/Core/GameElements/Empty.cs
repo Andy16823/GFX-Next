@@ -22,5 +22,10 @@ namespace LibGFX.Core.GameElements
             this.Name = name;
             this.Transform = new Math.Transform(position, Vector3.One);
         }
+
+        public override void ComputeAABB()
+        {
+            this.AABB = new Math.AABB(Vector3.Zero, Vector3.Zero);
+        }
     }
 }

@@ -247,5 +247,22 @@ namespace LibGFX.Graphics
 
             return true;
         }
+
+        public override void ComputeAABB()
+        {
+            var min = new Vector3(
+                this.Transform.Position.X - (this.Transform.Scale.X / 2),
+                this.Transform.Position.Y - (this.Transform.Scale.Y / 2),
+                Near
+            );
+
+            var max = new Vector3(
+                this.Transform.Position.X + (this.Transform.Scale.X / 2),
+                this.Transform.Position.Y + (this.Transform.Scale.Y / 2),
+                Far
+            );
+
+            this.AABB = new AABB(min, max);
+        }
     }
 }

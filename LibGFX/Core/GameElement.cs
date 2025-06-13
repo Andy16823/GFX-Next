@@ -47,6 +47,11 @@ namespace LibGFX.Core
         public List<IGameBehavior> Behaviors { get; set; }
 
         /// <summary>
+        /// The axis-aligned bounding box (AABB) of the game element.
+        /// </summary>
+        public AABB AABB { get; set; }
+
+        /// <summary>
         /// Creates a new game element
         /// </summary>
         protected GameElement()
@@ -153,5 +158,10 @@ namespace LibGFX.Core
         {
             return null;
         }
+
+        /// <summary>
+        /// Computes the axis-aligned bounding box (AABB) of the game element.
+        /// </summary>
+        public abstract void ComputeAABB();
     }
 }

@@ -4,8 +4,10 @@ using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Primitives;
 using LibGFX.Graphics.Shader;
 using LibGFX.Math;
+using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,6 +52,7 @@ namespace LibGFX.Core.GameElements
             this.Name = name;
             this.Mesh = primitive.GetMesh();
             this.Material = material;
+            this.ComputeAABB();
         }
 
         /// <summary>
@@ -137,6 +140,30 @@ namespace LibGFX.Core.GameElements
         public override (Mesh, IMaterial)[]? GetMeshes()
         {
             return new (Mesh, IMaterial)[] { (this.Mesh, this.Material) };
+        }
+
+        /// <summary>
+        /// Computes the axis-aligned bounding box (AABB) for the primitive based on its mesh vertices.
+        /// </summary>
+        public override void ComputeAABB()
+        {
+            if(Mesh.Vertices == null || Mesh.Vertices.Count == 0)
+            {
+                this.AABB = new AABB(Vector3.Zero, Vector3.Zero);
+                return;
+            }
+
+            var min = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+            var max = new Vector3(float.MinValue, float.MinValue, float.MinValue);
+
+            foreach (var vertex in Mesh.Vertices)
+            {
+                min = Vector3.ComponentMin(min, vertex.Position);
+                max = Vector3.ComponentMax(max, vertex.Position);
+            }
+
+            this.AABB = new AABB(min, max);
+            Debug.WriteLine($"Primitive {this.Name} AABB computed: Min {this.AABB.Min}, Max {this.AABB.Max}");
         }
     }
 }

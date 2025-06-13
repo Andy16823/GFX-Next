@@ -39,6 +39,7 @@ namespace LibGFX.Core.GameElements
             {
                 lightDatas[i] = lights[i].ToStruct();
             }
+            this.ComputeAABB();
         }
 
         public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
@@ -72,6 +73,26 @@ namespace LibGFX.Core.GameElements
             renderer.DisposeBuffer(lightSsboBufferID);
             base.Dispose(scene, renderer);
             renderer.DisposeMesh(this.Mesh);
+        }
+
+        public override void ComputeAABB()
+        {
+            if (Mesh.Vertices == null || Mesh.Vertices.Count == 0)
+            {
+                this.AABB = new AABB(Vector3.Zero, Vector3.Zero);
+                return;
+            }
+
+            var min = new Vector3(float.MinValue, float.MinValue, float.MinValue);
+            var max = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+
+            foreach (var vertex in Mesh.Vertices)
+            {
+                min = Vector3.ComponentMin(min, vertex.Position);
+                max = Vector3.ComponentMax(max, vertex.Position);
+            }
+
+            this.AABB = new AABB(min, max);
         }
     }
 }

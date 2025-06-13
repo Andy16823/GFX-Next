@@ -44,6 +44,11 @@ namespace LibGFX.Math
         public Vector3 Up { get => this.GetUp(); }
 
         /// <summary>
+        /// Gets the transformation matrix representing the position, rotation, and scale of the transform.
+        /// </summary>
+        public Matrix4 Matrix { get => this.GetMatrix(); }
+
+        /// <summary>
         /// Creates a new instance of the Transform class.
         /// </summary>
         public Transform()
