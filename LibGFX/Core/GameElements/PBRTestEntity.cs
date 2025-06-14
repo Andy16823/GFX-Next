@@ -83,8 +83,8 @@ namespace LibGFX.Core.GameElements
                 return;
             }
 
-            var min = new Vector3(float.MinValue, float.MinValue, float.MinValue);
-            var max = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+            var min = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+            var max = new Vector3(float.MinValue, float.MinValue, float.MinValue);
 
             foreach (var vertex in Mesh.Vertices)
             {
