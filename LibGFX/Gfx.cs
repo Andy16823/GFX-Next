@@ -5,6 +5,7 @@ using LibGFX.Core;
 using LibGFX.Core.GameElements;
 using LibGFX.Graphics;
 using LibGFX.Graphics.Materials;
+using LibGFX.Graphics.Shader;
 using System.Diagnostics;
 using System.Reflection.Metadata;
 using static LibGFX.Core.Window;
@@ -44,6 +45,7 @@ namespace LibGFX
             AssetManager.RegisterLoader<Cubemap>(new CubemapLoader());
             AssetManager.RegisterLoader<MeshCollection>(new MeshLoader());
             AssetManager.RegisterLoader<SpriteMaterial>(new SpriteMaterialLoader());
+            AssetManager.RegisterLoader<Shader>(new ShaderLoader());
         }
 
         /// <summary>

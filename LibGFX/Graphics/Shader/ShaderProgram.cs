@@ -51,5 +51,16 @@ namespace LibGFX.Graphics.Shader
             this.VertexShader = new Shader();
             this.FragmentShader = new Shader();
         }
+
+        /// <summary>
+        /// Initializes a new instance of the ShaderProgram class with the specified vertex and fragment shaders.
+        /// </summary>
+        /// <param name="vertexShader"></param>
+        /// <param name="fragmentShader"></param>
+        public ShaderProgram(Shader vertexShader, Shader fragmentShader)
+        {
+            this.VertexShader = vertexShader;
+            this.FragmentShader = fragmentShader;
+        }
     }
 }
