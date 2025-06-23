@@ -19,26 +19,12 @@ namespace LibGFX.Core.GameElements
         public IMaterial Material { get; set; }
         public ShaderProgram Shader { get; set; }
 
-        private List<PointLight3D> lights = new List<PointLight3D>();
-        private PointLight3DData[] lightDatas = new PointLight3DData[4];
-        private int lightSsboBufferID = 0;
-
         public PBRTestEntity(String name, PBRMaterial material) 
         {
             this.Name = name;
             this.Mesh = new Cube().GetMesh();
             this.Material = material;
             this.Transform = new Transform();
-
-            lights.Add(new PointLight3D(new Vector3(0, 0, -5), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
-            lights.Add(new PointLight3D(new Vector3(-5, 0, 0), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
-            lights.Add(new PointLight3D(new Vector3(0, 5, 0), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
-            lights.Add(new PointLight3D(new Vector3(0, -5, 0), new Vector4(150.0f, 150.0f, 150.0f, 1.0f)));
-
-            for (int i = 0; i < lights.Count; i++)
-            {
-                lightDatas[i] = lights[i].ToStruct();
-            }
             this.ComputeAABB();
         }
 
@@ -47,8 +33,6 @@ namespace LibGFX.Core.GameElements
             base.Init(scene, viewport, renderer);
             Material.Init(renderer);
             renderer.LoadMesh(this.Mesh);
-
-            this.lightSsboBufferID = renderer.CreateBuffer<PointLight3DData>(lightDatas, true);
 
             if(this.Shader == null)
             {
@@ -60,9 +44,11 @@ namespace LibGFX.Core.GameElements
         {
             base.Render(scene, viewport, renderer, camera);
             renderer.BindShaderProgram(this.Shader);
-            renderer.BindShaderStorageBuffer(0, lightSsboBufferID);
+            if (scene.LightManager != null)
+            {
+                scene.LightManager.BindLights(viewport, renderer, camera);
+            }
             renderer.PrepareShader("camPos", camera.Transform.Position);
-            renderer.PrepareShader("numLights", lightDatas.Length);
             renderer.DrawMesh(this.Transform, Mesh, Material);
             renderer.UnbindShaderProgram();
         }
@@ -70,7 +56,6 @@ namespace LibGFX.Core.GameElements
         public override void Dispose(BaseScene scene, IRenderDevice renderer)
         {
             renderer.DisposeMesh(Mesh);
-            renderer.DisposeBuffer(lightSsboBufferID);
             base.Dispose(scene, renderer);
             renderer.DisposeMesh(this.Mesh);
         }
