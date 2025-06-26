@@ -11,6 +11,7 @@ namespace LibGFX.Graphics.Lights
 {
     /// <summary>
     /// Represents the data structure for a 2D point light for the shader.
+    /// TODO: Add support for shadows and attenuation.
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct Point2DLightData
@@ -29,6 +30,8 @@ namespace LibGFX.Graphics.Lights
         /// The Radius of the light.
         /// </summary>
         public float Radius { get; set; }
+
+        public override bool HasShadowMap => false;
 
         /// <summary>
         /// Creates a new instance of the <see cref="PointLight2D"/> class.
@@ -59,5 +62,14 @@ namespace LibGFX.Graphics.Lights
             };
         }
 
+        public override void Init(IRenderDevice renderer)
+        {
+            
+        }
+
+        public override void Dispose(IRenderDevice renderer)
+        {
+            
+        }
     }
 }

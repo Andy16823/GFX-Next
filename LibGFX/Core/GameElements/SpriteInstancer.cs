@@ -114,6 +114,7 @@ namespace LibGFX.Core.GameElements
             // Bind the shader program
             renderer.BindShaderProgram(this.Shader);
             renderer.DrawInstances(InstanceContainer, this.Material);
+            scene.RenderStats.IncrementDrawCalls();
             renderer.UnbindShaderProgram();
         }
 

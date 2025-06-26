@@ -55,10 +55,17 @@ namespace LibGFX.Graphics.Lights
         public T GetLight<T>() where T : Light;
 
         /// <summary>
-        /// Sets the shadow map for the light manager, which is used for shadow mapping in the scene.
+        /// Performs an action on each light of the specified type in the scene.
         /// </summary>
-        /// <param name="shadowmap"></param>
-        public void SetShadowMap(RenderTarget shadowmap);
+        /// <typeparam name="T"></typeparam>
+        /// <param name="action"></param>
+        public void ForEachLight<T>(Action<T> action) where T : Light;
+
+        /// <summary>
+        /// Performs an action on each light in the scene, regardless of type.
+        /// </summary>
+        /// <param name="action"></param>
+        public void ForEachLight(Action<Light> action);
 
         /// <summary>
         /// Sets the light view matrix for the light manager, which is used to transform the light's perspective in the scene.

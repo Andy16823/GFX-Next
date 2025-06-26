@@ -1,6 +1,7 @@
 ﻿using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -11,6 +12,7 @@ namespace LibGFX.Graphics.Lights
 {
     /// <summary>
     /// Represents the data structure for a point light for the shader.
+    /// TODO: Add support for shadow maps in the future.
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct PointLight3DData
@@ -62,6 +64,11 @@ namespace LibGFX.Graphics.Lights
         /// </summary>
         public override float Intensity { get => _intensity; set => SetIntensity(value); }
 
+        /// <summary>
+        /// Indicates whether the light has a shadow map.
+        /// </summary>
+        public override bool HasShadowMap => false;
+
         // light intensity
         private float _intensity;
 
@@ -77,11 +84,8 @@ namespace LibGFX.Graphics.Lights
         {
             Position = position;
             Color = color;
-
             Ambient = new Vector4(0.05f);
             Specular = new Vector4(1.0f);
-
-
             this.SetRange(range);
             this.SetIntensity(intesity);
         }
@@ -147,6 +151,16 @@ namespace LibGFX.Graphics.Lights
             Vector3 max = center + new Vector3(range);
 
             return (min, max);
+        }
+
+        public override void Init(IRenderDevice renderer)
+        {
+
+        }
+
+        public override void Dispose(IRenderDevice renderer)
+        {
+
         }
     }
 }

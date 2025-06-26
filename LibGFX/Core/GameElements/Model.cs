@@ -419,6 +419,27 @@ namespace LibGFX.Core.GameElements
             }
         }
 
+        public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+        {
+            base.RenderShadow(scene, viewport, renderer);
+
+            if(this.HasAnimations)
+            {
+                return;
+            }
+
+            var shader = renderer.GetShaderProgram("DepthMeshShader");
+            renderer.BindShaderProgram(shader);
+            this.MeshMaterials.ForEach(pair =>
+            {
+                var mesh = this.Meshes.GetMesh(pair.MeshName);
+                var material = this.Materials.GetMaterial(pair.MaterialIndex);
+                renderer.DrawMesh(Transform, mesh, material);
+                scene.RenderStats.IncrementDrawCalls();
+            });
+            renderer.UnbindShaderProgram();
+        }
+
         private void RenderAnimatedModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, DirectionalLight3D light)
         {
             renderer.BindShaderProgram(this.Shader);
@@ -435,6 +456,7 @@ namespace LibGFX.Core.GameElements
                 var mesh = this.Meshes.GetMesh(pair.MeshName);
                 var material = this.Materials.GetMaterial(pair.MaterialIndex);
                 renderer.DrawMesh(Transform, mesh, material);
+                scene.RenderStats.IncrementDrawCalls();
             });
 
             renderer.UnbindShaderProgram();
@@ -454,6 +476,7 @@ namespace LibGFX.Core.GameElements
                 var mesh = this.Meshes.GetMesh(pair.MeshName);
                 var material = this.Materials.GetMaterial(pair.MaterialIndex);
                 renderer.DrawMesh(Transform, mesh, material);
+                scene.RenderStats.IncrementDrawCalls();
             });
 
             renderer.UnbindShaderProgram();

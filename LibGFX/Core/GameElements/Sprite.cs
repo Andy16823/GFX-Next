@@ -131,6 +131,7 @@ namespace LibGFX.Core.GameElements
                     uvTransform = Texture.MirrorUVTransform(uvTransform, this.MirrorMode);
                 }
                 renderer.DrawTexture(this.Transform, this.Material.Texture.TextureId, Color, uvTransform, UVScale);
+                scene.RenderStats.IncrementDrawCalls();
                 renderer.UnbindShaderProgram();
             }
         }

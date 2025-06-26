@@ -53,11 +53,6 @@ namespace LibGFX.Core
         /// </summary>
         public bool PerformShadowPass { get; set; } = true;
 
-        /// <summary>
-        /// The render target for the shadow pass
-        /// </summary>
-        private RenderTarget _shadowRenderTarget;
-
         // The light manager for the 3D scene
         private Light3DManager _lightManager;
 
@@ -121,7 +116,6 @@ namespace LibGFX.Core
         public override void Init(Viewport viewport, IRenderDevice renderer)
         {
             _renderTarget = renderer.CreateRenderTarget(RenderTargetDescriptor.Default(viewport.Width, viewport.Height, (int) this.Samples));
-            _shadowRenderTarget = renderer.CreateRenderTarget(RenderTargetDescriptor.DepthOnly(2048, 2048));
 
             // Load the enviroment texture if available
             if (this.Enviroment != null)
@@ -140,7 +134,6 @@ namespace LibGFX.Core
             if(lightManager != null)
             {
                 lightManager.Init(renderer);
-                lightManager.SetShadowMap(_shadowRenderTarget);
             }
 
             // Initialize the scene behaviors
@@ -238,6 +231,12 @@ namespace LibGFX.Core
             renderer.UnbindShaderProgram();
         }
 
+        /// <summary>
+        /// Renders the shadow maps for the scene
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        /// <param name="camera"></param>
         public override void RenderShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             var light = this.LightManager.GetLight<DirectionalLight3D>();
@@ -247,27 +246,28 @@ namespace LibGFX.Core
                 return;
             }
 
+            var shadowMap = light.ShadowMap;
+
             var depthTest = renderer.IsDepthTestEnabled();
             renderer.EnableDepthTest();
 
-            var shadowRange = 10.0f;
-            var doubleShadowRange = shadowRange * 2.0f;
             var lightDir = light.Direction.Normalized();
             var cameraXZ = camera.Transform.Position;
             var lightOffset = new Vector3(0f, 4.0f, 0f);
             var lightPos = cameraXZ + lightOffset;
-            var lightTarget = lightPos - (light.Direction.Normalized() * shadowRange);
+            var lightTarget = lightPos - (light.Direction.Normalized() * 20.0f);
 
-            float near_plane = 1.0f, far_plane = doubleShadowRange;
+
+            float near_plane = 1.0f, far_plane = 20.0f;
             var lightView = Matrix4.LookAt(lightPos, lightTarget, new Vector3(0, 1, 0));
-            var lightProjection = Matrix4.CreateOrthographic(doubleShadowRange, doubleShadowRange, near_plane, far_plane);
+            var lightProjection = Matrix4.CreateOrthographic(40, 40, near_plane, far_plane);
             var lightSpaceMatrix = lightView * lightProjection;
 
-            renderer.SetViewport(new Viewport(2048, 2048));
+            renderer.SetViewport((Viewport) light.ShadowMapSize);
             renderer.SetProjectionMatrix(lightProjection);
             renderer.SetViewMatrix(lightView);
 
-            renderer.BindRenderTarget(_shadowRenderTarget);
+            renderer.BindRenderTarget(shadowMap);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
             renderer.Clear(RenderFlags.ClearFlags.Depth);
 

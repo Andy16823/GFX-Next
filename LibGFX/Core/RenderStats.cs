@@ -32,6 +32,15 @@ namespace LibGFX.Core
         public int FPS { get; set; }
 
         /// <summary>
+        /// Total draw calls made during the current frame
+        /// </summary>
+        public int DrawCalls => _totalDrawCalls;
+
+
+        private int _totalDrawCalls = 0;
+
+
+        /// <summary>
         /// New frame method to be called at the beginning of each frame
         /// </summary>
         public void NewFrame()
@@ -43,6 +52,7 @@ namespace LibGFX.Core
             {
                 FPS = (int)(1000 / DeltaTime);
             }
+            _totalDrawCalls = 0;
         }
 
         /// <summary>
@@ -54,6 +64,7 @@ namespace LibGFX.Core
             LastFrameTime = CurrentFrameTime;
             DeltaTime = 0;
             FPS = 0;
+            _totalDrawCalls = 0;
         }
 
         /// <summary>
@@ -65,6 +76,16 @@ namespace LibGFX.Core
             LastFrameTime = 0;
             DeltaTime = 0;
             FPS = 0;
+            _totalDrawCalls = 0;
+        }
+
+        /// <summary>
+        /// Increment the draw calls count by the specified amount
+        /// </summary>
+        /// <param name="count"></param>
+        public void IncrementDrawCalls(int count = 1)
+        {
+            _totalDrawCalls += count;
         }
 
         /// <summary>

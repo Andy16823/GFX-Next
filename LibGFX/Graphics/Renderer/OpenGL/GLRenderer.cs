@@ -1492,7 +1492,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.ActiveTexture(TextureUnit.Texture0);
         }
 
-        // Test Shadowmap
+        [Obsolete($"Use CreateRenderTarget(RenderTargetDescriptor constructorInfo) with the DepthOnly descriptor instead. This method will be removed in a future version.")]
         public RenderTarget CreateShadowMap(int width, int height)
         {
             int depthFBO = GL.GenFramebuffer();

@@ -105,7 +105,7 @@ namespace LibGFX.Core
         {
             if(this.Visible && this.CastShadows)
             {
-                // TODO: Add behaviors
+                // TODO: Add behaviors for shadow rendering
             }
         }
 

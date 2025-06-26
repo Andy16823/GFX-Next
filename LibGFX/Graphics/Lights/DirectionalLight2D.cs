@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// TODO: Implement shadow mapping for directional lights if needed.
 namespace LibGFX.Graphics.Lights
 {
     /// <summary>
@@ -12,6 +13,8 @@ namespace LibGFX.Graphics.Lights
     /// </summary>
     public class DirectionalLight2D : Light
     {
+        public override bool HasShadowMap => false;
+
         /// <summary>
         /// Creates a new instance of the <see cref="DirectionalLight2D"/> class.
         /// </summary>
@@ -21,6 +24,16 @@ namespace LibGFX.Graphics.Lights
         {
             Color = color;
             Intensity = intensity;
+        }
+
+        public override void Dispose(IRenderDevice renderer)
+        {
+
+        }
+
+        public override void Init(IRenderDevice renderer)
+        {
+
         }
     }
 }

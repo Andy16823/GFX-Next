@@ -191,7 +191,7 @@ namespace LibGFX.Core
 
         public override void RenderShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            
+            // TODO: Implement shadow map rendering for 2D scenes
         }
 
         /// <summary>

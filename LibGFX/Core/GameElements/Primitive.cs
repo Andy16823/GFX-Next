@@ -120,18 +120,24 @@ namespace LibGFX.Core.GameElements
                 scene.LightManager.BindShadowMap(renderer, "shadowMap", 15);
             }
             renderer.DrawMesh(this.Transform, Mesh, Material);
+            scene.RenderStats.IncrementDrawCalls();
             renderer.UnbindShaderProgram();
         }
 
+        /// <summary>
+        /// Render the primitive for shadow mapping purposes.
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
         public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             base.RenderShadow(scene, viewport, renderer);
 
-            Debug.WriteLine($"Rendering shadow for primitive: {this.Name}");
             var shader = renderer.GetShaderProgram("DepthMeshShader");
-
             renderer.BindShaderProgram(shader);
             renderer.DrawMesh(this.Transform, Mesh, Material);
+            scene.RenderStats.IncrementDrawCalls();
             renderer.UnbindShaderProgram();
         }
 

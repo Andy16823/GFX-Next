@@ -127,7 +127,7 @@ namespace LibGFX.Graphics
         void PrepareShader(String location, int textureUnit, Texture texture);
         void PrepareShader(String location, int textureUnit, Cubemap cubemap);
         int GetError();
-
+        [Obsolete($"Use CreateRenderTarget(RenderTargetDescriptor constructorInfo) with the DepthOnly descriptor instead. This method will be removed in a future version.")]
         RenderTarget CreateShadowMap(int width, int height);
         void CullFrontFace();
         void CullBackFace();

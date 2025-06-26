@@ -50,6 +50,7 @@ namespace LibGFX.Core.GameElements
             }
             renderer.PrepareShader("camPos", camera.Transform.Position);
             renderer.DrawMesh(this.Transform, Mesh, Material);
+            scene.RenderStats.IncrementDrawCalls();
             renderer.UnbindShaderProgram();
         }
 

@@ -114,6 +114,11 @@ namespace LibGFX.Graphics.Lights
         {
             renderDevice.DisposeBuffer(_pointLightsSSBO);
             _pointLightsSSBO = 0;
+
+            this.ForEachLight(light =>
+            {
+                light.Dispose(renderDevice);
+            });
         }
 
         /// <summary>
@@ -133,6 +138,10 @@ namespace LibGFX.Graphics.Lights
         public void Init(IRenderDevice renderDevice)
         {
             _pointLightsSSBO = renderDevice.CreateEmptyBuffer();
+            this.ForEachLight(light =>
+            {
+                light.Init(renderDevice);
+            });
         }
 
         /// <summary>
@@ -248,6 +257,12 @@ namespace LibGFX.Graphics.Lights
             }
         }
 
+        /// <summary>
+        /// Gets the light of the specified type from the light manager.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public T GetLight<T>() where T : Light
         {
             if (typeof(T) == typeof(DirectionalLight3D))
@@ -257,20 +272,73 @@ namespace LibGFX.Graphics.Lights
             throw new InvalidOperationException($"Light type {typeof(T).Name} not supported in Light3DManager.");
         }
 
-        public void SetShadowMap(RenderTarget shadowmap)
-        {
-            _shadowMapId = shadowmap.TextureID;
-        }
-
+        /// <summary>
+        /// Binds the shadow map of the directional light to the shader program.
+        /// </summary>
+        /// <param name="renderDevice"></param>
+        /// <param name="location"></param>
+        /// <param name="textureSlot"></param>
         public void BindShadowMap(IRenderDevice renderDevice, String location, int textureSlot)
         {
-            renderDevice.PrepareShader(location, textureSlot, _shadowMapId);
+            renderDevice.PrepareShader(location, textureSlot, this.DirectionalLight.ShadowMap.TextureID);
             renderDevice.PrepareShader("lightSpaceMatrix", true, _lightViewMatrix);
         }
 
+        /// <summary>
+        /// Sets the light space matrix for the light manager, which is used to transform the light's perspective in the scene.
+        /// </summary>
+        /// <param name="lightViewMatrix"></param>
         public void SetLightSpaceMatrix(Matrix4 lightViewMatrix)
         {
             _lightViewMatrix = lightViewMatrix;
+        }
+
+        /// <summary>
+        /// Performs an action on each light of the specified type in the scene.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="action"></param>
+        /// <exception cref="InvalidOperationException"></exception>
+        public void ForEachLight<T>(Action<T> action) where T : Light
+        {
+            if (typeof(T) == typeof(PointLight3D))
+            {
+                foreach (var chunk in Chunks.Values)
+                {
+                    foreach (var light in chunk.Lights.OfType<T>())
+                    {
+                        action(light);
+                    }
+                }
+            }
+            else if (typeof(T) == typeof(DirectionalLight3D))
+            {
+                action((T)(object)DirectionalLight);
+            }
+            else
+            {
+                throw new InvalidOperationException($"Light type {typeof(T).Name} not supported in Light2DManager.");
+            }
+        }
+
+        /// <summary>
+        /// Performs an action on each light in the scene, regardless of type.
+        /// </summary>
+        /// <param name="action"></param>
+        public void ForEachLight(Action<Light> action)
+        {
+            if(this.DirectionalLight != null)
+            {
+                action(DirectionalLight);
+            }
+
+            foreach (var chunk in Chunks.Values)
+            {
+                foreach (var light in chunk.Lights)
+                {
+                    action(light);
+                }
+            }
         }
     }
 }

@@ -114,6 +114,9 @@ namespace LibGFX.Core.GameElements
 
             // Unbind the shader program
             renderer.UnbindShaderProgram();
+
+            // Increment the draw calls for the scene
+            scene.RenderStats.IncrementDrawCalls();
         }
 
         /// <summary>
