@@ -407,7 +407,7 @@ namespace LibGFX.Core.GameElements
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera)
         {
             base.Render(scene, viewport, renderer, camera);
-            var light = renderer.GetLightSource<DirectionalLight>();
+            var light = renderer.GetLightSource<DirectionalLight3D>();
 
             if(this.HasAnimations)
             {
@@ -419,7 +419,7 @@ namespace LibGFX.Core.GameElements
             }
         }
 
-        private void RenderAnimatedModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, DirectionalLight light)
+        private void RenderAnimatedModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, DirectionalLight3D light)
         {
             renderer.BindShaderProgram(this.Shader);
             renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
@@ -427,6 +427,7 @@ namespace LibGFX.Core.GameElements
             if (scene.LightManager != null)
             {
                 scene.LightManager.BindLights(viewport, renderer, camera);
+                scene.LightManager.BindShadowMap(renderer, "shadowMap", 5);
             }
 
             this.MeshMaterials.ForEach(pair =>
@@ -439,7 +440,7 @@ namespace LibGFX.Core.GameElements
             renderer.UnbindShaderProgram();
         }
 
-        private void RenderStaticModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, DirectionalLight light)
+        private void RenderStaticModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, DirectionalLight3D light)
         {
             renderer.BindShaderProgram(this.Shader);
             renderer.PrepareShader("viewPos", camera.Transform.Position);

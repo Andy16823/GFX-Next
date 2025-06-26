@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenTK.Mathematics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,5 +46,30 @@ namespace LibGFX.Graphics.Lights
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public int GetLightCount<T>() where T : Light;
+
+        /// <summary>
+        /// Gets the total light count across all types.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public T GetLight<T>() where T : Light;
+
+        /// <summary>
+        /// Sets the shadow map for the light manager, which is used for shadow mapping in the scene.
+        /// </summary>
+        /// <param name="shadowmap"></param>
+        public void SetShadowMap(RenderTarget shadowmap);
+
+        /// <summary>
+        /// Sets the light view matrix for the light manager, which is used to transform the light's perspective in the scene.
+        /// </summary>
+        /// <param name="lightViewMatrix"></param>
+        public void SetLightSpaceMatrix(Matrix4 lightViewMatrix);
+
+        /// <summary>
+        /// Binds the shadow map to the render device for rendering shadows in the scene.
+        /// </summary>
+        /// <param name="renderDevice"></param>
+        public void BindShadowMap(IRenderDevice renderDevice, String location, int textureSlot);
     }
 }

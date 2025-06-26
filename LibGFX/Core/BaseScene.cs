@@ -286,6 +286,13 @@ namespace LibGFX.Core
         public abstract void Render(Viewport viewport, IRenderDevice renderer, Camera camera);
 
         /// <summary>
+        /// Renders the shadow maps for the scene
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        public abstract void RenderShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera);
+
+        /// <summary>
         /// Updates the scene
         /// </summary>
         public abstract void Update();

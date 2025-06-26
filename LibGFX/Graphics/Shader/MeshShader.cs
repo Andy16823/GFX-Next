@@ -22,10 +22,12 @@ namespace LibGFX.Graphics.Shader
                 out vec3 normal;
                 out vec2 texCoord;
                 out vec4 tangent;  
+                out vec4 fragPosLightSpace;
 
                 uniform mat4 p_mat;
                 uniform mat4 v_mat;
                 uniform mat4 m_mat;
+                uniform mat4 lightSpaceMatrix;
 
                 void main() {
                     mat4 mvp = m_mat*v_mat*p_mat;
@@ -33,6 +35,7 @@ namespace LibGFX.Graphics.Shader
                     normal = inNormal * transpose(inverse(mat3(m_mat)));
                     texCoord = inTexCoord;
                     tangent = inTangent;
+                    fragPosLightSpace = vec4(position, 1.0) * lightSpaceMatrix;
                     gl_Position = vec4(inPosition, 1.0) * mvp;
                 }
             ");
@@ -44,9 +47,11 @@ namespace LibGFX.Graphics.Shader
                 in vec3 normal;
                 in vec2 texCoord;
                 in vec4 tangent;
+                in vec4 fragPosLightSpace;
 
                 out vec4 fragColor;
                 uniform vec3 viewPos;
+                uniform sampler2D shadowMap;
 
                 struct DirLight {
                     vec3 direction;
@@ -133,6 +138,26 @@ namespace LibGFX.Graphics.Shader
                     return (ambient + diffuse + specular);
                 } 
 
+                float ShadowCalculation(vec4 fragPosLightSpace, vec3 normal, DirLight light) {
+                    vec3 lightDir = normalize(-light.direction);
+                    // perform perspective divide
+                    vec3 projCoords = fragPosLightSpace.xyz / fragPosLightSpace.w;
+                    // transform to [0,1] range
+                    projCoords = projCoords * 0.5 + 0.5;
+                    // get closest depth value from light's perspective (using [0,1] range fragPosLight as coords)
+                    float closestDepth = texture(shadowMap, projCoords.xy).r; 
+                    // get depth of current fragment from light's perspective
+                    float currentDepth = projCoords.z;
+                    // check whether current frag pos is in shadow
+                    float bias = max(0.05 * (1.0 - dot(normal, lightDir)), 0.005);  
+                    float shadow = currentDepth - bias > closestDepth  ? 1.0 : 0.0; 
+                    
+                    if(projCoords.z > 1.0)
+                            shadow = 0.0;
+
+                    return shadow;
+                }
+
                 void main() {
                     
                     mat3 TBN = getTBN(tangent, normal, material.flipNormal);
@@ -149,6 +174,10 @@ namespace LibGFX.Graphics.Shader
                     float alpha = texture(material.textureSampler, texCoord).a;
                     result *= material.vertexColor.rgb;
                     alpha *= material.vertexColor.a;
+
+                   // Apply shadow
+                    float shadow = ShadowCalculation(fragPosLightSpace, normal, dirLight);
+                    result *= (1.0 - shadow);
 
                     fragColor = vec4(result, alpha);
                 }

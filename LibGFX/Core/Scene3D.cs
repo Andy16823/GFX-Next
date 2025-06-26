@@ -8,13 +8,14 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LibGFX.Core
 {
     /// <summary>
-    /// Represents a 3D scene
+    /// Represents a 3D scene for rendering 3D objects and lights.
     /// </summary>
     public class Scene3D : BaseScene
     {
@@ -40,12 +41,22 @@ namespace LibGFX.Core
         /// <summary>
         /// Sets the directional light for the scene
         /// </summary>
-        public DirectionalLight DirectionalLight { get => this.GetDirectionalLight(); set => this.SetDirectionalLight(value); }
+        public DirectionalLight3D DirectionalLight { get => this.GetDirectionalLight(); set => this.SetDirectionalLight(value); }
 
         /// <summary>
         /// The number of samples for the scene rendering
         /// </summary>
         public uint Samples { get; set; } = 4;
+
+        /// <summary>
+        /// Determines if the scene should perform a shadow pass
+        /// </summary>
+        public bool PerformShadowPass { get; set; } = true;
+
+        /// <summary>
+        /// The render target for the shadow pass
+        /// </summary>
+        private RenderTarget _shadowRenderTarget;
 
         // The light manager for the 3D scene
         private Light3DManager _lightManager;
@@ -110,6 +121,7 @@ namespace LibGFX.Core
         public override void Init(Viewport viewport, IRenderDevice renderer)
         {
             _renderTarget = renderer.CreateRenderTarget(RenderTargetDescriptor.Default(viewport.Width, viewport.Height, (int) this.Samples));
+            _shadowRenderTarget = renderer.CreateRenderTarget(RenderTargetDescriptor.DepthOnly(2048, 2048));
 
             // Load the enviroment texture if available
             if (this.Enviroment != null)
@@ -128,6 +140,7 @@ namespace LibGFX.Core
             if(lightManager != null)
             {
                 lightManager.Init(renderer);
+                lightManager.SetShadowMap(_shadowRenderTarget);
             }
 
             // Initialize the scene behaviors
@@ -165,6 +178,12 @@ namespace LibGFX.Core
 
             // Get the current depth test state
             var dephTest = renderer.IsDepthTestEnabled();
+
+            // Shadow pass rendering if enabled
+            if (this.PerformShadowPass && this.LightManager != null)
+            {
+                //this.CreateShadowMap(renderer, viewport, camera);
+            }
 
             // Enable depth test and set the viewport, projection and view matrix
             renderer.EnableDepthTest();
@@ -219,6 +238,51 @@ namespace LibGFX.Core
             renderer.UnbindShaderProgram();
         }
 
+        public override void RenderShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera)
+        {
+            var light = this.LightManager.GetLight<DirectionalLight3D>();
+            if (light == null)
+            {
+                Debug.WriteLine("No directional light found for shadow pass.");
+                return;
+            }
+
+            var depthTest = renderer.IsDepthTestEnabled();
+            renderer.EnableDepthTest();
+
+            var shadowRange = 10.0f;
+            var doubleShadowRange = shadowRange * 2.0f;
+            var lightDir = light.Direction.Normalized();
+            var cameraXZ = camera.Transform.Position;
+            var lightOffset = new Vector3(0f, 4.0f, 0f);
+            var lightPos = cameraXZ + lightOffset;
+            var lightTarget = lightPos - (light.Direction.Normalized() * shadowRange);
+
+            float near_plane = 1.0f, far_plane = doubleShadowRange;
+            var lightView = Matrix4.LookAt(lightPos, lightTarget, new Vector3(0, 1, 0));
+            var lightProjection = Matrix4.CreateOrthographic(doubleShadowRange, doubleShadowRange, near_plane, far_plane);
+            var lightSpaceMatrix = lightView * lightProjection;
+
+            renderer.SetViewport(new Viewport(2048, 2048));
+            renderer.SetProjectionMatrix(lightProjection);
+            renderer.SetViewMatrix(lightView);
+
+            renderer.BindRenderTarget(_shadowRenderTarget);
+            renderer.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            renderer.Clear(RenderFlags.ClearFlags.Depth);
+
+            renderer.CullFrontFace();
+            this.Layers.ForEach(layer =>
+            {
+                layer.RenderShadows(this, viewport, renderer);
+            });
+            renderer.CullBackFace();
+
+            renderer.UnbindRenderTarget();
+            renderer.SetDepthTest(depthTest);
+            LightManager.SetLightSpaceMatrix(lightSpaceMatrix);
+        }
+
         /// <summary>
         /// Updates the scene and all its layers
         /// </summary>
@@ -261,7 +325,7 @@ namespace LibGFX.Core
         /// Sets the directional light of the scene
         /// </summary>
         /// <param name="light"></param>
-        public void SetDirectionalLight(DirectionalLight light)
+        public void SetDirectionalLight(DirectionalLight3D light)
         {
             _lightManager.DirectionalLight = light;
         }
@@ -270,7 +334,7 @@ namespace LibGFX.Core
         /// Gets the directional light of the scene
         /// </summary>
         /// <returns></returns>
-        public DirectionalLight GetDirectionalLight()
+        public DirectionalLight3D GetDirectionalLight()
         {
             return _lightManager.DirectionalLight;
         }

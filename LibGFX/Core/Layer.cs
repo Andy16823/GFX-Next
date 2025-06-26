@@ -1,6 +1,7 @@
 ﻿using LibGFX.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,6 +70,27 @@ namespace LibGFX.Core
             {
                 this.Elements.ForEach(e => {
                     e.Render(scene, viewport, renderer, camera); 
+                });
+            }
+        }
+
+        /// <summary>
+        /// Renders the shadows of the layer
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        public void RenderShadows(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+        {
+            if (this.Visible)
+            {
+                Debug.WriteLine($"Rendering shadows for layer: {this.Name}");
+                this.Elements.ForEach(e =>
+                {
+                    if (e.CastShadows && e.Visible)
+                    {
+                        e.RenderShadow(scene, viewport, renderer);
+                    }
                 });
             }
         }

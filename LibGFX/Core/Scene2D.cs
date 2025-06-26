@@ -189,6 +189,11 @@ namespace LibGFX.Core
             renderer.SetDepthTest(depthTest);
         }
 
+        public override void RenderShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera)
+        {
+            
+        }
+
         /// <summary>
         /// Updates the scene
         /// </summary>

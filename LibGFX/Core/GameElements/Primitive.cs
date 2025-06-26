@@ -110,14 +110,27 @@ namespace LibGFX.Core.GameElements
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             base.Render(scene, viewport, renderer, camera);
-            var light = renderer.GetLightSource<DirectionalLight>();
+            var light = renderer.GetLightSource<DirectionalLight3D>();
 
             renderer.BindShaderProgram(this.Shader);
             renderer.PrepareShader("viewPos", camera.Transform.Position);
             if (scene.LightManager != null)
             {
                 scene.LightManager.BindLights(viewport, renderer, camera);
+                scene.LightManager.BindShadowMap(renderer, "shadowMap", 15);
             }
+            renderer.DrawMesh(this.Transform, Mesh, Material);
+            renderer.UnbindShaderProgram();
+        }
+
+        public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+        {
+            base.RenderShadow(scene, viewport, renderer);
+
+            Debug.WriteLine($"Rendering shadow for primitive: {this.Name}");
+            var shader = renderer.GetShaderProgram("DepthMeshShader");
+
+            renderer.BindShaderProgram(shader);
             renderer.DrawMesh(this.Transform, Mesh, Material);
             renderer.UnbindShaderProgram();
         }

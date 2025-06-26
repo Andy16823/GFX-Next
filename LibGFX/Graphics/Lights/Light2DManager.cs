@@ -213,5 +213,29 @@ namespace LibGFX.Graphics.Lights
             int chunkY = (int)MathF.Floor(y / chunkSize);
             return (chunkX, chunkY);
         }
+
+        public T GetLight<T>() where T : Light
+        {
+            if (typeof(T) == typeof(DirectionalLight2D))
+            {
+                return (T)(object) DirectionalLight;
+            }
+            throw new InvalidOperationException($"Light type {typeof(T).Name} not supported in Light2DManager.");
+        }
+
+        public void SetShadowMap(RenderTarget shadowmap)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void BindShadowMap(IRenderDevice renderDevice, String location, int textureSlot)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetLightSpaceMatrix(Matrix4 lightViewMatrix)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

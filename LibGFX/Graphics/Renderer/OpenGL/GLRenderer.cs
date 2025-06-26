@@ -58,6 +58,8 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             AddShaderProgram("InstancedShader2D", new InstancedShader2D());
             AddShaderProgram("PBRMeshShader", new PBRMeshShader());
             AddShaderProgram("LitSpriteShader", new LitSpriteShader());
+            AddShaderProgram("ShadowMapTest", new ShadowMapTest());
+            AddShaderProgram("DepthMeshShader", new DepthMeshShader());
 
             foreach (ShaderProgram program in _programs.Values)
             {
@@ -1488,6 +1490,49 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindTexture(TextureTarget.TextureCubeMap, cubemap.TextureId);
             GL.Uniform1(locationId, textureUnit);
             GL.ActiveTexture(TextureUnit.Texture0);
+        }
+
+        // Test Shadowmap
+        public RenderTarget CreateShadowMap(int width, int height)
+        {
+            int depthFBO = GL.GenFramebuffer();
+            int shadowMap = GL.GenTexture();
+            GL.BindTexture(TextureTarget.Texture2D, shadowMap);
+            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.DepthComponent, width, height, 0, PixelFormat.DepthComponent, PixelType.Float, IntPtr.Zero);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Nearest);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToBorder);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToBorder);
+            float[] borderColor = [1.0f, 1.0f, 1.0f, 1.0f];
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureBorderColor, borderColor);
+            GL.BindFramebuffer(FramebufferTarget.Framebuffer, depthFBO);
+            GL.FramebufferTexture2D(FramebufferTarget.Framebuffer, FramebufferAttachment.DepthAttachment, TextureTarget.Texture2D, shadowMap, 0);
+            GL.DrawBuffer(DrawBufferMode.None);
+            GL.ReadBuffer(ReadBufferMode.None);
+
+            var status = GL.CheckFramebufferStatus(FramebufferTarget.Framebuffer);
+            if (status != FramebufferErrorCode.FramebufferComplete)
+            {
+                throw new Exception("Shadow map framebuffer is incomplete: " + status);
+            }
+
+            GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
+
+            var renderTarget = new RenderTarget();
+            renderTarget.FramebufferID = depthFBO;
+            renderTarget.TextureID = shadowMap;
+            
+            return renderTarget;
+        }
+
+        public void CullFrontFace()
+        {
+            GL.CullFace(CullFaceMode.Front);
+        }
+
+        public void CullBackFace()
+        {
+            GL.CullFace(CullFaceMode.Back);
         }
 
     }

@@ -127,5 +127,9 @@ namespace LibGFX.Graphics
         void PrepareShader(String location, int textureUnit, Texture texture);
         void PrepareShader(String location, int textureUnit, Cubemap cubemap);
         int GetError();
+
+        RenderTarget CreateShadowMap(int width, int height);
+        void CullFrontFace();
+        void CullBackFace();
     }
 }

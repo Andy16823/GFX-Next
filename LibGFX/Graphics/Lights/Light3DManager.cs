@@ -1,8 +1,10 @@
 ﻿using Assimp;
+using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,7 +31,7 @@ namespace LibGFX.Graphics.Lights
         /// <summary>
         /// The directional light in the scene.
         /// </summary>
-        public DirectionalLight DirectionalLight { get; set; }
+        public DirectionalLight3D DirectionalLight { get; set; }
 
         /// <summary>
         /// The dictionary of light chunks, where the key is a tuple of chunk coordinates (x, y, z).
@@ -43,6 +45,14 @@ namespace LibGFX.Graphics.Lights
 
         // the point light SSBO
         private int _pointLightsSSBO;
+
+        // the shadow map ID
+        private int _shadowMapId;
+
+        /// <summary>
+        /// The light view matrix used for shadow mapping. 
+        /// </summary>
+        private Matrix4 _lightViewMatrix;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Light3DManager"/> class.
@@ -236,6 +246,31 @@ namespace LibGFX.Graphics.Lights
             {
                 this.AddPointLight(light);
             }
+        }
+
+        public T GetLight<T>() where T : Light
+        {
+            if (typeof(T) == typeof(DirectionalLight3D))
+            {
+                return (T)(object)DirectionalLight;
+            }
+            throw new InvalidOperationException($"Light type {typeof(T).Name} not supported in Light3DManager.");
+        }
+
+        public void SetShadowMap(RenderTarget shadowmap)
+        {
+            _shadowMapId = shadowmap.TextureID;
+        }
+
+        public void BindShadowMap(IRenderDevice renderDevice, String location, int textureSlot)
+        {
+            renderDevice.PrepareShader(location, textureSlot, _shadowMapId);
+            renderDevice.PrepareShader("lightSpaceMatrix", true, _lightViewMatrix);
+        }
+
+        public void SetLightSpaceMatrix(Matrix4 lightViewMatrix)
+        {
+            _lightViewMatrix = lightViewMatrix;
         }
     }
 }

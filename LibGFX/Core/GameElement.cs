@@ -37,6 +37,11 @@ namespace LibGFX.Core
         public virtual bool Enabled { get; set; } = true;
 
         /// <summary>
+        /// Determines if the game element casts shadows
+        /// </summary>
+        public virtual bool CastShadows { get; set; } = true;
+
+        /// <summary>
         /// The ID of the game element
         /// </summary>
         public Guid ID { get; set; }
@@ -87,6 +92,20 @@ namespace LibGFX.Core
                 this.Behaviors.ForEach(b => {
                     b.OnRender(scene, viewport, renderer, camera);
                 });
+            }
+        }
+
+        /// <summary>
+        /// Renders the shadow of the game element
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        public virtual void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+        {
+            if(this.Visible && this.CastShadows)
+            {
+                // TODO: Add behaviors
             }
         }
 
