@@ -425,11 +425,16 @@ namespace LibGFX.Core.GameElements
 
             if(this.HasAnimations)
             {
-                return;
+                var shader = renderer.GetShaderProgram("AnimatedDepthMeshShader");
+                renderer.BindShaderProgram(shader);
+                renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
+            }
+            else
+            {
+                var shader = renderer.GetShaderProgram("DepthMeshShader");
+                renderer.BindShaderProgram(shader);
             }
 
-            var shader = renderer.GetShaderProgram("DepthMeshShader");
-            renderer.BindShaderProgram(shader);
             this.MeshMaterials.ForEach(pair =>
             {
                 var mesh = this.Meshes.GetMesh(pair.MeshName);

@@ -94,7 +94,7 @@ namespace LibGFX.Graphics.Shader
                     return TBN;
                 }
 
-                vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir)
+                vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir, float shadow)
                 {
                     vec3 lightDir = normalize(-light.direction);
                     // diffuse shading
@@ -106,7 +106,9 @@ namespace LibGFX.Graphics.Shader
                     vec3 ambient  = light.ambient * vec3(texture(material.textureSampler, texCoord));
                     vec3 diffuse  = light.lightColor * diff * vec3(texture(material.textureSampler, texCoord));
                     vec3 specular = light.specular * spec * vec3(texture(material.specularSampler, texCoord));
-                    return (ambient + diffuse + specular);
+
+                    vec3 lightning = (ambient + (1.0 -shadow) * (diffuse + specular));
+                    return lightning;
                 }  
 
                 vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir)
@@ -150,7 +152,17 @@ namespace LibGFX.Graphics.Shader
                     float currentDepth = projCoords.z;
                     // check whether current frag pos is in shadow
                     float bias = max(0.05 * (1.0 - dot(normal, lightDir)), 0.005);  
-                    float shadow = currentDepth - bias > closestDepth  ? 1.0 : 0.0; 
+                    float shadow = 0.0;
+                    vec2 texelSize = 1.0 / textureSize(shadowMap, 0);
+                    for(int x = -1; x <= 1; ++x)
+                    {
+                        for(int y = -1; y <= 1; ++y)
+                        {
+                            float pcfDepth = texture(shadowMap, projCoords.xy + vec2(x, y) * texelSize).r; 
+                            shadow += currentDepth - bias > pcfDepth ? 1.0 : 0.0;        
+                        }    
+                    }
+                    shadow /= 9.0;
                     
                     if(projCoords.z > 1.0)
                             shadow = 0.0;
@@ -166,7 +178,8 @@ namespace LibGFX.Graphics.Shader
                     vec3 norm = normalize(TBN*normalMap);
                     vec3 viewDir = normalize(viewPos-position);
 
-                    vec3 result = CalcDirLight(dirLight, norm, viewDir);
+                    float shadow = ShadowCalculation(fragPosLightSpace, normal, dirLight);
+                    vec3 result = CalcDirLight(dirLight, norm, viewDir, shadow);
                     for (int i = 0; i < pointLights.length(); i++) {
                         result += CalcPointLight(pointLights[i], norm, position, viewDir);
                     } 
@@ -174,10 +187,6 @@ namespace LibGFX.Graphics.Shader
                     float alpha = texture(material.textureSampler, texCoord).a;
                     result *= material.vertexColor.rgb;
                     alpha *= material.vertexColor.a;
-
-                   // Apply shadow
-                    float shadow = ShadowCalculation(fragPosLightSpace, normal, dirLight);
-                    result *= (1.0 - shadow);
 
                     fragColor = vec4(result, alpha);
                 }
