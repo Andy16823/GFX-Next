@@ -81,7 +81,6 @@ namespace LibGFX.UI
             this.Camera.Transform.Scale = new Vector3(viewport.Width, viewport.Height, 0);
             this.Transform.Scale = new Vector3(viewport.Width, viewport.Height, 0);
 
-
             // Enable depth test and set the viewport, projection and view matrix
             renderer.DisableDepthTest();
             renderer.SetViewport(viewport);
@@ -92,7 +91,6 @@ namespace LibGFX.UI
             renderer.ResizeRenderTarget(this.RenderTarget, (int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
             renderer.BindRenderTarget(this.RenderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            //renderer.Clear((int)(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit));
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
 
             foreach (var control in this.Controls.Values)

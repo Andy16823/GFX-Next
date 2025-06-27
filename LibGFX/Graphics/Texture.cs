@@ -14,6 +14,9 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics
 {
+    /// <summary>
+    /// Represents the flags for a texture's state.
+    /// </summary>
     [Flags]
     public enum TextureFlags
     {
@@ -24,6 +27,9 @@ namespace LibGFX.Graphics
         Failed
     }
 
+    /// <summary>
+    /// Represents the mirror modes for a texture.
+    /// </summary>
     [Flags]
     public enum TextureMirrorMode
     {
@@ -32,14 +38,53 @@ namespace LibGFX.Graphics
         Vertical = 2
     }
 
+    /// <summary>
+    /// Represents a texture that can be used in rendering.
+    /// </summary>
     public class Texture
     {
+        /// <summary>
+        /// The unique identifier for the texture.
+        /// </summary>
         public int TextureId { get; set; }
+
+        /// <summary>
+        /// The raw texture data in RGBA format.
+        /// </summary>
         public byte[]? TextureData { get; set; }
+
+        /// <summary>
+        /// The width of the texture in pixels.
+        /// </summary>
         public int Width { get; set; }
+
+        /// <summary>
+        /// The height of the texture in pixels.
+        /// </summary>
         public int Height { get; set; }
+
+        /// <summary>
+        /// Flags indicating the state of the texture.
+        /// </summary>
         public TextureFlags Flags { get; set; }
 
+        /// <summary>
+        /// The default UV transform for a texture.
+        /// Scale: (1.0, 1.0), Offset: (0.0, 0.0)
+        /// </summary>
+        public static readonly Vector4 DefaultUVTransform = new Vector4(1.0f, 1.0f, 0.0f, 0.0f);
+
+        /// <summary>
+        /// The default UV scale for a texture.
+        /// Value: (1.0, 1.0)
+        /// </summary>
+        public static readonly Vector2 DefaultUVScale = new Vector2(1.0f, 1.0f);
+
+        /// <summary>
+        /// Loads a texture from a file path.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public static Texture LoadTexture(String path)
         {
             StbImage.stbi_set_flip_vertically_on_load(1);
@@ -54,6 +99,11 @@ namespace LibGFX.Graphics
             return texture;
         }
 
+        /// <summary>
+        /// Loads a texture from a Bitmap object.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
         public static Texture LoadTexture(Bitmap source)
         {
             Texture texture = new Texture()
@@ -66,12 +116,23 @@ namespace LibGFX.Graphics
             return texture;
         }
 
+        /// <summary>
+        /// Creates an empty texture with the specified width and height.
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <returns></returns>
         public static Texture EmptyTexture(int width = 1, int height = 1)
         {
             var bitmap = Utils.CreateEmptyTexture(width, height);
             return LoadTexture(bitmap);
         }
 
+        /// <summary>
+        /// Converts a Bitmap to a byte array in RGBA format.
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <returns></returns>
         private static byte[] ConvertBitmapToByteArray(Bitmap bitmap)
         {
             int width = bitmap.Width;
@@ -238,6 +299,10 @@ namespace LibGFX.Graphics
             return bitmap;
         }
 
+        /// <summary>
+        /// Creates a copy of the texture.
+        /// </summary>
+        /// <returns></returns>
         public Texture Copy()
         {
             Texture copy = new Texture

@@ -84,7 +84,6 @@ namespace LibGFX.Core
         {
             if (this.Visible)
             {
-                Debug.WriteLine($"Rendering shadows for layer: {this.Name}");
                 this.Elements.ForEach(e =>
                 {
                     if (e.CastShadows && e.Visible)

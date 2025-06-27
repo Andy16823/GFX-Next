@@ -110,11 +110,8 @@ namespace LibGFX.UI
             // Render the text to the render target
             renderer.BindRenderTarget(this.RenderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            //renderer.Clear((int)(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit));
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
 
-            //renderer.BindShaderProgram(renderer.GetShaderProgram("RectShader"));
-            //renderer.FillRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y),_color);
             renderer.BindShaderProgram(renderer.GetShaderProgram("FontShader"));
             renderer.DrawString2D(this.Text, new Vector2(0, 0), this.Font, new Vector4(1, 1, 1, 1), this.FontScale, this.Alignment);
             renderer.UnbindShaderProgram();
@@ -127,7 +124,7 @@ namespace LibGFX.UI
 
             // Draw the render target to the screen
             renderer.BindShaderProgram(renderer.GetShaderProgram("SpriteShader"));
-            renderer.DrawTexture(this.Transform, this.RenderTarget.TextureID, new Vector4(1, 1, 1, 1));
+            renderer.DrawTexture(this.Transform, this.RenderTarget.TextureID, new Vector4(1, 1, 1, 1), new Vector4(1, 1, 0, 0), Vector2.One);
             renderer.UnbindShaderProgram();
         }
 

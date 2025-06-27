@@ -419,6 +419,12 @@ namespace LibGFX.Core.GameElements
             }
         }
 
+        /// <summary>
+        /// Renders the model for shadow mapping
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
         public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             base.RenderShadow(scene, viewport, renderer);

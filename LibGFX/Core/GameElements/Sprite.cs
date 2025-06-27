@@ -27,7 +27,7 @@ namespace LibGFX.Core.GameElements
         /// <summary>
         /// The UV transform of the sprite
         /// </summary>
-        public Vector4 UVTransform { get; set; } = Vector4.One;
+        public Vector4 UVTransform { get; set; } = Texture.DefaultUVTransform;
 
         /// <summary>
         /// The UV scale of the sprite

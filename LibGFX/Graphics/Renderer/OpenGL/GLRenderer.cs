@@ -819,12 +819,12 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void DrawTexture(Transform transform, int texture, Vector4 color)
         {
-            DrawTexture(transform, texture, color, Vector4.One);
+            DrawTexture(transform, texture, color, Texture.DefaultUVTransform);
         }
 
         public void DrawTexture(Transform transform, int textureId, Vector4 color, Vector4 uvTransform)
         {
-            DrawTexture(transform, textureId, color, uvTransform, Vector2.One);
+            DrawTexture(transform, textureId, color, uvTransform, Texture.DefaultUVScale);
         }
 
         public void DrawTexture(Transform transform, int textureId, Vector4 color, Vector4 uvTransform, Vector2 uvScale)
