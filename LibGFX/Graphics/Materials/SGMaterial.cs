@@ -68,6 +68,11 @@ namespace LibGFX.Graphics.Materials
         public bool FlipNormal { get; set; } = false;
 
         /// <summary>
+        /// The UV scale of the material.
+        /// </summary>
+        public Vector2 UVScale { get; set; } = Texture.DefaultUVScale;
+
+        /// <summary>
         /// Initializes the material.
         /// </summary>
         /// <param name="renderDevice"></param>
