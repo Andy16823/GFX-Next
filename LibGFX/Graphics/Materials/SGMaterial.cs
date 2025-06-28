@@ -85,9 +85,9 @@ namespace LibGFX.Graphics.Materials
                 return;
             }
 
-            renderDevice.LoadTexture(DiffuseTexture);
-            renderDevice.LoadTexture(NormalTexture);
-            renderDevice.LoadTexture(SpecularTexture);
+            renderDevice.LoadTexture(DiffuseTexture, TextureOptions.Mipmapped);
+            renderDevice.LoadTexture(NormalTexture, TextureOptions.Mipmapped);
+            renderDevice.LoadTexture(SpecularTexture, TextureOptions.Mipmapped);
             Flags = MaterialFlags.Loaded;
         }
 
@@ -100,6 +100,7 @@ namespace LibGFX.Graphics.Materials
             renderDevice.PrepareShader("material.shininess", Shininess);
             renderDevice.PrepareShader("material.vertexColor", Color);
             renderDevice.PrepareShader("material.flipNormal", FlipNormal);
+            renderDevice.PrepareShader("material.uvScale", UVScale);
             if (DiffuseTexture != null)
             {
                 renderDevice.PrepareShader("material.textureSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, DiffuseTexture);

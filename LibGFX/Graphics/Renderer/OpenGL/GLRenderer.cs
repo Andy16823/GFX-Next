@@ -656,6 +656,10 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                     GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, GLMappings.ToGLMinFilter(textureOptions.MinFilter));
                     GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, GLMappings.ToGLMagFilter(textureOptions.MagFilter));
                     GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, texture.Width, texture.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, texture.TextureData);
+                    if (textureOptions.GenerateMipmaps)
+                    {
+                        GL.GenerateMipmap(GenerateMipmapTarget.Texture2D);
+                    }
                     GL.BindTexture(TextureTarget.Texture2D, 0);
                     Debug.WriteLine($"Texture loaded with error {GetError()}");
                     texture.Flags = TextureFlags.Initialized;

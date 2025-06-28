@@ -80,6 +80,7 @@ namespace LibGFX.Graphics.Shader
                     vec4 vertexColor;
                     float shininess;
                     bool flipNormal;
+                    vec2 uvScale;
                 };
                 uniform Material material;
 
@@ -94,7 +95,7 @@ namespace LibGFX.Graphics.Shader
                     return TBN;
                 }
 
-                vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir, float shadow)
+                vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir, float shadow, vec2 texCoords)
                 {
                     vec3 lightDir = normalize(-light.direction);
                     // diffuse shading
@@ -103,15 +104,15 @@ namespace LibGFX.Graphics.Shader
                     vec3 reflectDir = reflect(lightDir, normal);
                     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
                     // combine results
-                    vec3 ambient  = light.ambient * vec3(texture(material.textureSampler, texCoord));
-                    vec3 diffuse  = light.lightColor * diff * vec3(texture(material.textureSampler, texCoord));
-                    vec3 specular = light.specular * spec * vec3(texture(material.specularSampler, texCoord));
+                    vec3 ambient  = light.ambient * vec3(texture(material.textureSampler, texCoords));
+                    vec3 diffuse  = light.lightColor * diff * vec3(texture(material.textureSampler, texCoords));
+                    vec3 specular = light.specular * spec * vec3(texture(material.specularSampler, texCoords));
 
                     vec3 lightning = (ambient + (1.0 -shadow) * (diffuse + specular));
                     return lightning;
                 }  
 
-                vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir)
+                vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir, vec2 texCoords)
                 {
                     vec3 lightPos = light.position.xyz;
                     float constant = light.constantLinearQuadratic.x;
@@ -131,9 +132,9 @@ namespace LibGFX.Graphics.Shader
                     float distance = length(lightPos - fragPos);
                     float attenuation = 1.0 / (constant + linear * distance + quadratic * (distance * distance));    
                     // combine results
-                    vec3 ambient  = lambient * vec3(texture(material.textureSampler, texCoord));
-                    vec3 diffuse  = ldiffuse  * diff * vec3(texture(material.textureSampler, texCoord));
-                    vec3 specular = lspecular * spec * vec3(texture(material.specularSampler, texCoord));
+                    vec3 ambient  = lambient * vec3(texture(material.textureSampler, texCoords));
+                    vec3 diffuse  = ldiffuse  * diff * vec3(texture(material.textureSampler, texCoords));
+                    vec3 specular = lspecular * spec * vec3(texture(material.specularSampler, texCoords));
                     ambient  *= attenuation;
                     diffuse  *= attenuation;
                     specular *= attenuation;
@@ -171,20 +172,22 @@ namespace LibGFX.Graphics.Shader
                 }
 
                 void main() {
-                    
+                    vec2 localUV = fract(texCoord * material.uvScale);                    
+
+
                     mat3 TBN = getTBN(tangent, normal, material.flipNormal);
-                    vec3 normalMap = texture(material.normalSampler, texCoord).rgb;
+                    vec3 normalMap = texture(material.normalSampler, localUV).rgb;
                     normalMap = normalMap*2.0-1.0;
                     vec3 norm = normalize(TBN*normalMap);
                     vec3 viewDir = normalize(viewPos-position);
 
                     float shadow = ShadowCalculation(fragPosLightSpace, normal, dirLight);
-                    vec3 result = CalcDirLight(dirLight, norm, viewDir, shadow);
+                    vec3 result = CalcDirLight(dirLight, norm, viewDir, shadow, localUV);
                     for (int i = 0; i < pointLights.length(); i++) {
-                        result += CalcPointLight(pointLights[i], norm, position, viewDir);
+                        result += CalcPointLight(pointLights[i], norm, position, viewDir, localUV);
                     } 
 
-                    float alpha = texture(material.textureSampler, texCoord).a;
+                    float alpha = texture(material.textureSampler, localUV).a;
                     result *= material.vertexColor.rgb;
                     alpha *= material.vertexColor.a;
 
