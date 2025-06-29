@@ -31,10 +31,12 @@ namespace LibGFX.Graphics.Shader
                 out vec2 texCoord;
                 out vec4 tangent; 
                 out vec4 extras;
+                out vec4 fragPosLightSpace;
 
                 uniform mat4 p_mat;
                 uniform mat4 v_mat;
                 uniform mat4 mesh_matrix;
+                uniform mat4 lightSpaceMatrix;
 
                 void main() {
                     mat4 m_mat = mesh_matrix * modelMatrices[gl_InstanceID]; 
@@ -44,6 +46,7 @@ namespace LibGFX.Graphics.Shader
                     texCoord = inTexCoord;
                     tangent = inTangent;
                     extras = extraBuffer[gl_InstanceID];
+                    fragPosLightSpace = vec4(position, 1.0) * lightSpaceMatrix;
                     gl_Position = vec4(inPosition, 1.0) * mvp;
                 }
             ");
@@ -55,9 +58,11 @@ namespace LibGFX.Graphics.Shader
                 in vec3 normal;
                 in vec2 texCoord;
                 in vec4 tangent;
+                in vec4 fragPosLightSpace;
 
                 out vec4 fragColor;
                 uniform vec3 viewPos;
+                uniform sampler2D shadowMap;
 
                 struct DirLight {
                     vec3 direction;
@@ -100,19 +105,18 @@ namespace LibGFX.Graphics.Shader
                     return TBN;
                 }
 
-                vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir)
+                vec3 CalcDirLight(DirLight light, vec3 normal, float shadow, vec3 viewDir)
                 {
                     vec3 lightDir = normalize(-light.direction);
-                    // diffuse shading
                     float diff = max(dot(normal, lightDir), 0.0);
-                    // specular shading
                     vec3 reflectDir = reflect(lightDir, normal);
                     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
-                    // combine results
                     vec3 ambient  = light.ambient * vec3(texture(material.textureSampler, texCoord));
                     vec3 diffuse  = light.lightColor * diff * vec3(texture(material.textureSampler, texCoord));
                     vec3 specular = light.specular * spec * vec3(texture(material.specularSampler, texCoord));
-                    return (ambient + diffuse + specular);
+
+                    vec3 lightning = (ambient + (1.0 -shadow) * (diffuse + specular));
+                    return lightning;
                 }  
 
                 vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir)
@@ -144,6 +148,31 @@ namespace LibGFX.Graphics.Shader
                     return (ambient + diffuse + specular);
                 } 
 
+                float ShadowCalculation(vec4 fragPosLightSpace, vec3 normal, DirLight light) {
+                    vec3 lightDir = normalize(-light.direction);
+                    vec3 projCoords = fragPosLightSpace.xyz / fragPosLightSpace.w;
+                    projCoords = projCoords * 0.5 + 0.5;
+                    float closestDepth = texture(shadowMap, projCoords.xy).r; 
+                    float currentDepth = projCoords.z;
+                    float bias = max(0.05 * (1.0 - dot(normal, lightDir)), 0.005);  
+                    float shadow = 0.0;
+                    vec2 texelSize = 1.0 / textureSize(shadowMap, 0);
+                    for(int x = -1; x <= 1; ++x)
+                    {
+                        for(int y = -1; y <= 1; ++y)
+                        {
+                            float pcfDepth = texture(shadowMap, projCoords.xy + vec2(x, y) * texelSize).r; 
+                            shadow += currentDepth - bias > pcfDepth ? 1.0 : 0.0;        
+                        }    
+                    }
+                    shadow /= 9.0;
+                    
+                    if(projCoords.z > 1.0)
+                            shadow = 0.0;
+
+                    return shadow;
+                }
+
                 void main() {
                     
                     mat3 TBN = getTBN(tangent, normal, material.flipNormal);
@@ -152,7 +181,8 @@ namespace LibGFX.Graphics.Shader
                     vec3 norm = normalize(TBN*normalMap);
                     vec3 viewDir = normalize(viewPos-position);
 
-                    vec3 result = CalcDirLight(dirLight, norm, viewDir);
+                    float shadow = ShadowCalculation(fragPosLightSpace, normal, dirLight);
+                    vec3 result = CalcDirLight(dirLight, norm, shadow, viewDir);
                     for (int i = 0; i < pointLights.length(); i++) {
                         result += CalcPointLight(pointLights[i], norm, position, viewDir);
                     } 

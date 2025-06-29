@@ -117,7 +117,6 @@ namespace LibGFX.Core.GameElements
             if (scene.LightManager != null)
             {
                 scene.LightManager.BindLights(viewport, renderer, camera);
-                scene.LightManager.BindShadowMap(renderer, "shadowMap", 15);
             }
             renderer.DrawMesh(this.Transform, Mesh, Material);
             scene.RenderStats.IncrementDrawCalls();

@@ -84,6 +84,11 @@ namespace LibGFX.Graphics.Lights
         /// <param name="camera"></param>
         public void BindLights(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
+            // Bind the shadow data
+            renderer.PrepareShader("shadowMap", 6, this.DirectionalLight.ShadowMap.TextureID);
+            renderer.PrepareShader("lightSpaceMatrix", true, _lightViewMatrix);
+
+            // Bind the lightning data
             renderer.PrepareShader("dirLight.direction", DirectionalLight.Direction);
             renderer.PrepareShader("dirLight.lightColor", DirectionalLight.Color.Xyz);
             renderer.PrepareShader("dirLight.lightIntensity", DirectionalLight.Intensity);
@@ -103,7 +108,6 @@ namespace LibGFX.Graphics.Lights
             var chunk = this.GetChunk(camera.Transform.Position.X, camera.Transform.Position.Y, camera.Transform.Position.Z, 10f);
             var culledLights = this.CullChunkLights(camera, viewport, this.ChunkSize);
             renderer.BindBufferData<PointLight3DData>(_pointLightsSSBO, culledLights.ToArray(), true);
-            //Debug.WriteLine($"Culled lights: {culledLights.Count()}");
         }
 
         /// <summary>
@@ -270,18 +274,6 @@ namespace LibGFX.Graphics.Lights
                 return (T)(object)DirectionalLight;
             }
             throw new InvalidOperationException($"Light type {typeof(T).Name} not supported in Light3DManager.");
-        }
-
-        /// <summary>
-        /// Binds the shadow map of the directional light to the shader program.
-        /// </summary>
-        /// <param name="renderDevice"></param>
-        /// <param name="location"></param>
-        /// <param name="textureSlot"></param>
-        public void BindShadowMap(IRenderDevice renderDevice, String location, int textureSlot)
-        {
-            renderDevice.PrepareShader(location, textureSlot, this.DirectionalLight.ShadowMap.TextureID);
-            renderDevice.PrepareShader("lightSpaceMatrix", true, _lightViewMatrix);
         }
 
         /// <summary>

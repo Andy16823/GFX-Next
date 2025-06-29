@@ -459,7 +459,6 @@ namespace LibGFX.Core.GameElements
             if (scene.LightManager != null)
             {
                 scene.LightManager.BindLights(viewport, renderer, camera);
-                scene.LightManager.BindShadowMap(renderer, "shadowMap", 5);
             }
 
             this.MeshMaterials.ForEach(pair =>

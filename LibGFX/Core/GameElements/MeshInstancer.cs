@@ -119,6 +119,15 @@ namespace LibGFX.Core.GameElements
             scene.RenderStats.IncrementDrawCalls();
         }
 
+        public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+        {
+            base.RenderShadow(scene, viewport, renderer);
+
+            renderer.BindShaderProgram(renderer.GetShaderProgram("DepthInstancedShader3D"));
+            renderer.DrawInstances(InstanceContainer, this.Material);
+            renderer.UnbindShaderProgram();
+        }
+
         /// <summary>
         /// Disposes the mesh instancer and its resources.
         /// </summary>

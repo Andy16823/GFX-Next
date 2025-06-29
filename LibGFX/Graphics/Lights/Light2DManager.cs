@@ -234,19 +234,6 @@ namespace LibGFX.Graphics.Lights
         }
 
         /// <summary>
-        /// Binds the shadow map for the directional light to the specified texture slot.
-        /// Note: This method is not implemented for 2D lights as they do not support shadow maps.
-        /// </summary>
-        /// <param name="renderDevice"></param>
-        /// <param name="location"></param>
-        /// <param name="textureSlot"></param>
-        /// <exception cref="NotImplementedException"></exception>
-        public void BindShadowMap(IRenderDevice renderDevice, String location, int textureSlot)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
         /// Sets the light view matrix for the light manager, which is used to transform the light's perspective in the scene.
         /// Note: This method is not implemented for 2D lights as they do not have a light space matrix like 3D lights.
         /// </summary>

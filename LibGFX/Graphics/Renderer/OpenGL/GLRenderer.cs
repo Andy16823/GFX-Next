@@ -61,6 +61,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             AddShaderProgram("ShadowMapTest", new ShadowMapTest());
             AddShaderProgram("DepthMeshShader", new DepthMeshShader());
             AddShaderProgram("AnimatedDepthMeshShader", new AnimatedDepthMeshShader());
+            AddShaderProgram("DepthInstancedShader3D", new DepthInstancedShader3D());
 
             foreach (ShaderProgram program in _programs.Values)
             {

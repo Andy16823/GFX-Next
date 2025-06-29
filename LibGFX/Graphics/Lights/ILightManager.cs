@@ -72,11 +72,5 @@ namespace LibGFX.Graphics.Lights
         /// </summary>
         /// <param name="lightViewMatrix"></param>
         public void SetLightSpaceMatrix(Matrix4 lightViewMatrix);
-
-        /// <summary>
-        /// Binds the shadow map to the render device for rendering shadows in the scene.
-        /// </summary>
-        /// <param name="renderDevice"></param>
-        public void BindShadowMap(IRenderDevice renderDevice, String location, int textureSlot);
     }
 }

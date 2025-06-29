@@ -174,7 +174,6 @@ namespace LibGFX.Graphics.Shader
                 void main() {
                     vec2 localUV = fract(texCoord * material.uvScale);                    
 
-
                     mat3 TBN = getTBN(tangent, normal, material.flipNormal);
                     vec3 normalMap = texture(material.normalSampler, localUV).rgb;
                     normalMap = normalMap*2.0-1.0;
