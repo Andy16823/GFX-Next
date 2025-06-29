@@ -73,6 +73,11 @@ A solid foundation for 2D and 3D projects using modern C#/.NET – flexible, mod
 
 ---
 
+### Architecture Flexibility
+
+GFX-Next provides both ready-to-use standard components (such as Light3DManager, material systems, and loaders) and the ability to develop your own implementations via clearly defined interfaces like ILightManager. The renderer can also be used independently of the other systems. This makes GFX-Next suitable for both rapid prototyping and highly customized solutions.
+
+---
   
 ### **Getting Started**
 Installation Guide for GFX (.NET 8)
