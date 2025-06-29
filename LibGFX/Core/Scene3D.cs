@@ -258,7 +258,7 @@ namespace LibGFX.Core
             var lightTarget = lightPos - (light.Direction.Normalized() * 20.0f);
 
 
-            float near_plane = 1.0f, far_plane = 20.0f;
+            float near_plane = 0.1f, far_plane = 20.0f;
             var lightView = Matrix4.LookAt(lightPos, lightTarget, new Vector3(0, 1, 0));
             var lightProjection = Matrix4.CreateOrthographic(60, 60, near_plane, far_plane);
             var lightSpaceMatrix = lightView * lightProjection;
