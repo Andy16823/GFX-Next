@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 using LibGFX.Core;
 using LibGFX.Graphics.Lights;
 using OpenTK.Mathematics;
-using LibGFX.Pyhsics;
+using LibGFX.Physics;
 using System.Diagnostics;
 using LibGFX.Graphics.Materials;
 using LibGFX.Core.GameElements;
+using LibGFX.Graphics.Renderer.OpenGL;
 
 namespace GFX2DGame
 {
@@ -27,7 +28,7 @@ namespace GFX2DGame
         {
             // Create an new game window
             var viewport = new Viewport(800, 600);
-            _window = GFX.Instance.CreateWindow("GFX", viewport, OpenTK.Windowing.Common.WindowState.Normal);
+            _window = GFX.Instance.CreateWindow("GFX", viewport, Window.WindowState.Normal);
 
             // Load the assets
             var spriteMaterial = GFX.Instance.AssetManager.Load<SpriteMaterial>("Ressources/Logo.png");
@@ -49,6 +50,7 @@ namespace GFX2DGame
             // Add a sprite to the scene
             var sprite = new Sprite("Logo", new Vector2(0.0f, 0.0f), new Vector2(256.0f, 256.0f), spriteMaterial);
             sprite.Shader = _renderer.GetShaderProgram("LitSpriteShader");
+            sprite.UVTransform = new Vector4(1.0f, 1.0f, 0f, 0f);
             _scene.AddGameElement("BASE_LAYER", sprite);
 
             // Create an 2D physics handler with zero gravity

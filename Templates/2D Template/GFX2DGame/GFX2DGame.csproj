@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GFX" Version="1.0.4" />
+    <PackageReference Include="GFX" Version="1.0.7" />
   </ItemGroup>
 
   <ItemGroup>
