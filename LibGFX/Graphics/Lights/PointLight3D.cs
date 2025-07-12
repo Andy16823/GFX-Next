@@ -12,7 +12,6 @@ namespace LibGFX.Graphics.Lights
 {
     /// <summary>
     /// Represents the data structure for a point light for the shader.
-    /// TODO: Add support for shadow maps in the future.
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct PointLight3DData
@@ -65,7 +64,7 @@ namespace LibGFX.Graphics.Lights
         public override float Intensity { get => _intensity; set => SetIntensity(value); }
 
         /// <summary>
-        /// Indicates whether the light has a shadow map.
+        /// Determines if the light has a shadow map.
         /// </summary>
         public override bool HasShadowMap => false;
 

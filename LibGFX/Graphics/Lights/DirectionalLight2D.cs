@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// TODO: Implement shadow mapping for directional lights if needed.
 namespace LibGFX.Graphics.Lights
 {
     /// <summary>
@@ -13,6 +12,9 @@ namespace LibGFX.Graphics.Lights
     /// </summary>
     public class DirectionalLight2D : Light
     {
+        /// <summary>
+        /// Determines if the light has a shadow map.
+        /// </summary>
         public override bool HasShadowMap => false;
 
         /// <summary>
