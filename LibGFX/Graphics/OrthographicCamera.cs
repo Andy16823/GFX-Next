@@ -94,19 +94,69 @@ namespace LibGFX.Graphics
             return Matrix4.LookAt(new Vector3(0f, 0f, 1f), new Vector3(0f, 0f, 0f), new Vector3(0f, 1f, 0f));
         }
 
+        /// <summary>
+        /// Checks if an axis-aligned bounding box (AABB) is within the frustum of the camera.
+        /// Not implemented yet.
+        /// ToDo: Implement proper frustum culling for orthographic camera.
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public override bool IsAABBInFrustum(Viewport viewport, Vector3 min, Vector3 max)
         {
             return true;
         }
 
+        /// <summary>
+        /// Checks if a point is within the frustum of the camera.
+        /// Not implemented yet.
+        /// ToDo: Implement proper frustum culling for orthographic camera.
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="point"></param>
+        /// <returns></returns>
         public override bool IsPointInFrustum(Viewport viewport, Vector3 point)
         {
             return true;
         }
 
+        /// <summary>
+        /// Looks at a target point in 3D space by setting the camera's position to the target.
+        /// </summary>
+        /// <param name="target"></param>
         public override void LookAt(Vector3 target)
         {
             this.Transform.Position = target;
+        }
+
+        /// <summary>
+        /// Converts screen coordinates to world coordinates in 2D space.
+        /// </summary>
+        /// <param name="screenX"></param>
+        /// <param name="screenY"></param>
+        /// <param name="viewport"></param>
+        /// <returns></returns>
+        public Vector2 ScreenToWorld2D(float screenX, float screenY, Viewport viewport)
+        {
+            float ndcX = (screenX / viewport.Width) * 2 - 1;
+            float ndcY = 1 - (screenY / viewport.Height) * 2; // OpenGL's Y-axis is inverted
+            float correction = this.CalculateScreenCorrection(viewport.Width, viewport.Height);
+
+            var clipCoordinates = new Vector4(ndcX, ndcY, 0, 1);
+            var viewMatrix = this.GetViewMatrix();
+            var projectionMatrix = this.GetProjectionMatrix(viewport);
+            var inverseProjectionView = Matrix4.Invert(viewMatrix * projectionMatrix);
+
+            var worldCoordinates = Vector4.TransformRow(clipCoordinates, inverseProjectionView);
+
+            if (worldCoordinates.W != 0.0f)
+            {
+                worldCoordinates.X /= worldCoordinates.W;
+                worldCoordinates.Y /= worldCoordinates.W;
+            }
+
+            return new Vector2(worldCoordinates.X, worldCoordinates.Y);
         }
     }
 }

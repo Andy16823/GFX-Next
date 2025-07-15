@@ -50,6 +50,11 @@ namespace LibGFX.Core.GameElements
         public Animator Animator { get; set; }
 
         /// <summary>
+        /// The bounds of the sprite in 2D space, computed from its transform and scale.
+        /// </summary>
+        public Rect Bounds2D => GetBounds();
+
+        /// <summary>
         /// The mirror mode of the sprite's texture
         /// </summary>
         public TextureMirrorMode MirrorMode { get; set; } = TextureMirrorMode.None;
@@ -283,6 +288,19 @@ namespace LibGFX.Core.GameElements
                 0);
 
             this.AABB = new AABB(min, max);
+        }
+
+        /// <summary>
+        /// Gets the bounds of the sprite in 2D space based on its transform and scale.
+        /// </summary>
+        /// <returns></returns>
+        private Rect GetBounds()
+        {
+            return new Rect(
+                this.Transform.Position.X - this.Transform.Scale.X / 2,
+                this.Transform.Position.Y - this.Transform.Scale.Y / 2,
+                this.Transform.Scale.X,
+                this.Transform.Scale.Y);
         }
     }
 }

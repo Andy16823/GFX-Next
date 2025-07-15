@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\andy1\\source\\repos\\LibGFX\\LibGFX\\LibGFX.csproj": {
-      "version": "1.0.8-dev",
+      "version": "1.0.9.1-beta",
       "restore": {
         "projectUniqueName": "C:\\Users\\andy1\\source\\repos\\LibGFX\\LibGFX\\LibGFX.csproj",
         "projectName": "GFX",
