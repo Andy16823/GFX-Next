@@ -248,6 +248,9 @@ namespace LibGFX.Graphics
             return true;
         }
 
+        /// <summary>
+        /// Computes the axis-aligned bounding box (AABB) of the camera
+        /// </summary>
         public override void ComputeAABB()
         {
             var min = new Vector3(
@@ -263,6 +266,29 @@ namespace LibGFX.Graphics
             );
 
             this.AABB = new AABB(min, max);
+        }
+
+        /// <summary>
+        /// Projects a world position to screen coordinates
+        /// </summary>
+        /// <param name="camera"></param>
+        /// <param name="worldPos"></param>
+        /// <param name="viewport"></param>
+        /// <returns></returns>
+        public static Vector3 WorldToScreen(PerspectiveCamera camera, Vector3 worldPos, Viewport viewport)
+        {
+            var viewMatrix = camera.GetViewMatrix();
+            var projectionMatrix = camera.GetProjectionMatrix(viewport);
+            Vector4 clipSpacePos = new Vector4(worldPos, 1.0f) * viewMatrix * projectionMatrix;
+
+            if (clipSpacePos.W == 0)
+                clipSpacePos.W = 0.0001f;
+
+            var ndc = new Vector3(clipSpacePos.X, clipSpacePos.Y, clipSpacePos.Z) / clipSpacePos.W;
+            float x = ((ndc.X + 1.0f) / 2.0f) * viewport.Width;
+            float y = ((1.0f - ndc.Y) / 2.0f) * viewport.Height;
+
+            return new Vector3(x, y, ndc.Z);
         }
     }
 }
