@@ -1,4 +1,5 @@
 ﻿using LibGFX.Core;
+using LibGFX.Math;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics
 {
-    public abstract class Camera : GameElement
+    public abstract class Camera
     {
         /// <summary>
         /// The current camera
@@ -24,6 +25,16 @@ namespace LibGFX.Graphics
         /// The far plane of the camera
         /// </summary>
         public float Far { get; set; }
+
+        /// <summary>
+        /// The axis-aligned bounding box (AABB) of the camera, used for frustum culling
+        /// </summary>
+        public AABB AABB { get; set; }
+
+        /// <summary>
+        /// The transform of the camera, which includes position, rotation, and scale
+        /// </summary>
+        public Transform Transform { get; set; } = new Transform();
 
         /// <summary>
         /// Gets the view matrix of the camera
@@ -45,6 +56,11 @@ namespace LibGFX.Graphics
         /// <param name="point"></param>
         /// <returns></returns>
         public abstract bool IsPointInFrustum(Viewport viewport, Vector3 point);
+
+        /// <summary>
+        /// Computes the axis-aligned bounding box (AABB) of the camera based on its position and orientation
+        /// </summary>
+        public abstract void ComputeAABB();
 
         /// <summary>
         /// Checks if a axis-aligned bounding box (AABB) is in the frustum of the camera
