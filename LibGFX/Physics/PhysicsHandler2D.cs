@@ -4,9 +4,9 @@ using LibGFX.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using OpenTK.Mathematics;
 
 namespace LibGFX.Physics
 {
@@ -30,7 +30,7 @@ namespace LibGFX.Physics
             var Dispatcher = new CollisionDispatcher(CollisionConfiguration);
             var Broadphase = new DbvtBroadphase();
             this.PhysicsWorld = new DiscreteDynamicsWorld(Dispatcher, Broadphase, null, CollisionConfiguration);
-            this.PhysicsWorld.Gravity = new Vector3(gravity.X, gravity.Y, 0);
+            this.PhysicsWorld.Gravity = (System.Numerics.Vector3)new Vector3(gravity.X, gravity.Y, 0);
         }
 
         /// <summary>
@@ -62,17 +62,37 @@ namespace LibGFX.Physics
                 CollisionObject obB = contactManifold.Body1 as CollisionObject;
                 var elementB = (GameElement)obB.UserObject;
 
+                // Get the contact points
+                var contactPoints = new List<CollisionPoint>();
+                for (int p = 0; p < contactManifold.NumContacts; p++)
+                {
+                    var point = contactManifold.GetContactPoint(p);
+                    contactPoints.Add(new CollisionPoint()
+                    {
+                        LocalPointA = (Vector3)point.LocalPointA,
+                        LocalPointB = (Vector3)point.LocalPointB,
+                        WorldPointA = (Vector3)point.PositionWorldOnA,
+                        WorldPointB = (Vector3)point.PositionWorldOnB,
+                        WorldNormal = (Vector3)point.NormalWorldOnB,
+                        Impulse = point.AppliedImpulse
+                    });
+                }
+
                 Collision collisionA = new Collision()
                 {
                     GameElement = elementB,
-                    Contacts = contactManifold.NumContacts
+                    Contacts = contactManifold.NumContacts,
+                    ContactPoints = contactPoints,
+                    ElementIndex = ElementIndex.A
                 };
                 elementA.Collide(collisionA);
 
                 Collision collisionB = new Collision()
                 {
                     GameElement = elementA,
-                    Contacts = contactManifold.NumContacts
+                    Contacts = contactManifold.NumContacts,
+                    ContactPoints = contactPoints,
+                    ElementIndex = ElementIndex.B
                 };
                 elementB.Collide(collisionB);
             }

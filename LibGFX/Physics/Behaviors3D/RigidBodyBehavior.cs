@@ -42,6 +42,16 @@ namespace LibGFX.Physics.Behaviors
         public Vector3 LinearVelocity { get => this.GetLinearVelocity(); set => this.SetLinearVelocity(value); }
 
         /// <summary>
+        /// Gets or sets the restitution of the rigid body
+        /// </summary>
+        public float Restitution { get => RigidBody.Restitution; set => RigidBody.Restitution = value; }
+
+        /// <summary>
+        /// Gets or sets the friction of the rigid body
+        /// </summary>
+        public float Friction { get => RigidBody.Friction; set => RigidBody.Friction = value; }
+
+        /// <summary>
         /// Creates a new 3D rigid body
         /// </summary>
         /// <param name="physicsHandler"></param>

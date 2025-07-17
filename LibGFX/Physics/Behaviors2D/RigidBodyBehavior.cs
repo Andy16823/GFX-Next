@@ -5,6 +5,7 @@ using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,6 +40,16 @@ namespace LibGFX.Physics.Behaviors2D
         /// The angular factor of the rigid body
         /// </summary>
         public Vector3 AngularVelocity { get => this.GetAngularVelocity(); set => this.SetAngularVelocity(value); }
+
+        /// <summary>
+        /// Gets or sets the restitution of the rigid body
+        /// </summary>
+        public float Restitution { get => RigidBody.Restitution; set => RigidBody.Restitution = value; }
+
+        /// <summary>
+        /// Gets or sets the friction of the rigid body
+        /// </summary>
+        public float Friction { get => RigidBody.Friction; set => RigidBody.Friction = value; }
 
         /// <summary>
         /// Creates a new 2D rigid body behavior
@@ -256,18 +267,18 @@ namespace LibGFX.Physics.Behaviors2D
         /// Applies a impulse to the rigid body
         /// </summary>
         /// <param name="impulse"></param>
-        public void ApplyImpulse(Vector2 impulse)
+        public void ApplyImpulse(Vector2 impulse, Vector3 relpos)
         {
-            this.ApplyImpulse(new Vector3(impulse.X, impulse.Y, 0));
+            this.ApplyImpulse(new Vector3(impulse.X, impulse.Y, 0.0f), relpos);
         }
 
         /// <summary>
         /// Applies a impulse to the rigid body
         /// </summary>
         /// <param name="impulse"></param>
-        public void ApplyImpulse(Vector3 impulse)
+        public void ApplyImpulse(Vector3 impulse, Vector3 relpos)
         {
-            RigidBody.ApplyCentralImpulse((System.Numerics.Vector3) impulse);
+            RigidBody.ApplyImpulse((System.Numerics.Vector3)impulse, (System.Numerics.Vector3)relpos);
         }
 
         /// <summary>

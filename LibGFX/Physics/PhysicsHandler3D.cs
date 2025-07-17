@@ -62,17 +62,36 @@ namespace LibGFX.Physics
                 CollisionObject obB = contactManifold.Body1 as CollisionObject;
                 var elementB = (GameElement)obB.UserObject;
 
+                var contactPoints = new List<CollisionPoint>();
+                for (int p = 0; p < contactManifold.NumContacts; p++)
+                {
+                    var point = contactManifold.GetContactPoint(p);
+                    contactPoints.Add(new CollisionPoint()
+                    {
+                        LocalPointA = (Vector3)point.LocalPointA,
+                        LocalPointB = (Vector3)point.LocalPointB,
+                        WorldPointA = (Vector3)point.PositionWorldOnA,
+                        WorldPointB = (Vector3)point.PositionWorldOnB,
+                        WorldNormal = (Vector3)point.NormalWorldOnB,
+                        Impulse = point.AppliedImpulse
+                    });
+                }
+
                 Collision collisionA = new Collision()
                 {
                     GameElement = elementB,
-                    Contacts = contactManifold.NumContacts
+                    Contacts = contactManifold.NumContacts,
+                    ContactPoints = contactPoints,
+                    ElementIndex = ElementIndex.A
                 };
                 elementA.Collide(collisionA);
 
                 Collision collisionB = new Collision()
                 {
                     GameElement = elementA,
-                    Contacts = contactManifold.NumContacts
+                    Contacts = contactManifold.NumContacts,
+                    ContactPoints = contactPoints,
+                    ElementIndex = ElementIndex.B
                 };
                 elementB.Collide(collisionB);
             }
