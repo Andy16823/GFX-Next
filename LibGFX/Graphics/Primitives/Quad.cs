@@ -17,10 +17,10 @@ namespace LibGFX.Graphics.Primitives
 
             mesh.Vertices = new List<Vertex>
             {
-                new Vertex { Position = new Vector3(-1, -1, 0), TexCoord = new Vector2(0, 0), Normal = new Vector3(0, 0, 1), Tangent = new Vector4(1, 0, 0, 1) },
-                new Vertex { Position = new Vector3( 1, -1, 0), TexCoord = new Vector2(1, 0), Normal = new Vector3(0, 0, 1), Tangent = new Vector4(1, 0, 0, 1) },
-                new Vertex { Position = new Vector3( 1,  1, 0), TexCoord = new Vector2(1, 1), Normal = new Vector3(0, 0, 1), Tangent = new Vector4(1, 0, 0, 1) },
-                new Vertex { Position = new Vector3(-1,  1, 0), TexCoord = new Vector2(0, 1), Normal = new Vector3(0, 0, 1), Tangent = new Vector4(1, 0, 0, 1) }
+                new Vertex { Position = new Vector3(-0.5f, -0.5f, 0.0f), TexCoord = new Vector2(0, 0), Normal = new Vector3(0, 0, 1), Tangent = new Vector4(1, 0, 0, 1) },
+                new Vertex { Position = new Vector3(0.5f, -0.5f, 0.0f), TexCoord = new Vector2(1, 0), Normal = new Vector3(0, 0, 1), Tangent = new Vector4(1, 0, 0, 1) },
+                new Vertex { Position = new Vector3(0.5f, 0.5f, 0.0f), TexCoord = new Vector2(1, 1), Normal = new Vector3(0, 0, 1), Tangent = new Vector4(1, 0, 0, 1) },
+                new Vertex { Position = new Vector3(-0.5f, 0.5f, 0.0f), TexCoord = new Vector2(0, 1), Normal = new Vector3(0, 0, 1), Tangent = new Vector4(1, 0, 0, 1) }
             };
 
             mesh.Indices = new List<int>
