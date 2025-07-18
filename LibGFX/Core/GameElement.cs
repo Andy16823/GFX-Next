@@ -52,6 +52,11 @@ namespace LibGFX.Core
         public List<IGameBehavior> Behaviors { get; set; }
 
         /// <summary>
+        /// A set of tags associated with the game element, used for categorization or filtering.
+        /// </summary>
+        public HashSet<string> Tags { get; private set; }
+
+        /// <summary>
         /// The axis-aligned bounding box (AABB) of the game element.
         /// </summary>
         public AABB AABB { get; set; }
@@ -62,6 +67,7 @@ namespace LibGFX.Core
         protected GameElement()
         {
             this.Behaviors = new List<IGameBehavior>();
+            this.Tags = new HashSet<string>();
             this.ID = Guid.NewGuid();
         }
 
@@ -167,6 +173,34 @@ namespace LibGFX.Core
         public T GetBehavior<T>() where T : IGameBehavior
         {
             return this.Behaviors.OfType<T>().FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Adds a tag to the game element.
+        /// </summary>
+        /// <param name="tag"></param>
+        public void AddTag(string tag)
+        {
+            this.Tags.Add(tag);
+        }
+
+        /// <summary>
+        /// Removes a tag from the game element.
+        /// </summary>
+        /// <param name="tag"></param>
+        public void RemoveTag(string tag)
+        {
+            this.Tags.Remove(tag);
+        }
+
+        /// <summary>
+        /// Checks if the game element has a specific tag.
+        /// </summary>
+        /// <param name="tag"></param>
+        /// <returns></returns>
+        public bool HasTag(string tag)
+        {
+            return this.Tags.Contains(tag);
         }
 
         /// <summary>
