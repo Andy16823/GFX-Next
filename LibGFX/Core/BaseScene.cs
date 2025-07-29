@@ -236,6 +236,17 @@ namespace LibGFX.Core
         }
 
         /// <summary>
+        /// Clears all elements in the scene
+        /// </summary>
+        public virtual void ClearElements()
+        {
+            foreach (var layer in this.Layers)
+            {
+                layer.Elements.Clear();
+            }
+        }
+
+        /// <summary>
         /// Adds a scene behavior to the scene
         /// </summary>
         /// <typeparam name="T"></typeparam>

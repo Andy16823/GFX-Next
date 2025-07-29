@@ -58,6 +58,7 @@ namespace LibGFX.Graphics.Shader
                 in vec3 normal;
                 in vec2 texCoord;
                 in vec4 tangent;
+                in vec4 extras;
                 in vec4 fragPosLightSpace;
 
                 out vec4 fragColor;
@@ -174,6 +175,10 @@ namespace LibGFX.Graphics.Shader
                 }
 
                 void main() {
+
+                    if(extras.x == 0.0) {
+                        discard;
+                    }
                     
                     mat3 TBN = getTBN(tangent, normal, material.flipNormal);
                     vec3 normalMap = texture(material.normalSampler, texCoord).rgb;

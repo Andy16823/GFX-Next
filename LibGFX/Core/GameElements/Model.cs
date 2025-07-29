@@ -21,12 +21,14 @@ using Light = LibGFX.Graphics.Lights.Light;
 
 namespace LibGFX.Core.GameElements
 {
+    /// <summary>
+    /// Represents a pair of mesh name and material index.
+    /// </summary>
     public struct MeshMaterialPair
     {
         public String MeshName;
         public int MaterialIndex;
     }
-
 
     /// <summary>
     /// Represents a 3D model
@@ -555,6 +557,10 @@ namespace LibGFX.Core.GameElements
             return null;
         }
 
+        /// <summary>
+        /// Updates the model's state, including animations if applicable.
+        /// </summary>
+        /// <param name="scene"></param>
         public override void Update(BaseScene scene)
         {
             base.Update(scene);
@@ -569,6 +575,9 @@ namespace LibGFX.Core.GameElements
             }
         }
 
+        /// <summary>
+        /// Computes the Axis-Aligned Bounding Box (AABB) for the model based on its meshes.
+        /// </summary>
         public override void ComputeAABB()
         {
             if(this.Meshes.Count == 0)
@@ -590,6 +599,22 @@ namespace LibGFX.Core.GameElements
             }
 
             this.AABB = new AABB(min, max);
+        }
+
+        /// <summary>
+        /// Gets the meshes and their materials for rendering.
+        /// </summary>
+        /// <returns></returns>
+        public override (Graphics.Mesh, IMaterial)[]? GetMeshes()
+        {
+            var meshes = new List<(Graphics.Mesh, IMaterial)>();
+            this.MeshMaterials.ForEach(pair =>
+            {
+                var mesh = this.Meshes.GetMesh(pair.MeshName);
+                var material = this.Materials.GetMaterial(pair.MaterialIndex);
+                meshes.Add((mesh, material));
+            });
+            return meshes.ToArray();
         }
     }
 }
