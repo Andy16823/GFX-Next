@@ -73,6 +73,16 @@ namespace LibGFX.Core
         }
 
         /// <summary>
+        /// Finds a layer by name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public virtual Layer? FindLayer(string name)
+        {
+            return this.Layers.FirstOrDefault(layer => layer.Name == name);
+        }
+
+        /// <summary>
         /// Gets all elements in the scene
         /// </summary>
         /// <returns></returns>
@@ -110,12 +120,10 @@ namespace LibGFX.Core
         {
             foreach (var layer in Layers)
             {
-                foreach (var element in layer.Elements)
+                var element = layer.FindElementByID(id);
+                if (element != null)
                 {
-                    if (element.ID.ToString() == id)
-                    {
-                        return element;
-                    }
+                    return element;
                 }
             }
             return null;
@@ -130,25 +138,31 @@ namespace LibGFX.Core
         {
             foreach (var layer in Layers)
             {
-                foreach (var element in layer.Elements)
+                var element = layer.FindElementByID(id);
+                if (element != null)
                 {
-                    if (element.ID.GetHashCode() == id)
-                    {
-                        return element;
-                    }
+                    return element;
                 }
             }
             return null;
         }
 
         /// <summary>
-        /// Finds a layer by name
+        /// Finds an element by a predicate
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="predicate"></param>
         /// <returns></returns>
-        public virtual Layer? FindLayer(string name)
+        public GameElement? FindElement(Func<GameElement, bool> predicate)
         {
-            return this.Layers.FirstOrDefault(layer => layer.Name == name);
+            foreach (var layer in Layers)
+            {
+                var element = layer.FindElement(predicate);
+                if (element != null)
+                {
+                    return element;
+                }
+            }
+            return null;
         }
 
         /// <summary>
@@ -180,11 +194,7 @@ namespace LibGFX.Core
             var layer = this.FindLayer(layerName);
             if(layer != null)
             {
-                var element = layer.FindElement(name);
-                if(element != null)
-                {
-                    return element;
-                }
+                return layer.FindElement(name);
             }
             return null;
         }
@@ -195,18 +205,27 @@ namespace LibGFX.Core
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public virtual ICollection<GameElement> FindElements<T>()
+        public virtual ICollection<GameElement> FindElements<T>() where T : GameElement
         {
             List<GameElement> elements = new List<GameElement>();
             this.Layers.AsParallel().ForAll(layer =>
             {
-                foreach (var element in layer.Elements)
-                {
-                    if (element is T)
-                    {
-                        elements.Add(element);
-                    }
-                }
+                elements.AddRange(layer.FindElements<T>());
+            });
+            return elements;
+        }
+
+        /// <summary>
+        /// Finds all elements that match a specific predicate
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public virtual ICollection<GameElement> FindElements(Func<GameElement, bool> predicate)
+        {
+            List<GameElement> elements = new List<GameElement>();
+            this.Layers.AsParallel().ForAll(layer =>
+            {
+                elements.AddRange(layer.FindElements(predicate));
             });
             return elements;
         }
@@ -217,22 +236,43 @@ namespace LibGFX.Core
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public virtual ICollection<GameElement> FindElementsWithBehaviors<T>()
+        public virtual ICollection<GameElement> FindElementsWithBehaviors<T>() where T : IGameBehavior
         {
             List<GameElement> elements = new List<GameElement>();
 
             this.Layers.AsParallel().ForAll(layer =>
             {
-                foreach (var element in layer.Elements)
-                {
-                    if (element.Behaviors.Any(b => b is T))
-                    {
-                        elements.Add(element);
-                    }
-                }
+                elements.AddRange(layer.FindElementsWithBehaviors<T>());
             });
 
             return elements;
+        }
+
+        /// <summary>
+        /// Finds all elements with a specific tag
+        /// </summary>
+        /// <param name="tag"></param>
+        /// <returns></returns>
+        public virtual ICollection<GameElement> FindElementsWithTag(String tag)
+        {
+            List<GameElement> elements = new List<GameElement>();
+            this.Layers.AsParallel().ForAll(layer =>
+            {
+                elements.AddRange(layer.FindElementsWithTag(tag));
+            });
+            return elements;
+        }
+
+        /// <summary>
+        /// Removes an element from the scene
+        /// </summary>
+        /// <param name="element"></param>
+        public virtual void RemoveElement(GameElement element)
+        {
+            this.Layers.AsParallel().ForAll(layer =>
+            {
+                layer.TryRemoveElement(element);
+            });
         }
 
         /// <summary>
@@ -263,7 +303,7 @@ namespace LibGFX.Core
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public virtual T GetSceneBehavior<T>() where T : ISceneBehavior
+        public virtual T? GetSceneBehavior<T>() where T : ISceneBehavior
         {
             return this.SceneBehaviors.OfType<T>().FirstOrDefault();
         }

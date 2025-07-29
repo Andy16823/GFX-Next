@@ -69,7 +69,10 @@ namespace LibGFX.Core
             if (this.Visible)
             {
                 this.Elements.ForEach(e => {
-                    e.Render(scene, viewport, renderer, camera); 
+                    if (e.Visible)
+                    {
+                        e.Render(scene, viewport, renderer, camera);
+                    }
                 });
             }
         }
@@ -130,6 +133,101 @@ namespace LibGFX.Core
         public GameElement? FindElement(String name)
         {
             return this.Elements.FirstOrDefault(e => e.Name == name);
+        }
+
+        /// <summary>
+        /// Finds an element by ID using its hash code
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public GameElement? FindElementByID(int id)
+        {
+            return this.Elements.FirstOrDefault(e => e.ID.GetHashCode() == id);
+        }
+
+        /// <summary>
+        /// Finds an element by ID as a string representation of the GUID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public GameElement? FindElementByID(String id)
+        {
+            return this.Elements.FirstOrDefault(e => e.ID.ToString() == id);
+        }
+
+        /// <summary>
+        /// Finds an element by a predicate
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public GameElement? FindElement(Func<GameElement, bool> predicate)
+        {
+            return this.Elements.FirstOrDefault(predicate);
+        }
+
+        /// <summary>
+        /// Finds an element by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public GameElement? FindElement(Guid id)
+        {
+            return this.Elements.FirstOrDefault(e => e.ID == id);
+        }
+
+        /// <summary>
+        /// Finds all elements with a specific tag
+        /// </summary>
+        /// <param name="tag"></param>
+        /// <returns></returns>
+        public ICollection<GameElement> FindElementsWithTag(String tag)
+        {
+            return this.Elements.Where(e => e.Tags.Contains(tag)).ToList();
+        }
+
+        /// <summary>
+        /// Finds all elements that match a specific predicate
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public ICollection<GameElement> FindElements(Func<GameElement, bool> predicate)
+        {
+            return this.Elements.Where(predicate).ToList();
+        }
+
+        /// <summary>
+        /// Finds all elements with a specific behavior type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public ICollection<GameElement> FindElementsWithBehaviors<T>() where T : IGameBehavior
+        {
+            return this.Elements.Where(e => e.Behaviors.Any(b => b is T)).ToList();
+        }
+
+        /// <summary>
+        /// Finds all elements of a specific type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public ICollection<GameElement> FindElements<T>() where T : GameElement
+        {
+            return this.Elements.Where(e => e is T).ToList();
+        }
+
+        /// <summary>
+        /// Tries to add an element to the layer
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
+        public bool TryRemoveElement(GameElement element)
+        {
+            if (this.Elements.Contains(element))
+            {
+                this.Elements.Remove(element);
+                return true;
+            }
+            return false;
         }
     }
 }
