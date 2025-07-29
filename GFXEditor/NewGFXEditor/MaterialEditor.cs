@@ -21,26 +21,41 @@ using System.Windows.Forms;
 
 namespace NewGFXEditor
 {
+    public struct MaterialObject
+    {
+        public Mesh mesh;
+        public SGMaterial material;
+    }
+
+    /// <summary>
+    /// MaterialEditor is a form that allows users to edit and preview materials.
+    /// </summary>
     public partial class MaterialEditor : Form
     {
+        /// <summary>
+        /// Gets or sets the material preview bitmap.
+        /// </summary>
         public Bitmap MaterialPreview { get; set; }
 
         EditorPanel3D _editorPanel3D;
-        SGMaterial _material;
-        Mesh _mesh;
+        MaterialObject _materialObject;
         PerspectiveCamera _camera;
         Transform _transform;
-        DirectionalLight _light;
+        DirectionalLight3D _light;
         bool _dragCamera = false;
         Vector2 _mousePos = Vector2.Zero;
         Form1 _parent;
 
         RenderTarget _renderTarget;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MaterialEditor"/> class.
+        /// </summary>
+        /// <param name="parent"></param>
+        /// <param name="material"></param>
         public MaterialEditor(Form1 parent, SGMaterial material)
         {
             InitializeComponent();
-
             _parent = parent;
 
             var imageList = new ImageList();
@@ -89,14 +104,16 @@ namespace NewGFXEditor
             _camera = new PerspectiveCamera(new Vector3(0f, 0f, -2.5f), new Vector3(800, 600, 0));
             _camera.LookAt(new Vector3(0, 0, 0));
 
-            _mesh = new Sphere().GetMesh();
+            _materialObject = new MaterialObject();
+
+            _materialObject.mesh = new Sphere().GetMesh();
             _transform = new Transform();
             _transform.Position = new Vector3(0, 0, 0);
             _transform.Scale = new Vector3(1.5f, 1.5f, 1.5f);
 
-            _material = material;
+            _materialObject.material = material;
 
-            _light = new DirectionalLight(new Vector3(0f, 5f, -5f), new Vector4(1, 1, 1, 1), 1.5f);
+            _light = new DirectionalLight3D(new Vector3(0f, 5f, -5f), new Vector4(1, 1, 1, 1), 1.5f);
         }
 
         private void EditorPanel3D_OnMouseUp(object sender, MouseEventArgs e)
@@ -150,7 +167,7 @@ namespace NewGFXEditor
             renderer.PrepareShader("dirLight.ambient", _light.Ambient);
             renderer.PrepareShader("dirLight.specular", _light.Specular);
             renderer.PrepareShader("viewPos", _camera.Transform.Position);
-            renderer.DrawMesh(_transform, _mesh, _material);
+            renderer.DrawMesh(_transform, _materialObject.mesh, _materialObject.material);
             renderer.UnbindShaderProgram();
             renderer.DisableDepthTest();
             renderer.UnbindRenderTarget();
@@ -185,15 +202,9 @@ namespace NewGFXEditor
         private void EditorPanel3D_EditorLoaded(object sender, EventArgs e)
         {
             var viewport = _editorPanel3D.Viewport;
-            var renderTargetDescriptor = new RenderTargetDescriptor()
-            {
-                Width = viewport.Width,
-                Height = viewport.Height,
-                Border = 0
-            };
-            _renderTarget = _editorPanel3D.Renderer.CreateRenderTarget(renderTargetDescriptor);
+            _renderTarget = _editorPanel3D.Renderer.CreateRenderTarget(RenderTargetDescriptor.Default(viewport.Width, viewport.Height));
 
-            _editorPanel3D.Renderer.LoadMesh(_mesh);
+            _editorPanel3D.Renderer.LoadMesh(_materialObject.mesh);
         }
 
         private void MaterialEditor_Load(object sender, EventArgs e)
@@ -210,7 +221,7 @@ namespace NewGFXEditor
         {
             _editorPanel3D.Dispose();
             _editorPanel3D.Renderer.DisposeRenderTarget(_renderTarget);
-            _editorPanel3D.Renderer.DisposeMesh(_mesh);
+            _editorPanel3D.Renderer.DisposeMesh(_materialObject.mesh);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -221,7 +232,7 @@ namespace NewGFXEditor
             var bitmap = Utils.ByteBGRAToBitmap(pixeldata, size.X, size.Y);
             this.pictureBox1.Image = bitmap;
 
-            _parent.SetMaterialThumbnail(_material.Name, bitmap);
+            _parent.SetMaterialThumbnail(_materialObject.material.Name, bitmap);
         }
     }
 }

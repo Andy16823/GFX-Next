@@ -16,7 +16,7 @@
           "StirlingLabs.Assimp.Net": "23.4.1",
           "StirlingLabs.assimp.native.win-x64": "5.2.5.4",
           "System.Drawing.Common": "9.0.4",
-          "LibGFX": "1.0.2.0"
+          "LibGFX": "1.0.7.0"
         },
         "runtime": {
           "NewGFXEditor.dll": {}
@@ -277,11 +277,11 @@
         }
       },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
-      "LibGFX/1.0.2.0": {
+      "LibGFX/1.0.7.0": {
         "runtime": {
           "LibGFX.dll": {
-            "assemblyVersion": "1.0.2.0",
-            "fileVersion": "1.0.2.0"
+            "assemblyVersion": "1.0.7.0",
+            "fileVersion": "1.0.7.0"
           }
         }
       }
@@ -447,7 +447,7 @@
       "path": "system.runtime.compilerservices.unsafe/6.0.0",
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
     },
-    "LibGFX/1.0.2.0": {
+    "LibGFX/1.0.7.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

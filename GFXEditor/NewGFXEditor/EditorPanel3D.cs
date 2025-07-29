@@ -3,6 +3,7 @@ using LibGFX.Core;
 using LibGFX.Graphics;
 using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.Materials;
+using LibGFX.Graphics.Renderer.OpenGL;
 using OpenTK.GLControl;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Desktop;

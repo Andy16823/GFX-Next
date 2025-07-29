@@ -16,6 +16,8 @@ namespace NewGFXEditor.Editor
         public Vector4 VertexColor { get; set; }
         public bool Hovered { get; set; } = false;
 
+        public Guid ID => Guid.NewGuid();
+
         public void Dispose(IRenderDevice renderDevice)
         {
             this.Flags = MaterialFlags.Disposed;

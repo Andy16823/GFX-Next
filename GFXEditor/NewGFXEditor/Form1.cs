@@ -9,8 +9,8 @@ using LibGFX.Graphics.Enviroment;
 using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Primitives;
-using LibGFX.Pyhsics;
-using LibGFX.Pyhsics.Behaviors3D;
+using LibGFX.Math;
+using LibGFX.Physics;
 using LibGFX.UI;
 using NewGFXEditor.Editor;
 using OpenTK.GLControl;
@@ -33,14 +33,13 @@ namespace NewGFXEditor
         public AssetManager AssetManager { get => _assetManager; }
         public Gizmo TransformGizmo { get; set; }
 
-        PhysicsHandler3D _phyisicHandler3D;
         AssetManager _assetManager;
         EditorPanel3D _editorPanel3D;
         bool _dragCamera = false;
         Vector2 _mousePos;
         GameElement _selectedElement = null;
-        ColorIDPicker _colorIDPicker = new ColorIDPicker();
         Layer _selectedLayer = null;
+        PhysicsHandler3D _phyisicHandler3D;
 
         public Form1()
         {
@@ -101,6 +100,19 @@ namespace NewGFXEditor
             return quad;
         }
 
+        public Model LoadModel(String path, Vector3 position, Vector3 scale, Vector3 rotation)
+        {
+            var model = _assetManager.Load<Model>(path);
+            if (model != null)
+            {
+                model.Transform.Position = position;
+                model.Transform.Scale = scale;
+                model.Transform.Rotate(rotation);
+                return model;
+            }
+            return null;
+        }
+
         public void SetMaterialThumbnail(String materialName, Bitmap bitmap)
         {
             if (this.materialImageList.Images.ContainsKey(materialName))
@@ -125,7 +137,14 @@ namespace NewGFXEditor
             bool setNewMousePos = false;
             if (TransformGizmo.ActiveAxis != GizmoActiveAxis.None)
             {
-                TransformGizmo.MoveAlongAxis2D((PerspectiveCamera)Camera, _editorPanel3D.Viewport, (int)_mousePos.X, (int)_mousePos.Y, e.X, e.Y);
+                if (TransformGizmo.Type == GizmoType.Translation)
+                {
+                    TransformGizmo.MoveAlongAxis2D((PerspectiveCamera)Camera, _editorPanel3D.Viewport, (int)_mousePos.X, (int)_mousePos.Y, e.X, e.Y);
+                }
+                else if (TransformGizmo.Type == GizmoType.Scale)
+                {
+                    TransformGizmo.ScaleAlongAxis((PerspectiveCamera)Camera, _editorPanel3D.Viewport, (int)_mousePos.X, (int)_mousePos.Y, e.X, e.Y);
+                }
                 setNewMousePos = true;
             }
 
@@ -163,26 +182,63 @@ namespace NewGFXEditor
                 }
                 else
                 {
-                    ColorPickResult result;
-                    GameElement element;
-                    _colorIDPicker.PerformScenePick(Scene, e.X, e.Y, out result, out element);
-
-                    if (result.Success)
+                    var pickedElement = PickElement((PerspectiveCamera)Camera, Scene.GetAllElements(), e.X, e.Y, _editorPanel3D.Viewport);
+                    if (pickedElement != null)
                     {
-                        _selectedElement = element;
+                        _selectedElement = pickedElement;
                         this.propertyGrid1.SelectedObject = _selectedElement;
-                        this.TransformGizmo.Enabled = true;
                         this.TransformGizmo.Transform.Position = _selectedElement.Transform.Position;
+                        this.TransformGizmo.Enabled = true;
                     }
                     else
                     {
-                        this.TransformGizmo.Enabled = false;
                         _selectedElement = null;
+                        this.propertyGrid1.SelectedObject = null;
+                        this.TransformGizmo.Enabled = false;
                     }
                 }
             }
         }
 
+        /// <summary>
+        /// Pick an element from the scene based on the mouse position and camera view.
+        /// </summary>
+        /// <param name="camera"></param>
+        /// <param name="elements"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="viewport"></param>
+        /// <returns></returns>
+        private GameElement? PickElement(PerspectiveCamera camera, IEnumerable<GameElement> elements, int x, int y, Viewport viewport)
+        {
+            // var hit = MeshRaycast.IntersectsMesh(ray, element.Transform, m.Item1);
+            // var matrix = m.Item1.GetTransform() * element.Transform.GetMatrix();
+            // var aabb = AABB.TransformAABB(element.AABB, matrix);
+
+            var minDist = float.MaxValue;
+            GameElement hitElement = null;
+            var ray = MeshRaycast.ScreenPointToWorldRay(camera, viewport, x, y);
+            foreach (var element in elements)
+            {
+                var meshMaterials = element.GetMeshes();
+                if (meshMaterials == null)
+                {
+                    continue;
+                }
+
+                foreach (var meshMaterial in meshMaterials)
+                {
+                    var mesh = meshMaterial.Item1;
+                    var hit = MeshRaycast.IntersectsMesh(ray, element.Transform, mesh);
+                    if (hit.Hit && hit.Distance < minDist)
+                    {
+                        minDist = hit.Distance;
+                        hitElement = element;
+                    }
+                }
+            }
+            return hitElement;
+        }
 
         private void EditorPanel3D_BeforeRender(object sender, EventArgs e)
         {
@@ -194,11 +250,7 @@ namespace NewGFXEditor
         {
             _phyisicHandler3D.Process(Scene);
             this.Scene.Render(_editorPanel3D.Viewport, _editorPanel3D.Renderer, Camera);
-
             this.TransformGizmo.RenderGizmo(_editorPanel3D.Renderer, Camera, _editorPanel3D.Viewport);
-
-            _colorIDPicker.PrepareSceneForPicking(_editorPanel3D.Renderer, _editorPanel3D.Viewport, Camera, Scene);
-
             this.pictureBox1.Image = this.TransformGizmo.Picker.FramebufferToBitmap();
         }
         private void EditorPanel3D_AfterRender(object sender, EventArgs e)
@@ -231,6 +283,9 @@ namespace NewGFXEditor
             }
         }
 
+        /// <summary>
+        /// Create the initial assets and setup the scene.
+        /// </summary>
         private void LoadStartupAssets()
         {
             // Create the 3D Cameara
@@ -240,32 +295,29 @@ namespace NewGFXEditor
 
             // Creates an 3D Scene
             var scene3d = new Scene3D("BASE_LAYER", "OBJECT_LAYER", "PLAYER_LAYER", "AI_LAYER");
-            scene3d.Sun = new DirectionalLight(new Vector3(-0.2f, 1.0f, -0.3f), new Vector4(1, 1, 1, 1), 1.5f);
+            scene3d.DirectionalLight = new DirectionalLight3D(new Vector3(-0.2f, 1.0f, -0.3f), new Vector4(1, 1, 1, 1), 1.5f);
             Scene = scene3d;
 
+            // Create an procedural sky for the environment
             scene3d.Enviroment = new ProceduralSky();
 
             // Create the physics handler
             _phyisicHandler3D = new PhysicsHandler3D(Vector3.Zero);
             scene3d.PhysicsHandler = _phyisicHandler3D;
 
-            var blankDiffuseBitmap = Utils.CreateEmptyTexture(1, 1);
-            var blankNormalBitmap = Utils.CreateEmptyNormalMap(1, 1);
-
-            // Load assets
-            var blankMaterial = new SGMaterial();
-            blankMaterial.Name = "e_BlankMaterial";
-            blankMaterial.DiffuseTexture = Texture.LoadTexture(blankDiffuseBitmap);
-            blankMaterial.NormalTexture = Texture.LoadTexture(blankNormalBitmap);
-            blankMaterial.SpecularTexture = Texture.LoadTexture(blankDiffuseBitmap);
+            // Create an defaul material and add it to the asset manager
+            var blankMaterial = SGMaterial.CreateDefaultMaterial("e_BlankMaterial");
             _assetManager.AddAsset<SGMaterial>(blankMaterial.Name, blankMaterial);
 
+            // Create an cube mesh
             var cubeMesh = new Cube().GetMesh();
             _assetManager.AddAsset<Mesh>("e_CubeMesh", cubeMesh);
 
+            // Create an sphere mesh
             var sphereMesh = new Sphere().GetMesh();
             _assetManager.AddAsset<Mesh>("e_SphereMesh", sphereMesh);
 
+            // Create an plane mesh
             var planeMesh = new Quad().GetMesh();
             _assetManager.AddAsset<Mesh>("e_PlaneMesh", planeMesh);
 
@@ -276,8 +328,34 @@ namespace NewGFXEditor
             // Load Gizmos
             TransformGizmo = new Gizmo("Assets/Gizmos/Transform/TransformGizmo.obj");
             TransformGizmo.GizmoMoved += TransformGizmo_GizmoMoved;
+            TransformGizmo.GizmoScaled += TransformGizmo_GizmoScaled;
         }
 
+        private void TransformGizmo_GizmoScaled(float scaleFactor)
+        {
+            Debug.WriteLine($"Gizmo scaled with factor: {scaleFactor}");
+            if (_selectedElement != null)
+            {
+                if (TransformGizmo.ActiveAxis == GizmoActiveAxis.X)
+                {
+                    _selectedElement.Transform.Scale += new Vector3(scaleFactor, 0, 0);
+                }
+                else if (TransformGizmo.ActiveAxis == GizmoActiveAxis.Y)
+                {
+                    _selectedElement.Transform.Scale += new Vector3(0, scaleFactor, 0);
+                }
+                else if (TransformGizmo.ActiveAxis == GizmoActiveAxis.Z)
+                {
+                    _selectedElement.Transform.Scale += new Vector3(0, 0, scaleFactor);
+                }
+                _editorPanel3D.Redraw();
+            }
+        }
+
+        /// <summary>
+        /// Event handler for when the transform gizmo is moved.
+        /// </summary>
+        /// <param name="newPosition"></param>
         private void TransformGizmo_GizmoMoved(Vector3 newPosition)
         {
             if (_selectedElement != null)
@@ -286,6 +364,9 @@ namespace NewGFXEditor
             }
         }
 
+        /// <summary>
+        /// Updates the GUI elements such as the scene tree, material list view, and layers combobox.
+        /// </summary>
         private void UpdateGUI()
         {
             this.UpdateSceneTree();
@@ -293,6 +374,9 @@ namespace NewGFXEditor
             this.UpdateLayersCombobox();
         }
 
+        /// <summary>
+        /// Updates the scene tree view to reflect the current state of the scene.
+        /// </summary>
         private void UpdateSceneTree()
         {
             this.treeView1.Nodes.Clear();
@@ -314,6 +398,9 @@ namespace NewGFXEditor
             this.treeView1.ExpandAll();
         }
 
+        /// <summary>
+        /// Updates the material list view with the materials from the asset manager.
+        /// </summary>
         private void UpdateMaterialListView()
         {
             this.materialListView.Items.Clear();
@@ -330,6 +417,9 @@ namespace NewGFXEditor
 
         }
 
+        /// <summary>
+        /// Updates the layers combobox with the names of the layers in the scene.
+        /// </summary>
         private void UpdateLayersCombobox()
         {
             this.layerComboBox.Items.Clear();
@@ -348,26 +438,34 @@ namespace NewGFXEditor
             }
         }
 
+        /// <summary>
+        /// Event handler for when the editor panel is loaded.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditorPanel3D_EditorLoaded(object sender, EventArgs e)
         {
+            // Initialize the materials within the asset manager
             _assetManager.ForeachAsset<IMaterial>(material =>
             {
                 material.Init(_editorPanel3D.Renderer);
             });
 
+            // Initialize the meshes within the asset manager
             _assetManager.ForeachAsset<Mesh>(mesh =>
             {
                 _editorPanel3D.Renderer.LoadMesh(mesh);
             });
 
+            // Initilize the scene
             this.Scene.Init(_editorPanel3D.Viewport, _editorPanel3D.Renderer);
 
+            // Create the physics debug drawer
             _phyisicHandler3D.PhysicsWorld.DebugDrawer = new DebugDrawer(_editorPanel3D.Renderer);
             _phyisicHandler3D.PhysicsWorld.DebugDrawer.DebugMode = BulletSharp.DebugDrawModes.DrawAabb;
             _phyisicHandler3D.DebugPhysics = true;
 
-            _colorIDPicker.Init(_editorPanel3D.Renderer, _editorPanel3D.Viewport);
-
+            // Initialize the transform gizmo
             TransformGizmo.Init(_editorPanel3D.Renderer, _editorPanel3D.Viewport);
         }
 
@@ -539,7 +637,6 @@ namespace NewGFXEditor
             });
 
             Scene.DisposeScene(renderer);
-            _colorIDPicker.Dispose(renderer);
             TransformGizmo.Dispose(renderer);
             renderer.Dispose();
         }
@@ -610,7 +707,7 @@ namespace NewGFXEditor
 
         private void editScaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(_selectedElement != null)
+            if (_selectedElement != null)
             {
                 var vec3Editor = new Vec3Editor(_selectedElement.Transform.Scale);
                 if (vec3Editor.ShowDialog() == DialogResult.OK)
@@ -619,6 +716,45 @@ namespace NewGFXEditor
                     _editorPanel3D.Redraw();
                 }
             }
+        }
+
+        private void gizmoModeTranslateBtn_Click(object sender, EventArgs e)
+        {
+            TransformGizmo.Type = GizmoType.Translation;
+        }
+
+        private void gizmoModeScaleBtn_Click(object sender, EventArgs e)
+        {
+            TransformGizmo.Type = GizmoType.Scale;
+        }
+
+        private void modelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var ofd = new OpenFileDialog();
+            ofd.Filter = "Model Files|*.obj;*.fbx;*.gltf;*.glb";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                var model = LoadModel(ofd.FileName, new Vector3(0, 0, 0), new Vector3(1, 1, 1), Vector3.Zero);
+                Scene.AddGameElement(_selectedLayer.Name, model);
+                model.Init(Scene, _editorPanel3D.Viewport, _editorPanel3D.Renderer);
+                _editorPanel3D.Redraw();
+                this.UpdateGUI();
+            }
+        }
+
+        private void createToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(_selectedElement != null)
+            {
+                _selectedElement.Dispose(Scene, _editorPanel3D.Renderer);
+                Scene.RemoveElement(_selectedElement);
+            }
+            this.UpdateGUI();
         }
     }
 }

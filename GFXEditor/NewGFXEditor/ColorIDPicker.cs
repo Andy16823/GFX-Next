@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibGFX.Graphics.Materials;
+using System.Diagnostics;
 
 namespace NewGFXEditor
 {
@@ -123,13 +124,7 @@ namespace NewGFXEditor
         /// <param name="viewport"></param>
         public void Init(IRenderDevice renderer, Viewport viewport)
         {
-            var renderTargetDescriptor = new RenderTargetDescriptor()
-            {
-                Width = viewport.Width,
-                Height = viewport.Height,
-                Border = 0
-            };
-            RenderTarget = renderer.CreateRenderTarget(renderTargetDescriptor);
+            RenderTarget = renderer.CreateRenderTarget(RenderTargetDescriptor.Default(viewport.Width, viewport.Height));
 
 
             if (!renderer.ExistsShaderProgram("ColorIDShader"))
@@ -238,7 +233,6 @@ namespace NewGFXEditor
             renderer.UnbindShaderProgram();
             renderer.UnbindRenderTarget();
             renderer.SetDepthTest(_isDepthTestEnabled);
-
             SetPixelData(renderer);
         }
 

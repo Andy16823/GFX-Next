@@ -59,6 +59,8 @@
             cubeToolStripMenuItem = new ToolStripMenuItem();
             sphereToolStripMenuItem = new ToolStripMenuItem();
             quadToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator10 = new ToolStripSeparator();
+            modelToolStripMenuItem = new ToolStripMenuItem();
             extrasToolStripMenuItem = new ToolStripMenuItem();
             materialEditorToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator8 = new ToolStripSeparator();
@@ -82,6 +84,10 @@
             toolStripSeparator7 = new ToolStripSeparator();
             hilfeToolStripButton = new ToolStripButton();
             layerComboBox = new ToolStripComboBox();
+            toolStripSeparator9 = new ToolStripSeparator();
+            gizmoModeTranslateBtn = new ToolStripButton();
+            gizmoModeScaleBtn = new ToolStripButton();
+            toolStripButton3 = new ToolStripButton();
             statusStrip1 = new StatusStrip();
             splitContainer1 = new SplitContainer();
             splitContainer2 = new SplitContainer();
@@ -97,6 +103,8 @@
             groupBox1 = new GroupBox();
             pictureBox1 = new PictureBox();
             propertyGrid1 = new PropertyGrid();
+            toolStripSeparator11 = new ToolStripSeparator();
+            deleteToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -268,7 +276,7 @@
             // 
             // selectionToolStripMenuItem
             // 
-            selectionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editPositionToolStripMenuItem, editRotationToolStripMenuItem, editScaleToolStripMenuItem });
+            selectionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editPositionToolStripMenuItem, editRotationToolStripMenuItem, editScaleToolStripMenuItem, toolStripSeparator11, deleteToolStripMenuItem });
             selectionToolStripMenuItem.Name = "selectionToolStripMenuItem";
             selectionToolStripMenuItem.Size = new Size(67, 20);
             selectionToolStripMenuItem.Text = "Selection";
@@ -299,10 +307,11 @@
             // 
             // createToolStripMenuItem
             // 
-            createToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cubeToolStripMenuItem, sphereToolStripMenuItem, quadToolStripMenuItem });
+            createToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cubeToolStripMenuItem, sphereToolStripMenuItem, quadToolStripMenuItem, toolStripSeparator10, modelToolStripMenuItem });
             createToolStripMenuItem.Name = "createToolStripMenuItem";
-            createToolStripMenuItem.Size = new Size(53, 20);
-            createToolStripMenuItem.Text = "Create";
+            createToolStripMenuItem.Size = new Size(72, 20);
+            createToolStripMenuItem.Text = "Add Asset";
+            createToolStripMenuItem.Click += createToolStripMenuItem_Click;
             // 
             // cubeToolStripMenuItem
             // 
@@ -324,6 +333,18 @@
             quadToolStripMenuItem.Size = new Size(110, 22);
             quadToolStripMenuItem.Text = "Quad";
             quadToolStripMenuItem.Click += quadToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator10
+            // 
+            toolStripSeparator10.Name = "toolStripSeparator10";
+            toolStripSeparator10.Size = new Size(107, 6);
+            // 
+            // modelToolStripMenuItem
+            // 
+            modelToolStripMenuItem.Name = "modelToolStripMenuItem";
+            modelToolStripMenuItem.Size = new Size(110, 22);
+            modelToolStripMenuItem.Text = "Model";
+            modelToolStripMenuItem.Click += modelToolStripMenuItem_Click;
             // 
             // extrasToolStripMenuItem
             // 
@@ -396,7 +417,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { neuToolStripButton, öffnenToolStripButton, speichernToolStripButton, druckenToolStripButton, toolStripSeparator6, ausschneidenToolStripButton, kopierenToolStripButton, einfügenToolStripButton, toolStripSeparator7, hilfeToolStripButton, layerComboBox });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { neuToolStripButton, öffnenToolStripButton, speichernToolStripButton, druckenToolStripButton, toolStripSeparator6, ausschneidenToolStripButton, kopierenToolStripButton, einfügenToolStripButton, toolStripSeparator7, hilfeToolStripButton, layerComboBox, toolStripSeparator9, gizmoModeTranslateBtn, gizmoModeScaleBtn, toolStripButton3 });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1247, 25);
@@ -491,6 +512,40 @@
             layerComboBox.Name = "layerComboBox";
             layerComboBox.Size = new Size(121, 25);
             layerComboBox.SelectedIndexChanged += layerComboBox_SelectedIndexChanged;
+            // 
+            // toolStripSeparator9
+            // 
+            toolStripSeparator9.Name = "toolStripSeparator9";
+            toolStripSeparator9.Size = new Size(6, 25);
+            // 
+            // gizmoModeTranslateBtn
+            // 
+            gizmoModeTranslateBtn.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            gizmoModeTranslateBtn.Image = (Image)resources.GetObject("gizmoModeTranslateBtn.Image");
+            gizmoModeTranslateBtn.ImageTransparentColor = Color.Magenta;
+            gizmoModeTranslateBtn.Name = "gizmoModeTranslateBtn";
+            gizmoModeTranslateBtn.Size = new Size(23, 22);
+            gizmoModeTranslateBtn.Text = "toolStripButton1";
+            gizmoModeTranslateBtn.Click += gizmoModeTranslateBtn_Click;
+            // 
+            // gizmoModeScaleBtn
+            // 
+            gizmoModeScaleBtn.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            gizmoModeScaleBtn.Image = (Image)resources.GetObject("gizmoModeScaleBtn.Image");
+            gizmoModeScaleBtn.ImageTransparentColor = Color.Magenta;
+            gizmoModeScaleBtn.Name = "gizmoModeScaleBtn";
+            gizmoModeScaleBtn.Size = new Size(23, 22);
+            gizmoModeScaleBtn.Text = "toolStripButton2";
+            gizmoModeScaleBtn.Click += gizmoModeScaleBtn_Click;
+            // 
+            // toolStripButton3
+            // 
+            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton3.Image = (Image)resources.GetObject("toolStripButton3.Image");
+            toolStripButton3.ImageTransparentColor = Color.Magenta;
+            toolStripButton3.Name = "toolStripButton3";
+            toolStripButton3.Size = new Size(23, 22);
+            toolStripButton3.Text = "toolStripButton3";
             // 
             // statusStrip1
             // 
@@ -657,6 +712,18 @@
             propertyGrid1.Size = new Size(286, 213);
             propertyGrid1.TabIndex = 0;
             // 
+            // toolStripSeparator11
+            // 
+            toolStripSeparator11.Name = "toolStripSeparator11";
+            toolStripSeparator11.Size = new Size(182, 6);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            deleteToolStripMenuItem.Size = new Size(185, 22);
+            deleteToolStripMenuItem.Text = "Delete";
+            deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -763,5 +830,13 @@
         private ToolStripMenuItem editPositionToolStripMenuItem;
         private ToolStripMenuItem editRotationToolStripMenuItem;
         private ToolStripMenuItem editScaleToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator9;
+        private ToolStripButton gizmoModeTranslateBtn;
+        private ToolStripButton gizmoModeScaleBtn;
+        private ToolStripButton toolStripButton3;
+        private ToolStripSeparator toolStripSeparator10;
+        private ToolStripMenuItem modelToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator11;
+        private ToolStripMenuItem deleteToolStripMenuItem;
     }
 }

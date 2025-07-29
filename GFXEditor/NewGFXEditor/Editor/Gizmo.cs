@@ -12,6 +12,7 @@ using NewGFXEditor.Shader;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Permissions;
 using System.Text;
@@ -30,6 +31,13 @@ namespace NewGFXEditor.Editor
         Z
     }
 
+    public enum GizmoType
+    {
+        Translation,
+        Rotation,
+        Scale
+    }
+
     /// <summary>
     /// Class representing a gizmo for 3D transformations.
     /// </summary>
@@ -40,6 +48,12 @@ namespace NewGFXEditor.Editor
         /// </summary>
         /// <param name="newPosition"></param>
         public delegate void GizmoMoveDelegate(Vector3 newPosition);
+
+        /// <summary>
+        /// Delegate for handling gizmo scaling events.
+        /// </summary>
+        /// <param name="scaleFactor"></param>
+        public delegate void GizmoScaleDelegate(float scaleFactor);
 
         /// <summary>
         /// Collection of meshes that make up the gizmo.
@@ -82,9 +96,19 @@ namespace NewGFXEditor.Editor
         public bool Enabled { get; set; } = false;
 
         /// <summary>
+        /// Type of the gizmo, indicating its purpose (e.g., translation, rotation, scale).
+        /// </summary>
+        public GizmoType Type { get; set; } = GizmoType.Translation;
+
+        /// <summary>
         /// Event triggered when the gizmo is moved.
         /// </summary>
         public event GizmoMoveDelegate GizmoMoved;
+
+        /// <summary>
+        /// Event triggered when the gizmo is scaled.
+        /// </summary>
+        public event GizmoScaleDelegate GizmoScaled;
 
         /// <summary>
         /// Flag indicating whether to swap the X and Z axes.
@@ -161,10 +185,11 @@ namespace NewGFXEditor.Editor
                 Picker.RenderMesh(renderDevice, Transform, mesh, material, id);
                 id++;
             }
+
             Picker.EndIdRenderPass(renderDevice);
 
             // Render the gizmo with the actual shader
-            if(!this.Enabled)
+            if (!this.Enabled)
                 return;
 
             renderDevice.SetProjectionMatrix(camera.GetProjectionMatrix(viewport));
@@ -331,10 +356,39 @@ namespace NewGFXEditor.Editor
 
             this.Transform.Position += axisWorld * movementOnAxis * scaleFactor;
 
-            if (this.GizmoMoved != null)
-            {
-                this.GizmoMoved(this.Transform.Position);
-            }
+            this.GizmoMoved?.Invoke(this.Transform.Position);
+        }
+
+        /// <summary>
+        /// Calculates the scale factor along the active axis based on mouse movement.
+        /// Raises an event if the gizmo is scaled.
+        /// </summary>
+        /// <param name="camera"></param>
+        /// <param name="viewport"></param>
+        /// <param name="prevMouseX"></param>
+        /// <param name="prevMouseY"></param>
+        /// <param name="currMouseX"></param>
+        /// <param name="currMouseY"></param>
+        public void ScaleAlongAxis(PerspectiveCamera camera, Viewport viewport, int prevMouseX, int prevMouseY, int currMouseX, int currMouseY)
+        {
+            if (this.ActiveAxis == GizmoActiveAxis.None || this.Enabled == false)
+                return;
+
+            Vector3 axisWorld = GetAxisDirection(this.ActiveAxis, _swapXZAxes);
+
+            Vector3 gizmoOrigin = this.Transform.Position;
+            Vector3 gizmoAxisEnd = gizmoOrigin + axisWorld;
+
+            var screenOrigin = PerspectiveCamera.WorldToScreen(camera, gizmoOrigin, viewport);
+            var screenAxisEnd = PerspectiveCamera.WorldToScreen(camera, gizmoAxisEnd, viewport);
+
+            var axisScreenDir = (screenAxisEnd - screenOrigin).Xy.Normalized();
+            var mouseDelta = new Vector2(currMouseX - prevMouseX, currMouseY - prevMouseY);
+
+            var projectedMovement = Vector2.Dot(mouseDelta, axisScreenDir);
+            float scaleFactor = projectedMovement * 0.01f;
+
+            this.GizmoScaled?.Invoke(scaleFactor);
         }
 
         /// <summary>
@@ -440,7 +494,7 @@ namespace NewGFXEditor.Editor
                 meshes.Add(mesh);
 
                 var meshMaterialPair = new MeshMaterialPair();
-                meshMaterialPair.MeshName = asmesh.Name;
+                meshMaterialPair.MeshName = mesh.ID.ToString();
                 meshMaterialPair.MaterialIndex = asmesh.MaterialIndex;
                 this.MeshMaterials.Add(meshMaterialPair);
             }
