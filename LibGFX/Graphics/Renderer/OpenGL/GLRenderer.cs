@@ -1354,26 +1354,26 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return _lights.Values.OfType<T>().FirstOrDefault();
         }
 
-        public int CreateEmptyBuffer()
+        public int CreateBuffer()
         {
             return GL.GenBuffer();
         }
 
-        public int CreateBuffer<T>(T[] data, bool dynamic = false) where T : unmanaged
+        public int CreateVertexBuffer<T>(T[] data, bool dynamic = false) where T : unmanaged
         {
             int bufferId = GL.GenBuffer();
-            BindBufferData(bufferId, data, dynamic);
+            SetVertexBufferData(bufferId, data, dynamic);
             return bufferId;
         }
 
         public int CreateElementBuffer(int[] data, bool dynamic = false)
         {
             int bufferId = GL.GenBuffer();
-            BindElementBufferData(bufferId, data, dynamic);
+            SetElementBufferData(bufferId, data, dynamic);
             return bufferId;
         }
 
-        public void BindBuffer(int buffer)
+        public void BindVertexBuffer(int buffer)
         {
             GL.BindBuffer(BufferTarget.ArrayBuffer, buffer);
         }
@@ -1383,7 +1383,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindBuffer(BufferTarget.ElementArrayBuffer, buffer);
         }
 
-        public void BindBufferData<T>(int buffer, T[] data, bool dynamic = false) where T : unmanaged
+        public void SetVertexBufferData<T>(int buffer, T[] data, bool dynamic = false) where T : unmanaged
         {
             int dataSize = Unsafe.SizeOf<T>();
             var bufferUsageHint = dynamic ? BufferUsageHint.DynamicDraw : BufferUsageHint.StaticDraw;
@@ -1392,7 +1392,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
         }
 
-        public void BindElementBufferData(int buffer, int[] data, bool dynamic = false)
+        public void SetElementBufferData(int buffer, int[] data, bool dynamic = false)
         {
             int dataSize = sizeof(int);
             var bufferUsageHint = dynamic ? BufferUsageHint.DynamicDraw : BufferUsageHint.StaticDraw;
@@ -1401,7 +1401,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindBuffer(BufferTarget.ElementArrayBuffer, 0);
         }
 
-        public void EditBufferData<T>(int buffer, T[] data, int offset) where T : unmanaged
+        public void UpdateVertexBufferData<T>(int buffer, T[] data, int offset) where T : unmanaged
         {
             int dataSize = Unsafe.SizeOf<T>();
             GL.BindBuffer(BufferTarget.ArrayBuffer, buffer);
@@ -1409,7 +1409,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
         }
 
-        public void EditElementBufferData(int buffer, int[] data, int offset)
+        public void UpdateElementBufferData(int buffer, int[] data, int offset)
         {
             int dataSize = sizeof(int);
             GL.BindBuffer(BufferTarget.ElementArrayBuffer, buffer);

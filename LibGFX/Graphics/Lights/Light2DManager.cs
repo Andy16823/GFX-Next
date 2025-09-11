@@ -144,7 +144,7 @@ namespace LibGFX.Graphics.Lights
         /// <param name="renderDevice"></param>
         public void Init(IRenderDevice renderDevice)
         {
-            this.LightSSBO = renderDevice.CreateEmptyBuffer();
+            this.LightSSBO = renderDevice.CreateBuffer();
             this.ForEachLight(light =>
             {
                 light.Init(renderDevice);
@@ -160,7 +160,7 @@ namespace LibGFX.Graphics.Lights
         public void CullLights(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             var newBufferData = CullChunkLights(camera, this.ChunkSize).ToArray();
-            renderer.BindBufferData<Point2DLightData>(LightSSBO, newBufferData, true);
+            renderer.SetVertexBufferData<Point2DLightData>(LightSSBO, newBufferData, true);
         }
 
         /// <summary>

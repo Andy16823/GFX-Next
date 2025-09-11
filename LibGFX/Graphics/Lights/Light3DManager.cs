@@ -107,7 +107,7 @@ namespace LibGFX.Graphics.Lights
         {
             var chunk = this.GetChunk(camera.Transform.Position.X, camera.Transform.Position.Y, camera.Transform.Position.Z, 10f);
             var culledLights = this.CullChunkLights(camera, viewport, this.ChunkSize);
-            renderer.BindBufferData<PointLight3DData>(_pointLightsSSBO, culledLights.ToArray(), true);
+            renderer.SetVertexBufferData<PointLight3DData>(_pointLightsSSBO, culledLights.ToArray(), true);
 
             //Debug.WriteLine($"Culled {culledLights.Count()} lights from chunk {chunk} for camera at position {camera.Transform.Position}.");
         }
@@ -143,7 +143,7 @@ namespace LibGFX.Graphics.Lights
         /// <param name="renderDevice"></param>
         public void Init(IRenderDevice renderDevice)
         {
-            _pointLightsSSBO = renderDevice.CreateEmptyBuffer();
+            _pointLightsSSBO = renderDevice.CreateBuffer();
             this.ForEachLight(light =>
             {
                 light.Init(renderDevice);
