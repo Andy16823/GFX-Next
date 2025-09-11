@@ -34,6 +34,14 @@ namespace LibGFX.Core
         void OnInit(BaseScene scene, Viewport viewport, IRenderDevice renderer);
 
         /// <summary>
+        /// Called when the shadow pass is rendered
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        void OnShadowPass(BaseScene scene, Viewport viewport, IRenderDevice renderer);
+
+        /// <summary>
         /// Called when the game behavior is rendered
         /// </summary>
         /// <param name="scene"></param>

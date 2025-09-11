@@ -266,6 +266,17 @@ namespace LibGFX.Audio
         }
 
         /// <summary>
+        /// Handles the shadow pass rendering (not used in this implementation)
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        public void OnShadowPass(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+        {
+
+        }
+
+        /// <summary>
         /// Handles the rendering of the audio source (not used in this implementation)
         /// </summary>
         /// <param name="scene"></param>

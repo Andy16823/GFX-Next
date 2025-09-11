@@ -50,6 +50,15 @@ namespace LibGFX.Physics
         public abstract void OnInit(BaseScene scene, Viewport viewport, IRenderDevice renderer);
 
         /// <summary>
+        /// Called when the shadow pass is rendered
+        /// Not all physics behaviors need to implement this
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        public virtual void OnShadowPass(BaseScene scene, Viewport viewport, IRenderDevice renderer) { }
+
+        /// <summary>
         /// Renders the physics behavior
         /// </summary>
         /// <param name="scene"></param>

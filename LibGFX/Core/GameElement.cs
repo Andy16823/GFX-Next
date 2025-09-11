@@ -111,6 +111,10 @@ namespace LibGFX.Core
         {
             if(this.Visible && this.CastShadows)
             {
+                this.Behaviors.ForEach(b =>
+                {
+                    b.OnShadowPass(scene, viewport, renderer);
+                });
                 // TODO: Add behaviors for shadow rendering
             }
         }

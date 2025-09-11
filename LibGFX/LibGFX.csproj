@@ -12,7 +12,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageId>GFX</PackageId>
-    <Version>1.0.9.1-beta</Version>
+    <Version>1.0.9.2-beta</Version>
   </PropertyGroup>
 
   <ItemGroup>
