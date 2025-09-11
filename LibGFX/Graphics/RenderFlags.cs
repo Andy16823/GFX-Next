@@ -165,5 +165,35 @@ namespace LibGFX.Graphics
             Color31,
         }
 
+        /// <summary>
+        /// Data types used for rendering operations, specifying the type of data being processed.
+        /// </summary>
+        public enum RenderDataTypes
+        {
+            Byte,
+            UnsignedByte,
+            Short,
+            UnsignedShort,
+            Int,
+            UnsignedInt,
+            Float,
+            Double,
+            HalfFloat,
+            Fixed
+        }
+
+        /// <summary>
+        /// Primitive types used for rendering geometric shapes.
+        /// </summary>
+        public enum PrimitiveTypes
+        {
+            Points,
+            Lines,
+            LineLoop,
+            LineStrip,
+            Triangles,
+            TriangleStrip,
+            TriangleFan
+        }
     }
 }

@@ -723,6 +723,17 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.DepthMask(true);
         }
 
+        public void DrawVertexArray(Transform transform, int vertexBuffer, int vertexCount, RenderFlags.PrimitiveTypes primitiveTypes)
+        {
+            var m_mat = transform.GetMatrix();
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
+            GL.BindVertexArray(vertexBuffer);
+            GL.DrawElements(GLMappings.GetBeginMode(primitiveTypes), vertexCount, DrawElementsType.UnsignedInt, 0);
+            GL.BindVertexArray(0);
+        }
+
         public void DisposeCubemap(Cubemap cubemap)
         {
             if (cubemap.Flags == CubemapFlags.Initialized)
@@ -1355,6 +1366,23 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return bufferId;
         }
 
+        public int CreateElementBuffer(int[] data, bool dynamic = false)
+        {
+            int bufferId = GL.GenBuffer();
+            BindElementBufferData(bufferId, data, dynamic);
+            return bufferId;
+        }
+
+        public void BindBuffer(int buffer)
+        {
+            GL.BindBuffer(BufferTarget.ArrayBuffer, buffer);
+        }
+
+        public void BindElementBuffer(int buffer)
+        {
+            GL.BindBuffer(BufferTarget.ElementArrayBuffer, buffer);
+        }
+
         public void BindBufferData<T>(int buffer, T[] data, bool dynamic = false) where T : unmanaged
         {
             int dataSize = Unsafe.SizeOf<T>();
@@ -1364,12 +1392,29 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
         }
 
+        public void BindElementBufferData(int buffer, int[] data, bool dynamic = false)
+        {
+            int dataSize = sizeof(int);
+            var bufferUsageHint = dynamic ? BufferUsageHint.DynamicDraw : BufferUsageHint.StaticDraw;
+            GL.BindBuffer(BufferTarget.ElementArrayBuffer, buffer);
+            GL.BufferData(BufferTarget.ElementArrayBuffer, data.Length * dataSize, data, bufferUsageHint);
+            GL.BindBuffer(BufferTarget.ElementArrayBuffer, 0);
+        }
+
         public void EditBufferData<T>(int buffer, T[] data, int offset) where T : unmanaged
         {
             int dataSize = Unsafe.SizeOf<T>();
             GL.BindBuffer(BufferTarget.ArrayBuffer, buffer);
             GL.BufferSubData(BufferTarget.ArrayBuffer, offset * dataSize, data.Length * dataSize, data);
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+        }
+
+        public void EditElementBufferData(int buffer, int[] data, int offset)
+        {
+            int dataSize = sizeof(int);
+            GL.BindBuffer(BufferTarget.ElementArrayBuffer, buffer);
+            GL.BufferSubData(BufferTarget.ElementArrayBuffer, offset * dataSize, data.Length * dataSize, data);
+            GL.BindBuffer(BufferTarget.ElementArrayBuffer, 0);
         }
 
         public void DisposeBuffer(int buffer)
@@ -1385,6 +1430,32 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         public void UnbindShaderStorageBuffer(int binding)
         {
             GL.BindBufferBase(BufferRangeTarget.ShaderStorageBuffer, binding, 0);
+        }
+
+        public int CreateVertexArray()
+        {
+            int bufferId = GL.GenVertexArray();
+            return bufferId;
+        }
+
+        public void DisposeVertexArray(int value)
+        {
+            GL.DeleteVertexArray(value);
+        }
+
+        public void BindVertexArray(int value)
+        {
+            GL.BindVertexArray(value);
+        }
+
+        public void EnableVertexArrayAttribute(int index)
+        {
+            GL.EnableVertexAttribArray(index);
+        }
+
+        public void SetVertexArrayAttribute(int index, int size, RenderFlags.RenderDataTypes type, bool normalized, int stride, nint pointer)
+        {
+            GL.VertexAttribPointer(index, size, GLMappings.GetVertexAttribPointerType(type), normalized, stride, pointer);
         }
 
         public void PrepareShader(string location, bool value)

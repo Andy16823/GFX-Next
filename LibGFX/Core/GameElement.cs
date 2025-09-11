@@ -115,7 +115,6 @@ namespace LibGFX.Core
                 {
                     b.OnShadowPass(scene, viewport, renderer);
                 });
-                // TODO: Add behaviors for shadow rendering
             }
         }
 

@@ -96,5 +96,75 @@ namespace LibGFX.Math
             }
             return new AABB(newMin, newMax);
         }
+
+        /// <summary>
+        /// Generates the vertices for a box defined by the AABB.
+        /// </summary>
+        /// <returns></returns>
+        public float[] GenerateBoxVertices()
+        {
+            return new float[]
+            {
+                // Front face
+                Min.X, Min.Y, Max.Z,
+                Max.X, Min.Y, Max.Z,
+                Max.X, Max.Y, Max.Z,
+                Min.X, Max.Y, Max.Z,
+                // Back face
+                Min.X, Min.Y, Min.Z,
+                Max.X, Min.Y, Min.Z,
+                Max.X, Max.Y, Min.Z,
+                Min.X, Max.Y, Min.Z,
+                // Left face
+                Min.X, Min.Y, Min.Z,
+                Min.X, Min.Y, Max.Z,
+                Min.X, Max.Y, Max.Z,
+                Min.X, Max.Y, Min.Z,
+                // Right face
+                Max.X, Min.Y, Min.Z,
+                Max.X, Min.Y, Max.Z,
+                Max.X, Max.Y, Max.Z,
+                Max.X, Max.Y, Min.Z,
+                // Top face
+                Min.X, Max.Y, Min.Z,
+                Max.X, Max.Y, Min.Z,
+                Max.X, Max.Y, Max.Z,
+                Min.X, Max.Y, Max.Z,
+                // Bottom face
+                Min.X, Min.Y, Min.Z,
+                Max.X, Min.Y, Min.Z,
+                Max.X, Min.Y, Max.Z,
+                Min.X, Min.Y, Max.Z,
+            };
+        }
+
+        /// <summary>
+        /// Generates the indices for a box defined by the AABB.
+        /// </summary>
+        /// <returns></returns>
+        public int[] GenerateBoxIndices()
+        {
+            return new int[]
+            {
+                // Front face
+                0, 1, 2,
+                2, 3, 0,
+                // Back face
+                4, 5, 6,
+                6, 7, 4,
+                // Left face
+                8, 9, 10,
+                10, 11, 8,
+                // Right face
+                12, 13, 14,
+                14, 15, 12,
+                // Top face
+                16, 17, 18,
+                18, 19, 16,
+                // Bottom face
+                20, 21, 22,
+                22, 23, 20
+            };
+        }
     }
 }

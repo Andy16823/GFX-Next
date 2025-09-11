@@ -257,5 +257,62 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                 _ => throw new ArgumentException("At least one of depth or stencil must be true.")
             };
         }
+
+        /// <summary>
+        /// Maps RenderFlags.RenderDataTypes to OpenGL VertexAttribPointerType.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        internal static VertexAttribPointerType GetVertexAttribPointerType(RenderFlags.RenderDataTypes type) => type switch
+        {
+            RenderFlags.RenderDataTypes.Byte => VertexAttribPointerType.Byte,
+            RenderFlags.RenderDataTypes.UnsignedByte => VertexAttribPointerType.UnsignedByte,
+            RenderFlags.RenderDataTypes.Short => VertexAttribPointerType.Short,
+            RenderFlags.RenderDataTypes.UnsignedShort => VertexAttribPointerType.UnsignedShort,
+            RenderFlags.RenderDataTypes.Int => VertexAttribPointerType.Int,
+            RenderFlags.RenderDataTypes.UnsignedInt => VertexAttribPointerType.UnsignedInt,
+            RenderFlags.RenderDataTypes.Float => VertexAttribPointerType.Float,
+            RenderFlags.RenderDataTypes.Double => VertexAttribPointerType.Double,
+            RenderFlags.RenderDataTypes.Fixed => VertexAttribPointerType.Fixed,
+            RenderFlags.RenderDataTypes.HalfFloat => VertexAttribPointerType.HalfFloat,
+            _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+        };
+
+        /// <summary>
+        /// Maps RenderFlags.PrimitiveTypes to OpenGL PrimitiveType.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        internal static PrimitiveType GetPrimitiveType(RenderFlags.PrimitiveTypes type) => type switch
+        {
+            RenderFlags.PrimitiveTypes.Points => PrimitiveType.Points,
+            RenderFlags.PrimitiveTypes.Lines => PrimitiveType.Lines,
+            RenderFlags.PrimitiveTypes.LineLoop => PrimitiveType.LineLoop,
+            RenderFlags.PrimitiveTypes.LineStrip => PrimitiveType.LineStrip,
+            RenderFlags.PrimitiveTypes.Triangles => PrimitiveType.Triangles,
+            RenderFlags.PrimitiveTypes.TriangleStrip => PrimitiveType.TriangleStrip,
+            RenderFlags.PrimitiveTypes.TriangleFan => PrimitiveType.TriangleFan,
+            _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+        };
+
+        /// <summary>
+        /// Maps RenderFlags.PrimitiveTypes to OpenGL BeginMode.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        internal static BeginMode GetBeginMode(RenderFlags.PrimitiveTypes type) => type switch
+        {
+            RenderFlags.PrimitiveTypes.Points => BeginMode.Points,
+            RenderFlags.PrimitiveTypes.Lines => BeginMode.Lines,
+            RenderFlags.PrimitiveTypes.LineLoop => BeginMode.LineLoop,
+            RenderFlags.PrimitiveTypes.LineStrip => BeginMode.LineStrip,
+            RenderFlags.PrimitiveTypes.Triangles => BeginMode.Triangles,
+            RenderFlags.PrimitiveTypes.TriangleStrip => BeginMode.TriangleStrip,
+            RenderFlags.PrimitiveTypes.TriangleFan => BeginMode.TriangleFan,
+            _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+        };
     }
 }
