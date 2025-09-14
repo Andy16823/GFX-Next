@@ -18,7 +18,7 @@ namespace LibGFX.Core
         /// <summary>
         /// The render target of the scene
         /// </summary>
-        private RenderTarget _renderTarget;
+        private RenderTarget2D _renderTarget;
 
         /// <summary>
         /// Sets the main light manager for the scene
@@ -94,7 +94,8 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public override void Init(Viewport viewport, IRenderDevice renderer)
         {
-            _renderTarget = renderer.CreateRenderTarget(RenderTargetDescriptor.Default(viewport.Width, viewport.Height));
+            _renderTarget = new RenderTarget2D(RenderTargetDescriptor.Default(viewport.Width, viewport.Height));
+            _renderTarget.Create(renderer);
 
             // Iinitialize the layers of the scene
             this.Layers.ForEach(l =>
@@ -148,7 +149,7 @@ namespace LibGFX.Core
             renderer.SetViewMatrix(camera.GetViewMatrix());
 
             // Render the scene to the render target
-            renderer.ResizeRenderTarget(_renderTarget, viewport.Width, viewport.Height);
+            _renderTarget.Resize(renderer, viewport.Width, viewport.Height);
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
@@ -235,7 +236,7 @@ namespace LibGFX.Core
             });
 
             // Dispose the render target of the scene
-            renderer.DisposeRenderTarget(_renderTarget);
+            _renderTarget.Dispose(renderer);
 
             // Dispose the light manager
             this.LightManager.Dispose(renderer);

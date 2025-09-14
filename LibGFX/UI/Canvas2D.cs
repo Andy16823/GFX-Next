@@ -42,7 +42,7 @@ namespace LibGFX.UI
         public override void Dispose(IRenderDevice renderer)
         {
             Debug.WriteLine($"Disposing {this.Name} Canvas2D");
-            renderer.DisposeRenderTarget(this.RenderTarget);
+            this.RenderTarget.Dispose(renderer);
             foreach (var control in this.Controls.Values)
             {
                 control.Dispose(renderer, this);
@@ -55,13 +55,8 @@ namespace LibGFX.UI
         /// <param name="renderer"></param>
         public override void Init(IRenderDevice renderer)
         {
-            //Width = (int)this.Transform.Scale.X,
-            //Height = (int)this.Transform.Scale.Y,
-            //Depth = false,
-            //Stencil = false,
-            //Multisample = false,
-            //Format = RenderTargetFormat.RGBA8
-            this.RenderTarget = renderer.CreateRenderTarget(RenderTargetDescriptor.Default((int) this.Transform.Scale.X, (int) this.Transform.Scale.Y));
+            this.RenderTarget = new RenderTarget2D(RenderTargetDescriptor.Default((int)this.Transform.Scale.X, (int)this.Transform.Scale.Y));
+            this.RenderTarget.Create(renderer);
 
             foreach (var control in this.Controls.Values)
             {
@@ -88,7 +83,7 @@ namespace LibGFX.UI
             renderer.SetViewMatrix(this.Camera.GetViewMatrix());
 
             // Render the canvas to the render target
-            renderer.ResizeRenderTarget(this.RenderTarget, (int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
+            this.RenderTarget.Resize(renderer, (int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
             renderer.BindRenderTarget(this.RenderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);

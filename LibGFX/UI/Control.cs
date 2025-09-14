@@ -61,7 +61,7 @@ namespace LibGFX.UI
         /// <summary>
         /// The render target of the control
         /// </summary>
-        public RenderTarget RenderTarget { get; set; }
+        public RenderTarget2D RenderTarget { get; set; }
 
         /// <summary>
         /// Hovered state of the control

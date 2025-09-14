@@ -48,16 +48,13 @@ namespace LibGFX.Graphics
         void Clear(RenderFlags.ClearFlags clearFlags);
         void ClearColor(float r, float g, float b, float a);
         void Flush();
-        RenderTarget CreateRenderTarget(RenderTargetDescriptor constructorInfo);
-        void BindRenderTarget(RenderTarget renderTarget); 
-        void ResizeRenderTarget(RenderTarget renderTarget, int width, int height);
+        void BindRenderTarget(RenderTarget2D renderTarget); 
         void UnbindRenderTarget();
         int GetCurrentRenderTargetID();
-        Vector2i GetRenderTargetSize(RenderTarget renderTarget);
-        byte[] GetRenderTargetData(RenderTarget renderTarget);
-        byte[] GetRenderTargetData(RenderTarget renderTarget, int width, int height);
+        Vector2i GetRenderTargetSize(RenderTarget2D renderTarget);
+        byte[] GetRenderTargetData(RenderTarget2D renderTarget);
+        byte[] GetRenderTargetData(RenderTarget2D renderTarget, int width, int height);
         int GetFramebufferIndex();
-        void DisposeRenderTarget(RenderTarget renderTarget);
         void BuildShaderProgram(ShaderProgram shaderProgram);
         void DisposeShaderProgram(ShaderProgram shaderProgram);
         void AddShaderProgram(String name, ShaderProgram shaderProgram);
@@ -76,7 +73,7 @@ namespace LibGFX.Graphics
         void LoadCubemap(Cubemap cubemap);
         void DisposeTexture(Texture texture);
         void DisposeCubemap(Cubemap cubemap);
-        void DrawRenderTarget(RenderTarget renderTarget);
+        void DrawRenderTarget(RenderTarget2D renderTarget);
         void DrawLine(Vector3 start, Vector3 end, Vector4 color);
         void DrawRect(Math.Rect rect, Vector4 color, float borderWidth = 1.0f, float rotation = 0.0f);
         void FillRect(Math.Rect rect, Vector4 color, float rotation = 0.0f);
@@ -138,8 +135,29 @@ namespace LibGFX.Graphics
         void PrepareShader(String location, int textureUnit, Texture texture);
         void PrepareShader(String location, int textureUnit, Cubemap cubemap);
         int GetError();
-        [Obsolete($"Use CreateRenderTarget(RenderTargetDescriptor constructorInfo) with the DepthOnly descriptor instead. This method will be removed in a future version.")]
-        RenderTarget CreateShadowMap(int width, int height);
+        public int GenFramebuffer();
+        public void BindFramebuffer(RenderFlags.GFXFramebufferTarget target, int framebufferId);
+        public int GenTexture();
+        public void BindTexture(RenderFlags.GFXTextureTarget target, int unit);
+        public void ActiveTexture(int unit);
+        public void TexImage2D(RenderFlags.GFXTextureTarget target, int level, RenderFlags.ColorFormatHint internalFormat, int width, int height, int border, RenderFlags.ColorFormatLayout format, RenderFlags.ColorFormatType type, IntPtr data);
+        public void TexParameter(RenderFlags.GFXTextureTarget target, RenderFlags.GFXTextureParameterName pname, RenderFlags.TextureFilterMode param);
+        public void TexParameter(RenderFlags.GFXTextureTarget target, RenderFlags.GFXTextureParameterName pname, RenderFlags.TextureWrapMode param);
+        public void TexParameter(RenderFlags.GFXTextureTarget target, RenderFlags.GFXTextureParameterName pname, Vector4 value);
+        public void TexParameter(RenderFlags.GFXTextureTarget target, RenderFlags.GFXTextureParameterName pname, float[] value);
+        public void FramebufferTexture2D(RenderFlags.GFXFramebufferTarget target, RenderFlags.GFXFramebufferAttachment attachment, RenderFlags.GFXTextureTarget textarget, int texture, int level);
+        public void DrawBufferMode(RenderFlags.RenderBufferMode mode);
+        public void ReadBufferMode(RenderFlags.RenderBufferMode mode);
+        public int GenRenderbuffer();
+        public void BindRenderbuffer(RenderFlags.GFXRenderbufferTarget target, int renderbuffer);
+        public void RenderbufferStorageMultisample(RenderFlags.GFXRenderbufferTarget target, int samples, RenderFlags.GFXRenderbufferStorage storage, int width, int height);
+        public void RenderbufferStorage(RenderFlags.GFXRenderbufferTarget target, RenderFlags.GFXRenderbufferStorage storage, int width, int height);
+        public void FramebufferRenderbuffer(RenderFlags.GFXFramebufferTarget target, RenderFlags.GFXFramebufferAttachment attachment, RenderFlags.GFXRenderbufferTarget renderbuffertarget, int renderbuffer);
+        public RenderFlags.GFXFramebufferErrorCode CheckFramebufferStatus(RenderFlags.GFXFramebufferTarget target);
+        public void DeleteFramebuffer(int framebuffer);
+        public void DeleteTexture(int texture);
+        public void DeleteRenderbuffer(int renderbuffer);
+
         void CullFrontFace();
         void CullBackFace();
     }

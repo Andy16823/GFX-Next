@@ -20,7 +20,7 @@ namespace LibGFX.Graphics
         public RenderFlags.ColorFormatHint Format; // Internal Format
         public RenderFlags.ColorFormatLayout Layout; // Format
         public RenderFlags.ColorFormatType Type;
-        public RenderFlags.RenderAttachmentPoint AttachmentPoint;
+        public RenderFlags.GFXFramebufferAttachment AttachmentPoint;
 
         public bool UseDepth;
         public bool UseStencil;
@@ -32,7 +32,7 @@ namespace LibGFX.Graphics
         public RenderFlags.RenderBufferMode DrawBufferMode;
         public RenderFlags.RenderBufferMode ReadBufferMode;
 
-        public bool IsDepthTexture => AttachmentPoint == RenderFlags.RenderAttachmentPoint.Depth || AttachmentPoint == RenderFlags.RenderAttachmentPoint.DepthStencil;
+        public bool IsDepthTexture => AttachmentPoint == RenderFlags.GFXFramebufferAttachment.Depth || AttachmentPoint == RenderFlags.GFXFramebufferAttachment.DepthStencil;
 
         public static RenderTargetDescriptor Default(int width, int height, int samples = 0) => new RenderTargetDescriptor
         {
@@ -43,7 +43,7 @@ namespace LibGFX.Graphics
             Format = RenderFlags.ColorFormatHint.RGBA,
             Layout = RenderFlags.ColorFormatLayout.RGBA,
             Type = RenderFlags.ColorFormatType.UnsignedByte,
-            AttachmentPoint = RenderFlags.RenderAttachmentPoint.Color0,
+            AttachmentPoint = RenderFlags.GFXFramebufferAttachment.Color0,
             UseDepth = true,
             UseStencil = true,
             Samples = 0,
@@ -63,7 +63,7 @@ namespace LibGFX.Graphics
             Format = RenderFlags.ColorFormatHint.Depth,
             Layout = RenderFlags.ColorFormatLayout.Depth,
             Type = RenderFlags.ColorFormatType.Float,
-            AttachmentPoint = RenderFlags.RenderAttachmentPoint.Depth,
+            AttachmentPoint = RenderFlags.GFXFramebufferAttachment.Depth,
             UseDepth = true,
             UseStencil = false,
             Samples = 0,

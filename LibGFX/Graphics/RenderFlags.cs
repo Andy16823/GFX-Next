@@ -23,6 +23,22 @@ namespace LibGFX.Graphics
             Stencil = 4,
         }
 
+        public enum GFXTextureParameterName
+        {
+            TextureMinFilter,
+            TextureMagFilter,
+            TextureWrapS,
+            TextureWrapT,
+            TextureWrapR,
+            TextureBorderColor,
+            TextureBaseLevel,
+            TextureMaxLevel,
+            TextureLodBias,
+            TextureCompareMode,
+            TextureCompareFunc,
+            GenerateMipmap
+        }
+
         /// <summary>
         /// Texture filtering modes used for texture sampling.
         /// </summary>
@@ -104,7 +120,7 @@ namespace LibGFX.Graphics
         /// <summary>
         /// Attachment points for render targets, specifying where to attach textures or buffers.
         /// </summary>
-        public enum RenderAttachmentPoint
+        public enum GFXFramebufferAttachment
         {
             Color0,
             Color1,
@@ -194,6 +210,126 @@ namespace LibGFX.Graphics
             Triangles,
             TriangleStrip,
             TriangleFan
+        }
+
+        /// <summary>
+        /// Framebuffer targets used to specify which framebuffer to bind for rendering operations.
+        /// </summary>
+        public enum GFXFramebufferTarget
+        {
+            Framebuffer,
+            ReadFramebuffer,
+            DrawFramebuffer
+        }
+
+        public enum GFXTextureTarget
+        {
+            Texture1D,
+            Texture2D,
+            Texture3D,
+            TextureCubeMap,
+            Texture1DArray,
+            Texture2DArray,
+            TextureRectangle,
+            TextureCubeMapArray,
+            TextureBuffer,
+            Texture2DMultisample,
+            Texture2DMultisampleArray
+        }
+
+        public enum GFXRenderbufferTarget
+        {
+            Renderbuffer,
+            RenderbufferExt
+        }
+
+        public enum GFXRenderbufferStorage
+        {
+            R3G3B2,
+            Alpha4,
+            Alpha8,
+            Alpha12,
+            Alpha16,
+            Rgb4,
+            Rgb5,
+            Rgb8,
+            Rgb10,
+            Rgb12,
+            Rgb16,
+            Rgba2,
+            Rgba4,
+            Rgba8,
+            Rgb10A2,
+            Rgba12,
+            Rgba16,
+            DepthComponent16,
+            DepthComponent24,
+            DepthComponent32,
+            R8,
+            R16,
+            Rg8,
+            Rg16,
+            R16f,
+            R32f,
+            Rg16f,
+            Rg32f,
+            R8i,
+            R8ui,
+            R16i,
+            R16ui,
+            R32i,
+            R32ui,
+            Rg8i,
+            Rg8ui,
+            Rg16i,
+            Rg16ui,
+            Rg32i,
+            Rg32ui,
+            Rgba32f,
+            Rgb32f,
+            Rgba16f,
+            Rgb16f,
+            Depth24Stencil8,
+            R11fG11fB10f,
+            Rgb9E5,
+            Srgb8,
+            Srgb8Alpha8,
+            DepthComponent32f,
+            Depth32fStencil8,
+            StencilIndex1,
+            StencilIndex1Ext,
+            StencilIndex4,
+            StencilIndex4Ext,
+            StencilIndex8,
+            StencilIndex8Ext,
+            StencilIndex16,
+            StencilIndex16Ext,
+            Rgba32ui,
+            Rgb32ui,
+            Rgba16ui,
+            Rgb16ui,
+            Rgba8ui,
+            Rgb8ui,
+            Rgba32i,
+            Rgb32i,
+            Rgba16i,
+            Rgb16i,
+            Rgba8i,
+            Rgb8i,
+            Rgb10A2ui
+        }
+
+        public enum  GFXFramebufferErrorCode
+        {
+            FramebufferComplete,
+            FramebufferUndefined,
+            FramebufferIncompleteAttachment,
+            FramebufferIncompleteMissingAttachment,
+            FramebufferIncompleteDrawBuffer,
+            FramebufferIncompleteReadBuffer,
+            FramebufferUnsupported,
+            FramebufferIncompleteMultisample,
+            FramebufferIncompleteLayerTargets
         }
     }
 }

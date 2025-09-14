@@ -31,7 +31,7 @@ namespace LibGFX.Core
         /// <summary>
         /// The render target of the scene  
         /// </summary>
-        private RenderTarget _renderTarget;
+        private RenderTarget2D _renderTarget;
 
         /// <summary>
         /// The light manager for the 3D scene
@@ -102,7 +102,7 @@ namespace LibGFX.Core
             });
 
             // Dispose the render target
-            renderer.DisposeRenderTarget(_renderTarget);
+            _renderTarget.Dispose(renderer);
 
             // Dispose the light manager
             _lightManager.Dispose(renderer);
@@ -115,7 +115,8 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public override void Init(Viewport viewport, IRenderDevice renderer)
         {
-            _renderTarget = renderer.CreateRenderTarget(RenderTargetDescriptor.Default(viewport.Width, viewport.Height, (int) this.Samples));
+            _renderTarget = new RenderTarget2D(RenderTargetDescriptor.Default(viewport.Width, viewport.Height, (int)this.Samples));
+            _renderTarget.Create(renderer);
 
             // Load the enviroment texture if available
             if (this.Enviroment != null)
@@ -185,7 +186,7 @@ namespace LibGFX.Core
             renderer.SetViewMatrix(camera.GetViewMatrix());
 
             // Render the scene to the render target
-            renderer.ResizeRenderTarget(_renderTarget, viewport.Width, viewport.Height);
+            _renderTarget.Resize(renderer, viewport.Width, viewport.Height);
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);

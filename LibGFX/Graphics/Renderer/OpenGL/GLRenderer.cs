@@ -255,97 +255,9 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return _projectionMatrix;
         }
 
-        public RenderTarget CreateRenderTarget(RenderTargetDescriptor descriptor)
-        {
-            RenderTarget renderTarget = new RenderTarget();
-            renderTarget.Format = descriptor.Format;
-            renderTarget.Layout = descriptor.Layout;
-            renderTarget.Type = descriptor.Type;
-            renderTarget.UseDepth = descriptor.UseDepth;
-            renderTarget.UseStencil = descriptor.UseStencil;
-            renderTarget.Samples = descriptor.Samples;
-
-            renderTarget.FramebufferID = GL.GenFramebuffer();
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.FramebufferID);
-
-            renderTarget.TextureID = GL.GenTexture();
-            GL.BindTexture(TextureTarget.Texture2D, renderTarget.TextureID);
-            GL.TexImage2D(TextureTarget.Texture2D, 0, GLMappings.ToGL(descriptor.Format), descriptor.Width, descriptor.Height, descriptor.Border, GLMappings.ToGL(descriptor.Layout), GLMappings.ToGL(descriptor.Type), 0);
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, GLMappings.ToGLMinFilter(descriptor.FilterMode));
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, GLMappings.ToGLMagFilter(descriptor.FilterMode));
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, GLMappings.ToGL(descriptor.WrapS));
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, GLMappings.ToGL(descriptor.WrapT));
-
-            if (descriptor.WrapS == RenderFlags.TextureWrapMode.ClampToBorder || descriptor.WrapT == RenderFlags.TextureWrapMode.ClampToBorder)
-            {
-                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureBorderColor, [descriptor.BorderColor.X, descriptor.BorderColor.Y, descriptor.BorderColor.Z, descriptor.BorderColor.W]);
-            }
-
-            GL.FramebufferTexture2D(FramebufferTarget.Framebuffer, GLMappings.ToGL(descriptor.AttachmentPoint), TextureTarget.Texture2D, renderTarget.TextureID, 0);
-
-            GL.DrawBuffer(GLMappings.ToDrawBuffer(descriptor.DrawBufferMode));
-            GL.ReadBuffer(GLMappings.ToReadBuffer(descriptor.ReadBufferMode));
-
-            if ((descriptor.UseDepth || descriptor.UseStencil) && !descriptor.IsDepthTexture)
-            {
-                renderTarget.RenderBufferID = GL.GenRenderbuffer();
-                var depthFormat = GLMappings.GetBestDepthStencilFormat(descriptor.UseDepth, descriptor.UseStencil);
-
-                GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, renderTarget.RenderBufferID);
-                if (descriptor.Samples > 0)
-                {
-                    GL.RenderbufferStorageMultisample(RenderbufferTarget.Renderbuffer, descriptor.Samples, depthFormat, descriptor.Width, descriptor.Height);
-                }
-                else
-                {
-                    GL.RenderbufferStorage(RenderbufferTarget.Renderbuffer, depthFormat, descriptor.Width, descriptor.Height);
-                }
-
-                GL.FramebufferRenderbuffer(FramebufferTarget.Framebuffer, FramebufferAttachment.DepthStencilAttachment, RenderbufferTarget.Renderbuffer, renderTarget.RenderBufferID);
-            }
-
-
-            if (GL.CheckFramebufferStatus(FramebufferTarget.Framebuffer) == FramebufferErrorCode.FramebufferComplete)
-            {
-                Debug.WriteLine("Framebuffer Created");
-            }
-            else
-            {
-                Debug.WriteLine("Error while creating Framebuffer");
-            }
-
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
-            GL.BindTexture(TextureTarget.Texture2D, 0);
-            GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, 0);
-
-            return renderTarget;
-        }
-
-        public void BindRenderTarget(RenderTarget renderTarget)
+        public void BindRenderTarget(RenderTarget2D renderTarget)
         {
             GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.FramebufferID);
-        }
-
-        public void ResizeRenderTarget(RenderTarget renderTarget, int width, int height)
-        {
-            GL.BindTexture(TextureTarget.Texture2D, renderTarget.TextureID);
-            GL.TexImage2D(TextureTarget.Texture2D, 0, GLMappings.ToGL(renderTarget.Format), width, height, 0, GLMappings.ToGL(renderTarget.Layout), GLMappings.ToGL(renderTarget.Type), 0);
-            GL.BindTexture(TextureTarget.Texture2D, 0);
-
-            if (renderTarget.HasRenderBuffer)
-            {
-                var depthFormat = GLMappings.GetBestDepthStencilFormat(renderTarget.UseDepth, renderTarget.UseStencil);
-                GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, renderTarget.RenderBufferID);
-                if (renderTarget.Samples > 0)
-                {
-                    GL.RenderbufferStorageMultisample(RenderbufferTarget.Renderbuffer, renderTarget.Samples, depthFormat, width, height);
-                }
-                else
-                {
-                    GL.RenderbufferStorage(RenderbufferTarget.Renderbuffer, depthFormat, width, height);
-                }
-                GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, 0);
-            }
         }
 
         public void UnbindRenderTarget()
@@ -360,7 +272,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return currentFramebuffer;
         }
 
-        public Vector2i GetRenderTargetSize(RenderTarget renderTarget)
+        public Vector2i GetRenderTargetSize(RenderTarget2D renderTarget)
         {
             int width, height;
             GL.GetTextureLevelParameter(renderTarget.TextureID, 0, GetTextureParameter.TextureWidth, out width);
@@ -368,13 +280,13 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return new Vector2i(width, height);
         }
 
-        public byte[] GetRenderTargetData(RenderTarget renderTarget)
+        public byte[] GetRenderTargetData(RenderTarget2D renderTarget)
         {
             var renderTargetSize = GetRenderTargetSize(renderTarget);
             return GetRenderTargetData(renderTarget, renderTargetSize.X, renderTargetSize.Y);
         }
 
-        public byte[] GetRenderTargetData(RenderTarget renderTarget, int width, int height)
+        public byte[] GetRenderTargetData(RenderTarget2D renderTarget, int width, int height)
         {
             var oldRenderTarget = GetCurrentRenderTargetID();
 
@@ -392,14 +304,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.GetInteger(GetPName.FramebufferBinding, out currentFramebuffer);
             Debug.WriteLine($"Current framebuffer binding: {currentFramebuffer}");
             return currentFramebuffer;
-        }
-
-        public void DisposeRenderTarget(RenderTarget renderTarget)
-        {
-            GL.DeleteTexture(renderTarget.TextureID);
-            GL.DeleteRenderbuffer(renderTarget.RenderBufferID);
-            GL.DeleteFramebuffer(renderTarget.FramebufferID);
-            Debug.WriteLine("RenderTarget disposed");
         }
 
         public void BuildShaderProgram(ShaderProgram shaderProgram)
@@ -654,8 +558,8 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                     GL.BindTexture(TextureTarget.Texture2D, texture.TextureId);
                     GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, GLMappings.ToGL(textureOptions.WrapS));
                     GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, GLMappings.ToGL(textureOptions.WrapT));
-                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, GLMappings.ToGLMinFilter(textureOptions.MinFilter));
-                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, GLMappings.ToGLMagFilter(textureOptions.MagFilter));
+                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, GLMappings.ToGL(textureOptions.MinFilter));
+                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, GLMappings.ToGL(textureOptions.MagFilter));
                     GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, texture.Width, texture.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, texture.TextureData);
                     if (textureOptions.GenerateMipmaps)
                     {
@@ -730,7 +634,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
             GL.BindVertexArray(vertexBuffer);
-            GL.DrawElements(GLMappings.GetBeginMode(primitiveTypes), vertexCount, DrawElementsType.UnsignedInt, 0);
+            GL.DrawElements(GLMappings.ToBeginMode(primitiveTypes), vertexCount, DrawElementsType.UnsignedInt, 0);
             GL.BindVertexArray(0);
         }
 
@@ -745,7 +649,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             }
         }
 
-        public void DrawRenderTarget(RenderTarget renderTarget)
+        public void DrawRenderTarget(RenderTarget2D renderTarget)
         {
             var shape = _shapes["FramebufferShape"];
             if (shape != null)
@@ -1569,37 +1473,146 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.ActiveTexture(TextureUnit.Texture0);
         }
 
-        [Obsolete($"Use CreateRenderTarget(RenderTargetDescriptor constructorInfo) with the DepthOnly descriptor instead. This method will be removed in a future version.")]
-        public RenderTarget CreateShadowMap(int width, int height)
+        public int GenFramebuffer()
         {
-            int depthFBO = GL.GenFramebuffer();
-            int shadowMap = GL.GenTexture();
-            GL.BindTexture(TextureTarget.Texture2D, shadowMap);
-            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.DepthComponent, width, height, 0, PixelFormat.DepthComponent, PixelType.Float, IntPtr.Zero);
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Nearest);
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToBorder);
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToBorder);
-            float[] borderColor = [1.0f, 1.0f, 1.0f, 1.0f];
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureBorderColor, borderColor);
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, depthFBO);
-            GL.FramebufferTexture2D(FramebufferTarget.Framebuffer, FramebufferAttachment.DepthAttachment, TextureTarget.Texture2D, shadowMap, 0);
-            GL.DrawBuffer(DrawBufferMode.None);
-            GL.ReadBuffer(ReadBufferMode.None);
+            return GL.GenFramebuffer();
+        }
 
-            var status = GL.CheckFramebufferStatus(FramebufferTarget.Framebuffer);
-            if (status != FramebufferErrorCode.FramebufferComplete)
-            {
-                throw new Exception("Shadow map framebuffer is incomplete: " + status);
-            }
+        public void BindFramebuffer(RenderFlags.GFXFramebufferTarget target, int fbo)
+        {
+            var fbTarget = GLMappings.ToFramebufferTarget(target);
+            GL.BindFramebuffer(fbTarget, fbo);
+        }
 
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
+        public int GenTexture()
+        {
+            return GL.GenTexture();
+        }
 
-            var renderTarget = new RenderTarget();
-            renderTarget.FramebufferID = depthFBO;
-            renderTarget.TextureID = shadowMap;
-            
-            return renderTarget;
+        public void BindTexture(RenderFlags.GFXTextureTarget target, int textureId)
+        {
+            var gltarget = GLMappings.ToTextureTarget(target);
+            GL.BindTexture(gltarget, textureId);
+        }
+
+        public void ActiveTexture(int textureUnit)
+        {
+            var unit = TextureUnit.Texture0 + textureUnit;
+            GL.ActiveTexture(unit);
+        }
+
+        public void TexImage2D(RenderFlags.GFXTextureTarget target, int level, RenderFlags.ColorFormatHint internalFormat, int width, int height, int border, RenderFlags.ColorFormatLayout format, RenderFlags.ColorFormatType type, IntPtr data)
+        {
+            var gltarget = GLMappings.ToTextureTarget(target);
+            var glinternalFormat = GLMappings.ToGL(internalFormat);
+            var glformat = GLMappings.ToGL(format);
+            var gltype = GLMappings.ToGL(type);
+            GL.TexImage2D(gltarget, level, glinternalFormat, width, height, border, glformat, gltype, data);
+        }
+
+        public void TexParameter(RenderFlags.GFXTextureTarget target, RenderFlags.GFXTextureParameterName parameterName, RenderFlags.TextureFilterMode value)
+        {
+            var gltarget = GLMappings.ToTextureTarget(target);
+            var glparam = GLMappings.ToTextureParameterName(parameterName);
+            var glvalue = GLMappings.ToGL(value);
+            GL.TexParameter(gltarget, glparam, glvalue);
+        }
+
+        public void TexParameter(RenderFlags.GFXTextureTarget target, RenderFlags.GFXTextureParameterName pname, RenderFlags.TextureWrapMode param)
+        {
+            var gltarget = GLMappings.ToTextureTarget(target);
+            var glparam = GLMappings.ToTextureParameterName(pname);
+            var glvalue = GLMappings.ToGL(param);
+            GL.TexParameter(gltarget, glparam, glvalue);
+        }
+
+        public void TexParameter(RenderFlags.GFXTextureTarget target, RenderFlags.GFXTextureParameterName pname, Vector4 value)
+        {
+            var gltarget = GLMappings.ToTextureTarget(target);
+            var glparam = GLMappings.ToTextureParameterName(pname);
+            GL.TexParameter(gltarget, glparam, [value.X, value.Y, value.Z, value.W]);
+        }
+
+        public void TexParameter(RenderFlags.GFXTextureTarget target, RenderFlags.GFXTextureParameterName pname, float[] value)
+        {
+            var gltarget = GLMappings.ToTextureTarget(target);
+            var glparam = GLMappings.ToTextureParameterName(pname);
+            GL.TexParameter(gltarget, glparam, value);
+        }
+
+        public void FramebufferTexture2D(RenderFlags.GFXFramebufferTarget target, RenderFlags.GFXFramebufferAttachment attachment, RenderFlags.GFXTextureTarget textarget, int texture, int level)
+        {
+            var fbTarget = GLMappings.ToFramebufferTarget(target);
+            var fbAttachment = GLMappings.ToGL(attachment);
+            var texTarget = GLMappings.ToTextureTarget(textarget);
+            GL.FramebufferTexture2D(fbTarget, fbAttachment, texTarget, texture, level);
+        }
+
+        public void DrawBufferMode(RenderFlags.RenderBufferMode mode)
+        {
+            var drawBufferMode = GLMappings.ToDrawBuffer(mode);
+            GL.DrawBuffer(drawBufferMode);
+        }
+
+        public void ReadBufferMode(RenderFlags.RenderBufferMode mode)
+        {
+            var readBufferMode = GLMappings.ToReadBuffer(mode);
+            GL.ReadBuffer(readBufferMode);
+        }
+
+        public int GenRenderbuffer()
+        {
+            return GL.GenRenderbuffer();
+        }
+
+        public void BindRenderbuffer(RenderFlags.GFXRenderbufferTarget target, int renderbuffer)
+        {
+            var rbTarget = GLMappings.ToRenderbufferTarget(target);
+            GL.BindRenderbuffer(rbTarget, renderbuffer);
+        }
+
+        public void RenderbufferStorageMultisample(RenderFlags.GFXRenderbufferTarget target, int samples, RenderFlags.GFXRenderbufferStorage storage, int width, int height)
+        {
+            var rbTarget = GLMappings.ToRenderbufferTarget(target);
+            var rbStorage = GLMappings.ToRenderBufferStorage(storage);
+            GL.RenderbufferStorageMultisample(rbTarget, samples, rbStorage, width, height);
+        }
+
+        public void RenderbufferStorage(RenderFlags.GFXRenderbufferTarget target, RenderFlags.GFXRenderbufferStorage storage, int width, int height)
+        {
+            var rbTarget = GLMappings.ToRenderbufferTarget(target);
+            var rbStorage = GLMappings.ToRenderBufferStorage(storage);
+            GL.RenderbufferStorage(rbTarget, rbStorage, width, height);
+        }
+
+        public void FramebufferRenderbuffer(RenderFlags.GFXFramebufferTarget target, RenderFlags.GFXFramebufferAttachment attachment, RenderFlags.GFXRenderbufferTarget renderbuffertarget, int renderbuffer)
+        {
+            var fbTarget = GLMappings.ToFramebufferTarget(target);
+            var fbAttachment = GLMappings.ToGL(attachment);
+            var rbTarget = GLMappings.ToRenderbufferTarget(renderbuffertarget);
+            GL.FramebufferRenderbuffer(fbTarget, fbAttachment, rbTarget, renderbuffer);
+        }
+
+        public RenderFlags.GFXFramebufferErrorCode CheckFramebufferStatus(RenderFlags.GFXFramebufferTarget target)
+        {
+            var fbTarget = GLMappings.ToFramebufferTarget(target);
+            var status = GL.CheckFramebufferStatus(fbTarget);
+            return GLMappings.ToGFXFramebufferErrorCode(status);
+        }
+
+        public void DeleteFramebuffer(int framebuffer)
+        {
+            GL.DeleteFramebuffer(framebuffer);
+        }
+
+        public void DeleteTexture(int texture)
+        {
+            GL.DeleteTexture(texture);
+        }
+
+        public void DeleteRenderbuffer(int renderbuffer)
+        {
+            GL.DeleteRenderbuffer(renderbuffer);
         }
 
         public void CullFrontFace()

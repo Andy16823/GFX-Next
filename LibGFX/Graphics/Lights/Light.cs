@@ -31,7 +31,7 @@ namespace LibGFX.Graphics.Lights
         /// <summary>
         /// The range of the light.
         /// </summary>
-        public RenderTarget ShadowMap { get; set; }
+        public RenderTarget2D ShadowMap { get; set; }
 
         /// <summary>
         /// The size of the shadow map in pixels.

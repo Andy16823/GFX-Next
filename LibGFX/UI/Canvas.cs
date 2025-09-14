@@ -38,7 +38,7 @@ namespace LibGFX.UI
         /// <summary>
         /// The render target of the canvas
         /// </summary>
-        public RenderTarget RenderTarget { get; set; }
+        public RenderTarget2D RenderTarget { get; set; }
 
         /// <summary>
         /// Adds a control to the canvas

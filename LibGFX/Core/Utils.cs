@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using static LibGFX.Graphics.RenderFlags;
 
 namespace LibGFX.Core
 {
@@ -249,6 +250,17 @@ namespace LibGFX.Core
             var inverseModelMatrix = Matrix4.Invert(modelMatrix);
             var localPosition = Vector3.TransformPosition(worldPosition, inverseModelMatrix);
             return localPosition;
+        }
+
+        public static GFXRenderbufferStorage GetBestDepthStencilFormat(bool depth, bool stencil)
+        {
+            return (depth, stencil) switch
+            {
+                (true, true) => GFXRenderbufferStorage.Depth24Stencil8,
+                (true, false) => GFXRenderbufferStorage.DepthComponent24,
+                (false, true) => GFXRenderbufferStorage.StencilIndex8,
+                _ => throw new ArgumentException("At least one of depth or stencil must be true.")
+            };
         }
     }
 }

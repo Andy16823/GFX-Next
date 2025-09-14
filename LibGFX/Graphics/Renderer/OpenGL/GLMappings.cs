@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// TODO: Change to ToDrawBuffer()
 namespace LibGFX.Graphics.Renderer.OpenGL
 {
     /// <summary>
@@ -20,25 +21,12 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         /// <param name="mode"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        internal static int ToGLMinFilter(RenderFlags.TextureFilterMode mode) => mode switch
+        internal static int ToGL(RenderFlags.TextureFilterMode mode) => mode switch
         {
             RenderFlags.TextureFilterMode.Nearest => (int)TextureMinFilter.Nearest,
             RenderFlags.TextureFilterMode.Linear => (int)TextureMinFilter.Linear,
             RenderFlags.TextureFilterMode.MipmapNearest => (int)TextureMinFilter.NearestMipmapNearest,
             RenderFlags.TextureFilterMode.MipmapLinear => (int)TextureMinFilter.LinearMipmapLinear,
-            _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
-        };
-
-        /// <summary>
-        /// Converts a RenderFlags.TextureFilterMode to OpenGL TextureMagFilter.
-        /// </summary>
-        /// <param name="mode"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        internal static int ToGLMagFilter(RenderFlags.TextureFilterMode mode) => mode switch
-        {
-            RenderFlags.TextureFilterMode.Nearest => (int)TextureMagFilter.Nearest,
-            RenderFlags.TextureFilterMode.Linear => (int)TextureMagFilter.Linear,
             _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
         };
 
@@ -203,19 +191,19 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
         };
 
-        internal static FramebufferAttachment ToGL(RenderFlags.RenderAttachmentPoint attachment) => attachment switch
+        internal static FramebufferAttachment ToGL(RenderFlags.GFXFramebufferAttachment attachment) => attachment switch
         {
-            RenderFlags.RenderAttachmentPoint.Color0 => FramebufferAttachment.ColorAttachment0,
-            RenderFlags.RenderAttachmentPoint.Color1 => FramebufferAttachment.ColorAttachment1,
-            RenderFlags.RenderAttachmentPoint.Color2 => FramebufferAttachment.ColorAttachment2,
-            RenderFlags.RenderAttachmentPoint.Color3 => FramebufferAttachment.ColorAttachment3,
-            RenderFlags.RenderAttachmentPoint.Color4 => FramebufferAttachment.ColorAttachment4,
-            RenderFlags.RenderAttachmentPoint.Color5 => FramebufferAttachment.ColorAttachment5,
-            RenderFlags.RenderAttachmentPoint.Color6 => FramebufferAttachment.ColorAttachment6,
-            RenderFlags.RenderAttachmentPoint.Color7 => FramebufferAttachment.ColorAttachment7,
-            RenderFlags.RenderAttachmentPoint.Depth => FramebufferAttachment.DepthAttachment,
-            RenderFlags.RenderAttachmentPoint.DepthStencil => FramebufferAttachment.DepthStencilAttachment,
-            RenderFlags.RenderAttachmentPoint.Stencil => FramebufferAttachment.StencilAttachment,
+            RenderFlags.GFXFramebufferAttachment.Color0 => FramebufferAttachment.ColorAttachment0,
+            RenderFlags.GFXFramebufferAttachment.Color1 => FramebufferAttachment.ColorAttachment1,
+            RenderFlags.GFXFramebufferAttachment.Color2 => FramebufferAttachment.ColorAttachment2,
+            RenderFlags.GFXFramebufferAttachment.Color3 => FramebufferAttachment.ColorAttachment3,
+            RenderFlags.GFXFramebufferAttachment.Color4 => FramebufferAttachment.ColorAttachment4,
+            RenderFlags.GFXFramebufferAttachment.Color5 => FramebufferAttachment.ColorAttachment5,
+            RenderFlags.GFXFramebufferAttachment.Color6 => FramebufferAttachment.ColorAttachment6,
+            RenderFlags.GFXFramebufferAttachment.Color7 => FramebufferAttachment.ColorAttachment7,
+            RenderFlags.GFXFramebufferAttachment.Depth => FramebufferAttachment.DepthAttachment,
+            RenderFlags.GFXFramebufferAttachment.DepthStencil => FramebufferAttachment.DepthStencilAttachment,
+            RenderFlags.GFXFramebufferAttachment.Stencil => FramebufferAttachment.StencilAttachment,
             _ => throw new ArgumentOutOfRangeException(nameof(attachment), attachment, null)
         };
 
@@ -285,7 +273,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         /// <param name="type"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        internal static PrimitiveType GetPrimitiveType(RenderFlags.PrimitiveTypes type) => type switch
+        internal static PrimitiveType ToPrimitiveType(RenderFlags.PrimitiveTypes type) => type switch
         {
             RenderFlags.PrimitiveTypes.Points => PrimitiveType.Points,
             RenderFlags.PrimitiveTypes.Lines => PrimitiveType.Lines,
@@ -303,7 +291,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         /// <param name="type"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        internal static BeginMode GetBeginMode(RenderFlags.PrimitiveTypes type) => type switch
+        internal static BeginMode ToBeginMode(RenderFlags.PrimitiveTypes type) => type switch
         {
             RenderFlags.PrimitiveTypes.Points => BeginMode.Points,
             RenderFlags.PrimitiveTypes.Lines => BeginMode.Lines,
@@ -314,5 +302,159 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             RenderFlags.PrimitiveTypes.TriangleFan => BeginMode.TriangleFan,
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
         };
+
+        internal static FramebufferTarget ToFramebufferTarget(RenderFlags.GFXFramebufferTarget target) => target switch
+        {
+            RenderFlags.GFXFramebufferTarget.ReadFramebuffer => FramebufferTarget.ReadFramebuffer,
+            RenderFlags.GFXFramebufferTarget.DrawFramebuffer => FramebufferTarget.DrawFramebuffer,
+            RenderFlags.GFXFramebufferTarget.Framebuffer => FramebufferTarget.Framebuffer,
+            _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
+        };
+
+        internal static TextureTarget ToTextureTarget(RenderFlags.GFXTextureTarget target) => target switch
+        {
+            RenderFlags.GFXTextureTarget.Texture1D => TextureTarget.Texture1D,
+            RenderFlags.GFXTextureTarget.Texture2D => TextureTarget.Texture2D,
+            RenderFlags.GFXTextureTarget.Texture3D => TextureTarget.Texture3D,
+            RenderFlags.GFXTextureTarget.TextureCubeMap => TextureTarget.TextureCubeMap,
+            RenderFlags.GFXTextureTarget.Texture1DArray => TextureTarget.Texture1DArray,
+            RenderFlags.GFXTextureTarget.Texture2DArray => TextureTarget.Texture2DArray,
+            RenderFlags.GFXTextureTarget.TextureRectangle => TextureTarget.TextureRectangle,
+            RenderFlags.GFXTextureTarget.TextureCubeMapArray => TextureTarget.TextureCubeMapArray,
+            RenderFlags.GFXTextureTarget.TextureBuffer => TextureTarget.TextureBuffer,
+            RenderFlags.GFXTextureTarget.Texture2DMultisample => TextureTarget.Texture2DMultisample,
+            RenderFlags.GFXTextureTarget.Texture2DMultisampleArray => TextureTarget.Texture2DMultisampleArray,
+            _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
+        };
+
+        internal static TextureParameterName ToTextureParameterName(RenderFlags.GFXTextureParameterName target) => target switch
+        {
+            RenderFlags.GFXTextureParameterName.TextureMinFilter => TextureParameterName.TextureMinFilter,
+            RenderFlags.GFXTextureParameterName.TextureMagFilter => TextureParameterName.TextureMagFilter,
+            RenderFlags.GFXTextureParameterName.TextureWrapS => TextureParameterName.TextureWrapS,
+            RenderFlags.GFXTextureParameterName.TextureWrapT => TextureParameterName.TextureWrapT,
+            RenderFlags.GFXTextureParameterName.TextureWrapR => TextureParameterName.TextureWrapR,
+            RenderFlags.GFXTextureParameterName.TextureBorderColor => TextureParameterName.TextureBorderColor,
+            RenderFlags.GFXTextureParameterName.TextureBaseLevel => TextureParameterName.TextureBaseLevel,
+            RenderFlags.GFXTextureParameterName.TextureMaxLevel => TextureParameterName.TextureMaxLevel,
+            RenderFlags.GFXTextureParameterName.TextureLodBias => TextureParameterName.TextureLodBias,
+            RenderFlags.GFXTextureParameterName.TextureCompareMode => TextureParameterName.TextureCompareMode,
+            RenderFlags.GFXTextureParameterName.TextureCompareFunc => TextureParameterName.TextureCompareFunc,
+            RenderFlags.GFXTextureParameterName.GenerateMipmap => TextureParameterName.GenerateMipmap,
+            _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
+        };
+
+        internal static RenderbufferTarget ToRenderbufferTarget(RenderFlags.GFXRenderbufferTarget target) => target switch
+        {
+            RenderFlags.GFXRenderbufferTarget.Renderbuffer => RenderbufferTarget.Renderbuffer,
+            RenderFlags.GFXRenderbufferTarget.RenderbufferExt => RenderbufferTarget.RenderbufferExt,
+            _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
+        };
+
+        internal static RenderbufferStorage ToRenderBufferStorage(RenderFlags.GFXRenderbufferStorage target) => target switch
+        {
+            RenderFlags.GFXRenderbufferStorage.R3G3B2 => RenderbufferStorage.R3G3B2,
+            RenderFlags.GFXRenderbufferStorage.Alpha4 => RenderbufferStorage.Alpha4,
+            RenderFlags.GFXRenderbufferStorage.Alpha8 => RenderbufferStorage.Alpha8,
+            RenderFlags.GFXRenderbufferStorage.Alpha12 => RenderbufferStorage.Alpha12,
+            RenderFlags.GFXRenderbufferStorage.Alpha16 => RenderbufferStorage.Alpha16,
+            RenderFlags.GFXRenderbufferStorage.Rgb4 => RenderbufferStorage.Rgb4,
+            RenderFlags.GFXRenderbufferStorage.Rgb5 => RenderbufferStorage.Rgb5,
+            RenderFlags.GFXRenderbufferStorage.Rgb8 => RenderbufferStorage.Rgb8,
+            RenderFlags.GFXRenderbufferStorage.Rgb10 => RenderbufferStorage.Rgb10,
+            RenderFlags.GFXRenderbufferStorage.Rgb12 => RenderbufferStorage.Rgb12,
+            RenderFlags.GFXRenderbufferStorage.Rgb16 => RenderbufferStorage.Rgb16,
+            RenderFlags.GFXRenderbufferStorage.Rgba2 => RenderbufferStorage.Rgba2,
+            RenderFlags.GFXRenderbufferStorage.Rgba4 => RenderbufferStorage.Rgba4,
+            RenderFlags.GFXRenderbufferStorage.Rgba8 => RenderbufferStorage.Rgba8,
+            RenderFlags.GFXRenderbufferStorage.Rgb10A2 => RenderbufferStorage.Rgb10A2,
+            RenderFlags.GFXRenderbufferStorage.Rgba12 => RenderbufferStorage.Rgba12,
+            RenderFlags.GFXRenderbufferStorage.Rgba16 => RenderbufferStorage.Rgba16,
+            RenderFlags.GFXRenderbufferStorage.DepthComponent16 => RenderbufferStorage.DepthComponent16,
+            RenderFlags.GFXRenderbufferStorage.DepthComponent24 => RenderbufferStorage.DepthComponent24,
+            RenderFlags.GFXRenderbufferStorage.DepthComponent32 => RenderbufferStorage.DepthComponent32,
+            RenderFlags.GFXRenderbufferStorage.R8 => RenderbufferStorage.R8,
+            RenderFlags.GFXRenderbufferStorage.R16 => RenderbufferStorage.R16,
+            RenderFlags.GFXRenderbufferStorage.Rg8 => RenderbufferStorage.Rg8,
+            RenderFlags.GFXRenderbufferStorage.Rg16 => RenderbufferStorage.Rg16,
+            RenderFlags.GFXRenderbufferStorage.R16f => RenderbufferStorage.R16f,
+            RenderFlags.GFXRenderbufferStorage.R32f => RenderbufferStorage.R32f,
+            RenderFlags.GFXRenderbufferStorage.Rg16f => RenderbufferStorage.Rg16f,
+            RenderFlags.GFXRenderbufferStorage.Rg32f => RenderbufferStorage.Rg32f,
+            RenderFlags.GFXRenderbufferStorage.R8i => RenderbufferStorage.R8i,
+            RenderFlags.GFXRenderbufferStorage.R8ui => RenderbufferStorage.R8ui,
+            RenderFlags.GFXRenderbufferStorage.R16i => RenderbufferStorage.R16i,
+            RenderFlags.GFXRenderbufferStorage.R16ui => RenderbufferStorage.R16ui,
+            RenderFlags.GFXRenderbufferStorage.R32i => RenderbufferStorage.R32i,
+            RenderFlags.GFXRenderbufferStorage.R32ui => RenderbufferStorage.R32ui,
+            RenderFlags.GFXRenderbufferStorage.Rg8i => RenderbufferStorage.Rg8i,
+            RenderFlags.GFXRenderbufferStorage.Rg8ui => RenderbufferStorage.Rg8ui,
+            RenderFlags.GFXRenderbufferStorage.Rg16i => RenderbufferStorage.Rg16i,
+            RenderFlags.GFXRenderbufferStorage.Rg16ui => RenderbufferStorage.Rg16ui,
+            RenderFlags.GFXRenderbufferStorage.Rg32i => RenderbufferStorage.Rg32i,
+            RenderFlags.GFXRenderbufferStorage.Rg32ui => RenderbufferStorage.Rg32ui,
+            RenderFlags.GFXRenderbufferStorage.Rgba32f => RenderbufferStorage.Rgba32f,
+            RenderFlags.GFXRenderbufferStorage.Rgb32f => RenderbufferStorage.Rgb32f,
+            RenderFlags.GFXRenderbufferStorage.Rgba16f => RenderbufferStorage.Rgba16f,
+            RenderFlags.GFXRenderbufferStorage.Rgb16f => RenderbufferStorage.Rgb16f,
+            RenderFlags.GFXRenderbufferStorage.Depth24Stencil8 => RenderbufferStorage.Depth24Stencil8,
+            RenderFlags.GFXRenderbufferStorage.R11fG11fB10f => RenderbufferStorage.R11fG11fB10f,
+            RenderFlags.GFXRenderbufferStorage.Rgb9E5 => RenderbufferStorage.Rgb9E5,
+            RenderFlags.GFXRenderbufferStorage.Srgb8 => RenderbufferStorage.Srgb8,
+            RenderFlags.GFXRenderbufferStorage.Srgb8Alpha8 => RenderbufferStorage.Srgb8Alpha8,
+            RenderFlags.GFXRenderbufferStorage.DepthComponent32f => RenderbufferStorage.DepthComponent32f,
+            RenderFlags.GFXRenderbufferStorage.Depth32fStencil8 => RenderbufferStorage.Depth32fStencil8,
+            RenderFlags.GFXRenderbufferStorage.StencilIndex1 => RenderbufferStorage.StencilIndex1,
+            RenderFlags.GFXRenderbufferStorage.StencilIndex1Ext => RenderbufferStorage.StencilIndex1Ext,
+            RenderFlags.GFXRenderbufferStorage.StencilIndex4 => RenderbufferStorage.StencilIndex4,
+            RenderFlags.GFXRenderbufferStorage.StencilIndex4Ext => RenderbufferStorage.StencilIndex4Ext,
+            RenderFlags.GFXRenderbufferStorage.StencilIndex8 => RenderbufferStorage.StencilIndex8,
+            RenderFlags.GFXRenderbufferStorage.StencilIndex8Ext => RenderbufferStorage.StencilIndex8Ext,
+            RenderFlags.GFXRenderbufferStorage.StencilIndex16 => RenderbufferStorage.StencilIndex16,
+            RenderFlags.GFXRenderbufferStorage.StencilIndex16Ext => RenderbufferStorage.StencilIndex16Ext,
+            RenderFlags.GFXRenderbufferStorage.Rgba32ui => RenderbufferStorage.Rgba32ui,
+            RenderFlags.GFXRenderbufferStorage.Rgb32ui => RenderbufferStorage.Rgb32ui,
+            RenderFlags.GFXRenderbufferStorage.Rgba16ui => RenderbufferStorage.Rgba16ui,
+            RenderFlags.GFXRenderbufferStorage.Rgb16ui => RenderbufferStorage.Rgb16ui,
+            RenderFlags.GFXRenderbufferStorage.Rgba8ui => RenderbufferStorage.Rgba8ui,
+            RenderFlags.GFXRenderbufferStorage.Rgb8ui => RenderbufferStorage.Rgb8ui,
+            RenderFlags.GFXRenderbufferStorage.Rgba32i => RenderbufferStorage.Rgba32i,
+            RenderFlags.GFXRenderbufferStorage.Rgb32i => RenderbufferStorage.Rgb32i,
+            RenderFlags.GFXRenderbufferStorage.Rgba16i => RenderbufferStorage.Rgba16i,
+            RenderFlags.GFXRenderbufferStorage.Rgb16i => RenderbufferStorage.Rgb16i,
+            RenderFlags.GFXRenderbufferStorage.Rgba8i => RenderbufferStorage.Rgba8i,
+            RenderFlags.GFXRenderbufferStorage.Rgb8i => RenderbufferStorage.Rgb8i,
+            RenderFlags.GFXRenderbufferStorage.Rgb10A2ui => RenderbufferStorage.Rgb10A2ui,
+            _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
+        };
+
+        internal static FramebufferErrorCode ToFramebufferErrorCode(RenderFlags.GFXFramebufferErrorCode code) => code switch
+        {
+            RenderFlags.GFXFramebufferErrorCode.FramebufferComplete => FramebufferErrorCode.FramebufferComplete,
+            RenderFlags.GFXFramebufferErrorCode.FramebufferUndefined => FramebufferErrorCode.FramebufferUndefined,
+            RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteAttachment => FramebufferErrorCode.FramebufferIncompleteAttachment,
+            RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteMissingAttachment => FramebufferErrorCode.FramebufferIncompleteMissingAttachment,
+            RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteDrawBuffer => FramebufferErrorCode.FramebufferIncompleteDrawBuffer,
+            RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteReadBuffer => FramebufferErrorCode.FramebufferIncompleteReadBuffer,
+            RenderFlags.GFXFramebufferErrorCode.FramebufferUnsupported => FramebufferErrorCode.FramebufferUnsupported,
+            RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteMultisample => FramebufferErrorCode.FramebufferIncompleteMultisample,
+            RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteLayerTargets => FramebufferErrorCode.FramebufferIncompleteLayerTargets,
+            _ => throw new ArgumentOutOfRangeException(nameof(code), code, null)
+        };
+
+        internal static RenderFlags.GFXFramebufferErrorCode ToGFXFramebufferErrorCode(FramebufferErrorCode code) => code switch
+        {
+            FramebufferErrorCode.FramebufferComplete => RenderFlags.GFXFramebufferErrorCode.FramebufferComplete,
+            FramebufferErrorCode.FramebufferUndefined => RenderFlags.GFXFramebufferErrorCode.FramebufferUndefined,
+            FramebufferErrorCode.FramebufferIncompleteAttachment => RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteAttachment,
+            FramebufferErrorCode.FramebufferIncompleteMissingAttachment => RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteMissingAttachment,
+            FramebufferErrorCode.FramebufferIncompleteDrawBuffer => RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteDrawBuffer,
+            FramebufferErrorCode.FramebufferIncompleteReadBuffer => RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteReadBuffer,
+            FramebufferErrorCode.FramebufferUnsupported => RenderFlags.GFXFramebufferErrorCode.FramebufferUnsupported,
+            FramebufferErrorCode.FramebufferIncompleteMultisample => RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteMultisample,
+            FramebufferErrorCode.FramebufferIncompleteLayerTargets => RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteLayerTargets,
+            _ => throw new ArgumentOutOfRangeException(nameof(code), code, null)
+        };
+
     }
 }
