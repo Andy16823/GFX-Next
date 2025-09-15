@@ -48,7 +48,7 @@ namespace LibGFX.Graphics
         void Clear(RenderFlags.ClearFlags clearFlags);
         void ClearColor(float r, float g, float b, float a);
         void Flush();
-        void BindRenderTarget(RenderTarget2D renderTarget); 
+        void BindRenderTarget(IRenderTarget renderTarget); 
         void UnbindRenderTarget();
         int GetCurrentRenderTargetID();
         Vector2i GetRenderTargetSize(RenderTarget2D renderTarget);

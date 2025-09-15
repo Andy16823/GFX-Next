@@ -30,6 +30,8 @@ namespace LibGFX.Graphics
 
         public bool HasRenderBuffer => RenderBufferID != 0;
 
+        public int RenderTargetId => FramebufferID;
+
         public RenderTarget2D(RenderTargetDescriptor descriptor)
         {
             _descriptor = descriptor;

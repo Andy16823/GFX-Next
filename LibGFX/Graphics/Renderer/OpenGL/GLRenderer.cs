@@ -255,9 +255,9 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return _projectionMatrix;
         }
 
-        public void BindRenderTarget(RenderTarget2D renderTarget)
+        public void BindRenderTarget(IRenderTarget renderTarget)
         {
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.FramebufferID);
+            GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.RenderTargetId);
         }
 
         public void UnbindRenderTarget()
