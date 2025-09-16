@@ -275,8 +275,8 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         public Vector2i GetRenderTargetSize(RenderTarget2D renderTarget)
         {
             int width, height;
-            GL.GetTextureLevelParameter(renderTarget.TextureID, 0, GetTextureParameter.TextureWidth, out width);
-            GL.GetTextureLevelParameter(renderTarget.TextureID, 0, GetTextureParameter.TextureHeight, out height);
+            GL.GetTextureLevelParameter(renderTarget.TextureId, 0, GetTextureParameter.TextureWidth, out width);
+            GL.GetTextureLevelParameter(renderTarget.TextureId, 0, GetTextureParameter.TextureHeight, out height);
             return new Vector2i(width, height);
         }
 
@@ -291,7 +291,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             var oldRenderTarget = GetCurrentRenderTargetID();
 
             byte[] data = new byte[width * height * 4];
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.FramebufferID);
+            GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.RenderTargetId);
             GL.ReadPixels(0, 0, width, height, PixelFormat.Bgra, PixelType.UnsignedByte, data);
             GL.BindFramebuffer(FramebufferTarget.Framebuffer, oldRenderTarget);
 
@@ -657,7 +657,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                 var depthTest = IsDepthTestEnabled();
                 DisableDepthTest();
                 GL.ActiveTexture(TextureUnit.Texture0);
-                GL.BindTexture(TextureTarget.Texture2D, renderTarget.TextureID);
+                GL.BindTexture(TextureTarget.Texture2D, renderTarget.TextureId);
                 GL.Uniform1(GetUniformLocation(_currentProgram, "screenTexture"), 0);
                 GL.BindVertexArray(shape.VertexArray);
                 GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);

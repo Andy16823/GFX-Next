@@ -125,7 +125,7 @@ namespace LibGFX.UI
 
             // Draw the render target to the screen
             renderer.BindShaderProgram(renderer.GetShaderProgram("SpriteShader"));
-            renderer.DrawTexture(this.Transform, this.RenderTarget.TextureID, new Vector4(1, 1, 1, 1), new Vector4(1, 1, 0, 0), Vector2.One);
+            renderer.DrawTexture(this.Transform, this.RenderTarget.TextureId, new Vector4(1, 1, 1, 1), new Vector4(1, 1, 0, 0), Vector2.One);
             renderer.UnbindShaderProgram();
         }
 
