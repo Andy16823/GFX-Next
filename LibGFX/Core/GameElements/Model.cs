@@ -212,7 +212,7 @@ namespace LibGFX.Core.GameElements
             Animations = new List<Graphics.Animation3D.Animation>();
             for (int i = 0; i < scene.AnimationCount; i++)
             {
-                var animation = new Graphics.Animation3D.Animation(scene, this, i);
+                var animation = new Graphics.Animation3D.Animation(scene, i, this.Skeleton);
                 this.Animations.Add(animation);
             }
 
@@ -565,7 +565,7 @@ namespace LibGFX.Core.GameElements
         {
             animations.ForEach(a =>
             {
-                a.BoneInfoMap = this.Skeleton.BoneInfoMap;
+                a.ReadBones(Skeleton);
                 this.Animations.Add(a);
             });
         }
@@ -576,7 +576,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="animation"></param>
         public void AddAnimation(Graphics.Animation3D.Animation animation)
         {
-            animation.BoneInfoMap = this.Skeleton.BoneInfoMap;
+            animation.ReadBones(Skeleton);
             this.Animations.Add(animation);
         }
 
@@ -589,7 +589,7 @@ namespace LibGFX.Core.GameElements
             this.Animations.Clear();
             animations.ForEach(a =>
             {
-                a.BoneInfoMap = this.Skeleton.BoneInfoMap;
+                a.ReadBones(Skeleton);
                 this.Animations.Add(a);
             });
         }

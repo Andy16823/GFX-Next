@@ -58,10 +58,12 @@ namespace LibGFX.Graphics.Animation3D
         /// </summary>
         public Dictionary<String, BoneInfo> BoneInfoMap { get; set; }
 
+        private List<AnimationChannel> _animationChannels; 
+
         /// <summary>
         /// Initializes a new instance of the Animation class.
         /// </summary>
-        public Animation(Assimp.Scene scene, Model model, int index)
+        public Animation(Assimp.Scene scene, int index, Skeleton skeleton)
         {
             this.Bones = new List<Bone>();
             var animation = scene.Animations[index];
@@ -71,7 +73,8 @@ namespace LibGFX.Graphics.Animation3D
             var rootNode = new AssimpNodeData();
             this.ReadHeirarchyData(ref rootNode, scene.RootNode);
             this.RootNode = rootNode;
-            ReadMissingBones(animation, model);
+            LoadAnimationChannel(animation);
+            ReadBones(skeleton);
         }
 
         /// <summary>
@@ -89,6 +92,7 @@ namespace LibGFX.Graphics.Animation3D
             var rootNode = new AssimpNodeData();
             this.ReadHeirarchyData(ref rootNode, scene.RootNode);
             this.RootNode = rootNode;
+            this.LoadAnimationChannel(animation);
         }
 
         /// <summary>
@@ -110,55 +114,67 @@ namespace LibGFX.Graphics.Animation3D
             }
         }
 
-        /// <summary>
-        /// Reads bones engaged in the animation and their keyframes.
-        /// </summary>
-        void ReadMissingBones(Assimp.Animation animation, Model model)
+        public void LoadAnimationChannel(Assimp.Animation animation)
         {
-            int size = animation.NodeAnimationChannelCount;
+            _animationChannels = new List<AnimationChannel>();
 
-
-            //reading channels(bones engaged in an animation and their keyframes)
-            for (int i = 0; i < size; i++)
+            foreach (var nodeChannel in animation.NodeAnimationChannels)
             {
-                var channel = animation.NodeAnimationChannels[i];
-                string boneName = channel.NodeName;
+                var channel = new AnimationChannel();
+                channel.BoneName = nodeChannel.NodeName;
 
-                if (!model.Skeleton.BoneInfoMap.ContainsKey(boneName))
+                int positionKeyCount = nodeChannel.PositionKeyCount;
+                for (int positionIndex = 0; positionIndex < positionKeyCount; positionIndex++)
                 {
-                    BoneInfo boneinfo = new BoneInfo();
-                    boneinfo.id = model.Skeleton.BoneCounter;
-
-                    // why no offset????
-                    model.Skeleton.BoneInfoMap.Add(boneName, boneinfo);
-                    model.Skeleton.BoneCounter++;
+                    var assimpPosition = nodeChannel.PositionKeys[positionIndex];
+                    var position = new KeyPosition();
+                    position.position = new Vector3(assimpPosition.Value.X, assimpPosition.Value.Y, assimpPosition.Value.Z);
+                    position.timeStamp = (float)assimpPosition.Time;
+                    channel.Positions.Add(position);
                 }
-                Bones.Add(new Bone(boneName, model.Skeleton.BoneInfoMap[boneName].id, channel));
-            }
 
-            BoneInfoMap = model.Skeleton.BoneInfoMap;
+                int rotationKeyCount = nodeChannel.RotationKeyCount;
+                for (int rotationIndex = 0; rotationIndex < rotationKeyCount; rotationIndex++)
+                {
+                    Assimp.Quaternion aiOrientation = nodeChannel.RotationKeys[rotationIndex].Value;
+                    var assimpRotation = nodeChannel.RotationKeys[rotationIndex];
+                    var rotation = new KeyRotation();
+                    rotation.orientation = new OpenTK.Mathematics.Quaternion(aiOrientation.X, aiOrientation.Y, aiOrientation.Z, aiOrientation.W);
+                    rotation.timeStamp = (float)assimpRotation.Time;
+                    channel.Rotations.Add(rotation);
+                }
+
+                int scalingKeyCount = nodeChannel.ScalingKeyCount;
+                for (int scalingIndex = 0; scalingIndex < scalingKeyCount; scalingIndex++)
+                {
+                    var assimpScale = nodeChannel.ScalingKeys[scalingIndex];
+                    var scale = new KeyScale();
+                    scale.scale = new Vector3(assimpScale.Value.X, assimpScale.Value.Y, assimpScale.Value.Z);
+                    scale.timeStamp = (float)assimpScale.Time;
+                    channel.Scales.Add(scale);
+                }
+
+                _animationChannels.Add(channel);
+            }
         }
 
-        void ReadBones(Assimp.Animation animation, Skeleton skeleton)
+        /// <summary>
+        /// Reads bones from the provided skeleton and associates them with the animation.
+        /// </summary>
+        /// <param name="skeleton"></param>
+        public void ReadBones(Skeleton skeleton)
         {
-            int size = animation.NodeAnimationChannelCount;
-
-            //reading channels(bones engaged in an animation and their keyframes)
-            for (int i = 0; i < size; i++)
+            foreach(var channel in _animationChannels)
             {
-                var channel = animation.NodeAnimationChannels[i];
-                string boneName = channel.NodeName;
-
-                if (!skeleton.BoneInfoMap.ContainsKey(boneName))
+                if (!skeleton.BoneInfoMap.ContainsKey(channel.BoneName))
                 {
                     BoneInfo boneinfo = new BoneInfo();
                     boneinfo.id = skeleton.BoneCounter;
-
                     // why no offset????
-                    skeleton.BoneInfoMap.Add(boneName, boneinfo);
+                    skeleton.BoneInfoMap.Add(channel.BoneName, boneinfo);
                     skeleton.BoneCounter++;
                 }
-                Bones.Add(new Bone(boneName, skeleton.BoneInfoMap[boneName].id, channel));
+                Bones.Add(new Bone(channel.BoneName, skeleton.BoneInfoMap[channel.BoneName].id, channel));
             }
 
             BoneInfoMap = skeleton.BoneInfoMap;
@@ -192,7 +208,7 @@ namespace LibGFX.Graphics.Animation3D
 
             foreach (var bone in Bones)
             {
-                var boneKeyframes = System.Math.Max(bone.NumPositions, System.Math.Max(bone.NumRotations, bone.NumScalings));
+                var boneKeyframes = System.Math.Max(bone.AnimationChannel.NumPositions, System.Math.Max(bone.AnimationChannel.NumRotations, bone.AnimationChannel.NumScalings));
                 if (boneKeyframes > length)
                 {
                     length = boneKeyframes;

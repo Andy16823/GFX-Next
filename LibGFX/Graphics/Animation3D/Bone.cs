@@ -11,34 +11,6 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Animation3D
 {
-
-    /// <summary>
-    /// Represents a keyframe position in an animation.
-    /// </summary>
-    public struct KeyPosition
-    {
-        public Vector3 position;
-        public float timeStamp;
-    };
-
-    /// <summary>
-    /// Represents a keyframe rotation in an animation.
-    /// </summary>
-    public struct KeyRotation
-    {
-        public OpenTK.Mathematics.Quaternion orientation;
-        public float timeStamp;
-    };
-
-    /// <summary>
-    /// Represents a keyframe scale in an animation.
-    /// </summary>
-    public struct KeyScale
-    {
-        public Vector3 scale;
-        public float timeStamp;
-    };
-
     /// <summary>
     /// Represents a bone in a skeletal animation system.
     /// </summary>
@@ -47,32 +19,7 @@ namespace LibGFX.Graphics.Animation3D
         /// <summary>
         /// List of position keyframes for the bone.
         /// </summary>
-        public List<KeyPosition> Positions { get; set; }
-
-        /// <summary>
-        /// Number of position keyframes.
-        /// </summary>
-        public int NumPositions { get; set; }
-
-        /// <summary>
-        /// List of rotation keyframes for the bone.
-        /// </summary>
-        public List<KeyRotation> Rotations { get; set; }
-
-        /// <summary>
-        /// Number of rotation keyframes.
-        /// </summary>
-        public int NumRotations { get; set; }
-
-        /// <summary>
-        /// List of scale keyframes for the bone.
-        /// </summary>
-        public List<KeyScale> Scales { get; set; }
-
-        /// <summary>
-        /// Number of scale keyframes.
-        /// </summary>
-        public int NumScalings { get; set; }
+        public AnimationChannel AnimationChannel { get; set; }
 
         /// <summary>
         /// Local transformation matrix of the bone.
@@ -89,50 +36,12 @@ namespace LibGFX.Graphics.Animation3D
         /// </summary>
         public int ID { get; set; }
 
-        /// <summary>
-        /// Initializes a new instance of the Bone class.
-        /// </summary>
-        public Bone(String name, int id, Assimp.NodeAnimationChannel channel)
+        public Bone(String name, int id, AnimationChannel animationChannel)
         {
             this.Name = name;
             this.ID = id;
             this.LocalTransform = Matrix4.Identity;
-
-            this.Positions = new List<KeyPosition>();
-            NumPositions = channel.PositionKeyCount;
-            for (int positionIndex = 0; positionIndex < NumPositions; ++positionIndex)
-            {
-                Vector3D aiPosition = channel.PositionKeys[positionIndex].Value;
-                float timeStamp = (float)channel.PositionKeys[positionIndex].Time;
-                KeyPosition data;
-                data.position = new Vector3(aiPosition.X, aiPosition.Y, aiPosition.Z);
-                data.timeStamp = timeStamp;
-                Positions.Add(data);
-            }
-
-            this.Rotations = new List<KeyRotation>();
-            NumRotations = channel.RotationKeyCount;
-            for (int rotationIndex = 0; rotationIndex < NumRotations; ++rotationIndex)
-            {
-                Assimp.Quaternion aiOrientation = channel.RotationKeys[rotationIndex].Value;
-                float timeStamp = (float)channel.RotationKeys[rotationIndex].Time;
-                KeyRotation data;
-                data.orientation = new OpenTK.Mathematics.Quaternion(aiOrientation.X, aiOrientation.Y, aiOrientation.Z, aiOrientation.W);
-                data.timeStamp = timeStamp;
-                Rotations.Add(data);
-            }
-
-            this.Scales = new List<KeyScale>();
-            NumScalings = channel.ScalingKeyCount;
-            for (int keyIndex = 0; keyIndex < NumScalings; ++keyIndex)
-            {
-                Vector3D scale = channel.ScalingKeys[keyIndex].Value;
-                float timeStamp = (float)channel.ScalingKeys[keyIndex].Time;
-                KeyScale data;
-                data.scale = new Vector3(scale.X, scale.Y, scale.Z);
-                data.timeStamp = timeStamp;
-                Scales.Add(data);
-            }
+            this.AnimationChannel = animationChannel;
         }
 
         /// <summary>
@@ -140,9 +49,9 @@ namespace LibGFX.Graphics.Animation3D
         /// </summary>
         public int GetPositionIndex(float animationTime)
         {
-            for (int index = 0; index < NumPositions - 1; ++index)
+            for (int index = 0; index < AnimationChannel.NumPositions - 1; ++index)
             {
-                if (animationTime < Positions[index + 1].timeStamp)
+                if (animationTime < AnimationChannel.Positions[index + 1].timeStamp)
                     return index;
             }
             Debug.Assert(false);
@@ -154,9 +63,9 @@ namespace LibGFX.Graphics.Animation3D
         /// </summary>
         public int GetRotationIndex(float animationTime)
         {
-            for (int index = 0; index < NumRotations - 1; ++index)
+            for (int index = 0; index < AnimationChannel.NumRotations - 1; ++index)
             {
-                if (animationTime < Rotations[index + 1].timeStamp)
+                if (animationTime < AnimationChannel.Rotations[index + 1].timeStamp)
                     return index;
             }
             Debug.Assert(false);
@@ -168,9 +77,9 @@ namespace LibGFX.Graphics.Animation3D
         /// </summary>
         public int GetScaleIndex(float animationTime)
         {
-            for (int index = 0; index < NumScalings - 1; ++index)
+            for (int index = 0; index < AnimationChannel.NumScalings - 1; ++index)
             {
-                if (animationTime < Scales[index + 1].timeStamp)
+                if (animationTime < AnimationChannel.Scales[index + 1].timeStamp)
                     return index;
             }
             Debug.Assert(false);
@@ -191,35 +100,35 @@ namespace LibGFX.Graphics.Animation3D
 
         public Matrix4 InterpolatePosition(float animationTime)
         {
-            if (NumPositions == 1)
-                return Matrix4.CreateTranslation(Positions[0].position);
+            if (AnimationChannel.NumPositions == 1)
+                return Matrix4.CreateTranslation(AnimationChannel.Positions[0].position);
 
             int p0Index = GetPositionIndex(animationTime);
             int p1Index = p0Index + 1;
-            float scaleFactor = GetScaleFactor(Positions[p0Index].timeStamp, Positions[p1Index].timeStamp, animationTime);
-            Vector3 finalPosition = Vector3.Lerp(Positions[p0Index].position, Positions[p1Index].position, scaleFactor);
+            float scaleFactor = GetScaleFactor(AnimationChannel.Positions[p0Index].timeStamp, AnimationChannel.Positions[p1Index].timeStamp, animationTime);
+            Vector3 finalPosition = Vector3.Lerp(AnimationChannel.Positions[p0Index].position, AnimationChannel.Positions[p1Index].position, scaleFactor);
 
             return Matrix4.CreateTranslation(finalPosition);
         }
 
         public Matrix4 InterpolateRotation(float animationTime)
         {
-            if (NumRotations == 1)
+            if (AnimationChannel.NumRotations == 1)
             {
-                var rotation = Rotations[0].orientation.Normalized();
+                var rotation = AnimationChannel.Rotations[0].orientation.Normalized();
                 return Matrix4.CreateFromQuaternion(rotation);
             }
 
             int p0Index = GetRotationIndex(animationTime);
             int p1Index = p0Index + 1;
-            float scaleFactor = GetScaleFactor(Rotations[p0Index].timeStamp, Rotations[p1Index].timeStamp, animationTime);
+            float scaleFactor = GetScaleFactor(AnimationChannel.Rotations[p0Index].timeStamp, AnimationChannel.Rotations[p1Index].timeStamp, animationTime);
 
-            OpenTK.Mathematics.Quaternion finalRotation = OpenTK.Mathematics.Quaternion.Slerp(Rotations[p0Index].orientation, Rotations[p1Index].orientation, scaleFactor);
+            OpenTK.Mathematics.Quaternion finalRotation = OpenTK.Mathematics.Quaternion.Slerp(AnimationChannel.Rotations[p0Index].orientation, AnimationChannel.Rotations[p1Index].orientation, scaleFactor);
             finalRotation.Normalize();
 
             if (float.IsNaN(finalRotation.Length))
             {
-                var rotation = Rotations[p0Index].orientation.Normalized();
+                var rotation = AnimationChannel.Rotations[p0Index].orientation.Normalized();
                 return Matrix4.CreateFromQuaternion(rotation);
             }
 
@@ -228,13 +137,13 @@ namespace LibGFX.Graphics.Animation3D
 
         public Matrix4 InterpolateScaling(float animationTime)
         {
-            if (NumScalings == 1)
-                return Matrix4.CreateScale(Scales[0].scale);
+            if (AnimationChannel.NumScalings == 1)
+                return Matrix4.CreateScale(AnimationChannel.Scales[0].scale);
 
             int p0Index = GetScaleIndex(animationTime);
             int p1Index = p0Index + 1;
-            float scaleFactor = GetScaleFactor(Scales[p0Index].timeStamp, Scales[p1Index].timeStamp, animationTime);
-            Vector3 finalScale = Vector3.Lerp(Scales[p0Index].scale, Scales[p1Index].scale, scaleFactor);
+            float scaleFactor = GetScaleFactor(AnimationChannel.Scales[p0Index].timeStamp, AnimationChannel.Scales[p1Index].timeStamp, animationTime);
+            Vector3 finalScale = Vector3.Lerp(AnimationChannel.Scales[p0Index].scale, AnimationChannel.Scales[p1Index].scale, scaleFactor);
 
             return Matrix4.CreateScale(finalScale);
         }
@@ -253,9 +162,9 @@ namespace LibGFX.Graphics.Animation3D
             }
             else
             {
-                Matrix4 translation = Matrix4.CreateTranslation(Positions[GetPositionIndex(animationTime)].position);
-                Matrix4 rotation = Matrix4.CreateFromQuaternion(Rotations[GetRotationIndex(animationTime)].orientation);
-                Matrix4 scale = Matrix4.CreateScale(Scales[GetScaleIndex(animationTime)].scale);
+                Matrix4 translation = Matrix4.CreateTranslation(AnimationChannel.Positions[GetPositionIndex(animationTime)].position);
+                Matrix4 rotation = Matrix4.CreateFromQuaternion(AnimationChannel.Rotations[GetRotationIndex(animationTime)].orientation);
+                Matrix4 scale = Matrix4.CreateScale(AnimationChannel.Scales[GetScaleIndex(animationTime)].scale);
                 LocalTransform = scale * rotation * translation; // translation * rotation * scale;
             }
         }
