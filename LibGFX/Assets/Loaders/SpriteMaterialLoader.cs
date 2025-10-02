@@ -19,7 +19,7 @@ namespace LibGFX.Assets.Loaders
             throw new NotImplementedException();
         }
 
-        public T Load<T>(string path) where T : class
+        public T Load<T>(string path, object? loadingArgs = null) where T : class
         {
             if(typeof(T) == typeof(SpriteMaterial))
             {

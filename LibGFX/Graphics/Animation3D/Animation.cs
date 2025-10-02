@@ -75,6 +75,23 @@ namespace LibGFX.Graphics.Animation3D
         }
 
         /// <summary>
+        /// Initializes a new instance of the Animation class without a model reference.
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="index"></param>
+        public Animation(Assimp.Scene scene, int index)
+        {
+            this.Bones = new List<Bone>();
+            var animation = scene.Animations[index];
+            this.Name = animation.Name;
+            this.Duration = (float)animation.DurationInTicks;
+            this.TicksPerSecond = (float)animation.TicksPerSecond;
+            var rootNode = new AssimpNodeData();
+            this.ReadHeirarchyData(ref rootNode, scene.RootNode);
+            this.RootNode = rootNode;
+        }
+
+        /// <summary>
         /// Reads hierarchy data from the Assimp scene node.
         /// </summary>
         void ReadHeirarchyData(ref AssimpNodeData dest, Assimp.Node src)
@@ -120,6 +137,31 @@ namespace LibGFX.Graphics.Animation3D
             }
 
             BoneInfoMap = model.Skeleton.BoneInfoMap;
+        }
+
+        void ReadBones(Assimp.Animation animation, Skeleton skeleton)
+        {
+            int size = animation.NodeAnimationChannelCount;
+
+            //reading channels(bones engaged in an animation and their keyframes)
+            for (int i = 0; i < size; i++)
+            {
+                var channel = animation.NodeAnimationChannels[i];
+                string boneName = channel.NodeName;
+
+                if (!skeleton.BoneInfoMap.ContainsKey(boneName))
+                {
+                    BoneInfo boneinfo = new BoneInfo();
+                    boneinfo.id = skeleton.BoneCounter;
+
+                    // why no offset????
+                    skeleton.BoneInfoMap.Add(boneName, boneinfo);
+                    skeleton.BoneCounter++;
+                }
+                Bones.Add(new Bone(boneName, skeleton.BoneInfoMap[boneName].id, channel));
+            }
+
+            BoneInfoMap = skeleton.BoneInfoMap;
         }
 
         /// <summary>

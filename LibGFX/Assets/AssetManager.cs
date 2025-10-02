@@ -14,7 +14,7 @@ namespace LibGFX.Assets
     {
         public String AssemblyPath { get => this.GetAssemblyPath(); }
         private readonly Dictionary<object, IAssetLoader> _loaders = new();
-        private readonly Dictionary<string, object> _assets = new();
+        private readonly Dictionary<(Type, string), object> _assets = new();
 
         /// <summary>
         /// Loads an asset from the specified path.
@@ -22,19 +22,20 @@ namespace LibGFX.Assets
         /// <typeparam name="T"></typeparam>
         /// <param name="path"></param>
         /// <returns></returns>
-        public T Load<T>(string path) where T : class
+        public T Load<T>(string path, object? loadingArgs = null) where T : class
         {
-            if(this.LooksLikeFilePath(path))
+            if (this.LooksLikeFilePath(path))
             {
                 path = Path.IsPathRooted(path) ? path : Path.Combine(AssemblyPath, path);
             }
 
-            if (_assets.TryGetValue(path, out var asset))
+            var key = (typeof(T), path);
+            if (_assets.TryGetValue(key, out var asset))
             {
                 return (T)asset;
             }
-            asset = this.LoadAssetFromDisk<T>(path);
-            
+            asset = this.LoadAssetFromDisk<T>(path, loadingArgs);
+
             return (T)asset;
         }
 
@@ -45,9 +46,9 @@ namespace LibGFX.Assets
         /// <param name="path"></param>
         /// <param name="asset"></param>
         /// <returns></returns>
-        public bool TryLoad<T>(string path, out T? asset) where T : class
+        public bool TryLoad<T>(string path, out T? asset, object? loadingArgs = null) where T : class
         {
-            asset = this.Load<T>(path);
+            asset = this.Load<T>(path, loadingArgs);
             if(asset == null)
             {
                 return false;
@@ -61,9 +62,9 @@ namespace LibGFX.Assets
         /// <typeparam name="T"></typeparam>
         /// <param name="path"></param>
         /// <returns></returns>
-        public T LoadNew<T>(string path) where T : class
+        public T LoadNew<T>(string path, object? loadingArgs = null) where T : class
         {
-            return this.LoadAssetFromDisk<T>(path);
+            return this.LoadAssetFromDisk<T>(path, loadingArgs);
         }
 
         /// <summary>
@@ -117,7 +118,9 @@ namespace LibGFX.Assets
             {
                 throw new ArgumentNullException(nameof(asset));
             }
-            if (!_assets.TryAdd(name, asset))
+
+            var key = (typeof(T), name);
+            if (!_assets.TryAdd(key, asset))
             {
                 throw new InvalidOperationException($"Asset with name '{name}' already exists.");
             }
@@ -132,14 +135,14 @@ namespace LibGFX.Assets
         /// <returns></returns>
         /// <exception cref="NotSupportedException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        private T LoadAssetFromDisk<T>(string path) where T : class
+        private T LoadAssetFromDisk<T>(string path, object? loadingArgs = null) where T : class
         {
             if (!_loaders.TryGetValue(typeof(T), out var loader))
             {
                 throw new NotSupportedException($"No loader found for asset type '{typeof(T)}'.");
             }
 
-            var asset = loader.Load<T>(path);
+            var asset = loader.Load<T>(path, loadingArgs);
             if (asset == null)
             {
                 throw new InvalidOperationException($"Failed to load asset from path '{path}'.");
@@ -147,7 +150,8 @@ namespace LibGFX.Assets
 
             if(loader.ShouldCache)
             {
-                _assets.Add(path, asset);
+                var key = (typeof(T), path);
+                _assets.Add(key, asset);
             }
 
             return (T)asset;
@@ -176,7 +180,8 @@ namespace LibGFX.Assets
             var asset = loader.Create<T>(id, initializer, creationArgs);
             if(loader.ShouldCache)
             {
-                _assets.Add(id, asset);
+                var key = (typeof(T), id);
+                _assets.Add(key, asset);
             }
 
             return (T)asset;
@@ -206,7 +211,8 @@ namespace LibGFX.Assets
                 return false;
             }
             // Check if an asset with the same ID already exists
-            if (loader.ShouldCache && _assets.ContainsKey(id))
+            var key = (typeof(T), id);
+            if (loader.ShouldCache && _assets.ContainsKey(key))
             {
                 asset = null;
                 return false;
@@ -221,7 +227,7 @@ namespace LibGFX.Assets
             // Cache the asset if the loader supports caching
             if (loader.ShouldCache)
             {
-                _assets.Add(id, asset);
+                _assets.Add(key, asset);
             }
             // Return true to indicate success
             return true;
@@ -275,9 +281,10 @@ namespace LibGFX.Assets
         /// <param name="path"></param>
         public void UnloadAsset(string path)
         {
-            if (_assets.ContainsKey(path))
+            var key = (typeof(object), path);
+            if (_assets.ContainsKey(key))
             {
-                _assets.Remove(path);
+                _assets.Remove(key);
             }
         }
 

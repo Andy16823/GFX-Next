@@ -4,6 +4,7 @@ using LibGFX.Audio;
 using LibGFX.Core;
 using LibGFX.Core.GameElements;
 using LibGFX.Graphics;
+using LibGFX.Graphics.Animation3D;
 using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Shader;
 using System.Diagnostics;
@@ -36,6 +37,7 @@ namespace LibGFX
         /// </summary>
         private GFX()
         {
+
             Debug.WriteLine("GFX instance created.");
             AssetManager = new AssetManager();
             AssetManager.RegisterLoader<Texture>(new TextureLoader());
@@ -46,6 +48,8 @@ namespace LibGFX
             AssetManager.RegisterLoader<MeshCollection>(new MeshLoader());
             AssetManager.RegisterLoader<SpriteMaterial>(new SpriteMaterialLoader());
             AssetManager.RegisterLoader<Shader>(new ShaderLoader());
+            AssetManager.RegisterLoader<Skeleton>(new SkeletonLoader());
+            AssetManager.RegisterLoader<List<Graphics.Animation3D.Animation>>(new Animation3DLoader());
         }
 
         /// <summary>

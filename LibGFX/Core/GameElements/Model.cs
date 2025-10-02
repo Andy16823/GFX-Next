@@ -197,7 +197,7 @@ namespace LibGFX.Core.GameElements
                 mesh.LocalScale = new Vector3(scale.X, scale.Y, scale.Z);
             }
 
-            foreach(var child in node.Children)
+            foreach (var child in node.Children)
             {
                 LoadNodeTransformRecursive(child, currentTransform);
             }
@@ -237,7 +237,7 @@ namespace LibGFX.Core.GameElements
                 material.Opacity = asmat.Opacity;
                 material.Color = new Vector4(asmat.ColorDiffuse.R, asmat.ColorDiffuse.G, asmat.ColorDiffuse.B, asmat.ColorDiffuse.A);
 
-                if(asmat.Shininess > 0)
+                if (asmat.Shininess > 0)
                 {
                     material.Shininess = asmat.Shininess;
                 }
@@ -287,7 +287,7 @@ namespace LibGFX.Core.GameElements
                     vertex.Tangent = new Vector4(asmesh.Tangents[i].X, asmesh.Tangents[i].Y, asmesh.Tangents[i].Z, 1.0f);
                     vertex.BoneIDs = new Vector4i(-1);
                     vertex.BoneWeights = new Vector4(0.0f);
-                    mesh.Vertices.Add(vertex);              
+                    mesh.Vertices.Add(vertex);
                 }
 
                 mesh.Indices.AddRange(asmesh.GetIndices());
@@ -362,7 +362,7 @@ namespace LibGFX.Core.GameElements
             }
         }
 
-        
+
         /// <summary>
         /// Initializes the model
         /// </summary>
@@ -381,10 +381,10 @@ namespace LibGFX.Core.GameElements
             this.Meshes.ForEach(mesh =>
             {
                 renderer.LoadMesh(mesh);
-                
+
             });
 
-            if(this.Shader == null)
+            if (this.Shader == null)
             {
                 if (this.HasAnimations)
                 {
@@ -411,7 +411,7 @@ namespace LibGFX.Core.GameElements
             base.Render(scene, viewport, renderer, camera);
             var light = renderer.GetLightSource<DirectionalLight3D>();
 
-            if(this.HasAnimations)
+            if (this.HasAnimations)
             {
                 RenderAnimatedModel(scene, viewport, renderer, camera, light);
             }
@@ -431,7 +431,7 @@ namespace LibGFX.Core.GameElements
         {
             base.RenderShadow(scene, viewport, renderer);
 
-            if(this.HasAnimations)
+            if (this.HasAnimations)
             {
                 var shader = renderer.GetShaderProgram("AnimatedDepthMeshShader");
                 renderer.BindShaderProgram(shader);
@@ -478,7 +478,7 @@ namespace LibGFX.Core.GameElements
         {
             renderer.BindShaderProgram(this.Shader);
             renderer.PrepareShader("viewPos", camera.Transform.Position);
-            if(scene.LightManager != null)
+            if (scene.LightManager != null)
             {
                 scene.LightManager.BindLights(viewport, renderer, camera);
             }
@@ -503,7 +503,7 @@ namespace LibGFX.Core.GameElements
         public override void Dispose(BaseScene scene, IRenderDevice renderer)
         {
             base.Dispose(scene, renderer);
-            Debug.WriteLine($"Disposing Model {Name}");   
+            Debug.WriteLine($"Disposing Model {Name}");
 
             this.Materials.ForEach(material =>
             {
@@ -558,6 +558,43 @@ namespace LibGFX.Core.GameElements
         }
 
         /// <summary>
+        /// Adds multiple animations to the model.
+        /// </summary>
+        /// <param name="animations"></param>
+        public void AddAnimations(List<Graphics.Animation3D.Animation> animations)
+        {
+            animations.ForEach(a =>
+            {
+                a.BoneInfoMap = this.Skeleton.BoneInfoMap;
+                this.Animations.Add(a);
+            });
+        }
+
+        /// <summary>
+        /// Adds a single animation to the model.
+        /// </summary>
+        /// <param name="animation"></param>
+        public void AddAnimation(Graphics.Animation3D.Animation animation)
+        {
+            animation.BoneInfoMap = this.Skeleton.BoneInfoMap;
+            this.Animations.Add(animation);
+        }
+
+        /// <summary>
+        /// Sets the animations of the model, replacing any existing animations.
+        /// </summary>
+        /// <param name="animations"></param>
+        public void SetAnimations(List<Graphics.Animation3D.Animation> animations)
+        {
+            this.Animations.Clear();
+            animations.ForEach(a =>
+            {
+                a.BoneInfoMap = this.Skeleton.BoneInfoMap;
+                this.Animations.Add(a);
+            });
+        }
+
+        /// <summary>
         /// Updates the model's state, including animations if applicable.
         /// </summary>
         /// <param name="scene"></param>
@@ -566,8 +603,8 @@ namespace LibGFX.Core.GameElements
             base.Update(scene);
 
             //float deltaTime = (float)0.1f;
-            
-            if(this.HasAnimations)
+
+            if (this.HasAnimations)
             {
                 float deltaTimeInSeconds = scene.RenderStats.DeltaTime / 1000f;
                 float animationSpeed = deltaTimeInSeconds * this.AnimationSpeed;
@@ -580,7 +617,7 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         public override void ComputeAABB()
         {
-            if(this.Meshes.Count == 0)
+            if (this.Meshes.Count == 0)
             {
                 this.AABB = new AABB(Vector3.Zero, Vector3.Zero);
                 return;

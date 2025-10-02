@@ -27,7 +27,7 @@ namespace LibGFX.Assets.Loaders
         /// <typeparam name="T"></typeparam>
         /// <param name="path"></param>
         /// <returns></returns>
-        T Load<T>(string path) where T : class;
+        T Load<T>(string path, object? loadingArgs = null) where T : class;
 
         /// <summary>
         /// Creates an asset with the specified ID and optional initializer.

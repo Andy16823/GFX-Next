@@ -43,7 +43,7 @@ namespace LibGFX.Assets.Loaders
         /// <param name="path"></param>
         /// <returns></returns>
         /// <exception cref="NotSupportedException"></exception>
-        public T Load<T>(string path) where T : class
+        public T Load<T>(string path, object? loadingArgs = null) where T : class
         {
             if (typeof(T) == typeof(Model))
             {

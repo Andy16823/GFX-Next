@@ -29,7 +29,7 @@ namespace LibGFX.Assets.Loaders
         /// <typeparam name="T"></typeparam>
         /// <param name="path"></param>
         /// <returns></returns>
-        public T Load<T>(string path) where T : class
+        public T Load<T>(string path, object? loadingArgs = null) where T : class
         {
             var directory = Path.GetDirectoryName(path);
 
