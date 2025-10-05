@@ -244,17 +244,17 @@ namespace LibGFX.Core.GameElements
 
                 if (asmat.HasTextureDiffuse)
                 {
-                    material.DiffuseTexture = Texture.LoadTexture(Path.Combine(directory, asmat.TextureDiffuse.FilePath));
+                    material.DiffuseTexture = new Texture(Path.Combine(directory, asmat.TextureDiffuse.FilePath));
                 }
 
                 if (asmat.HasTextureNormal)
                 {
-                    material.NormalTexture = Texture.LoadTexture(Path.Combine(directory, asmat.TextureNormal.FilePath));
+                    material.NormalTexture = new Texture(Path.Combine(directory, asmat.TextureNormal.FilePath));
                 }
 
                 if (asmat.HasTextureSpecular)
                 {
-                    material.SpecularTexture = Texture.LoadTexture(Path.Combine(directory, asmat.TextureSpecular.FilePath));
+                    material.SpecularTexture = new Texture(Path.Combine(directory, asmat.TextureSpecular.FilePath));
                 }
 
                 materials.Add(material);

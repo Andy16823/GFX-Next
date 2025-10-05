@@ -24,7 +24,7 @@ namespace LibGFX.Assets.Loaders
             if(typeof(T) == typeof(SpriteMaterial))
             {
                 var spriteMaterial = new SpriteMaterial();
-                spriteMaterial.Texture = Texture.LoadTexture(path);
+                spriteMaterial.Texture = new Texture(path);
                 return spriteMaterial as T;
             }
             throw new NotSupportedException($"Type {typeof(T)} is not supported by {nameof(SpriteMaterialLoader)}.");

@@ -47,7 +47,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="name"></param>
         /// <param name="material"></param>
         /// <param name="primitive"></param>
-        public Primitive(String name, IMaterial material, IPrimitive primitive) 
+        public Primitive(String name, IMaterial material, IPrimitive primitive)
         {
             this.Name = name;
             this.Mesh = primitive.GetMesh();
@@ -92,9 +92,22 @@ namespace LibGFX.Core.GameElements
         public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             base.Init(scene, viewport, renderer);
-            renderer.LoadMesh(this.Mesh);
 
-            if(this.Shader == null)
+            // Load the mesh into the renderer
+            if (this.Mesh != null)
+            {
+                renderer.LoadMesh(this.Mesh);
+            }
+
+            // Initialize the material
+            if (this.Material == null)
+            {
+                this.Material = new SGMaterial("Default Material", Vector4.One);
+            }
+            this.Material.Init(renderer);
+
+            // Get the default shader if none is assigned
+            if (this.Shader == null)
             {
                 this.Shader = renderer.GetShaderProgram("MeshShader");
             }
@@ -165,7 +178,7 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         public override void ComputeAABB()
         {
-            if(Mesh.Vertices == null || Mesh.Vertices.Count == 0)
+            if (Mesh.Vertices == null || Mesh.Vertices.Count == 0)
             {
                 this.AABB = new AABB(Vector3.Zero, Vector3.Zero);
                 return;

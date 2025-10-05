@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,10 +82,72 @@ namespace LibGFX.Graphics
         public static readonly Vector2 DefaultUVScale = new Vector2(1.0f, 1.0f);
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Texture"/> class with default values.
+        /// </summary>
+        public Texture()
+        {
+            TextureId = 0;
+            Width = 0;
+            Height = 0;
+            TextureData = null;
+            Flags = TextureFlags.None;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Texture"/> class with specified width, height, and solid color.
+        /// </summary>
+        /// <param name="widt"></param>
+        /// <param name="height"></param>
+        /// <param name="color"></param>
+        public Texture(int widt, int height, Vector4i color)
+        {
+            TextureId = 0;
+            Width = widt;
+            Height = height;
+            TextureData = Utils.CreateImageData(widt, height, color);
+            Flags = TextureFlags.Loaded;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Texture"/> class with specified width, height, and raw pixel data in RGBA format.
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="pixeldata"></param>
+        /// <exception cref="ArgumentException"></exception>
+        public Texture(int width, int height, byte[] pixeldata)
+        {
+            if (pixeldata.Length != width * height * 4)
+                throw new ArgumentException("Pixel data length does not match width and height.");
+
+            TextureId = 0;
+            Width = width;
+            Height = height;
+            TextureData = pixeldata;
+            Flags = TextureFlags.Loaded;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Texture"/> class by loading texture data from a file path.
+        /// </summary>
+        /// <param name="path"></param>
+        public Texture(string path)
+        {
+            StbImage.stbi_set_flip_vertically_on_load(1);
+            var image = ImageResult.FromStream(File.OpenRead(path), ColorComponents.RedGreenBlueAlpha);
+            TextureId = 0;
+            TextureData = image.Data;
+            Width = image.Width;
+            Height = image.Height;
+            Flags = TextureFlags.Loaded;
+        }
+
+        /// <summary>
         /// Loads a texture from a file path.
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
+        [Obsolete("Use the constructor Texture(string path) instead.")]
         public static Texture LoadTexture(String path)
         {
             StbImage.stbi_set_flip_vertically_on_load(1);
@@ -104,6 +167,7 @@ namespace LibGFX.Graphics
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
+        [Obsolete("Incompatible with non-Windows platforms. Use LoadTexture(string path) or CreateTexture(int width, int height, Vector4i color) instead.")]
         public static Texture LoadTexture(Bitmap source)
         {
             Texture texture = new Texture()
@@ -117,22 +181,11 @@ namespace LibGFX.Graphics
         }
 
         /// <summary>
-        /// Creates an empty texture with the specified width and height.
-        /// </summary>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
-        /// <returns></returns>
-        public static Texture EmptyTexture(int width = 1, int height = 1)
-        {
-            var bitmap = Utils.CreateEmptyTexture(width, height);
-            return LoadTexture(bitmap);
-        }
-
-        /// <summary>
         /// Converts a Bitmap to a byte array in RGBA format.
         /// </summary>
         /// <param name="bitmap"></param>
         /// <returns></returns>
+        [Obsolete("Incompatible with non-Windows platforms. Use ImageSharp or StbImageSharp for image loading and processing.")]
         private static byte[] ConvertBitmapToByteArray(Bitmap bitmap)
         {
             int width = bitmap.Width;
@@ -155,6 +208,11 @@ namespace LibGFX.Graphics
             return pixelData;
         }
 
+        /// <summary>
+        /// Gets the UV coordinates for a specified area of the texture.
+        /// </summary>
+        /// <param name="area"></param>
+        /// <returns></returns>
         [Obsolete("Use GetUVTransform(Rect area) instead.")]
         public float[] GetSubImageUVCords(Rect area)
         {
@@ -262,6 +320,7 @@ namespace LibGFX.Graphics
         /// </summary>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
+        [Obsolete("Incompatible with non-Windows platforms. Use ImageSharp or StbImageSharp for image loading and processing.")]
         public Bitmap ToBitmap()
         {
             if (TextureData == null)

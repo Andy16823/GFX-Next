@@ -73,6 +73,36 @@ namespace LibGFX.Graphics.Materials
         public Vector2 UVScale { get; set; } = Texture.DefaultUVScale;
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="SGMaterial"/> class.
+        /// </summary>
+        public SGMaterial()
+        {
+            Name = "Unnamed Material";
+            Opacity = 1.0f;
+            Color = Vector4.One;
+            Flags = MaterialFlags.None;
+            DiffuseTexture = null;
+            NormalTexture = null;
+            SpecularTexture = null;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SGMaterial"/> class with the specified name and color.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="color"></param>
+        public SGMaterial(string name, Vector4 color)
+        {
+            Name = name;
+            Opacity = 1.0f;
+            Color = color;
+            Flags = MaterialFlags.None;
+            DiffuseTexture = new Texture(1, 1, new Vector4i(255, 255, 255, 255));
+            NormalTexture = new Texture(1, 1, new Vector4i(128, 128, 255, 255));
+            SpecularTexture = new Texture(1, 1, new Vector4i(0, 0, 0, 255));
+        }
+
+        /// <summary>
         /// Initializes the material.
         /// </summary>
         /// <param name="renderDevice"></param>
@@ -175,28 +205,6 @@ namespace LibGFX.Graphics.Materials
                 Flags = MaterialFlags.None
             };
             return material;
-        }
-
-        public static SGMaterial CreateMaterial(String materialName, Vector4 color)
-        {
-            return new SGMaterial
-            {
-                Name = materialName,
-                DiffuseTexture = Texture.LoadTexture(Utils.CreateEmptyTexture(1, 1)),
-                NormalTexture = Texture.LoadTexture(Utils.CreateEmptyNormalMap(1, 1)),
-                SpecularTexture = null,
-                Color = color,
-                Opacity = 1.0f,
-            };
-        }
-
-        /// <summary>
-        /// Creates a default material with empty textures and white color.
-        /// </summary>
-        /// <returns></returns>
-        public static SGMaterial CreateDefaultMaterial(String materialName)
-        {
-            return CreateMaterial(materialName, Vector4.One);
         }
     }
 }

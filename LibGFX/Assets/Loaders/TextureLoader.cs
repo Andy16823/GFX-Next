@@ -54,7 +54,7 @@ namespace LibGFX.Assets.Loaders
                     height = args.Height;
                 }
 
-                var texture = Texture.EmptyTexture(width, height);
+                var texture = new Texture(width, height, new OpenTK.Mathematics.Vector4i(255, 255, 255, 255));
                 initializer?.Invoke(texture as T);
                 return texture as T;
             }
@@ -72,7 +72,7 @@ namespace LibGFX.Assets.Loaders
         {
             if (typeof(T) == typeof(Texture))
             {
-                return Texture.LoadTexture(path) as T;
+                return new Texture(path) as T;
             }
             throw new NotSupportedException($"Asset type '{typeof(T)}' is not supported.");
         }

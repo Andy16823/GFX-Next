@@ -66,6 +66,30 @@ namespace LibGFX.Core
         }
 
         /// <summary>
+        /// Creates image data (byte array) filled with the given color in RGBA format.
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="color"></param>
+        /// <returns></returns>
+        public static byte[] CreateImageData(int width, int height, Vector4i color)
+        {
+            byte[] pixels = new byte[width * height * 4];
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    int index = (y * width + x) * 4;
+                    pixels[index + 0] = (byte)color.X; // R
+                    pixels[index + 1] = (byte)color.Y; // G
+                    pixels[index + 2] = (byte)color.Z; // B
+                    pixels[index + 3] = (byte)color.W; // A
+                }
+            }
+            return pixels;
+        }
+
+        /// <summary>
         /// Gets the bullet transform matrix for the given element.
         /// </summary>
         /// <param name="element"></param>
@@ -175,7 +199,7 @@ namespace LibGFX.Core
             if (jsonObject[propertyName].Value<String>() != "null")
             {
                 var texturePath = Path.Combine(basePath, jsonObject[propertyName].Value<String>());
-                return Texture.LoadTexture(texturePath);
+                return new Texture(texturePath);
             }
             return null;
         }
