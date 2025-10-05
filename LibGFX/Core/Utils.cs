@@ -43,29 +43,6 @@ namespace LibGFX.Core
         }
 
         /// <summary>
-        /// Creates an empty texture with the given width and height.
-        /// </summary>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
-        /// <returns></returns>
-        public static Bitmap CreateEmptyTexture(int width, int height)
-        {
-            Bitmap bitmap = new Bitmap(width, height);
-
-            Color color = Color.FromArgb(255, 255, 255);
-
-            for (int y = 0; y < height; y++)
-            {
-                for (int x = 0; x < width; x++)
-                {
-                    bitmap.SetPixel(x, y, color);
-                }
-            }
-
-            return bitmap;
-        }
-
-        /// <summary>
         /// Creates image data (byte array) filled with the given color in RGBA format.
         /// </summary>
         /// <param name="width"></param>
