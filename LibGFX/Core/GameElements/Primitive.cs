@@ -131,7 +131,7 @@ namespace LibGFX.Core.GameElements
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             base.Render(scene, viewport, renderer, camera);
-            var light = renderer.GetLightSource<DirectionalLight3D>();
+            var transform = this.GetWorldTransform(); // Get the world transform of the primitive
 
             renderer.BindShaderProgram(this.Shader);
             renderer.PrepareShader("viewPos", camera.Transform.Position);
@@ -139,7 +139,7 @@ namespace LibGFX.Core.GameElements
             {
                 scene.LightManager.BindLights(viewport, renderer, camera);
             }
-            renderer.DrawMesh(this.Transform, Mesh, Material);
+            renderer.DrawMesh(transform, Mesh, Material);
             scene.RenderStats.IncrementDrawCalls();
             renderer.UnbindShaderProgram();
         }

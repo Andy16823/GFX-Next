@@ -15,15 +15,16 @@ namespace LibGFX.Graphics
     public class OrthographicCamera : Camera
     {
         /// <summary>
-        /// Creates a new instance of the OrthographicCamera class with the specified position and scale.
+        /// Creates a new instance of the OrthographicCamera class with the specified position and resolution.
         /// </summary>
         /// <param name="position"></param>
-        /// <param name="scale"></param>
-        public OrthographicCamera(Vector2 position, Vector2 scale)
+        /// <param name="resolution"></param>
+        public OrthographicCamera(Vector2 position, Vector2 resolution)
         {
             this.Near = -1.0f;
             this.Far = 1.0f;
-            this.Transform = new Transform(position, scale);
+            this.Transform.Position = new Vector3(position.X, position.Y, 0f);
+            this.Resolution = resolution;
         }
 
         /// <summary>
@@ -36,15 +37,15 @@ namespace LibGFX.Graphics
         {
             //return System.Math.Min(screenWidth / Transform.Scale.X, screenHeight / Transform.Scale.Y);
             float screenAspectRatio = screenWidth / screenHeight;
-            float cameraAspectRatio = Transform.Scale.X / Transform.Scale.Y;
+            float cameraAspectRatio = Resolution.X / Resolution.Y;
 
             if (screenAspectRatio > cameraAspectRatio)
             {
-                return screenHeight / Transform.Scale.Y;
+                return screenHeight / Resolution.Y;
             }
             else
             {
-                return screenWidth / Transform.Scale.X;
+                return screenWidth / Resolution.X;
             }
         }
 

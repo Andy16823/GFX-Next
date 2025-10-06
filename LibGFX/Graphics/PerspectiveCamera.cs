@@ -33,12 +33,12 @@ namespace LibGFX.Graphics
         /// </summary>
         /// <param name="position"></param>
         /// <param name="scale"></param>
-        public PerspectiveCamera(Vector3 position, Vector3 scale)
+        public PerspectiveCamera(Vector3 position, Vector2 resolution)
         {
             this.Near = 0.1f;
             this.Far = 1000.0f;
             this.Transform.Position = position;
-            this.Transform.Scale = scale;
+            this.Resolution = resolution;
         }
 
         /// <summary>

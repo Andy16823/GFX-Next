@@ -27,6 +27,11 @@ namespace LibGFX.Graphics
         public float Far { get; set; }
 
         /// <summary>
+        /// The resolution of the camera
+        /// </summary>
+        public Vector2 Resolution { get; set; }
+
+        /// <summary>
         /// The axis-aligned bounding box (AABB) of the camera, used for frustum culling
         /// </summary>
         public AABB AABB { get; set; }
@@ -83,7 +88,7 @@ namespace LibGFX.Graphics
         /// <returns></returns>
         public float GetAspectRatio()
         {
-            return this.Transform.Scale.X / this.Transform.Scale.Y;
+            return Resolution.X / Resolution.Y;
         }
 
         /// <summary>

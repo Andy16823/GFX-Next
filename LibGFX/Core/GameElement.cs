@@ -47,6 +47,11 @@ namespace LibGFX.Core
         public Guid ID { get; set; }
 
         /// <summary>
+        /// The parent of the game element
+        /// </summary>
+        public GameElement Parent { get; set; }
+
+        /// <summary>
         /// The behaviors of the game element
         /// </summary>
         public List<IGameBehavior> Behaviors { get; set; }
@@ -62,6 +67,14 @@ namespace LibGFX.Core
         public AABB AABB { get; set; }
 
         /// <summary>
+        /// The children of the game element
+        /// </summary>
+        public IReadOnlyList<GameElement> Children => _children;
+
+
+        private readonly List<GameElement> _children = new List<GameElement>();
+
+        /// <summary>
         /// Creates a new game element
         /// </summary>
         protected GameElement()
@@ -72,6 +85,16 @@ namespace LibGFX.Core
         }
 
         /// <summary>
+        /// Adds a child to the game element
+        /// </summary>
+        /// <param name="child"></param>
+        public void AddChild(GameElement child)
+        {
+            _children.Add(child);
+            child.Parent = this;
+        }
+
+        /// <summary>
         /// Initializes the game element
         /// </summary>
         /// <param name="scene"></param>
@@ -79,8 +102,14 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public virtual void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
-            this.Behaviors.ForEach(behavior => {
+            this.Behaviors.ForEach(behavior =>
+            {
                 behavior.OnInit(scene, viewport, renderer);
+            });
+
+            _children.ForEach(child =>
+            {
+                child.Init(scene, viewport, renderer);
             });
         }
 
@@ -91,12 +120,18 @@ namespace LibGFX.Core
         /// <param name="viewport"></param>
         /// <param name="renderer"></param>
         /// <param name="camera"></param>
-        public virtual void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera) 
+        public virtual void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             if (this.Visible)
             {
-                this.Behaviors.ForEach(b => {
+                this.Behaviors.ForEach(b =>
+                {
                     b.OnRender(scene, viewport, renderer, camera);
+                });
+
+                _children.ForEach(child =>
+                {
+                    child.Render(scene, viewport, renderer, camera);
                 });
             }
         }
@@ -109,11 +144,16 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public virtual void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
-            if(this.Visible && this.CastShadows)
+            if (this.Visible && this.CastShadows)
             {
                 this.Behaviors.ForEach(b =>
                 {
                     b.OnShadowPass(scene, viewport, renderer);
+                });
+
+                _children.ForEach(child =>
+                {
+                    child.RenderShadow(scene, viewport, renderer);
                 });
             }
         }
@@ -122,11 +162,16 @@ namespace LibGFX.Core
         /// Updates the game element
         /// </summary>
         /// <param name="scene"></param>
-        public virtual void Update(BaseScene scene) 
+        public virtual void Update(BaseScene scene)
         {
             this.Behaviors.ForEach(b =>
             {
                 b.OnUpdate(scene);
+            });
+
+            _children.ForEach(child =>
+            {
+                child.Update(scene);
             });
         }
 
@@ -137,10 +182,17 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public virtual void Dispose(BaseScene scene, IRenderDevice renderer)
         {
+            _children.ForEach(child =>
+            {
+                child.Dispose(scene, renderer);
+            });
+            _children.Clear();
+
             this.Behaviors.ForEach(b =>
             {
                 b.OnDispose(scene, renderer);
             });
+            this.Behaviors.Clear();
         }
 
         /// <summary>
@@ -219,5 +271,21 @@ namespace LibGFX.Core
         /// Computes the axis-aligned bounding box (AABB) of the game element.
         /// </summary>
         public abstract void ComputeAABB();
+
+        /// <summary>
+        /// Gets the world transform of the game element by recursively combining its local transform with its parent's world transform.
+        /// </summary>
+        /// <returns></returns>
+        public Transform GetWorldTransform()
+        {
+            if (Parent == null)
+            {
+                return this.Transform;
+            }
+            else
+            {
+                return Transform.Attach(Parent.GetWorldTransform(), this.Transform);
+            }
+        }
     }
 }

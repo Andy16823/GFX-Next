@@ -11,6 +11,7 @@ using OpenTK.Core;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -430,6 +431,7 @@ namespace LibGFX.Core.GameElements
         public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             base.RenderShadow(scene, viewport, renderer);
+            var transform = this.GetWorldTransform(); // Get the world transform of the model
 
             if (this.HasAnimations)
             {
@@ -447,7 +449,7 @@ namespace LibGFX.Core.GameElements
             {
                 var mesh = this.Meshes.GetMesh(pair.MeshName);
                 var material = this.Materials.GetMaterial(pair.MaterialIndex);
-                renderer.DrawMesh(Transform, mesh, material);
+                renderer.DrawMesh(transform, mesh, material);
                 scene.RenderStats.IncrementDrawCalls();
             });
             renderer.UnbindShaderProgram();
@@ -455,6 +457,7 @@ namespace LibGFX.Core.GameElements
 
         private void RenderAnimatedModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, DirectionalLight3D light)
         {
+            var transform = this.GetWorldTransform(); // Get the world transform of the model
             renderer.BindShaderProgram(this.Shader);
             renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
             renderer.PrepareShader("viewPos", camera.Transform.Position);
@@ -467,7 +470,7 @@ namespace LibGFX.Core.GameElements
             {
                 var mesh = this.Meshes.GetMesh(pair.MeshName);
                 var material = this.Materials.GetMaterial(pair.MaterialIndex);
-                renderer.DrawMesh(Transform, mesh, material);
+                renderer.DrawMesh(transform, mesh, material);
                 scene.RenderStats.IncrementDrawCalls();
             });
 
@@ -476,6 +479,7 @@ namespace LibGFX.Core.GameElements
 
         private void RenderStaticModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, DirectionalLight3D light)
         {
+            var transform = this.GetWorldTransform(); // Get the world transform of the model
             renderer.BindShaderProgram(this.Shader);
             renderer.PrepareShader("viewPos", camera.Transform.Position);
             if (scene.LightManager != null)
@@ -487,7 +491,7 @@ namespace LibGFX.Core.GameElements
             {
                 var mesh = this.Meshes.GetMesh(pair.MeshName);
                 var material = this.Materials.GetMaterial(pair.MaterialIndex);
-                renderer.DrawMesh(Transform, mesh, material);
+                renderer.DrawMesh(transform, mesh, material);
                 scene.RenderStats.IncrementDrawCalls();
             });
 

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// ToDo: Add nested instances support
 namespace LibGFX.Core.GameElements
 {
     /// <summary>
@@ -175,6 +176,28 @@ namespace LibGFX.Core.GameElements
                 transform.Rotation = Quaternion.Identity;
                 transform.Scale = Vector3.One;
                 this.AddInstance(transform, false);
+            }
+        }
+
+        /// <summary>
+        /// Finds hidden instances in the instancer and returns their indices.
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public IEnumerable<int> FindHiddenInstances(int count)
+        {
+            int found = 0;
+            for (int i = 0; i < this.InstanceContainer.Instances.Count; i++)
+            {
+                if (!this.InstanceContainer.Instances[i].Visible)
+                {
+                    yield return i;
+                    found++;
+                    if (found >= count)
+                    {
+                        yield break;
+                    }
+                }
             }
         }
 

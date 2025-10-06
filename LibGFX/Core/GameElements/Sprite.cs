@@ -122,6 +122,7 @@ namespace LibGFX.Core.GameElements
             base.Render(scene, viewport, renderer, camera);
             if (this.Visible)
             {
+                var transform = this.GetWorldTransform(); // Get the world transform of the sprite
                 renderer.BindShaderProgram(this.Shader);
 
 
@@ -135,7 +136,7 @@ namespace LibGFX.Core.GameElements
                 {
                     uvTransform = Texture.MirrorUVTransform(uvTransform, this.MirrorMode);
                 }
-                renderer.DrawTexture(this.Transform, this.Material.Texture.TextureId, Color, uvTransform, UVScale);
+                renderer.DrawTexture(transform, this.Material.Texture.TextureId, Color, uvTransform, UVScale);
                 scene.RenderStats.IncrementDrawCalls();
                 renderer.UnbindShaderProgram();
             }
