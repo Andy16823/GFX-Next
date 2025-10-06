@@ -82,6 +82,8 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         public Skeleton Skeleton { get; set; }
 
+        public AssimpNodeData NodeStructure { get; set; }
+
 
         /// <summary>
         /// Creates a new model
@@ -169,6 +171,30 @@ namespace LibGFX.Core.GameElements
 
             // Load the transforms of the model
             LoadTransforms(assimpScene);
+            this.NodeStructure = LoadNodeStructure(assimpScene.RootNode);
+        }
+
+        /// <summary>
+        /// Loads the node structure of the model
+        /// </summary>
+        /// <param name="node"></param>
+        private AssimpNodeData LoadNodeStructure(Node node)
+        {
+            if (node == null)
+                throw new ArgumentNullException(nameof(node));
+
+            var nodeData = new AssimpNodeData
+            {
+                name = node.Name,
+                transformation = Math.Math.ToTKMatrix(node.Transform),
+                children = new List<AssimpNodeData>()
+            };
+            foreach (var child in node.Children)
+            {
+                var childData = LoadNodeStructure(child);
+                nodeData.children.Add(childData);
+            }
+            return nodeData;
         }
 
         /// <summary>
@@ -596,6 +622,100 @@ namespace LibGFX.Core.GameElements
                 a.ReadBones(Skeleton);
                 this.Animations.Add(a);
             });
+        }
+
+        /// <summary>
+        /// Finds a node in the model's node structure by name.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public (bool, AssimpNodeData) FindNode(String name)
+        {
+            return FindNodeRecursive(this.NodeStructure, name);
+        }
+
+        /// <summary>
+        /// Recursively searches for a node with the specified name.
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        private (bool, AssimpNodeData) FindNodeRecursive(AssimpNodeData node, String name)
+        {
+            if (node.name == name)
+                return (true, node);
+
+            foreach (var child in node.children)
+            {
+                var result = FindNodeRecursive(child, name);
+                if (result.Item1)
+                    return result;
+            }
+
+            return (false, new AssimpNodeData());
+        }
+
+        /// <summary>
+        /// Recursively searches for the parent of a given target node.
+        /// </summary>
+        /// <param name="currentNode"></param>
+        /// <param name="targetNode"></param>
+        /// <returns></returns>
+        private (bool, AssimpNodeData) FindParentNode(AssimpNodeData currentNode, AssimpNodeData targetNode)
+        {
+            foreach (var child in currentNode.children)
+            {
+                if (child.name == targetNode.name)
+                {
+                    return (true, currentNode);
+                }
+                var result = FindParentNode(child, targetNode);
+                if (result.Item1)
+                {
+                    return result;
+                }
+            }
+            return (false, new AssimpNodeData());
+        }
+
+        /// <summary>
+        /// Finds the transform of a node by name, either in local or global space.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="global"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public Transform FindNodeTransform(String name, bool global = true)
+        {
+            var (result, node) = FindNode(name);
+            if (result)
+            {
+                if (global == false)
+                {
+                    // Return the local transform
+                    return new Transform(node.transformation);
+                }
+                else
+                {
+                    // Compute the global transform
+                    Matrix4 globalTransform = node.transformation;
+                    var currentNode = node;
+                    while (true)
+                    {
+                        var (found, parentNode) = FindParentNode(this.NodeStructure, currentNode);
+                        if (!found)
+                            break;
+
+                        globalTransform = globalTransform * parentNode.transformation;
+                        currentNode = parentNode;
+                    }
+                    return new Transform(globalTransform);
+                }
+            }
+            else
+            {
+                throw new Exception($"Node {name} not found in model {this.Name}");
+            }
         }
 
         /// <summary>

@@ -14,6 +14,24 @@ namespace LibGFX.Core
     public abstract class BaseScene
     {
         /// <summary>
+        /// Event args for the enque event
+        /// </summary>
+        public struct EnqueEventArgs
+        {
+            public BaseScene Scene { get; set; }
+            public GameElement Element { get; set; }
+            public Dictionary<string, object>? ExtraData { get; set; }
+        }
+
+        public struct EnqueEntry
+        {
+            public string LayerName { get; set; }
+            public GameElement Element { get; set; }
+            public EnqueEvent Event { get; set; }
+            public Dictionary<string, object>? ExtraData { get; set; } 
+        }
+
+        /// <summary>
         /// The Layers of the scene
         /// </summary>
         public virtual List<Layer> Layers { get; set; }
@@ -38,6 +56,18 @@ namespace LibGFX.Core
         /// List of scene behaviors
         /// </summary>
         public List<ISceneBehavior> SceneBehaviors { get; set; }
+
+        /// <summary>
+        /// Entries to be enqueued at the end of the update cycle
+        /// This allows to safely add elements to the scene without modifying the scene during update or render
+        /// </summary>
+        public List<EnqueEntry> EnqueEntries { get; set; } = new List<EnqueEntry>();
+
+        /// <summary>
+        /// Event that is triggered when an element is enqueued
+        /// </summary>
+        /// <param name="args"></param>
+        public delegate void EnqueEvent(EnqueEventArgs args);
 
         /// <summary>
         /// Creates a new scene
@@ -319,6 +349,31 @@ namespace LibGFX.Core
             {
                 this.SceneBehaviors.Remove(behavior);
             }
+        }
+
+        /// <summary>
+        /// Enqueues elements to be added to the scene at the end of the update cycle
+        /// </summary>
+        public void EnqueElements()
+        {
+            foreach (var entry in EnqueEntries)
+            {
+                // Skip null elements
+                if (entry.Element == null)
+                {
+                    continue;
+                }
+                // Trigger the event before adding the element to the scene
+                entry.Event?.Invoke(new EnqueEventArgs() { Scene = this, Element = entry.Element, ExtraData = entry.ExtraData });
+
+                // Add the element to the scene
+                if (!string.IsNullOrEmpty(entry.LayerName) && entry.Element != null)
+                {
+                    AddGameElement(entry.LayerName, entry.Element);
+                }
+            }
+            // Clear the entries after processing
+            EnqueEntries.Clear();
         }
 
         /// <summary>

@@ -104,6 +104,9 @@ namespace LibGFX.Core
                 // Swap buffers to display the rendered frame
                 this.RenderDevice.Flush();
                 this.RenderDevice.SwapBuffers();
+
+                // Call the OnFrameEnd method
+                this.OnFrameEnd();
             }
 
             // Dispose resources and clean up
@@ -136,6 +139,11 @@ namespace LibGFX.Core
         /// Renders the current frame.
         /// </summary>
         public abstract void Render();
+
+        /// <summary>
+        /// Called at the end of each frame for any necessary cleanup or state updates.
+        /// </summary>
+        public abstract void OnFrameEnd();
 
         /// <summary>
         /// Disposes of game resources and performs cleanup.

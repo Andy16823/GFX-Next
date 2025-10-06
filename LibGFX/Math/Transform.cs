@@ -265,6 +265,11 @@ namespace LibGFX.Math
             this.Position += translation;
         }
 
+        public void SetPosition(Matrix4 matrix)
+        {
+            this.Position = matrix.ExtractTranslation();
+        }
+
         /// <summary>
         /// Scales by a 2D vector.
         /// </summary>
