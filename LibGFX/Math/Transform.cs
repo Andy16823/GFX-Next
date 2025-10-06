@@ -105,6 +105,17 @@ namespace LibGFX.Math
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Transform"/> class from a transformation matrix.
+        /// </summary>
+        /// <param name="matrix"></param>
+        public Transform(Matrix4 matrix)
+        {
+            this.Position = matrix.ExtractTranslation();
+            this.Scale = matrix.ExtractScale();
+            this.Rotation = matrix.ExtractRotation();  
+        }
+
+        /// <summary>
         /// Sets the rotation in degrees using a 2D vector.
         /// </summary>
         /// <param name="rotation">The rotation vector in degrees.</param>
@@ -167,6 +178,66 @@ namespace LibGFX.Math
         public void Rotate(float pitch, float yaw, float roll)
         {
             this.Rotation *= Quaternion.FromEulerAngles(MathHelper.DegreesToRadians(pitch), MathHelper.DegreesToRadians(yaw), MathHelper.DegreesToRadians(roll));
+        }
+
+        /// <summary>
+        /// Gets the pitch angle in radians based on the current rotation.
+        /// </summary>
+        /// <returns></returns>
+        public float GetPitchAngle()
+        {
+            var forward = Rotation * -Vector3.UnitZ;
+            return (float)MathHelper.Asin(MathHelper.Clamp(forward.Y, -1f, 1f));
+        }
+
+        /// <summary>
+        /// Gets the pitch rotation as a quaternion.
+        /// </summary>
+        /// <returns></returns>
+        public Quaternion GetPitchQuat()
+        {
+            float pitch = this.GetPitchAngle();
+            return Quaternion.FromAxisAngle(Vector3.UnitX, pitch);
+        }
+
+        /// <summary>
+        /// Gets the yaw angle in radians based on the current rotation.
+        /// </summary>
+        /// <returns></returns>
+        public float GetYawAngle()
+        {
+            var forward = Rotation * -Vector3.UnitZ;
+            return (float)MathHelper.Asin(MathHelper.Clamp(forward.X, -1f, 1f));
+        }
+
+        /// <summary>
+        /// Gets the yaw rotation as a quaternion.
+        /// </summary>
+        /// <returns></returns>
+        public Quaternion GetYawQuat()
+        {
+            float yaw = this.GetYawAngle();
+            return Quaternion.FromAxisAngle(Vector3.UnitY, yaw);
+        }
+
+        /// <summary>
+        /// Gets the roll angle in radians based on the current rotation.
+        /// </summary>
+        /// <returns></returns>
+        public float GetRollAngle()
+        {
+            var right = Rotation * Vector3.UnitX;
+            return (float)MathHelper.Asin(MathHelper.Clamp(right.Y, -1f, 1f));
+        }
+
+        /// <summary>
+        /// Gets the roll rotation as a quaternion.
+        /// </summary>
+        /// <returns></returns>
+        public Quaternion GetRollQuat()
+        {
+            float roll = this.GetRollAngle();
+            return Quaternion.FromAxisAngle(Vector3.UnitZ, roll);
         }
 
         /// <summary>
@@ -370,6 +441,20 @@ namespace LibGFX.Math
         public static Vector3 ToDegrees(Vector3 input)
         {
             return new Vector3(MathHelper.RadiansToDegrees(input.X), MathHelper.RadiansToDegrees(input.Y), MathHelper.RadiansToDegrees(input.Z));
+        }
+
+        /// <summary>
+        /// Attaches a child transform to a parent transform, returning the child's local transform relative to the parent.
+        /// </summary>
+        /// <param name="parent"></param>
+        /// <param name="child"></param>
+        /// <returns></returns>
+        public static Transform Attach(Transform parent, Transform child)
+        {
+            Matrix4 parentMatrix = parent.GetMatrix();
+            Matrix4 localMatrix = child.GetMatrix() * parentMatrix;
+
+            return new Transform(localMatrix);
         }
     }
 }

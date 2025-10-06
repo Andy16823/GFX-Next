@@ -41,6 +41,14 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         public ShaderProgram Shader { get; set; }
 
+        public Primitive(String name, IMaterial material, Mesh mesh)
+        {
+            this.Name = name;
+            this.Mesh = mesh;
+            this.Material = material;
+            this.ComputeAABB();
+        }
+
         /// <summary>
         /// Creates a new instance of the Primitive class.
         /// </summary>

@@ -108,7 +108,7 @@ namespace LibGFX.Assets
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public T AddAsset<T>(string name, T asset) where T : class
+        public T Add<T>(string name, T asset) where T : class
         {
             if (string.IsNullOrEmpty(name))
             {

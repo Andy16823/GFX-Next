@@ -79,7 +79,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="transform"></param>
         public int AddInstance(Transform transform, bool visible = true)
         {
-            var instanceId = this.InstanceContainer.AddInstance(transform, true);
+            var instanceId = this.InstanceContainer.AddInstance(transform, visible);
             return instanceId;
         }
 
