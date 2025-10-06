@@ -8,29 +8,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static LibGFX.Core.BaseScene;
 
 namespace LibGFX.Core
 {
+    /// <summary>
+    /// Event args for the enque event
+    /// </summary>
+    public struct EnqueEventArgs
+    {
+        public BaseScene Scene { get; set; }
+        public GameElement Element { get; set; }
+        public Dictionary<string, object>? ExtraData { get; set; }
+    }
+
+    /// <summary>
+    /// Entry for the enque system
+    /// </summary>
+    public struct EnqueEntry
+    {
+        public string LayerName { get; set; }
+        public GameElement Element { get; set; }
+        public EnqueEvent Event { get; set; }
+        public Dictionary<string, object>? ExtraData { get; set; }
+    }
+
+    /// <summary>
+    /// Base class for creating a scene
+    /// </summary>
     public abstract class BaseScene
     {
-        /// <summary>
-        /// Event args for the enque event
-        /// </summary>
-        public struct EnqueEventArgs
-        {
-            public BaseScene Scene { get; set; }
-            public GameElement Element { get; set; }
-            public Dictionary<string, object>? ExtraData { get; set; }
-        }
-
-        public struct EnqueEntry
-        {
-            public string LayerName { get; set; }
-            public GameElement Element { get; set; }
-            public EnqueEvent Event { get; set; }
-            public Dictionary<string, object>? ExtraData { get; set; } 
-        }
-
         /// <summary>
         /// The Layers of the scene
         /// </summary>
