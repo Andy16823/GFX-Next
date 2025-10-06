@@ -338,7 +338,10 @@ namespace LibGFX.Physics.Behaviors
             Parent.Transform.Position = (Vector3) position - this.Offset;
             Parent.Transform.Rotation = (Quaternion) rotation;
 
-            RigidBody.Activate(true);
+            if (!RigidBody.IsActive)
+            {
+                RigidBody.Activate(true);
+            }
         }
 
     }
