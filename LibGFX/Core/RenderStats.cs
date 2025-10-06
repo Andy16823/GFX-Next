@@ -56,7 +56,7 @@ namespace LibGFX.Core
         }
 
         /// <summary>
-        /// Start method to initialize the render stats
+        /// OnStart method to initialize the render stats
         /// </summary>
         public void Start()
         {

@@ -143,7 +143,7 @@ namespace LibGFX.Core
                 behavior.OnInit(this, viewport, renderer);
             });
 
-            // Start the render stats
+            // OnStart the render stats
             this.RenderStats.Start();
         }
 
@@ -155,7 +155,7 @@ namespace LibGFX.Core
         /// <param name="camera"></param>
         public override void Render(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            // Start new frame for the render stats
+            // OnStart new frame for the render stats
             this.RenderStats.NewFrame();
 
             // Process the scene behaviors
