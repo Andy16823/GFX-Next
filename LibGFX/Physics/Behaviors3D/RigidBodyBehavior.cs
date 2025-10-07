@@ -161,6 +161,15 @@ namespace LibGFX.Physics.Behaviors
         }
 
         /// <summary>
+        /// Syncs the rigid body with the parent game element and offset
+        /// </summary>
+        public void Sync()
+        {
+            var btTransform = Utils.GetBtTransform(Parent, Offset);
+            RigidBody.WorldTransform = btTransform;
+        }
+
+        /// <summary>
         /// Translates the rigid body
         /// </summary>
         /// <param name="translation"></param>
