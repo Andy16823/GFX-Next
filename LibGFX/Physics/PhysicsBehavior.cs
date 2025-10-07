@@ -71,7 +71,7 @@ namespace LibGFX.Physics
         /// Updates the physics behavior
         /// </summary>
         /// <param name="scene"></param>
-        public abstract void OnUpdate(BaseScene scene);
+        public abstract void OnUpdate(BaseScene scene, float dt);
 
         /// <summary>
         /// Sets the game element

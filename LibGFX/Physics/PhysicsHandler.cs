@@ -22,7 +22,7 @@ namespace LibGFX.Physics
         /// Processes the physics handler
         /// </summary>
         /// <param name="scene"></param>
-        public abstract void Process(BaseScene scene);
+        public abstract void Process(BaseScene scene, float dt);
 
         /// <summary>
         /// Manages a physics element

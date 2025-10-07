@@ -292,7 +292,7 @@ namespace LibGFX.Audio
         /// Handles the update of the audio source
         /// </summary>
         /// <param name="scene"></param>
-        public void OnUpdate(BaseScene scene)
+        public void OnUpdate(BaseScene scene, float dt)
         {
             if (this.State != AudioSourceState.None || this.State != AudioSourceState.Disposed)
             {

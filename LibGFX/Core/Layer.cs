@@ -101,13 +101,13 @@ namespace LibGFX.Core
         /// Updates the layer
         /// </summary>
         /// <param name="scene"></param>
-        public void Update(BaseScene scene)
+        public void Update(BaseScene scene, float dt)
         {
             if (this.Enabled)
             {
                 this.Elements.ForEach(e =>
                 {
-                    e.Update(scene);
+                    e.Update(scene, dt);
                 });
             }
         }

@@ -48,9 +48,10 @@ namespace LibGFX.Physics
         /// Processes the physics world
         /// </summary>
         /// <param name="scene"></param>
-        public override void Process(BaseScene scene)
+        public override void Process(BaseScene scene, float dt)
         {
-            this.PhysicsWorld.StepSimulation(1.0f / 60.0f, 10); // (float)(game.DeltaTime / 1000)
+            float dtClamped = MathHelper.Min(dt, 1.0f / 30.0f);
+            this.PhysicsWorld.StepSimulation(dtClamped, 10); // (float)(game.DeltaTime / 1000) (1.0f / 60.0f, 10)
             int numManifolds = PhysicsWorld.Dispatcher.NumManifolds;
             for (int i = 0; i < numManifolds; i++)
             {

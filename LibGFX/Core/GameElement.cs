@@ -162,16 +162,16 @@ namespace LibGFX.Core
         /// Updates the game element
         /// </summary>
         /// <param name="scene"></param>
-        public virtual void Update(BaseScene scene)
+        public virtual void Update(BaseScene scene, float dt)
         {
             this.Behaviors.ForEach(b =>
             {
-                b.OnUpdate(scene);
+                b.OnUpdate(scene, dt);
             });
 
             _children.ForEach(child =>
             {
-                child.Update(scene);
+                child.Update(scene, dt);
             });
         }
 

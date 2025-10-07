@@ -290,7 +290,7 @@ namespace LibGFX.Core
         /// <summary>
         /// Updates the scene and all its layers
         /// </summary>
-        public override void Update()
+        public override void Update(float dt)
         {
             this.SceneBehaviors.ForEach(behavior =>
             {
@@ -298,7 +298,7 @@ namespace LibGFX.Core
             });
 
             this.Layers.ForEach(l => {
-                l.Update(this);
+                l.Update(this, dt);
             });
 
             this.SceneBehaviors.ForEach(behavior =>
@@ -310,14 +310,14 @@ namespace LibGFX.Core
         /// <summary>
         /// Updates the physics of the scene
         /// </summary>
-        public override void UpdatePhysics()
+        public override void UpdatePhysics(float dt)
         {
             this.SceneBehaviors.ForEach(behavior =>
             {
                 behavior.BeforePhysicsUpdate(this, this.PhysicsHandler);
             });
 
-            this.PhysicsHandler.Process(this);
+            this.PhysicsHandler.Process(this, dt);
 
             this.SceneBehaviors.ForEach(behavior =>
             {

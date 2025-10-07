@@ -54,7 +54,8 @@ namespace LibGFX.Core
         /// Called when the game behavior is updated
         /// </summary>
         /// <param name="scene"></param>
-        void OnUpdate(BaseScene scene);
+        /// <param name="dt"></param>
+        void OnUpdate(BaseScene scene, float dt);
 
         /// <summary>
         /// Called when the game behavior is disposed

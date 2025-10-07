@@ -434,7 +434,7 @@ namespace LibGFX.Core
         /// <summary>
         /// Updates the scene
         /// </summary>
-        public abstract void Update();
+        public abstract void Update(float dt);
 
         /// <summary>
         /// Disposes the scene
@@ -445,6 +445,6 @@ namespace LibGFX.Core
         /// <summary>
         /// Updates the physics of the scene
         /// </summary>
-        public abstract void UpdatePhysics();
+        public abstract void UpdatePhysics(float dt);
     }
 }

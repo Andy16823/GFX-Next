@@ -88,9 +88,9 @@ namespace LibGFX.Core.GameElements
         /// Update the handles of the mesh instances in the instancer.
         /// </summary>
         /// <param name="scene"></param>
-        public override void Update(BaseScene scene)
+        public override void Update(BaseScene scene, float dt)
         {
-            base.Update(scene);
+            base.Update(scene, dt);
         }
 
         /// <summary>

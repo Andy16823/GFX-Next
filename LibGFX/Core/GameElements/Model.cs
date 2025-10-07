@@ -722,9 +722,9 @@ namespace LibGFX.Core.GameElements
         /// Updates the model's state, including animations if applicable.
         /// </summary>
         /// <param name="scene"></param>
-        public override void Update(BaseScene scene)
+        public override void Update(BaseScene scene, float dt)
         {
-            base.Update(scene);
+            base.Update(scene, dt);
 
             //float deltaTime = (float)0.1f;
 

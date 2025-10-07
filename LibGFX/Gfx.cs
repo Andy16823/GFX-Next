@@ -103,5 +103,14 @@ namespace LibGFX
         {
             AssetManager.UnloadAllAssets();
         }
+
+        /// <summary>
+        /// Gets the delta time since the last frame in seconds.
+        /// </summary>
+        /// <returns></returns>
+        public float GetDeltaTime()
+        {
+            return (float) OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetTime();
+        }
     }
 }

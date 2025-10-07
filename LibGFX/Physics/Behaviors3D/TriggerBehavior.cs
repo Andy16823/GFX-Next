@@ -173,7 +173,7 @@ namespace LibGFX.Physics.Behaviors3D
         /// Updates the collider
         /// </summary>
         /// <param name="scene"></param>
-        public override void OnUpdate(BaseScene scene)
+        public override void OnUpdate(BaseScene scene, float dt)
         {
             System.Numerics.Vector3 position = Trigger.WorldTransform.Translation;
             System.Numerics.Quaternion rotation = System.Numerics.Quaternion.CreateFromRotationMatrix(Trigger.WorldTransform);

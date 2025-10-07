@@ -146,9 +146,9 @@ namespace LibGFX.Core.GameElements
         /// Updates the sprite
         /// </summary>
         /// <param name="scene"></param>
-        public override void Update(BaseScene scene)
+        public override void Update(BaseScene scene, float dt)
         {
-            base.Update(scene);
+            base.Update(scene, dt);
             float deltaTime = scene.RenderStats.DeltaTime;
             if (this.Animator != null)
             {

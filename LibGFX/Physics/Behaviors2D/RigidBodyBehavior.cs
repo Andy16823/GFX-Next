@@ -413,7 +413,7 @@ namespace LibGFX.Physics.Behaviors2D
         /// Updates the rigid body behavior
         /// </summary>
         /// <param name="scene"></param>
-        public override void OnUpdate(BaseScene scene)
+        public override void OnUpdate(BaseScene scene, float dt)
         {
             System.Numerics.Vector3 position = RigidBody.WorldTransform.Translation;
             System.Numerics.Quaternion rotation = System.Numerics.Quaternion.CreateFromRotationMatrix(RigidBody.WorldTransform);
