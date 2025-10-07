@@ -93,6 +93,9 @@ namespace LibGFX.UI
                 control.Render(renderer, this);
             }
 
+            // Process any registered render scopes
+            this.ProcessRenderActions(viewport, renderer);
+
             // Unbind the render target and set the depth test state back to the original state
             renderer.UnbindRenderTarget();
             renderer.SetDepthTest(depthTest);

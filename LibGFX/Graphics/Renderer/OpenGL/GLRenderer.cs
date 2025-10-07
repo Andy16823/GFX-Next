@@ -729,6 +729,46 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindVertexArray(0);
         }
 
+        public void DrawRect3D(Transform transform, Vector4 color, float borderWidth = 1.0f)
+        {
+            var shape = _shapes["RectShape"];
+            var m_mat = transform.GetMatrix();
+            var aspect = transform.Scale.X / transform.Scale.Y;
+
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), false, ref m_mat);
+
+            GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), color);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "aspect"), aspect);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "borderWidth"), borderWidth);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "wireframe"), 1);
+
+            GL.BindVertexArray(shape.VertexArray);
+            GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);
+            GL.BindVertexArray(0);
+        }
+
+        public void FillRect3D(Transform transform, Vector4 color)
+        {
+            var shape = _shapes["RectShape"];
+            var m_mat = transform.GetMatrix();
+            var aspect = transform.Scale.X / transform.Scale.Y;
+
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), false, ref _projectionMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), false, ref _viewMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), false, ref m_mat);
+
+            GL.Uniform4(GetUniformLocation(_currentProgram, "vertexColor"), color);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "aspect"), aspect);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "borderWidth"), 0.0f);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "wireframe"), 0);
+
+            GL.BindVertexArray(shape.VertexArray);
+            GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);
+            GL.BindVertexArray(0);
+        }
+
         public void DrawTexture(Transform transform, Texture texture, Vector4 color)
         {
             if (texture.Flags == TextureFlags.Initialized)

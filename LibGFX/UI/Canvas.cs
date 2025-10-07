@@ -41,6 +41,35 @@ namespace LibGFX.UI
         public RenderTarget2D RenderTarget { get; set; }
 
         /// <summary>
+        /// The list of render actions to be performed during the render phase
+        /// </summary>
+        private readonly List<Action<Viewport, IRenderDevice>> _renderActions = new();
+
+        /// <summary>
+        /// Adds a render action to be performed during the render phase
+        /// This action will be discarded after being executed once
+        /// </summary>
+        /// <param name="action"></param>
+        public void AddRenderAction(Action<Viewport, IRenderDevice> action)
+        {
+            _renderActions.Add(action);
+        }
+
+        /// <summary>
+        /// Processes and executes all render actions added to the canvas and then clears the list
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        public void ProcessRenderActions(Viewport viewport, IRenderDevice renderer)
+        {
+            foreach (var action in _renderActions)
+            {
+                action(viewport, renderer);
+            }
+            _renderActions.Clear();
+        }
+
+        /// <summary>
         /// Adds a control to the canvas
         /// </summary>
         /// <param name="control"></param>

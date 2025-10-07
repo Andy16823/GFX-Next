@@ -247,6 +247,20 @@ namespace LibGFX.Physics.Behaviors
         }
 
         /// <summary>
+        /// Enables continuous collision detection for the rigid body
+        /// </summary>
+        /// <param name="motionThreshold"></param>
+        /// <param name="sweptSphereRadius"></param>
+        public void EnableContinuousCollisionDetection(float motionThreshold = 0.1f, float sweptSphereRadius = 0.2f)
+        {
+            if (this.RigidBody == null)
+                throw new Exception("RigidBody is null. Cannot enable continuous collision detection. Use CreateRigidBody first.");
+
+            RigidBody.CcdMotionThreshold = motionThreshold;
+            RigidBody.CcdSweptSphereRadius = sweptSphereRadius;
+        }
+
+        /// <summary>
         /// Gets the physics object
         /// </summary>
         /// <returns></returns>

@@ -74,6 +74,7 @@ namespace LibGFX.Core
             this.Window = GFX.Instance.CreateWindow(title, this.Viewport, windowState);
             this.RenderDevice.Init(this.Window);
             this.RenderDevice.UseVsync(useVsync);
+            this.RenderDevice.EnableAlphaBlend();
 
             // Initialize game elements
             this.Initialize();

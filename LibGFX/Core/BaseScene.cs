@@ -76,6 +76,8 @@ namespace LibGFX.Core
         /// <param name="args"></param>
         public delegate void EnqueEvent(EnqueEventArgs args);
 
+        private readonly List<Action<Viewport, IRenderDevice, Camera>> _renderActions = new();
+
         /// <summary>
         /// Creates a new scene
         /// </summary>
@@ -84,6 +86,30 @@ namespace LibGFX.Core
             this.Layers = new List<Layer>(); 
             this.RenderStats = new RenderStats();
             this.SceneBehaviors = new List<ISceneBehavior>();
+        }
+
+        /// <summary>
+        /// Adds a render action to be performed during the render phase
+        /// </summary>
+        /// <param name="action"></param>
+        public void AddRenderAction(Action<Viewport, IRenderDevice, Camera> action)
+        {
+            _renderActions.Add(action);
+        }
+
+        /// <summary>
+        /// Processes and executes all render actions added to the scene and then clears the list
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        /// <param name="camera"></param>
+        public void ProcessRenderActions(Viewport viewport, IRenderDevice renderer, Camera camera)
+        {
+            foreach (var action in _renderActions)
+            {
+                action(viewport, renderer, camera);
+            }
+            _renderActions.Clear();
         }
 
         /// <summary>

@@ -77,6 +77,8 @@ namespace LibGFX.Graphics
         void DrawLine(Vector3 start, Vector3 end, Vector4 color);
         void DrawRect(Math.Rect rect, Vector4 color, float borderWidth = 1.0f, float rotation = 0.0f);
         void FillRect(Math.Rect rect, Vector4 color, float rotation = 0.0f);
+        void DrawRect3D(Transform transform, Vector4 color, float borderWidth = 1.0f);
+        void FillRect3D(Transform transform, Vector4 color);
         void DrawTexture(Transform transform, Texture texture, Vector4 color);
         void DrawTexture(Transform transform, int textureId, Vector4 color);
         void DrawTexture(Transform transform, int textureId, Vector4 color, Vector4 uvTransform);

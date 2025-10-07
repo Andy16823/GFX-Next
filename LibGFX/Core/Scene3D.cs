@@ -222,6 +222,9 @@ namespace LibGFX.Core
                 behavior.AfterRender(this, viewport, renderer, camera);
             });
 
+            // Proccess the render action
+            this.ProcessRenderActions(viewport, renderer, camera);
+
             // Unbind the render target and set the depth test state back to the original state
             renderer.UnbindRenderTarget();
             renderer.SetDepthTest(dephTest);
