@@ -56,6 +56,8 @@ namespace LibGFX.Core
         // The light manager for the 3D scene
         private Light3DManager _lightManager;
 
+        private float _physicsAccumulator = 0.0f;
+
         /// <summary>
         /// Creates a new 3D scene
         /// </summary>
@@ -312,17 +314,21 @@ namespace LibGFX.Core
         /// </summary>
         public override void UpdatePhysics(float dt)
         {
-            this.SceneBehaviors.ForEach(behavior =>
-            {
-                behavior.BeforePhysicsUpdate(this, this.PhysicsHandler);
-            });
+            if(this.PhysicsHandler == null) return;
+            _physicsAccumulator += dt;
 
-            this.PhysicsHandler.Process(this, dt);
-
-            this.SceneBehaviors.ForEach(behavior =>
+            while (_physicsAccumulator >= this.PhysicsHandler.FixedTimeStep)
             {
-                behavior.AfterPhysicsUpdate(this, this.PhysicsHandler);
-            });
+                // Before physics update behaviors
+                this.SceneBehaviors.ForEach(b => b.BeforePhysicsUpdate(this, PhysicsHandler));
+
+                // Process the physics handler
+                this.PhysicsHandler.Process(this);
+                _physicsAccumulator -= this.PhysicsHandler.FixedTimeStep;
+
+                // After physics update behaviors
+                this.SceneBehaviors.ForEach(b => b.AfterPhysicsUpdate(this, PhysicsHandler));
+            }
         }
 
         /// <summary>

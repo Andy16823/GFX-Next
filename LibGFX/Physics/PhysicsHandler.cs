@@ -19,10 +19,15 @@ namespace LibGFX.Physics
         public bool DebugPhysics { get; set; } = false;
 
         /// <summary>
+        /// The fixed time step for physics updates
+        /// </summary>
+        public float FixedTimeStep { get; set; } = 1.0f / 60.0f;
+
+        /// <summary>
         /// Processes the physics handler
         /// </summary>
         /// <param name="scene"></param>
-        public abstract void Process(BaseScene scene, float dt);
+        public abstract void Process(BaseScene scene);
 
         /// <summary>
         /// Manages a physics element

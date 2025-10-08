@@ -25,9 +25,18 @@ namespace LibGFX.Core
         /// </summary>
         public DirectionalLight2D SceneLight { get => this.GetDirectionalLight(); set => this.SetDirectionalLight(value); }
 
+        /// <summary>
+        /// The light manager of the scene
+        /// </summary>
         public override ILightManager LightManager { get => _lightManager; }
 
+        /// <summary>
+        /// The light manager for 2D lights
+        /// </summary>
         private Light2DManager _lightManager;
+
+        private float _physicsAccumulator = 0.0f;
+
 
 
         /// <summary>
@@ -250,17 +259,21 @@ namespace LibGFX.Core
         /// </summary>
         public override void UpdatePhysics(float dt)
         {
-            this.SceneBehaviors.ForEach(behavior =>
-            {
-                behavior.BeforePhysicsUpdate(this, this.PhysicsHandler);
-            });
+            if (this.PhysicsHandler == null) return;
+            _physicsAccumulator += dt;
 
-            this.PhysicsHandler.Process(this, dt);
-
-            this.SceneBehaviors.ForEach(behavior =>
+            while (_physicsAccumulator >= this.PhysicsHandler.FixedTimeStep)
             {
-                behavior.AfterPhysicsUpdate(this, this.PhysicsHandler);
-            });
+                // Before physics update behaviors
+                this.SceneBehaviors.ForEach(b => b.BeforePhysicsUpdate(this, this.PhysicsHandler));
+
+                // Process the physics handler
+                this.PhysicsHandler.Process(this);
+                _physicsAccumulator -= this.PhysicsHandler.FixedTimeStep;
+
+                // After physics update behaviors
+                this.SceneBehaviors.ForEach(b => b.AfterPhysicsUpdate(this, this.PhysicsHandler));
+            }
         }
 
     }
