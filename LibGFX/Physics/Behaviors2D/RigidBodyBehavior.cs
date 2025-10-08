@@ -61,6 +61,15 @@ namespace LibGFX.Physics.Behaviors2D
         }
 
         /// <summary>
+        /// Syncs the rigid body with the parent game element
+        /// </summary>
+        public void Sync()
+        {
+            var btTransform = Utils.GetBtTransform(Parent, Offset);
+            RigidBody.WorldTransform = btTransform;
+        }
+
+        /// <summary>
         /// Rotates the rigid body by the given angle in degrees
         /// </summary>
         /// <param name="angle"></param>

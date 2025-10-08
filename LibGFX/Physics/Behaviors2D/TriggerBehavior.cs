@@ -40,6 +40,15 @@ namespace LibGFX.Physics.Behaviors2D
         }
 
         /// <summary>
+        /// Syncs the trigger with the parent game element
+        /// </summary>
+        public void Sync()
+        {
+            var btTransform = Utils.GetBtTransform(Parent, Offset);
+            Trigger.WorldTransform = btTransform;
+        }
+
+        /// <summary>
         /// Translates the trigger by the given value
         /// </summary>
         /// <param name="value"></param>

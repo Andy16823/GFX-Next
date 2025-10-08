@@ -40,6 +40,15 @@ namespace LibGFX.Physics.Behaviors2D
         }
 
         /// <summary>
+        /// Syncs the collider with the parent game element
+        /// </summary>
+        public void Sync()
+        {
+            var btTransform = Utils.GetBtTransform(Parent, Offset);
+            Collider.WorldTransform = btTransform;
+        }
+
+        /// <summary>
         /// Translates the collider by the given value
         /// </summary>
         /// <param name="value"></param>

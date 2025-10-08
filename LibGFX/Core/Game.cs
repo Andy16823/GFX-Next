@@ -50,6 +50,11 @@ namespace LibGFX.Core
         public Viewport Viewport { get; set; }
 
         /// <summary>
+        /// The target frame rate for the game.
+        /// </summary>
+        public int TargetFrameRate { get; set; } = 120;
+
+        /// <summary>
         /// Initializes a new instance of the Game class.
         /// </summary>
         protected Game()
@@ -88,26 +93,30 @@ namespace LibGFX.Core
             while (!this.Window.RequestClose())
             {
                 var deltaTime = (float)GLFW.GetTime();
-                GLFW.SetTime(0);
 
-                // Process window events and update game state
-                this.Window.ProcessEvents();
-                this.Update(deltaTime);
+                if(deltaTime >= 1.0f / this.TargetFrameRate)
+                {
+                    GLFW.SetTime(0);
 
-                // Render the current frame
-                this.RenderDevice.MakeCurrent();
-                this.RenderDevice.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-                this.RenderDevice.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
+                    // Process window events and update game state
+                    this.Window.ProcessEvents();
+                    this.Update(deltaTime);
 
-                // Invoke the render method
-                this.Render();
+                    // Render the current frame
+                    this.RenderDevice.MakeCurrent();
+                    this.RenderDevice.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+                    this.RenderDevice.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
 
-                // Swap buffers to display the rendered frame
-                this.RenderDevice.Flush();
-                this.RenderDevice.SwapBuffers();
+                    // Invoke the render method
+                    this.Render();
 
-                // Call the OnFrameEnd method
-                this.OnFrameEnd();
+                    // Swap buffers to display the rendered frame
+                    this.RenderDevice.Flush();
+                    this.RenderDevice.SwapBuffers();
+
+                    // Call the OnFrameEnd method
+                    this.OnFrameEnd();
+                }
             }
 
             // Dispose resources and clean up

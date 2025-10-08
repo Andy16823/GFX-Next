@@ -112,5 +112,14 @@ namespace LibGFX
         {
             return (float) OpenTK.Windowing.GraphicsLibraryFramework.GLFW.GetTime();
         }
+
+        /// <summary>
+        /// Sets the current time in seconds.
+        /// </summary>
+        /// <param name="time"></param>
+        public void SetTime(float time)
+        {
+            OpenTK.Windowing.GraphicsLibraryFramework.GLFW.SetTime(time);
+        }
     }
 }
