@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\andy1\\documents\\github\\gfx-next\\libgfx\\libgfx.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\libgfx.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LibGFX",
+              "DocumentMoniker": "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\LibGFX\\LibGFX.csproj",
+              "RelativeDocumentMoniker": "LibGFX\\LibGFX.csproj",
+              "ToolTip": "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\LibGFX\\LibGFX.csproj",
+              "RelativeToolTip": "LibGFX\\LibGFX.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-21T16:46:55.998Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "L42/9J+qaEo=",
+  "dgSpecHash": "5begaBHKRak=",
   "success": true,
-  "projectFilePath": "C:\\Users\\andy1\\source\\repos\\LibGFX\\LibGFX\\LibGFX.csproj",
+  "projectFilePath": "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\LibGFX\\LibGFX.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andy1\\.nuget\\packages\\freetypesharp\\3.0.0\\freetypesharp.3.0.0.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\gfx.bulletsharp\\1.0.1\\gfx.bulletsharp.1.0.1.nupkg.sha512",
