@@ -100,7 +100,7 @@ namespace LibGFX.UI
             // Set the camera to the size of the label
             _camera.Transform.Scale = new Vector3(this.Transform.Scale.X, this.Transform.Scale.Y, 0);
             _viewport = new Viewport((int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
-            renderer.ResizeRenderTarget2D(RenderTarget, _viewport.Width, _viewport.Height);
+            renderer.ResizeRenderTarget(RenderTarget, _viewport.Width, _viewport.Height);
 
             // Set the camera to the size of the label
             renderer.SetViewport(_viewport);

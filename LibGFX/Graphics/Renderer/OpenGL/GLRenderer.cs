@@ -260,7 +260,42 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return _projectionMatrix;
         }
 
-        public RenderTarget2D CreateRenderTarget2D(int width, int height, int samples = 0)
+        public RenderTarget2D CreateRenderTarget2D(int width, int height)
+        {
+            var frameBufferId = GL.GenFramebuffer();
+            GL.BindFramebuffer(FramebufferTarget.Framebuffer, frameBufferId);
+
+            var textureID = GL.GenTexture();
+            GL.BindTexture(TextureTarget.Texture2D, textureID);
+            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, width, height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, IntPtr.Zero);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+            GL.FramebufferTexture2D(FramebufferTarget.Framebuffer, FramebufferAttachment.ColorAttachment0, TextureTarget.Texture2D, textureID, 0);
+
+            var depthAttachment = GL.GenRenderbuffer();
+            GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, depthAttachment);
+            GL.RenderbufferStorage(RenderbufferTarget.Renderbuffer, OpenTK.Graphics.OpenGL4.RenderbufferStorage.Depth24Stencil8, width, height);
+            GL.FramebufferRenderbuffer(FramebufferTarget.Framebuffer, FramebufferAttachment.DepthStencilAttachment, RenderbufferTarget.Renderbuffer, depthAttachment);
+
+            if (GL.CheckFramebufferStatus(FramebufferTarget.Framebuffer) != FramebufferErrorCode.FramebufferComplete)
+            {
+                throw new Exception("Failed to create framebuffer for render target.");
+            }
+
+            GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
+            GL.BindTexture(TextureTarget.Texture2D, 0);
+            GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, 0);
+
+            RenderTarget2D renderTarget = new RenderTarget2D();
+            renderTarget.FramebufferId = frameBufferId;
+            renderTarget.TextureId = textureID;
+            renderTarget.DepthAttachmentId = depthAttachment;
+            renderTarget.Width = width;
+            renderTarget.Height = height;
+            return renderTarget;
+        }
+
+        public MSAARenderTarget2D CreateMSAARenderTarget2D(int width, int height, int samples = 0)
         {
             // Create the Texture Framebuffer for the sampling result
             var textureFbo = GL.GenFramebuffer();
@@ -312,7 +347,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindTexture(TextureTarget.Texture2D, 0);
             GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, 0);
 
-            RenderTarget2D renderTarget = new RenderTarget2D(width, height);
+            MSAARenderTarget2D renderTarget = new MSAARenderTarget2D(width, height);
             renderTarget.TextureId = textureID;
             renderTarget.TextureFbo = textureFbo;
             renderTarget.FramebufferId = frameBufferId;
@@ -355,7 +390,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return renderTarget;
         }
 
-        public void FlushRenderTarget2D(RenderTarget2D renderTarget)
+        public void ResolveRenderTarget(MSAARenderTarget2D renderTarget)
         {
             GL.BindFramebuffer(FramebufferTarget.ReadFramebuffer, renderTarget.FramebufferId);
             GL.BindFramebuffer(FramebufferTarget.DrawFramebuffer, renderTarget.TextureFbo);
@@ -363,7 +398,29 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
         }
 
-        public void ResizeRenderTarget2D(RenderTarget2D renderTarget, int width, int height)
+
+        public void ResizeRenderTarget(RenderTarget2D renderTarget, int width, int height)
+        {
+            if(renderTarget.Width == width && renderTarget.Height == height)
+            {
+                return;
+            }
+
+            renderTarget.Width = width;
+            renderTarget.Height = height;
+
+            // Resize the texture
+            GL.BindTexture(TextureTarget.Texture2D, renderTarget.TextureId);
+            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, width, height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, IntPtr.Zero);
+            GL.BindTexture(TextureTarget.Texture2D, 0);
+
+            // Resize the depth attachment buffer
+            GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, renderTarget.DepthAttachmentId);
+            GL.RenderbufferStorage(RenderbufferTarget.Renderbuffer, OpenTK.Graphics.OpenGL4.RenderbufferStorage.Depth24Stencil8, width, height);
+            GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, 0);
+        }
+
+        public void ResizeRenderTarget(MSAARenderTarget2D renderTarget, int width, int height)
         {
             if(renderTarget.Width == width && renderTarget.Height == height)
             {
@@ -404,7 +461,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             }
         }
 
-        public void ResizeDepthRenderTarget(DepthOnlyRenderTarget renderTarget, int width, int height)
+        public void ResizeRenderTarget(DepthOnlyRenderTarget renderTarget, int width, int height)
         {
             if(renderTarget.Width == width && renderTarget.Height == height)
             {
@@ -434,7 +491,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return currentFramebuffer;
         }
 
-        public Vector2i GetRenderTargetSize(RenderTarget2D renderTarget)
+        public Vector2i GetRenderTargetSize(MSAARenderTarget2D renderTarget)
         {
             int width, height;
             GL.GetTextureLevelParameter(renderTarget.TextureId, 0, GetTextureParameter.TextureWidth, out width);
@@ -442,13 +499,13 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return new Vector2i(width, height);
         }
 
-        public byte[] GetRenderTargetData(RenderTarget2D renderTarget)
+        public byte[] GetRenderTargetData(MSAARenderTarget2D renderTarget)
         {
             var renderTargetSize = GetRenderTargetSize(renderTarget);
             return GetRenderTargetData(renderTarget, renderTargetSize.X, renderTargetSize.Y);
         }
 
-        public byte[] GetRenderTargetData(RenderTarget2D renderTarget, int width, int height)
+        public byte[] GetRenderTargetData(MSAARenderTarget2D renderTarget, int width, int height)
         {
             var oldRenderTarget = GetCurrentRenderTargetID();
 
@@ -813,13 +870,23 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void DrawRenderTarget(RenderTarget2D renderTarget)
         {
+            this.DrawRendertarget(renderTarget.TextureId);
+        }
+
+        public void DrawRenderTarget(MSAARenderTarget2D renderTarget)
+        {
+            this.DrawRendertarget(renderTarget.TextureId);
+        }
+
+        public void DrawRendertarget(int textureId)
+        {
             var shape = _shapes["FramebufferShape"];
             if (shape != null)
             {
                 var depthTest = IsDepthTestEnabled();
                 DisableDepthTest();
                 GL.ActiveTexture(TextureUnit.Texture0);
-                GL.BindTexture(TextureTarget.Texture2D, renderTarget.TextureId);
+                GL.BindTexture(TextureTarget.Texture2D, textureId);
                 GL.Uniform1(GetUniformLocation(_currentProgram, "screenTexture"), 0);
                 GL.BindVertexArray(shape.VertexArray);
                 GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);

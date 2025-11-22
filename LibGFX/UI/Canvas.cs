@@ -38,7 +38,7 @@ namespace LibGFX.UI
         /// <summary>
         /// The render target of the canvas
         /// </summary>
-        public RenderTarget2D RenderTarget { get; set; }
+        public MSAARenderTarget2D RenderTarget { get; set; }
 
         /// <summary>
         /// The list of render actions to be performed during the render phase

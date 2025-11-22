@@ -157,7 +157,7 @@ namespace LibGFX.Core
             renderer.SetViewMatrix(camera.GetViewMatrix());
 
             // Render the scene to the render target
-            renderer.ResizeRenderTarget2D(_renderTarget, viewport.Width, viewport.Height);
+            renderer.ResizeRenderTarget(_renderTarget, viewport.Width, viewport.Height);
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);

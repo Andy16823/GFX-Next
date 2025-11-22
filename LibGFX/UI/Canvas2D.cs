@@ -55,7 +55,7 @@ namespace LibGFX.UI
         /// <param name="renderer"></param>
         public override void Init(IRenderDevice renderer)
         {
-            this.RenderTarget = renderer.CreateRenderTarget2D((int) this.Transform.Scale.X, (int)this.Transform.Scale.Y);
+            this.RenderTarget = renderer.CreateMSAARenderTarget2D((int) this.Transform.Scale.X, (int)this.Transform.Scale.Y);
 
             foreach (var control in this.Controls.Values)
             {
@@ -82,7 +82,7 @@ namespace LibGFX.UI
             renderer.SetViewMatrix(this.Camera.GetViewMatrix());
 
             // Render the canvas to the render target
-            renderer.ResizeRenderTarget2D(this.RenderTarget, (int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
+            renderer.ResizeRenderTarget(this.RenderTarget, (int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
             renderer.BindRenderTarget(this.RenderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
