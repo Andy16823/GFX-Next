@@ -85,7 +85,7 @@ namespace LibGFX.Graphics.Lights
         public void BindLights(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             // Bind the shadow data
-            renderer.PrepareShader("shadowMap", 6, this.DirectionalLight.ShadowMap.TextureId);
+            renderer.PrepareShader("shadowMap", 6, this.DirectionalLight.ShadowMap.DepthTextureId);
             renderer.PrepareShader("lightSpaceMatrix", true, _lightViewMatrix);
 
             // Bind the lightning data

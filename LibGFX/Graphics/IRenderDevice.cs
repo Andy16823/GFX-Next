@@ -47,6 +47,8 @@ namespace LibGFX.Graphics
         void SetBlendMode(int srcFactor, int dstFactor);
         void ResetBlendMode();
         void DisableBlend();
+        CullMode GetCullMode();
+        void SetCullMode(CullMode mode);
         void SetViewport(Viewport viewport);
         Viewport GetViewport();
         void SetViewMatrix(Matrix4 matrix);
@@ -56,6 +58,11 @@ namespace LibGFX.Graphics
         void Clear(RenderFlags.ClearFlags clearFlags);
         void ClearColor(float r, float g, float b, float a);
         void Flush();
+        RenderTarget2D CreateRenderTarget2D(int width, int height, int samples = 0);
+        DepthOnlyRenderTarget CreateDepthRenderTarget2D(int width, int height);
+        void FlushRenderTarget2D(RenderTarget2D renderTarget);
+        void ResizeRenderTarget2D(RenderTarget2D renderTarget, int width, int height);
+        void ResizeDepthRenderTarget(DepthOnlyRenderTarget renderTarget, int width, int height);
         void BindRenderTarget(IRenderTarget renderTarget); 
         void UnbindRenderTarget();
         int GetCurrentRenderTargetID();
@@ -145,30 +152,9 @@ namespace LibGFX.Graphics
         void PrepareShader(String location, int textureUnit, int value);
         void PrepareShader(String location, int textureUnit, Texture texture);
         void PrepareShader(String location, int textureUnit, Cubemap cubemap);
-        int GetError();
-        public int GenFramebuffer();
-        public void BindFramebuffer(RenderFlags.GFXFramebufferTarget target, int framebufferId);
-        public int GenTexture();
-        public void BindTexture(RenderFlags.GFXTextureTarget target, int unit);
-        public void ActiveTexture(int unit);
-        public void TexImage2D(RenderFlags.GFXTextureTarget target, int level, RenderFlags.ColorFormatHint internalFormat, int width, int height, int border, RenderFlags.ColorFormatLayout format, RenderFlags.ColorFormatType type, IntPtr data);
-        public void TexParameter(RenderFlags.GFXTextureTarget target, RenderFlags.GFXTextureParameterName pname, RenderFlags.TextureFilterMode param);
-        public void TexParameter(RenderFlags.GFXTextureTarget target, RenderFlags.GFXTextureParameterName pname, RenderFlags.TextureWrapMode param);
-        public void TexParameter(RenderFlags.GFXTextureTarget target, RenderFlags.GFXTextureParameterName pname, Vector4 value);
-        public void TexParameter(RenderFlags.GFXTextureTarget target, RenderFlags.GFXTextureParameterName pname, float[] value);
-        public void FramebufferTexture2D(RenderFlags.GFXFramebufferTarget target, RenderFlags.GFXFramebufferAttachment attachment, RenderFlags.GFXTextureTarget textarget, int texture, int level);
-        public void DrawBufferMode(RenderFlags.RenderBufferMode mode);
-        public void ReadBufferMode(RenderFlags.RenderBufferMode mode);
-        public int GenRenderbuffer();
-        public void BindRenderbuffer(RenderFlags.GFXRenderbufferTarget target, int renderbuffer);
-        public void RenderbufferStorageMultisample(RenderFlags.GFXRenderbufferTarget target, int samples, RenderFlags.GFXRenderbufferStorage storage, int width, int height);
-        public void RenderbufferStorage(RenderFlags.GFXRenderbufferTarget target, RenderFlags.GFXRenderbufferStorage storage, int width, int height);
-        public void FramebufferRenderbuffer(RenderFlags.GFXFramebufferTarget target, RenderFlags.GFXFramebufferAttachment attachment, RenderFlags.GFXRenderbufferTarget renderbuffertarget, int renderbuffer);
-        public RenderFlags.GFXFramebufferErrorCode CheckFramebufferStatus(RenderFlags.GFXFramebufferTarget target);
         public void DeleteFramebuffer(int framebuffer);
         public void DeleteTexture(int texture);
         public void DeleteRenderbuffer(int renderbuffer);
-        CullMode GetCullMode();
-        void SetCullMode(CullMode mode);
+        int GetError();
     }
 }

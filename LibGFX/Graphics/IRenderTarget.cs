@@ -14,26 +14,12 @@ namespace LibGFX.Graphics
         /// <summary>
         /// The unique identifier for the render target.
         /// </summary>
-        public abstract int RenderTargetId { get; }
-
-        /// <summary>
-        /// Creates the render target on the given render device.
-        /// </summary>
-        /// <param name="renderer"></param>
-        public void Create(IRenderDevice renderer);
-
-        /// <summary>
-        /// Resizes the render target to the given width and height.
-        /// </summary>
-        /// <param name="renderer"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
-        public void Resize(IRenderDevice renderer, int width, int height);
+        public abstract int FramebufferId { get; set; }
 
         /// <summary>
         /// Disposes the render target from the given render device.
         /// </summary>
         /// <param name="renderer"></param>
-        public void Dispose(IRenderDevice renderer);
+        public abstract void Dispose(IRenderDevice renderer);
     }
 }

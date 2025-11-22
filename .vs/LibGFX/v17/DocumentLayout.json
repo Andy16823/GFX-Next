@@ -3,12 +3,76 @@
   "WorkspaceRootPath": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\graphics\\shapes\\cubewireshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\graphics\\shapes\\cubewireshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\core\\scene3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\core\\scene3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\graphics\\lights\\light3dmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\graphics\\lights\\light3dmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\graphics\\lights\\directionallight3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\graphics\\lights\\directionallight3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\graphics\\lights\\light.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\graphics\\lights\\light.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\graphics\\renderer\\opengl\\glrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\graphics\\renderer\\opengl\\glrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\graphics\\irenderdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\graphics\\irenderdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\graphics\\irendertarget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\graphics\\irendertarget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\graphics\\depthonlyrendertarget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\graphics\\depthonlyrendertarget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\graphics\\rendertarget2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\graphics\\rendertarget2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\ui\\progressbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\ui\\progressbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\ui\\label.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\ui\\label.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\ui\\canvas2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\ui\\canvas2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\ui\\button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\ui\\button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\core\\scene2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\core\\scene2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\graphics\\rendertargetdescriptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\graphics\\rendertargetdescriptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\core\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\core\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\core\\gameelement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\core\\gameelement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\graphics\\shapes\\cubewireshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\graphics\\shapes\\cubewireshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,11 +82,219 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Light3DManager.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\Lights\\Light3DManager.cs",
+              "RelativeDocumentMoniker": "LibGFX\\Graphics\\Lights\\Light3DManager.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\Lights\\Light3DManager.cs",
+              "RelativeToolTip": "LibGFX\\Graphics\\Lights\\Light3DManager.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAawFgAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T18:20:12.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Light.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\Lights\\Light.cs",
+              "RelativeDocumentMoniker": "LibGFX\\Graphics\\Lights\\Light.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\Lights\\Light.cs",
+              "RelativeToolTip": "LibGFX\\Graphics\\Lights\\Light.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowCEAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T18:19:30.687Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DepthOnlyRenderTarget.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\DepthOnlyRenderTarget.cs",
+              "RelativeDocumentMoniker": "LibGFX\\Graphics\\DepthOnlyRenderTarget.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\DepthOnlyRenderTarget.cs",
+              "RelativeToolTip": "LibGFX\\Graphics\\DepthOnlyRenderTarget.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAQwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T18:02:38.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Progressbar.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\UI\\Progressbar.cs",
+              "RelativeDocumentMoniker": "LibGFX\\UI\\Progressbar.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\UI\\Progressbar.cs",
+              "RelativeToolTip": "LibGFX\\UI\\Progressbar.cs",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAlwLYAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T17:11:46.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Label.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\UI\\Label.cs",
+              "RelativeDocumentMoniker": "LibGFX\\UI\\Label.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\UI\\Label.cs",
+              "RelativeToolTip": "LibGFX\\UI\\Label.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAlwGYAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T17:10:47.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Canvas2D.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\UI\\Canvas2D.cs",
+              "RelativeDocumentMoniker": "LibGFX\\UI\\Canvas2D.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\UI\\Canvas2D.cs",
+              "RelativeToolTip": "LibGFX\\UI\\Canvas2D.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAtwFQAAAB3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T17:09:18.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Button.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\UI\\Button.cs",
+              "RelativeDocumentMoniker": "LibGFX\\UI\\Button.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\UI\\Button.cs",
+              "RelativeToolTip": "LibGFX\\UI\\Button.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAowHsAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T17:07:35.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DirectionalLight3D.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\Lights\\DirectionalLight3D.cs",
+              "RelativeDocumentMoniker": "LibGFX\\Graphics\\Lights\\DirectionalLight3D.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\Lights\\DirectionalLight3D.cs",
+              "RelativeToolTip": "LibGFX\\Graphics\\Lights\\DirectionalLight3D.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwDYAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T17:07:00.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Scene2D.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Core\\Scene2D.cs",
+              "RelativeDocumentMoniker": "LibGFX\\Core\\Scene2D.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Core\\Scene2D.cs",
+              "RelativeToolTip": "LibGFX\\Core\\Scene2D.cs",
+              "ViewState": "AgIAAIQAAAAAAAAAAAD4v58AAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T17:03:51.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "RenderTargetDescriptor.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\RenderTargetDescriptor.cs",
+              "RelativeDocumentMoniker": "LibGFX\\Graphics\\RenderTargetDescriptor.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\RenderTargetDescriptor.cs",
+              "RelativeToolTip": "LibGFX\\Graphics\\RenderTargetDescriptor.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T16:41:58.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GLRenderer.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\Renderer\\OpenGL\\GLRenderer.cs",
+              "RelativeDocumentMoniker": "LibGFX\\Graphics\\Renderer\\OpenGL\\GLRenderer.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\Renderer\\OpenGL\\GLRenderer.cs",
+              "RelativeToolTip": "LibGFX\\Graphics\\Renderer\\OpenGL\\GLRenderer.cs",
+              "ViewState": "AgIAAIcBAAAAAAAAAAAYwKIBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T15:27:24.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Scene3D.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Core\\Scene3D.cs",
+              "RelativeDocumentMoniker": "LibGFX\\Core\\Scene3D.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Core\\Scene3D.cs",
+              "RelativeToolTip": "LibGFX\\Core\\Scene3D.cs",
+              "ViewState": "AgIAAMcAAAAAAAAAAAAcwOUAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T15:21:58.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IRenderTarget.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\IRenderTarget.cs",
+              "RelativeDocumentMoniker": "LibGFX\\Graphics\\IRenderTarget.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\IRenderTarget.cs",
+              "RelativeToolTip": "LibGFX\\Graphics\\IRenderTarget.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T15:18:43.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RenderTarget2D.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\RenderTarget2D.cs",
+              "RelativeDocumentMoniker": "LibGFX\\Graphics\\RenderTarget2D.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\RenderTarget2D.cs",
+              "RelativeToolTip": "LibGFX\\Graphics\\RenderTarget2D.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T15:15:00.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IRenderDevice.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\IRenderDevice.cs",
+              "RelativeDocumentMoniker": "LibGFX\\Graphics\\IRenderDevice.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\IRenderDevice.cs",
+              "RelativeToolTip": "LibGFX\\Graphics\\IRenderDevice.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAA0wEAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T15:13:26.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Game.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Core\\Game.cs",
+              "RelativeDocumentMoniker": "LibGFX\\Core\\Game.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Core\\Game.cs",
+              "RelativeToolTip": "LibGFX\\Core\\Game.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T15:13:05.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "CubeWireShape.cs",
               "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\Shapes\\CubeWireShape.cs",
               "RelativeDocumentMoniker": "LibGFX\\Graphics\\Shapes\\CubeWireShape.cs",
@@ -35,13 +307,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 16,
               "Title": "GameElement.cs",
               "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Core\\GameElement.cs",
               "RelativeDocumentMoniker": "LibGFX\\Core\\GameElement.cs",
               "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Core\\GameElement.cs",
               "RelativeToolTip": "LibGFX\\Core\\GameElement.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAqwIQAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAAAIQAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-22T12:59:47.171Z",
               "EditorCaption": ""

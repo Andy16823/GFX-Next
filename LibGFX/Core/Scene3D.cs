@@ -117,8 +117,7 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public override void Init(Viewport viewport, IRenderDevice renderer)
         {
-            _renderTarget = new RenderTarget2D(RenderTargetDescriptor.Default(viewport.Width, viewport.Height, (int)this.Samples));
-            _renderTarget.Create(renderer);
+            _renderTarget = renderer.CreateRenderTarget2D(viewport.Width, viewport.Height, (int)this.Samples);
 
             // Load the enviroment texture if available
             if (this.Enviroment != null)
@@ -188,7 +187,7 @@ namespace LibGFX.Core
             renderer.SetViewMatrix(camera.GetViewMatrix());
 
             // Render the scene to the render target
-            _renderTarget.Resize(renderer, viewport.Width, viewport.Height);
+            renderer.ResizeRenderTarget2D(_renderTarget, viewport.Width, viewport.Height);
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
@@ -229,6 +228,7 @@ namespace LibGFX.Core
 
             // Unbind the render target and set the depth test state back to the original state
             renderer.UnbindRenderTarget();
+            renderer.FlushRenderTarget2D(_renderTarget);
             renderer.SetDepthTest(dephTest);
 
             // Render the render target to the screen
