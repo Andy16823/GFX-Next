@@ -16,6 +16,14 @@ using Rect = LibGFX.Math.Rect;
 
 namespace LibGFX.Graphics
 {
+    public enum CullMode
+    {
+        Front,
+        Back,
+        None,
+        FrontAndBack
+    }
+
     public interface IRenderDevice
     {
         void Init(IGLFWGraphicsContext context);
@@ -91,6 +99,7 @@ namespace LibGFX.Graphics
         void LoadMesh(Mesh mesh);
         void DrawMesh(Transform transform, Mesh mesh, IMaterial material);
         void DisposeMesh(Mesh mesh);
+        void DrawAABB(AABB aabb, Vector4 color);
         void LoadInstanceContainer(RenderInstanceContainer container);
         void BindMeshForInstance(RenderInstanceContainer container, Mesh mesh);
         void LoadInstances(RenderInstanceContainer container);
@@ -159,8 +168,7 @@ namespace LibGFX.Graphics
         public void DeleteFramebuffer(int framebuffer);
         public void DeleteTexture(int texture);
         public void DeleteRenderbuffer(int renderbuffer);
-
-        void CullFrontFace();
-        void CullBackFace();
+        CullMode GetCullMode();
+        void SetCullMode(CullMode mode);
     }
 }

@@ -30,6 +30,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 {
     public class GLRenderer : IRenderDevice
     {
+        private CullMode _cullMode = CullMode.Back;
         private Dictionary<string, ShaderProgram> _programs;
         private Dictionary<string, Shape> _shapes;
         private Dictionary<string, Light> _lights;
@@ -62,6 +63,8 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             AddShaderProgram("DepthMeshShader", new DepthMeshShader());
             AddShaderProgram("AnimatedDepthMeshShader", new AnimatedDepthMeshShader());
             AddShaderProgram("DepthInstancedShader3D", new DepthInstancedShader3D());
+            AddShaderProgram("SolidMeshShader", new SolidMeshShader());
+            AddShaderProgram("AABBShader", new AABBShader());
 
             foreach (ShaderProgram program in _programs.Values)
             {
@@ -74,6 +77,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             AddShape(new SpriteShape());
             AddShape(new LineShape());
             AddShape(new CubeShape());
+            AddShape(new CubeWireShape());
             foreach (var shape in _shapes.Values)
             {
                 InitShape(shape);
@@ -1091,6 +1095,27 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindVertexArray(0);
         }
 
+        public void DrawAABB(AABB aabb, Vector4 color)
+        {
+            var depthTest = IsDepthTestEnabled();
+            var shape = _shapes["CubeWireShape"];
+            var shader = _programs["AABBShader"];
+            var m_mat = Matrix4.Identity;
+
+            this.DisableDepthTest();
+            this.BindShaderProgram(shader);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
+            GL.Uniform3(GetUniformLocation(_currentProgram, "min"), aabb.Min);
+            GL.Uniform3(GetUniformLocation(_currentProgram, "max"), aabb.Max);
+            GL.Uniform4(GetUniformLocation(_currentProgram, "solidColor"), color);
+            GL.BindVertexArray(shape.VertexArray);
+            GL.DrawElements(BeginMode.Lines, shape.GetIndexCount(), DrawElementsType.UnsignedInt, 0);
+            GL.BindVertexArray(0);
+            this.SetDepthTest(depthTest);
+        }
+
         public void DisposeMesh(Mesh mesh)
         {
             Debug.WriteLine($"Disposing Mesh {mesh.Name}");
@@ -1655,15 +1680,28 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.DeleteRenderbuffer(renderbuffer);
         }
 
-        public void CullFrontFace()
+        public CullMode GetCullMode()
         {
-            GL.CullFace(CullFaceMode.Front);
+            return _cullMode;
         }
 
-        public void CullBackFace()
+        public void SetCullMode(CullMode mode)
         {
-            GL.CullFace(CullFaceMode.Back);
+            _cullMode = mode;
+            switch (mode)
+            {
+                case CullMode.Front:
+                    GL.CullFace(TriangleFace.Front);
+                    break;
+                case CullMode.Back:
+                    GL.CullFace(TriangleFace.Back);
+                    break;
+                case CullMode.FrontAndBack:
+                    GL.CullFace(TriangleFace.FrontAndBack);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(mode), "Invalid cull mode.");
+            }
         }
-
     }
 }

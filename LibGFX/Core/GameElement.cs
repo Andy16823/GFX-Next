@@ -67,6 +67,11 @@ namespace LibGFX.Core
         public AABB AABB { get; set; }
 
         /// <summary>
+        /// Gets the world axis-aligned bounding box (AABB) of the game element.
+        /// </summary>
+        public AABB WorldAABB { get => this.GetWorldAABB(); }
+
+        /// <summary>
         /// The children of the game element
         /// </summary>
         public IReadOnlyList<GameElement> Children => _children;
@@ -271,6 +276,16 @@ namespace LibGFX.Core
         /// Computes the axis-aligned bounding box (AABB) of the game element.
         /// </summary>
         public abstract void ComputeAABB();
+
+        /// <summary>
+        /// Gets the world axis-aligned bounding box (AABB) of the game element by transforming its local AABB using its world transform.
+        /// </summary>
+        /// <returns></returns>
+        public AABB GetWorldAABB()
+        {
+            var transform = GetWorldTransform();
+            return AABB.TransformAABB(this.AABB, transform.Matrix);
+        }
 
         /// <summary>
         /// Gets the world transform of the game element by recursively combining its local transform with its parent's world transform.

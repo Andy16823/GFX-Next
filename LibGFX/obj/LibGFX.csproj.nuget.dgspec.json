@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\LibGFX\\LibGFX.csproj": {}
+    "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\LibGFX.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\LibGFX\\LibGFX.csproj": {
+    "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\LibGFX.csproj": {
       "version": "1.1.1-dev",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\LibGFX\\LibGFX.csproj",
+        "projectUniqueName": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\LibGFX.csproj",
         "projectName": "GFX",
-        "projectPath": "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\LibGFX\\LibGFX.csproj",
-        "packagesPath": "C:\\Users\\andy1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\LibGFX\\obj\\",
+        "projectPath": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\LibGFX.csproj",
+        "packagesPath": "C:\\Users\\Win10 Pro x64\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\andy1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Win10 Pro x64\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\andy1\\Documents\\NugetFeed": {},
+          "C:\\Users\\Win10 Pro x64\\Documents\\NugetFeed": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -100,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

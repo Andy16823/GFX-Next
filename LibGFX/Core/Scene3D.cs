@@ -277,12 +277,12 @@ namespace LibGFX.Core
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
             renderer.Clear(RenderFlags.ClearFlags.Depth);
 
-            renderer.CullFrontFace();
+            renderer.SetCullMode(CullMode.Front);
             this.Layers.ForEach(layer =>
             {
                 layer.RenderShadows(this, viewport, renderer);
             });
-            renderer.CullBackFace();
+            renderer.SetCullMode(CullMode.Back);
 
             renderer.UnbindRenderTarget();
             renderer.SetDepthTest(depthTest);

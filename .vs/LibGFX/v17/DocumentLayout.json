@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\",
+  "WorkspaceRootPath": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\andy1\\documents\\github\\gfx-next\\libgfx\\libgfx.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\libgfx.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\core\\gameelement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\core\\gameelement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|c:\\users\\win10 pro x64\\documents\\github\\gfx-next\\libgfx\\graphics\\shapes\\cubewireshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E26CFF5E-B27A-41A4-8089-A16E17E01381}|LibGFX\\LibGFX.csproj|solutionrelative:libgfx\\graphics\\shapes\\cubewireshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,18 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CubeWireShape.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\Shapes\\CubeWireShape.cs",
+              "RelativeDocumentMoniker": "LibGFX\\Graphics\\Shapes\\CubeWireShape.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Graphics\\Shapes\\CubeWireShape.cs",
+              "RelativeToolTip": "LibGFX\\Graphics\\Shapes\\CubeWireShape.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAmwDIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T13:43:21.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "LibGFX",
-              "DocumentMoniker": "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\LibGFX\\LibGFX.csproj",
-              "RelativeDocumentMoniker": "LibGFX\\LibGFX.csproj",
-              "ToolTip": "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\LibGFX\\LibGFX.csproj",
-              "RelativeToolTip": "LibGFX\\LibGFX.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-21T16:46:55.998Z",
+              "Title": "GameElement.cs",
+              "DocumentMoniker": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Core\\GameElement.cs",
+              "RelativeDocumentMoniker": "LibGFX\\Core\\GameElement.cs",
+              "ToolTip": "C:\\Users\\Win10 Pro x64\\Documents\\GitHub\\GFX-Next\\LibGFX\\Core\\GameElement.cs",
+              "RelativeToolTip": "LibGFX\\Core\\GameElement.cs",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAqwEYAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T12:59:47.171Z",
               "EditorCaption": ""
             }
           ]
