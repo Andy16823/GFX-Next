@@ -19,6 +19,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using static BulletSharp.DiscreteCollisionDetectorInterface;
 using Light = LibGFX.Graphics.Lights.Light;
 
 namespace LibGFX.Core.GameElements
@@ -26,6 +27,7 @@ namespace LibGFX.Core.GameElements
     /// <summary>
     /// Represents a 3D model
     /// </summary>
+    [Obsolete("Model class is deprecated, please use StaticModel or AnimatedModel instead.")]
     public class Model : GameElement
     {
         /// <summary>
@@ -286,6 +288,10 @@ namespace LibGFX.Core.GameElements
             {
                 var mesh = new Graphics.Mesh();
                 mesh.Name = asmesh.Name;
+                if (Meshes.ContainsKey(mesh.Name))
+                {
+                    mesh.Name = mesh.Name + "_" + Guid.NewGuid().ToString();
+                }
                 mesh.Material = ExtractMaterial(assimpScene.Materials[asmesh.MaterialIndex], directory);
 
                 for (int i = 0; i < asmesh.VertexCount; i++)
@@ -410,15 +416,14 @@ namespace LibGFX.Core.GameElements
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera)
         {
             base.Render(scene, viewport, renderer, camera);
-            var light = renderer.GetLightSource<DirectionalLight3D>();
 
             if (this.HasAnimations)
             {
-                RenderAnimatedModel(scene, viewport, renderer, camera, light);
+                RenderAnimatedModel(scene, viewport, renderer, camera);
             }
             else
             {
-                RenderStaticModel(scene, viewport, renderer, camera, light);
+                RenderStaticModel(scene, viewport, renderer, camera);
             }
         }
 
@@ -454,7 +459,7 @@ namespace LibGFX.Core.GameElements
             renderer.UnbindShaderProgram();
         }
 
-        private void RenderAnimatedModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, DirectionalLight3D light)
+        private void RenderAnimatedModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera)
         {
             var transform = this.GetWorldTransform(); // Get the world transform of the model
             renderer.BindShaderProgram(this.Shader);
@@ -474,7 +479,7 @@ namespace LibGFX.Core.GameElements
             renderer.UnbindShaderProgram();
         }
 
-        private void RenderStaticModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera, DirectionalLight3D light)
+        private void RenderStaticModel(BaseScene scene, Viewport viewport, IRenderDevice renderer, Graphics.Camera camera)
         {
             var transform = this.GetWorldTransform(); // Get the world transform of the model
             renderer.BindShaderProgram(this.Shader);

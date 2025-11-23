@@ -34,7 +34,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         private CullMode _cullMode = CullMode.Back;
         private Dictionary<string, ShaderProgram> _programs;
         private Dictionary<string, Shape> _shapes;
-        private Dictionary<string, Light> _lights;
         private IGLFWGraphicsContext _context;
         private Window _window;
         private Matrix4 _viewMatrix;
@@ -83,10 +82,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             {
                 InitShape(shape);
             }
-
-            _lights = new Dictionary<string, Light>();
-
-            GL.Enable(EnableCap.Multisample);
+            //GL.Enable(EnableCap.Multisample);
         }
 
         public void Init(Window window)
@@ -1526,26 +1522,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.DeleteBuffer(container.UVInstanceBuffer);
             container.State = InstanceContainerState.Disposed;
             Debug.WriteLine($"Disposed Instance Container");
-        }
-
-        public void AddLightSource(string name, Light light)
-        {
-            _lights.Add(name, light);
-        }
-
-        public void RemoveLightSource(string name)
-        {
-            _lights.Remove(name);
-        }
-
-        public IEnumerable<Light> GetAllLightSources()
-        {
-            return _lights.Values;
-        }
-
-        public T GetLightSource<T>() where T : Light
-        {
-            return _lights.Values.OfType<T>().FirstOrDefault();
         }
 
         public int CreateBuffer()

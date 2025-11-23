@@ -92,6 +92,9 @@ namespace LibGFX.Graphics
         /// </summary>
         public MeshState State { get; set; } = MeshState.None;
 
+        /// <summary>
+        /// Material used by the mesh.
+        /// </summary>
         public IMaterial Material { get; set; }
 
         public Mesh()

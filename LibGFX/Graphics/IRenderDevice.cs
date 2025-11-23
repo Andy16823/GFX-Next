@@ -118,10 +118,6 @@ namespace LibGFX.Graphics
         void UpdateInstance(RenderInstanceContainer container, int instanceIndex);
         void DrawInstances(RenderInstanceContainer container, IMaterial material);
         void DisposeInstanceContainer(RenderInstanceContainer container);
-        void AddLightSource(string name, Light light);
-        void RemoveLightSource(string name);
-        IEnumerable<Light> GetAllLightSources();
-        T GetLightSource<T>() where T : Light;
         int CreateBuffer();
         int CreateVertexBuffer<T>(T[] data, bool dynamic = false) where T : unmanaged;
         int CreateElementBuffer(int[] data, bool dynamic = false);

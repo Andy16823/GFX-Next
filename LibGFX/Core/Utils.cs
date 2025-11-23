@@ -1,4 +1,5 @@
 ﻿using LibGFX.Graphics;
+using LibGFX.Graphics.Materials;
 using LibGFX.Math;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
@@ -262,6 +263,37 @@ namespace LibGFX.Core
                 (false, true) => GFXRenderbufferStorage.StencilIndex8,
                 _ => throw new ArgumentException("At least one of depth or stencil must be true.")
             };
+        }
+
+        public static IMaterial LoadMaterial(Assimp.Material asmat, String directory)
+        {
+            // Load materials
+            var material = new Graphics.Materials.SGMaterial();
+            material.Name = asmat.Name;
+            material.Opacity = asmat.Opacity;
+            material.Color = new Vector4(asmat.ColorDiffuse.R, asmat.ColorDiffuse.G, asmat.ColorDiffuse.B, asmat.ColorDiffuse.A);
+
+            if (asmat.Shininess > 0)
+            {
+                material.Shininess = asmat.Shininess;
+            }
+
+            if (asmat.HasTextureDiffuse)
+            {
+                material.DiffuseTexture = new Texture(Path.Combine(directory, asmat.TextureDiffuse.FilePath));
+            }
+
+            if (asmat.HasTextureNormal)
+            {
+                material.NormalTexture = new Texture(Path.Combine(directory, asmat.TextureNormal.FilePath));
+            }
+
+            if (asmat.HasTextureSpecular)
+            {
+                material.SpecularTexture = new Texture(Path.Combine(directory, asmat.TextureSpecular.FilePath));
+            }
+
+            return material;
         }
     }
 }

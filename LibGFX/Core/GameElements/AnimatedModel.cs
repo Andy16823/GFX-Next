@@ -1,0 +1,111 @@
+﻿using LibGFX.Graphics;
+using LibGFX.Graphics.Animation3D;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using LibGFX.Math;
+using OpenTK.Mathematics;
+using System.Diagnostics;
+
+namespace LibGFX.Core.GameElements
+{
+    public class AnimatedModel : GameElement
+    {
+        private Graphics.AnimatedModel _model;
+
+        public Animator Animator { get; }
+        public float AnimationSpeed { get; set; } = 1.0f;   // TODO: Move to Animator?
+
+
+        public AnimatedModel(String name, Graphics.AnimatedModel model)
+        {
+            this.Name = name;
+            this.Animator = new Animator();
+            _model = model;
+            this.ComputeAABB();
+        }
+
+        public override void Update(BaseScene scene, float dt)
+        {
+            base.Update(scene, dt);
+            if(this.Animator.CurrentAnimation != null)
+            {
+                float deltaTimeInSeconds = scene.RenderStats.DeltaTime / 1000f;
+                float animationSpeed = deltaTimeInSeconds * this.AnimationSpeed;
+                Animator.UpdateAnimation(animationSpeed);
+            }
+        }
+
+        public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
+        {
+            base.Render(scene, viewport, renderer, camera);
+            var transform = this.GetWorldTransform();
+
+            // Bind and prepare shader uniforms
+            var shader = renderer.GetShaderProgram("AnimatedMeshShader");
+            renderer.BindShaderProgram(shader);
+            renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
+            renderer.PrepareShader("viewPos", camera.Transform.Position);
+            if (scene.LightManager != null)
+            {
+                scene.LightManager.BindLights(viewport, renderer, camera);
+            }
+
+            foreach (var mesh in _model.Meshes.Values)
+            {
+                renderer.DrawMesh(transform, mesh);
+                scene.RenderStats.IncrementDrawCalls();
+            }
+
+            renderer.UnbindShaderProgram();
+        }
+
+        public override void ComputeAABB()
+        {
+            if (_model.Meshes.Count == 0)
+            {
+                this.AABB = new AABB(Vector3.Zero, Vector3.Zero);
+                this.AABB = new AABB(Vector3.Zero, Vector3.Zero);
+                return;
+            }
+
+            var min = new Vector3(float.MaxValue);
+            var max = new Vector3(float.MinValue);
+
+            foreach (var mesh in _model.Meshes.Values)
+            {
+                foreach (var vertex in mesh.Vertices)
+                {
+                    min = Vector3.ComponentMin(min, vertex.Position);
+                    max = Vector3.ComponentMax(max, vertex.Position);
+                }
+            }
+
+            this.AABB = new AABB(min, max);
+        }
+
+        public void PlayAnimation(String name)
+        {
+            var animation = _model.Animations.FirstOrDefault(a => a.Name == name);
+            if(animation != null)
+            {
+                this.Animator.CurrentAnimation = animation;
+            }
+        }
+
+        public void PlayAnimation(Animation animation)
+        {
+            this.Animator.CurrentAnimation = animation;
+        }
+
+        public void PlayAnimation(int index)
+        {
+            if(index >= 0 && index < _model.Animations.Count)
+            {
+                this.Animator.CurrentAnimation = _model.Animations[index];
+            }
+        }
+    }
+}

@@ -45,11 +45,8 @@ namespace LibGFX
             AssetManager.RegisterLoader<SGMaterial>(new SGMaterialLoader());
             AssetManager.RegisterLoader<Model>(new ModelLoader());
             AssetManager.RegisterLoader<Cubemap>(new CubemapLoader());
-            AssetManager.RegisterLoader<Mesh>(new MeshLoader());
             AssetManager.RegisterLoader<SpriteMaterial>(new SpriteMaterialLoader());
             AssetManager.RegisterLoader<Shader>(new ShaderLoader());
-            AssetManager.RegisterLoader<Skeleton>(new SkeletonLoader());
-            AssetManager.RegisterLoader<List<Graphics.Animation3D.Animation>>(new Animation3DLoader());
         }
 
         /// <summary>

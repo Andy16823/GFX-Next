@@ -10,19 +10,6 @@ C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Debug\net8.0\LibGFX.dll
 C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Debug\net8.0\refint\LibGFX.dll
 C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Debug\net8.0\LibGFX.pdb
 C:\Users\andy1\source\repos\LibGFX\LibGFX\obj\Debug\net8.0\ref\LibGFX.dll
-C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\bin\Debug\net8.0\LibGFX.deps.json
-C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\bin\Debug\net8.0\LibGFX.dll
-C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\bin\Debug\net8.0\LibGFX.pdb
-C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.csproj.AssemblyReference.cache
-C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.AssemblyInfoInputs.cache
-C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.AssemblyInfo.cs
-C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.csproj.CoreCompileInputs.cache
-C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.sourcelink.json
-C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.dll
-C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\refint\LibGFX.dll
-C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.pdb
-C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\ref\LibGFX.dll
 C:\Users\Win10 Pro x64\Documents\GitHub\GFX-Next\LibGFX\bin\Debug\net8.0\LibGFX.deps.json
 C:\Users\Win10 Pro x64\Documents\GitHub\GFX-Next\LibGFX\bin\Debug\net8.0\LibGFX.dll
 C:\Users\Win10 Pro x64\Documents\GitHub\GFX-Next\LibGFX\bin\Debug\net8.0\LibGFX.pdb
@@ -36,3 +23,16 @@ C:\Users\Win10 Pro x64\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.
 C:\Users\Win10 Pro x64\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\refint\LibGFX.dll
 C:\Users\Win10 Pro x64\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.pdb
 C:\Users\Win10 Pro x64\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\ref\LibGFX.dll
+C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.csproj.AssemblyReference.cache
+C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.AssemblyInfoInputs.cache
+C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.AssemblyInfo.cs
+C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.csproj.CoreCompileInputs.cache
+C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.sourcelink.json
+C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\bin\Debug\net8.0\LibGFX.deps.json
+C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\bin\Debug\net8.0\LibGFX.dll
+C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\bin\Debug\net8.0\LibGFX.pdb
+C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.dll
+C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\refint\LibGFX.dll
+C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\LibGFX.pdb
+C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Debug\net8.0\ref\LibGFX.dll
