@@ -42,6 +42,20 @@ namespace LibGFX.Core.GameElements
             renderer.UnbindShaderProgram();
         }
 
+        public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+        {
+            base.RenderShadow(scene, viewport, renderer);
+            var transform = this.GetWorldTransform();
+            var shader = renderer.GetShaderProgram("DepthMeshShader");
+            renderer.BindShaderProgram(shader);
+            foreach (var mesh in _model.Meshes.Values)
+            {
+                renderer.DrawMesh(transform, mesh);
+                scene.RenderStats.IncrementDrawCalls();
+            }
+            renderer.UnbindShaderProgram();
+        }
+
         public override void ComputeAABB()
         {
             if (_model.Meshes.Count == 0)
