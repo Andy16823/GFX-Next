@@ -11,6 +11,9 @@ using LibGFX.Graphics;
 
 namespace LibGFX.Assets.Loaders
 {
+    /// <summary>
+    /// Loader to load mesh assets using Assimp.
+    /// </summary>
     public class MeshLoader : IAssetLoader
     {
         /// <summary>
@@ -21,7 +24,7 @@ namespace LibGFX.Assets.Loaders
         /// <summary>
         /// Indicates whether the asset loader can create new assets.
         /// </summary>
-        public bool CanCreate => true;
+        public bool CanCreate => false;
 
         /// <summary>
         /// Loads a mesh from the specified path using Assimp.
@@ -49,14 +52,15 @@ namespace LibGFX.Assets.Loaders
         /// </summary>
         /// <param name="assimpScene"></param>
         /// <returns></returns>
-        private MeshCollection ExtractMeshes(Scene assimpScene)
+        private Dictionary<String, Graphics.Mesh> ExtractMeshes(Scene assimpScene)
         {
-            var meshes = new MeshCollection();
+            var result = new Dictionary<String, Graphics.Mesh>();
 
             foreach (var asmesh in assimpScene.Meshes)
             {
                 var mesh = new Graphics.Mesh();
                 mesh.Name = asmesh.Name;
+                mesh.Material = null; // TODO: Load material
 
                 for (int i = 0; i < asmesh.VertexCount; i++)
                 {
@@ -72,17 +76,17 @@ namespace LibGFX.Assets.Loaders
                 }
 
                 mesh.Indices.AddRange(asmesh.GetIndices());
-                meshes.Add(mesh);
+                result.Add(mesh.Name, mesh);
             }
 
-            return meshes;
+            return result;
         }
 
         /// <summary>
         /// Loads the transforms for each mesh in the Assimp scene.
         /// </summary>
         /// <param name="assimpScene"></param>
-        private void LoadTransforms(Scene assimpScene, MeshCollection meshes)
+        private void LoadTransforms(Scene assimpScene, Dictionary<String, Graphics.Mesh> meshes)
         {
             this.LoadNodeTransformRecursive(assimpScene.RootNode, Matrix4x4.Identity, meshes);
         }
@@ -92,13 +96,13 @@ namespace LibGFX.Assets.Loaders
         /// </summary>
         /// <param name="node"></param>
         /// <param name="parentTransform"></param>
-        private void LoadNodeTransformRecursive(Node node, Matrix4x4 parentTransform, MeshCollection meshes)
+        private void LoadNodeTransformRecursive(Node node, Matrix4x4 parentTransform, Dictionary<String, Graphics.Mesh> meshes)
         {
             var currentTransform = parentTransform * node.Transform;
 
             foreach (var meshIndex in node.MeshIndices)
             {
-                var mesh = meshes.GetMesh(meshIndex);
+                var mesh = meshes.Values.ElementAt(meshIndex);
                 currentTransform.Decompose(out Assimp.Vector3D scale, out Assimp.Quaternion rotation, out Assimp.Vector3D translation);
                 mesh.LocalTranslation = new Vector3(translation.X, translation.Y, translation.Z);
                 mesh.LocalRotation = new OpenTK.Mathematics.Quaternion(rotation.X, rotation.Y, rotation.Z, rotation.W);
@@ -121,13 +125,7 @@ namespace LibGFX.Assets.Loaders
         /// <exception cref="NotSupportedException"></exception>
         public T Create<T>(string id, Action<T>? initializer = null, object? creationArgs = null) where T : class
         {
-            if(typeof(T) == typeof(MeshCollection))
-            {
-                var meshCollection = new MeshCollection();
-                initializer?.Invoke(meshCollection as T);
-                return meshCollection as T;
-            }
-            throw new NotSupportedException($"Asset type '{typeof(T)}' is not supported.");
+            throw new NotSupportedException("MeshLoader does not support creating new mesh assets.");
         }
     }
 }

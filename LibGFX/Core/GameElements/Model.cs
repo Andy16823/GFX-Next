@@ -16,6 +16,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Light = LibGFX.Graphics.Lights.Light;
@@ -23,34 +24,14 @@ using Light = LibGFX.Graphics.Lights.Light;
 namespace LibGFX.Core.GameElements
 {
     /// <summary>
-    /// Represents a pair of mesh name and material index.
-    /// </summary>
-    public struct MeshMaterialPair
-    {
-        public String MeshName;
-        public int MaterialIndex;
-    }
-
-    /// <summary>
     /// Represents a 3D model
     /// </summary>
     public class Model : GameElement
     {
-
         /// <summary>
         /// The meshes of the model
         /// </summary>
-        public MeshCollection Meshes { get; set; }
-
-        /// <summary>
-        /// The materials of the model
-        /// </summary>
-        public MaterialCollection Materials { get; set; }
-
-        /// <summary>
-        /// The pair of meshes and materials
-        /// </summary>
-        public List<MeshMaterialPair> MeshMaterials { get; set; }
+        public Dictionary<String, LibGFX.Graphics.Mesh> Meshes { get; set; }
 
         /// <summary>
         /// The name of the model
@@ -94,9 +75,7 @@ namespace LibGFX.Core.GameElements
         {
             this.Name = name;
             this.Skeleton = new Skeleton();
-            this.Meshes = new MeshCollection();
-            this.Materials = new MaterialCollection();
-            this.MeshMaterials = new List<MeshMaterialPair>();
+            this.Meshes = new Dictionary<string, Graphics.Mesh>();
 
             this.LoadModel(file);
             this.ComputeAABB();
@@ -108,7 +87,10 @@ namespace LibGFX.Core.GameElements
         /// <param name="value"></param>
         public void OverrideMeshScale(Vector3 value)
         {
-            this.Meshes.ForEach(m => m.LocalScale = value);
+            foreach (var m in this.Meshes.Values)
+            {
+                m.LocalScale = value;
+            }
         }
 
         /// <summary>
@@ -117,7 +99,10 @@ namespace LibGFX.Core.GameElements
         /// <param name="value"></param>
         public void OverrideMeshScale(float value)
         {
-            this.Meshes.ForEach(m => m.LocalScale = new Vector3(value));
+            foreach (var m in this.Meshes.Values)
+            {
+                m.LocalScale = new Vector3(value);
+            }
         }
 
         /// <summary>
@@ -127,7 +112,11 @@ namespace LibGFX.Core.GameElements
         /// <param name="value"></param>
         public void OverrideSingleMeshScale(int index, Vector3 value)
         {
-            this.Meshes.SingleMeshAction(index, m => m.LocalScale = value);
+            if (index < 0 || index >= this.Meshes.Count)
+            {
+                throw new Exception($"Mesh index {index} out of range in model {this.Name}");
+            }
+            this.Meshes.Values.ElementAt(index).LocalScale = value;
         }
 
         /// <summary>
@@ -137,7 +126,11 @@ namespace LibGFX.Core.GameElements
         /// <param name="value"></param>
         public void OverrideSingleMeshScale(String name, Vector3 value)
         {
-            this.Meshes.SingleMeshAction(name, m => m.LocalScale = value);
+            if (!this.Meshes.ContainsKey(name))
+            {
+                throw new Exception($"Mesh {name} not found in model {this.Name}");
+            }
+            this.Meshes[name].LocalScale = value;
         }
 
         /// <summary>
@@ -155,8 +148,7 @@ namespace LibGFX.Core.GameElements
             var assimpScene = importer.ImportFile(file, Assimp.PostProcessSteps.Triangulate | Assimp.PostProcessSteps.CalculateTangentSpace | Assimp.PostProcessSteps.JoinIdenticalVertices);
 
             // Extract materials and meshes
-            ExtractMaterials(assimpScene, directory);
-            ExtractMeshes(assimpScene);
+            ExtractMeshes(assimpScene, directory);
 
             // Extract animations
             this.HasAnimations = assimpScene.HasAnimations;
@@ -217,7 +209,7 @@ namespace LibGFX.Core.GameElements
 
             foreach (var meshIndex in node.MeshIndices)
             {
-                var mesh = this.Meshes.GetMesh(meshIndex);
+                var mesh = this.Meshes.Values.ElementAt(meshIndex);
                 currentTransform.Decompose(out Assimp.Vector3D scale, out Assimp.Quaternion rotation, out Assimp.Vector3D translation);
                 mesh.LocalTranslation = new Vector3(translation.X, translation.Y, translation.Z);
                 mesh.LocalRotation = new OpenTK.Mathematics.Quaternion(rotation.X, rotation.Y, rotation.Z, rotation.W);
@@ -252,42 +244,35 @@ namespace LibGFX.Core.GameElements
         /// <param name="assimpScene"></param>
         /// <param name="directory"></param>
         /// <returns></returns>
-        private void ExtractMaterials(Scene assimpScene, String directory)
+        private IMaterial ExtractMaterial(Material asmat, String directory)
         {
-            var materials = new List<IMaterial>();
-
             // Load materials
-            foreach (var asmat in assimpScene.Materials)
+            var material = new Graphics.Materials.SGMaterial();
+            material.Name = asmat.Name;
+            material.Opacity = asmat.Opacity;
+            material.Color = new Vector4(asmat.ColorDiffuse.R, asmat.ColorDiffuse.G, asmat.ColorDiffuse.B, asmat.ColorDiffuse.A);
+
+            if (asmat.Shininess > 0)
             {
-                var material = new Graphics.Materials.SGMaterial();
-                material.Name = asmat.Name;
-                material.Opacity = asmat.Opacity;
-                material.Color = new Vector4(asmat.ColorDiffuse.R, asmat.ColorDiffuse.G, asmat.ColorDiffuse.B, asmat.ColorDiffuse.A);
-
-                if (asmat.Shininess > 0)
-                {
-                    material.Shininess = asmat.Shininess;
-                }
-
-                if (asmat.HasTextureDiffuse)
-                {
-                    material.DiffuseTexture = new Texture(Path.Combine(directory, asmat.TextureDiffuse.FilePath));
-                }
-
-                if (asmat.HasTextureNormal)
-                {
-                    material.NormalTexture = new Texture(Path.Combine(directory, asmat.TextureNormal.FilePath));
-                }
-
-                if (asmat.HasTextureSpecular)
-                {
-                    material.SpecularTexture = new Texture(Path.Combine(directory, asmat.TextureSpecular.FilePath));
-                }
-
-                materials.Add(material);
+                material.Shininess = asmat.Shininess;
             }
 
-            this.Materials.AddRange(materials);
+            if (asmat.HasTextureDiffuse)
+            {
+                material.DiffuseTexture = new Texture(Path.Combine(directory, asmat.TextureDiffuse.FilePath));
+            }
+
+            if (asmat.HasTextureNormal)
+            {
+                material.NormalTexture = new Texture(Path.Combine(directory, asmat.TextureNormal.FilePath));
+            }
+
+            if (asmat.HasTextureSpecular)
+            {
+                material.SpecularTexture = new Texture(Path.Combine(directory, asmat.TextureSpecular.FilePath));
+            }
+
+            return material;
         }
 
         /// <summary>
@@ -295,14 +280,13 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         /// <param name="assimpScene"></param>
         /// <param name="materials"></param>
-        private void ExtractMeshes(Scene assimpScene)
+        private void ExtractMeshes(Scene assimpScene, String directory)
         {
-            var meshes = new List<Graphics.Mesh>();
-
             foreach (var asmesh in assimpScene.Meshes)
             {
                 var mesh = new Graphics.Mesh();
                 mesh.Name = asmesh.Name;
+                mesh.Material = ExtractMaterial(assimpScene.Materials[asmesh.MaterialIndex], directory);
 
                 for (int i = 0; i < asmesh.VertexCount; i++)
                 {
@@ -319,15 +303,8 @@ namespace LibGFX.Core.GameElements
 
                 mesh.Indices.AddRange(asmesh.GetIndices());
                 ExtractBoneWeightForVertices(asmesh, assimpScene, mesh);
-                meshes.Add(mesh);
-
-                var meshMaterialPair = new MeshMaterialPair();
-                meshMaterialPair.MeshName = mesh.ID.ToString();
-                meshMaterialPair.MaterialIndex = asmesh.MaterialIndex;
-                this.MeshMaterials.Add(meshMaterialPair);
+                this.Meshes.Add(mesh.Name, mesh);
             }
-
-            this.Meshes.AddRange(meshes);
         }
 
         /// <summary>
@@ -400,17 +377,14 @@ namespace LibGFX.Core.GameElements
         {
             base.Init(scene, viewport, renderer);
 
-            this.Materials.ForEach(material =>
+            // Initialize materials and load meshes
+            foreach (var mesh in this.Meshes.Values)
             {
-                material.Init(renderer);
-            });
-
-            this.Meshes.ForEach(mesh =>
-            {
+                mesh.Material.Init(renderer);
                 renderer.LoadMesh(mesh);
+            }
 
-            });
-
+            // Setup shader
             if (this.Shader == null)
             {
                 if (this.HasAnimations)
@@ -471,13 +445,12 @@ namespace LibGFX.Core.GameElements
                 renderer.BindShaderProgram(shader);
             }
 
-            this.MeshMaterials.ForEach(pair =>
+            foreach (var mesh in this.Meshes.Values)
             {
-                var mesh = this.Meshes.GetMesh(pair.MeshName);
-                var material = this.Materials.GetMaterial(pair.MaterialIndex);
-                renderer.DrawMesh(transform, mesh, material);
+                renderer.DrawMesh(transform, mesh, mesh.Material);
                 scene.RenderStats.IncrementDrawCalls();
-            });
+            }
+
             renderer.UnbindShaderProgram();
         }
 
@@ -492,13 +465,11 @@ namespace LibGFX.Core.GameElements
                 scene.LightManager.BindLights(viewport, renderer, camera);
             }
 
-            this.MeshMaterials.ForEach(pair =>
+            foreach (var mesh in this.Meshes.Values)
             {
-                var mesh = this.Meshes.GetMesh(pair.MeshName);
-                var material = this.Materials.GetMaterial(pair.MaterialIndex);
-                renderer.DrawMesh(transform, mesh, material);
+                renderer.DrawMesh(transform, mesh, mesh.Material);
                 scene.RenderStats.IncrementDrawCalls();
-            });
+            }
 
             renderer.UnbindShaderProgram();
         }
@@ -513,13 +484,11 @@ namespace LibGFX.Core.GameElements
                 scene.LightManager.BindLights(viewport, renderer, camera);
             }
 
-            this.MeshMaterials.ForEach(pair =>
+            foreach (var mesh in this.Meshes.Values)
             {
-                var mesh = this.Meshes.GetMesh(pair.MeshName);
-                var material = this.Materials.GetMaterial(pair.MaterialIndex);
-                renderer.DrawMesh(transform, mesh, material);
+                renderer.DrawMesh(transform, mesh, mesh.Material);
                 scene.RenderStats.IncrementDrawCalls();
-            });
+            }
 
             renderer.UnbindShaderProgram();
         }
@@ -535,15 +504,11 @@ namespace LibGFX.Core.GameElements
             base.Dispose(scene, renderer);
             Debug.WriteLine($"Disposing Model {Name}");
 
-            this.Materials.ForEach(material =>
+            foreach(var mesh in this.Meshes.Values)
             {
-                material.Dispose(renderer);
-            });
-
-            this.Meshes.ForEach(mesh =>
-            {
+                mesh.Material.Dispose(renderer);
                 renderer.DisposeMesh(mesh);
-            });
+            }
 
             Debug.WriteLine($"Disposed Model {Name}");
         }
@@ -750,7 +715,7 @@ namespace LibGFX.Core.GameElements
             var min = new Vector3(float.MaxValue);
             var max = new Vector3(float.MinValue);
 
-            foreach (var mesh in Meshes)
+            foreach (var mesh in Meshes.Values)
             {
                 foreach (var vertex in mesh.Vertices)
                 {
@@ -766,16 +731,9 @@ namespace LibGFX.Core.GameElements
         /// Gets the meshes and their materials for rendering.
         /// </summary>
         /// <returns></returns>
-        public override (Graphics.Mesh, IMaterial)[]? GetMeshes()
+        public override Graphics.Mesh[]? GetMeshes()
         {
-            var meshes = new List<(Graphics.Mesh, IMaterial)>();
-            this.MeshMaterials.ForEach(pair =>
-            {
-                var mesh = this.Meshes.GetMesh(pair.MeshName);
-                var material = this.Materials.GetMaterial(pair.MaterialIndex);
-                meshes.Add((mesh, material));
-            });
-            return meshes.ToArray();
+            return this.Meshes.Values.ToArray();
         }
     }
 }

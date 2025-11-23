@@ -176,9 +176,9 @@ namespace LibGFX.Core.GameElements
         /// Gets the meshes and materials associated with the primitive.
         /// </summary>
         /// <returns></returns>
-        public override (Mesh, IMaterial)[]? GetMeshes()
+        public override Mesh[]? GetMeshes()
         {
-            return new (Mesh, IMaterial)[] { (this.Mesh, this.Material) };
+            return new Mesh[] { this.Mesh };
         }
 
         /// <summary>

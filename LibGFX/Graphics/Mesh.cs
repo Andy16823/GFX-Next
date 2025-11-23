@@ -1,4 +1,5 @@
-﻿using LibGFX.Math;
+﻿using LibGFX.Graphics.Materials;
+using LibGFX.Math;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -90,6 +91,8 @@ namespace LibGFX.Graphics
         /// The state of the mesh.
         /// </summary>
         public MeshState State { get; set; } = MeshState.None;
+
+        public IMaterial Material { get; set; }
 
         public Mesh()
         {

@@ -267,7 +267,7 @@ namespace LibGFX.Core
         /// Returns the meshes and materials of the game element
         /// </summary>
         /// <returns></returns>
-        public virtual (Mesh, IMaterial)[]? GetMeshes()
+        public virtual Mesh[]? GetMeshes()
         {
             return null;
         }
