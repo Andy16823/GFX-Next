@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics
 {
+    /// <summary>
+    /// Skinned mesh model with support for skeletal animation
+    /// </summary>
     public class SkinnedMeshModel : IModel
     {
         public Dictionary<string, Mesh> Meshes { get; set; }
@@ -33,13 +36,13 @@ namespace LibGFX.Graphics
 
             var importer = new AssimpContext();
             importer.SetConfig(new NormalSmoothingAngleConfig(66.0f));
-            var assimpScene = importer.ImportFile(file, 
-                Assimp.PostProcessSteps.Triangulate | 
-                Assimp.PostProcessSteps.CalculateTangentSpace | 
+            var assimpScene = importer.ImportFile(file,
+                Assimp.PostProcessSteps.Triangulate |
+                Assimp.PostProcessSteps.CalculateTangentSpace |
                 Assimp.PostProcessSteps.JoinIdenticalVertices
                 );
 
-            if(!assimpScene.HasAnimations)
+            if (!assimpScene.HasAnimations)
             {
                 throw new Exception("The model does not contain any animations.");
             }
@@ -177,7 +180,7 @@ namespace LibGFX.Graphics
 
         public void Init(IRenderDevice renderer)
         {
-            foreach(var mesh in Meshes.Values)
+            foreach (var mesh in Meshes.Values)
             {
                 mesh.Material.Init(renderer);
                 renderer.LoadMesh(mesh);
@@ -186,10 +189,22 @@ namespace LibGFX.Graphics
 
         public void Dispose(IRenderDevice renderer)
         {
-            foreach(var mesh in Meshes.Values)
+            foreach (var mesh in Meshes.Values)
             {
                 renderer.DisposeMesh(mesh);
                 mesh.Material.Dispose(renderer);
+            }
+        }
+
+        public void ImportAnimation(String file)
+        {
+            var importer = new AssimpContext();
+            importer.SetConfig(new NormalSmoothingAngleConfig(66.0f));
+            var assimpScene = importer.ImportFile(file, Assimp.PostProcessSteps.Triangulate | Assimp.PostProcessSteps.CalculateTangentSpace | Assimp.PostProcessSteps.JoinIdenticalVertices);
+            for(int i = 0; i < assimpScene.AnimationCount; i++)
+            {
+                var animation = new Graphics.Animation3D.Animation(assimpScene, i, Skeleton);
+                this.Animations.Add(animation);
             }
         }
     }
