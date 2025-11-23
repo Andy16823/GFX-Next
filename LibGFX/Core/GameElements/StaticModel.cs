@@ -11,9 +11,9 @@ namespace LibGFX.Core.GameElements
 {
     public class StaticModel : GameElement
     {
-        private Graphics.StaticModel _model;
+        private Graphics.StaticMeshModel _model;
 
-        public StaticModel(String name, Graphics.StaticModel model)
+        public StaticModel(String name, Graphics.StaticMeshModel model)
         {
             this.Name = name;
             _model = model;

@@ -47,6 +47,8 @@ namespace LibGFX
             AssetManager.RegisterLoader<Cubemap>(new CubemapLoader());
             AssetManager.RegisterLoader<SpriteMaterial>(new SpriteMaterialLoader());
             AssetManager.RegisterLoader<Shader>(new ShaderLoader());
+            AssetManager.RegisterLoader<SkinnedMeshModel>(new SkinnedMeshModelLoader());
+            AssetManager.RegisterLoader<StaticMeshModel>(new StaticMeshModelLoader());
         }
 
         /// <summary>

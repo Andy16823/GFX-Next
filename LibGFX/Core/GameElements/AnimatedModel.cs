@@ -13,13 +13,13 @@ namespace LibGFX.Core.GameElements
 {
     public class AnimatedModel : GameElement
     {
-        private Graphics.AnimatedModel _model;
+        private Graphics.SkinnedMeshModel _model;
 
         public Animator Animator { get; }
         public float AnimationSpeed { get; set; } = 1.0f;   // TODO: Move to Animator?
 
 
-        public AnimatedModel(String name, Graphics.AnimatedModel model)
+        public AnimatedModel(String name, Graphics.SkinnedMeshModel model)
         {
             this.Name = name;
             this.Animator = new Animator();

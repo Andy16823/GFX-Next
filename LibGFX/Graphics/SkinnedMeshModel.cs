@@ -13,14 +13,14 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics
 {
-    public class AnimatedModel : IModel
+    public class SkinnedMeshModel : IModel
     {
         public Dictionary<string, Mesh> Meshes { get; set; }
         public AssimpNodeData NodeStructure { get; set; }
         public Skeleton Skeleton { get; set; }
         public List<Animation3D.Animation> Animations { get; set; }
 
-        public AnimatedModel(String file)
+        public SkinnedMeshModel(String file)
         {
             this.Skeleton = new Skeleton();
             LoadModel(file);

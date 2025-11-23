@@ -16,7 +16,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Static model class that represents a 3D model loaded from a file.
     /// </summary>
-    public class StaticModel : IModel {
+    public class StaticMeshModel : IModel {
 
         /// <summary>
         /// Meshes that make up the static model.
@@ -33,7 +33,7 @@ namespace LibGFX.Graphics
         /// </summary>
         /// <param name="name"></param>
         /// <param name="file"></param>
-        public StaticModel(string file)
+        public StaticMeshModel(string file)
         {
             LoadFromFile(file);
         }
