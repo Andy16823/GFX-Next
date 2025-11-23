@@ -447,7 +447,7 @@ namespace LibGFX.Core.GameElements
 
             foreach (var mesh in this.Meshes.Values)
             {
-                renderer.DrawMesh(transform, mesh, mesh.Material);
+                renderer.DrawMesh(transform, mesh);
                 scene.RenderStats.IncrementDrawCalls();
             }
 
@@ -467,7 +467,7 @@ namespace LibGFX.Core.GameElements
 
             foreach (var mesh in this.Meshes.Values)
             {
-                renderer.DrawMesh(transform, mesh, mesh.Material);
+                renderer.DrawMesh(transform, mesh);
                 scene.RenderStats.IncrementDrawCalls();
             }
 
@@ -486,7 +486,7 @@ namespace LibGFX.Core.GameElements
 
             foreach (var mesh in this.Meshes.Values)
             {
-                renderer.DrawMesh(transform, mesh, mesh.Material);
+                renderer.DrawMesh(transform, mesh);
                 scene.RenderStats.IncrementDrawCalls();
             }
 

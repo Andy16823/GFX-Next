@@ -16,14 +16,13 @@ namespace LibGFX.Core.GameElements
     public class PBRTestEntity : GameElement
     {
         public Mesh Mesh { get; set; }
-        public IMaterial Material { get; set; }
         public ShaderProgram Shader { get; set; }
 
         public PBRTestEntity(String name, PBRMaterial material) 
         {
             this.Name = name;
             this.Mesh = new Cube().GetMesh();
-            this.Material = material;
+            this.Mesh.Material = material;
             this.Transform = new Transform();
             this.ComputeAABB();
         }
@@ -31,7 +30,7 @@ namespace LibGFX.Core.GameElements
         public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             base.Init(scene, viewport, renderer);
-            Material.Init(renderer);
+            this.Mesh.Material.Init(renderer);
             renderer.LoadMesh(this.Mesh);
 
             if(this.Shader == null)
@@ -49,7 +48,7 @@ namespace LibGFX.Core.GameElements
                 scene.LightManager.BindLights(viewport, renderer, camera);
             }
             renderer.PrepareShader("camPos", camera.Transform.Position);
-            renderer.DrawMesh(this.Transform, Mesh, Material);
+            renderer.DrawMesh(this.Transform, Mesh);
             scene.RenderStats.IncrementDrawCalls();
             renderer.UnbindShaderProgram();
         }

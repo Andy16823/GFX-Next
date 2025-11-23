@@ -108,7 +108,7 @@ namespace LibGFX.Graphics
         void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f, FontAlignment alignment = FontAlignment.BottomLeft);
         void DisposeFont(Font font);
         void LoadMesh(Mesh mesh);
-        void DrawMesh(Transform transform, Mesh mesh, IMaterial material);
+        void DrawMesh(Transform transform, Mesh mesh);
         void DisposeMesh(Mesh mesh);
         void DrawAABB(AABB aabb, Vector4 color);
         void LoadInstanceContainer(RenderInstanceContainer container);

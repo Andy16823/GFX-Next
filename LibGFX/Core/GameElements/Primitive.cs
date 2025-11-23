@@ -32,11 +32,6 @@ namespace LibGFX.Core.GameElements
         public Mesh Mesh { get; set; }
 
         /// <summary>
-        /// The material used for rendering the primitive.
-        /// </summary>
-        public IMaterial Material { get; set; }
-
-        /// <summary>
         /// the shader program used for rendering the primitive.
         /// </summary>
         public ShaderProgram Shader { get; set; }
@@ -45,7 +40,7 @@ namespace LibGFX.Core.GameElements
         {
             this.Name = name;
             this.Mesh = mesh;
-            this.Material = material;
+            this.Mesh.Material = material;
             this.ComputeAABB();
         }
 
@@ -59,7 +54,7 @@ namespace LibGFX.Core.GameElements
         {
             this.Name = name;
             this.Mesh = primitive.GetMesh();
-            this.Material = material;
+            this.Mesh.Material = material;
             this.ComputeAABB();
         }
 
@@ -88,7 +83,7 @@ namespace LibGFX.Core.GameElements
                 default:
                     throw new ArgumentException("Unsupported primitive type: " + type);
             }
-            this.Material = material;
+            this.Mesh.Material = material;  
         }
 
         /// <summary>
@@ -104,15 +99,9 @@ namespace LibGFX.Core.GameElements
             // Load the mesh into the renderer
             if (this.Mesh != null)
             {
+                this.Mesh.Material.Init(renderer);
                 renderer.LoadMesh(this.Mesh);
             }
-
-            // Initialize the material
-            if (this.Material == null)
-            {
-                this.Material = new SGMaterial("Default Material", Vector4.One);
-            }
-            this.Material.Init(renderer);
 
             // Get the default shader if none is assigned
             if (this.Shader == null)
@@ -139,7 +128,7 @@ namespace LibGFX.Core.GameElements
             {
                 scene.LightManager.BindLights(viewport, renderer, camera);
             }
-            renderer.DrawMesh(transform, Mesh, Material);
+            renderer.DrawMesh(transform, Mesh);
             scene.RenderStats.IncrementDrawCalls();
             renderer.UnbindShaderProgram();
         }
@@ -156,7 +145,7 @@ namespace LibGFX.Core.GameElements
 
             var shader = renderer.GetShaderProgram("DepthMeshShader");
             renderer.BindShaderProgram(shader);
-            renderer.DrawMesh(this.Transform, Mesh, Material);
+            renderer.DrawMesh(this.Transform, Mesh);
             scene.RenderStats.IncrementDrawCalls();
             renderer.UnbindShaderProgram();
         }

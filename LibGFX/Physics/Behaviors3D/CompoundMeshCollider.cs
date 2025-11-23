@@ -40,7 +40,6 @@ namespace LibGFX.Physics.Behaviors3D
                 throw new Exception("Model has no meshes");
             }
 
-
             var compoundShape = new CompoundShape();
             foreach (var mesh in model.Meshes.Values)
             {

@@ -1293,7 +1293,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         }
 
 
-        public void DrawMesh(Transform transform, Mesh mesh, IMaterial material)
+        public void DrawMesh(Transform transform, Mesh mesh)
         {
             if (mesh.State == MeshState.None || mesh.State == MeshState.Disposed)
             {
@@ -1312,7 +1312,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
 
             // Use the material
-            material.Use(this);
+            mesh.Material.Use(this);
 
             // Draw the mesh    
             GL.BindVertexArray(mesh.RenderData.VertexArray);
