@@ -10,8 +10,17 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Physics
 {
+    /// <summary>
+    /// A utility class to build Bullet collision shapes from 3D model files
+    /// </summary>
     internal class BtCollisionShapeBuilder
     {
+        /// <summary>
+        /// Builds a compound mesh collision shape from the given 3D model file
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="scale"></param>
+        /// <returns></returns>
         public static CollisionShape BuildMeshShape(string filePath, System.Numerics.Vector3 scale)
         {
             var importer = new AssimpContext();
@@ -39,7 +48,12 @@ namespace LibGFX.Physics
             return compoundShape;
         }
 
-
+        /// <summary>
+        /// Builds a convex hull collision shape from the given 3D model file
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="scale"></param>
+        /// <returns></returns>
         public static ConvexHullShape BuildConvexHull(string filePath, System.Numerics.Vector3 scale)
         {
             var importer = new AssimpContext();

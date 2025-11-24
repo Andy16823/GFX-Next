@@ -133,7 +133,7 @@ namespace LibGFX.Graphics
             var nodeData = new AssimpNodeData
             {
                 name = node.Name,
-                transformation = (Matrix4) Math.Math.ToColumnMajorMatrix(node.Transform),
+                transformation = (Matrix4) Math.MathUtils.ToColumnMajorMatrix(node.Transform),
                 children = new List<AssimpNodeData>()
             };
             foreach (var child in node.Children)

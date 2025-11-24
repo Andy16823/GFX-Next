@@ -11,14 +11,32 @@ using System.Diagnostics;
 
 namespace LibGFX.Core.GameElements
 {
+    /// <summary>
+    /// An animated 3D model game element
+    /// </summary>
     public class AnimatedModel : GameElement
     {
+        /// <summary>
+        /// The skinned mesh model
+        /// </summary>
         private Graphics.SkinnedMeshModel _model;
 
+        /// <summary>
+        /// The animator for this model
+        /// </summary>
         public Animator Animator { get; }
-        public float AnimationSpeed { get; set; } = 1.0f;   // TODO: Move to Animator?
 
+        /// <summary>
+        /// The animation speed multiplier
+        /// </summary>
+        public float AnimationSpeed { get; set; } = 1.0f;
 
+        /// <summary>
+        /// Creates a new animated model game element
+        /// Can share the same model instance with other AnimatedModel elements
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="model"></param>
         public AnimatedModel(String name, Graphics.SkinnedMeshModel model)
         {
             this.Name = name;
@@ -27,6 +45,11 @@ namespace LibGFX.Core.GameElements
             this.ComputeAABB();
         }
 
+        /// <summary>
+        /// Updates the animated model
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="dt"></param>
         public override void Update(BaseScene scene, float dt)
         {
             base.Update(scene, dt);
@@ -38,6 +61,13 @@ namespace LibGFX.Core.GameElements
             }
         }
 
+        /// <summary>
+        /// Renders the animated model
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        /// <param name="camera"></param>
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             base.Render(scene, viewport, renderer, camera);
@@ -62,6 +92,12 @@ namespace LibGFX.Core.GameElements
             renderer.UnbindShaderProgram();
         }
 
+        /// <summary>
+        /// Renders the shadow of the animated model
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
         public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             base.RenderShadow(scene, viewport, renderer);
@@ -77,6 +113,9 @@ namespace LibGFX.Core.GameElements
             renderer.UnbindShaderProgram();
         }
 
+        /// <summary>
+        /// Computes the axis-aligned bounding box of the animated model
+        /// </summary>
         public override void ComputeAABB()
         {
             if (_model.Meshes.Count == 0)
@@ -101,6 +140,10 @@ namespace LibGFX.Core.GameElements
             this.AABB = new AABB(min, max);
         }
 
+        /// <summary>
+        /// Plays an animation by name
+        /// </summary>
+        /// <param name="name"></param>
         public void PlayAnimation(String name)
         {
             var animation = _model.Animations.FirstOrDefault(a => a.Name == name);
@@ -110,11 +153,19 @@ namespace LibGFX.Core.GameElements
             }
         }
 
+        /// <summary>
+        /// Plays an animation
+        /// </summary>
+        /// <param name="animation"></param>
         public void PlayAnimation(Animation animation)
         {
             this.Animator.CurrentAnimation = animation;
         }
 
+        /// <summary>
+        /// Plays an animation by index
+        /// </summary>
+        /// <param name="index"></param>
         public void PlayAnimation(int index)
         {
             if(index >= 0 && index < _model.Animations.Count)

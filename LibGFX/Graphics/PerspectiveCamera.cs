@@ -48,7 +48,7 @@ namespace LibGFX.Graphics
         /// <returns></returns>
         public override Matrix4 GetProjectionMatrix(Viewport viewport)
         {
-            var fov = Math.Math.ToRadians(this.Fov);
+            var fov = Math.MathUtils.ToRadians(this.Fov);
             var aspect = this.GetAspectRatio();
 
             return Matrix4.CreatePerspectiveFieldOfView(fov, aspect, Near, Far);

@@ -9,10 +9,22 @@ using OpenTK.Mathematics;
 
 namespace LibGFX.Core.GameElements
 {
+    /// <summary>
+    /// Static model game element
+    /// </summary>
     public class StaticModel : GameElement
     {
+        /// <summary>
+        /// The static mesh model
+        /// </summary>
         private Graphics.StaticMeshModel _model;
 
+        /// <summary>
+        /// Creates a new static model game element
+        /// Shared models should be used when multiple instances of the same model are needed
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="model"></param>
         public StaticModel(String name, Graphics.StaticMeshModel model)
         {
             this.Name = name;
@@ -20,6 +32,13 @@ namespace LibGFX.Core.GameElements
             this.ComputeAABB();
         }
 
+        /// <summary>
+        /// Renders the static model
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        /// <param name="camera"></param>
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             base.Render(scene, viewport, renderer, camera);
@@ -42,6 +61,12 @@ namespace LibGFX.Core.GameElements
             renderer.UnbindShaderProgram();
         }
 
+        /// <summary>
+        /// Renders the static model for shadow mapping
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
         public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             base.RenderShadow(scene, viewport, renderer);
@@ -56,6 +81,9 @@ namespace LibGFX.Core.GameElements
             renderer.UnbindShaderProgram();
         }
 
+        /// <summary>
+        /// Computes the axis-aligned bounding box for the static model
+        /// </summary>
         public override void ComputeAABB()
         {
             if (_model.Meshes.Count == 0)

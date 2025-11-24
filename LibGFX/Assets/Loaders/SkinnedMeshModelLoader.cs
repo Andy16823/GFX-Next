@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Assets.Loaders
 {
+    /// <summary>
+    /// Loader for skinned mesh models.
+    /// </summary>
     internal class SkinnedMeshModelLoader : IAssetLoader
     {
         public bool ShouldCache => true;

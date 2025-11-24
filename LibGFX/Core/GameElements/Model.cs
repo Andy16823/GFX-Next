@@ -26,6 +26,7 @@ namespace LibGFX.Core.GameElements
 {
     /// <summary>
     /// Represents a 3D model
+    /// Obsolete: Use StaticModel or AnimatedModel instead
     /// </summary>
     [Obsolete("Model class is deprecated, please use StaticModel or AnimatedModel instead.")]
     public class Model : GameElement
@@ -180,7 +181,7 @@ namespace LibGFX.Core.GameElements
             var nodeData = new AssimpNodeData
             {
                 name = node.Name,
-                transformation = (Matrix4) Math.Math.ToColumnMajorMatrix(node.Transform),
+                transformation = (Matrix4) Math.MathUtils.ToColumnMajorMatrix(node.Transform),
                 children = new List<AssimpNodeData>()
             };
             foreach (var child in node.Children)
@@ -329,7 +330,7 @@ namespace LibGFX.Core.GameElements
                 {
                     var boneInfo = new BoneInfo();
                     boneInfo.id = Skeleton.BoneCounter;
-                    boneInfo.offset = (Matrix4) Math.Math.ToColumnMajorMatrix(asmesh.Bones[boneIndex].OffsetMatrix);
+                    boneInfo.offset = (Matrix4) Math.MathUtils.ToColumnMajorMatrix(asmesh.Bones[boneIndex].OffsetMatrix);
                     Skeleton.BoneInfoMap.Add(boneName, boneInfo);
                     boneId = Skeleton.BoneCounter;
                     Skeleton.BoneCounter++;

@@ -18,18 +18,37 @@ namespace LibGFX.Graphics
     /// </summary>
     public class SkinnedMeshModel : IModel
     {
+        /// <summary>
+        /// The meshes that make up the skinned mesh model.
+        /// </summary>
         public Dictionary<string, Mesh> Meshes { get; set; }
+
+        /// <summary>
+        /// The node structure of the model as imported from Assimp.
+        /// </summary>
         public AssimpNodeData NodeStructure { get; set; }
+
+        /// <summary>
+        /// The skeleton associated with the skinned mesh model.
+        /// </summary>
         public Skeleton Skeleton { get; set; }
         public List<Animation3D.Animation> Animations { get; set; }
 
+        /// <summary>
+        /// Loads a skinned mesh model from the specified file.
+        /// </summary>
+        /// <param name="file"></param>
         public SkinnedMeshModel(String file)
         {
             this.Skeleton = new Skeleton();
             LoadModel(file);
         }
 
-
+        /// <summary>
+        /// Loads the model from the specified file.
+        /// </summary>
+        /// <param name="file"></param>
+        /// <exception cref="Exception"></exception>
         private void LoadModel(String file)
         {
             var directory = Path.GetDirectoryName(file);
@@ -78,6 +97,12 @@ namespace LibGFX.Graphics
             this.NodeStructure = LoadNodeStructure(assimpScene.RootNode);
         }
 
+        /// <summary>
+        /// Loads the node structure recursively from the Assimp node.
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         private AssimpNodeData LoadNodeStructure(Node node)
         {
             if (node == null)
@@ -86,7 +111,7 @@ namespace LibGFX.Graphics
             var nodeData = new AssimpNodeData
             {
                 name = node.Name,
-                transformation = (Matrix4) Math.Math.ToColumnMajorMatrix(node.Transform),
+                transformation = (Matrix4) Math.MathUtils.ToColumnMajorMatrix(node.Transform),
                 children = new List<AssimpNodeData>()
             };
             foreach (var child in node.Children)
@@ -97,11 +122,20 @@ namespace LibGFX.Graphics
             return nodeData;
         }
 
+        /// <summary>
+        /// Load the transforms of the model from the Assimp scene.
+        /// </summary>
+        /// <param name="assimpScene"></param>
         private void LoadTransforms(Scene assimpScene)
         {
             this.LoadNodeTransformRecursive(assimpScene.RootNode, System.Numerics.Matrix4x4.Identity);
         }
 
+        /// <summary>
+        /// Loads the node transforms recursively.
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="parentTransform"></param>
         private void LoadNodeTransformRecursive(Node node, System.Numerics.Matrix4x4 parentTransform)
         {
             var currentTransform = parentTransform * node.Transform;
@@ -121,6 +155,10 @@ namespace LibGFX.Graphics
             }
         }
 
+        /// <summary>
+        /// Extracts animations from the Assimp scene.
+        /// </summary>
+        /// <param name="scene"></param>
         private void ExtractAnimations(Scene scene)
         {
             Animations = new List<Graphics.Animation3D.Animation>();
@@ -131,6 +169,12 @@ namespace LibGFX.Graphics
             }
         }
 
+        /// <summary>
+        /// Extracts bone weights for vertices from the Assimp mesh.
+        /// </summary>
+        /// <param name="asmesh"></param>
+        /// <param name="scene"></param>
+        /// <param name="mesh"></param>
         private void ExtractBoneWeightForVertices(Assimp.Mesh asmesh, Assimp.Scene scene, Graphics.Mesh mesh)
         {
             Debug.WriteLine("Extracting bone weights wit bone count: " + asmesh.BoneCount);
@@ -142,7 +186,7 @@ namespace LibGFX.Graphics
                 {
                     var boneInfo = new BoneInfo();
                     boneInfo.id = Skeleton.BoneCounter;
-                    boneInfo.offset = (Matrix4) Math.Math.ToColumnMajorMatrix(asmesh.Bones[boneIndex].OffsetMatrix);
+                    boneInfo.offset = (Matrix4) Math.MathUtils.ToColumnMajorMatrix(asmesh.Bones[boneIndex].OffsetMatrix);
                     Skeleton.BoneInfoMap.Add(boneName, boneInfo);
                     boneId = Skeleton.BoneCounter;
                     Skeleton.BoneCounter++;
@@ -166,6 +210,12 @@ namespace LibGFX.Graphics
             }
         }
 
+        /// <summary>
+        /// Sets the bone data for a vertex.
+        /// </summary>
+        /// <param name="v"></param>
+        /// <param name="boneId"></param>
+        /// <param name="weight"></param>
         private void SetVertexBoneData(ref Vertex v, int boneId, float weight)
         {
             for (int i = 0; i < 4; ++i)
@@ -179,6 +229,10 @@ namespace LibGFX.Graphics
             }
         }
 
+        /// <summary>
+        /// Initializes the skinned mesh model with the specified render device.
+        /// </summary>
+        /// <param name="renderer"></param>
         public void Init(IRenderDevice renderer)
         {
             foreach (var mesh in Meshes.Values)
@@ -188,6 +242,10 @@ namespace LibGFX.Graphics
             }
         }
 
+        /// <summary>
+        /// Disposes the skinned mesh model with the specified render device.
+        /// </summary>
+        /// <param name="renderer"></param>
         public void Dispose(IRenderDevice renderer)
         {
             foreach (var mesh in Meshes.Values)
@@ -197,6 +255,10 @@ namespace LibGFX.Graphics
             }
         }
 
+        /// <summary>
+        /// Imports an animation from the specified file and adds it to the model's animations.
+        /// </summary>
+        /// <param name="file"></param>
         public void ImportAnimation(String file)
         {
             var importer = new AssimpContext();

@@ -914,7 +914,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             var aspect = rect.Width / rect.Height;
 
             var mt_mat = Matrix4.CreateTranslation(rect.X, rect.Y, 0.0f);
-            var mr_mat = Matrix4.CreateRotationZ(Math.Math.ToRadians(rotation));
+            var mr_mat = Matrix4.CreateRotationZ(Math.MathUtils.ToRadians(rotation));
             var ms_mat = Matrix4.CreateScale(rect.Width, rect.Height, 0.0f);
             var m_mat = ms_mat * mr_mat * mt_mat;// mt_mat * mr_mat * ms_mat;
 
@@ -937,7 +937,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             var aspect = rect.Width / rect.Height;
 
             var mt_mat = Matrix4.CreateTranslation(rect.X, rect.Y, 0.0f);
-            var mr_mat = Matrix4.CreateRotationZ(Math.Math.ToRadians(rotation));
+            var mr_mat = Matrix4.CreateRotationZ(Math.MathUtils.ToRadians(rotation));
             var ms_mat = Matrix4.CreateScale(rect.Width, rect.Height, 0.0f);
             var m_mat = ms_mat * mr_mat * mt_mat;// mt_mat * mr_mat * ms_mat;
 
