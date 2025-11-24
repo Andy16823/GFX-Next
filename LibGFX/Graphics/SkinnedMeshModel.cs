@@ -208,5 +208,88 @@ namespace LibGFX.Graphics
                 this.Animations.Add(animation);
             }
         }
+
+        public bool CreateBindPose(string syntheticRootName = "Armature", bool force = false)
+        {
+            if (Skeleton == null) throw new InvalidOperationException("Skeleton ist null.");
+            if (Animations == null) Animations = new List<Graphics.Animation3D.Animation>();
+
+            // Wenn bereits ein BoneInfo-Eintrag mit dem Namen existiert und nicht forced, nichts tun
+            if (Skeleton.BoneInfoMap.ContainsKey(syntheticRootName) && !force)
+            {
+                return false;
+            }
+
+            // Füge root BoneInfo hinzu (Identity offset), falls nicht vorhanden oder forced
+            if (!Skeleton.BoneInfoMap.ContainsKey(syntheticRootName))
+            {
+                var rootInfo = new BoneInfo();
+                rootInfo.id = Skeleton.BoneCounter;
+                rootInfo.offset = Matrix4.Identity;
+                Skeleton.BoneInfoMap.Add(syntheticRootName, rootInfo);
+                Skeleton.BoneCounter++;
+                Debug.WriteLine($"[CreateBindPose] Added synthetic root bone '{syntheticRootName}' with id {rootInfo.id}");
+            }
+
+            // Wrap NodeStructure (falls vorhanden) unter einen neuen AssimpNodeData root
+            var oldNodeStructure = this.NodeStructure;
+            var newRootNode = new Graphics.Animation3D.AssimpNodeData
+            {
+                name = syntheticRootName,
+                transformation = Matrix4.Identity,
+                children = new List<Graphics.Animation3D.AssimpNodeData>()
+            };
+
+            // Falls es bereits eine NodeStructure gibt, hänge sie an
+            if (oldNodeStructure.children != null || !string.IsNullOrEmpty(oldNodeStructure.name))
+            {
+                // Preserve previous node as child of new root
+                newRootNode.children.Add(oldNodeStructure);
+                newRootNode.childrenCount = 1;
+            }
+            else
+            {
+                newRootNode.childrenCount = 0;
+            }
+
+            // Setze die neue NodeStructure
+            this.NodeStructure = newRootNode;
+
+            // Wrap Animation RootNodes unter dem neuen Root (sofern Animationen vorhanden)
+            foreach (var anim in this.Animations)
+            {
+                if (anim == null) continue;
+
+                var prevRoot = anim.RootNode;
+
+                // Wenn prevRoot schon der gewünschte Name ist und force==false, skip
+                if (!force && prevRoot.name == syntheticRootName) continue;
+
+                var animNewRoot = new Graphics.Animation3D.AssimpNodeData
+                {
+                    name = syntheticRootName,
+                    transformation = Matrix4.Identity,
+                    children = new List<Graphics.Animation3D.AssimpNodeData>()
+                };
+
+                // Falls prevRoot ist leer (z. B. nicht gesetzt), dann leave children empty
+                if (prevRoot.children != null || !string.IsNullOrEmpty(prevRoot.name))
+                {
+                    animNewRoot.children.Add(prevRoot);
+                    animNewRoot.childrenCount = 1;
+                }
+                else
+                {
+                    animNewRoot.childrenCount = 0;
+                }
+
+                anim.RootNode = animNewRoot;
+
+                // Stelle sicher, dass Animation auf dieselbe BoneInfoMap verweist wie das Skeleton
+                anim.BoneInfoMap = this.Skeleton.BoneInfoMap;
+            }
+
+            return true;
+        }
     }
 }
