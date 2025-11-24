@@ -271,7 +271,7 @@ namespace LibGFX.Core
             var material = new Graphics.Materials.SGMaterial();
             material.Name = asmat.Name;
             material.Opacity = asmat.Opacity;
-            material.Color = new Vector4(asmat.ColorDiffuse.R, asmat.ColorDiffuse.G, asmat.ColorDiffuse.B, asmat.ColorDiffuse.A);
+            material.Color = new Vector4(asmat.ColorDiffuse.X, asmat.ColorDiffuse.Y, asmat.ColorDiffuse.Z, asmat.ColorDiffuse.W);
 
             if (asmat.Shininess > 0)
             {

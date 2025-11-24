@@ -180,7 +180,7 @@ namespace LibGFX.Core.GameElements
             var nodeData = new AssimpNodeData
             {
                 name = node.Name,
-                transformation = Math.Math.ToTKMatrix(node.Transform),
+                transformation = (Matrix4) Math.Math.ToColumnMajorMatrix(node.Transform),
                 children = new List<AssimpNodeData>()
             };
             foreach (var child in node.Children)
@@ -197,7 +197,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="assimpScene"></param>
         private void LoadTransforms(Scene assimpScene)
         {
-            this.LoadNodeTransformRecursive(assimpScene.RootNode, Matrix4x4.Identity);
+            this.LoadNodeTransformRecursive(assimpScene.RootNode, System.Numerics.Matrix4x4.Identity);
         }
 
         /// <summary>
@@ -205,14 +205,14 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         /// <param name="node"></param>
         /// <param name="parentTransform"></param>
-        private void LoadNodeTransformRecursive(Node node, Matrix4x4 parentTransform)
+        private void LoadNodeTransformRecursive(Node node, System.Numerics.Matrix4x4 parentTransform)
         {
             var currentTransform = parentTransform * node.Transform;
 
             foreach (var meshIndex in node.MeshIndices)
             {
                 var mesh = this.Meshes.Values.ElementAt(meshIndex);
-                currentTransform.Decompose(out Assimp.Vector3D scale, out Assimp.Quaternion rotation, out Assimp.Vector3D translation);
+                System.Numerics.Matrix4x4.Decompose(currentTransform, out System.Numerics.Vector3 scale, out System.Numerics.Quaternion rotation, out System.Numerics.Vector3 translation);
                 mesh.LocalTranslation = new Vector3(translation.X, translation.Y, translation.Z);
                 mesh.LocalRotation = new OpenTK.Mathematics.Quaternion(rotation.X, rotation.Y, rotation.Z, rotation.W);
                 mesh.LocalScale = new Vector3(scale.X, scale.Y, scale.Z);
@@ -252,7 +252,7 @@ namespace LibGFX.Core.GameElements
             var material = new Graphics.Materials.SGMaterial();
             material.Name = asmat.Name;
             material.Opacity = asmat.Opacity;
-            material.Color = new Vector4(asmat.ColorDiffuse.R, asmat.ColorDiffuse.G, asmat.ColorDiffuse.B, asmat.ColorDiffuse.A);
+            material.Color = new Vector4(asmat.ColorDiffuse.X, asmat.ColorDiffuse.Y, asmat.ColorDiffuse.Z, asmat.ColorDiffuse.W);
 
             if (asmat.Shininess > 0)
             {
@@ -329,7 +329,7 @@ namespace LibGFX.Core.GameElements
                 {
                     var boneInfo = new BoneInfo();
                     boneInfo.id = Skeleton.BoneCounter;
-                    boneInfo.offset = Math.Math.ToTKMatrix(asmesh.Bones[boneIndex].OffsetMatrix);
+                    boneInfo.offset = (Matrix4) Math.Math.ToColumnMajorMatrix(asmesh.Bones[boneIndex].OffsetMatrix);
                     Skeleton.BoneInfoMap.Add(boneName, boneInfo);
                     boneId = Skeleton.BoneCounter;
                     Skeleton.BoneCounter++;

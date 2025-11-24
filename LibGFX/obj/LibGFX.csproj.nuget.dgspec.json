@@ -47,6 +47,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AssimpNetter": {
+              "target": "Package",
+              "version": "[6.0.2.1, )"
+            },
             "FreeTypeSharp": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -70,14 +74,6 @@
             "StbImageSharp": {
               "target": "Package",
               "version": "[2.30.15, )"
-            },
-            "StirlingLabs.Assimp.Net": {
-              "target": "Package",
-              "version": "[23.4.1, )"
-            },
-            "StirlingLabs.assimp.native.win-x64": {
-              "target": "Package",
-              "version": "[5.2.5.4, )"
             },
             "System.Drawing.Common": {
               "target": "Package",

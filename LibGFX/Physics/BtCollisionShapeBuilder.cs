@@ -23,7 +23,7 @@ namespace LibGFX.Physics
 
             foreach (var mesh in model.Meshes)
             {
-                int[] indices = mesh.GetIndices();
+                int[] indices = mesh.GetIndices().ToArray();
                 float[] vertices = mesh.Vertices.SelectMany(v => new float[] { v.X, v.Y, v.Z }).ToArray();
 
                 var triangleArray = new TriangleIndexVertexArray(indices, vertices);

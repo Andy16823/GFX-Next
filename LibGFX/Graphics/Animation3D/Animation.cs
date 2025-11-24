@@ -102,7 +102,7 @@ namespace LibGFX.Graphics.Animation3D
         {
             Debug.Assert(src != null);
             dest.name = src.Name;
-            dest.transformation = Math.Math.ToTKMatrix(src.Transform);
+            dest.transformation = (Matrix4) src.Transform;
             dest.childrenCount = src.ChildCount;
             dest.children = new List<AssimpNodeData>();
 
@@ -136,7 +136,7 @@ namespace LibGFX.Graphics.Animation3D
                 int rotationKeyCount = nodeChannel.RotationKeyCount;
                 for (int rotationIndex = 0; rotationIndex < rotationKeyCount; rotationIndex++)
                 {
-                    Assimp.Quaternion aiOrientation = nodeChannel.RotationKeys[rotationIndex].Value;
+                    System.Numerics.Quaternion aiOrientation = nodeChannel.RotationKeys[rotationIndex].Value;
                     var assimpRotation = nodeChannel.RotationKeys[rotationIndex];
                     var rotation = new KeyRotation();
                     rotation.orientation = new OpenTK.Mathematics.Quaternion(aiOrientation.X, aiOrientation.Y, aiOrientation.Z, aiOrientation.W);

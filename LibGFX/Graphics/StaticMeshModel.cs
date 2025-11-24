@@ -92,7 +92,7 @@ namespace LibGFX.Graphics
         /// <param name="assimpScene"></param>
         private void LoadTransforms(Scene assimpScene)
         {
-            LoadNodeTransformRecursive(assimpScene.RootNode, Matrix4x4.Identity);
+            LoadNodeTransformRecursive(assimpScene.RootNode, System.Numerics.Matrix4x4.Identity);
         }
 
         /// <summary>
@@ -100,14 +100,14 @@ namespace LibGFX.Graphics
         /// </summary>
         /// <param name="node"></param>
         /// <param name="parentTransform"></param>
-        private void LoadNodeTransformRecursive(Node node, Matrix4x4 parentTransform)
+        private void LoadNodeTransformRecursive(Node node, System.Numerics.Matrix4x4 parentTransform)
         {
             var currentTransform = parentTransform * node.Transform;
 
             foreach (var meshIndex in node.MeshIndices)
             {
                 var mesh = Meshes.Values.ElementAt(meshIndex);
-                currentTransform.Decompose(out Vector3D scale, out Assimp.Quaternion rotation, out Vector3D translation);
+                System.Numerics.Matrix4x4.Decompose(currentTransform, out System.Numerics.Vector3 scale, out System.Numerics.Quaternion rotation, out System.Numerics.Vector3 translation);
                 mesh.LocalTranslation = new Vector3(translation.X, translation.Y, translation.Z);
                 mesh.LocalRotation = new OpenTK.Mathematics.Quaternion(rotation.X, rotation.Y, rotation.Z, rotation.W);
                 mesh.LocalScale = new Vector3(scale.X, scale.Y, scale.Z);
@@ -133,7 +133,7 @@ namespace LibGFX.Graphics
             var nodeData = new AssimpNodeData
             {
                 name = node.Name,
-                transformation = Math.Math.ToTKMatrix(node.Transform),
+                transformation = (Matrix4) Math.Math.ToColumnMajorMatrix(node.Transform),
                 children = new List<AssimpNodeData>()
             };
             foreach (var child in node.Children)

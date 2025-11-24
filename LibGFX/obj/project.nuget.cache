@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "5begaBHKRak=",
+  "dgSpecHash": "xZIUMydbD4I=",
   "success": true,
   "projectFilePath": "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\LibGFX\\LibGFX.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\andy1\\.nuget\\packages\\assimpnetter\\6.0.2.1\\assimpnetter.6.0.2.1.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\freetypesharp\\3.0.0\\freetypesharp.3.0.0.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\gfx.bulletsharp\\1.0.1\\gfx.bulletsharp.1.0.1.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
@@ -28,10 +29,6 @@
     "C:\\Users\\andy1\\.nuget\\packages\\opentk.windowing.desktop\\4.9.4\\opentk.windowing.desktop.4.9.4.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\opentk.windowing.graphicslibraryframework\\4.9.4\\opentk.windowing.graphicslibraryframework.4.9.4.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\stbimagesharp\\2.30.15\\stbimagesharp.2.30.15.nupkg.sha512",
-    "C:\\Users\\andy1\\.nuget\\packages\\stirlinglabs.assimp.native.linux-x64\\5.2.5.4\\stirlinglabs.assimp.native.linux-x64.5.2.5.4.nupkg.sha512",
-    "C:\\Users\\andy1\\.nuget\\packages\\stirlinglabs.assimp.native.osx\\5.2.5.4\\stirlinglabs.assimp.native.osx.5.2.5.4.nupkg.sha512",
-    "C:\\Users\\andy1\\.nuget\\packages\\stirlinglabs.assimp.native.win-x64\\5.2.5.4\\stirlinglabs.assimp.native.win-x64.5.2.5.4.nupkg.sha512",
-    "C:\\Users\\andy1\\.nuget\\packages\\stirlinglabs.assimp.net\\23.4.1\\stirlinglabs.assimp.net.23.4.1.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\system.drawing.common\\9.0.4\\system.drawing.common.9.0.4.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
