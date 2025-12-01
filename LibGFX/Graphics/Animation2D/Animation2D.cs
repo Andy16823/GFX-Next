@@ -15,7 +15,7 @@ namespace LibGFX.Graphics.Animation2D
     /// <summary>
     /// Represents a 2D animation. Based on a sprite sheet.
     /// </summary>
-    public class Animation
+    public class Animation2D
     {
         /// <summary>
         /// The name of the animation.
@@ -86,7 +86,7 @@ namespace LibGFX.Graphics.Animation2D
         /// <param name="frames"></param>
         /// <param name="framerate"></param>
         /// <param name="material"></param>
-        public Animation(String name, int cellWidth, int cellHeight, int startColumn, int startRow, int frames, float framerate, SpriteMaterial material)
+        public Animation2D(String name, int cellWidth, int cellHeight, int startColumn, int startRow, int frames, float framerate, SpriteMaterial material)
         {
             this.Name = name;
             this.Material = material;

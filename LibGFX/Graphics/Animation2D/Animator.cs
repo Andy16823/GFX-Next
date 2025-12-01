@@ -17,12 +17,12 @@ namespace LibGFX.Graphics.Animation2D
         /// <summary>
         /// The list of animations associated with this animator.
         /// </summary>
-        public List<Animation> Animations { get; set; }
+        public List<Animation2D> Animations { get; set; }
 
         /// <summary>
         /// The current animation being played.
         /// </summary>
-        public Animation CurrentAnimation { get; set; }
+        public Animation2D CurrentAnimation { get; set; }
 
         /// <summary>
         /// The list of animation callbacks associated with this animator.
@@ -39,7 +39,7 @@ namespace LibGFX.Graphics.Animation2D
         /// </summary>
         public Animator()
         {
-            Animations = new List<Animation>();
+            Animations = new List<Animation2D>();
             AnimationCallbacks = new List<IAnimationCallback>();
         }
 

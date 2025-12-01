@@ -157,7 +157,7 @@ namespace LibGFX.Core.GameElements
         /// Plays an animation
         /// </summary>
         /// <param name="animation"></param>
-        public void PlayAnimation(Animation animation)
+        public void PlayAnimation(Animation3D animation)
         {
             this.Animator.CurrentAnimation = animation;
         }

@@ -191,7 +191,7 @@ namespace LibGFX.Core.GameElements
         /// Adds an animation to the sprite's animator.
         /// </summary>
         /// <param name="animation"></param>
-        public void AddAnimation(Animation animation)
+        public void AddAnimation(Animation2D animation)
         {
             if (this.Animator != null)
             {
@@ -250,7 +250,7 @@ namespace LibGFX.Core.GameElements
         /// Gets the current animation from the sprite's animator.
         /// </summary>
         /// <returns></returns>
-        public Animation GetCurrentAnimation()
+        public Animation2D GetCurrentAnimation()
         {
             if (this.Animator != null)
             {
@@ -264,7 +264,7 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public Animation FindAnimation(String name)
+        public Animation2D FindAnimation(String name)
         {
             if (this.Animator != null)
             {

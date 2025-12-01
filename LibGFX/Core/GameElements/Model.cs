@@ -44,7 +44,7 @@ namespace LibGFX.Core.GameElements
         /// <summary>
         /// The animations of the model
         /// </summary>
-        public List<Graphics.Animation3D.Animation> Animations { get; set; }
+        public List<Graphics.Animation3D.Animation3D> Animations { get; set; }
 
         /// <summary>
         /// The animator of the model
@@ -231,10 +231,10 @@ namespace LibGFX.Core.GameElements
         /// <param name="scene"></param>
         private void ExtractAnimations(Scene scene)
         {
-            Animations = new List<Graphics.Animation3D.Animation>();
+            Animations = new List<Graphics.Animation3D.Animation3D>();
             for (int i = 0; i < scene.AnimationCount; i++)
             {
-                var animation = new Graphics.Animation3D.Animation(scene, i, this.Skeleton);
+                var animation = new Graphics.Animation3D.Animation3D(scene, i, this.Skeleton);
                 this.Animations.Add(animation);
             }
 
@@ -548,7 +548,7 @@ namespace LibGFX.Core.GameElements
         /// <summary>
         /// Finds an animation with the specified name.
         /// </summary>
-        public Graphics.Animation3D.Animation FindAnimation(String name)
+        public Graphics.Animation3D.Animation3D FindAnimation(String name)
         {
             var animation = Animations.FirstOrDefault(a => a.Name == name);
             if (animation != null)
@@ -562,7 +562,7 @@ namespace LibGFX.Core.GameElements
         /// Adds multiple animations to the model.
         /// </summary>
         /// <param name="animations"></param>
-        public void AddAnimations(List<Graphics.Animation3D.Animation> animations)
+        public void AddAnimations(List<Graphics.Animation3D.Animation3D> animations)
         {
             animations.ForEach(a =>
             {
@@ -575,7 +575,7 @@ namespace LibGFX.Core.GameElements
         /// Adds a single animation to the model.
         /// </summary>
         /// <param name="animation"></param>
-        public void AddAnimation(Graphics.Animation3D.Animation animation)
+        public void AddAnimation(Graphics.Animation3D.Animation3D animation)
         {
             animation.ReadBones(Skeleton);
             this.Animations.Add(animation);
@@ -585,7 +585,7 @@ namespace LibGFX.Core.GameElements
         /// Sets the animations of the model, replacing any existing animations.
         /// </summary>
         /// <param name="animations"></param>
-        public void SetAnimations(List<Graphics.Animation3D.Animation> animations)
+        public void SetAnimations(List<Graphics.Animation3D.Animation3D> animations)
         {
             this.Animations.Clear();
             animations.ForEach(a =>

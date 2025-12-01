@@ -23,7 +23,7 @@ namespace LibGFX.Graphics.Animation3D
         /// <summary>
         /// Currently active animation.
         /// </summary>
-        public Animation CurrentAnimation { get; set; }
+        public Animation3D CurrentAnimation { get; set; }
 
         /// <summary>
         /// Current time in the animation.
@@ -58,7 +58,7 @@ namespace LibGFX.Graphics.Animation3D
         /// <summary>
         /// Initializes a new instance of the Animator class with the specified animation.
         /// </summary>
-        public Animator(Animation animation)
+        public Animator(Animation3D animation)
         {
             this.CurrentTime = 0;
             this.CurrentAnimation = animation;
@@ -121,7 +121,7 @@ namespace LibGFX.Graphics.Animation3D
         /// <summary>
         /// Loads a new animation.
         /// </summary>
-        public void LoadAnimation(Animation3D.Animation animation)
+        public void LoadAnimation(Graphics.Animation3D.Animation3D animation)
         {
             this.Play = false;
             this.CurrentAnimation = animation;

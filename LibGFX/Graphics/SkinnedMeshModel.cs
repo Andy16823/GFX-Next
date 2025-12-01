@@ -32,7 +32,7 @@ namespace LibGFX.Graphics
         /// The skeleton associated with the skinned mesh model.
         /// </summary>
         public Skeleton Skeleton { get; set; }
-        public List<Animation3D.Animation> Animations { get; set; }
+        public List<Animation3D.Animation3D> Animations { get; set; }
 
         /// <summary>
         /// Loads a skinned mesh model from the specified file.
@@ -161,10 +161,10 @@ namespace LibGFX.Graphics
         /// <param name="scene"></param>
         private void ExtractAnimations(Scene scene)
         {
-            Animations = new List<Graphics.Animation3D.Animation>();
+            Animations = new List<Graphics.Animation3D.Animation3D>();
             for (int i = 0; i < scene.AnimationCount; i++)
             {
-                var animation = new Graphics.Animation3D.Animation(scene, i, this.Skeleton);
+                var animation = new Graphics.Animation3D.Animation3D(scene, i, this.Skeleton);
                 this.Animations.Add(animation);
             }
         }
@@ -266,7 +266,7 @@ namespace LibGFX.Graphics
             var assimpScene = importer.ImportFile(file, Assimp.PostProcessSteps.Triangulate | Assimp.PostProcessSteps.CalculateTangentSpace | Assimp.PostProcessSteps.JoinIdenticalVertices);
             for(int i = 0; i < assimpScene.AnimationCount; i++)
             {
-                var animation = new Graphics.Animation3D.Animation(assimpScene, i, Skeleton);
+                var animation = new Graphics.Animation3D.Animation3D(assimpScene, i, Skeleton);
                 this.Animations.Add(animation);
             }
         }
@@ -281,7 +281,7 @@ namespace LibGFX.Graphics
         public bool CreateBindPose(string syntheticRootName = "Armature", bool force = false)
         {
             if (Skeleton == null) throw new InvalidOperationException("Skeleton is null.");
-            if (Animations == null) Animations = new List<Graphics.Animation3D.Animation>();
+            if (Animations == null) Animations = new List<Graphics.Animation3D.Animation3D>();
 
             // Check if synthetic root already exists
             if (Skeleton.BoneInfoMap.ContainsKey(syntheticRootName) && !force)

@@ -26,7 +26,7 @@ namespace LibGFX.Graphics.Animation3D
     /// <summary>
     /// Represents an animation associated with a 3D model.
     /// </summary>
-    public class Animation
+    public class Animation3D
     {
         /// <summary>
         /// Name of the animation.
@@ -63,7 +63,7 @@ namespace LibGFX.Graphics.Animation3D
         /// <summary>
         /// Initializes a new instance of the Animation class.
         /// </summary>
-        public Animation(Assimp.Scene scene, int index, Skeleton skeleton)
+        public Animation3D(Assimp.Scene scene, int index, Skeleton skeleton)
         {
             this.Bones = new List<Bone>();
             var animation = scene.Animations[index];
@@ -82,7 +82,7 @@ namespace LibGFX.Graphics.Animation3D
         /// </summary>
         /// <param name="scene"></param>
         /// <param name="index"></param>
-        public Animation(Assimp.Scene scene, int index)
+        public Animation3D(Assimp.Scene scene, int index)
         {
             this.Bones = new List<Bone>();
             var animation = scene.Animations[index];

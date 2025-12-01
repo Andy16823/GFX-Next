@@ -24,7 +24,7 @@ namespace LibGFX.Graphics.Animation2D
         /// <summary>
         /// The animation associated with the callback.
         /// </summary>
-        public Animation Animation { get; set; }
+        public Animation2D Animation { get; set; }
 
         /// <summary>
         /// Called when the animation is triggered.
