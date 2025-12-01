@@ -212,6 +212,23 @@ namespace LibGFX.Core.GameElements
         }
 
         /// <summary>
+        /// Plays the specified animation if it is not already the current animation.
+        /// </summary>
+        /// <remarks>If the animator is not set or the specified animation is already playing, this method
+        /// does nothing.</remarks>
+        /// <param name="name">The name of the animation to play. Comparison is case-insensitive.</param>
+        public void PlayAnimationIfNotCurrent(String name)
+        {
+            if(this.Animator != null)
+            {
+                if(this.Animator.CurrentAnimation == null || !this.Animator.CurrentAnimation.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
+                {
+                    this.Animator.PlayAnimation(name);
+                }
+            }
+        }
+
+        /// <summary>
         /// Stops the currently playing animation on the sprite's animator.
         /// </summary>
         public void StopAnimation()
