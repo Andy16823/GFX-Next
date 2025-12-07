@@ -131,7 +131,7 @@ namespace NewGFXEditor
 
         private void EditorPanel3D_OnMouseMove(object sender, MouseEventArgs e)
         {
-            TransformGizmo.HighlightGizmo(e.X, e.Y);
+            TransformGizmo.HighlightGizmo((PerspectiveCamera) Camera, _editorPanel3D.Viewport, e.X, e.Y);
 
             bool setNewMousePos = false;
             if (TransformGizmo.ActiveAxis != GizmoActiveAxis.None)

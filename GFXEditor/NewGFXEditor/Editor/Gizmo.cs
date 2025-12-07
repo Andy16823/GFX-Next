@@ -117,6 +117,17 @@ namespace NewGFXEditor.Editor
         {
             this.Transform = new Transform();
             GizmoModel = new StaticMeshModel(file);
+            // Change materials to GizmoMaterial
+            foreach (var mesh in this.GizmoModel.Meshes.Values)
+            {
+                var sgMaterial = mesh.Material as SGMaterial;
+                GizmoMaterial gizmoMaterial = new GizmoMaterial()
+                {
+                    Name = sgMaterial.Name,
+                    VertexColor = sgMaterial.Color
+                };
+                mesh.Material = gizmoMaterial;
+            }
         }
 
         /// <summary>
@@ -149,8 +160,6 @@ namespace NewGFXEditor.Editor
             renderDevice.BindShaderProgram(this.Shader);
             foreach (var mesh in this.GizmoModel.Meshes.Values)
             {
-                var sgMaterial = mesh.Material as SGMaterial;
-                renderDevice.PrepareShader("vertexColor", sgMaterial.Color);
                 renderDevice.DrawMesh(this.Transform, mesh);
             }
             renderDevice.UnbindShaderProgram();
@@ -171,12 +180,24 @@ namespace NewGFXEditor.Editor
         /// </summary>
         /// <param name="mouseX"></param>
         /// <param name="mouseY"></param>
-        public void HighlightGizmo(int mouseX, int mouseY)
+        public void HighlightGizmo(PerspectiveCamera camera, Viewport viewport, int mouseX, int mouseY)
         {
-            //if(this.Enabled == false)
-            //    return;
+            if (this.Enabled == false)
+                return;
 
-            //this.UnhoverMaterials();
+
+            this.UnhoverMaterials();
+
+            var ray = MeshRaycast.ScreenPointToWorldRay(camera, viewport, mouseX, mouseY);
+            foreach (var mesh in this.GizmoModel.Meshes.Values)
+            {
+                var hit = MeshRaycast.IntersectsMesh(ray, this.Transform, mesh);
+                if(hit.Hit)
+                {
+                    var material = (GizmoMaterial)mesh.Material;
+                    material.Hovered = true;
+                }
+            }
         }
 
         /// <summary>
@@ -329,12 +350,11 @@ namespace NewGFXEditor.Editor
         /// </summary>
         private void UnhoverMaterials()
         {
-            //foreach (var pair in this.MeshMaterials)
-            //{
-            //    var mesh = this.Meshes.GetMesh(pair.MeshName);
-            //    var mat = (GizmoMaterial)this.Materials.GetMaterial(pair.MaterialIndex);
-            //    mat.Hovered = false;
-            //}
+            foreach (var mesh in this.GizmoModel.Meshes.Values)
+            {
+                var mat = (GizmoMaterial)mesh.Material;
+                mat.Hovered = false;
+            }
         }
 
         /// <summary>
@@ -343,9 +363,9 @@ namespace NewGFXEditor.Editor
         /// <param name="id"></param>
         private void HoverMaterial(int id)
         {
-            //var pair = this.MeshMaterials[id];
-            //var material = (GizmoMaterial)this.Materials.GetMaterial(pair.MaterialIndex);
-            //material.Hovered = true;
+            var mesh = this.GizmoModel.Meshes.Values.ToList()[id];
+            var material = (GizmoMaterial)mesh.Material;
+            material.Hovered = true;
         }
 
         /// <summary>
