@@ -52,7 +52,6 @@ namespace NewGFXEditor
             _assetManager.RegisterLoader<SGMaterial>(new SGMaterialLoader());
             _assetManager.RegisterLoader<Model>(new ModelLoader());
             _assetManager.RegisterLoader<Cubemap>(new CubemapLoader());
-            _assetManager.RegisterLoader<MeshCollection>(new MeshLoader());
             _assetManager.RegisterLoader<SpriteMaterial>(new SpriteMaterialLoader());
 
             // Load the editor panel
@@ -175,7 +174,7 @@ namespace NewGFXEditor
 
             if (e.Button == MouseButtons.Left)
             {
-                var gizmoPicked = this.TransformGizmo.PickGizmo(e.X, e.Y);
+                var gizmoPicked = this.TransformGizmo.PickGizmo((PerspectiveCamera)Camera, _editorPanel3D.Viewport, e.X, e.Y);
                 if (gizmoPicked)
                 {
                     _mousePos = new Vector2(e.X, e.Y);
@@ -220,15 +219,14 @@ namespace NewGFXEditor
             var ray = MeshRaycast.ScreenPointToWorldRay(camera, viewport, x, y);
             foreach (var element in elements)
             {
-                var meshMaterials = element.GetMeshes();
-                if (meshMaterials == null)
+                var meshes = element.GetMeshes();
+                if (meshes == null)
                 {
                     continue;
                 }
 
-                foreach (var meshMaterial in meshMaterials)
+                foreach (var mesh in meshes)
                 {
-                    var mesh = meshMaterial.Item1;
                     var hit = MeshRaycast.IntersectsMesh(ray, element.Transform, mesh);
                     if (hit.Hit && hit.Distance < minDist)
                     {
@@ -251,7 +249,6 @@ namespace NewGFXEditor
             _phyisicHandler3D.Process(Scene);
             this.Scene.Render(_editorPanel3D.Viewport, _editorPanel3D.Renderer, Camera);
             this.TransformGizmo.RenderGizmo(_editorPanel3D.Renderer, Camera, _editorPanel3D.Viewport);
-            this.pictureBox1.Image = this.TransformGizmo.Picker.FramebufferToBitmap();
         }
         private void EditorPanel3D_AfterRender(object sender, EventArgs e)
         {
@@ -289,7 +286,7 @@ namespace NewGFXEditor
         private void LoadStartupAssets()
         {
             // Create the 3D Cameara
-            var perspectiveCamera = new PerspectiveCamera(new Vector3(0, 5, -10), new Vector3(800, 600, 0));
+            var perspectiveCamera = new PerspectiveCamera(new Vector3(0, 5, -10), new Vector2(800, 600));
             perspectiveCamera.LookAt(new Vector3(0, 0, 0));
             Camera = perspectiveCamera;
 
@@ -306,20 +303,20 @@ namespace NewGFXEditor
             scene3d.PhysicsHandler = _phyisicHandler3D;
 
             // Create an defaul material and add it to the asset manager
-            var blankMaterial = SGMaterial.CreateDefaultMaterial("e_BlankMaterial");
-            _assetManager.AddAsset<SGMaterial>(blankMaterial.Name, blankMaterial);
+            var blankMaterial = new SGMaterial("e_BlankMaterial", Vector4.One);
+            _assetManager.Add<SGMaterial>(blankMaterial.Name, blankMaterial);
 
             // Create an cube mesh
             var cubeMesh = new Cube().GetMesh();
-            _assetManager.AddAsset<Mesh>("e_CubeMesh", cubeMesh);
+            _assetManager.Add<Mesh>("e_CubeMesh", cubeMesh);
 
             // Create an sphere mesh
             var sphereMesh = new Sphere().GetMesh();
-            _assetManager.AddAsset<Mesh>("e_SphereMesh", sphereMesh);
+            _assetManager.Add<Mesh>("e_SphereMesh", sphereMesh);
 
             // Create an plane mesh
             var planeMesh = new Quad().GetMesh();
-            _assetManager.AddAsset<Mesh>("e_PlaneMesh", planeMesh);
+            _assetManager.Add<Mesh>("e_PlaneMesh", planeMesh);
 
             // Create a cube and add it to the scene
             var cube = this.CreateQube(new Vector3(0, 0, 0), new Vector3(1, 1, 1), Vector3.Zero, blankMaterial);
@@ -494,20 +491,17 @@ namespace NewGFXEditor
             {
                 if (material.DiffuseTexture == null)
                 {
-                    var blankDiffuseBitmap = Utils.CreateEmptyTexture(1, 1);
-                    material.DiffuseTexture = Texture.LoadTexture(blankDiffuseBitmap);
+                    material.DiffuseTexture = new Texture(1, 1, new Vector4i(255, 255, 255, 255));
                 }
 
                 if (material.NormalTexture == null)
                 {
-                    var blankNormalBitmap = Utils.CreateEmptyNormalMap(1, 1);
-                    material.NormalTexture = Texture.LoadTexture(blankNormalBitmap);
+                    material.NormalTexture = new Texture(1, 1, new Vector4i(128, 128, 255, 255));
                 }
 
                 if (material.SpecularTexture == null)
                 {
-                    var blankDiffuseBitmap = Utils.CreateEmptyTexture(1, 1);
-                    material.SpecularTexture = Texture.LoadTexture(blankDiffuseBitmap);
+                    material.SpecularTexture = new Texture(1, 1, new Vector4i(0, 0, 0, 255));
                 }
 
 
@@ -539,17 +533,10 @@ namespace NewGFXEditor
             var material = new SGMaterial();
             material.Name = name;
 
-            var blankDiffuseBitmap = Utils.CreateEmptyTexture(512, 512);
-            material.DiffuseTexture = Texture.LoadTexture(blankDiffuseBitmap);
-
-            var blankNormalBitmap = Utils.CreateEmptyNormalMap(512, 512);
-            material.NormalTexture = Texture.LoadTexture(blankNormalBitmap);
-
-            var blankSpecularBitmap = Utils.CreateEmptyTexture(512, 512);
-            material.SpecularTexture = Texture.LoadTexture(blankSpecularBitmap);
-
+            material.DiffuseTexture = new Texture(1, 1, new Vector4i(255, 255, 255, 255));
+            material.NormalTexture = new Texture(1, 1, new Vector4i(128, 128, 255, 255));
+            material.SpecularTexture = new Texture(1, 1, new Vector4i(0, 0, 0, 255));
             material.Color = new Vector4(1, 1, 1, 1);
-
             return material;
         }
 
@@ -558,7 +545,7 @@ namespace NewGFXEditor
             var materialCount = _assetManager.GetAssetCount<SGMaterial>();
             var blankMaterial = CreateMaterial($"material_{materialCount}");
             blankMaterial.Init(_editorPanel3D.Renderer);
-            _assetManager.AddAsset<SGMaterial>(blankMaterial.Name, blankMaterial);
+            _assetManager.Add<SGMaterial>(blankMaterial.Name, blankMaterial);
 
             var materialEditor = new MaterialEditor(this, blankMaterial);
             materialEditor.Show();
@@ -580,7 +567,7 @@ namespace NewGFXEditor
                     {
                         var selectedItem = this.materialListView.SelectedItems[0];
                         var material = (SGMaterial)selectedItem.Tag;
-                        primitive.Material = material;
+                        primitive.Mesh.Material = material;
                         _editorPanel3D.Redraw();
                     }
                 }

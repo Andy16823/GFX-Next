@@ -1,32 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andy1\\source\\repos\\NewGFXEditor\\NewGFXEditor\\NewGFXEditor.csproj": {}
+    "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\GFXEditor\\NewGFXEditor\\NewGFXEditor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andy1\\source\\repos\\NewGFXEditor\\NewGFXEditor\\NewGFXEditor.csproj": {
+    "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\GFXEditor\\NewGFXEditor\\NewGFXEditor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andy1\\source\\repos\\NewGFXEditor\\NewGFXEditor\\NewGFXEditor.csproj",
+        "projectUniqueName": "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\GFXEditor\\NewGFXEditor\\NewGFXEditor.csproj",
         "projectName": "NewGFXEditor",
-        "projectPath": "C:\\Users\\andy1\\source\\repos\\NewGFXEditor\\NewGFXEditor\\NewGFXEditor.csproj",
+        "projectPath": "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\GFXEditor\\NewGFXEditor\\NewGFXEditor.csproj",
         "packagesPath": "C:\\Users\\andy1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andy1\\source\\repos\\NewGFXEditor\\NewGFXEditor\\obj\\",
+        "outputPath": "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\GFXEditor\\NewGFXEditor\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\andy1\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"
         ],
         "sources": {
-          "C:\\Dev\\LocalNugetFeed": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\andy1\\Documents\\NugetFeed": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,41 +39,25 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
+          "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
-            "GFX.BulletSharp": {
+            "GFX": {
               "target": "Package",
-              "version": "[1.0.1, )"
+              "version": "[1.1.1-dev, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
             },
-            "OpenTK": {
-              "target": "Package",
-              "version": "[4.9.4, )"
-            },
             "OpenTK.GLControl": {
               "target": "Package",
               "version": "[4.0.2, )"
-            },
-            "StbImageSharp": {
-              "target": "Package",
-              "version": "[2.30.15, )"
-            },
-            "StirlingLabs.Assimp.Net": {
-              "target": "Package",
-              "version": "[23.4.1, )"
-            },
-            "StirlingLabs.assimp.native.win-x64": {
-              "target": "Package",
-              "version": "[5.2.5.4, )"
             },
             "System.Drawing.Common": {
               "target": "Package",
@@ -103,7 +83,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

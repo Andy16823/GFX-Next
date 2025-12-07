@@ -9,19 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GFX.BulletSharp" Version="1.0.1" />
+    <PackageReference Include="GFX" Version="1.1.1-dev" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="OpenTK" Version="4.9.4" />
     <PackageReference Include="OpenTK.GLControl" Version="4.0.2" />
-    <PackageReference Include="StbImageSharp" Version="2.30.15" />
-    <PackageReference Include="StirlingLabs.Assimp.Net" Version="23.4.1" />
     <PackageReference Include="System.Drawing.Common" Version="9.0.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="LibGFX">
-      <HintPath>..\..\LibGFX\LibGFX\bin\Debug\net8.0\LibGFX.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <ItemGroup>

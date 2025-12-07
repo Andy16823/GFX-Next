@@ -46,7 +46,7 @@ namespace NewGFXEditor
         Vector2 _mousePos = Vector2.Zero;
         Form1 _parent;
 
-        RenderTarget _renderTarget;
+        MSAARenderTarget2D _renderTarget;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MaterialEditor"/> class.
@@ -101,7 +101,7 @@ namespace NewGFXEditor
             _editorPanel3D.OnMouseMove += EditorPanel3D_OnMouseMove;
             _editorPanel3D.OnMouseUp += EditorPanel3D_OnMouseUp;
 
-            _camera = new PerspectiveCamera(new Vector3(0f, 0f, -2.5f), new Vector3(800, 600, 0));
+            _camera = new PerspectiveCamera(new Vector3(0f, 0f, -2.5f), new Vector2(800, 600));
             _camera.LookAt(new Vector3(0, 0, 0));
 
             _materialObject = new MaterialObject();
@@ -167,7 +167,7 @@ namespace NewGFXEditor
             renderer.PrepareShader("dirLight.ambient", _light.Ambient);
             renderer.PrepareShader("dirLight.specular", _light.Specular);
             renderer.PrepareShader("viewPos", _camera.Transform.Position);
-            renderer.DrawMesh(_transform, _materialObject.mesh, _materialObject.material);
+            renderer.DrawMesh(_transform, _materialObject.mesh);
             renderer.UnbindShaderProgram();
             renderer.DisableDepthTest();
             renderer.UnbindRenderTarget();
@@ -202,7 +202,7 @@ namespace NewGFXEditor
         private void EditorPanel3D_EditorLoaded(object sender, EventArgs e)
         {
             var viewport = _editorPanel3D.Viewport;
-            _renderTarget = _editorPanel3D.Renderer.CreateRenderTarget(RenderTargetDescriptor.Default(viewport.Width, viewport.Height));
+            _renderTarget = _editorPanel3D.Renderer.CreateMSAARenderTarget2D(viewport.Width, viewport.Height);
 
             _editorPanel3D.Renderer.LoadMesh(_materialObject.mesh);
         }
@@ -220,7 +220,7 @@ namespace NewGFXEditor
         private void MaterialEditor_FormClosing(object sender, FormClosingEventArgs e)
         {
             _editorPanel3D.Dispose();
-            _editorPanel3D.Renderer.DisposeRenderTarget(_renderTarget);
+            _renderTarget.Dispose(_editorPanel3D.Renderer);
             _editorPanel3D.Renderer.DisposeMesh(_materialObject.mesh);
         }
 
