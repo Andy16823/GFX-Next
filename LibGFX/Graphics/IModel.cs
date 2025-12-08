@@ -8,6 +8,19 @@ using System.Threading.Tasks;
 namespace LibGFX.Graphics
 {
     /// <summary>
+    /// Specifies the state of a model within its lifecycle.
+    /// </summary>
+    /// <remarks>Use this enumeration to determine whether a model has not been initialized, is currently
+    /// initialized, or has been disposed. The state can be used to guard operations that require the model to be in a
+    /// specific lifecycle phase.</remarks>
+    public enum ModelState
+    {
+        None,
+        Initialized,
+        Disposed
+    }
+
+    /// <summary>
     /// Base interface for 3D models
     /// </summary>
     public interface IModel
@@ -21,6 +34,11 @@ namespace LibGFX.Graphics
         /// The node structure of this model
         /// </summary>
         public AssimpNodeData NodeStructure { get; set; }
+
+        /// <summary>
+        /// Gets the current state of the model.
+        /// </summary>
+        public ModelState State { get; }
 
         /// <summary>
         /// Initializes the model for the given render device

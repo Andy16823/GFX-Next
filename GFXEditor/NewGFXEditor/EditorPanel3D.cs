@@ -39,6 +39,14 @@ namespace NewGFXEditor
     public delegate void EditorMouseEventHandler(object sender, MouseEventArgs e);
 
     /// <summary>
+    /// Event handler for editor resized events.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="viewport"></param>
+    /// <param name="e"></param>
+    public delegate void EditorResizedEventHandler(object sender, Viewport viewport, EventArgs e);
+
+    /// <summary>
     /// Enum to define the initial mode of the editor.
     /// </summary>
     public enum EditorInitialMode
@@ -128,6 +136,14 @@ namespace NewGFXEditor
         /// </summary>
         public event EditorMouseEventHandler OnMouseMove;
 
+        /// <summary>
+        /// Occurs when the editor's size changes.
+        /// </summary>
+        /// <remarks>Subscribe to this event to be notified whenever the editor is resized. The event
+        /// provides details about the new size through the associated <see cref="EditorResizedEventArgs"/>. This event
+        /// is typically raised after a resize operation completes.</remarks>
+        public event EditorResizedEventHandler OnResized;
+
         GLControl _sharedContext;
         Control _host;
         GLControl _glControl1;
@@ -158,15 +174,6 @@ namespace NewGFXEditor
             _sharedContext = contextParent;
             _initialMode = EditorInitialMode.SharedContext;
             this.CreateGraphicsContext();
-        }
-
-        /// <summary>
-        /// Resizes the camera based on the current viewport.
-        /// </summary>
-        /// <param name="camera"></param>
-        public void ResizeCamera(Camera camera)
-        {
-            camera.Transform.Scale = new Vector3(_viewport.Width, _viewport.Height, 0f);
         }
 
         /// <summary>
@@ -211,12 +218,22 @@ namespace NewGFXEditor
             _glControl1.Invalidate();
         }
 
+        /// <summary>
+        /// Releases all resources used by the current instance.
+        /// </summary>
+        /// <remarks>Call this method when you are finished using the object to free associated resources
+        /// immediately. After calling Dispose, the object should not be used.</remarks>
         public void Dispose()
         {
             _renderer.MakeCurrent();
             _renderer.Dispose();
         }
 
+        /// <summary>
+        /// Controls the KeyUp event of the GLControl.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GlControl1_KeyUp(object? sender, KeyEventArgs e)
         {
             if(this.OnKeyUp != null)
@@ -226,6 +243,11 @@ namespace NewGFXEditor
             }
         }
 
+        /// <summary>
+        /// Controls the KeyDown event of the GLControl.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GlControl1_KeyDown(object? sender, KeyEventArgs e)
         {
             if(this.OnKeyDown != null)
@@ -235,11 +257,21 @@ namespace NewGFXEditor
             }
         }
 
+        /// <summary>
+        /// Mouse double click event handler.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GlControl1_MouseDoubleClick(object? sender, MouseEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Mouse up event handler.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GlControl1_MouseUp(object? sender, MouseEventArgs e)
         {
             if(this.OnMouseUp != null)
@@ -249,11 +281,21 @@ namespace NewGFXEditor
             }
         }
 
+        /// <summary>
+        /// Mouse click event handler.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GlControl1_MouseClick(object? sender, MouseEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Mouse down event handler.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GlControl1_MouseDown(object? sender, MouseEventArgs e)
         {
             _glControl1.Focus();
@@ -264,6 +306,11 @@ namespace NewGFXEditor
             }
         }
 
+        /// <summary>
+        /// Mouse move event handler.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GlControl1_MouseMove(object? sender, MouseEventArgs e)
         {
             if(this.OnMouseMove != null)
@@ -273,11 +320,15 @@ namespace NewGFXEditor
             }
         }
 
+        /// <summary>
+        /// Paint event handler for the GLControl.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GlControl1_Paint(object? sender, PaintEventArgs e)
         {
             try
             {
-                //_renderer.SetContext(_glControl1.Context);
                 _renderer.MakeCurrent();
 
                 if (this.BeforeRender != null)
@@ -307,11 +358,30 @@ namespace NewGFXEditor
             }
         }
 
+        /// <summary>
+        /// Handles the resize event for the OpenGL control and updates the viewport dimensions accordingly.
+        /// </summary>
+        /// <remarks>This method updates the internal viewport to match the new size of the control and
+        /// raises the OnResized event if any handlers are attached.</remarks>
+        /// <param name="sender">The source of the event, typically the OpenGL control being resized.</param>
+        /// <param name="e">An object that contains the event data.</param>
         private void GlControl1_Resize(object? sender, EventArgs e)
         {
             _viewport = new Viewport(_glControl1.Width, _glControl1.Height);
+            if(this.OnResized != null)
+            {
+                this.OnResized(this, _viewport, EventArgs.Empty);
+            }
         }
 
+        /// <summary>
+        /// Handles the Load event of the OpenGL control and initializes the rendering context.
+        /// </summary>
+        /// <remarks>This method sets up the OpenGL rendering context and raises the EditorLoaded event if
+        /// any handlers are attached. It should be called when the OpenGL control is first loaded to ensure proper
+        /// initialization.</remarks>
+        /// <param name="sender">The source of the event, typically the OpenGL control being loaded.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
         private void GlControl1_Load(object? sender, EventArgs e)
         {
             _renderer = new GLRenderer();

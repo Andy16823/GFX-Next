@@ -18,6 +18,14 @@ namespace LibGFX.Graphics
     /// </summary>
     public class SkinnedMeshModel : IModel
     {
+        // Model state
+        private ModelState _state = ModelState.None;
+
+        /// <summary>
+        /// Gets the current validation state of the model.
+        /// </summary>
+        public ModelState State { get => _state; }
+
         /// <summary>
         /// The meshes that make up the skinned mesh model.
         /// </summary>
@@ -32,6 +40,10 @@ namespace LibGFX.Graphics
         /// The skeleton associated with the skinned mesh model.
         /// </summary>
         public Skeleton Skeleton { get; set; }
+
+        /// <summary>
+        /// Gets or sets the collection of 3D animations associated with this object.
+        /// </summary>
         public List<Animation3D.Animation3D> Animations { get; set; }
 
         /// <summary>
@@ -240,6 +252,7 @@ namespace LibGFX.Graphics
                 mesh.Material.Init(renderer);
                 renderer.LoadMesh(mesh);
             }
+            _state = ModelState.Initialized;
         }
 
         /// <summary>
@@ -253,6 +266,7 @@ namespace LibGFX.Graphics
                 renderer.DisposeMesh(mesh);
                 mesh.Material.Dispose(renderer);
             }
+            _state = ModelState.Disposed;
         }
 
         /// <summary>

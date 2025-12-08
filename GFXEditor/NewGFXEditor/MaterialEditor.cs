@@ -1,18 +1,8 @@
-﻿using LibGFX.Assets;
-using LibGFX.Core;
-using LibGFX.Core.GameElements;
-using LibGFX.Graphics;
-using LibGFX.Graphics.Lights;
-using LibGFX.Graphics.Materials;
-using LibGFX.Graphics.Primitives;
-using LibGFX.Graphics.Shader;
-using LibGFX.Math;
-using OpenTK.Mathematics;
+﻿using LibGFX.Graphics.Materials;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,190 +11,35 @@ using System.Windows.Forms;
 
 namespace NewGFXEditor
 {
-    public struct MaterialObject
-    {
-        public Mesh mesh;
-        public SGMaterial material;
-    }
-
-    /// <summary>
-    /// MaterialEditor is a form that allows users to edit and preview materials.
-    /// </summary>
     public partial class MaterialEditor : Form
     {
-        /// <summary>
-        /// Gets or sets the material preview bitmap.
-        /// </summary>
-        public Bitmap MaterialPreview { get; set; }
+        public SGMaterial Material { get; set; }
 
-        EditorPanel3D _editorPanel3D;
-        MaterialObject _materialObject;
-        PerspectiveCamera _camera;
-        Transform _transform;
-        DirectionalLight3D _light;
-        bool _dragCamera = false;
-        Vector2 _mousePos = Vector2.Zero;
-        Form1 _parent;
-
-        MSAARenderTarget2D _renderTarget;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MaterialEditor"/> class.
-        /// </summary>
-        /// <param name="parent"></param>
-        /// <param name="material"></param>
-        public MaterialEditor(Form1 parent, SGMaterial material)
+        public MaterialEditor(SGMaterial material)
         {
             InitializeComponent();
-            _parent = parent;
 
-            var imageList = new ImageList();
-            this.listView1.View = View.LargeIcon;
-            this.listView1.LargeImageList = imageList;
-            this.listView1.LargeImageList.ImageSize = new Size(64, 64);
-            this.listView1.LargeImageList.ColorDepth = ColorDepth.Depth32Bit;
+            this.textBox1.Text = material.Name;
 
-            if (material.DiffuseTexture != null)
-            {
-                var textureBitmap = material.DiffuseTexture.ToBitmap();
-                imageList.Images.Add("textureDiffuse", textureBitmap);
+            this.Material = material;
+            this.numericUpDown1.Value = (decimal)material.Color.X * 255;
+            this.numericUpDown2.Value = (decimal)material.Color.Y * 255;
+            this.numericUpDown3.Value = (decimal)material.Color.Z * 255;
+            this.numericUpDown4.Value = (decimal)material.Color.W * 255;
 
-                var item = new ListViewItem("Diffuse Texture", "textureDiffuse");
-                item.Tag = material.DiffuseTexture;
-                this.listView1.Items.Add(item);
-            }
+            var diffuseBitmap = material.DiffuseTexture.ToBitmap();
+            this.pictureBox1.Image = diffuseBitmap;
 
-            if (material.NormalTexture != null)
-            {
-                var normalBitmap = material.NormalTexture.ToBitmap();
-                imageList.Images.Add("textureNormal", normalBitmap);
-                var item = new ListViewItem("Normal Texture", "textureNormal");
-                item.Tag = material.NormalTexture;
-                this.listView1.Items.Add(item);
-            }
+            var normalBitmap = material.NormalTexture.ToBitmap();
+            this.pictureBox2.Image = normalBitmap;
 
-            if (material.SpecularTexture != null)
-            {
-                var specularBitmap = material.SpecularTexture.ToBitmap();
-                imageList.Images.Add("textureSpecular", specularBitmap);
-                var item = new ListViewItem("Specular Texture", "textureSpecular");
-                item.Tag = material.SpecularTexture;
-                this.listView1.Items.Add(item);
-            }
-
-            _editorPanel3D = new EditorPanel3D(this.splitContainer1.Panel2, parent.Editor.GLControl);
-            _editorPanel3D.EditorLoaded += EditorPanel3D_EditorLoaded;
-            _editorPanel3D.BeforeRender += _editorPanel3D_BeforeRender;
-            _editorPanel3D.OnRender += EditorPanel3D_EditorPaint;
-            _editorPanel3D.AfterRender += EditorPanel3D_AfterRender;
-            _editorPanel3D.OnMouseDown += EditorPanel3D_OnMouseDown;
-            _editorPanel3D.OnMouseMove += EditorPanel3D_OnMouseMove;
-            _editorPanel3D.OnMouseUp += EditorPanel3D_OnMouseUp;
-
-            _camera = new PerspectiveCamera(new Vector3(0f, 0f, -2.5f), new Vector2(800, 600));
-            _camera.LookAt(new Vector3(0, 0, 0));
-
-            _materialObject = new MaterialObject();
-
-            _materialObject.mesh = new Sphere().GetMesh();
-            _transform = new Transform();
-            _transform.Position = new Vector3(0, 0, 0);
-            _transform.Scale = new Vector3(1.5f, 1.5f, 1.5f);
-
-            _materialObject.material = material;
-
-            _light = new DirectionalLight3D(new Vector3(0f, 5f, -5f), new Vector4(1, 1, 1, 1), 1.5f);
+            var specularBitmap = material.SpecularTexture.ToBitmap();
+            this.pictureBox3.Image = specularBitmap;
         }
 
-        private void EditorPanel3D_OnMouseUp(object sender, MouseEventArgs e)
-        {
-            _dragCamera = false;
-        }
-
-        private void EditorPanel3D_OnMouseMove(object sender, MouseEventArgs e)
-        {
-            if (_dragCamera)
-            {
-                var delataX = e.X - _mousePos.X;
-                var delataY = e.Y - _mousePos.Y;
-                _transform.Rotate(new Vector3(0.0f, -delataX * 0.1f, 0.0f));
-                _mousePos = new Vector2(e.X, e.Y);
-            }
-        }
-
-        private void EditorPanel3D_OnMouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                if (!_dragCamera)
-                {
-                    _dragCamera = true;
-                    _mousePos = new Vector2(e.X, e.Y);
-                }
-            }
-        }
-
-        private void RenderFramebuffer(IRenderDevice renderer, Viewport viewport)
-        {
-            var dephTest = renderer.IsDepthTestEnabled();
-            var shader = renderer.GetShaderProgram("MeshShader");
-
-            renderer.SetViewport(viewport);
-            renderer.SetProjectionMatrix(_camera.GetProjectionMatrix(viewport));
-            renderer.SetViewMatrix(_camera.GetViewMatrix());
-
-            // Render the scene to the render target
-            renderer.ResizeRenderTarget(_renderTarget, viewport.Width, viewport.Height);
-            renderer.BindRenderTarget(_renderTarget);
-            renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
-
-            renderer.EnableDepthTest();
-            renderer.BindShaderProgram(shader);
-            renderer.PrepareShader("dirLight.direction", _light.Direction);
-            renderer.PrepareShader("dirLight.lightColor", _light.Color.Xyz);
-            renderer.PrepareShader("dirLight.lightIntensity", _light.Intensity);
-            renderer.PrepareShader("dirLight.ambient", _light.Ambient);
-            renderer.PrepareShader("dirLight.specular", _light.Specular);
-            renderer.PrepareShader("viewPos", _camera.Transform.Position);
-            renderer.DrawMesh(_transform, _materialObject.mesh);
-            renderer.UnbindShaderProgram();
-            renderer.DisableDepthTest();
-            renderer.UnbindRenderTarget();
-        }
-
-        private void _editorPanel3D_BeforeRender(object sender, EventArgs e)
-        {
-            var viewport = new Viewport(_editorPanel3D.GLControl.Width, _editorPanel3D.GLControl.Height);
-            _editorPanel3D.Renderer.SetViewport(viewport);
-            _editorPanel3D.ResizeCamera(_camera);
-            RenderFramebuffer(_editorPanel3D.Renderer, viewport);
-        }
-
-        private void EditorPanel3D_EditorPaint(object sender, EventArgs e)
-        {
-            var renderer = _editorPanel3D.Renderer;
-
-            renderer.BindShaderProgram(renderer.GetShaderProgram("ScreenShader"));
-            renderer.DrawRenderTarget(_renderTarget);
-            renderer.UnbindShaderProgram();
-        }
-
-        private void EditorPanel3D_AfterRender(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
-            if (_editorPanel3D.Renderer.GetError() != 0)
-            {
-                throw new Exception($"Render Error {_editorPanel3D.Renderer.GetError()}");
-            }
-        }
-
-        private void EditorPanel3D_EditorLoaded(object sender, EventArgs e)
-        {
-            var viewport = _editorPanel3D.Viewport;
-            _renderTarget = _editorPanel3D.Renderer.CreateMSAARenderTarget2D(viewport.Width, viewport.Height);
-
-            _editorPanel3D.Renderer.LoadMesh(_materialObject.mesh);
         }
 
         private void MaterialEditor_Load(object sender, EventArgs e)
@@ -212,27 +47,74 @@ namespace NewGFXEditor
 
         }
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void MaterialEditor_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            _editorPanel3D.Dispose();
-            _renderTarget.Dispose(_editorPanel3D.Renderer);
-            _editorPanel3D.Renderer.DisposeMesh(_materialObject.mesh);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var renderer = _editorPanel3D.Renderer;
-            var size = renderer.GetRenderTargetSize(_renderTarget);
-            var pixeldata = renderer.GetRenderTargetData(_renderTarget, size.X, size.Y);
-            var bitmap = Utils.ByteBGRAToBitmap(pixeldata, size.X, size.Y);
-            this.pictureBox1.Image = bitmap;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.png;*.jpg;*.jpeg;*.bmp;*.tga";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.textBox2.Text = openFileDialog.FileName;
+                var bitmap = new Bitmap(openFileDialog.FileName);
+                this.pictureBox1.Image = bitmap;
+                this.Material.DiffuseTexture = new LibGFX.Graphics.Texture(openFileDialog.FileName);
+            }
+        }
 
-            _parent.SetMaterialThumbnail(_materialObject.material.Name, bitmap);
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.png;*.jpg;*.jpeg;*.bmp;*.tga";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.textBox3.Text = openFileDialog.FileName;
+                var bitmap = new Bitmap(openFileDialog.FileName);
+                this.pictureBox2.Image = bitmap;
+                this.Material.NormalTexture = new LibGFX.Graphics.Texture(openFileDialog.FileName);
+            }
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.png;*.jpg;*.jpeg;*.bmp;*.tga";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.textBox4.Text = openFileDialog.FileName;
+                var bitmap = new Bitmap(openFileDialog.FileName);
+                this.pictureBox3.Image = bitmap;
+                this.Material.SpecularTexture = new LibGFX.Graphics.Texture(openFileDialog.FileName);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            colorDialog.Color = Color.Red;
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                var color = colorDialog.Color;
+                this.numericUpDown1.Value = color.R;
+                this.numericUpDown2.Value = color.G;
+                this.numericUpDown3.Value = color.B;
+                this.numericUpDown4.Value = color.A;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Material.Name = this.textBox1.Text;
+            float r = (float)(this.numericUpDown1.Value) / 255.0f;
+            float g = (float)(this.numericUpDown2.Value) / 255.0f;
+            float b = (float)(this.numericUpDown3.Value) / 255.0f;
+            float a = (float)(this.numericUpDown4.Value) / 255.0f;
+            this.Material.Color = new OpenTK.Mathematics.Vector4(r, g, b, a);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

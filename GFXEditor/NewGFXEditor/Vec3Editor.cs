@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,9 +35,9 @@ namespace NewGFXEditor
         {
             this.DialogResult = DialogResult.OK;
             this.Value = new Vector3(
-                float.Parse(this.xTextbox.Text),
-                float.Parse(this.yTextbox.Text),
-                float.Parse(this.zTextbox.Text)
+                float.Parse(this.xTextbox.Text, CultureInfo.InvariantCulture),
+                float.Parse(this.yTextbox.Text, CultureInfo.InvariantCulture),
+                float.Parse(this.zTextbox.Text, CultureInfo.InvariantCulture)
             );
             this.Close();
         }

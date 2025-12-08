@@ -1,5 +1,4 @@
-﻿using Assimp;
-using LibGFX.Graphics;
+﻿using LibGFX.Graphics;
 using LibGFX.Math;
 using Microsoft.VisualBasic.Devices;
 using OpenTK.Graphics.ES11;

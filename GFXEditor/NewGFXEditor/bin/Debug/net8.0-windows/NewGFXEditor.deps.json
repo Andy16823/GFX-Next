@@ -9,9 +9,7 @@
       "NewGFXEditor/1.0.0": {
         "dependencies": {
           "GFX": "1.1.1-dev",
-          "Newtonsoft.Json": "13.0.3",
-          "OpenTK.GLControl": "4.0.2",
-          "System.Drawing.Common": "9.0.4"
+          "OpenTK.GLControl": "4.0.2"
         },
         "runtime": {
           "NewGFXEditor.dll": {}
@@ -429,7 +427,7 @@
     "GFX/1.1.1-dev": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OJl1iiYy0CDry8bphCGlITbOPn9Ir1uHHAVVgq8TEEABcnQXN1/vcvETlMhClVX70Ygl0vSGXpt2mG7doS/LdQ==",
+      "sha512": "sha512-VslL/FdA6QxtE+tKHF6kZXzmSqtCIiPP0BTteRVtQAtGHgItR65KXfskUMxv/ST8uXQgyLianamoDylQ9lXNug==",
       "path": "gfx/1.1.1-dev",
       "hashPath": "gfx.1.1.1-dev.nupkg.sha512"
     },

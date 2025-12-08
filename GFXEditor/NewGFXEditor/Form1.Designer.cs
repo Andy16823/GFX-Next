@@ -55,6 +55,10 @@
             editPositionToolStripMenuItem = new ToolStripMenuItem();
             editRotationToolStripMenuItem = new ToolStripMenuItem();
             editScaleToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator11 = new ToolStripSeparator();
+            deleteToolStripMenuItem = new ToolStripMenuItem();
+            viewToolStripMenuItem = new ToolStripMenuItem();
+            showAABBsToolStripMenuItem = new ToolStripMenuItem();
             createToolStripMenuItem = new ToolStripMenuItem();
             cubeToolStripMenuItem = new ToolStripMenuItem();
             sphereToolStripMenuItem = new ToolStripMenuItem();
@@ -98,13 +102,7 @@
             materialListView = new ListView();
             materialImageList = new ImageList(components);
             tabPage3 = new TabPage();
-            tabPage4 = new TabPage();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            groupBox1 = new GroupBox();
-            pictureBox1 = new PictureBox();
             propertyGrid1 = new PropertyGrid();
-            toolStripSeparator11 = new ToolStripSeparator();
-            deleteToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -117,15 +115,11 @@
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
-            tabPage4.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
-            groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { dateiToolStripMenuItem, bearbeitenToolStripMenuItem, selectionToolStripMenuItem, createToolStripMenuItem, extrasToolStripMenuItem, hilfeToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { dateiToolStripMenuItem, bearbeitenToolStripMenuItem, selectionToolStripMenuItem, viewToolStripMenuItem, createToolStripMenuItem, extrasToolStripMenuItem, hilfeToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1247, 24);
@@ -304,6 +298,33 @@
             editScaleToolStripMenuItem.Size = new Size(185, 22);
             editScaleToolStripMenuItem.Text = "Edit Scale";
             editScaleToolStripMenuItem.Click += editScaleToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator11
+            // 
+            toolStripSeparator11.Name = "toolStripSeparator11";
+            toolStripSeparator11.Size = new Size(182, 6);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            deleteToolStripMenuItem.Size = new Size(185, 22);
+            deleteToolStripMenuItem.Text = "Delete";
+            deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
+            // 
+            // viewToolStripMenuItem
+            // 
+            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { showAABBsToolStripMenuItem });
+            viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            viewToolStripMenuItem.Size = new Size(44, 20);
+            viewToolStripMenuItem.Text = "View";
+            // 
+            // showAABBsToolStripMenuItem
+            // 
+            showAABBsToolStripMenuItem.CheckOnClick = true;
+            showAABBsToolStripMenuItem.Name = "showAABBsToolStripMenuItem";
+            showAABBsToolStripMenuItem.Size = new Size(180, 22);
+            showAABBsToolStripMenuItem.Text = "Show AABB's";
+            showAABBsToolStripMenuItem.Click += showAABBsToolStripMenuItem_Click;
             // 
             // createToolStripMenuItem
             // 
@@ -592,7 +613,6 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
-            tabControl1.Controls.Add(tabPage4);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Multiline = true;
@@ -662,48 +682,6 @@
             tabPage3.Text = "Models";
             tabPage3.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
-            // 
-            tabPage4.Controls.Add(flowLayoutPanel1);
-            tabPage4.Location = new Point(27, 4);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(255, 401);
-            tabPage4.TabIndex = 3;
-            tabPage4.Text = "Render Channel";
-            tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Controls.Add(groupBox1);
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(3, 3);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(249, 395);
-            flowLayoutPanel1.TabIndex = 0;
-            flowLayoutPanel1.WrapContents = false;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(pictureBox1);
-            groupBox1.Location = new Point(3, 3);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(243, 162);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Location = new Point(3, 19);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(237, 140);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
             // propertyGrid1
             // 
             propertyGrid1.Dock = DockStyle.Fill;
@@ -711,18 +689,6 @@
             propertyGrid1.Name = "propertyGrid1";
             propertyGrid1.Size = new Size(286, 213);
             propertyGrid1.TabIndex = 0;
-            // 
-            // toolStripSeparator11
-            // 
-            toolStripSeparator11.Name = "toolStripSeparator11";
-            toolStripSeparator11.Size = new Size(182, 6);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new Size(185, 22);
-            deleteToolStripMenuItem.Text = "Delete";
-            deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -753,10 +719,6 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
-            tabPage4.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
-            groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -817,10 +779,6 @@
         private ListView materialListView;
         private ImageList materialImageList;
         private ToolStripMenuItem assignSelectedMaterialToolStripMenuItem;
-        private TabPage tabPage4;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private GroupBox groupBox1;
-        private PictureBox pictureBox1;
         private ToolStripMenuItem createToolStripMenuItem;
         private ToolStripMenuItem cubeToolStripMenuItem;
         private ToolStripMenuItem sphereToolStripMenuItem;
@@ -838,5 +796,7 @@
         private ToolStripMenuItem modelToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator11;
         private ToolStripMenuItem deleteToolStripMenuItem;
+        private ToolStripMenuItem viewToolStripMenuItem;
+        private ToolStripMenuItem showAABBsToolStripMenuItem;
     }
 }

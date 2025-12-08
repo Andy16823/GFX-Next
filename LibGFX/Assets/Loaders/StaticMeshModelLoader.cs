@@ -10,7 +10,7 @@ namespace LibGFX.Assets.Loaders
     /// <summary>
     /// Loader for static mesh models
     /// </summary>
-    internal class StaticMeshModelLoader : IAssetLoader
+    public class StaticMeshModelLoader : IAssetLoader
     {
         public bool ShouldCache => true;
 

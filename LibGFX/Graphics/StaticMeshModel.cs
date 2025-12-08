@@ -18,6 +18,9 @@ namespace LibGFX.Graphics
     /// </summary>
     public class StaticMeshModel : IModel {
 
+        // State of the model
+        private ModelState _state = ModelState.None;
+
         /// <summary>
         /// Meshes that make up the static model.
         /// </summary>
@@ -27,6 +30,11 @@ namespace LibGFX.Graphics
         /// Node structure of the model as imported from Assimp.
         /// </summary>
         public AssimpNodeData NodeStructure { get; set; }
+
+        /// <summary>
+        /// Gets the current state of the model.
+        /// </summary>
+        public ModelState State { get => _state; }
 
         /// <summary>
         /// Static model constructor that loads model data from a file.
@@ -152,6 +160,7 @@ namespace LibGFX.Graphics
                 mesh.Material.Init(renderer);
                 renderer.LoadMesh(mesh);
             }
+            _state = ModelState.Initialized;
             Debug.WriteLine("Static Model import complete.");
         }
 
@@ -163,6 +172,7 @@ namespace LibGFX.Graphics
                 renderer.DisposeMesh(mesh);
                 mesh.Material.Dispose(renderer);
             }
+            _state = ModelState.Disposed;
             Debug.WriteLine("Static Model disposal complete.");
         }
     }

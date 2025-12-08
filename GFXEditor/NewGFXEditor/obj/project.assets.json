@@ -683,7 +683,7 @@
       ]
     },
     "GFX/1.1.1-dev": {
-      "sha512": "OJl1iiYy0CDry8bphCGlITbOPn9Ir1uHHAVVgq8TEEABcnQXN1/vcvETlMhClVX70Ygl0vSGXpt2mG7doS/LdQ==",
+      "sha512": "VslL/FdA6QxtE+tKHF6kZXzmSqtCIiPP0BTteRVtQAtGHgItR65KXfskUMxv/ST8uXQgyLianamoDylQ9lXNug==",
       "type": "package",
       "path": "gfx/1.1.1-dev",
       "files": [
@@ -1324,9 +1324,7 @@
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
       "GFX >= 1.1.1-dev",
-      "Newtonsoft.Json >= 13.0.3",
-      "OpenTK.GLControl >= 4.0.2",
-      "System.Drawing.Common >= 9.0.4"
+      "OpenTK.GLControl >= 4.0.2"
     ]
   },
   "packageFolders": {
@@ -1379,17 +1377,9 @@
             "target": "Package",
             "version": "[1.1.1-dev, )"
           },
-          "Newtonsoft.Json": {
-            "target": "Package",
-            "version": "[13.0.3, )"
-          },
           "OpenTK.GLControl": {
             "target": "Package",
             "version": "[4.0.2, )"
-          },
-          "System.Drawing.Common": {
-            "target": "Package",
-            "version": "[9.0.4, )"
           }
         },
         "imports": [

@@ -106,5 +106,10 @@ namespace LibGFX.Core.GameElements
 
             this.AABB = new AABB(min, max);
         }
+
+        public override Mesh[]? GetMeshes()
+        {
+            return _model.Meshes.Values.ToArray();
+        }
     }
 }

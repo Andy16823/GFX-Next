@@ -51,17 +51,9 @@
               "target": "Package",
               "version": "[1.1.1-dev, )"
             },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
-            },
             "OpenTK.GLControl": {
               "target": "Package",
               "version": "[4.0.2, )"
-            },
-            "System.Drawing.Common": {
-              "target": "Package",
-              "version": "[9.0.4, )"
             }
           },
           "imports": [
