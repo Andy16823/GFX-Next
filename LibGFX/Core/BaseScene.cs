@@ -39,6 +39,11 @@ namespace LibGFX.Core
     public abstract class BaseScene
     {
         /// <summary>
+        /// Gets the render target associated with this instance.
+        /// </summary>
+        public abstract IRenderTarget RenderTarget { get; }
+
+        /// <summary>
         /// The Layers of the scene
         /// </summary>
         public virtual List<Layer> Layers { get; set; }

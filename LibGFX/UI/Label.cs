@@ -115,7 +115,7 @@ namespace LibGFX.UI
             renderer.BindShaderProgram(renderer.GetShaderProgram("FontShader"));
             renderer.DrawString2D(this.Text, new Vector2(0, 0), this.Font, new Vector4(1, 1, 1, 1), this.FontScale, this.Alignment);
             renderer.UnbindShaderProgram();
-            renderer.UnbindRenderTarget();
+            renderer.BindRenderTarget(canvas.RenderTarget);
 
             // Reset the camera and viewport
             renderer.SetProjectionMatrix(canvas.Camera.GetProjectionMatrix(viewport));

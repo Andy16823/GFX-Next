@@ -16,9 +16,9 @@ namespace LibGFX.Core
     public class Scene2D : BaseScene
     {
         /// <summary>
-        /// The render target of the scene
+        /// Gets the render target associated with this instance.
         /// </summary>
-        private RenderTarget2D _renderTarget;
+        public override IRenderTarget RenderTarget { get => _renderTarget; }       
 
         /// <summary>
         /// Sets the main light manager for the scene
@@ -35,6 +35,7 @@ namespace LibGFX.Core
         /// </summary>
         private Light2DManager _lightManager;
 
+        private RenderTarget2D _renderTarget;
         private float _physicsAccumulator = 0.0f;
 
 
@@ -132,42 +133,33 @@ namespace LibGFX.Core
         /// <param name="camera"></param>
         public override void Render(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            // OnStart a new frame for the render stats
             this.RenderStats.NewFrame();
-
-            // Call before render behaviors
             this.SceneBehaviors.ForEach(behavior =>
             {
                 behavior.BeforeRender(this, viewport, renderer, camera);
             });
 
-            // Cull lights in the scene
             if (this.LightManager != null)
             {
                 this.LightManager.CullLights(viewport, renderer, camera);
             }
 
-            // Get the current depth test state
             var depthTest = renderer.IsDepthTestEnabled();
 
-            // Disable depth test and set the viewport, projection and view matrix
             renderer.DisableDepthTest();
             renderer.SetViewport(viewport);
             renderer.SetProjectionMatrix(camera.GetProjectionMatrix(viewport));
             renderer.SetViewMatrix(camera.GetViewMatrix());
 
-            // Render the scene to the render target
             renderer.ResizeRenderTarget(_renderTarget, viewport.Width, viewport.Height);
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
 
-            // Render the layers of the scene
             this.Layers.ForEach(layer => { 
                 layer.RenderLayer(this, viewport, renderer, camera); 
             });
 
-            // Debug draw the physics if enabled
             if (this.PhysicsHandler.DebugPhysics)
             {
                 if (this.PhysicsHandler.HasDebugDrawer())
@@ -180,24 +172,14 @@ namespace LibGFX.Core
                 }
             }
 
-            // Call after render behaviors
             this.SceneBehaviors.ForEach(behavior =>
             {
                 behavior.AfterRender(this, viewport, renderer, camera);
             });
 
-            // Proccess the render action
             this.ProcessRenderActions(viewport, renderer, camera);
 
-            // Unbind the render target and set the depth test state back to the original state
             renderer.UnbindRenderTarget();
-
-            // Render the render target to the screen
-            renderer.BindShaderProgram(renderer.GetShaderProgram("ScreenShader"));
-            renderer.DrawRenderTarget(_renderTarget);  
-            renderer.UnbindShaderProgram();
-
-            // Restore the depth test state
             renderer.SetDepthTest(depthTest);
         }
 

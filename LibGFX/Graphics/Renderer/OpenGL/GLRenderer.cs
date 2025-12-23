@@ -866,15 +866,15 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void DrawRenderTarget(RenderTarget2D renderTarget)
         {
-            this.DrawRendertarget(renderTarget.TextureId);
+            this.DrawRenderTarget(renderTarget.TextureId);
         }
 
         public void DrawRenderTarget(MSAARenderTarget2D renderTarget)
         {
-            this.DrawRendertarget(renderTarget.TextureId);
+            this.DrawRenderTarget(renderTarget.TextureId);
         }
 
-        public void DrawRendertarget(int textureId)
+        public void DrawRenderTarget(int textureId)
         {
             var shape = _shapes["FramebufferShape"];
             if (shape != null)
@@ -890,6 +890,35 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                 GL.BindTexture(TextureTarget.Texture2D, 0);
                 SetDepthTest(depthTest);
             }
+        }
+
+        public void DrawFullScreenQuad()
+        {
+            var shape = _shapes["FramebufferShape"];
+            if (shape != null)
+            {
+                GL.BindVertexArray(shape.VertexArray);
+                GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);
+                GL.BindVertexArray(0);
+            }
+        }
+
+        public void DrawRenderTarget(RenderTarget2D renderTarget, int framebuffer)
+        {
+            this.DrawRenderTarget(renderTarget.TextureId, framebuffer);
+        }
+
+        public void DrawRenderTarget(MSAARenderTarget2D renderTarget, int framebuffer)
+        {
+            this.DrawRenderTarget(renderTarget.TextureId, framebuffer);
+        }
+
+        public void DrawRenderTarget(int textureId, int framebuffer)
+        {
+            this.BindShaderProgram(this.GetShaderProgram("ScreenShader"));
+            GL.BindFramebuffer(FramebufferTarget.Framebuffer, framebuffer);
+            this.DrawRenderTarget(textureId);
+            this.UnbindShaderProgram();
         }
 
         public void DrawLine(Vector3 start, Vector3 end, Vector4 color)

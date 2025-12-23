@@ -92,7 +92,11 @@ namespace LibGFX.Graphics
         void DisposeCubemap(Cubemap cubemap);
         void DrawRenderTarget(RenderTarget2D renderTarget);
         void DrawRenderTarget(MSAARenderTarget2D renderTarget);
-        void DrawRendertarget(int textureId);
+        void DrawRenderTarget(int textureId);
+        void DrawFullScreenQuad();
+        void DrawRenderTarget(RenderTarget2D renderTarget, int framebuffer);
+        void DrawRenderTarget(MSAARenderTarget2D renderTarget, int framebuffer);
+        void DrawRenderTarget(int textureId, int framebuffer);
         void DrawLine(Vector3 start, Vector3 end, Vector4 color);
         void DrawRect(Math.Rect rect, Vector4 color, float borderWidth = 1.0f, float rotation = 0.0f);
         void FillRect(Math.Rect rect, Vector4 color, float rotation = 0.0f);

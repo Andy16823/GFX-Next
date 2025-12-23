@@ -1,6 +1,7 @@
 ﻿using LibGFX.Graphics;
 using LibGFX.Graphics.Enviroment;
 using LibGFX.Graphics.Lights;
+using LibGFX.Graphics.PostProcessing;
 using LibGFX.Math;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
@@ -20,9 +21,15 @@ namespace LibGFX.Core
     public class Scene3D : BaseScene
     {
         /// <summary>
+        /// Gets the render target associated with this scene instance.
+        /// </summary>
+        public override IRenderTarget RenderTarget { get => _renderTarget; }
+
+        /// <summary>
         /// Determines if the enviroment texture should be rendered
         /// </summary>
         public bool RenderEnviromentTexture { get; set; } = true;
+
         /// <summary>
         /// The enviroment texture of the scene
         /// </summary>
@@ -53,9 +60,7 @@ namespace LibGFX.Core
         /// </summary>
         public bool PerformShadowPass { get; set; } = true;
 
-        // The light manager for the 3D scene
         private Light3DManager _lightManager;
-
         private float _physicsAccumulator = 0.0f;
 
         /// <summary>
@@ -230,11 +235,6 @@ namespace LibGFX.Core
             renderer.UnbindRenderTarget();
             renderer.ResolveRenderTarget(_renderTarget);
             renderer.SetDepthTest(dephTest);
-
-            // Render the render target to the screen
-            renderer.BindShaderProgram(renderer.GetShaderProgram("ScreenShader"));
-            renderer.DrawRenderTarget(_renderTarget);
-            renderer.UnbindShaderProgram();
         }
 
         /// <summary>

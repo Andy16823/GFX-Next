@@ -17,6 +17,11 @@ namespace LibGFX.UI
     /// </summary>
     public class Canvas2D : Canvas
     {
+        public override IRenderTarget RenderTarget { get => _renderTarget; }
+
+        private RenderTarget2D _renderTarget;
+
+
         /// <summary>
         /// Creates a new instance of the Canvas2D class with the specified position and size.
         /// </summary>
@@ -55,8 +60,7 @@ namespace LibGFX.UI
         /// <param name="renderer"></param>
         public override void Init(IRenderDevice renderer)
         {
-            this.RenderTarget = renderer.CreateMSAARenderTarget2D((int) this.Transform.Scale.X, (int)this.Transform.Scale.Y);
-
+            _renderTarget = renderer.CreateRenderTarget2D((int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
             foreach (var control in this.Controls.Values)
             {
                 control.Init(renderer, this);
@@ -82,8 +86,8 @@ namespace LibGFX.UI
             renderer.SetViewMatrix(this.Camera.GetViewMatrix());
 
             // Render the canvas to the render target
-            renderer.ResizeRenderTarget(this.RenderTarget, (int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
-            renderer.BindRenderTarget(this.RenderTarget);
+            renderer.ResizeRenderTarget(_renderTarget, (int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
+            renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
 
@@ -98,11 +102,6 @@ namespace LibGFX.UI
             // Unbind the render target and set the depth test state back to the original state
             renderer.UnbindRenderTarget();
             renderer.SetDepthTest(depthTest);
-
-            // Render the render target to the screen
-            renderer.BindShaderProgram(renderer.GetShaderProgram("ScreenShader"));
-            renderer.DrawRenderTarget(this.RenderTarget);
-            renderer.UnbindShaderProgram();
         }
 
         /// <summary>
