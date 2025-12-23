@@ -141,16 +141,6 @@ namespace LibGFX.UI
             renderer.DrawString2D(this.Text, new Vector2(0, 0), this.Font, new Vector4(1, 1, 1, 1), this.FontScale, this.Alignment);
             renderer.UnbindShaderProgram();
             renderer.UnbindRenderTarget();
-
-            // Reset the camera and viewport
-            renderer.SetProjectionMatrix(canvas.Camera.GetProjectionMatrix(viewport));
-            renderer.SetViewMatrix(canvas.Camera.GetViewMatrix());
-            renderer.SetViewport(viewport);
-
-            // Draw the render target to the screen
-            renderer.BindShaderProgram(renderer.GetShaderProgram("SpriteShader"));
-            renderer.DrawTexture(this.Transform, this.RenderTarget.TextureId, new Vector4(1, 1, 1, 1));
-            renderer.UnbindShaderProgram();
         }
 
         /// <summary>

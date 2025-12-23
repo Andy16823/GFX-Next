@@ -93,7 +93,21 @@ namespace LibGFX.UI
 
             foreach (var control in this.Controls.Values)
             {
+                // Render the control to the render target
                 control.Render(renderer, this);
+
+                // Bind the canvas render target
+                renderer.BindRenderTarget(this.RenderTarget);
+
+                // Reset the camera and viewport
+                renderer.SetProjectionMatrix(this.Camera.GetProjectionMatrix(viewport));
+                renderer.SetViewMatrix(this.Camera.GetViewMatrix());
+                renderer.SetViewport(viewport);
+
+                // Draw the render target to the screen
+                renderer.BindShaderProgram(renderer.GetShaderProgram("SpriteShader"));
+                renderer.DrawTexture(control.Transform, control.RenderTarget.TextureId, new Vector4(1, 1, 1, 1), new Vector4(1, 1, 0, 0), Vector2.One);
+                renderer.UnbindShaderProgram();
             }
 
             // Process any registered render scopes
