@@ -103,6 +103,7 @@
             materialImageList = new ImageList(components);
             tabPage3 = new TabPage();
             propertyGrid1 = new PropertyGrid();
+            editSelectedMaterialToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -322,7 +323,7 @@
             // 
             showAABBsToolStripMenuItem.CheckOnClick = true;
             showAABBsToolStripMenuItem.Name = "showAABBsToolStripMenuItem";
-            showAABBsToolStripMenuItem.Size = new Size(180, 22);
+            showAABBsToolStripMenuItem.Size = new Size(144, 22);
             showAABBsToolStripMenuItem.Text = "Show AABB's";
             showAABBsToolStripMenuItem.Click += showAABBsToolStripMenuItem_Click;
             // 
@@ -369,7 +370,7 @@
             // 
             // extrasToolStripMenuItem
             // 
-            extrasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { materialEditorToolStripMenuItem, toolStripSeparator8, importMaterialToolStripMenuItem, assignSelectedMaterialToolStripMenuItem });
+            extrasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { materialEditorToolStripMenuItem, toolStripSeparator8, importMaterialToolStripMenuItem, assignSelectedMaterialToolStripMenuItem, editSelectedMaterialToolStripMenuItem });
             extrasToolStripMenuItem.Name = "extrasToolStripMenuItem";
             extrasToolStripMenuItem.Size = new Size(67, 20);
             extrasToolStripMenuItem.Text = "Materials";
@@ -690,6 +691,12 @@
             propertyGrid1.Size = new Size(286, 213);
             propertyGrid1.TabIndex = 0;
             // 
+            // editSelectedMaterialToolStripMenuItem
+            // 
+            editSelectedMaterialToolStripMenuItem.Name = "editSelectedMaterialToolStripMenuItem";
+            editSelectedMaterialToolStripMenuItem.Size = new Size(202, 22);
+            editSelectedMaterialToolStripMenuItem.Text = "Edit Selected Material";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -798,5 +805,6 @@
         private ToolStripMenuItem deleteToolStripMenuItem;
         private ToolStripMenuItem viewToolStripMenuItem;
         private ToolStripMenuItem showAABBsToolStripMenuItem;
+        private ToolStripMenuItem editSelectedMaterialToolStripMenuItem;
     }
 }
