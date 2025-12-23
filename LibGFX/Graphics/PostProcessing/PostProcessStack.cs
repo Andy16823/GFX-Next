@@ -11,7 +11,6 @@ namespace LibGFX.Graphics.PostProcessing
         public RenderTarget2D RenderTarget => _bufferA;
         public List<IPostProcessFilter> Filter { get; set; }
         private RenderTarget2D _bufferA;
-        //private RenderTarget2D _bufferB; // Reserved for future use (ping-pong buffering)
 
         public PostProcessStack()
         {
@@ -23,31 +22,29 @@ namespace LibGFX.Graphics.PostProcessing
             int width = (int)viewport.Width;
             int height = (int)viewport.Height;
             _bufferA = renderer.CreateRenderTarget2D(width, height);
-            //_bufferB = renderer.CreateRenderTarget2D(width, height);
             this.Filter.ForEach(f => f.Init(this, viewport, renderer));
         }
 
         public void Apply(IRenderDevice renderer, int sourceTexture)
         {
-            
-            renderer.BindRenderTarget(_bufferA);
-            renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
-
-            // Draw render target texture to screen quad with each filter
-            renderer.DrawRenderTarget(sourceTexture);
-
+            // Apply each filter in sequence
+            int lastTexture = sourceTexture;
             this.Filter.ForEach(f =>
             {
-                f.Apply(this, renderer, sourceTexture);
+                f.Apply(this, renderer, lastTexture);
+                lastTexture = f.RenderTarget.TextureId;
             });
 
+            // Finally, render the result to the main buffer
+            renderer.BindRenderTarget(_bufferA);
+            renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
+            renderer.DrawRenderTarget(lastTexture, _bufferA.FramebufferId);
             renderer.UnbindRenderTarget();
         }
 
         public void Dispose(IRenderDevice renderer)
         {
             _bufferA.Dispose(renderer);
-            //_bufferB.Dispose(renderer);
             this.Filter.ForEach(f => f.Dispose(this, renderer));
         }
 
@@ -56,7 +53,7 @@ namespace LibGFX.Graphics.PostProcessing
             int width = (int)viewport.Width;
             int height = (int)viewport.Height;
             renderer.ResizeRenderTarget(_bufferA, width, height);
-            //renderer.ResizeRenderTarget(_bufferB, width, height);
+            this.Filter.ForEach(f => f.Resize(viewport, renderer));
         }
     }
 }
