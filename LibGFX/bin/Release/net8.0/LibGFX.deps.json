@@ -6,20 +6,64 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "LibGFX/1.1.0-dev": {
+      "LibGFX/1.1.1": {
         "dependencies": {
+          "AssimpNetter": "6.0.2.1",
           "FreeTypeSharp": "3.0.0",
           "GFX.BulletSharp": "1.0.1",
           "NAudio": "2.2.1",
           "Newtonsoft.Json": "13.0.3",
           "OpenTK": "4.9.4",
           "StbImageSharp": "2.30.15",
-          "StirlingLabs.Assimp.Net": "23.4.1",
-          "StirlingLabs.assimp.native.win-x64": "5.2.5.4",
           "System.Drawing.Common": "9.0.4"
         },
         "runtime": {
           "LibGFX.dll": {}
+        }
+      },
+      "AssimpNetter/6.0.2.1": {
+        "runtime": {
+          "lib/net6.0/AssimpNetter.dll": {
+            "assemblyVersion": "6.0.2.1",
+            "fileVersion": "6.0.2.1"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm64/native/libassimp.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libassimp.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-arm64/native/libassimp.dylib": {
+            "rid": "osx-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libassimp.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/assimp.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "6.0.2.0"
+          },
+          "runtimes/win-x64/native/assimp.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "6.0.2.0"
+          },
+          "runtimes/win-x86/native/assimp.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "6.0.2.0"
+          }
         }
       },
       "FreeTypeSharp/3.0.0": {
@@ -72,13 +116,6 @@
           }
         }
       },
-      "Microsoft.NETCore.Platforms/3.1.0": {},
-      "Microsoft.Win32.Registry/4.7.0": {
-        "dependencies": {
-          "System.Security.AccessControl": "4.7.0",
-          "System.Security.Principal.Windows": "4.7.0"
-        }
-      },
       "Microsoft.Win32.SystemEvents/9.0.4": {
         "runtime": {
           "lib/net8.0/Microsoft.Win32.SystemEvents.dll": {
@@ -112,7 +149,6 @@
       },
       "NAudio.Asio/2.2.1": {
         "dependencies": {
-          "Microsoft.Win32.Registry": "4.7.0",
           "NAudio.Core": "2.2.1"
         },
         "runtime": {
@@ -154,7 +190,6 @@
       },
       "NAudio.WinMM/2.2.1": {
         "dependencies": {
-          "Microsoft.Win32.Registry": "4.7.0",
           "NAudio.Core": "2.2.1"
         },
         "runtime": {
@@ -234,9 +269,6 @@
         }
       },
       "OpenTK.Mathematics/4.9.4": {
-        "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
-        },
         "runtime": {
           "lib/netcoreapp3.1/OpenTK.Mathematics.dll": {
             "assemblyVersion": "4.9.4.0",
@@ -319,47 +351,6 @@
           }
         }
       },
-      "StirlingLabs.assimp.native.linux-x64/5.2.5.4": {
-        "runtimeTargets": {
-          "runtimes/linux-x64/native/libassimp.so": {
-            "rid": "linux-x64",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
-      "StirlingLabs.assimp.native.osx/5.2.5.4": {
-        "runtimeTargets": {
-          "runtimes/osx/native/libassimp.dylib": {
-            "rid": "osx",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
-      "StirlingLabs.assimp.native.win-x64/5.2.5.4": {
-        "runtimeTargets": {
-          "runtimes/win-x64/native/assimp.dll": {
-            "rid": "win-x64",
-            "assetType": "native",
-            "fileVersion": "5.2.5.0"
-          }
-        }
-      },
-      "StirlingLabs.Assimp.Net/23.4.1": {
-        "dependencies": {
-          "StirlingLabs.assimp.native.linux-x64": "5.2.5.4",
-          "StirlingLabs.assimp.native.osx": "5.2.5.4",
-          "StirlingLabs.assimp.native.win-x64": "5.2.5.4",
-          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
-        },
-        "runtime": {
-          "lib/net7.0/StirlingLabs.Assimp.Net.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.0.0"
-          }
-        }
-      },
       "System.Drawing.Common/9.0.4": {
         "dependencies": {
           "Microsoft.Win32.SystemEvents": "9.0.4"
@@ -374,22 +365,21 @@
             "fileVersion": "9.0.425.16312"
           }
         }
-      },
-      "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
-      "System.Security.AccessControl/4.7.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "3.1.0",
-          "System.Security.Principal.Windows": "4.7.0"
-        }
-      },
-      "System.Security.Principal.Windows/4.7.0": {}
+      }
     }
   },
   "libraries": {
-    "LibGFX/1.1.0-dev": {
+    "LibGFX/1.1.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AssimpNetter/6.0.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8HCwbd2ldYM7sliRIzyYAzrNbROPpLnh9CPO9Bf3VUokI6ecPxzOdbG54+/GwjQIf6MDd6V+05sljPDU6mpESQ==",
+      "path": "assimpnetter/6.0.2.1",
+      "hashPath": "assimpnetter.6.0.2.1.nupkg.sha512"
     },
     "FreeTypeSharp/3.0.0": {
       "type": "package",
@@ -404,20 +394,6 @@
       "sha512": "sha512-MdGYw9pEecE1iYVxUVMA0I+doxrau5oeOjnuVw+O6d95gJR/hk1c2/n4cOx8kG2+mt0RdyafohwA6Z5mLql4qg==",
       "path": "gfx.bulletsharp/1.0.1",
       "hashPath": "gfx.bulletsharp.1.0.1.nupkg.sha512"
-    },
-    "Microsoft.NETCore.Platforms/3.1.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
-      "path": "microsoft.netcore.platforms/3.1.0",
-      "hashPath": "microsoft.netcore.platforms.3.1.0.nupkg.sha512"
-    },
-    "Microsoft.Win32.Registry/4.7.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-KSrRMb5vNi0CWSGG1++id2ZOs/1QhRqROt+qgbEAdQuGjGrFcl4AOl4/exGPUYz2wUnU42nvJqon1T3U0kPXLA==",
-      "path": "microsoft.win32.registry/4.7.0",
-      "hashPath": "microsoft.win32.registry.4.7.0.nupkg.sha512"
     },
     "Microsoft.Win32.SystemEvents/9.0.4": {
       "type": "package",
@@ -559,61 +535,12 @@
       "path": "stbimagesharp/2.30.15",
       "hashPath": "stbimagesharp.2.30.15.nupkg.sha512"
     },
-    "StirlingLabs.assimp.native.linux-x64/5.2.5.4": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-rpVQ+yuCnKLOS9wslh0J79NvkYmH+4nLfCEp0t3B3aCAXMp1c5TOkT2vDyegxRuXZ+HFsKOQEMMCP+C9OHXaGA==",
-      "path": "stirlinglabs.assimp.native.linux-x64/5.2.5.4",
-      "hashPath": "stirlinglabs.assimp.native.linux-x64.5.2.5.4.nupkg.sha512"
-    },
-    "StirlingLabs.assimp.native.osx/5.2.5.4": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-2FENRVb0J8USsbSqAVTp5npGcbHGkJB4g9slJUZ5MCGBzDj51+1A/uut0lE1nxy5blar1abr/j0Q2QYvZbfapw==",
-      "path": "stirlinglabs.assimp.native.osx/5.2.5.4",
-      "hashPath": "stirlinglabs.assimp.native.osx.5.2.5.4.nupkg.sha512"
-    },
-    "StirlingLabs.assimp.native.win-x64/5.2.5.4": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-F4dUpmBCpGXxldIzLkqwJJhJ2IGKZH6yZXwFquRr4RyF4xdp6Xnu0NQN3ml6D7cHW4QSuWnJ7auIRIjRa7ltVg==",
-      "path": "stirlinglabs.assimp.native.win-x64/5.2.5.4",
-      "hashPath": "stirlinglabs.assimp.native.win-x64.5.2.5.4.nupkg.sha512"
-    },
-    "StirlingLabs.Assimp.Net/23.4.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-bkWGvYrgU10D1Y7cRx1oZkycPu1YAqbujYCogpORDLFIYKOrn2BaOJmlOHu0GFV7Bhdw7JK7z/ELVLXXA0Uf+g==",
-      "path": "stirlinglabs.assimp.net/23.4.1",
-      "hashPath": "stirlinglabs.assimp.net.23.4.1.nupkg.sha512"
-    },
     "System.Drawing.Common/9.0.4": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-SbtusMUT1bCxZ14904ZPo2GZyelze0rwUni9wXrp8KX9Zlsda8idqpxra1RBvOA85WM0wW+fCI4GLrlCTYiE6A==",
       "path": "system.drawing.common/9.0.4",
       "hashPath": "system.drawing.common.9.0.4.nupkg.sha512"
-    },
-    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
-      "path": "system.runtime.compilerservices.unsafe/6.0.0",
-      "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
-    },
-    "System.Security.AccessControl/4.7.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-JECvTt5aFF3WT3gHpfofL2MNNP6v84sxtXxpqhLBCcDRzqsPBmHhQ6shv4DwwN2tRlzsUxtb3G9M3763rbXKDg==",
-      "path": "system.security.accesscontrol/4.7.0",
-      "hashPath": "system.security.accesscontrol.4.7.0.nupkg.sha512"
-    },
-    "System.Security.Principal.Windows/4.7.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
-      "path": "system.security.principal.windows/4.7.0",
-      "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
     }
   }
 }
