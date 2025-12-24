@@ -282,17 +282,29 @@ namespace LibGFX.Core
             {
                 material.DiffuseTexture = new Texture(Path.Combine(directory, asmat.TextureDiffuse.FilePath));
             }
+            else
+            {
+                material.DiffuseTexture = new Texture(1, 1, new Vector4i(255, 255, 255, 255));
+            }
 
             if (asmat.HasTextureNormal)
             {
                 material.NormalTexture = new Texture(Path.Combine(directory, asmat.TextureNormal.FilePath));
+            }
+            else
+            {
+                material.NormalTexture = new Texture(1, 1, new Vector4i(128, 128, 255, 255));
             }
 
             if (asmat.HasTextureSpecular)
             {
                 material.SpecularTexture = new Texture(Path.Combine(directory, asmat.TextureSpecular.FilePath));
             }
-
+            else
+            {
+                material.SpecularTexture = new Texture(1, 1, new Vector4i(128, 128, 128, 255));
+            }
+            
             return material;
         }
     }
