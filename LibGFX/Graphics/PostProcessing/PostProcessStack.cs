@@ -55,5 +55,10 @@ namespace LibGFX.Graphics.PostProcessing
             renderer.ResizeRenderTarget(_bufferA, width, height);
             this.Filter.ForEach(f => f.Resize(viewport, renderer));
         }
+
+        public void Update(float deltaTime)
+        {
+            this.Filter.ForEach(f => f.Update(deltaTime));
+        }
     }
 }

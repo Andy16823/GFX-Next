@@ -51,5 +51,10 @@ namespace LibGFX.Graphics.PostProcessing
         {
             renderer.ResizeRenderTarget(_renderTarget, (int)viewport.Width, (int)viewport.Height);
         }
+
+        public void Update(float deltaTime)
+        {
+            // No dynamic properties to update for this effect
+        }
     }
 }

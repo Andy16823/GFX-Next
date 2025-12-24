@@ -13,5 +13,6 @@ namespace LibGFX.Graphics.PostProcessing
         void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer);
         void Dispose(PostProcessStack stack, IRenderDevice renderer);
         void Resize(Viewport viewport, IRenderDevice renderer);
+        void Update(float deltaTime);
     }
 }
