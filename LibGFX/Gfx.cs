@@ -28,6 +28,12 @@ namespace LibGFX
         /// </summary>
         public AssetManager AssetManager { get; set; }
 
+        /// <summary>
+        /// Gets the material importer used to load materials of various types.
+        /// </summary>
+        public MaterialImporter MaterialImporter { get; private set; }
+
+
         private static readonly object _lock = new object();
         private static GFX _instance;
         private Window? _window;
@@ -49,6 +55,9 @@ namespace LibGFX
             AssetManager.RegisterLoader<Shader>(new ShaderLoader());
             AssetManager.RegisterLoader<SkinnedMeshModel>(new SkinnedMeshModelLoader());
             AssetManager.RegisterLoader<StaticMeshModel>(new StaticMeshModelLoader());
+
+            MaterialImporter = new MaterialImporter();
+            MaterialImporter.RegisterImporter<SGMaterial>(new SGMaterialImporter());
         }
 
         /// <summary>

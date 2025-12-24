@@ -84,7 +84,7 @@ namespace LibGFX.Graphics
             {
                 var mesh = new Graphics.Mesh();
                 mesh.Name = asmesh.Name;
-                mesh.Material = Utils.LoadMaterial(assimpScene.Materials[asmesh.MaterialIndex], directory);
+                mesh.Material = GFX.Instance.MaterialImporter.ImportAssimpMaterial<SGMaterial>(assimpScene.Materials[asmesh.MaterialIndex], directory);
 
                 for (int i = 0; i < asmesh.VertexCount; i++)
                 {

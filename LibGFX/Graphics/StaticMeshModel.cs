@@ -2,6 +2,7 @@
 using Assimp.Configs;
 using LibGFX.Core;
 using LibGFX.Graphics.Animation3D;
+using LibGFX.Graphics.Materials;
 using LibGFX.Math;
 using OpenTK.Mathematics;
 using System;
@@ -70,7 +71,7 @@ namespace LibGFX.Graphics
             {
                 var mesh = new Mesh();
                 mesh.Name = asmesh.Name;
-                mesh.Material = Utils.LoadMaterial(assimpScene.Materials[asmesh.MaterialIndex], directory);
+                mesh.Material = GFX.Instance.MaterialImporter.ImportAssimpMaterial<SGMaterial>(assimpScene.Materials[asmesh.MaterialIndex], directory);
 
                 for (int i = 0; i < asmesh.VertexCount; i++)
                 {
