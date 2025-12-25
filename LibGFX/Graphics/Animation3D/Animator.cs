@@ -132,7 +132,7 @@ namespace LibGFX.Graphics.Animation3D
         /// <summary>
         /// Calculates bone transformations recursively based on the animation hierarchy.
         /// </summary>
-        public void CalculateBoneTransform(AssimpNodeData node, Matrix4 parentTransform)
+        public void CalculateBoneTransform(SceneNodeData node, Matrix4 parentTransform)
         {
             string nodeName = node.name;
             Matrix4 nodeTransform = node.transformation;

@@ -30,7 +30,7 @@ namespace LibGFX.Graphics
         /// <summary>
         /// Node structure of the model as imported from Assimp.
         /// </summary>
-        public AssimpNodeData NodeStructure { get; set; }
+        public SceneNodeData NodeStructure { get; set; }
 
         /// <summary>
         /// Gets the current state of the model.
@@ -71,7 +71,7 @@ namespace LibGFX.Graphics
             {
                 var mesh = new Mesh();
                 mesh.Name = asmesh.Name;
-                mesh.Material = GFX.Instance.MaterialImporter.ImportAssimpMaterial<SGMaterial>(assimpScene.Materials[asmesh.MaterialIndex], directory);
+                mesh.Material = SGMaterial.LoadMaterial(assimpScene.Materials[asmesh.MaterialIndex], directory);
 
                 for (int i = 0; i < asmesh.VertexCount; i++)
                 {
@@ -134,16 +134,16 @@ namespace LibGFX.Graphics
         /// <param name="node"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        private AssimpNodeData LoadNodeStructure(Node node)
+        private SceneNodeData LoadNodeStructure(Node node)
         {
             if (node == null)
                 throw new ArgumentNullException(nameof(node));
 
-            var nodeData = new AssimpNodeData
+            var nodeData = new SceneNodeData
             {
                 name = node.Name,
                 transformation = (Matrix4) Math.MathUtils.ToColumnMajorMatrix(node.Transform),
-                children = new List<AssimpNodeData>()
+                children = new List<SceneNodeData>()
             };
             foreach (var child in node.Children)
             {
@@ -153,6 +153,13 @@ namespace LibGFX.Graphics
             return nodeData;
         }
 
+        /// <summary>
+        /// Initializes the model and loads all associated meshes and materials into the specified render device.
+        /// </summary>
+        /// <remarks>Call this method before attempting to render the model. After initialization, the
+        /// model's meshes and materials are prepared for use with the provided render device. This method has no effect
+        /// if called multiple times on an already initialized model.</remarks>
+        /// <param name="renderer">The render device used to initialize materials and load meshes. Cannot be null.</param>
         public void Init(IRenderDevice renderer)
         {
             Debug.WriteLine("Importing Static Model with " + Meshes.Count + " meshes.");
@@ -165,6 +172,12 @@ namespace LibGFX.Graphics
             Debug.WriteLine("Static Model import complete.");
         }
 
+        /// <summary>
+        /// Releases all resources used by the static model and its associated meshes using the specified render device.
+        /// </summary>
+        /// <remarks>After calling this method, the static model and its meshes should not be used. This
+        /// method must be called to free graphics resources when the model is no longer needed.</remarks>
+        /// <param name="renderer">The render device used to dispose of the model's meshes and materials. Cannot be null.</param>
         public void Dispose(IRenderDevice renderer)
         {
             Debug.WriteLine("Disposing Static Model with " + Meshes.Count + " meshes.");
@@ -175,6 +188,18 @@ namespace LibGFX.Graphics
             }
             _state = ModelState.Disposed;
             Debug.WriteLine("Static Model disposal complete.");
+        }
+
+        /// <summary>
+        /// Searches for a node with the specified name in the scene graph.
+        /// </summary>
+        /// <param name="name">The name of the node to locate. The search is case-sensitive and cannot be null.</param>
+        /// <param name="node">When this method returns, contains the data for the found node if a node with the specified name exists;
+        /// otherwise, contains the default value.</param>
+        /// <returns>true if a node with the specified name is found; otherwise, false.</returns>
+        public bool FindNodeByName(string name, out SceneNodeData node)
+        {
+            return Utils.FindNodeByNameRecursive(NodeStructure, name, out node);
         }
     }
 }

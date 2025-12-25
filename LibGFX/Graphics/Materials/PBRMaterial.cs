@@ -134,5 +134,10 @@ namespace LibGFX.Graphics.Materials
             };
             return material;
         }
+
+        public static IMaterial LoadMaterial(Assimp.Material asmat, String directory)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -66,7 +66,7 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         public Skeleton Skeleton { get; set; }
 
-        public AssimpNodeData NodeStructure { get; set; }
+        public SceneNodeData NodeStructure { get; set; }
 
 
         /// <summary>
@@ -173,16 +173,16 @@ namespace LibGFX.Core.GameElements
         /// Loads the node structure of the model
         /// </summary>
         /// <param name="node"></param>
-        private AssimpNodeData LoadNodeStructure(Node node)
+        private SceneNodeData LoadNodeStructure(Node node)
         {
             if (node == null)
                 throw new ArgumentNullException(nameof(node));
 
-            var nodeData = new AssimpNodeData
+            var nodeData = new SceneNodeData
             {
                 name = node.Name,
                 transformation = (Matrix4) Math.MathUtils.ToColumnMajorMatrix(node.Transform),
-                children = new List<AssimpNodeData>()
+                children = new List<SceneNodeData>()
             };
             foreach (var child in node.Children)
             {
@@ -600,7 +600,7 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public (bool, AssimpNodeData) FindNode(String name)
+        public (bool, SceneNodeData) FindNode(String name)
         {
             return FindNodeRecursive(this.NodeStructure, name);
         }
@@ -611,7 +611,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="node"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        private (bool, AssimpNodeData) FindNodeRecursive(AssimpNodeData node, String name)
+        private (bool, SceneNodeData) FindNodeRecursive(SceneNodeData node, String name)
         {
             if (node.name == name)
                 return (true, node);
@@ -623,7 +623,7 @@ namespace LibGFX.Core.GameElements
                     return result;
             }
 
-            return (false, new AssimpNodeData());
+            return (false, new SceneNodeData());
         }
 
         /// <summary>
@@ -632,7 +632,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="currentNode"></param>
         /// <param name="targetNode"></param>
         /// <returns></returns>
-        private (bool, AssimpNodeData) FindParentNode(AssimpNodeData currentNode, AssimpNodeData targetNode)
+        private (bool, SceneNodeData) FindParentNode(SceneNodeData currentNode, SceneNodeData targetNode)
         {
             foreach (var child in currentNode.children)
             {
@@ -646,7 +646,7 @@ namespace LibGFX.Core.GameElements
                     return result;
                 }
             }
-            return (false, new AssimpNodeData());
+            return (false, new SceneNodeData());
         }
 
         /// <summary>

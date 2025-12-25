@@ -1,4 +1,5 @@
 ﻿using LibGFX.Graphics;
+using LibGFX.Graphics.Animation3D;
 using LibGFX.Graphics.Materials;
 using LibGFX.Math;
 using Newtonsoft.Json.Linq;
@@ -263,6 +264,35 @@ namespace LibGFX.Core
                 (false, true) => GFXRenderbufferStorage.StencilIndex8,
                 _ => throw new ArgumentException("At least one of depth or stencil must be true.")
             };
+        }
+
+
+        /// <summary>
+        /// Recursively searches the scene graph starting from the specified node for a node with the given name.
+        /// </summary>
+        /// <remarks>The search is performed in a depth-first manner. Only the first matching node
+        /// encountered will be returned in foundNode.</remarks>
+        /// <param name="currentNode">The node from which to begin the search. This node and its descendants will be examined.</param>
+        /// <param name="name">The name of the node to search for. The comparison is case-sensitive.</param>
+        /// <param name="foundNode">When this method returns, contains the first node with the specified name if found; otherwise, a default
+        /// value.</param>
+        /// <returns>true if a node with the specified name is found; otherwise, false.</returns>
+        public static bool FindNodeByNameRecursive(SceneNodeData currentNode, string name, out SceneNodeData foundNode)
+        {
+            if (currentNode.name == name)
+            {
+                foundNode = currentNode;
+                return true;
+            }
+            foreach (var child in currentNode.children)
+            {
+                if (FindNodeByNameRecursive(child, name, out foundNode))
+                {
+                    return true;
+                }
+            }
+            foundNode = new SceneNodeData();
+            return false;
         }
     }
 }

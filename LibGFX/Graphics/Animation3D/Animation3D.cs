@@ -15,12 +15,12 @@ namespace LibGFX.Graphics.Animation3D
     /// <summary>
     /// Represents data associated with a node in the Assimp scene hierarchy.
     /// </summary>
-    public struct AssimpNodeData
+    public struct SceneNodeData
     {
         public Matrix4 transformation;
         public string name;
         public int childrenCount;
-        public List<AssimpNodeData> children;
+        public List<SceneNodeData> children;
     };
 
     /// <summary>
@@ -51,7 +51,7 @@ namespace LibGFX.Graphics.Animation3D
         /// <summary>
         /// Root node of the animation's scene hierarchy.
         /// </summary>
-        public AssimpNodeData RootNode { get; set; }
+        public SceneNodeData RootNode { get; set; }
 
         /// <summary>
         /// Mapping of bone names to bone information.
@@ -70,7 +70,7 @@ namespace LibGFX.Graphics.Animation3D
             this.Name = animation.Name;
             this.Duration = (float)animation.DurationInTicks;
             this.TicksPerSecond = (float)animation.TicksPerSecond;
-            var rootNode = new AssimpNodeData();
+            var rootNode = new SceneNodeData();
             this.ReadHeirarchyData(ref rootNode, scene.RootNode);
             this.RootNode = rootNode;
             LoadAnimationChannel(animation);
@@ -89,7 +89,7 @@ namespace LibGFX.Graphics.Animation3D
             this.Name = animation.Name;
             this.Duration = (float)animation.DurationInTicks;
             this.TicksPerSecond = (float)animation.TicksPerSecond;
-            var rootNode = new AssimpNodeData();
+            var rootNode = new SceneNodeData();
             this.ReadHeirarchyData(ref rootNode, scene.RootNode);
             this.RootNode = rootNode;
             this.LoadAnimationChannel(animation);
@@ -98,17 +98,17 @@ namespace LibGFX.Graphics.Animation3D
         /// <summary>
         /// Reads hierarchy data from the Assimp scene node.
         /// </summary>
-        void ReadHeirarchyData(ref AssimpNodeData dest, Assimp.Node src)
+        void ReadHeirarchyData(ref SceneNodeData dest, Assimp.Node src)
         {
             Debug.Assert(src != null);
             dest.name = src.Name;
             dest.transformation = (Matrix4) src.Transform;
             dest.childrenCount = src.ChildCount;
-            dest.children = new List<AssimpNodeData>();
+            dest.children = new List<SceneNodeData>();
 
             for (int i = 0; i < src.ChildCount; i++)
             {
-                AssimpNodeData newData = new AssimpNodeData();
+                SceneNodeData newData = new SceneNodeData();
                 ReadHeirarchyData(ref newData, src.Children[i]);
                 dest.children.Add(newData);
             }

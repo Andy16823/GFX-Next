@@ -33,7 +33,7 @@ namespace LibGFX.Graphics
         /// <summary>
         /// The node structure of this model
         /// </summary>
-        public AssimpNodeData NodeStructure { get; set; }
+        public SceneNodeData NodeStructure { get; set; }
 
         /// <summary>
         /// Gets the current state of the model.

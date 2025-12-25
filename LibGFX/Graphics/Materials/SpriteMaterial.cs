@@ -90,5 +90,10 @@ namespace LibGFX.Graphics.Materials
         {
             renderDevice.PrepareShader("textureSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, Texture);
         }
+
+        public static IMaterial LoadMaterial(Assimp.Material asmat, String directory)
+        {
+            throw new NotSupportedException("SpriteMaterials cannot be loaded from Assimp materials.");
+        }
     }
 }

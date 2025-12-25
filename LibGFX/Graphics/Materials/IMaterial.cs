@@ -25,5 +25,6 @@ namespace LibGFX.Graphics.Materials
         public void Init(IRenderDevice renderDevice);
         public void Use(IRenderDevice renderDevice);
         public void Dispose(IRenderDevice renderDevice);
+        public abstract static IMaterial LoadMaterial(Assimp.Material asmat, String directory);
     }
 }

@@ -302,5 +302,55 @@ namespace LibGFX.Core
                 return Transform.Attach(Parent.GetWorldTransform(), this.Transform);
             }
         }
+
+        /// <summary>
+        /// Searches the immediate child elements and returns the first child of the specified type.
+        /// </summary>
+        /// <remarks>Only immediate children are considered in the search. If multiple children of type T
+        /// exist, only the first is returned.</remarks>
+        /// <typeparam name="T">The type of child element to search for. Must derive from GameElement.</typeparam>
+        /// <returns>The first child element of type T if found; otherwise, null.</returns>
+        public T FindChild<T>() where T : GameElement
+        {
+            return this.Children.OfType<T>().FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Returns an array containing all child elements of the specified type.
+        /// </summary>
+        /// <typeparam name="T">The type of child elements to search for. Must derive from GameElement.</typeparam>
+        /// <returns>An array of elements of type T that are children of this instance. The array is empty if no matching
+        /// children are found.</returns>
+        public T[] FindChildren<T>() where T : GameElement
+        {
+            return this.Children.OfType<T>().ToArray();
+        }
+
+
+        /// <summary>
+        /// Searches for a child element of the specified type with the given name.
+        /// </summary>
+        /// <remarks>If multiple child elements of type T share the same name, only the first one
+        /// encountered is returned. The search is limited to immediate children and does not include nested
+        /// descendants.</remarks>
+        /// <typeparam name="T">The type of child element to search for. Must derive from GameElement.</typeparam>
+        /// <param name="name">The name of the child element to locate. The comparison is case-sensitive.</param>
+        /// <returns>The first child element of type T with the specified name, or null if no matching element is found.</returns>
+        public T FindChild<T>(string name) where T : GameElement
+        {
+            return this.Children.OfType<T>().FirstOrDefault(c => c.Name == name);
+        }
+
+        /// <summary>
+        /// Finds all child elements of the specified type that have the given name.
+        /// </summary>
+        /// <typeparam name="T">The type of child elements to search for. Must derive from GameElement.</typeparam>
+        /// <param name="name">The name of the child elements to find. The comparison is case-sensitive.</param>
+        /// <returns>An array containing all child elements of type T whose Name property matches the specified name. The array
+        /// will be empty if no matching elements are found.</returns>
+        public T[] FindChildren<T>(string name) where T : GameElement
+        {
+            return this.Children.OfType<T>().Where(c => c.Name == name).ToArray();
+        }
     }
 }

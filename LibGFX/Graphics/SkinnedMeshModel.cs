@@ -34,7 +34,7 @@ namespace LibGFX.Graphics
         /// <summary>
         /// The node structure of the model as imported from Assimp.
         /// </summary>
-        public AssimpNodeData NodeStructure { get; set; }
+        public SceneNodeData NodeStructure { get; set; }
 
         /// <summary>
         /// The skeleton associated with the skinned mesh model.
@@ -84,7 +84,7 @@ namespace LibGFX.Graphics
             {
                 var mesh = new Graphics.Mesh();
                 mesh.Name = asmesh.Name;
-                mesh.Material = GFX.Instance.MaterialImporter.ImportAssimpMaterial<SGMaterial>(assimpScene.Materials[asmesh.MaterialIndex], directory);
+                mesh.Material = SGMaterial.LoadMaterial(assimpScene.Materials[asmesh.MaterialIndex], directory);
 
                 for (int i = 0; i < asmesh.VertexCount; i++)
                 {
@@ -115,16 +115,16 @@ namespace LibGFX.Graphics
         /// <param name="node"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        private AssimpNodeData LoadNodeStructure(Node node)
+        private SceneNodeData LoadNodeStructure(Node node)
         {
             if (node == null)
                 throw new ArgumentNullException(nameof(node));
 
-            var nodeData = new AssimpNodeData
+            var nodeData = new SceneNodeData
             {
                 name = node.Name,
                 transformation = (Matrix4) Math.MathUtils.ToColumnMajorMatrix(node.Transform),
-                children = new List<AssimpNodeData>()
+                children = new List<SceneNodeData>()
             };
             foreach (var child in node.Children)
             {
@@ -316,11 +316,11 @@ namespace LibGFX.Graphics
 
             // Wrap existing NodeStructure under new root
             var oldNodeStructure = this.NodeStructure;
-            var newRootNode = new Graphics.Animation3D.AssimpNodeData
+            var newRootNode = new Graphics.Animation3D.SceneNodeData
             {
                 name = syntheticRootName,
                 transformation = Matrix4.Identity,
-                children = new List<Graphics.Animation3D.AssimpNodeData>()
+                children = new List<Graphics.Animation3D.SceneNodeData>()
             };
 
             // Attach old root as child of new root (if not empty)
@@ -348,11 +348,11 @@ namespace LibGFX.Graphics
                 // Skip if already has synthetic root and not forcing
                 if (!force && prevRoot.name == syntheticRootName) continue;
 
-                var animNewRoot = new Graphics.Animation3D.AssimpNodeData
+                var animNewRoot = new Graphics.Animation3D.SceneNodeData
                 {
                     name = syntheticRootName,
                     transformation = Matrix4.Identity,
-                    children = new List<Graphics.Animation3D.AssimpNodeData>()
+                    children = new List<Graphics.Animation3D.SceneNodeData>()
                 };
 
                 // Attach previous root as child of new root (if not empty)
@@ -373,6 +373,18 @@ namespace LibGFX.Graphics
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// Searches for a node with the specified name in the scene graph.
+        /// </summary>
+        /// <param name="name">The name of the node to locate. The search is case-sensitive and cannot be null.</param>
+        /// <param name="node">When this method returns, contains the data for the found node if a node with the specified name exists;
+        /// otherwise, contains the default value.</param>
+        /// <returns>true if a node with the specified name is found; otherwise, false.</returns>
+        public bool FindNodeByName(string name, out SceneNodeData node)
+        {
+            return Utils.FindNodeByNameRecursive(NodeStructure, name, out node);
         }
     }
 }
