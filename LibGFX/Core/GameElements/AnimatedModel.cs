@@ -173,5 +173,14 @@ namespace LibGFX.Core.GameElements
                 this.Animator.CurrentAnimation = _model.Animations[index];
             }
         }
+
+        /// <summary>
+        /// Gets the underlying skinned mesh model associated with this instance.
+        /// </summary>
+        /// <returns>The <see cref="Graphics.SkinnedMeshModel"/> representing the current skinned mesh model.</returns>
+        public Graphics.SkinnedMeshModel GetModel()
+        {
+            return _model;
+        }
     }
 }

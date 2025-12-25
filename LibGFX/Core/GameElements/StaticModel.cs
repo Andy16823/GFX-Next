@@ -107,9 +107,24 @@ namespace LibGFX.Core.GameElements
             this.AABB = new AABB(min, max);
         }
 
+        /// <summary>
+        /// Retrieves all meshes contained in the model.
+        /// </summary>
+        /// <returns>An array of <see cref="Mesh"/> objects representing the meshes in the model, or <see langword="null"/> if no
+        /// meshes are available. The array will be empty if the model contains no meshes.</returns>
         public override Mesh[]? GetMeshes()
         {
             return _model.Meshes.Values.ToArray();
+        }
+
+        /// <summary>
+        /// Retrieves the static mesh model associated with this instance.
+        /// </summary>
+        /// <returns>The <see cref="Graphics.StaticMeshModel"/> representing the current static mesh. Returns null if no model is
+        /// set.</returns>
+        public Graphics.StaticMeshModel GetModel()
+        {
+            return _model;
         }
     }
 }

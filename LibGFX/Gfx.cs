@@ -30,9 +30,10 @@ namespace LibGFX
 
         /// <summary>
         /// Gets the material importer used to load materials of various types.
+        /// Note: The MaterialImporter is not caching the materials or storing them in the AssetManager.
+        /// Its a general utility to import materials from different sources and different formats.
         /// </summary>
         public MaterialImporter MaterialImporter { get; private set; }
-
 
         private static readonly object _lock = new object();
         private static GFX _instance;
