@@ -200,6 +200,17 @@ namespace LibGFX.Core
             return new Vector4(scaleX, scaleY, offsetX, offsetY);
         }
 
+        /// <summary>
+        /// Creates a new Bitmap from a byte array containing pixel data in BGRA format with 32 bits per pixel.
+        /// </summary>
+        /// <remarks>The resulting bitmap is vertically flipped to match the coordinate origin used by
+        /// OpenGL, where the origin is at the bottom-left corner. The input pixel data must be in row-major order, with
+        /// each pixel represented by four bytes (blue, green, red, alpha).</remarks>
+        /// <param name="pixels">An array of bytes representing the pixel data in BGRA order. The array length must be at least width ×
+        /// height × 4.</param>
+        /// <param name="width">The width, in pixels, of the resulting bitmap. Must be greater than 0.</param>
+        /// <param name="height">The height, in pixels, of the resulting bitmap. Must be greater than 0.</param>
+        /// <returns>A Bitmap object containing the image represented by the specified BGRA pixel data.</returns>
         public static System.Drawing.Bitmap ByteBGRAToBitmap(byte[] pixels, int width, int height)
         {
             Bitmap bitmap = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
@@ -255,6 +266,15 @@ namespace LibGFX.Core
             return localPosition;
         }
 
+        /// <summary>
+        /// Selects the most appropriate depth and/or stencil renderbuffer storage format based on the specified
+        /// requirements.
+        /// </summary>
+        /// <param name="depth">true to request a format that supports depth buffering; otherwise, false.</param>
+        /// <param name="stencil">true to request a format that supports stencil buffering; otherwise, false.</param>
+        /// <returns>A GFXRenderbufferStorage value representing the best matching format for the requested depth and stencil
+        /// support.</returns>
+        /// <exception cref="ArgumentException">Thrown if both depth and stencil are false, as at least one must be requested.</exception>
         public static GFXRenderbufferStorage GetBestDepthStencilFormat(bool depth, bool stencil)
         {
             return (depth, stencil) switch
