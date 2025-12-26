@@ -43,34 +43,6 @@ namespace LibGFX.Assets
         }
 
         /// <summary>
-        /// Tries to load an asset from the specified path.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="path"></param>
-        /// <param name="asset"></param>
-        /// <returns></returns>
-        public bool TryLoad<T>(string path, out T? asset, object? loadingArgs = null) where T : class
-        {
-            asset = this.Load<T>(path, loadingArgs);
-            if(asset == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Loads a new asset from the specified path, bypassing the cache.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        public T LoadNew<T>(string path, object? loadingArgs = null) where T : class
-        {
-            return this.LoadAssetFromDisk<T>(path, loadingArgs);
-        }
-
-        /// <summary>
         /// Gets the asset count for a specific asset type.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -211,52 +183,6 @@ namespace LibGFX.Assets
             }
 
             return (T)asset;
-        }
-
-        /// <summary>
-        /// Tries to create a new asset of the specified type with the given ID and optional initializer.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="id"></param>
-        /// <param name="asset"></param>
-        /// <param name="initializer"></param>
-        /// <param name="creationArgs"></param>
-        /// <returns></returns>
-        public bool TryCreate<T>(string id, out T? asset, Action<T>? initializer = null, object? creationArgs = null) where T : class
-        {
-            // Check if an loader is registered for the asset type
-            if (!_loaders.TryGetValue(typeof(T), out var loader))
-            {
-                asset = null;
-                return false;
-            }
-            // Check if the loader can create assets
-            if (!loader.CanCreate)
-            {
-                asset = null;
-                return false;
-            }
-            // Check if an asset with the same ID already exists
-            var key = (typeof(T), id);
-            if (loader.ShouldCache && _assets.ContainsKey(key))
-            {
-                asset = null;
-                return false;
-            }
-            // Create the asset
-            asset = loader.Create<T>(id, initializer, creationArgs);
-            // Check if the asset was created successfully
-            if (asset == null)
-            {
-                return false;
-            }
-            // Cache the asset if the loader supports caching
-            if (loader.ShouldCache)
-            {
-                _assets.Add(key, asset);
-            }
-            // Return true to indicate success
-            return true;
         }
 
         /// <summary>
