@@ -21,6 +21,13 @@ namespace LibGFX.Core
     public class Scene3D : BaseScene
     {
         /// <summary>
+        /// Represents the default 3D scene instance.
+        /// </summary>
+        /// <remarks>Use this field to access a standard, preconfigured scene when no custom scene is
+        /// required.</remarks>
+        public static Scene3D Default = new Scene3D("Default");
+
+        /// <summary>
         /// Gets the render target associated with this scene instance.
         /// </summary>
         public override IRenderTarget RenderTarget { get => _renderTarget; }

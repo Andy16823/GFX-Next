@@ -91,7 +91,6 @@ namespace LibGFX.Core
             this.Layers = new List<Layer>(); 
             this.RenderStats = new RenderStats();
             this.SceneBehaviors = new List<ISceneBehavior>();
-            this.Layers.Add(new Layer("DefaultLayer"));
         }
 
         /// <summary>

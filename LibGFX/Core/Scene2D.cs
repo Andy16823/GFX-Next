@@ -16,6 +16,13 @@ namespace LibGFX.Core
     public class Scene2D : BaseScene
     {
         /// <summary>
+        /// Gets the default 2D scene instance.
+        /// </summary>
+        /// <remarks>Use this property to obtain a standard or fallback scene when no specific scene is
+        /// required.</remarks>
+        public static Scene2D Default => new Scene2D("Default");
+
+        /// <summary>
         /// Gets the render target associated with this instance.
         /// </summary>
         public override IRenderTarget RenderTarget { get => _renderTarget; }       
