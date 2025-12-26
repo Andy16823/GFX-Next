@@ -21,13 +21,6 @@ namespace LibGFX.Core
     public class Scene3D : BaseScene
     {
         /// <summary>
-        /// Represents the default 3D scene instance.
-        /// </summary>
-        /// <remarks>Use this field to access a standard, preconfigured scene when no custom scene is
-        /// required.</remarks>
-        public static Scene3D Default = new Scene3D("Default");
-
-        /// <summary>
         /// Gets the render target associated with this scene instance.
         /// </summary>
         public override IRenderTarget RenderTarget { get => _renderTarget; }
@@ -363,6 +356,17 @@ namespace LibGFX.Core
         public void AddPointLight(PointLight3D light)
         {
             _lightManager.AddPointLight(light);
+        }
+
+        /// <summary>
+        /// Creates a new 3D scene with a default configuration, including a directional light source.
+        /// </summary>
+        /// <returns>A new instance of <see cref="Scene3D"/> preconfigured with default lighting and settings.</returns>
+        public static Scene3D CreateDefaultScene()
+        {
+            var scene = new Scene3D("Default");
+            scene.SetDirectionalLight(new DirectionalLight3D(new Vector3(-0.2f, 1.0f, -0.3f), ColorPresets.Gray, 5.0f));
+            return scene;
         }
     }
 }
