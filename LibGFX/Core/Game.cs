@@ -81,14 +81,17 @@ namespace LibGFX.Core
             this.RenderDevice.UseVsync(useVsync);
             this.RenderDevice.EnableAlphaBlend();
 
-            // Initialize game elements
-            this.Initialize();
-
             // Load content and assets
-            this.LoadContent();
+            this.LoadContent(this.AssetManager);
+
+            // Make the render device current
+            this.RenderDevice.MakeCurrent();
 
             // Load assets in the asset manager
-            this.AssetManager.InitializeAssets(renderDevice);
+            this.AssetManager.InitializeAssets(this.RenderDevice);
+
+            // Initialize game elements
+            this.Initialize(this.RenderDevice);
 
             // Call the OnStart method
             this.OnStart();
@@ -130,14 +133,14 @@ namespace LibGFX.Core
         }
 
         /// <summary>
-        /// Initializes game elements and state.
-        /// </summary>
-        public abstract void Initialize();
-
-        /// <summary>
         /// Loads game content and assets.
         /// </summary>
-        public abstract void LoadContent();
+        public abstract void LoadContent(AssetManager assets);
+
+        /// <summary>
+        /// Initializes game elements and state.
+        /// </summary>
+        public abstract void Initialize(IRenderDevice renderer);
 
         /// <summary>
         /// Called when the game starts.
