@@ -131,6 +131,29 @@ namespace LibGFX.Assets
         }
 
         /// <summary>
+        /// Adds the specified asset to the collection if an asset with the same name does not already exist.
+        /// </summary>
+        /// <typeparam name="T">The type of asset to add. Must implement <see cref="IIdentifier"/>.</typeparam>
+        /// <param name="asset">The asset to add to the collection. Cannot be <see langword="null"/>.</param>
+        /// <returns>The added asset of type <typeparamref name="T"/>.</returns>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="asset"/> is <see langword="null"/>.</exception>
+        /// <exception cref="InvalidOperationException">Thrown if an asset with the same name already exists in the collection.</exception>
+        public T Add<T>(T asset) where T : class, IIdentifier
+        {
+            if (asset == null)
+            {
+                throw new ArgumentNullException(nameof(asset));
+            }
+
+            var key = (typeof(T), asset.Name);
+            if (!_assets.TryAdd(key, asset))
+            {
+                throw new InvalidOperationException($"Asset with name '{asset.Name}' already exists.");
+            }
+            return (T)asset;
+        }
+
+        /// <summary>
         /// Loads an asset from disk using the registered loader for the specified type.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -341,6 +364,12 @@ namespace LibGFX.Assets
             }
         }
 
+        /// <summary>
+        /// Releases all graphics resources associated with the managed assets using the specified rendering device.
+        /// </summary>
+        /// <remarks>Only assets that implement the IGraphicsResource interface are disposed. Assets that
+        /// do not implement this interface are ignored.</remarks>
+        /// <param name="renderer">The rendering device to use when disposing of graphics resources. Cannot be null.</param>
         public void DisposeAssets(IRenderDevice renderer)
         {
             foreach (var asset in _assets.Values)

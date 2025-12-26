@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibGFX.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,22 +7,10 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shader
 {
-
-    /// <summary>
-    /// Shader flags used to indicate the state of the shader program.
-    /// </summary>
-    public enum ShaderFlags
-    {
-        None,
-        Loaded,
-        Disposed,
-        Failed
-    }
-
     /// <summary>
     /// Represents a shader program that consists of a vertex shader and a fragment shader.
     /// </summary>
-    public class ShaderProgram
+    public class ShaderProgram : IGraphicsResource
     {
         /// <summary>
         /// Gets or sets the ID of the shader program.
@@ -39,9 +28,9 @@ namespace LibGFX.Graphics.Shader
         public Shader FragmentShader { get; set; }
 
         /// <summary>
-        /// Gets or sets the shader flags.
+        /// Gets a value indicating whether the object has been initialized.
         /// </summary>
-        public ShaderFlags Flags { get; set; }
+        public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
         /// Default constructor for the ShaderProgram class.
@@ -61,6 +50,36 @@ namespace LibGFX.Graphics.Shader
         {
             this.VertexShader = vertexShader;
             this.FragmentShader = fragmentShader;
+        }
+
+        /// <summary>
+        /// Initializes the shader program using the specified render device.
+        /// </summary>
+        /// <param name="renderer">The render device used to build and initialize the shader program. Cannot be null.</param>
+        /// <exception cref="InvalidOperationException">Thrown if the shader program has already been initialized.</exception>
+        public void Init(IRenderDevice renderer)
+        {
+            if(this.IsInitialized)
+            {
+                throw new InvalidOperationException("ShaderProgram is already initialized.");
+            }
+            renderer.BuildShaderProgram(this);
+            IsInitialized = true;
+        }
+
+        /// <summary>
+        /// Releases the resources associated with this shader program using the specified render device.
+        /// </summary>
+        /// <param name="renderer">The render device used to dispose of the shader program. Cannot be null.</param>
+        /// <exception cref="InvalidOperationException">Thrown if the shader program is not initialized.</exception>
+        public void Dispose(IRenderDevice renderer)
+        {
+            if(!this.IsInitialized)
+            {
+                throw new InvalidOperationException("ShaderProgram is not initialized.");
+            }
+            renderer.DisposeShaderProgram(this);
+            IsInitialized = false;
         }
     }
 }

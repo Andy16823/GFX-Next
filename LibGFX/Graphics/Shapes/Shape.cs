@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibGFX.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shapes
 {
-    public abstract class Shape
+    public abstract class Shape : IGraphicsResource
     {
         public int VertexArray { get; set; }
         public int VertexBuffer { get; set; }
@@ -15,7 +16,7 @@ namespace LibGFX.Graphics.Shapes
         public int NormalBuffer { get; set; }
         public int IndexBuffer { get; set; }
         public int TangentBuffer { get; set; }
-
+        public bool IsInitialized { get; private set; } = false;
         public abstract int GetIndexCount();
         public abstract float[] GetVertices();
         public abstract float[] GetUVCoords();
@@ -32,5 +33,26 @@ namespace LibGFX.Graphics.Shapes
         public virtual bool DynamicUVCoords() => false;
         public virtual bool DynamicNormals() => false;
         public virtual bool DynamicTangents() => false;
+
+        public void Init(IRenderDevice renderer)
+        {
+            if(IsInitialized)
+            {
+                throw new InvalidOperationException("Shape is already initialized.");
+            }
+
+            renderer.InitShape(this);
+            IsInitialized = true;
+        }
+
+        public void Dispose(IRenderDevice renderer)
+        {
+            if (!IsInitialized)
+            {
+                throw new InvalidOperationException("Shape is not initialized.");
+            }
+            renderer.DisposeShape(this);
+            IsInitialized = false;
+        }
     }
 }

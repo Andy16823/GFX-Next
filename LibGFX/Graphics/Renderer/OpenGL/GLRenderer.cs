@@ -80,9 +80,8 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             AddShape(new CubeWireShape());
             foreach (var shape in _shapes.Values)
             {
-                InitShape(shape);
+                shape.Init(this);
             }
-            //GL.Enable(EnableCap.Multisample);
         }
 
         public void Init(Window window)
@@ -536,14 +535,12 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             {
                 GL.GetProgramInfoLog(shaderProgram.ProgramID, out string log);
                 Debug.WriteLine($"Shader Program Linking Failed: {log}");
-                shaderProgram.Flags = ShaderFlags.Failed;
+                throw new Exception($"Shader Program Linking Failed: {log}");
             }
             else
             {
                 Debug.WriteLine($"Shader Program {shaderProgram.ProgramID} created with error {GL.GetError()}");
-                shaderProgram.Flags = ShaderFlags.Loaded;
             }
-
             GL.DeleteShader(shaderProgram.VertexShader.ShaderID);
             GL.DeleteShader(shaderProgram.FragmentShader.ShaderID);
         }
@@ -560,7 +557,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             Debug.WriteLine($"Disposing shader program {shaderProgram.ProgramID}");
             GL.DeleteProgram(shaderProgram.ProgramID);
             shaderProgram.ProgramID = 0;
-            shaderProgram.Flags = ShaderFlags.Disposed;
             Debug.WriteLine($"ShaderProgram {shaderProgram.GetType().ToString()} deleted");
         }
 
@@ -733,7 +729,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
             foreach (var shape in _shapes)
             {
-                DisposeShape(shape.Value);
+                shape.Value.Dispose(this);
             }
         }
 

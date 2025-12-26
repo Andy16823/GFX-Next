@@ -16,18 +16,8 @@ namespace LibGFX.Graphics.Materials
     /// <remarks>Implementations of this interface represent materials that can be initialized, used, and
     /// disposed of with a rendering device. The interface also provides a static method for loading a material from an
     /// external source. Implementers should ensure thread safety if materials are accessed concurrently.</remarks>
-    public interface IMaterial : IGraphicsResource
+    public interface IMaterial : IGraphicsResource, IIdentifier
     {
-        /// <summary>
-        /// Gets or sets the name associated with the object.
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets the unique identifier for this instance.
-        /// </summary>
-        public Guid ID { get; }
-
         /// <summary>
         /// Configures the current instance to use the specified render device for rendering operations.
         /// </summary>

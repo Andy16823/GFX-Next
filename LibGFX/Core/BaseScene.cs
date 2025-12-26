@@ -91,6 +91,7 @@ namespace LibGFX.Core
             this.Layers = new List<Layer>(); 
             this.RenderStats = new RenderStats();
             this.SceneBehaviors = new List<ISceneBehavior>();
+            this.Layers.Add(new Layer("DefaultLayer"));
         }
 
         /// <summary>
@@ -115,6 +116,27 @@ namespace LibGFX.Core
                 action(viewport, renderer, camera);
             }
             _renderActions.Clear();
+        }
+
+        /// <summary>
+        /// Adds the specified game element to the first available layer.
+        /// </summary>
+        /// <param name="element">The game element to add. Cannot be null.</param>
+        /// <returns>true if the element was successfully added; otherwise, false.</returns>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="element"/> is null.</exception>
+        /// <exception cref="InvalidOperationException">Thrown if there are no layers available to add the game element.</exception>
+        public bool AddGameElement(GameElement element)
+        {
+            if (element == null)
+            {
+                throw new ArgumentNullException(nameof(element));
+            }
+            if (this.Layers.Count == 0)
+            {
+                throw new InvalidOperationException("No layers available to add the game element.");
+            }
+            this.Layers[0].Elements.Add(element);
+            return true;
         }
 
         /// <summary>
