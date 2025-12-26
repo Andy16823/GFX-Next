@@ -1,4 +1,5 @@
 ﻿using FreeTypeSharp;
+using LibGFX.Core;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace LibGFX.Graphics
         public Vector2 padding;
         public int advance;
     }
-    public class Font
+    public class Font : IRendererResource
     {
         public Dictionary<char, Character> Characters { get; set; }
         public int TextureWidth { get; set; }
@@ -100,6 +101,11 @@ namespace LibGFX.Graphics
                 default:
                     return new Vector2(0, 0);
             }
+        }
+
+        public void Dispose(IRenderDevice renderer)
+        {
+            renderer.DisposeFont(this);
         }
     }
 }

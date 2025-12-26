@@ -36,7 +36,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a mesh for the rendering pipeline
     /// </summary>
-    public class Mesh : IRenderResource
+    public class Mesh : IGraphicsResource
     {
         /// <summary>
         /// The name of the mesh.

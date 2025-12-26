@@ -330,7 +330,7 @@ namespace LibGFX.Assets
         {
             foreach (var asset in _assets.Values)
             {
-                if (asset is IRenderResource renderResource)
+                if (asset is IGraphicsResource renderResource)
                 {
                     renderResource.Init(renderer);
                 }
@@ -345,7 +345,7 @@ namespace LibGFX.Assets
         {
             foreach (var asset in _assets.Values)
             {
-                if (asset is IRenderResource renderResource)
+                if (asset is IGraphicsResource renderResource)
                 {
                     renderResource.Dispose(renderer);
                 }

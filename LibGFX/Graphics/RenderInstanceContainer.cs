@@ -12,7 +12,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a container for render instances.
     /// </summary>
-    public class RenderInstanceContainer : IRenderResource
+    public class RenderInstanceContainer : IGraphicsResource
     {
         /// <summary>
         /// The Vertex Array Object (VAO) for the instance container.

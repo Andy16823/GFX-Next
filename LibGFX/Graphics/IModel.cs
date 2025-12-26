@@ -11,7 +11,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Base interface for 3D models
     /// </summary>
-    public interface IModel : IRenderResource
+    public interface IModel : IGraphicsResource
     {
         /// <summary>
         /// The meshes contained in this model, indexed by their names

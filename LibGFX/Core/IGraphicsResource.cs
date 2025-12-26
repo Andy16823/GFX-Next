@@ -8,11 +8,15 @@ using System.Threading.Tasks;
 namespace LibGFX.Core
 {
     /// <summary>
-    /// Defines a contract for objects that require explicit initialization before use.
+    /// Defines the contract for a graphics resource that can be initialized and disposed using a render device.
     /// </summary>
-    /// <remarks>Implement this interface to indicate that an object must be initialized with a rendering
-    /// device before it can be used. The initialization state can be queried via the IsInitialized property.</remarks>
-    public interface IRenderResource
+    /// <remarks>Implementations of this interface represent resources that require explicit initialization
+    /// and cleanup with a specific render device. The lifecycle of the resource is managed through the Init and Dispose
+    /// methods, which must be called with a valid render device before and after use, respectively.
+    /// The initialization is strict. An IGraphicsResource must be initialized with a render device before it can be used. 
+    /// Ownership for IGraphicsResource is always the user of the resource, not the IRenderDevice.
+    /// </remarks>
+    public interface IGraphicsResource
     {
         /// <summary>
         /// Gets a value indicating whether the object has been initialized and is ready for use.

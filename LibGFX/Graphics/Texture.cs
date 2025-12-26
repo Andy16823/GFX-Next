@@ -29,7 +29,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a texture that can be used in rendering.
     /// </summary>
-    public class Texture : IRenderResource
+    public class Texture : IGraphicsResource
     {
         /// <summary>
         /// The unique identifier for the texture.

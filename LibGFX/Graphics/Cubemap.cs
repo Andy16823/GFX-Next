@@ -15,7 +15,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a cubemap texture
     /// </summary>
-    public class Cubemap : IRenderResource
+    public class Cubemap : IGraphicsResource
     {
         /// <summary>
         /// The faces of the cubemap
