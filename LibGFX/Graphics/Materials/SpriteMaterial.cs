@@ -25,14 +25,14 @@ namespace LibGFX.Graphics.Materials
         public Guid ID { get; } = Guid.NewGuid();
 
         /// <summary>
-        /// The Material flags.
-        /// </summary>
-        public MaterialFlags Flags { get; set; }
-
-        /// <summary>
         /// The texture of the material.
         /// </summary>
         public Texture Texture { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether the object has been initialized.
+        /// </summary>
+        public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
         /// Default constructor for the SpriteMaterial class.
@@ -60,7 +60,7 @@ namespace LibGFX.Graphics.Materials
         {
             Debug.WriteLine($"Disposing material {Name}");
             renderDevice.DisposeTexture(Texture);
-            Flags = MaterialFlags.Disposed;
+            IsInitialized = false;
             Debug.WriteLine($"Disposed material {Name}");
         }
 
@@ -71,14 +71,21 @@ namespace LibGFX.Graphics.Materials
         public void Init(IRenderDevice renderDevice)
         {
             Debug.WriteLine($"Loading material {Name}");
-            if (this.Flags != MaterialFlags.None)
+            if (this.IsInitialized)
             {
                 Debug.WriteLine($"Material {Name} is already loaded.");
                 return;
             }
 
-            renderDevice.LoadTexture(Texture, TextureOptions.PixelPerfect);
-            Flags = MaterialFlags.Loaded;
+            if(Texture == null)
+            {
+                throw new InvalidOperationException("Cannot initialize SpriteMaterial without a texture.");
+            }
+            
+            this.Texture.TextureParameters = TextureParameters.PixelPerfect;
+            this.Texture.Init(renderDevice);
+
+            IsInitialized = true;
             Debug.WriteLine($"Loaded material {Name}");
         }
 

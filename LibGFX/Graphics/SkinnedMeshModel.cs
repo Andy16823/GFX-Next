@@ -18,14 +18,6 @@ namespace LibGFX.Graphics
     /// </summary>
     public class SkinnedMeshModel : IModel
     {
-        // Model state
-        private ModelState _state = ModelState.None;
-
-        /// <summary>
-        /// Gets the current validation state of the model.
-        /// </summary>
-        public ModelState State { get => _state; }
-
         /// <summary>
         /// The meshes that make up the skinned mesh model.
         /// </summary>
@@ -45,6 +37,8 @@ namespace LibGFX.Graphics
         /// Gets or sets the collection of 3D animations associated with this object.
         /// </summary>
         public List<Animation3D.Animation3D> Animations { get; set; }
+
+        public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
         /// Loads a skinned mesh model from the specified file.
@@ -247,12 +241,17 @@ namespace LibGFX.Graphics
         /// <param name="renderer"></param>
         public void Init(IRenderDevice renderer)
         {
+            if(IsInitialized)
+            {
+                throw new InvalidOperationException("Model is already initialized.");
+            }
+
             foreach (var mesh in Meshes.Values)
             {
                 mesh.Material.Init(renderer);
-                renderer.LoadMesh(mesh);
+                mesh.Init(renderer);
             }
-            _state = ModelState.Initialized;
+            IsInitialized = true;
         }
 
         /// <summary>
@@ -261,12 +260,18 @@ namespace LibGFX.Graphics
         /// <param name="renderer"></param>
         public void Dispose(IRenderDevice renderer)
         {
+            if(!IsInitialized)
+            {
+                throw new InvalidOperationException("Model is not initialized.");
+            }
+
             foreach (var mesh in Meshes.Values)
             {
-                renderer.DisposeMesh(mesh);
+                mesh.Dispose(renderer);
                 mesh.Material.Dispose(renderer);
             }
-            _state = ModelState.Disposed;
+
+            IsInitialized = false;
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using LibGFX.Math;
+﻿using LibGFX.Core;
+using LibGFX.Math;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -9,20 +10,9 @@ using System.Threading.Tasks;
 namespace LibGFX.Graphics
 {
     /// <summary>
-    /// Represents the state of the instance container.
-    /// </summary>
-    public enum InstanceContainerState
-    {
-        None,
-        Initialized,
-        Bound,
-        Disposed
-    }
-
-    /// <summary>
     /// Represents a container for render instances.
     /// </summary>
-    public class RenderInstanceContainer
+    public class RenderInstanceContainer : IRenderResource
     {
         /// <summary>
         /// The Vertex Array Object (VAO) for the instance container.
@@ -50,14 +40,11 @@ namespace LibGFX.Graphics
         public List<RenderInstance> Instances { get; set; }
 
         /// <summary>
-        /// The state of the instance container.
-        /// </summary>
-        public InstanceContainerState State { get; set; } = InstanceContainerState.None;
-
-        /// <summary>
         /// The mesh associated with the instance container.
         /// </summary>
         public Mesh Mesh { get; set; }
+
+        public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
         /// Creates a new instance of the RenderInstanceContainer class.
@@ -101,6 +88,18 @@ namespace LibGFX.Graphics
             instance.Visible = visibility;
             this.Instances.Add(instance);
             return this.Instances.Count - 1;
+        }
+
+        public void Init(IRenderDevice renderer)
+        {
+            renderer.LoadInstanceContainer(this);
+            this.IsInitialized = true;
+        }
+
+        public void Dispose(IRenderDevice renderer)
+        {
+            renderer.DisposeInstanceContainer(this);
+            this.IsInitialized = false;
         }
     }
 }

@@ -78,6 +78,8 @@ namespace LibGFX.Graphics.Enviroment
         /// </summary>
         public float CoverageFactor { get; set; } = 1.0f;
 
+        public bool IsInitialized { get; private set; } = false;
+
         /// <summary>
         /// Creates a new instance of the ProceduralSky class
         /// </summary>
@@ -93,7 +95,7 @@ namespace LibGFX.Graphics.Enviroment
         /// <param name="renderer"></param>
         public void Dispose(IRenderDevice renderer)
         {
-            
+            IsInitialized = false;
         }
 
         /// <summary>
@@ -103,7 +105,7 @@ namespace LibGFX.Graphics.Enviroment
         /// <exception cref="Exception"></exception>
         public void Init(IRenderDevice renderer)
         {
-
+            IsInitialized = true;
         }
 
         /// <summary>

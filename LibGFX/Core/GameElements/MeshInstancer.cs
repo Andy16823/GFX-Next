@@ -60,7 +60,7 @@ namespace LibGFX.Core.GameElements
         {
             base.Init(scene, viewport, renderer);
 
-            renderer.LoadInstanceContainer(this.InstanceContainer);
+            this.InstanceContainer.Init(renderer);
             renderer.BindMeshForInstance(this.InstanceContainer, this.Mesh);
 
             if (this.InstanceContainer.Instances.Count > 0)
@@ -137,7 +137,7 @@ namespace LibGFX.Core.GameElements
         public override void Dispose(BaseScene scene, IRenderDevice renderer)
         {
             base.Dispose(scene, renderer);
-            renderer.DisposeInstanceContainer(this.InstanceContainer);
+            this.InstanceContainer.Dispose(renderer);
         }
 
         /// <summary>

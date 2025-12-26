@@ -16,19 +16,6 @@ using System.Threading.Tasks;
 namespace LibGFX.Graphics
 {
     /// <summary>
-    /// Represents the flags for a texture's state.
-    /// </summary>
-    [Flags]
-    public enum TextureFlags
-    {
-        None,
-        Loaded,
-        Initialized,
-        Disposed,
-        Failed
-    }
-
-    /// <summary>
     /// Represents the mirror modes for a texture.
     /// </summary>
     [Flags]
@@ -42,7 +29,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a texture that can be used in rendering.
     /// </summary>
-    public class Texture
+    public class Texture : IRenderResource
     {
         /// <summary>
         /// The unique identifier for the texture.
@@ -65,9 +52,9 @@ namespace LibGFX.Graphics
         public int Height { get; set; }
 
         /// <summary>
-        /// Flags indicating the state of the texture.
+        /// Gets a value indicating whether the object has been initialized.
         /// </summary>
-        public TextureFlags Flags { get; set; }
+        public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
         /// The default UV transform for a texture.
@@ -82,6 +69,13 @@ namespace LibGFX.Graphics
         public static readonly Vector2 DefaultUVScale = new Vector2(1.0f, 1.0f);
 
         /// <summary>
+        /// Gets or sets the parameters used to configure texture sampling and filtering.
+        /// Must be set before initializing the texture with a render device.
+        /// </summary>
+        public TextureParameters TextureParameters { get => _parameters; set => SetTextureParameters(value); }
+        private TextureParameters _parameters = TextureParameters.Default;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Texture"/> class with default values.
         /// </summary>
         public Texture()
@@ -90,7 +84,6 @@ namespace LibGFX.Graphics
             Width = 0;
             Height = 0;
             TextureData = null;
-            Flags = TextureFlags.None;
         }
 
         /// <summary>
@@ -105,7 +98,6 @@ namespace LibGFX.Graphics
             Width = widt;
             Height = height;
             TextureData = Utils.CreateImageData(widt, height, color);
-            Flags = TextureFlags.Loaded;
         }
 
         /// <summary>
@@ -124,7 +116,6 @@ namespace LibGFX.Graphics
             Width = width;
             Height = height;
             TextureData = pixeldata;
-            Flags = TextureFlags.Loaded;
         }
 
         /// <summary>
@@ -139,7 +130,6 @@ namespace LibGFX.Graphics
             TextureData = image.Data;
             Width = image.Width;
             Height = image.Height;
-            Flags = TextureFlags.Loaded;
         }
 
         /// <summary>
@@ -157,7 +147,6 @@ namespace LibGFX.Graphics
             texture.TextureData = image.Data;
             texture.Width = image.Width;
             texture.Height = image.Height;
-            texture.Flags = TextureFlags.Loaded;
 
             return texture;
         }
@@ -175,7 +164,6 @@ namespace LibGFX.Graphics
                 Width = source.Width,
                 Height = source.Height,
                 TextureData = ConvertBitmapToByteArray(source),
-                Flags = TextureFlags.Loaded
             };
             return texture;
         }
@@ -258,8 +246,8 @@ namespace LibGFX.Graphics
         {
             float scaleX = (float)width / this.Width;
             float scaleY = (float)height / this.Height;
-            float offsetX = (float) x / Width;
-            float offsetY = (float) y / Height;
+            float offsetX = (float)x / Width;
+            float offsetY = (float)y / Height;
 
             return new Vector4(scaleX, scaleY, offsetX, offsetY);
         }
@@ -369,7 +357,6 @@ namespace LibGFX.Graphics
                 TextureId = 0,
                 Width = this.Width,
                 Height = this.Height,
-                Flags = TextureFlags.Loaded
             };
 
             if (this.TextureData != null)
@@ -379,6 +366,27 @@ namespace LibGFX.Graphics
             }
 
             return copy;
+        }
+
+        public void Init(IRenderDevice renderer)
+        {
+            renderer.LoadTexture(this, _parameters);
+            this.IsInitialized = true;
+        }
+
+        public void Dispose(IRenderDevice renderer)
+        {
+            renderer.DisposeTexture(this);
+            this.IsInitialized = false;
+        }
+
+        private void SetTextureParameters(TextureParameters parameters)
+        {
+            if (this.IsInitialized)
+            {
+                throw new InvalidOperationException("Cannot set texture parameters after the texture has been initialized.");
+            }
+            _parameters = parameters;
         }
     }
 }

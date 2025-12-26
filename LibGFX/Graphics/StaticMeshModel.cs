@@ -17,10 +17,8 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Static model class that represents a 3D model loaded from a file.
     /// </summary>
-    public class StaticMeshModel : IModel {
-
-        // State of the model
-        private ModelState _state = ModelState.None;
+    public class StaticMeshModel : IModel 
+    {
 
         /// <summary>
         /// Meshes that make up the static model.
@@ -33,9 +31,9 @@ namespace LibGFX.Graphics
         public SceneNodeData NodeStructure { get; set; }
 
         /// <summary>
-        /// Gets the current state of the model.
+        /// Gets a value indicating whether the object has been initialized.
         /// </summary>
-        public ModelState State { get => _state; }
+        public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
         /// Static model constructor that loads model data from a file.
@@ -162,13 +160,18 @@ namespace LibGFX.Graphics
         /// <param name="renderer">The render device used to initialize materials and load meshes. Cannot be null.</param>
         public void Init(IRenderDevice renderer)
         {
+            if (IsInitialized)
+            {
+                throw new InvalidOperationException("Model is already initialized.");
+            }
+
             Debug.WriteLine("Importing Static Model with " + Meshes.Count + " meshes.");
             foreach (var mesh in Meshes.Values)
             {
                 mesh.Material.Init(renderer);
-                renderer.LoadMesh(mesh);
+                mesh.Init(renderer);
             }
-            _state = ModelState.Initialized;
+            IsInitialized = true;
             Debug.WriteLine("Static Model import complete.");
         }
 
@@ -180,13 +183,18 @@ namespace LibGFX.Graphics
         /// <param name="renderer">The render device used to dispose of the model's meshes and materials. Cannot be null.</param>
         public void Dispose(IRenderDevice renderer)
         {
+            if (!IsInitialized)
+            {
+                throw new InvalidOperationException("Model is not initialized.");
+            }
+
             Debug.WriteLine("Disposing Static Model with " + Meshes.Count + " meshes.");
             foreach (var mesh in Meshes.Values)
             {
-                renderer.DisposeMesh(mesh);
+                mesh.Dispose(renderer);
                 mesh.Material.Dispose(renderer);
             }
-            _state = ModelState.Disposed;
+            IsInitialized = false;
             Debug.WriteLine("Static Model disposal complete.");
         }
 

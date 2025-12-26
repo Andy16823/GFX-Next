@@ -100,7 +100,7 @@ namespace LibGFX.Core.GameElements
             if (this.Mesh != null)
             {
                 this.Mesh.Material.Init(renderer);
-                renderer.LoadMesh(this.Mesh);
+                this.Mesh.Init(renderer);
             }
 
             // Get the default shader if none is assigned
@@ -158,7 +158,7 @@ namespace LibGFX.Core.GameElements
         public override void Dispose(BaseScene scene, IRenderDevice renderer)
         {
             base.Dispose(scene, renderer);
-            renderer.DisposeMesh(this.Mesh);
+            this.Mesh.Dispose(renderer);
         }
 
         /// <summary>

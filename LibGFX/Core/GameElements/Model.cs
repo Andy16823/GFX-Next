@@ -388,7 +388,7 @@ namespace LibGFX.Core.GameElements
             foreach (var mesh in this.Meshes.Values)
             {
                 mesh.Material.Init(renderer);
-                renderer.LoadMesh(mesh);
+                mesh.Init(renderer);
             }
 
             // Setup shader
@@ -513,7 +513,7 @@ namespace LibGFX.Core.GameElements
             foreach(var mesh in this.Meshes.Values)
             {
                 mesh.Material.Dispose(renderer);
-                renderer.DisposeMesh(mesh);
+                mesh.Dispose(renderer);
             }
 
             Debug.WriteLine($"Disposed Model {Name}");

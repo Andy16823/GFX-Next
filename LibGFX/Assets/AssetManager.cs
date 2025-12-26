@@ -1,6 +1,9 @@
 ﻿using LibGFX.Assets.Loaders;
+using LibGFX.Core;
+using LibGFX.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -315,6 +318,42 @@ namespace LibGFX.Assets
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             var location = assembly.Location;
             return System.IO.Path.GetDirectoryName(location) ?? string.Empty;
+        }
+
+        /// <summary>
+        /// Initializes all assets that implement the IRenderResource interface using the specified render device.
+        /// </summary>
+        /// <remarks>Only assets that implement IRenderResource are initialized. Other assets are
+        /// ignored.</remarks>
+        /// <param name="renderer">The render device to use for initializing render resources. Cannot be null.</param>
+        public void InitializeAssets(IRenderDevice renderer)
+        {
+            foreach (var asset in _assets.Values)
+            {
+                if (asset is IRenderResource renderResource)
+                {
+                    renderResource.Init(renderer);
+                }
+                else
+                {
+                    Debug.WriteLine($"Asset of type '{asset.GetType()}' does not implement IRenderResource. Skipping initialization.");
+                }
+            }
+        }
+
+        public void DisposeAssets(IRenderDevice renderer)
+        {
+            foreach (var asset in _assets.Values)
+            {
+                if (asset is IRenderResource renderResource)
+                {
+                    renderResource.Dispose(renderer);
+                }
+                else
+                {
+                    Debug.WriteLine($"Asset of type '{asset.GetType()}' does not implement IRenderResource. Skipping disposal.");
+                }
+            }
         }
     }
 }

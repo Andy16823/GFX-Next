@@ -1,4 +1,5 @@
-﻿using LibGFX.Math;
+﻿using LibGFX.Core;
+using LibGFX.Math;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,9 @@ using System.Transactions;
 
 namespace LibGFX.Graphics.Enviroment
 {
-    public interface IEnviroment
+    public interface IEnviroment : IRenderResource
     {
         public Transform Transform { get; set; }
-        public void Init(IRenderDevice renderer);
         public void Render(IRenderDevice renderer, Camera camera, Viewport viewport);
-        public void Dispose(IRenderDevice renderer);
     }
 }

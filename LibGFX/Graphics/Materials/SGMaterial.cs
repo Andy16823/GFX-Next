@@ -38,11 +38,6 @@ namespace LibGFX.Graphics.Materials
         public Vector4 Color { get; set; }
 
         /// <summary>
-        /// The flags of the material.
-        /// </summary>
-        public MaterialFlags Flags { get; set; }
-
-        /// <summary>
         /// The diffuse texture of the material.
         /// </summary>
         public Texture DiffuseTexture { get; set; }
@@ -72,6 +67,8 @@ namespace LibGFX.Graphics.Materials
         /// </summary>
         public Vector2 UVScale { get; set; } = Texture.DefaultUVScale;
 
+        public bool IsInitialized { get; private set; } = false;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SGMaterial"/> class.
         /// </summary>
@@ -80,7 +77,6 @@ namespace LibGFX.Graphics.Materials
             Name = "Unnamed Material";
             Opacity = 1.0f;
             Color = Vector4.One;
-            Flags = MaterialFlags.None;
             DiffuseTexture = null;
             NormalTexture = null;
             SpecularTexture = null;
@@ -96,7 +92,6 @@ namespace LibGFX.Graphics.Materials
             Name = name;
             Opacity = 1.0f;
             Color = color;
-            Flags = MaterialFlags.None;
             DiffuseTexture = new Texture(1, 1, new Vector4i(255, 255, 255, 255));
             NormalTexture = new Texture(1, 1, new Vector4i(128, 128, 255, 255));
             SpecularTexture = new Texture(1, 1, new Vector4i(0, 0, 0, 255));
@@ -109,16 +104,29 @@ namespace LibGFX.Graphics.Materials
         public void Init(IRenderDevice renderDevice)
         {
             Debug.WriteLine($"Loading material {Name}");
-            if (this.Flags != MaterialFlags.None)
+            if (this.IsInitialized)
             {
                 Debug.WriteLine($"Material {Name} is already loaded.");
                 return;
             }
 
-            renderDevice.LoadTexture(DiffuseTexture, TextureOptions.Mipmapped);
-            renderDevice.LoadTexture(NormalTexture, TextureOptions.Mipmapped);
-            renderDevice.LoadTexture(SpecularTexture, TextureOptions.Mipmapped);
-            Flags = MaterialFlags.Loaded;
+            if(DiffuseTexture != null)
+            {
+                DiffuseTexture.TextureParameters = TextureParameters.Mipmapped;
+                DiffuseTexture.Init(renderDevice);
+            }
+            if (NormalTexture != null)
+            {
+                NormalTexture.TextureParameters = TextureParameters.Mipmapped;
+                NormalTexture.Init(renderDevice);
+            }
+            if (SpecularTexture != null)
+            {
+                SpecularTexture.TextureParameters = TextureParameters.Mipmapped;
+                SpecularTexture.Init(renderDevice);
+            }
+
+            IsInitialized = true;
         }
 
         /// <summary>
@@ -167,10 +175,19 @@ namespace LibGFX.Graphics.Materials
         public void Dispose(IRenderDevice renderDevice)
         {
             Debug.WriteLine($"Disposing material {Name}");
-            renderDevice.DisposeTexture(DiffuseTexture);
-            renderDevice.DisposeTexture(NormalTexture);
-            renderDevice.DisposeTexture(SpecularTexture);
-            Flags = MaterialFlags.Disposed;
+            if (DiffuseTexture != null)
+            {
+                DiffuseTexture.Dispose(renderDevice);
+            }
+            if (NormalTexture != null)
+            {
+                NormalTexture.Dispose(renderDevice);
+            }
+            if (SpecularTexture != null)
+            {
+                SpecularTexture.Dispose(renderDevice);
+            }
+            IsInitialized = false;
         }
 
         /// <summary>
@@ -202,7 +219,6 @@ namespace LibGFX.Graphics.Materials
                     jsonObject["DiffuseColor"][3].Value<float>()
                 ),
                 Opacity = jsonObject["Opacity"].Value<float>(),
-                Flags = MaterialFlags.None
             };
             return material;
         }

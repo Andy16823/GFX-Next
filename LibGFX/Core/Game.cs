@@ -87,6 +87,9 @@ namespace LibGFX.Core
             // Load content and assets
             this.LoadContent();
 
+            // Load assets in the asset manager
+            this.AssetManager.InitializeAssets(renderDevice);
+
             // Call the OnStart method
             this.OnStart();
 
@@ -120,6 +123,7 @@ namespace LibGFX.Core
             }
 
             // Dispose resources and clean up
+            this.AssetManager.DisposeAssets(this.RenderDevice);
             this.Dispose();
             this.RenderDevice.Dispose();
             Environment.Exit(0);

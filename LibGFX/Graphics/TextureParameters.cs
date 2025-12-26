@@ -10,7 +10,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Struct representing options for texture configuration.
     /// </summary>
-    public struct TextureOptions
+    public struct TextureParameters
     {
         public RenderFlags.TextureFilterMode MinFilter;
         public RenderFlags.TextureFilterMode MagFilter;
@@ -18,7 +18,7 @@ namespace LibGFX.Graphics
         public RenderFlags.TextureWrapMode WrapT;
         public bool GenerateMipmaps;
 
-        public static readonly TextureOptions Default = new TextureOptions
+        public static readonly TextureParameters Default = new TextureParameters
         {
             MinFilter = RenderFlags.TextureFilterMode.Linear,
             MagFilter = RenderFlags.TextureFilterMode.Linear,
@@ -27,7 +27,7 @@ namespace LibGFX.Graphics
             GenerateMipmaps = false
         };
 
-        public static readonly TextureOptions PixelPerfect = new TextureOptions
+        public static readonly TextureParameters PixelPerfect = new TextureParameters
         {
             MinFilter = RenderFlags.TextureFilterMode.Nearest,
             MagFilter = RenderFlags.TextureFilterMode.Nearest,
@@ -36,7 +36,7 @@ namespace LibGFX.Graphics
             GenerateMipmaps = false
         };
 
-        public static readonly TextureOptions Mipmapped = new TextureOptions
+        public static readonly TextureParameters Mipmapped = new TextureParameters
         {
             MinFilter = RenderFlags.TextureFilterMode.MipmapLinear,
             MagFilter = RenderFlags.TextureFilterMode.Linear,

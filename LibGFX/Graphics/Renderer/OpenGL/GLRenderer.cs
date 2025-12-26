@@ -760,41 +760,46 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void LoadTexture(Texture texture)
         {
-            LoadTexture(texture, TextureOptions.Default);
+            LoadTexture(texture, TextureParameters.Default);
         }
 
-        public void LoadTexture(Texture texture, TextureOptions textureOptions)
+        public void LoadTexture(Texture texture, TextureParameters textureOptions)
         {
-            if (texture != null)
+            // Validate texture
+            if (texture == null)
             {
-                if (texture.Flags == TextureFlags.Loaded || texture.Flags == TextureFlags.Disposed)
-                {
-                    texture.TextureId = GL.GenTexture();
-                    GL.BindTexture(TextureTarget.Texture2D, texture.TextureId);
-                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, GLMappings.ToGL(textureOptions.WrapS));
-                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, GLMappings.ToGL(textureOptions.WrapT));
-                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, GLMappings.ToGL(textureOptions.MinFilter));
-                    GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, GLMappings.ToGL(textureOptions.MagFilter));
-                    GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, texture.Width, texture.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, texture.TextureData);
-                    if (textureOptions.GenerateMipmaps)
-                    {
-                        GL.GenerateMipmap(GenerateMipmapTarget.Texture2D);
-                    }
-                    GL.BindTexture(TextureTarget.Texture2D, 0);
-                    Debug.WriteLine($"Texture loaded with error {GetError()}");
-                    texture.Flags = TextureFlags.Initialized;
-                }
+                throw new ArgumentNullException(nameof(texture), "Texture cannot be null");    
             }
+
+            // Check if texture is already initialized
+            if (texture.IsInitialized)
+            {
+                throw new Exception("Texture is already initialized");
+            }
+
+            // Load texture data into OpenGL
+            texture.TextureId = GL.GenTexture();
+            GL.BindTexture(TextureTarget.Texture2D, texture.TextureId);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, GLMappings.ToGL(textureOptions.WrapS));
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, GLMappings.ToGL(textureOptions.WrapT));
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, GLMappings.ToGL(textureOptions.MinFilter));
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, GLMappings.ToGL(textureOptions.MagFilter));
+            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, texture.Width, texture.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, texture.TextureData);
+            if (textureOptions.GenerateMipmaps)
+            {
+                GL.GenerateMipmap(GenerateMipmapTarget.Texture2D);
+            }
+            GL.BindTexture(TextureTarget.Texture2D, 0);
+            Debug.WriteLine($"Texture loaded with error {GetError()}");
         }
 
         public void DisposeTexture(Texture texture)
         {
             if (texture != null)
             {
-                if (texture.Flags == TextureFlags.Initialized)
+                if (texture.IsInitialized)
                 {
                     GL.DeleteTexture(texture.TextureId);
-                    texture.Flags = TextureFlags.Disposed;
                     texture.TextureId = 0;
                     Debug.WriteLine($"Disposed texture");
                 }
@@ -803,24 +808,25 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void LoadCubemap(Cubemap cubemap)
         {
-            if (cubemap.Flags == CubemapFlags.Loaded || cubemap.Flags == CubemapFlags.Disposed)
+            if(cubemap.IsInitialized)
             {
-                cubemap.TextureId = GL.GenTexture();
-                GL.BindTexture(TextureTarget.TextureCubeMap, cubemap.TextureId);
-                GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
-                GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
-                GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToEdge);
-                GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToEdge);
-                GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureWrapR, (int)TextureWrapMode.ClampToEdge);
-
-                for (int i = 0; i < 6; i++)
-                {
-                    GL.TexImage2D(TextureTarget.TextureCubeMapPositiveX + i, 0, PixelInternalFormat.Rgba, cubemap.Width, cubemap.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, cubemap.Faces[i]);
-                }
-                GL.BindTexture(TextureTarget.TextureCubeMap, 0);
-                Debug.WriteLine($"Cubemap loaded with error {GetError()}");
-                cubemap.Flags = CubemapFlags.Initialized;
+                throw new Exception("Cubemap is already initialized");
             }
+
+            cubemap.TextureId = GL.GenTexture();
+            GL.BindTexture(TextureTarget.TextureCubeMap, cubemap.TextureId);
+            GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+            GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+            GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToEdge);
+            GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToEdge);
+            GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureWrapR, (int)TextureWrapMode.ClampToEdge);
+
+            for (int i = 0; i < 6; i++)
+            {
+                GL.TexImage2D(TextureTarget.TextureCubeMapPositiveX + i, 0, PixelInternalFormat.Rgba, cubemap.Width, cubemap.Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, cubemap.Faces[i]);
+            }
+            GL.BindTexture(TextureTarget.TextureCubeMap, 0);
+            Debug.WriteLine($"Cubemap loaded with error {GetError()}");
         }
 
         public void DrawCubemap(Transform transform, Cubemap cubemap, Vector4 color)
@@ -855,13 +861,13 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void DisposeCubemap(Cubemap cubemap)
         {
-            if (cubemap.Flags == CubemapFlags.Initialized)
+            if(!cubemap.IsInitialized)
             {
-                GL.DeleteTexture(cubemap.TextureId);
-                cubemap.Flags = CubemapFlags.Disposed;
-                cubemap.TextureId = 0;
-                Debug.WriteLine($"Disposed cubemap");
+                throw new Exception("Cubemap is not initialized");
             }
+            GL.DeleteTexture(cubemap.TextureId);
+            cubemap.TextureId = 0;
+            Debug.WriteLine($"Disposed cubemap");
         }
 
         public void DrawRenderTarget(RenderTarget2D renderTarget)
@@ -1025,7 +1031,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void DrawTexture(Transform transform, Texture texture, Vector4 color)
         {
-            if (texture.Flags == TextureFlags.Initialized)
+            if (texture.IsInitialized)
             {
                 DrawTexture(transform, texture.TextureId, color);
             }
@@ -1260,6 +1266,11 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void LoadMesh(Mesh mesh)
         {
+            if(mesh.IsInitialized)
+            {
+                throw new Exception("Mesh is already initialized");
+            }
+
             // Create the vertex array object
             var vertexSize = Marshal.SizeOf<Vertex>(); // Der Abstand zwischen den Elementen der Struktur
             int vao = GL.GenVertexArray();
@@ -1314,15 +1325,14 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                 IndexBuffer = ibo
             };
             mesh.RenderData = renderData;
-            mesh.State = MeshState.Initialized;
         }
 
 
         public void DrawMesh(Transform transform, Mesh mesh)
         {
-            if (mesh.State == MeshState.None || mesh.State == MeshState.Disposed)
+            if(!mesh.IsInitialized)
             {
-                throw new Exception("Invalid mesh render data.");
+                throw new Exception("Mesh is not initialized");
             }
 
             // Create the model matrix
@@ -1368,6 +1378,11 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void DisposeMesh(Mesh mesh)
         {
+            if(!mesh.IsInitialized)
+            {
+                throw new Exception("Mesh is not initialized");
+            }
+
             Debug.WriteLine($"Disposing Mesh {mesh.Name}");
             GL.DeleteVertexArray(mesh.RenderData.VertexArray);
             GL.DeleteBuffer(mesh.RenderData.VertexBuffer);
@@ -1378,30 +1393,33 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             Debug.WriteLine($"Mesh {mesh.Name} disposed");
 
             mesh.RenderData = new RenderData();
-            mesh.State = MeshState.Disposed;
         }
 
         public void LoadInstanceContainer(RenderInstanceContainer container)
         {
+            if(container.IsInitialized)
+            {
+                throw new Exception("Instance container is already initialized.");
+            }
+
             Debug.WriteLine($"Loading instance container");
             container.InstanceVAO = GL.GenVertexArray();
             container.TransformInstanceBuffer = GL.GenBuffer();
             container.ExtraInstanceBuffer = GL.GenBuffer();
             container.UVInstanceBuffer = GL.GenBuffer();
-            container.State = InstanceContainerState.Initialized;
             Debug.WriteLine($"Instance container loaded");
         }
 
         public void BindMeshForInstance(RenderInstanceContainer container, Mesh mesh)
         {
-            if (container.State == InstanceContainerState.None || container.State == InstanceContainerState.Disposed)
+            if (!container.IsInitialized)
             {
-                throw new Exception("Invalid instance container.");
+                throw new Exception("Instance container is not initialized.");
             }
 
-            if (mesh.State == MeshState.None || mesh.State == MeshState.Disposed)
+            if (!mesh.IsInitialized)
             {
-                throw new Exception("Invalid mesh render data.");
+                throw new Exception("Mesh is not initialized.");
             }
 
             var vertexSize = Marshal.SizeOf<Vertex>();
@@ -1429,7 +1447,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindVertexArray(0);
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
 
-            container.State = InstanceContainerState.Bound;
             container.Mesh = mesh;
         }
 
@@ -1463,9 +1480,9 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void LoadInstances(RenderInstanceContainer container)
         {
-            if (container.State == InstanceContainerState.None || container.State == InstanceContainerState.Disposed)
+            if (!container.IsInitialized)
             {
-                throw new Exception("Invalid instance container.");
+                throw new Exception("Instance container is not initialized.");
             }
 
             SetInstanceBuffers(container);
@@ -1487,9 +1504,9 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void UpdateInstance(RenderInstanceContainer container, int instanceIndex)
         {
-            if (container.State == InstanceContainerState.None || container.State == InstanceContainerState.Disposed)
+            if (!container.IsInitialized)
             {
-                throw new Exception("Invalid instance container.");
+                throw new Exception("Instance container is not initialized.");
             }
 
             if (instanceIndex < 0 || instanceIndex >= container.Instances.Count)
@@ -1544,12 +1561,16 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void DisposeInstanceContainer(RenderInstanceContainer container)
         {
+            if(!container.IsInitialized)
+            {
+                throw new Exception("Instance container is not initialized.");
+            }
+
             Debug.WriteLine($"Disposing Instance Container");
             GL.DeleteVertexArray(container.InstanceVAO);
             GL.DeleteBuffer(container.TransformInstanceBuffer);
             GL.DeleteBuffer(container.ExtraInstanceBuffer);
             GL.DeleteBuffer(container.UVInstanceBuffer);
-            container.State = InstanceContainerState.Disposed;
             Debug.WriteLine($"Disposed Instance Container");
         }
 

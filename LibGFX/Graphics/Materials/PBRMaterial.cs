@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,6 @@ namespace LibGFX.Graphics.Materials
     {
         public string Name { get; set; }
         public Guid ID { get; } = Guid.NewGuid();
-        public MaterialFlags Flags { get; set; }
         public Vector3 Albedo { get; set; } = new Vector3(1, 1, 0);
         public float Metallic { get; set; } = 1.0f;
         public float Roughness { get; set; } = 0.5f;
@@ -23,75 +23,72 @@ namespace LibGFX.Graphics.Materials
         public Texture MetallicTexture { get; set; } = null;
         public Texture RoughnessTexture { get; set; } = null;
         public Texture OcclusionTexture { get; set; } = null;
+        public bool IsInitialized { get; private set; } = false;
 
         public void Dispose(IRenderDevice renderDevice)
         {
-            if(this.Flags == MaterialFlags.Disposed)
+            Debug.WriteLine($"Disposing material {Name}");
+            if (this.AlbedoTexture != null)
             {
-                return;
-            }
-
-            if(this.AlbedoTexture != null)
-            {
-                renderDevice.DisposeTexture(this.AlbedoTexture);
+                AlbedoTexture.Dispose(renderDevice);
             }
 
             if(this.NormalTexture != null)
             {
-                renderDevice.DisposeTexture(this.NormalTexture);
+                NormalTexture.Dispose(renderDevice);
             }
 
             if(this.MetallicTexture != null)
             {
-                renderDevice.DisposeTexture(this.MetallicTexture);
+                MetallicTexture.Dispose(renderDevice);
             }
 
             if(this.RoughnessTexture != null)
             {
-                renderDevice.DisposeTexture(this.RoughnessTexture);
+                RoughnessTexture.Dispose(renderDevice);
             }
 
             if (this.OcclusionTexture != null)
             {
-                renderDevice.DisposeTexture(this.OcclusionTexture);
+                OcclusionTexture.Dispose(renderDevice);
             }
 
-            this.Flags = MaterialFlags.Disposed;
+            this.IsInitialized = false;
         }
 
         public void Init(IRenderDevice renderDevice)
         {
-            if (this.Flags == MaterialFlags.Loaded)
+            if (this.IsInitialized)
             {
                 return;
             }
 
             if(this.AlbedoTexture != null)
             {
-                renderDevice.LoadTexture(this.AlbedoTexture);
+                AlbedoTexture.Init(renderDevice);
             }
 
             if(this.NormalTexture != null)
             {
-                renderDevice.LoadTexture(this.NormalTexture);
+                NormalTexture.Init(renderDevice);
             }
 
             if(this.MetallicTexture != null)
             {
-                renderDevice.LoadTexture(this.MetallicTexture);
+                MetallicTexture.Init(renderDevice);
             }
 
             if(this.RoughnessTexture != null)
             {
-                renderDevice.LoadTexture(this.RoughnessTexture);
+                RoughnessTexture.Init(renderDevice);
             }
 
             if(this.OcclusionTexture != null)
             {
-                renderDevice.LoadTexture(this.OcclusionTexture);
+                OcclusionTexture.Init(renderDevice);
             }
 
-            this.Flags = MaterialFlags.Loaded;
+            this.IsInitialized = true;
         }
 
         public void Use(IRenderDevice renderDevice)
@@ -130,7 +127,6 @@ namespace LibGFX.Graphics.Materials
                 MetallicTexture = Utils.LoadTextureIfExists(jsonObject, "MetallicTexture", basePath),
                 RoughnessTexture = Utils.LoadTextureIfExists(jsonObject, "RoughnessTexture", basePath),
                 OcclusionTexture = Utils.LoadTextureIfExists(jsonObject, "OcclusionTexture", basePath),
-                Flags = MaterialFlags.None
             };
             return material;
         }

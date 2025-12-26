@@ -1,4 +1,5 @@
-﻿using LibGFX.Math;
+﻿using LibGFX.Core;
+using LibGFX.Math;
 using Newtonsoft.Json.Linq;
 using StbImageSharp;
 using System;
@@ -14,19 +15,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a cubemap texture
     /// </summary>
-    public enum CubemapFlags
-    {
-        None,
-        Loaded,
-        Initialized,
-        Disposed,
-        Failed
-    }
-
-    /// <summary>
-    /// Represents a cubemap texture
-    /// </summary>
-    public class Cubemap
+    public class Cubemap : IRenderResource
     {
         /// <summary>
         /// The faces of the cubemap
@@ -48,10 +37,7 @@ namespace LibGFX.Graphics
         /// </summary>
         public int Height { get; set; }
 
-        /// <summary>
-        /// The flags of the cubemap
-        /// </summary>
-        public CubemapFlags Flags { get; set; }
+        public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
         /// Creates a new cubemap
@@ -92,8 +78,6 @@ namespace LibGFX.Graphics
                 cubemap.Faces[2] = cubemap.Faces[3];
                 cubemap.Faces[3] = temp;
             }
-
-            cubemap.Flags = CubemapFlags.Loaded;
             return cubemap;
         }
 
@@ -133,6 +117,18 @@ namespace LibGFX.Graphics
             faces.Add(Path.Combine(basePath, jsonObject["cubemap"]["nz"].Value<string>()));
             var cubemap = LoadCubemap(faces.ToArray(), swapYAxisFaces);
             return cubemap;
+        }
+
+        public void Init(IRenderDevice renderer)
+        {
+            renderer.LoadCubemap(this);
+            this.IsInitialized = true;
+        }
+
+        public void Dispose(IRenderDevice renderer)
+        {
+            renderer.DisposeCubemap(this);
+            this.IsInitialized = false;
         }
     }
 }

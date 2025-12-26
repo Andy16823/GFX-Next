@@ -31,7 +31,7 @@ namespace LibGFX.Core.GameElements
         {
             base.Init(scene, viewport, renderer);
             this.Mesh.Material.Init(renderer);
-            renderer.LoadMesh(this.Mesh);
+            this.Mesh.Init(renderer);
 
             if(this.Shader == null)
             {
@@ -55,9 +55,8 @@ namespace LibGFX.Core.GameElements
 
         public override void Dispose(BaseScene scene, IRenderDevice renderer)
         {
-            renderer.DisposeMesh(Mesh);
+            this.Mesh.Dispose(renderer);
             base.Dispose(scene, renderer);
-            renderer.DisposeMesh(this.Mesh);
         }
 
         public override void ComputeAABB()
