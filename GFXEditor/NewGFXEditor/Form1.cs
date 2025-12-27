@@ -335,10 +335,19 @@ namespace NewGFXEditor
             this.Scene.Render(_editorPanel3D.Viewport, _editorPanel3D.Renderer, Camera);
             _editorPanel3D.Renderer.DrawRenderTarget(Scene.RenderTarget as MSAARenderTarget2D, 0);
             this.TransformGizmo.RenderGizmo(_editorPanel3D.Renderer, Camera, _editorPanel3D.Viewport);
+            if(_selectedElement != null)
+            {
+                var aabb = _selectedElement.WorldAABB;
+                _editorPanel3D.Renderer.DrawAABB(aabb, ColorPresets.LightCyan);
+            }
             if (showAABBsToolStripMenuItem.Checked)
             {
                 this.Scene.ForEachElement(element =>
                 {
+                    if(element == _selectedElement)
+                    {
+                        return;
+                    }
                     var aabb = element.WorldAABB;
                     _editorPanel3D.Renderer.DrawAABB(aabb, ColorPresets.LimeGreen);
                 });
@@ -1074,6 +1083,14 @@ namespace NewGFXEditor
             }
         }
 
+        /// <summary>
+        /// Handles the Click event for the GFX Level File menu item, allowing the user to export the current 3D scene
+        /// to a GFX Level file.
+        /// </summary>
+        /// <remarks>Displays a Save File dialog for the user to specify the destination file. If a file
+        /// is selected, exports the current scene to the specified GFX Level file format.</remarks>
+        /// <param name="sender">The source of the event, typically the menu item that was clicked.</param>
+        /// <param name="e">An EventArgs instance containing event data.</param>
         private void gFXLevelFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();

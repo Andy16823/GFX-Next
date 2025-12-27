@@ -80,12 +80,8 @@ namespace NewGFXEditor.Exporter
             JObject sceneObject = new JObject();
             sceneObject["Name"] = scene.Name;
             sceneObject["ID"] = scene.ID.ToString();
-            sceneObject["DirectionalLight"] = new JObject()
-            {
-                new JProperty("Direction", Utils.SerializeVec3(scene.DirectionalLight.Direction)),
-                new JProperty("Color", Utils.SerializeVec4(scene.DirectionalLight.Color)),
-                new JProperty("Intensity", scene.DirectionalLight.Intensity)
-            };
+            sceneObject["DirectionalLight"] = scene.DirectionalLight.Serialize(null);
+            sceneObject["Enviroment"] = scene.Enviroment.Serialize(null);
             var layerArray = new JArray();
             foreach (var layer in scene.Layers)
             {
