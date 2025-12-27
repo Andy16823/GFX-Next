@@ -79,7 +79,7 @@
           }
         }
       },
-      "GFX/1.1.1-dev": {
+      "GFX/1.1.2-dev": {
         "type": "package",
         "dependencies": {
           "AssimpNetter": "6.0.2.1",
@@ -682,13 +682,13 @@
         "runtimes/win-x86/native/freetype.dll"
       ]
     },
-    "GFX/1.1.1-dev": {
-      "sha512": "VslL/FdA6QxtE+tKHF6kZXzmSqtCIiPP0BTteRVtQAtGHgItR65KXfskUMxv/ST8uXQgyLianamoDylQ9lXNug==",
+    "GFX/1.1.2-dev": {
+      "sha512": "c00Sp7ZIkeVSnqT+EBVrDhJo20/ZxUXU1yvSsZc2xh7EPfNGmzav3lVKZyAA4Uyk38Xz/t+kQ/w/7HOUUgLT3g==",
       "type": "package",
-      "path": "gfx/1.1.1-dev",
+      "path": "gfx/1.1.2-dev",
       "files": [
         ".nupkg.metadata",
-        "gfx.1.1.1-dev.nupkg.sha512",
+        "gfx.1.1.2-dev.nupkg.sha512",
         "gfx.nuspec",
         "lib/net8.0/LibGFX.dll"
       ]
@@ -1323,7 +1323,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
-      "GFX >= 1.1.1-dev",
+      "GFX >= 1.1.2-dev",
       "OpenTK.GLControl >= 4.0.2"
     ]
   },
@@ -1375,7 +1375,7 @@
         "dependencies": {
           "GFX": {
             "target": "Package",
-            "version": "[1.1.1-dev, )"
+            "version": "[1.1.2-dev, )"
           },
           "OpenTK.GLControl": {
             "target": "Package",

@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "NewGFXEditor/1.0.0": {
         "dependencies": {
-          "GFX": "1.1.1-dev",
+          "GFX": "1.1.2-dev",
           "OpenTK.GLControl": "4.0.2"
         },
         "runtime": {
@@ -95,7 +95,7 @@
           }
         }
       },
-      "GFX/1.1.1-dev": {
+      "GFX/1.1.2-dev": {
         "dependencies": {
           "AssimpNetter": "6.0.2.1",
           "FreeTypeSharp": "3.0.0",
@@ -108,8 +108,8 @@
         },
         "runtime": {
           "lib/net8.0/LibGFX.dll": {
-            "assemblyVersion": "1.1.1.0",
-            "fileVersion": "1.1.1.0"
+            "assemblyVersion": "1.1.2.0",
+            "fileVersion": "1.1.2.0"
           }
         }
       },
@@ -424,12 +424,12 @@
       "path": "freetypesharp/3.0.0",
       "hashPath": "freetypesharp.3.0.0.nupkg.sha512"
     },
-    "GFX/1.1.1-dev": {
+    "GFX/1.1.2-dev": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-VslL/FdA6QxtE+tKHF6kZXzmSqtCIiPP0BTteRVtQAtGHgItR65KXfskUMxv/ST8uXQgyLianamoDylQ9lXNug==",
-      "path": "gfx/1.1.1-dev",
-      "hashPath": "gfx.1.1.1-dev.nupkg.sha512"
+      "sha512": "sha512-c00Sp7ZIkeVSnqT+EBVrDhJo20/ZxUXU1yvSsZc2xh7EPfNGmzav3lVKZyAA4Uyk38Xz/t+kQ/w/7HOUUgLT3g==",
+      "path": "gfx/1.1.2-dev",
+      "hashPath": "gfx.1.1.2-dev.nupkg.sha512"
     },
     "GFX.BulletSharp/1.0.1": {
       "type": "package",

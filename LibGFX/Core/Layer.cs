@@ -11,12 +11,17 @@ namespace LibGFX.Core
     /// <summary>
     /// Represents a layer in the scene
     /// </summary>
-    public class Layer
+    public class Layer : IIdentifier
     {
         /// <summary>
         /// The name of the layer
         /// </summary>
         public String Name { get; set; }
+
+        /// <summary>
+        /// Gets the unique identifier for this instance.
+        /// </summary>
+        public Guid ID { get; private set; } = Guid.NewGuid();
 
         /// <summary>
         /// Determines if the layer is visible

@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "1/jEA5VUdRs=",
+  "dgSpecHash": "/rx4iueynqs=",
   "success": true,
   "projectFilePath": "C:\\Users\\andy1\\Documents\\GitHub\\GFX-Next\\GFXEditor\\NewGFXEditor\\NewGFXEditor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andy1\\.nuget\\packages\\assimpnetter\\6.0.2.1\\assimpnetter.6.0.2.1.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\freetypesharp\\3.0.0\\freetypesharp.3.0.0.nupkg.sha512",
-    "C:\\Users\\andy1\\.nuget\\packages\\gfx\\1.1.1-dev\\gfx.1.1.1-dev.nupkg.sha512",
+    "C:\\Users\\andy1\\.nuget\\packages\\gfx\\1.1.2-dev\\gfx.1.1.2-dev.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\gfx.bulletsharp\\1.0.1\\gfx.bulletsharp.1.0.1.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\andy1\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

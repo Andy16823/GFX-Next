@@ -1,4 +1,5 @@
-﻿using LibGFX.Graphics;
+﻿using Assimp;
+using LibGFX.Graphics;
 using LibGFX.Graphics.Materials;
 using OpenTK.Mathematics;
 using System;
@@ -12,20 +13,24 @@ namespace NewGFXEditor.Editor
     public class GizmoMaterial : IMaterial
     {
         public string Name { get; set; }
-        public MaterialFlags Flags { get; set; }
+        public Guid ID { get; private set; } = Guid.NewGuid();
         public Vector4 VertexColor { get; set; }
         public bool Hovered { get; set; } = false;
+        public bool IsInitialized { get; private set; } = false;
 
-        public Guid ID => Guid.NewGuid();
+        public static IMaterial LoadMaterial(Material asmat, string directory)
+        {
+            throw new NotImplementedException();
+        }
 
         public void Dispose(IRenderDevice renderDevice)
         {
-            this.Flags = MaterialFlags.Disposed;
+            this.IsInitialized = false;
         }
 
         public void Init(IRenderDevice renderDevice)
         {
-            this.Flags = MaterialFlags.Loaded;
+            this.IsInitialized = true;
         }
 
         public void Use(IRenderDevice renderDevice)

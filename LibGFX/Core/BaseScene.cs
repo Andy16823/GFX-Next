@@ -36,7 +36,7 @@ namespace LibGFX.Core
     /// <summary>
     /// Base class for creating a scene
     /// </summary>
-    public abstract class BaseScene
+    public abstract class BaseScene : IIdentifier
     {
         /// <summary>
         /// Gets the render target associated with this instance.
@@ -74,6 +74,16 @@ namespace LibGFX.Core
         /// This allows to safely add elements to the scene without modifying the scene during update or render
         /// </summary>
         public List<EnqueEntry> EnqueEntries { get; set; } = new List<EnqueEntry>();
+
+        /// <summary>
+        /// Gets or sets the name associated with the object.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets the unique identifier for this instance.
+        /// </summary>
+        public Guid ID { get; private set; } = Guid.NewGuid();
 
         /// <summary>
         /// Event that is triggered when an element is enqueued

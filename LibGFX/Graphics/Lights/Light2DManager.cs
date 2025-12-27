@@ -173,7 +173,6 @@ namespace LibGFX.Graphics.Lights
         {       
             if (this.DirectionalLight == null)
             {
-                Debug.WriteLine("No directional light found");
                 return;
             }
             

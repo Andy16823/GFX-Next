@@ -14,7 +14,7 @@ namespace LibGFX.Core
     /// <summary>
     /// Represents a game element
     /// </summary>
-    public abstract class GameElement
+    public abstract class GameElement : IIdentifier, IPropertyTable
     {
         /// <summary>
         /// The name of the game element
@@ -76,6 +76,13 @@ namespace LibGFX.Core
         /// </summary>
         public IReadOnlyList<GameElement> Children => _children;
 
+        /// <summary>
+        /// Gets a collection of custom properties associated with the current instance.
+        /// </summary>
+        /// <remarks>Use this dictionary to store and retrieve additional metadata or user-defined values
+        /// related to the instance. Property names are case-sensitive. Modifying the collection affects only the
+        /// current instance.</remarks>
+        public Dictionary<string, object> Properties { get; } = new Dictionary<string, object>();
 
         private readonly List<GameElement> _children = new List<GameElement>();
 
