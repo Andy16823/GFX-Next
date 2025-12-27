@@ -234,46 +234,110 @@ namespace LibGFX.Graphics.Materials
         /// <param name="directory">The directory path used to resolve texture file locations. Must not be null or empty.</param>
         /// <returns>An IMaterial instance representing the converted material, with textures loaded from the specified
         /// directory.</returns>
-        public static IMaterial LoadMaterial(Assimp.Material asmat, String directory)
+        public void LoadMaterial(Assimp.Material asmat, String directory)
         {
-            var material = new Graphics.Materials.SGMaterial();
-            material.Name = asmat.Name;
-            material.Opacity = asmat.Opacity;
-            material.Color = new Vector4(asmat.ColorDiffuse.X, asmat.ColorDiffuse.Y, asmat.ColorDiffuse.Z, asmat.ColorDiffuse.W);
+            this.Name = asmat.Name;
+            this.Opacity = asmat.Opacity;
+            this.Color = new Vector4(asmat.ColorDiffuse.X, asmat.ColorDiffuse.Y, asmat.ColorDiffuse.Z, asmat.ColorDiffuse.W);
 
             if (asmat.Shininess > 0)
             {
-                material.Shininess = asmat.Shininess;
+                this.Shininess = asmat.Shininess;
             }
 
             if (asmat.HasTextureDiffuse)
             {
-                material.DiffuseTexture = new Texture(Path.Combine(directory, asmat.TextureDiffuse.FilePath));
+                this.DiffuseTexture = new Texture(Path.Combine(directory, asmat.TextureDiffuse.FilePath));
             }
             else
             {
-                material.DiffuseTexture = new Texture(1, 1, new Vector4i(255, 255, 255, 255));
+                this.DiffuseTexture = new Texture(1, 1, new Vector4i(255, 255, 255, 255));
             }
 
             if (asmat.HasTextureNormal)
             {
-                material.NormalTexture = new Texture(Path.Combine(directory, asmat.TextureNormal.FilePath));
+                this.NormalTexture = new Texture(Path.Combine(directory, asmat.TextureNormal.FilePath));
             }
             else
             {
-                material.NormalTexture = new Texture(1, 1, new Vector4i(128, 128, 255, 255));
+                this.NormalTexture = new Texture(1, 1, new Vector4i(128, 128, 255, 255));
             }
 
             if (asmat.HasTextureSpecular)
             {
-                material.SpecularTexture = new Texture(Path.Combine(directory, asmat.TextureSpecular.FilePath));
+                this.SpecularTexture = new Texture(Path.Combine(directory, asmat.TextureSpecular.FilePath));
             }
             else
             {
-                material.SpecularTexture = new Texture(1, 1, new Vector4i(0, 0, 0, 255));
+                this.SpecularTexture = new Texture(1, 1, new Vector4i(0, 0, 0, 255));
+            }
+        }
+
+        /// <summary>
+        /// Serializes the material and its associated textures to a JSON object.
+        /// </summary>
+        /// <remarks>The returned JSON object includes material properties such as name, ID, color, UV
+        /// scale, normal flip, opacity, and shininess, as well as nested objects for each associated texture. This
+        /// method is typically used to export material data for storage or interoperability with other
+        /// systems.</remarks>
+        /// <returns>A <see cref="JObject"/> containing the serialized representation of the material, including its properties
+        /// and texture data.</returns>
+        public JObject Serialize(SerializationContext context)
+        {
+            // Create main material object
+            JObject result = new JObject();
+            result["Type"] = this.GetType().FullName;
+            result["Name"] = this.Name;
+            result["ID"] = this.ID;
+            result["Color"] = Utils.SerializeVec4(this.Color);
+            result["UVScale"] = Utils.SerializeVec2(this.UVScale);
+            result["FlipNormal"] = this.FlipNormal;
+            result["Opacity"] = this.Opacity;
+            result["Shininess"] = this.Shininess;
+
+            // Create material textures
+            JObject textures = new JObject();
+            textures["DiffuseTexture"] = this.DiffuseTexture.Serialize(context);
+            textures["NormalTexture"] = this.NormalTexture.Serialize(context);
+            textures["SpecularTexture"] = this.SpecularTexture.Serialize(context);
+            result["textures"] = textures;
+
+            // Return the final serialized object
+            return result;
+        }
+
+        /// <summary>
+        /// Populates the material's properties by deserializing values from the specified JSON object.
+        /// </summary>
+        /// <remarks>The provided <paramref name="jObject"/> must contain valid keys for all expected
+        /// material properties and nested texture objects. Existing property values will be overwritten by the
+        /// deserialized data.</remarks>
+        /// <param name="jObject">A <see cref="JObject"/> containing the material data to deserialize. Must include all required material
+        /// properties and texture definitions.</param>
+        public void Deserialize(JObject jObject, SerializationContext context)
+        {
+            // Ensure material is not already initialized
+            if (this.IsInitialized)
+            {
+                throw new InvalidOperationException("Cannot deserialize into an already initialized material.");
             }
 
-            return material;
+            // Read main material properties
+            this.Name = jObject["Name"].Value<string>();
+            this.Color = Utils.DeserializeVec4(jObject["Color"] as JObject);
+            this.UVScale = Utils.DeserializeVec2(jObject["UVScale"] as JObject);
+            this.FlipNormal = jObject["FlipNormal"].Value<bool>();
+            this.Opacity = jObject["Opacity"].Value<float>();
+            this.Shininess = jObject["Shininess"].Value<float>();
+
+            // Read material textures
+            JObject textures = jObject["textures"] as JObject;
+            this.DiffuseTexture = new Texture();
+            this.DiffuseTexture.Deserialize(textures["DiffuseTexture"] as JObject, context);
+            this.NormalTexture = new Texture();
+            this.NormalTexture.Deserialize(textures["NormalTexture"] as JObject, context);
+            this.SpecularTexture = new Texture();
+            this.SpecularTexture.Deserialize(textures["SpecularTexture"] as JObject, context);
         }
     }
 }

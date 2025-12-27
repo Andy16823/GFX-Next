@@ -1,4 +1,6 @@
-﻿using LibGFX.Core;
+﻿using Assimp;
+using LibGFX.Core;
+using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,7 @@ namespace LibGFX.Math
     /// <summary>
     /// Represents a 3D transformation.
     /// </summary>
-    public class Transform
+    public class Transform : ISerialization
     {
         /// <summary>
         /// The position of the transformation.
@@ -460,6 +462,34 @@ namespace LibGFX.Math
             Matrix4 localMatrix = child.GetMatrix() * parentMatrix;
 
             return new Transform(localMatrix);
+        }
+
+        /// <summary>
+        /// Serializes the current object's position, rotation, and scale into a JSON representation.
+        /// </summary>
+        /// <param name="serializationContext">The context that provides information and settings required for the serialization process.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized position, rotation, and scale of the object.</returns>
+        public JObject Serialize(SerializationContext serializationContext)
+        {
+            JObject obj = new JObject();
+            obj["Type"] = this.GetType().FullName;
+            obj["Position"] = Utils.SerializeVec3(this.Position);
+            obj["Rotation"] = Utils.SerializeQuat(this.Rotation);
+            obj["Scale"] = Utils.SerializeVec3(this.Scale);
+            return obj;
+        }
+
+        /// <summary>
+        /// Deserializes the object's position, rotation, and scale from the specified JSON object.
+        /// </summary>
+        /// <param name="jObject">A JSON object containing the serialized position, rotation, and scale data. Must not be null.</param>
+        /// <param name="serializationContext">The context to use during deserialization. Provides additional information or services required for the
+        /// deserialization process.</param>
+        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            this.Position = Utils.DeserializeVec3(jObject["Position"] as JObject);
+            this.Rotation = Utils.DeserializeQuat(jObject["Rotation"] as JObject);
+            this.Scale = Utils.DeserializeVec3(jObject["Scale"] as JObject);
         }
     }
 }

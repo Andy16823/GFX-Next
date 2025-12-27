@@ -1,6 +1,8 @@
 ﻿using Assimp;
+using LibGFX.Core;
 using LibGFX.Graphics;
 using LibGFX.Graphics.Materials;
+using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -18,7 +20,7 @@ namespace NewGFXEditor.Editor
         public bool Hovered { get; set; } = false;
         public bool IsInitialized { get; private set; } = false;
 
-        public static IMaterial LoadMaterial(Material asmat, string directory)
+        public void Deserialize(JObject jObject, SerializationContext serializationContext)
         {
             throw new NotImplementedException();
         }
@@ -33,6 +35,11 @@ namespace NewGFXEditor.Editor
             this.IsInitialized = true;
         }
 
+        public JObject Serialize(SerializationContext serializationContext)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Use(IRenderDevice renderDevice)
         {
             if(this.Hovered)
@@ -43,6 +50,11 @@ namespace NewGFXEditor.Editor
             {
                 renderDevice.PrepareShader("vertexColor", this.VertexColor);
             }
+        }
+
+        void IMaterial.LoadMaterial(Material asmat, string directory)
+        {
+            throw new NotImplementedException();
         }
     }
 }

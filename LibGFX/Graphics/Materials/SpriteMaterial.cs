@@ -1,4 +1,6 @@
-﻿using LibGFX.Graphics.Shader;
+﻿using LibGFX.Core;
+using LibGFX.Graphics.Shader;
+using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -22,7 +24,7 @@ namespace LibGFX.Graphics.Materials
         /// <summary>
         /// The unique identifier of the material.
         /// </summary>
-        public Guid ID { get; } = Guid.NewGuid();
+        public Guid ID { get; private set; } = Guid.NewGuid();
 
         /// <summary>
         /// The texture of the material.
@@ -98,9 +100,61 @@ namespace LibGFX.Graphics.Materials
             renderDevice.PrepareShader("textureSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, Texture);
         }
 
-        public static IMaterial LoadMaterial(Assimp.Material asmat, String directory)
+
+        /// <summary>
+        /// Throws an exception to indicate that loading materials from Assimp materials is not supported for
+        /// SpriteMaterials.
+        /// </summary>
+        /// <param name="asmat">The Assimp material to attempt to load. This parameter is not supported and will always cause the method to
+        /// throw.</param>
+        /// <param name="directory">The directory path associated with the material. This parameter is not used.</param>
+        /// <returns>This method does not return a value. It always throws a NotSupportedException.</returns>
+        /// <exception cref="NotSupportedException">Thrown in all cases to indicate that loading SpriteMaterials from Assimp materials is not supported.</exception>
+        public void LoadMaterial(Assimp.Material asmat, String directory)
         {
             throw new NotSupportedException("SpriteMaterials cannot be loaded from Assimp materials.");
+        }
+
+        /// <summary>
+        /// Serializes the current object to a <see cref="JObject"/> representation suitable for JSON output.
+        /// </summary>
+        /// <param name="context">The serialization context that provides settings and state for the serialization process.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized data of the current object, including its name, ID, and
+        /// texture information.</returns>
+        public JObject Serialize(SerializationContext context)
+        {
+            JObject jObject = new JObject
+            {
+                ["Type"] = this.GetType().FullName,
+                ["Name"] = Name,
+                ["ID"] = ID.ToString(),
+                ["Texture"] = Texture != null ? Texture.Serialize(context) : null
+            };
+            return jObject;
+        }
+
+        /// <summary>
+        /// Populates the properties of the current instance from the specified JSON object using the provided
+        /// serialization context.
+        /// </summary>
+        /// <param name="jObject">The JSON object containing the data to deserialize. Must not be null.</param>
+        /// <param name="context">The serialization context to use during deserialization. Provides additional information or services
+        /// required for the operation.</param>
+        public void Deserialize(JObject jObject, SerializationContext context)
+        {
+            if (this.IsInitialized)
+            {
+                throw new InvalidOperationException("Cannot deserialize into an already initialized material.");
+            }
+
+            Name = jObject.Value<string>("Name") ?? "Unnamed SpriteMaterial";
+            ID = Guid.Parse(jObject.Value<string>("ID") ?? Guid.NewGuid().ToString());
+            JObject? textureObj = jObject.Value<JObject>("Texture");
+            if (textureObj != null)
+            {
+                Texture = new Texture();
+                Texture.Deserialize(textureObj, context);
+            }
         }
     }
 }

@@ -314,5 +314,123 @@ namespace LibGFX.Core
             foundNode = new SceneNodeData();
             return false;
         }
+
+        public static JObject SerializeVec2(Vector2 vec)
+        {
+            JObject obj = new JObject();
+            obj["X"] = vec.X;
+            obj["Y"] = vec.Y;
+            return obj;
+        }
+
+        public static JObject SerializeVec3(Vector3 vec)
+        {
+            JObject obj = new JObject();
+            obj["X"] = vec.X;
+            obj["Y"] = vec.Y;
+            obj["Z"] = vec.Z;
+            return obj;
+        }
+
+        public static JObject SerializeVec4(Vector4 vec)
+        {
+            JObject obj = new JObject();
+            obj["X"] = vec.X;
+            obj["Y"] = vec.Y;
+            obj["Z"] = vec.Z;
+            obj["W"] = vec.W;
+            return obj;
+        }
+
+        public static JObject SerializeVec4i(Vector4 vec)
+        {
+            JObject obj = new JObject();
+            obj["X"] = vec.X;
+            obj["Y"] = vec.Y;
+            obj["Z"] = vec.Z;
+            obj["W"] = vec.W;
+            return obj;
+        }
+
+        public static JObject SerializeQuat(Quaternion quat)
+        {
+            JObject obj = new JObject();
+            obj["X"] = quat.X;
+            obj["Y"] = quat.Y;
+            obj["Z"] = quat.Z;
+            obj["W"] = quat.W;
+            return obj;
+        }
+
+        public static Vector4 DeserializeVec4(JObject obj)
+        {
+            return new Vector4(
+                obj["X"].Value<float>(),
+                obj["Y"].Value<float>(),
+                obj["Z"].Value<float>(),
+                obj["W"].Value<float>()
+            );
+        }
+
+        public static Vector4i DeserializeVec4i(JObject obj)
+        {
+            return new Vector4i(
+                obj["X"].Value<int>(),
+                obj["Y"].Value<int>(),
+                obj["Z"].Value<int>(),
+                obj["W"].Value<int>()
+            );
+        }
+
+        public static Quaternion DeserializeQuat(JObject obj)
+        {
+            return new Quaternion(
+                obj["X"].Value<float>(),
+                obj["Y"].Value<float>(),
+                obj["Z"].Value<float>(),
+                obj["W"].Value<float>()
+            );
+        }
+
+        public static Vector3 DeserializeVec3(JObject obj)
+        {
+            return new Vector3(
+                obj["X"].Value<float>(),
+                obj["Y"].Value<float>(),
+                obj["Z"].Value<float>()
+            );
+        }
+
+        public static Vector2 DeserializeVec2(JObject obj)
+        {
+            return new Vector2(
+                obj["X"].Value<float>(),
+                obj["Y"].Value<float>()
+            );
+        }
+
+        public static JObject SerializeVertex(Vertex vertex)
+        {
+            JObject obj = new JObject();
+            obj["Position"] = Utils.SerializeVec3(vertex.Position);
+            obj["Normal"] = Utils.SerializeVec3(vertex.Normal);
+            obj["TexCoord"] = Utils.SerializeVec2(vertex.TexCoord);
+            obj["Tangent"] = Utils.SerializeVec4(vertex.Tangent);
+            obj["BoneWeights"] = Utils.SerializeVec4(vertex.BoneWeights);
+            obj["BoneIDs"] = Utils.SerializeVec4i(vertex.BoneIDs);
+            return obj;
+        }
+
+        public static Vertex DeserializeVertex(JObject obj)
+        {
+            Vertex vertex = new Vertex();
+            vertex.Position = Utils.DeserializeVec3((JObject)obj["Position"]);
+            vertex.Normal = Utils.DeserializeVec3((JObject)obj["Normal"]);
+            vertex.TexCoord = Utils.DeserializeVec2((JObject)obj["TexCoord"]);
+            vertex.Tangent = Utils.DeserializeVec4((JObject)obj["Tangent"]);
+            vertex.BoneWeights = Utils.DeserializeVec4((JObject)obj["BoneWeights"]);
+            vertex.BoneIDs = Utils.DeserializeVec4i((JObject)obj["BoneIDs"]);
+            return vertex;
+        }
     }
 }

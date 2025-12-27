@@ -131,9 +131,75 @@ namespace LibGFX.Graphics.Materials
             return material;
         }
 
-        public static IMaterial LoadMaterial(Assimp.Material asmat, String directory)
+        /// <summary>
+        /// Loads a material from the specified Assimp material definition and associated directory.
+        /// </summary>
+        /// <param name="asmat">The Assimp material to convert to an internal material representation. Cannot be null.</param>
+        /// <param name="directory">The directory path used to resolve any external resources referenced by the material. Cannot be null or
+        /// empty.</param>
+        /// <returns>An <see cref="IMaterial"/> instance representing the loaded material.</returns>
+        /// <exception cref="NotImplementedException">The method is not implemented.</exception>
+        public void LoadMaterial(Assimp.Material asmat, String directory)
         {
             throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Serializes the current object to a JSON representation using the specified serialization context.
+        /// </summary>
+        /// <param name="serializationContext">The context that provides information and settings required for the serialization process.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized representation of the object.</returns>
+        /// <exception cref="NotImplementedException">The method is not implemented.</exception>
+        public JObject Serialize(SerializationContext serializationContext)
+        {
+            JObject result = new JObject
+            {
+                ["Type"] = this.GetType().FullName,
+                ["Name"] = this.Name,
+                ["ID"] = this.ID.ToString(),
+                ["Albedo"] = Utils.SerializeVec3(this.Albedo),
+                ["Metallic"] = this.Metallic,
+                ["Roughness"] = this.Roughness,
+                ["Occlusion"] = this.Occlusion,
+                ["AlbedoTexture"] = this.AlbedoTexture != null ? this.AlbedoTexture.Serialize(serializationContext) : null,
+                ["NormalTexture"] = this.NormalTexture != null ? this.NormalTexture.Serialize(serializationContext) : null,
+                ["MetallicTexture"] = this.MetallicTexture != null ? this.MetallicTexture.Serialize(serializationContext) : null,
+                ["RoughnessTexture"] = this.RoughnessTexture != null ? this.RoughnessTexture.Serialize(serializationContext) : null,
+                ["OcclusionTexture"] = this.OcclusionTexture != null ? this.OcclusionTexture.Serialize(serializationContext) : null,
+            };
+            return result;
+        }
+
+        /// <summary>
+        /// Populates the current object with values from the specified JSON object using the provided serialization
+        /// context.
+        /// </summary>
+        /// <param name="jObject">The JSON object containing the data to deserialize into the current object. Cannot be null.</param>
+        /// <param name="serializationContext">The context that provides information and services for the deserialization process. Cannot be null.</param>
+        /// <exception cref="NotImplementedException">The method is not implemented.</exception>
+        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            if(this.IsInitialized)
+            {
+                throw new InvalidOperationException("Cannot deserialize into an already initialized material.");
+            }
+
+            this.Name = jObject["Name"].Value<string>();
+            this.ID = Guid.Parse(jObject["ID"].Value<string>());
+            this.Albedo = Utils.DeserializeVec3(jObject["Albedo"] as JObject);
+            this.Metallic = jObject["Metallic"].Value<float>();
+            this.Roughness = jObject["Roughness"].Value<float>();
+            this.Occlusion = jObject["Occlusion"].Value<float>();
+            this.AlbedoTexture = new Texture();
+            this.AlbedoTexture.Deserialize(jObject["AlbedoTexture"] as JObject, serializationContext);
+            this.NormalTexture = new Texture();
+            this.NormalTexture.Deserialize(jObject["NormalTexture"] as JObject, serializationContext);
+            this.MetallicTexture = new Texture();
+            this.MetallicTexture.Deserialize(jObject["MetallicTexture"] as JObject, serializationContext);
+            this.RoughnessTexture = new Texture();
+            this.RoughnessTexture.Deserialize(jObject["RoughnessTexture"] as JObject, serializationContext);
+            this.OcclusionTexture = new Texture();
+            this.OcclusionTexture.Deserialize(jObject["OcclusionTexture"] as JObject, serializationContext);
         }
     }
 }

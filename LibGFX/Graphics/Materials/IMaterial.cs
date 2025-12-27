@@ -16,7 +16,7 @@ namespace LibGFX.Graphics.Materials
     /// <remarks>Implementations of this interface represent materials that can be initialized, used, and
     /// disposed of with a rendering device. The interface also provides a static method for loading a material from an
     /// external source. Implementers should ensure thread safety if materials are accessed concurrently.</remarks>
-    public interface IMaterial : IGraphicsResource, IIdentifier
+    public interface IMaterial : IGraphicsResource, IIdentifier, ISerialization
     {
         /// <summary>
         /// Configures the current instance to use the specified render device for rendering operations.
@@ -35,6 +35,6 @@ namespace LibGFX.Graphics.Materials
         /// empty.</param>
         /// <returns>An IMaterial instance representing the loaded material, initialized with properties from the specified
         /// Assimp material.</returns>
-        public abstract static IMaterial LoadMaterial(Assimp.Material asmat, String directory);
+        public abstract void LoadMaterial(Assimp.Material asmat, String directory);
     }
 }

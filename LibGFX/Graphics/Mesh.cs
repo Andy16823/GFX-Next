@@ -1,6 +1,8 @@
-﻿using LibGFX.Core;
+﻿using Assimp;
+using LibGFX.Core;
 using LibGFX.Graphics.Materials;
 using LibGFX.Math;
+using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -36,7 +38,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a mesh for the rendering pipeline
     /// </summary>
-    public class Mesh : IGraphicsResource
+    public class Mesh : IGraphicsResource, IIdentifier, ISerialization
     {
         /// <summary>
         /// The name of the mesh.
@@ -46,7 +48,7 @@ namespace LibGFX.Graphics
         /// <summary>
         /// The unique identifier of the mesh.
         /// </summary>
-        public Guid ID { get; } = Guid.NewGuid();
+        public Guid ID { get; private set; } = Guid.NewGuid();
 
         /// <summary>
         /// The vertices of the mesh.
@@ -141,6 +143,59 @@ namespace LibGFX.Graphics
         {
             renderer.DisposeMesh(this);
             IsInitialized = false;
+        }
+
+        public JObject Serialize(SerializationContext serializationContext)
+        {
+            JObject obj = new JObject();
+            obj["Type"] = this.GetType().FullName;
+            obj["Name"] = Name;
+            obj["ID"] = ID;
+
+            var vertArray = new JArray();
+            foreach (var vertex in Vertices)
+            {
+                vertArray.Add(Utils.SerializeVertex(vertex));
+            }
+            obj["Vertices"] = vertArray;
+            obj["Indices"] = new JArray(this.Indices);
+            obj["LocalTranslation"] = Utils.SerializeVec3(this.LocalTranslation);
+            obj["LocalRotation"] = Utils.SerializeQuat(this.LocalRotation);
+            obj["LocalScale"] = Utils.SerializeVec3(this.LocalScale);
+            obj["Material"] = this.Material.ID.ToString();
+            return obj;
+        }
+
+        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            // Ensure the mesh is not initialized before deserializing
+            if (this.IsInitialized)
+            {
+                throw new InvalidOperationException("Cannot deserialize into an initialized Mesh. Dispose the mesh before deserializing.");
+            }
+
+            // Deserialize General Properties
+            Name = jObject["Name"].Value<string>();
+            ID = Guid.Parse(jObject["ID"].Value<string>());
+            Vertices = new List<Vertex>();
+            var vertArray = jObject["Vertices"] as JArray;
+            foreach (var vertToken in vertArray)
+            {
+                Vertices.Add(Utils.DeserializeVertex(vertToken as JObject));
+            }
+            Indices = jObject["Indices"].ToObject<List<int>>();
+            LocalTranslation = Utils.DeserializeVec3(jObject["LocalTranslation"] as JObject);
+            LocalRotation = Utils.DeserializeQuat(jObject["LocalRotation"] as JObject);
+            LocalScale = Utils.DeserializeVec3(jObject["LocalScale"] as JObject);
+
+            // Deserialize Material
+            var materialID = Guid.Parse(jObject["Material"].Value<string>());
+            var material = serializationContext.GetValue<IMaterial>(materialID.ToString());
+            if (material == null)
+            {
+                throw new InvalidOperationException($"Material with ID {materialID} not found in serialization context.");
+            }
+            this.Material = material;
         }
     }
 }

@@ -35,7 +35,7 @@ namespace NewGFXEditor.Exporter
         private JArray CreateMaterialsArray(List<Mesh> meshes)
         {
             // Create materials table from given meshes
-            Dictionary<String, SGMaterial> materials = new Dictionary<string, SGMaterial>();
+            Dictionary<String, IMaterial> materials = new Dictionary<string, IMaterial>();
             foreach(var mesh in meshes)
             {
                 if(!materials.ContainsKey(mesh.Material.ID.ToString()))
@@ -44,7 +44,7 @@ namespace NewGFXEditor.Exporter
                     {
                         throw new Exception("Material is not type of SGMaterial");
                     }
-                    materials[mesh.Material.ID.ToString()] = mesh.Material as SGMaterial;
+                    materials[mesh.Material.ID.ToString()] = mesh.Material;
                 }
             }
 
@@ -52,7 +52,7 @@ namespace NewGFXEditor.Exporter
             JArray result = new JArray();
             foreach(var material in materials.Values)
             {
-                result.Add(ExporterUtils.MaterialObj(material));
+                result.Add(material.Serialize(null));
             }
             return result;
         }
@@ -70,7 +70,7 @@ namespace NewGFXEditor.Exporter
             JArray meshes = new JArray();
             foreach(var mesh in meshtable.Values)
             {
-                meshes.Add(ExporterUtils.MeshObj(mesh));
+                meshes.Add(mesh.Serialize(null));
             }
             assetsObject["Meshes"] = meshes;
 
@@ -82,8 +82,8 @@ namespace NewGFXEditor.Exporter
             sceneObject["ID"] = scene.ID.ToString();
             sceneObject["DirectionalLight"] = new JObject()
             {
-                new JProperty("Direction", ExporterUtils.Vector3Obj(scene.DirectionalLight.Direction)),
-                new JProperty("Color", ExporterUtils.Vector4Obj(scene.DirectionalLight.Color)),
+                new JProperty("Direction", Utils.SerializeVec3(scene.DirectionalLight.Direction)),
+                new JProperty("Color", Utils.SerializeVec4(scene.DirectionalLight.Color)),
                 new JProperty("Intensity", scene.DirectionalLight.Intensity)
             };
             var layerArray = new JArray();
@@ -102,7 +102,7 @@ namespace NewGFXEditor.Exporter
                     elementObject["ID"] = element.ID;
                     elementObject["Enabled"] = element.Enabled;
                     elementObject["Visible"] = element.Visible;
-                    elementObject["Transform"] = ExporterUtils.TransformObj(element.Transform);
+                    elementObject["Transform"] = element.Transform.Serialize(null);
                     elementObject["Properties"] = JObject.FromObject(element.Properties);
                     JArray meshesArray = new JArray();
                     foreach(var mesh in element.GetMeshes())

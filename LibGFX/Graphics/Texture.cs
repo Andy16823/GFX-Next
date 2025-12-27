@@ -1,5 +1,6 @@
 ﻿using LibGFX.Core;
 using LibGFX.Math;
+using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using StbImageSharp;
 using System;
@@ -8,6 +9,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -29,7 +31,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a texture that can be used in rendering.
     /// </summary>
-    public class Texture : IGraphicsResource
+    public class Texture : IGraphicsResource, ISerialization
     {
         /// <summary>
         /// The unique identifier for the texture.
@@ -387,6 +389,49 @@ namespace LibGFX.Graphics
                 throw new InvalidOperationException("Cannot set texture parameters after the texture has been initialized.");
             }
             _parameters = parameters;
+        }
+
+        public JObject Serialize(SerializationContext context)
+        {
+            // Serialize generic texture data
+            JObject result = new JObject();
+            result["Type"] = this.GetType().FullName;
+            result["Width"] = this.Width;
+            result["Height"] = this.Height;
+            result["TextureData"] = Convert.ToBase64String(this.TextureData);
+
+            // Serialize texture parameters
+            JObject parameters = new JObject();
+            parameters["MinFilter"] = (int) this.TextureParameters.MinFilter;
+            parameters["MagFilter"] = (int) this.TextureParameters.MagFilter;
+            parameters["WrapS"] = (int) this.TextureParameters.WrapS;
+            parameters["WrapT"] = (int) this.TextureParameters.WrapT;
+            parameters["GenerateMipmaps"] = this.TextureParameters.GenerateMipmaps;
+            result["TextureParameters"] = parameters;
+
+            // Return the serialized JObject
+            return result;
+        }
+
+        public void Deserialize(JObject jObject, SerializationContext context)
+        {
+            // Deserialize generic texture data
+            this.Width = jObject["Width"]!.Value<int>();
+            this.Height = jObject["Height"]!.Value<int>();
+            string base64Data = jObject["TextureData"]!.Value<string>()!;
+            this.TextureData = Convert.FromBase64String(base64Data);
+
+            // Deserialize texture parameters
+            JObject parameters = jObject["TextureParameters"]!.Value<JObject>()!;
+            TextureParameters texParams = new TextureParameters
+            {
+                MinFilter = (RenderFlags.TextureFilterMode) parameters["MinFilter"]!.Value<int>(),
+                MagFilter = (RenderFlags.TextureFilterMode) parameters["MagFilter"]!.Value<int>(),
+                WrapS = (RenderFlags.TextureWrapMode) parameters["WrapS"]!.Value<int>(),
+                WrapT = (RenderFlags.TextureWrapMode) parameters["WrapT"]!.Value<int>(),
+                GenerateMipmaps = parameters["GenerateMipmaps"]!.Value<bool>()
+            };
+            this.TextureParameters = texParams;
         }
     }
 }
