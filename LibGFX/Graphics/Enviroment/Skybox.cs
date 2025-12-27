@@ -1,5 +1,7 @@
 ﻿using Assimp;
+using LibGFX.Core;
 using LibGFX.Math;
+using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -77,6 +79,43 @@ namespace LibGFX.Graphics.Enviroment
         {
             this.IsInitialized = false;
             Cubemap.Dispose(renderer);
+        }
+
+        /// <summary>
+        /// Serializes the current object to a JSON representation using the specified serialization context.
+        /// </summary>
+        /// <param name="serializationContext">The context to use during serialization, which may provide settings or state required for the serialization
+        /// process.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized representation of the object, including its type, cubemap,
+        /// and transform information.</returns>
+        public JObject Serialize(SerializationContext serializationContext)
+        {
+            return new JObject()
+            {
+                ["Type"] = this.GetType().FullName,
+                ["Cubemap"] = this.Cubemap.Serialize(serializationContext),
+                ["Transform"] = this.Transform.Serialize(serializationContext)
+            };
+        }
+
+        /// <summary>
+        /// Deserializes the skybox state from the specified JSON object using the provided serialization context.
+        /// </summary>
+        /// <param name="jObject">A <see cref="JObject"/> containing the serialized skybox data. Must include 'Cubemap' and 'Transform'
+        /// properties.</param>
+        /// <param name="serializationContext">The context to use during deserialization, providing necessary settings and references.</param>
+        /// <exception cref="InvalidOperationException">Thrown if the skybox is already initialized. Dispose the skybox before deserializing.</exception>
+        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            if(this.IsInitialized)
+            {
+                throw new InvalidOperationException("Cannot deserialize an initialized Skybox. Dispose it first.");
+            }
+
+            this.Cubemap = new Cubemap();
+            this.Cubemap.Deserialize(jObject["Cubemap"] as JObject, serializationContext);
+            this.Transform = new Transform();
+            this.Transform.Deserialize(jObject["Transform"] as JObject, serializationContext);
         }
     }
 }

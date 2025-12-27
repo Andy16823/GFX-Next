@@ -1,4 +1,6 @@
-﻿using LibGFX.Math;
+﻿using LibGFX.Core;
+using LibGFX.Math;
+using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -144,6 +146,64 @@ namespace LibGFX.Graphics.Enviroment
             renderer.DrawShape(renderer.GetShape("CubeShape"));
             renderer.SetDepthMask(true);
             renderer.UnbindShaderProgram();
+        }
+
+        /// <summary>
+        /// Serializes the current object to a JSON representation suitable for storage or transmission.
+        /// </summary>
+        /// <param name="serializationContext">The context that provides serialization settings and state information used during the serialization
+        /// process.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized representation of the object, including its type and
+        /// relevant properties.</returns>
+        public JObject Serialize(SerializationContext serializationContext)
+        {
+            return new JObject()
+            {
+                ["Type"] = this.GetType().FullName,
+                ["Transform"] = Transform.Serialize(serializationContext),
+                ["SkyTopColor"] = Utils.SerializeVec3(SkyTopColor),
+                ["SkyBottomColor"] = Utils.SerializeVec3(SkyBottomColor),
+                ["SunDirection"] = Utils.SerializeVec3(SunDirection),
+                ["SunColor"] = Utils.SerializeVec3(SunColor),
+                ["SunSize"] = SunSize,
+                ["SunIntensity"] = SunIntensity,
+                ["SkylineOffset"] = SkylineOffset,
+                ["SkylineScale"] = SkylineScale,
+                ["Coverage"] = Coverage,
+                ["CoverageTexture"] = CoverageTexture != null ? CoverageTexture.Serialize(serializationContext) : null,
+                ["CoverageFactor"] = CoverageFactor,
+                ["CloudColor"] = Utils.SerializeVec3(CloudColor)
+            };
+        }
+
+        /// <summary>
+        /// Populates the object's properties from the specified JSON data using the provided serialization context.
+        /// </summary>
+        /// <remarks>This method expects the JSON object to contain all necessary fields for successful
+        /// deserialization. Missing or invalid fields may result in incomplete or incorrect object state.</remarks>
+        /// <param name="jObject">A <see cref="JObject"/> containing the JSON data to deserialize. Must not be null and should include all
+        /// required fields for this object.</param>
+        /// <param name="serializationContext">The <see cref="SerializationContext"/> to use during deserialization. Provides context or settings that may
+        /// influence how the data is interpreted.</param>
+        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            Transform.Deserialize(jObject["Transform"] as JObject, serializationContext);
+            SkyTopColor = Utils.DeserializeVec3(jObject["SkyTopColor"] as JObject);
+            SkyBottomColor = Utils.DeserializeVec3(jObject["SkyBottomColor"] as JObject);
+            SunDirection = Utils.DeserializeVec3(jObject["SunDirection"] as JObject);
+            SunColor = Utils.DeserializeVec3(jObject["SunColor"] as JObject);
+            SunSize = jObject["SunSize"].Value<float>();
+            SunIntensity = jObject["SunIntensity"].Value<float>();
+            SkylineOffset = jObject["SkylineOffset"].Value<float>();
+            SkylineScale = jObject["SkylineScale"].Value<float>();
+            Coverage = jObject["Coverage"].Value<bool>();
+            if (jObject["CoverageTexture"] != null && jObject["CoverageTexture"].Type != JTokenType.Null)
+            {
+                CoverageTexture = new Texture();
+                CoverageTexture.Deserialize(jObject["CoverageTexture"] as JObject, serializationContext);
+            }
+            CoverageFactor = jObject["CoverageFactor"].Value<float>();
+            CloudColor = Utils.DeserializeVec3(jObject["CloudColor"] as JObject);
         }
     }
 }

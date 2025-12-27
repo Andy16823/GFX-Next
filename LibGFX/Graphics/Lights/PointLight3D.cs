@@ -1,4 +1,6 @@
-﻿using OpenTK.Mathematics;
+﻿using LibGFX.Core;
+using Newtonsoft.Json.Linq;
+using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -152,14 +154,70 @@ namespace LibGFX.Graphics.Lights
             return (min, max);
         }
 
+        /// <summary>
+        /// Initializes the object using the specified render device.
+        /// </summary>
+        /// <param name="renderer">The render device to use for initialization. Cannot be null.</param>
         public override void Init(IRenderDevice renderer)
         {
 
         }
 
+        /// <summary>
+        /// Releases all resources used by the object and performs any necessary cleanup using the specified render
+        /// device.
+        /// </summary>
+        /// <param name="renderer">The render device to use for releasing graphics resources associated with this object. Cannot be null.</param>
         public override void Dispose(IRenderDevice renderer)
         {
 
+        }
+
+        /// <summary>
+        /// Serializes the current light object to a JSON representation suitable for storage or transmission.
+        /// </summary>
+        /// <remarks>The returned JSON object includes all relevant properties needed to reconstruct the
+        /// light's state. The format is intended for interoperability with systems that consume or persist light
+        /// definitions in JSON.</remarks>
+        /// <param name="serializationContext">The context that provides information and services required for the serialization process.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized properties of the light, including type, color, position,
+        /// intensity, shadow map size, range, attenuation factors, ambient, and specular values.</returns>
+        public override JObject Serialize(SerializationContext serializationContext)
+        {
+            return new JObject()
+            {
+                ["Type"] = this.GetType().FullName,
+                ["Color"] = Utils.SerializeVec4(this.Color),
+                ["Position"] = Utils.SerializeVec3(this.Position),
+                ["Intensity"] = this.Intensity,
+                ["ShadowMapSize"] = Utils.SerializeVec2i(this.ShadowMapSize),
+                ["Range"] = this.Range,
+                ["Constant"] = this.Constant,
+                ["Linear"] = this.Linear,
+                ["Quadratic"] = this.Quadratic,
+                ["Ambient"] = Utils.SerializeVec4(this.Ambient),
+                ["Specular"] = Utils.SerializeVec4(this.Specular)
+            };
+        }
+
+        /// <summary>
+        /// Populates the object's properties from the specified JSON object using the provided serialization context.
+        /// </summary>
+        /// <param name="jObject">A JSON object containing the serialized data to deserialize into the object's properties. Must not be null
+        /// and must contain the expected fields.</param>
+        /// <param name="serializationContext">The context to use during deserialization, providing additional information or services required for the
+        /// process.</param>
+        public override void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            this.Color = Utils.DeserializeVec4(jObject["Color"] as JObject);
+            this.Position = Utils.DeserializeVec3(jObject["Position"] as JObject);
+            this.Intensity = jObject["Intensity"]!.Value<float>();
+            this.Range = jObject["Range"]!.Value<float>();
+            this.Constant = jObject["Constant"]!.Value<float>();
+            this.Linear = jObject["Linear"]!.Value<float>();
+            this.Quadratic = jObject["Quadratic"]!.Value<float>();
+            this.Ambient = Utils.DeserializeVec4(jObject["Ambient"] as JObject);
+            this.Specular = Utils.DeserializeVec4(jObject["Specular"] as JObject);
         }
     }
 }

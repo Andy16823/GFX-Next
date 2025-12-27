@@ -9,7 +9,7 @@ using System.Transactions;
 
 namespace LibGFX.Graphics.Enviroment
 {
-    public interface IEnviroment : IGraphicsResource
+    public interface IEnviroment : IGraphicsResource, ISerialization
     {
         public Transform Transform { get; set; }
         public void Render(IRenderDevice renderer, Camera camera, Viewport viewport);

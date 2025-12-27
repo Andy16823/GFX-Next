@@ -15,7 +15,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a cubemap texture
     /// </summary>
-    public class Cubemap : IGraphicsResource
+    public class Cubemap : IGraphicsResource, ISerialization
     {
         /// <summary>
         /// The faces of the cubemap
@@ -119,16 +119,81 @@ namespace LibGFX.Graphics
             return cubemap;
         }
 
+        /// <summary>
+        /// Initializes the cubemap by loading it into the specified render device.
+        /// </summary>
+        /// <param name="renderer">The render device used to load the cubemap. Cannot be null.</param>
         public void Init(IRenderDevice renderer)
         {
             renderer.LoadCubemap(this);
             this.IsInitialized = true;
         }
 
+        /// <summary>
+        /// Releases resources associated with this cubemap using the specified render device.
+        /// </summary>
+        /// <remarks>After calling this method, the cubemap is no longer initialized and should not be
+        /// used in rendering operations.</remarks>
+        /// <param name="renderer">The render device used to dispose of the cubemap resources. Cannot be null.</param>
         public void Dispose(IRenderDevice renderer)
         {
             renderer.DisposeCubemap(this);
             this.IsInitialized = false;
+        }
+
+        /// <summary>
+        /// Serializes the current object to a JSON representation suitable for storage or transmission.
+        /// </summary>
+        /// <remarks>The returned JSON object includes the object's type, width, height, and an array of
+        /// faces. Each face is represented as a Base64-encoded string. The structure of the output is intended for
+        /// interoperability and persistence scenarios.</remarks>
+        /// <param name="serializationContext">The context that provides information required for serialization. This parameter can be used to customize
+        /// serialization behavior.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized data, including type information, dimensions, and face
+        /// data encoded as Base64 strings.</returns>
+        public JObject Serialize(SerializationContext serializationContext)
+        {
+            JArray facesArray = new JArray();
+            foreach (var face in Faces)
+            {
+                facesArray.Add(Convert.ToBase64String(face));
+            }
+
+            return new JObject()
+            {
+                ["Type"] = this.GetType().FullName,
+                ["Width"] = this.Width,
+                ["Height"] = this.Height,
+                ["Faces"] = facesArray
+            };
+        }
+
+        /// <summary>
+        /// Populates the cubemap's properties and face data from the specified JSON object.
+        /// </summary>
+        /// <remarks>This method resets the cubemap's dimensions and face data based on the provided JSON.
+        /// Existing face data will be cleared before loading new data. The method does not support deserializing into
+        /// an already initialized cubemap.</remarks>
+        /// <param name="jObject">A <see cref="JObject"/> containing the serialized cubemap data. Must include "Width", "Height", and "Faces"
+        /// properties.</param>
+        /// <param name="serializationContext">The context for the deserialization process. Provides additional information or services required during
+        /// deserialization.</param>
+        /// <exception cref="InvalidOperationException">Thrown if the cubemap is already initialized. The cubemap must be disposed before deserialization.</exception>
+        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            if(this.IsInitialized)
+            {
+                throw new InvalidOperationException("Cannot deserialize an initialized Cubemap. Dispose it first.");
+            }
+
+            this.Width = jObject["Width"].Value<int>();
+            this.Height = jObject["Height"].Value<int>();
+            this.Faces.Clear();
+            foreach (var faceToken in jObject["Faces"] as JArray)
+            {
+                var faceData = Convert.FromBase64String(faceToken.Value<string>());
+                this.Faces.Add(faceData);
+            }
         }
     }
 }

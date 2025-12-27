@@ -323,7 +323,24 @@ namespace LibGFX.Core
             return obj;
         }
 
+        public static JObject SerializeVec2i(Vector2i vec)
+        {
+            JObject obj = new JObject();
+            obj["X"] = vec.X;
+            obj["Y"] = vec.Y;
+            return obj;
+        }
+
         public static JObject SerializeVec3(Vector3 vec)
+        {
+            JObject obj = new JObject();
+            obj["X"] = vec.X;
+            obj["Y"] = vec.Y;
+            obj["Z"] = vec.Z;
+            return obj;
+        }
+
+        public static JObject SerializeVec3i(Vector3i vec)
         {
             JObject obj = new JObject();
             obj["X"] = vec.X;
@@ -342,7 +359,7 @@ namespace LibGFX.Core
             return obj;
         }
 
-        public static JObject SerializeVec4i(Vector4 vec)
+        public static JObject SerializeVec4i(Vector4i vec)
         {
             JObject obj = new JObject();
             obj["X"] = vec.X;
@@ -401,11 +418,28 @@ namespace LibGFX.Core
             );
         }
 
+        public static Vector3i DeserializeVec3i(JObject obj)
+        {
+            return new Vector3i(
+                obj["X"].Value<int>(),
+                obj["Y"].Value<int>(),
+                obj["Z"].Value<int>()
+            );
+        }
+
         public static Vector2 DeserializeVec2(JObject obj)
         {
             return new Vector2(
                 obj["X"].Value<float>(),
                 obj["Y"].Value<float>()
+            );
+        }
+
+        public static Vector2i DeserializeVec2i(JObject obj)
+        {
+            return new Vector2i(
+                obj["X"].Value<int>(),
+                obj["Y"].Value<int>()
             );
         }
 
