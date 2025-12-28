@@ -2,6 +2,7 @@
 using LibGFX.Graphics.Materials;
 using LibGFX.Math;
 using LibGFX.Physics;
+using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace LibGFX.Core
     /// <summary>
     /// Represents a game element
     /// </summary>
-    public abstract class GameElement : IIdentifier, IPropertyTable
+    public abstract class GameElement : IIdentifier, IPropertyTable, ISerialization
     {
         /// <summary>
         /// The name of the game element
@@ -359,5 +360,125 @@ namespace LibGFX.Core
         {
             return this.Children.OfType<T>().Where(c => c.Name == name).ToArray();
         }
+
+        /// <summary>
+        /// Serializes the current object and its hierarchy into a JSON representation.
+        /// </summary>
+        /// <remarks>The returned JSON object includes information about the object's type, identifier,
+        /// name, transform, visibility, enabled state, shadow casting, parent, tags, axis-aligned bounding boxes,
+        /// children, and custom properties. Behaviors are not currently serialized and are represented as an empty
+        /// array.</remarks>
+        /// <param name="serializationContext">The context that provides serialization settings and state information used during the serialization
+        /// process.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized data of the object, including its properties, transform,
+        /// children, and related metadata.</returns>
+        public virtual JObject Serialize(SerializationContext serializationContext)
+        {
+            var childrenArray = new JArray();
+            foreach (var child in _children)
+            {
+                childrenArray.Add(child.Serialize(serializationContext));
+            }
+
+            return new JObject()
+            {
+                ["Type"] = this.GetType().FullName,
+                ["ID"] = this.ID.ToString(),
+                ["Name"] = this.Name,
+                ["Transform"] = this.Transform.Serialize(serializationContext),
+                ["Visible"] = this.Visible,
+                ["Enabled"] = this.Enabled,
+                ["CastShadows"] = this.CastShadows,
+                ["Parent"] = this.Parent != null ? this.Parent.ID.ToString() : null,
+                ["Behaviors"] = new JArray(), // Empty for now TODO: Serialize behaviors
+                ["Tags"] = new JArray(this.Tags.ToArray()),
+                ["AABB"] = Utils.SerializeAABB(this.AABB),
+                ["WorldAABB"] = Utils.SerializeAABB(this.WorldAABB),
+                ["Children"] = childrenArray,
+                ["Properties"] = JObject.FromObject(this.Properties)
+            };
+        }
+
+        /// <summary>
+        /// Populates the properties of the current object by deserializing data from the specified JSON object using
+        /// the provided serialization context.
+        /// </summary>
+        /// <remarks>This method updates the state of the current object based on the contents of
+        /// <paramref name="jObject"/>. It also registers the object in the serialization context to support reference
+        /// resolution for child and parent relationships. All child elements are deserialized after the parent is
+        /// registered to ensure correct hierarchy reconstruction.</remarks>
+        /// <param name="jObject">A <see cref="JObject"/> containing the serialized data to deserialize into this object. Must not be null and
+        /// must contain all required fields.</param>
+        /// <param name="serializationContext">A <see cref="SerializationContext"/> used to resolve references and manage object identity during
+        /// deserialization. Must not be null.</param>
+        /// <exception cref="Exception">Thrown if a referenced parent object or a required type cannot be found during deserialization.</exception>
+        public virtual void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            // Get Identifier properties
+            this.ID = Guid.Parse(jObject["ID"].Value<string>());
+            this.Name = jObject["Name"].Value<string>();
+
+            // Get Transform
+            this.Transform = new Transform();
+            this.Transform.Deserialize((JObject)jObject["Transform"], serializationContext);
+
+            // Get Renderable properties
+            this.Visible = jObject["Visible"].Value<bool>();
+            this.Enabled = jObject["Enabled"].Value<bool>();
+            this.CastShadows = jObject["CastShadows"].Value<bool>();
+
+            // Get Parent if parent exists
+            if (jObject["Parent"].Value<string>() != null)
+            {
+                var parentId = jObject["Parent"].Value<string>();
+                var parent = serializationContext.GetValue<GameElement>(parentId);
+                if (parent == null)
+                {
+                    throw new Exception("Parent GameElement not found during deserialization.");
+                }
+            }
+
+            // Get Behaviors TODO: Deserialize behaviors
+            this.Behaviors = new List<IGameBehavior>();
+
+            // Get Tags
+            this.Tags = new HashSet<string>();
+            foreach (var tagToken in (JArray)jObject["Tags"])
+            {
+                this.Tags.Add(tagToken.Value<string>());
+            }
+
+            // Get AABB
+            this.AABB = Utils.DeserializeAABB((JObject)jObject["AABB"]);
+            // WorldAABB is computed, no need to deserialize
+
+            // Get Properties
+            this.Properties.Clear();
+            var propertiesObject = (JObject)jObject["Properties"];
+            foreach (var property in propertiesObject)
+            {
+                this.Properties[property.Key] = property.Value.ToObject<object>();
+            }
+
+            // Register this object in the serialization context so that children can reference it as parent
+            serializationContext.SetValue(this.ID.ToString(), this);
+
+            // Deserialize Children after registering parent
+            this._children.Clear();
+            foreach (var childToken in (JArray)jObject["Children"])
+            {
+                var childObject = (JObject)childToken;
+                var typeName = childObject["Type"].Value<string>();
+                var type = Type.GetType(typeName);
+                if (type == null)
+                {
+                    throw new Exception($"Type '{typeName}' not found during deserialization.");
+                }
+                var child = (GameElement)Activator.CreateInstance(type);
+                child.Deserialize(childObject, serializationContext);
+                this.AddChild(child);
+            }
+        }
+
     }
 }

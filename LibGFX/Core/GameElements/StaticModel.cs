@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LibGFX.Graphics;
 using LibGFX.Math;
+using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 
 namespace LibGFX.Core.GameElements
@@ -125,6 +126,48 @@ namespace LibGFX.Core.GameElements
         public Graphics.StaticMeshModel GetModel()
         {
             return _model;
+        }
+
+        /// <summary>
+        /// Serializes the current object to a JSON representation using the specified serialization context.
+        /// </summary>
+        /// <param name="serializationContext">The context that provides information and settings for the serialization process.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized representation of the object, including type and model
+        /// information.</returns>
+        public override JObject Serialize(SerializationContext serializationContext)
+        {
+            // Serialize base properties
+            var data = base.Serialize(serializationContext);
+
+            // Serialize StaticModel specific properties override Type
+            data["Type"] = this.GetType().FullName;
+            data["Model"] = _model.ID.ToString();
+            return data;
+        }
+
+        /// <summary>
+        /// Deserializes the StaticModel instance from the specified JSON object using the provided serialization
+        /// context.
+        /// </summary>
+        /// <param name="jObject">The JSON object containing the data to deserialize into this StaticModel instance.</param>
+        /// <param name="serializationContext">The context used to resolve references and retrieve objects during deserialization.</param>
+        /// <exception cref="Exception">Thrown if the model identifier specified in the JSON object cannot be found in the serialization context.</exception>
+        public override void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            // Deserialize base properties
+            base.Deserialize(jObject, serializationContext);
+
+            // Deserialize StaticModel specific properties
+            var modelId = jObject["Model"].Value<string>();
+            var model = serializationContext.GetValue<StaticMeshModel>(modelId);
+            if(model != null)
+            {
+                _model = model;
+            }
+            else
+            {
+                throw new Exception($"StaticModel deserialization failed: Model with ID {modelId} not found in serialization context.");
+            }
         }
     }
 }

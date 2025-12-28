@@ -581,5 +581,21 @@ namespace LibGFX.Core
             keyScale.timeStamp = obj["TimeStamp"].Value<float>();
             return keyScale;
         }
+
+        public static JObject SerializeAABB(AABB aabb)
+        {
+            JObject obj = new JObject();
+            obj["Min"] = Utils.SerializeVec3(aabb.Min);
+            obj["Max"] = Utils.SerializeVec3(aabb.Max);
+            return obj;
+        }
+
+        public static AABB DeserializeAABB(JObject obj)
+        {
+            AABB aabb = new AABB();
+            aabb.Min = Utils.DeserializeVec3(obj["Min"] as JObject);
+            aabb.Max = Utils.DeserializeVec3(obj["Max"] as JObject);
+            return aabb;
+        }
     }
 }

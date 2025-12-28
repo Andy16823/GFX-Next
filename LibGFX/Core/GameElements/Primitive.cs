@@ -4,6 +4,7 @@ using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Primitives;
 using LibGFX.Graphics.Shader;
 using LibGFX.Math;
+using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -192,6 +193,41 @@ namespace LibGFX.Core.GameElements
 
             this.AABB = new AABB(min, max);
             Debug.WriteLine($"Primitive {this.Name} AABB computed: Min {this.AABB.Min}, Max {this.AABB.Max}");
+        }
+
+        /// <summary>
+        /// Serializes the current object to a JSON representation, including type and mesh information.
+        /// </summary>
+        /// <remarks>The returned JSON object includes additional fields specific to the primitive, such
+        /// as the fully qualified type name and the mesh ID if available. This method extends the base serialization
+        /// with primitive-specific data.</remarks>
+        /// <param name="serializationContext">The context that provides information and services for the serialization process.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized data for the object, including its type and associated
+        /// mesh identifier.</returns>
+        public override JObject Serialize(SerializationContext serializationContext)
+        {
+            var baseInfo = base.Serialize(serializationContext);
+            // Add primitive-specific data to the JSON object
+            baseInfo["Type"] = this.GetType().FullName;
+            baseInfo["Mesh"] = Mesh?.ID.ToString();
+            return baseInfo;
+        }
+
+        public override void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            base.Deserialize(jObject, serializationContext);
+
+            // Deserialize primitive-specific data if needed
+            var meshId = jObject["Mesh"].ToString();
+            var mesh = serializationContext.GetValue<Mesh>(meshId);
+            if(serializationContext.GetValue<Mesh>(meshId) != null)
+            {
+                this.Mesh = mesh;
+            }
+            else
+            {
+                throw new Exception("Failed to deserialize Primitive: Mesh with ID " + meshId + " not found in serialization context.");
+            }
         }
     }
 }
