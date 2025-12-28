@@ -39,14 +39,10 @@ namespace LibGFX.Graphics
         void SetDepthTest(bool value);
         void EnableDepthTest();
         void DisableDepthTest();
-        void EnableAlphaBlend();
-        void EnableAdditiveBlend();
-        void EnableMultiplicativeBlend();
-        void EnableScreenBlend();
-        bool IsBlendEnabled();
+        void EnableBlend();
+        bool BlendEnabled();
         (int srcFactor, int dstFactor) GetCurrentBlendMode();
         void SetBlendMode(int srcFactor, int dstFactor);
-        void ResetBlendMode();
         void DisableBlend();
         CullMode GetCullMode();
         void SetCullMode(CullMode mode);

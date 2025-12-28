@@ -40,6 +40,9 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         private Matrix4 _projectionMatrix;
         private int _currentProgram;
         private bool _depthTestEnabled = false;
+        private bool _blendEnabled = false;
+        private int _srcBlendMode = (int) BlendingFactor.SrcAlpha;
+        private int _destBlendMode = (int)BlendingFactor.OneMinusSrcAlpha;
         private Viewport _viewport;
 
         public void Init(IGLFWGraphicsContext context)
@@ -172,63 +175,34 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.Disable(EnableCap.DepthTest);
         }
 
-        public void EnableAlphaBlend()
+        public void EnableBlend()
         {
             GL.Enable(EnableCap.Blend);
-            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
+            GL.BlendFunc((BlendingFactor) _srcBlendMode, (BlendingFactor) _destBlendMode);
+            _blendEnabled = true;
         }
 
-        public void EnableAdditiveBlend()
+        public bool BlendEnabled()
         {
-            GL.Enable(EnableCap.Blend);
-            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.One);
-        }
-
-        public void EnableMultiplicativeBlend()
-        {
-            GL.Enable(EnableCap.Blend);
-            GL.BlendFunc(BlendingFactor.DstColor, BlendingFactor.Zero);
-        }
-
-        public void EnableScreenBlend()
-        {
-            GL.Enable(EnableCap.Blend);
-            GL.BlendFunc(BlendingFactor.OneMinusDstColor, BlendingFactor.One);
-        }
-
-        public bool IsBlendEnabled()
-        {
-            return GL.IsEnabled(EnableCap.Blend);
+            return _blendEnabled;
         }
 
         public (int srcFactor, int dstFactor) GetCurrentBlendMode()
         {
-            int src, dst;
-            GL.GetInteger(GetPName.BlendSrc, out src);
-            GL.GetInteger(GetPName.BlendDst, out dst);
-
-            string srcName = ((BlendingFactor)src).ToString();
-            string dstName = ((BlendingFactor)dst).ToString();
-
-            Debug.WriteLine($"Current Blend Mode: {srcName}, {dstName}");
-            return (src, dst);
+            return (_srcBlendMode, _destBlendMode);
         }
 
         public void SetBlendMode(int srcFactor, int dstFactor)
         {
-            GL.Enable(EnableCap.Blend);
-            GL.BlendFunc((BlendingFactor)srcFactor, (BlendingFactor)dstFactor);
-        }
-
-        public void ResetBlendMode()
-        {
-            GL.BlendFunc(BlendingFactor.One, BlendingFactor.Zero);
-            GL.BlendEquation(BlendEquationMode.FuncAdd);
+            _srcBlendMode = srcFactor;
+            _destBlendMode = dstFactor;
+            GL.BlendFunc((BlendingFactor)_srcBlendMode, (BlendingFactor) _destBlendMode);
         }
 
         public void DisableBlend()
         {
             GL.Disable(EnableCap.Blend);
+            _blendEnabled = false;
         }
 
         public void SetViewport(Viewport viewport)
@@ -885,10 +859,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void DrawRenderTarget(int textureId)
         {
-            // Get Blending state
-            var blendState = this.IsBlendEnabled();
-            var blendmode = this.GetCurrentBlendMode();
-
             // Enable AlphaBlending
             GL.Enable(EnableCap.Blend);
             GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
@@ -908,15 +878,8 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                 GL.BindTexture(TextureTarget.Texture2D, 0);
                 SetDepthTest(depthTest);
             }
-            
-            // Disable Blendstate if it was disabled
-            if (!blendState)
-            {
-                GL.Disable(EnableCap.Blend);
-            }
 
-            // Reset blending factor
-            GL.BlendFunc((BlendingFactor)blendmode.srcFactor, (BlendingFactor)blendmode.dstFactor);
+            GL.Disable(EnableCap.Blend);
         }
 
         public void DrawFullScreenQuad()
