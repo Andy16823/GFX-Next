@@ -1,5 +1,7 @@
 ﻿using Assimp;
+using LibGFX.Core;
 using LibGFX.Math;
+using Newtonsoft.Json.Linq;
 using OpenTK.Core;
 using OpenTK.Mathematics;
 using System;
@@ -14,7 +16,7 @@ namespace LibGFX.Graphics.Animation3D
     /// <summary>
     /// Represents a bone in a skeletal animation system.
     /// </summary>
-    public class Bone
+    public class Bone : ISerialization
     {
         /// <summary>
         /// List of position keyframes for the bone.
@@ -35,6 +37,14 @@ namespace LibGFX.Graphics.Animation3D
         /// ID of the bone.
         /// </summary>
         public int ID { get; set; }
+
+        public Bone()
+        {
+            this.Name = "";
+            this.ID = -1;
+            this.LocalTransform = Matrix4.Identity;
+            this.AnimationChannel = new AnimationChannel();
+        }
 
         public Bone(String name, int id, AnimationChannel animationChannel)
         {
@@ -167,6 +177,38 @@ namespace LibGFX.Graphics.Animation3D
                 Matrix4 scale = Matrix4.CreateScale(AnimationChannel.Scales[GetScaleIndex(animationTime)].scale);
                 LocalTransform = scale * rotation * translation; // translation * rotation * scale;
             }
+        }
+
+        /// <summary>
+        /// Serializes the current object to a JSON representation using the specified serialization context.
+        /// </summary>
+        /// <param name="serializationContext">The context that provides information and settings required for serialization.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized data of the object, including type, name, ID, animation
+        /// channel, and local transform information.</returns>
+        public JObject Serialize(SerializationContext serializationContext)
+        {
+            return new JObject()
+            {
+                ["Type"] = this.GetType().FullName,
+                ["Name"] = Name,
+                ["ID"] = ID,
+                ["AnimationChannel"] = AnimationChannel.Serialize(serializationContext),
+                ["LocalTransform"] = LibGFX.Core.Utils.SerializeMatrix4(LocalTransform),
+            };
+        }
+
+        /// <summary>
+        /// Populates the object's properties by deserializing values from the specified JSON object.
+        /// </summary>
+        /// <param name="jObject">A <see cref="JObject"/> containing the serialized data to deserialize. Must not be <see langword="null"/>.</param>
+        /// <param name="serializationContext">A <see cref="SerializationContext"/> that provides context or settings for the deserialization process.</param>
+        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            this.Name = jObject.Value<string>("Name");
+            this.ID = jObject.Value<int>("ID");
+            this.AnimationChannel = new AnimationChannel();
+            this.AnimationChannel.Deserialize(jObject.Value<JObject>("AnimationChannel"), serializationContext);
+            this.LocalTransform = LibGFX.Core.Utils.DeserializeMatrix4(jObject.Value<JObject>("LocalTransform"));
         }
     }
 }

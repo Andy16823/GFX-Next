@@ -1,6 +1,8 @@
 ﻿using Assimp;
+using LibGFX.Core;
 using LibGFX.Core.GameElements;
 using LibGFX.Math;
+using Newtonsoft.Json.Linq;
 using OpenTK.Core;
 using OpenTK.Mathematics;
 using System;
@@ -26,7 +28,7 @@ namespace LibGFX.Graphics.Animation3D
     /// <summary>
     /// Represents an animation associated with a 3D model.
     /// </summary>
-    public class Animation3D
+    public class Animation3D : ISerialization
     {
         /// <summary>
         /// Name of the animation.
@@ -58,7 +60,19 @@ namespace LibGFX.Graphics.Animation3D
         /// </summary>
         public Dictionary<String, BoneInfo> BoneInfoMap { get; set; }
 
-        private List<AnimationChannel> _animationChannels; 
+        /// <summary>
+        /// The animation channels associated with the animation.
+        /// </summary>
+        private List<AnimationChannel> _animationChannels;
+
+        /// <summary>
+        /// Initializes a new instance of the Animation3D class.
+        /// Used for deserialization purposes.
+        /// </summary>
+        public Animation3D()
+        {
+            
+        }
 
         /// <summary>
         /// Initializes a new instance of the Animation class.
@@ -229,6 +243,108 @@ namespace LibGFX.Graphics.Animation3D
             int frame = (int)((animationTime / Duration) * totalFrames);
 
             return frame;
+        }
+
+        /// <summary>
+        /// Serializes the animation and its related data into a JSON object.
+        /// </summary>
+        /// <remarks>The returned JSON object includes all key components of the animation, making it
+        /// suitable for storage, transmission, or further processing. The structure of the output matches the expected
+        /// schema for deserialization or interoperability with other systems.</remarks>
+        /// <param name="serializationContext">The context that provides settings and state information required for serialization.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized representation of the animation, including bones, bone
+        /// information, root node, and animation channels.</returns>
+        public JObject Serialize(SerializationContext serializationContext)
+        {
+            // Serialize Bones
+            var boneArray = new JArray();
+            foreach (var bone in Bones)
+            {
+                boneArray.Add(bone.Serialize(serializationContext));
+            }
+
+            // Serialize BoneInfoMap
+            var boneInfoArray = new JArray();
+            foreach(var boneinfo in this.BoneInfoMap)
+            {
+                var boneInfoObject = new JObject()
+                {
+                    ["Key"] = boneinfo.Key,
+                    ["Value"] = Core.Utils.SerializeBoneInfo(boneinfo.Value)
+                };
+                boneInfoArray.Add(boneInfoObject);
+            }
+
+            // Serialize AnimationChannels
+            var animChannelArray = new JArray();
+            foreach(var channel in _animationChannels)
+            {
+                animChannelArray.Add(channel.Serialize(serializationContext));
+            }
+
+            // Return the complete serialized object
+            return new JObject()
+            {
+                ["Type"] = this.GetType().FullName,
+                ["Name"] = this.Name,
+                ["Duration"] = this.Duration,
+                ["TicksPerSecond"] = this.TicksPerSecond,
+                ["Bones"] = boneArray,
+                ["RootNode"] = Core.Utils.SerializeSceneNodeData(RootNode),
+                ["BoneInfoMap"] = boneInfoArray,
+                ["AnimationChannels"] = animChannelArray
+            };
+        }
+
+        /// <summary>
+        /// Populates the object's properties by deserializing data from the specified JSON object.
+        /// </summary>
+        /// <remarks>This method expects the JSON object to include all necessary fields such as 'Name',
+        /// 'Duration', 'TicksPerSecond', 'Bones', 'BoneInfoMap', 'AnimationChannels', and 'RootNode'. Existing property
+        /// values will be overwritten. The method does not perform deep validation of the JSON structure; missing or
+        /// malformed fields may result in exceptions.</remarks>
+        /// <param name="jObject">A <see cref="JObject"/> containing the serialized data to deserialize. Must not be null and is expected to
+        /// contain all required fields for the object.</param>
+        /// <param name="serializationContext">A <see cref="SerializationContext"/> providing context or settings used during deserialization. This may
+        /// influence how certain fields are interpreted or constructed.</param>
+        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            this.Name = jObject["Name"].ToString();
+            this.Duration = jObject["Duration"].ToObject<float>();
+            this.TicksPerSecond = jObject["TicksPerSecond"].ToObject<float>();
+
+            // Deserialize Bones
+            this.Bones = new List<Bone>();
+            var boneArray = jObject["Bones"] as JArray;
+            foreach (var boneToken in boneArray)
+            {
+                var bone = new Bone();
+                bone.Deserialize(boneToken as JObject, serializationContext);
+                this.Bones.Add(bone);
+            }
+
+            // Deserialize BoneInfoMap
+            this.BoneInfoMap = new Dictionary<string, BoneInfo>();
+            var boneInfoArray = jObject["BoneInfoMap"] as JArray;
+            foreach (var boneInfoToken in boneInfoArray)
+            {
+                var key = boneInfoToken["Key"].ToString();
+                var value = Core.Utils.DeserializeBoneInfo(boneInfoToken["Value"] as JObject);
+                this.BoneInfoMap.Add(key, value);
+            }
+
+            // Deserialize AnimationChannels
+            _animationChannels = new List<AnimationChannel>();
+            var animChannelArray = jObject["AnimationChannels"] as JArray;
+            foreach (var channelToken in animChannelArray)
+            {
+                var channel = new AnimationChannel();
+                channel.Deserialize(channelToken as JObject, serializationContext);
+                _animationChannels.Add(channel);
+            }
+
+            // Deserialize RootNode
+            this.RootNode = Core.Utils.DeserializeSceneNodeData(jObject["RootNode"] as JObject);
         }
     }
 }

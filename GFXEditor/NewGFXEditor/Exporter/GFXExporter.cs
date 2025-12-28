@@ -1,4 +1,5 @@
-﻿using LibGFX.Core;
+﻿using LibGFX.Assets;
+using LibGFX.Core;
 using LibGFX.Graphics;
 using LibGFX.Graphics.Materials;
 using Newtonsoft.Json.Linq;
@@ -15,6 +16,7 @@ namespace NewGFXEditor.Exporter
     {
         public string Name => "GFX Exporter";
         public string FileExtension => ".gfxlevel";
+        public bool SupportsImport => true;
 
         private Dictionary<String, Mesh> BuildMeshTable(Scene3D scene)
         {
@@ -116,6 +118,40 @@ namespace NewGFXEditor.Exporter
             
             string json = result.ToString();
             File.WriteAllText(filePath, json);
+        }
+
+        public void Import(string filePath, Scene3D scene, AssetManager assets)
+        {
+            var context = new SerializationContext();
+            var json = File.ReadAllText(filePath);
+            var root = JObject.Parse(json);
+
+            // Load Assets
+            var assetsObject = root["Assets"] as JObject;
+            var materialsArray = assetsObject["Materials"] as JArray;
+
+            foreach(var materialToken in materialsArray)
+            {
+                var materialObject = materialToken as JObject;
+                var material = new SGMaterial();
+                material.Deserialize(materialObject, context);
+                context.SetValue(material.ID.ToString(), material);
+
+            }
+
+            var meshesArray = assetsObject["Meshes"] as JArray;
+            foreach(var meshToken in meshesArray)
+            {
+                var meshObject = meshToken as JObject;
+                var mesh = new Mesh();
+                mesh.Deserialize(meshObject, context);
+                context.SetValue(mesh.ID.ToString(), mesh);
+            }
+
+            // Load Materials
+            var sceneObject = root["Scene"] as JObject;
+
+
         }
     }
 }

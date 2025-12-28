@@ -3,6 +3,7 @@ using Assimp.Configs;
 using LibGFX.Core;
 using LibGFX.Graphics.Animation3D;
 using LibGFX.Graphics.Materials;
+using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,16 @@ namespace LibGFX.Graphics
     /// </summary>
     public class SkinnedMeshModel : IModel
     {
+        /// <summary>
+        /// Gets or sets the name associated with the object.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets the unique identifier for this instance.
+        /// </summary>
+        public Guid ID { get; private set; } = Guid.NewGuid();
+
         /// <summary>
         /// The meshes that make up the skinned mesh model.
         /// </summary>
@@ -38,6 +49,9 @@ namespace LibGFX.Graphics
         /// </summary>
         public List<Animation3D.Animation3D> Animations { get; set; }
 
+        /// <summary>
+        /// Gets a value indicating whether the object has been successfully initialized.
+        /// </summary>
         public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
@@ -391,6 +405,104 @@ namespace LibGFX.Graphics
         public bool FindNodeByName(string name, out SceneNodeData node)
         {
             return Utils.FindNodeByNameRecursive(NodeStructure, name, out node);
+        }
+
+        /// <summary>
+        /// Serializes the current object to a JSON representation using the specified serialization context.
+        /// </summary>
+        /// <param name="serializationContext">The context that provides configuration and state information for the serialization process.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized JSON representation of the object.</returns>
+        /// <exception cref="NotImplementedException">Thrown in all cases, as this method is not yet implemented.</exception>
+        public JObject Serialize(SerializationContext serializationContext)
+        {
+            // Serialize meshes
+            var meshesArray = new JArray();
+            foreach(var mesh in Meshes)
+            {
+                var meshObj = new JObject()
+                {
+                    ["Key"] = mesh.Key,
+                    ["Mesh"] = mesh.Value.Serialize(serializationContext),
+                    ["Material"] = mesh.Value.Material.Serialize(serializationContext)
+                };
+                meshesArray.Add(meshObj);
+            }
+
+            // Serialize animations
+            var animationsArray = new JArray();
+            foreach(var animation in Animations)
+            {
+                animationsArray.Add(animation.Serialize(serializationContext));
+            }
+
+            // Create main JObject
+            return new JObject()
+            {
+                ["Type"] = this.GetType().FullName,
+                ["ID"] = ID.ToString(),
+                ["Name"] = Name,
+                ["Meshes"] = meshesArray,
+                ["NodeStructure"] = Utils.SerializeSceneNodeData(this.NodeStructure),
+                ["Skeleton"] = Skeleton.Serialize(serializationContext),
+                ["Animations"] = animationsArray
+            };
+        }
+
+        /// <summary>
+        /// Deserializes the specified JSON object into the corresponding object representation using the provided
+        /// serialization context.
+        /// </summary>
+        /// <param name="jObject">The JSON object to deserialize. Cannot be null.</param>
+        /// <param name="serializationContext">The context that provides information and services required for the deserialization process. Cannot be null.</param>
+        /// <exception cref="NotImplementedException">Thrown in all cases as this method is not yet implemented.</exception>
+        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            if(this.IsInitialized)
+            {
+                throw new InvalidOperationException("Cannot deserialize an initialized model. Please dispose the model before deserialization.");
+            }
+
+            this.ID = Guid.Parse(jObject["ID"].ToString());
+            this.Name = jObject["Name"].ToString();
+
+            // Deserialize meshes
+            this.Meshes = new Dictionary<string, Mesh>();
+            var meshesArray = (JArray)jObject["Meshes"];
+            foreach(var meshToken in meshesArray)
+            {
+                // Deserialize each mesh
+                var meshObj = meshToken as JObject;
+                var key = meshObj["Key"].ToString();
+
+                // Deserialize Mesh
+                var mesh = new Mesh();
+                mesh.Deserialize((JObject)meshObj["Mesh"], serializationContext);
+
+                // Deserialize Material
+                var material = new SGMaterial();
+                material.Deserialize((JObject)meshObj["Material"], serializationContext);
+
+                // Assign material to mesh and add to dictionary
+                mesh.Material = material;
+                this.Meshes.Add(key, mesh);
+            }
+
+            // Deserialize NodeStructure
+            this.NodeStructure = Utils.DeserializeSceneNodeData(jObject["NodeStructure"] as JObject);
+
+            // Deserialize Skeleton
+            this.Skeleton = new Skeleton();
+            this.Skeleton.Deserialize((JObject)jObject["Skeleton"], serializationContext);
+
+            // Deserialize Animations
+            this.Animations = new List<Graphics.Animation3D.Animation3D>();
+            var animationsArray = (JArray)jObject["Animations"];
+            foreach(var animationToken in animationsArray)
+            {
+                var animation = new Graphics.Animation3D.Animation3D();
+                animation.Deserialize((JObject)animationToken, serializationContext);
+                this.Animations.Add(animation);
+            }
         }
     }
 }

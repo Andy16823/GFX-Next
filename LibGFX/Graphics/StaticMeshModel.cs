@@ -4,6 +4,7 @@ using LibGFX.Core;
 using LibGFX.Graphics.Animation3D;
 using LibGFX.Graphics.Materials;
 using LibGFX.Math;
+using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Static model class that represents a 3D model loaded from a file.
     /// </summary>
-    public class StaticMeshModel : IModel 
+    public class StaticMeshModel : IModel
     {
 
         /// <summary>
@@ -34,6 +35,16 @@ namespace LibGFX.Graphics
         /// Gets a value indicating whether the object has been initialized.
         /// </summary>
         public bool IsInitialized { get; private set; } = false;
+
+        /// <summary>
+        /// Gets or sets the name associated with the object.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets the unique identifier for this instance.
+        /// </summary>
+        public Guid ID { get; private set; } = Guid.NewGuid();
 
         /// <summary>
         /// Static model constructor that loads model data from a file.
@@ -209,6 +220,81 @@ namespace LibGFX.Graphics
         public bool FindNodeByName(string name, out SceneNodeData node)
         {
             return Utils.FindNodeByNameRecursive(NodeStructure, name, out node);
+        }
+
+        /// <summary>
+        /// Serializes the model and its associated meshes, materials, and node structure into a JSON object.
+        /// </summary>
+        /// <param name="serializationContext">The context that provides serialization settings and state information used during the serialization
+        /// process.</param>
+        /// <returns>A <see cref="JObject"/> representing the serialized state of the model, including its type, name, ID,
+        /// meshes, and node structure.</returns>
+        public JObject Serialize(SerializationContext serializationContext)
+        {
+            // Serialize meshes and materials since IModel owns them
+            var meshesArray = new JArray();
+            foreach (var mesh in Meshes)
+            {
+                var meshObject = new JObject
+                {
+                    ["Key"] = mesh.Key,
+                    ["Mesh"] = mesh.Value.Serialize(serializationContext),
+                    ["Material"] = mesh.Value.Material.Serialize(serializationContext)
+                };
+                meshesArray.Add(meshObject);
+            }
+
+            // Serialize the StaticMeshModel
+            return new JObject
+            {
+                ["Type"] = this.GetType().FullName,
+                ["Name"] = Name,
+                ["ID"] = ID.ToString(),
+                ["Meshes"] = meshesArray,
+                ["NodeStructure"] = Utils.SerializeSceneNodeData(NodeStructure)
+            };
+        }
+
+        /// <summary>
+        /// Populates the model's properties by deserializing data from the specified JSON object.
+        /// </summary>
+        /// <remarks>This method resets and repopulates the model's mesh, material, and node structure
+        /// data based on the provided JSON. The model must not be initialized prior to calling this method.</remarks>
+        /// <param name="jObject">A <see cref="JObject"/> containing the serialized model data to deserialize.</param>
+        /// <param name="serializationContext">A <see cref="SerializationContext"/> that provides context and services required during deserialization.</param>
+        /// <exception cref="InvalidOperationException">Thrown if the model has already been initialized.</exception>
+        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            if(this.IsInitialized)
+            {
+                throw new InvalidOperationException("Cannot deserialize an initialized model.");
+            }
+
+            // Deserialize meshes and materials
+            Meshes = new Dictionary<string, Mesh>();
+            var meshesArray = (JArray)jObject["Meshes"];
+            foreach(var meshToken in meshesArray)
+            {
+                var meshObject = (JObject)meshToken;
+                var key = meshObject["Key"].ToString();
+
+                // Deserialize Mesh
+                var mesh = new Mesh();
+                mesh.Deserialize((JObject)meshObject["Mesh"], serializationContext);
+
+                // Deserialize Material
+                var material = new SGMaterial();
+                material.Deserialize((JObject)meshObject["Material"], serializationContext);
+
+                // Assign material to mesh and add to dictionary
+                mesh.Material = material;
+                Meshes.Add(key, mesh);
+            }
+
+            // Deserialize other properties
+            this.Name = jObject["Name"].ToString();
+            this.ID = Guid.Parse(jObject["ID"].ToString());
+            this.NodeStructure = Utils.DeserializeSceneNodeData(jObject["NodeStructure"] as JObject);
         }
     }
 }

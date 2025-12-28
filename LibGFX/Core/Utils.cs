@@ -466,5 +466,120 @@ namespace LibGFX.Core
             vertex.BoneIDs = Utils.DeserializeVec4i((JObject)obj["BoneIDs"]);
             return vertex;
         }
+
+        public static JObject SerializeMatrix4(Matrix4 mat)
+        {
+            JObject obj = new JObject();
+            obj["Row0"] = Utils.SerializeVec4(mat.Row0);
+            obj["Row1"] = Utils.SerializeVec4(mat.Row1);
+            obj["Row2"] = Utils.SerializeVec4(mat.Row2);
+            obj["Row3"] = Utils.SerializeVec4(mat.Row3);
+            return obj;
+        }
+
+        public static Matrix4 DeserializeMatrix4(JObject obj)
+        {
+            Matrix4 mat = new Matrix4();
+            mat.Row0 = Utils.DeserializeVec4((JObject)obj["Row0"]);
+            mat.Row1 = Utils.DeserializeVec4((JObject)obj["Row1"]);
+            mat.Row2 = Utils.DeserializeVec4((JObject)obj["Row2"]);
+            mat.Row3 = Utils.DeserializeVec4((JObject)obj["Row3"]);
+            return mat;
+        }
+
+        public static JObject SerializeSceneNodeData(SceneNodeData nodedata)
+        {
+            JObject obj = new JObject();
+            obj["Transformation"] = Utils.SerializeMatrix4(nodedata.transformation);
+            obj["Name"] = nodedata.name;
+            obj["ChildrenCount"] = nodedata.childrenCount;
+            JArray childrenArray = new JArray();
+            foreach (var child in nodedata.children)
+            {
+                childrenArray.Add(SerializeSceneNodeData(child));
+            }
+            obj["Children"] = childrenArray;
+            return obj;
+        }
+
+        public static SceneNodeData DeserializeSceneNodeData(JObject obj)
+        {
+            SceneNodeData nodedata = new SceneNodeData();
+            nodedata.transformation = Utils.DeserializeMatrix4((JObject)obj["Transformation"]);
+            nodedata.name = obj["Name"].Value<string>();
+            nodedata.childrenCount = obj["ChildrenCount"].Value<int>();
+            nodedata.children = new List<SceneNodeData>();
+            JArray childrenArray = (JArray)obj["Children"];
+            foreach (var childObj in childrenArray)
+            {
+                nodedata.children.Add(DeserializeSceneNodeData((JObject)childObj));
+            }
+            return nodedata;
+        }
+
+        public static JObject SerializeBoneInfo(BoneInfo boneInfo)
+        {
+            return new JObject()
+            {
+                ["ID"] = boneInfo.id,
+                ["Offset"] = Utils.SerializeMatrix4(boneInfo.offset)
+            };
+        }
+
+        public static BoneInfo DeserializeBoneInfo(JObject obj)
+        {
+            BoneInfo boneInfo = new BoneInfo();
+            boneInfo.id = obj["ID"].Value<int>();
+            boneInfo.offset = Utils.DeserializeMatrix4(obj["Offset"] as JObject);
+            return boneInfo;
+        }
+
+        public static JObject SerializeKeyPosition(KeyPosition keyPosition)
+        {
+            JObject obj = new JObject();
+            obj["Position"] = Utils.SerializeVec3(keyPosition.position);
+            obj["TimeStamp"] = keyPosition.timeStamp;
+            return obj;
+        }
+
+        public static KeyPosition DeserializeKeyPosition(JObject obj)
+        {
+            KeyPosition keyPosition = new KeyPosition();
+            keyPosition.position = Utils.DeserializeVec3(obj["Position"] as JObject);
+            keyPosition.timeStamp = obj["TimeStamp"].Value<float>();
+            return keyPosition;
+        }
+
+        public static JObject SerializeKeyRotation(KeyRotation keyRotation)
+        {
+            JObject obj = new JObject();
+            obj["Orientation"] = Utils.SerializeQuat(keyRotation.orientation);
+            obj["TimeStamp"] = keyRotation.timeStamp;
+            return obj;
+        }
+
+        public static KeyRotation DeserializeKeyRotation(JObject obj)
+        {
+            KeyRotation keyRotation = new KeyRotation();
+            keyRotation.orientation = Utils.DeserializeQuat(obj["Orientation"] as JObject);
+            keyRotation.timeStamp = obj["TimeStamp"].Value<float>();
+            return keyRotation;
+        }
+
+        public static JObject SerializeKeyScale(KeyScale keyScale)
+        {
+            JObject obj = new JObject();
+            obj["Scale"] = Utils.SerializeVec3(keyScale.scale);
+            obj["TimeStamp"] = keyScale.timeStamp;
+            return obj;
+        }
+
+        public static KeyScale DeserializeKeyScale(JObject obj)
+        {
+            KeyScale keyScale = new KeyScale();
+            keyScale.scale = Utils.DeserializeVec3(obj["Scale"] as JObject);
+            keyScale.timeStamp = obj["TimeStamp"].Value<float>();
+            return keyScale;
+        }
     }
 }

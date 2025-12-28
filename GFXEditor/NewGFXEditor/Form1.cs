@@ -335,7 +335,7 @@ namespace NewGFXEditor
             this.Scene.Render(_editorPanel3D.Viewport, _editorPanel3D.Renderer, Camera);
             _editorPanel3D.Renderer.DrawRenderTarget(Scene.RenderTarget as MSAARenderTarget2D, 0);
             this.TransformGizmo.RenderGizmo(_editorPanel3D.Renderer, Camera, _editorPanel3D.Viewport);
-            if(_selectedElement != null)
+            if (_selectedElement != null)
             {
                 var aabb = _selectedElement.WorldAABB;
                 _editorPanel3D.Renderer.DrawAABB(aabb, ColorPresets.LightCyan);
@@ -344,7 +344,7 @@ namespace NewGFXEditor
             {
                 this.Scene.ForEachElement(element =>
                 {
-                    if(element == _selectedElement)
+                    if (element == _selectedElement)
                     {
                         return;
                     }
@@ -1099,6 +1099,17 @@ namespace NewGFXEditor
             {
                 GFXExporter exporter = new GFXExporter();
                 exporter.Export(sfd.FileName, this.Scene as Scene3D);
+            }
+        }
+
+        private void gFXLevelFileToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "GFX Level Files|*.gfxlevel";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                GFXExporter exporter = new GFXExporter();
+                exporter.Import(openFileDialog.FileName, this.Scene as Scene3D, GFX.Instance.AssetManager);
             }
         }
     }

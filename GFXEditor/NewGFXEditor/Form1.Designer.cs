@@ -42,6 +42,8 @@
             seitenansichtToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator2 = new ToolStripSeparator();
             beendenToolStripMenuItem = new ToolStripMenuItem();
+            exportToolStripMenuItem = new ToolStripMenuItem();
+            gFXLevelFileToolStripMenuItem = new ToolStripMenuItem();
             bearbeitenToolStripMenuItem = new ToolStripMenuItem();
             rückgängigToolStripMenuItem = new ToolStripMenuItem();
             wiederholenToolStripMenuItem = new ToolStripMenuItem();
@@ -112,8 +114,9 @@
             materialImageList = new ImageList(components);
             tabPage3 = new TabPage();
             propertyGrid1 = new PropertyGrid();
-            exportToolStripMenuItem = new ToolStripMenuItem();
-            gFXLevelFileToolStripMenuItem = new ToolStripMenuItem();
+            importToolStripMenuItem = new ToolStripMenuItem();
+            gFXLevelFileToolStripMenuItem1 = new ToolStripMenuItem();
+            toolStripSeparator14 = new ToolStripSeparator();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -139,7 +142,7 @@
             // 
             // dateiToolStripMenuItem
             // 
-            dateiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { neuToolStripMenuItem, öffnenToolStripMenuItem, toolStripSeparator, speichernToolStripMenuItem, speichernunterToolStripMenuItem, toolStripSeparator1, druckenToolStripMenuItem, seitenansichtToolStripMenuItem, toolStripSeparator2, beendenToolStripMenuItem, exportToolStripMenuItem });
+            dateiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { neuToolStripMenuItem, öffnenToolStripMenuItem, toolStripSeparator, speichernToolStripMenuItem, speichernunterToolStripMenuItem, toolStripSeparator1, druckenToolStripMenuItem, seitenansichtToolStripMenuItem, toolStripSeparator2, importToolStripMenuItem, exportToolStripMenuItem, toolStripSeparator14, beendenToolStripMenuItem });
             dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
             dateiToolStripMenuItem.Size = new Size(46, 20);
             dateiToolStripMenuItem.Text = "&Datei";
@@ -214,6 +217,20 @@
             beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
             beendenToolStripMenuItem.Size = new Size(180, 22);
             beendenToolStripMenuItem.Text = "&Beenden";
+            // 
+            // exportToolStripMenuItem
+            // 
+            exportToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gFXLevelFileToolStripMenuItem });
+            exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            exportToolStripMenuItem.Size = new Size(180, 22);
+            exportToolStripMenuItem.Text = "Export";
+            // 
+            // gFXLevelFileToolStripMenuItem
+            // 
+            gFXLevelFileToolStripMenuItem.Name = "gFXLevelFileToolStripMenuItem";
+            gFXLevelFileToolStripMenuItem.Size = new Size(180, 22);
+            gFXLevelFileToolStripMenuItem.Text = "GFX Level File";
+            gFXLevelFileToolStripMenuItem.Click += gFXLevelFileToolStripMenuItem_Click;
             // 
             // bearbeitenToolStripMenuItem
             // 
@@ -325,37 +342,37 @@
             // addStringToolStripMenuItem
             // 
             addStringToolStripMenuItem.Name = "addStringToolStripMenuItem";
-            addStringToolStripMenuItem.Size = new Size(180, 22);
+            addStringToolStripMenuItem.Size = new Size(173, 22);
             addStringToolStripMenuItem.Text = "Add String";
             addStringToolStripMenuItem.Click += addStringToolStripMenuItem_Click;
             // 
             // addIntegerToolStripMenuItem
             // 
             addIntegerToolStripMenuItem.Name = "addIntegerToolStripMenuItem";
-            addIntegerToolStripMenuItem.Size = new Size(180, 22);
+            addIntegerToolStripMenuItem.Size = new Size(173, 22);
             addIntegerToolStripMenuItem.Text = "Add Integer";
             // 
             // addNumberToolStripMenuItem
             // 
             addNumberToolStripMenuItem.Name = "addNumberToolStripMenuItem";
-            addNumberToolStripMenuItem.Size = new Size(180, 22);
+            addNumberToolStripMenuItem.Size = new Size(173, 22);
             addNumberToolStripMenuItem.Text = "Add Number";
             // 
             // addBooleanToolStripMenuItem
             // 
             addBooleanToolStripMenuItem.Name = "addBooleanToolStripMenuItem";
-            addBooleanToolStripMenuItem.Size = new Size(180, 22);
+            addBooleanToolStripMenuItem.Size = new Size(173, 22);
             addBooleanToolStripMenuItem.Text = "Add Boolean";
             // 
             // toolStripSeparator13
             // 
             toolStripSeparator13.Name = "toolStripSeparator13";
-            toolStripSeparator13.Size = new Size(177, 6);
+            toolStripSeparator13.Size = new Size(170, 6);
             // 
             // addCollisionTypeToolStripMenuItem
             // 
             addCollisionTypeToolStripMenuItem.Name = "addCollisionTypeToolStripMenuItem";
-            addCollisionTypeToolStripMenuItem.Size = new Size(180, 22);
+            addCollisionTypeToolStripMenuItem.Size = new Size(173, 22);
             addCollisionTypeToolStripMenuItem.Text = "Add Collision Type";
             addCollisionTypeToolStripMenuItem.Click += addCollisionTypeToolStripMenuItem_Click;
             // 
@@ -756,19 +773,24 @@
             propertyGrid1.Size = new Size(286, 213);
             propertyGrid1.TabIndex = 0;
             // 
-            // exportToolStripMenuItem
+            // importToolStripMenuItem
             // 
-            exportToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gFXLevelFileToolStripMenuItem });
-            exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            exportToolStripMenuItem.Size = new Size(180, 22);
-            exportToolStripMenuItem.Text = "Export";
+            importToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gFXLevelFileToolStripMenuItem1 });
+            importToolStripMenuItem.Name = "importToolStripMenuItem";
+            importToolStripMenuItem.Size = new Size(180, 22);
+            importToolStripMenuItem.Text = "Import";
             // 
-            // gFXLevelFileToolStripMenuItem
+            // gFXLevelFileToolStripMenuItem1
             // 
-            gFXLevelFileToolStripMenuItem.Name = "gFXLevelFileToolStripMenuItem";
-            gFXLevelFileToolStripMenuItem.Size = new Size(180, 22);
-            gFXLevelFileToolStripMenuItem.Text = "GFX Level File";
-            gFXLevelFileToolStripMenuItem.Click += gFXLevelFileToolStripMenuItem_Click;
+            gFXLevelFileToolStripMenuItem1.Name = "gFXLevelFileToolStripMenuItem1";
+            gFXLevelFileToolStripMenuItem1.Size = new Size(180, 22);
+            gFXLevelFileToolStripMenuItem1.Text = "GFX Level File";
+            gFXLevelFileToolStripMenuItem1.Click += gFXLevelFileToolStripMenuItem1_Click;
+            // 
+            // toolStripSeparator14
+            // 
+            toolStripSeparator14.Name = "toolStripSeparator14";
+            toolStripSeparator14.Size = new Size(177, 6);
             // 
             // Form1
             // 
@@ -889,5 +911,8 @@
         private ToolStripMenuItem addCollisionTypeToolStripMenuItem;
         private ToolStripMenuItem exportToolStripMenuItem;
         private ToolStripMenuItem gFXLevelFileToolStripMenuItem;
+        private ToolStripMenuItem importToolStripMenuItem;
+        private ToolStripMenuItem gFXLevelFileToolStripMenuItem1;
+        private ToolStripSeparator toolStripSeparator14;
     }
 }

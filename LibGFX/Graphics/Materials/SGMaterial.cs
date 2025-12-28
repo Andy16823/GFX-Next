@@ -25,7 +25,7 @@ namespace LibGFX.Graphics.Materials
         /// <summary>
         /// The unique identifier of the material.
         /// </summary>
-        public Guid ID { get; } = Guid.NewGuid();
+        public Guid ID { get; private set; } = Guid.NewGuid();
 
         /// <summary>
         /// The opacity of the material.
@@ -324,6 +324,7 @@ namespace LibGFX.Graphics.Materials
 
             // Read main material properties
             this.Name = jObject["Name"].Value<string>();
+            this.ID = Guid.Parse(jObject["ID"].Value<string>());
             this.Color = Utils.DeserializeVec4(jObject["Color"] as JObject);
             this.UVScale = Utils.DeserializeVec2(jObject["UVScale"] as JObject);
             this.FlipNormal = jObject["FlipNormal"].Value<bool>();
