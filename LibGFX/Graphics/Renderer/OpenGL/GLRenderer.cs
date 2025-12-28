@@ -196,6 +196,11 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BlendFunc(BlendingFactor.OneMinusDstColor, BlendingFactor.One);
         }
 
+        public bool IsBlendEnabled()
+        {
+            return GL.IsEnabled(EnableCap.Blend);
+        }
+
         public (int srcFactor, int dstFactor) GetCurrentBlendMode()
         {
             int src, dst;
@@ -880,6 +885,15 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void DrawRenderTarget(int textureId)
         {
+            // Get Blending state
+            var blendState = this.IsBlendEnabled();
+            var blendmode = this.GetCurrentBlendMode();
+
+            // Enable AlphaBlending
+            GL.Enable(EnableCap.Blend);
+            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
+
+            // Draw Frambuffer
             var shape = _shapes["FramebufferShape"];
             if (shape != null)
             {
@@ -894,6 +908,15 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                 GL.BindTexture(TextureTarget.Texture2D, 0);
                 SetDepthTest(depthTest);
             }
+            
+            // Disable Blendstate if it was disabled
+            if (!blendState)
+            {
+                GL.Disable(EnableCap.Blend);
+            }
+
+            // Reset blending factor
+            GL.BlendFunc((BlendingFactor)blendmode.srcFactor, (BlendingFactor)blendmode.dstFactor);
         }
 
         public void DrawFullScreenQuad()

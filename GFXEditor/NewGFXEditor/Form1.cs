@@ -357,6 +357,8 @@ namespace NewGFXEditor
         private void EditorPanel3D_BeforeRender(object sender, EventArgs e)
         {
             _editorPanel3D.Renderer.SetViewport(new Viewport(_editorPanel3D.GLControl.Width, _editorPanel3D.GLControl.Height));
+            _editorPanel3D.Renderer.SetViewMatrix(this.Camera.GetViewMatrix());
+            _editorPanel3D.Renderer.SetProjectionMatrix(this.Camera.GetProjectionMatrix(_editorPanel3D.Viewport));
         }
 
         /// <summary>
@@ -377,6 +379,8 @@ namespace NewGFXEditor
                 _editorPanel3D.Renderer.DrawRenderTarget(Scene.RenderTarget as MSAARenderTarget2D, 0);
             }
 
+            _editorPanel3D.Renderer.DrawGrid(this.Camera, new Vector4(0.3f, 0.3f, 0.3f, 1.0f));
+
             this.TransformGizmo.RenderGizmo(_editorPanel3D.Renderer, Camera, _editorPanel3D.Viewport);
             if (_selectedElement != null)
             {
@@ -395,8 +399,7 @@ namespace NewGFXEditor
                     _editorPanel3D.Renderer.DrawAABB(aabb, ColorPresets.LimeGreen);
                 });
             }
-
-            _editorPanel3D.Renderer.DrawGrid(this.Camera, ColorPresets.White);
+            //_editorPanel3D.Renderer.DrawGrid(this.Camera, new Vector4(0.3f, 0.3f, 0.3f, 1.0f));
         }
 
         /// <summary>

@@ -46,6 +46,9 @@ namespace LibGFX.Graphics.Shader
                 uniform float u_FadeEnd;     // z.B. 200.0
                 uniform float u_LineWidth;   // world-space approx line thickness (try 0.02..0.06)
 
+                // New: how far from zero the special axis coloring should extend (world units)
+                uniform float u_AxisFadeDistance; // e.g. 1.0
+
                 float mask_for_line(float coord, float gridSize, float targetThickness)
                 {
                     // coord in world units. scaled in cell units
@@ -62,7 +65,6 @@ namespace LibGFX.Graphics.Shader
                     float halfThickness = (targetThickness / gridSize) * 0.5;
 
                     // smooth edge using deriv (AA)
-                    // produce mask near 1 at center line (dist==0), 0 away
                     float edge0 = halfThickness - deriv;
                     float edge1 = halfThickness + deriv;
                     float m = smoothstep(edge1, edge0, dist);
@@ -88,10 +90,18 @@ namespace LibGFX.Graphics.Shader
                     float majorMaskZ = mask_for_line(wxz.y, majorInterval, u_LineWidth * 1.2);
                     float majorMask = max(majorMaskX, majorMaskZ);
 
-                    // axis masks (x==0 or z==0) - make a stronger line around zero
-                    // We use a small region near zero and AA it similarly.
-                    float axisMaskX = mask_for_line(wxz.x, 1.0, u_LineWidth * 1.6) * smoothstep(1.0, 0.0, abs(wxz.x));
-                    float axisMaskZ = mask_for_line(wxz.y, 1.0, u_LineWidth * 1.6) * smoothstep(1.0, 0.0, abs(wxz.y));
+                    // axis masks (x==0 or z==0) - make a stronger line around zero only
+                    // mask_for_line with gridSize=1.0 gives lines at all integers; we additionally fade out everything
+                    // except the region near zero using a proper smoothstep (non-inverted edges).
+                    float axisBaseX = mask_for_line(wxz.x, 1.0, u_LineWidth * 1.6);
+                    float axisBaseZ = mask_for_line(wxz.y, 1.0, u_LineWidth * 1.6);
+
+                    // create a fade factor that is 1.0 at 0.0 and goes to 0.0 at u_AxisFadeDistance
+                    float axisFadeX = 1.0 - smoothstep(0.0, u_AxisFadeDistance, abs(wxz.x));
+                    float axisFadeZ = 1.0 - smoothstep(0.0, u_AxisFadeDistance, abs(wxz.y));
+
+                    float axisMaskX = axisBaseX * axisFadeX;
+                    float axisMaskZ = axisBaseZ * axisFadeZ;
                     float axisMask = max(axisMaskX, axisMaskZ);
 
                     // combine: axis > major > minor
@@ -99,6 +109,8 @@ namespace LibGFX.Graphics.Shader
                     vec4 majorColor = min(u_GridColor * 1.25, vec4(1.0));
                     vec4 c = baseColor;
                     c = mix(c, majorColor, majorMask);
+
+                    // axisColor: combine per-axis colors (they only contribute where their respective mask > 0)
                     vec4 axisColor = u_AxisColorX * axisMaskX + u_AxisColorZ * axisMaskZ;
                     c = mix(c, axisColor, axisMask);
 
@@ -108,13 +120,11 @@ namespace LibGFX.Graphics.Shader
                     // if alpha tiny, early-out but don't discard (lets MSAA sample)
                     if (alpha <= 1e-4)
                     {
-                        // output transparent color
                         FragColor = vec4(0.0, 0.0, 0.0, 0.0);
                         return;
                     }
 
-                    // Gamma-correct-ish brightness: apply sqrt for nicer falloff (optional)
-                    vec3 rgb = c.rgb; // optionally pow(c.rgb, vec3(1.0/2.2));
+                    vec3 rgb = c.rgb;
                     FragColor = vec4(rgb, alpha);
                 }
             ");

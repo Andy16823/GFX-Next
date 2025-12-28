@@ -329,24 +329,30 @@ namespace NewGFXEditor
         {
             try
             {
+                // Make the renderer current
                 _renderer.MakeCurrent();
 
+                // Trigger the BeforeRender event
                 if (this.BeforeRender != null)
                 {
                     this.BeforeRender(this, EventArgs.Empty);
                 }
 
+                // Clear the backbuffer
                 _renderer.ClearColor(0.392f, 0.584f, 0.929f, 1.0f);
                 _renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
 
+                // Trigger the OnRender event
                 if (this.OnRender != null)
                 {
                     this.OnRender(this, EventArgs.Empty);
                 }
 
+                // Flush and swap buffers
                 _renderer.Flush();
                 _renderer.SwapBuffers();
 
+                // Trigger the AfterRender event
                 if (this.AfterRender != null)
                 {
                     this.AfterRender(this, EventArgs.Empty);
@@ -388,6 +394,8 @@ namespace NewGFXEditor
             _renderer.Init(_glControl1.Context);
             _renderer.MakeCurrent();
             Debug.WriteLine("Creating new GLRenderer");
+
+            _viewport = new Viewport(_glControl1.Width, _glControl1.Height);
 
             if (this.EditorLoaded != null)
             {

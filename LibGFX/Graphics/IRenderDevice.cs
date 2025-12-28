@@ -43,6 +43,7 @@ namespace LibGFX.Graphics
         void EnableAdditiveBlend();
         void EnableMultiplicativeBlend();
         void EnableScreenBlend();
+        bool IsBlendEnabled();
         (int srcFactor, int dstFactor) GetCurrentBlendMode();
         void SetBlendMode(int srcFactor, int dstFactor);
         void ResetBlendMode();

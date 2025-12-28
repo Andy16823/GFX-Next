@@ -427,7 +427,7 @@
     "GFX/1.1.2-dev": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-083UGmVw5AUIvUWYzGcr/DcqXYtzCjUFuKWweIDDGCLBlrB24i94ciE7b43Bn3SOSwxYX7WVFCfcE46V9J9ndw==",
+      "sha512": "sha512-OTP0emkJT8mJeE/XLx59SC8yBnWRUmldeK0KDr+gU2WfpuH3c6w+CFEpLt3G+LHESvb1YbBhd8QBiqpahKyoHQ==",
       "path": "gfx/1.1.2-dev",
       "hashPath": "gfx.1.1.2-dev.nupkg.sha512"
     },
