@@ -65,6 +65,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             AddShaderProgram("DepthInstancedShader3D", new DepthInstancedShader3D());
             AddShaderProgram("SolidMeshShader", new SolidMeshShader());
             AddShaderProgram("AABBShader", new AABBShader());
+            AddShaderProgram("InfiniteGridShader", new InfiniteGridShader());
 
             foreach (ShaderProgram program in _programs.Values)
             {
@@ -78,6 +79,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             AddShape(new LineShape());
             AddShape(new CubeShape());
             AddShape(new CubeWireShape());
+            AddShape(new PlaneShape());
             foreach (var shape in _shapes.Values)
             {
                 shape.Init(this);
@@ -1370,6 +1372,54 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.DrawElements(BeginMode.Lines, shape.GetIndexCount(), DrawElementsType.UnsignedInt, 0);
             GL.BindVertexArray(0);
             this.SetDepthTest(depthTest);
+        }
+
+        public void DrawGrid(Camera camera, Vector4 color)
+        {
+            float gridSize = 1.0f;
+            float majorStep = 5.0f;
+            float fadeStart = 40.0f;
+            float fadeEnd = 200.0f;
+            float lineWidthWorld = 0.02f;
+            float planeY = 0f;
+            float quadHalfsize = 2000f;
+
+            var scale = Matrix4.CreateScale(quadHalfsize);
+            var trans = Matrix4.Identity;
+            var m_mat = scale;
+
+            var shader = this.GetShaderProgram("InfiniteGridShader");
+            this.BindShaderProgram(shader);
+
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
+            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
+
+            GL.Uniform3(GetUniformLocation(_currentProgram, "u_CameraPos"), camera.Transform.Position);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "u_GridSize"), gridSize);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "u_MainStep"), System.Math.Max(1, majorStep));
+            GL.Uniform1(GetUniformLocation(_currentProgram, "u_FadeStart"), fadeStart);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "u_FadeEnd"), fadeEnd);
+            GL.Uniform1(GetUniformLocation(_currentProgram, "u_LineWidth"), lineWidthWorld);
+
+            GL.Uniform4(GetUniformLocation(_currentProgram, "u_GridColor"), color);
+            GL.Uniform4(GetUniformLocation(_currentProgram, "u_AxisColorX"), 1f, 0.3f, 0.3f, 1f);
+            GL.Uniform4(GetUniformLocation(_currentProgram, "u_AxisColorZ"), 0.3f, 0.3f, 1f, 1f);
+
+            GL.Enable(EnableCap.Blend);
+            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
+            GL.Enable(EnableCap.DepthTest);
+            GL.DepthMask(false);
+
+            var shape = _shapes["PlaneShape"];
+            GL.BindVertexArray(shape.VertexArray);
+            GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);
+            GL.BindVertexArray(0);
+
+            // restore states
+            GL.DepthMask(true);
+            GL.Disable(EnableCap.Blend);
+            GL.UseProgram(0);
         }
 
         public void DisposeMesh(Mesh mesh)

@@ -115,6 +115,7 @@ namespace LibGFX.Graphics
         void DrawMesh(Transform transform, Mesh mesh);
         void DisposeMesh(Mesh mesh);
         void DrawAABB(AABB aabb, Vector4 color);
+        void DrawGrid(Camera camera, Vector4 color);
         void LoadInstanceContainer(RenderInstanceContainer container);
         void BindMeshForInstance(RenderInstanceContainer container, Mesh mesh);
         void LoadInstances(RenderInstanceContainer container);

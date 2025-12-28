@@ -395,6 +395,8 @@ namespace NewGFXEditor
                     _editorPanel3D.Renderer.DrawAABB(aabb, ColorPresets.LimeGreen);
                 });
             }
+
+            _editorPanel3D.Renderer.DrawGrid(this.Camera, ColorPresets.White);
         }
 
         /// <summary>
