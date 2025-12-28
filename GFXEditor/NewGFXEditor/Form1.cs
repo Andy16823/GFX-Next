@@ -208,24 +208,6 @@ namespace NewGFXEditor
         }
 
         /// <summary>
-        /// Sets the thumbnail image associated with the specified material name, replacing any existing thumbnail.
-        /// </summary>
-        /// <remarks>If a thumbnail already exists for the specified material name, it is replaced with
-        /// the new image. The material list view is updated to reflect the change.</remarks>
-        /// <param name="materialName">The name of the material for which to set the thumbnail image. Cannot be null or empty.</param>
-        /// <param name="bitmap">The image to use as the thumbnail for the material. Cannot be null.</param>
-        public void SetMaterialThumbnail(String materialName, Bitmap bitmap)
-        {
-            if (this.materialImageList.Images.ContainsKey(materialName))
-            {
-                this.materialImageList.Images.RemoveByKey(materialName);
-            }
-
-            this.materialImageList.Images.Add(materialName, bitmap);
-            UpdateMaterialListView();
-        }
-
-        /// <summary>
         /// Handles the MouseUp event for the 3D editor panel, ending camera drag operations and releasing the transform
         /// gizmo.
         /// </summary>
@@ -486,9 +468,6 @@ namespace NewGFXEditor
             scene3d.DirectionalLight = new DirectionalLight3D(new Vector3(-0.2f, 1.0f, -0.3f), new Vector4(1, 1, 1, 1), 1.5f);
             Scene = scene3d;
 
-            // Create an procedural sky for the environment
-            scene3d.Enviroment = new ProceduralSky();
-
             // Create the physics handler
             _phyisicHandler3D = new PhysicsHandler3D(Vector3.Zero);
             scene3d.PhysicsHandler = _phyisicHandler3D;
@@ -718,7 +697,6 @@ namespace NewGFXEditor
                 }
                 else
                 {
-                    this.SetMaterialThumbnail(material.Name, material.DiffuseTexture.ToBitmap());
                     this.UpdateMaterialListView();
                 }
             }
@@ -752,7 +730,6 @@ namespace NewGFXEditor
             {
                 blankMaterial.Init(_editorPanel3D.Renderer);
                 GFX.Instance.AssetManager.Add<SGMaterial>(blankMaterial.Name, blankMaterial);
-                this.SetMaterialThumbnail(blankMaterial.Name, blankMaterial.DiffuseTexture.ToBitmap());
                 this.UpdateMaterialListView();
             }
         }
