@@ -1,4 +1,5 @@
-﻿using LibGFX.Graphics;
+﻿using LibGFX.Assets;
+using LibGFX.Graphics;
 using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Primitives;
@@ -37,6 +38,15 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         public ShaderProgram Shader { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the Primitive class with the specified name, material, and mesh.
+        /// </summary>
+        /// <remarks>This constructor is obsolete. Use Primitive(String name, Mesh mesh) instead. The
+        /// material is assigned directly to the provided mesh.</remarks>
+        /// <param name="name">The name to assign to the primitive. Cannot be null.</param>
+        /// <param name="material">The material to associate with the mesh. Cannot be null.</param>
+        /// <param name="mesh">The mesh to use for the primitive. Cannot be null.</param>
+        [Obsolete("Use Primitive(String name, Mesh mesh) instead.")]
         public Primitive(String name, IMaterial material, Mesh mesh)
         {
             this.Name = name;
@@ -46,11 +56,28 @@ namespace LibGFX.Core.GameElements
         }
 
         /// <summary>
-        /// Creates a new instance of the Primitive class.
+        /// Initializes a new instance of the Primitive class with the specified name and mesh.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="material"></param>
-        /// <param name="primitive"></param>
+        /// <param name="name">The name to assign to the primitive. Cannot be null or empty.</param>
+        /// <param name="mesh">The mesh that defines the geometry of the primitive. Cannot be null.</param>
+        public Primitive(String name, Mesh mesh)
+        {
+            this.Name = name;
+            this.Mesh = mesh;
+            this.ComputeAABB();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the Primitive class using the specified name, material, and primitive source.
+        /// </summary>
+        /// <remarks>This constructor is obsolete. Use Primitive(String name, Mesh mesh) instead. 
+        /// The reason for deprecation is that an GameElement should never own IGraphicsRessource. This ressources should
+        /// be managed from the AssetManager or similar systems to have them collected together and avoid duplicates.
+        /// </remarks>
+        /// <param name="name">The name to assign to the new primitive. Cannot be null.</param>
+        /// <param name="material">The material to apply to the mesh of the new primitive. Cannot be null.</param>
+        /// <param name="primitive">The source primitive from which to obtain the mesh. Cannot be null.</param>
+        [Obsolete("Use Primitive(String name, Mesh mesh) instead.")]
         public Primitive(String name, IMaterial material, IPrimitive primitive)
         {
             this.Name = name;
@@ -96,13 +123,6 @@ namespace LibGFX.Core.GameElements
         public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             base.Init(scene, viewport, renderer);
-
-            // Load the mesh into the renderer
-            if (this.Mesh != null)
-            {
-                this.Mesh.Material.Init(renderer);
-                this.Mesh.Init(renderer);
-            }
 
             // Get the default shader if none is assigned
             if (this.Shader == null)
@@ -159,7 +179,6 @@ namespace LibGFX.Core.GameElements
         public override void Dispose(BaseScene scene, IRenderDevice renderer)
         {
             base.Dispose(scene, renderer);
-            this.Mesh.Dispose(renderer);
         }
 
         /// <summary>
@@ -213,6 +232,12 @@ namespace LibGFX.Core.GameElements
             return baseInfo;
         }
 
+        /// <summary>
+        /// Deserializes the primitive object from the specified JSON object using the provided serialization context.
+        /// </summary>
+        /// <param name="jObject">The JSON object containing the serialized data for the primitive.</param>
+        /// <param name="serializationContext">The context used to resolve references and retrieve objects during deserialization.</param>
+        /// <exception cref="Exception">Thrown if the mesh referenced in the JSON object cannot be found in the serialization context.</exception>
         public override void Deserialize(JObject jObject, SerializationContext serializationContext)
         {
             base.Deserialize(jObject, serializationContext);
@@ -228,6 +253,43 @@ namespace LibGFX.Core.GameElements
             {
                 throw new Exception("Failed to deserialize Primitive: Mesh with ID " + meshId + " not found in serialization context.");
             }
+        }
+
+        /// <summary>
+        /// Creates a new primitive object with the specified name, material, and type, and registers its mesh with the
+        /// asset manager.
+        /// </summary>
+        /// <remarks>The created mesh is automatically added to the provided asset manager. Supported
+        /// primitive types include quad, cube, and sphere. If an unsupported type is specified, a cube is created by
+        /// default.</remarks>
+        /// <param name="name">The name to assign to the created primitive.</param>
+        /// <param name="material">The material to apply to the primitive's mesh. Cannot be null.</param>
+        /// <param name="assets">The asset manager used to register the generated mesh. Cannot be null.</param>
+        /// <param name="type">The type of primitive to create. Defaults to <see cref="PrimitiveType.Cube"/> if not specified.</param>
+        /// <returns>A new <see cref="Primitive"/> instance representing the created primitive with the specified properties.</returns>
+        public static Primitive CreatePrimitive(String name, IMaterial material, AssetManager assets, PrimitiveType type = PrimitiveType.Cube)
+        {
+            var mesh = new Mesh();
+            switch (type)
+            {
+                case PrimitiveType.Quad:
+                    mesh = new Quad().GetMesh();
+                    break;
+                case PrimitiveType.Cube:
+                    mesh = new Cube().GetMesh();
+                    break;
+                case PrimitiveType.Sphere:
+                    mesh = new Sphere().GetMesh();
+                    break;
+                default:
+                    mesh = new Cube().GetMesh();
+                    break;
+            }
+
+            mesh.Name = mesh.ID.ToString();
+            mesh.Material = material;
+            assets.Add(mesh);
+            return new Primitive(name, mesh);
         }
     }
 }

@@ -107,9 +107,9 @@ namespace NewGFXEditor
         /// <param name="material">The material to apply to the cube. Cannot be null.</param>
         /// <returns>A <see cref="Primitive"/> instance representing the created cube with the specified transformation and
         /// material.</returns>
-        public Primitive CreateQube(Vector3 position, Vector3 scale, Vector3 rotation, SGMaterial material)
+        public Primitive CreateCube(Vector3 position, Vector3 scale, Vector3 rotation, SGMaterial material)
         {
-            var cube = new Primitive("Cube", material, new Cube());
+            var cube = Primitive.CreatePrimitive("Cube", material, GFX.Instance.AssetManager, Primitive.PrimitiveType.Cube);
             cube.Transform.Position = position;
             cube.Transform.Scale = scale;
             cube.Transform.Rotate(rotation);
@@ -126,7 +126,7 @@ namespace NewGFXEditor
         /// <returns>A new <see cref="Primitive"/> instance representing the created sphere.</returns>
         public Primitive CreateSphere(Vector3 position, Vector3 scale, Vector3 rotation, SGMaterial material)
         {
-            var sphere = new Primitive("Sphere", material, new Sphere());
+            var sphere = Primitive.CreatePrimitive("Sphere", material, GFX.Instance.AssetManager, Primitive.PrimitiveType.Sphere);
             sphere.Transform.Position = position;
             sphere.Transform.Scale = scale;
             sphere.Transform.Rotate(rotation);
@@ -143,7 +143,7 @@ namespace NewGFXEditor
         /// <returns>A new <see cref="Primitive"/> instance representing the configured quad.</returns>
         public Primitive CreateQuad(Vector3 position, Vector3 scale, Vector3 rotation, SGMaterial material)
         {
-            var quad = new Primitive("Quad", material, new Quad());
+            var quad = Primitive.CreatePrimitive("Quad", material, GFX.Instance.AssetManager, Primitive.PrimitiveType.Quad);
             quad.Transform.Position = position;
             quad.Transform.Scale = scale;
             quad.Transform.Rotate(rotation);
@@ -436,21 +436,9 @@ namespace NewGFXEditor
             var blankMaterial = new SGMaterial("e_BlankMaterial", Vector4.One);
             GFX.Instance.AssetManager.Add<SGMaterial>(blankMaterial.Name, blankMaterial);
 
-            // Create an cube mesh
-            var cubeMesh = new Cube().GetMesh();
-            GFX.Instance.AssetManager.Add<Mesh>("e_CubeMesh", cubeMesh);
-
-            // Create an sphere mesh
-            var sphereMesh = new Sphere().GetMesh();
-            GFX.Instance.AssetManager.Add<Mesh>("e_SphereMesh", sphereMesh);
-
-            // Create an plane mesh
-            var planeMesh = new Quad().GetMesh();
-            GFX.Instance.AssetManager.Add<Mesh>("e_PlaneMesh", planeMesh);
-
             // Create a cube and add it to the scene
-            var cube = this.CreateQube(new Vector3(0, 0, 0), new Vector3(1, 1, 1), Vector3.Zero, blankMaterial);
-            Scene.AddGameElement("OBJECT_LAYER", cube);
+            //var cube = this.CreateCube(new Vector3(0, 0, 0), new Vector3(1, 1, 1), Vector3.Zero, blankMaterial);
+            //Scene.AddGameElement("OBJECT_LAYER", cube);
 
             // Load Gizmos
             TransformGizmo = new Gizmo("Assets/Gizmos/Transform/TransformGizmo.obj");
@@ -811,7 +799,6 @@ namespace NewGFXEditor
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             GFX.Instance.AssetManager.DisposeAssets(_editorPanel3D.Renderer);
-
             Scene.DisposeScene(_editorPanel3D.Renderer);
             TransformGizmo.Dispose(_editorPanel3D.Renderer);
             _editorPanel3D.Renderer.Dispose();
@@ -852,7 +839,7 @@ namespace NewGFXEditor
         /// <param name="e">An EventArgs object that contains the event data.</param>
         private void cubeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var primitive = this.CreateQube(new Vector3(0, 0, 0), new Vector3(1, 1, 1), Vector3.Zero, GFX.Instance.AssetManager.Load<SGMaterial>("e_BlankMaterial"));
+            var primitive = this.CreateCube(new Vector3(0, 0, 0), new Vector3(1, 1, 1), Vector3.Zero, GFX.Instance.AssetManager.Load<SGMaterial>("e_BlankMaterial"));
             primitive.Init(Scene, _editorPanel3D.Viewport, _editorPanel3D.Renderer);
             Scene.AddGameElement(_selectedLayer.Name, primitive);
         }
@@ -1098,7 +1085,7 @@ namespace NewGFXEditor
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 GFXExporter exporter = new GFXExporter();
-                exporter.Export(sfd.FileName, this.Scene as Scene3D);
+                exporter.Export(sfd.FileName, this.Scene as Scene3D, GFX.Instance.AssetManager);
             }
         }
 

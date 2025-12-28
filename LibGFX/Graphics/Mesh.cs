@@ -162,7 +162,7 @@ namespace LibGFX.Graphics
             obj["LocalTranslation"] = Utils.SerializeVec3(this.LocalTranslation);
             obj["LocalRotation"] = Utils.SerializeQuat(this.LocalRotation);
             obj["LocalScale"] = Utils.SerializeVec3(this.LocalScale);
-            obj["Material"] = this.Material.ID.ToString();
+            obj["Material"] = this.Material != null ? this.Material.ID.ToString() : null;
             return obj;
         }
 

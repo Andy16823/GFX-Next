@@ -2,6 +2,7 @@
 using LibGFX.Graphics;
 using LibGFX.Graphics.Lights;
 using LibGFX.Physics;
+using Newtonsoft.Json.Linq;
 using OpenTK.Graphics.OpenGL;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace LibGFX.Core
     /// <summary>
     /// Base class for creating a scene
     /// </summary>
-    public abstract class BaseScene : IIdentifier
+    public abstract class BaseScene : IIdentifier, ISerialization
     {
         /// <summary>
         /// Gets the render target associated with this instance.
@@ -482,5 +483,56 @@ namespace LibGFX.Core
         /// Updates the physics of the scene
         /// </summary>
         public abstract void UpdatePhysics(float dt);
+
+        /// <summary>
+        /// Serializes the current object to a JSON representation using the specified serialization context.
+        /// </summary>
+        /// <param name="serializationContext">The context that provides configuration and state information for the serialization process.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized JSON representation of the object.</returns>
+        /// <exception cref="NotImplementedException">Thrown in all cases as the method is not yet implemented.</exception>
+        public JObject Serialize(SerializationContext serializationContext)
+        {
+            var layerArray = new JArray();
+            foreach(var layer in Layers)
+            {
+                layerArray.Add(layer.Serialize(serializationContext));
+            }
+
+            return new JObject
+            {
+                ["Type"] = this.GetType().FullName,
+                ["Name"] = Name,
+                ["ID"] = ID.ToString(),
+                ["Layers"] = layerArray
+            };
+        }
+
+        /// <summary>
+        /// Populates the object's properties and layers from the specified JSON object using the provided serialization
+        /// context.
+        /// </summary>
+        /// <remarks>Existing layers are cleared before new layers are deserialized from the JSON data. If
+        /// the 'Layers' property is not present or is null, the object's Layers collection will remain empty.</remarks>
+        /// <param name="jObject">The JSON object containing the data to deserialize. Must include 'Name', 'ID', and optionally a 'Layers'
+        /// array.</param>
+        /// <param name="serializationContext">The context used to control serialization and deserialization behavior, such as type resolution or custom
+        /// converters.</param>
+        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            this.Name = jObject["Name"]?.ToString() ?? String.Empty;
+            this.ID = Guid.Parse(jObject["ID"]?.ToString() ?? Guid.NewGuid().ToString());
+
+            var layerArray = jObject["Layers"] as JArray;
+            if(layerArray != null)
+            {
+                Layers.Clear();
+                foreach (var layerToken in layerArray)
+                {
+                    var layer = new Layer();
+                    layer.Deserialize(layerToken as JObject, serializationContext);
+                    Layers.Add(layer);
+                }
+            }
+        }
     }
 }

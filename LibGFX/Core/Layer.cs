@@ -1,4 +1,5 @@
 ﻿using LibGFX.Graphics;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,7 +12,7 @@ namespace LibGFX.Core
     /// <summary>
     /// Represents a layer in the scene
     /// </summary>
-    public class Layer : IIdentifier
+    public class Layer : IIdentifier, ISerialization
     {
         /// <summary>
         /// The name of the layer
@@ -37,6 +38,15 @@ namespace LibGFX.Core
         /// The elements of the layer
         /// </summary>
         public List<GameElement> Elements { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the Layer class.
+        /// Used for deserialization purposes.
+        /// </summary>
+        public Layer()
+        {
+            
+        }
 
         /// <summary>
         /// Creates a new layer
@@ -233,6 +243,68 @@ namespace LibGFX.Core
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// Serializes the current object and its child elements into a JSON representation using the specified
+        /// serialization context.
+        /// </summary>
+        /// <param name="serializationContext">The context that provides configuration and state information for the serialization process.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized data of the object, including its properties and child
+        /// elements.</returns>
+        public JObject Serialize(SerializationContext serializationContext)
+        {
+            var elementsArray = new JArray();
+            foreach(var element in this.Elements)
+            {
+                elementsArray.Add(element.Serialize(serializationContext));
+            }
+
+            return new JObject()
+            {
+                ["Name"] = this.Name,
+                ["ID"] = this.ID.ToString(),
+                ["Visible"] = this.Visible,
+                ["Enabled"] = this.Enabled,
+                ["Elements"] = elementsArray
+            };
+        }
+
+        /// <summary>
+        /// Populates the object's properties and elements from the specified JSON object using the provided
+        /// serialization context.
+        /// </summary>
+        /// <remarks>This method expects the JSON object to contain all necessary fields, including
+        /// 'Name', 'ID', 'Visible', 'Enabled', and an 'Elements' array. Each element in the 'Elements' array must
+        /// specify a valid type name that can be resolved at runtime. Existing elements in the collection are not
+        /// cleared before new elements are added.</remarks>
+        /// <param name="jObject">The JSON object containing the data to deserialize. Must include valid values for all required properties
+        /// and elements.</param>
+        /// <param name="serializationContext">The context used to assist with deserialization, providing any necessary configuration or state.</param>
+        /// <exception cref="Exception">Thrown if an element type specified in the JSON cannot be found during deserialization.</exception>
+        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            this.Name = jObject["Name"].ToString();
+            this.ID = Guid.Parse(jObject["ID"].ToString());
+            this.Visible = jObject["Visible"].ToObject<bool>();
+            this.Enabled = jObject["Enabled"].ToObject<bool>();
+
+            var elementsArray = jObject["Elements"] as JArray;
+            if (elementsArray != null)
+            {
+                foreach (var elementToken in elementsArray)
+                {
+                    var typeName = elementToken["Type"].Value<string>();
+                    var type = Type.GetType(typeName);
+                    if (type == null)
+                    {
+                        throw new Exception($"Type '{typeName}' not found during deserialization.");
+                    }
+                    var element = (GameElement)Activator.CreateInstance(type);
+                    element.Deserialize(elementToken as JObject, serializationContext);
+                    this.Elements.Add(element);
+                }
+            }
         }
     }
 }
