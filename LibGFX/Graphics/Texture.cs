@@ -12,6 +12,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -310,7 +311,7 @@ namespace LibGFX.Graphics
         /// </summary>
         /// <returns></returns>
         /// <exception cref="InvalidOperationException"></exception>
-        [Obsolete("Incompatible with non-Windows platforms. Use ImageSharp or StbImageSharp for image loading and processing.")]
+        [SupportedOSPlatform("windows")]
         public Bitmap ToBitmap()
         {
             if (TextureData == null)

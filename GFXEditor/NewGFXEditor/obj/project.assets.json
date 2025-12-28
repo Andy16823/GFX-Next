@@ -683,7 +683,7 @@
       ]
     },
     "GFX/1.1.2-dev": {
-      "sha512": "uci7Qb4RFSvMbMJvvLEOozcG9pzfe2PsqJN7o2i6p+5qN9PuWfFXv5JUYeHL3ID+J8XWWw68pMRuzG+DTEig0Q==",
+      "sha512": "j9XATn6MAF2L20587zNw9a6nEEIqgUY/MFjazDj2kpNT/5ojx6/fw6se22HUgXdLSnyd1hW99E9PsQoPDiYAMQ==",
       "type": "package",
       "path": "gfx/1.1.2-dev",
       "files": [

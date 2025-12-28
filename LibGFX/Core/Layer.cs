@@ -45,7 +45,7 @@ namespace LibGFX.Core
         /// </summary>
         public Layer()
         {
-            
+            this.Elements = new List<GameElement>();
         }
 
         /// <summary>

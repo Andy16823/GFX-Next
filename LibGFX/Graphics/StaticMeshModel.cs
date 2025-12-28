@@ -20,6 +20,15 @@ namespace LibGFX.Graphics
     /// </summary>
     public class StaticMeshModel : IModel
     {
+        /// <summary>
+        /// Gets or sets the name associated with the object.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets the unique identifier for this instance.
+        /// </summary>
+        public Guid ID { get; private set; } = Guid.NewGuid();
 
         /// <summary>
         /// Meshes that make up the static model.
@@ -37,14 +46,13 @@ namespace LibGFX.Graphics
         public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
-        /// Gets or sets the name associated with the object.
+        /// Initializes a new instance of the StaticMeshModel class.
+        /// Used for deserialization purposes.
         /// </summary>
-        public string Name { get; set; }
+        public StaticMeshModel()
+        {
 
-        /// <summary>
-        /// Gets the unique identifier for this instance.
-        /// </summary>
-        public Guid ID { get; private set; } = Guid.NewGuid();
+        }
 
         /// <summary>
         /// Static model constructor that loads model data from a file.
@@ -248,7 +256,7 @@ namespace LibGFX.Graphics
             return new JObject
             {
                 ["Type"] = this.GetType().FullName,
-                ["Name"] = Name,
+                ["Name"] = !String.IsNullOrEmpty(Name) ? Name : ID.ToString(),
                 ["ID"] = ID.ToString(),
                 ["Meshes"] = meshesArray,
                 ["NodeStructure"] = Utils.SerializeSceneNodeData(NodeStructure)
@@ -278,13 +286,14 @@ namespace LibGFX.Graphics
                 var meshObject = (JObject)meshToken;
                 var key = meshObject["Key"].ToString();
 
-                // Deserialize Mesh
-                var mesh = new Mesh();
-                mesh.Deserialize((JObject)meshObject["Mesh"], serializationContext);
-
                 // Deserialize Material
                 var material = new SGMaterial();
                 material.Deserialize((JObject)meshObject["Material"], serializationContext);
+                serializationContext.SetValue(material.ID.ToString(), material);
+
+                // Deserialize Mesh
+                var mesh = new Mesh();
+                mesh.Deserialize((JObject)meshObject["Mesh"], serializationContext);
 
                 // Assign material to mesh and add to dictionary
                 mesh.Material = material;

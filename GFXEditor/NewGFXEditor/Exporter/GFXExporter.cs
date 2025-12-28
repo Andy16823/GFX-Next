@@ -27,7 +27,21 @@ namespace NewGFXEditor.Exporter
 
             // Serialize all assets wich implement ISerialization
             JArray assetsArray = new JArray();
-            assets.ForeachAsset<ISerialization>(asset =>
+
+            // Serialize Materials first
+            assets.ForeachAsset<IMaterial>(asset =>
+            {
+                assetsArray.Add(asset.Serialize(null));
+            });
+
+            // Serialize Meshes next
+            assets.ForeachAsset<Mesh>(asset =>
+            {
+                assetsArray.Add(asset.Serialize(null));
+            });
+
+            // Serialize Models last
+            assets.ForeachAsset<StaticMeshModel>(asset =>
             {
                 assetsArray.Add(asset.Serialize(null));
             });
@@ -47,6 +61,50 @@ namespace NewGFXEditor.Exporter
             var context = new SerializationContext();
             var json = File.ReadAllText(filePath);
             var root = JObject.Parse(json);
+
+            var ctx = new SerializationContext();
+            // Load Assets
+            var assetsArray = root["Assets"] as JArray;
+            foreach(var assetToken in assetsArray)
+            {
+                var typeName = assetToken["Type"].Value<string>();
+                var Name = assetToken["Name"].Value<string>();
+
+                // Check for SGMaterial
+                if (typeName == typeof(SGMaterial).FullName)
+                {
+                    var material = new SGMaterial();
+                    material.Deserialize(assetToken as JObject, ctx);
+                    assets.Add(material);
+                    ctx.SetValue(material.ID.ToString(), material); // Register in context
+                    continue;
+                }
+
+                // Check for Mesh
+                if (typeName == typeof(Mesh).FullName)
+                {
+                    var mesh = new Mesh();
+                    mesh.Deserialize(assetToken as JObject, ctx);
+                    assets.Add(mesh);
+                    ctx.SetValue(mesh.ID.ToString(), mesh); // Register in context
+                    continue;
+                }
+
+                // Check for StaticMeshModel
+                if (typeName == typeof(StaticMeshModel).FullName)
+                {
+                    var model = new StaticMeshModel();
+                    model.Deserialize(assetToken as JObject, ctx);
+                    assets.Add(model);
+                    ctx.SetValue(model.ID.ToString(), model); // Register in context
+                    continue;
+                }
+                Debug.WriteLine($"[GFXExporter] Unknown asset type during import: {typeName}");
+            }
+
+            // Load Scene Layers
+            var sceneObj = root["Scene"] as JObject;
+            scene.Deserialize(sceneObj, ctx);
         }
     }
 }

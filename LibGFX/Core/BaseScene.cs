@@ -447,6 +447,34 @@ namespace LibGFX.Core
         }
 
         /// <summary>
+        /// Releases all resources associated with the scene and its layers using the specified renderer.
+        /// </summary>
+        /// <remarks>After calling this method, the scene's layers are cleared and cannot be used unless
+        /// reinitialized.</remarks>
+        /// <param name="renderer">The rendering device used to release resources for each layer. Cannot be null.</param>
+        public void FreeScene(IRenderDevice renderer)
+        {
+            foreach (var layer in Layers)
+            {
+                layer.Dispose(this, renderer);
+            }
+            this.Layers.Clear();
+        }
+
+        /// <summary>
+        /// Initializes all elements in the collection using the specified viewport and render device.
+        /// </summary>
+        /// <param name="viewport">The viewport that defines the rendering area for the elements.</param>
+        /// <param name="renderer">The render device used to initialize the elements.</param>
+        public void InitializeElements(Viewport viewport, IRenderDevice renderer)
+        {
+            foreach (var layer in Layers)
+            {
+                layer.Init(this, viewport, renderer);
+            }
+        }
+
+        /// <summary>
         /// Initializes the scene
         /// </summary>
         /// <param name="viewport"></param>

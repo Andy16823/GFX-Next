@@ -55,6 +55,15 @@ namespace LibGFX.Graphics
         public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
+        /// Initializes a new instance of the SkinnedMeshModel class.
+        /// Used for deserialization purposes.
+        /// </summary>
+        public SkinnedMeshModel()
+        {
+
+        }
+
+        /// <summary>
         /// Loads a skinned mesh model from the specified file.
         /// </summary>
         /// <param name="file"></param>
@@ -440,7 +449,7 @@ namespace LibGFX.Graphics
             {
                 ["Type"] = this.GetType().FullName,
                 ["ID"] = ID.ToString(),
-                ["Name"] = Name,
+                ["Name"] = !String.IsNullOrEmpty(Name) ? Name : ID.ToString(),
                 ["Meshes"] = meshesArray,
                 ["NodeStructure"] = Utils.SerializeSceneNodeData(this.NodeStructure),
                 ["Skeleton"] = Skeleton.Serialize(serializationContext),
@@ -474,13 +483,14 @@ namespace LibGFX.Graphics
                 var meshObj = meshToken as JObject;
                 var key = meshObj["Key"].ToString();
 
-                // Deserialize Mesh
-                var mesh = new Mesh();
-                mesh.Deserialize((JObject)meshObj["Mesh"], serializationContext);
-
                 // Deserialize Material
                 var material = new SGMaterial();
                 material.Deserialize((JObject)meshObj["Material"], serializationContext);
+                serializationContext.SetValue(material.ID.ToString(), material);
+
+                // Deserialize Mesh
+                var mesh = new Mesh();
+                mesh.Deserialize((JObject)meshObj["Mesh"], serializationContext);
 
                 // Assign material to mesh and add to dictionary
                 mesh.Material = material;

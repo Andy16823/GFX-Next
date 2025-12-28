@@ -270,6 +270,17 @@ namespace LibGFX.Assets
         }
 
         /// <summary>
+        /// Determines whether an asset of the specified type and name exists in the collection.
+        /// </summary>
+        /// <typeparam name="T">The type of the asset to check for. Must be a reference type.</typeparam>
+        /// <param name="name">The name of the asset to locate. The comparison is case-sensitive.</param>
+        /// <returns>true if an asset of type T with the specified name exists; otherwise, false.</returns>
+        public bool Exists<T>(string name) where T : class
+        {
+            return _assets.ContainsKey((typeof(T), name));
+        }
+
+        /// <summary>
         /// Initializes all assets that implement the IRenderResource interface using the specified render device.
         /// </summary>
         /// <remarks>Only assets that implement IRenderResource are initialized. Other assets are
@@ -309,6 +320,14 @@ namespace LibGFX.Assets
                     Debug.WriteLine($"Asset of type '{asset.GetType()}' does not implement IRenderResource. Skipping disposal.");
                 }
             }
+        }
+
+        /// <summary>
+        /// Removes all assets from the collection.
+        /// </summary>
+        public void ClearAssets()
+        {
+            _assets.Clear();
         }
     }
 }

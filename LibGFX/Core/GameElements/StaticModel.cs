@@ -21,6 +21,14 @@ namespace LibGFX.Core.GameElements
         private Graphics.StaticMeshModel _model;
 
         /// <summary>
+        /// Initializes a new instance of the StaticModel class.
+        /// </summary>
+        public StaticModel()
+        {
+            
+        }
+
+        /// <summary>
         /// Creates a new static model game element
         /// Shared models should be used when multiple instances of the same model are needed
         /// </summary>

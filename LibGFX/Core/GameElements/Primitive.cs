@@ -39,20 +39,11 @@ namespace LibGFX.Core.GameElements
         public ShaderProgram Shader { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the Primitive class with the specified name, material, and mesh.
+        /// Initializes a new instance of the Primitive class.
         /// </summary>
-        /// <remarks>This constructor is obsolete. Use Primitive(String name, Mesh mesh) instead. The
-        /// material is assigned directly to the provided mesh.</remarks>
-        /// <param name="name">The name to assign to the primitive. Cannot be null.</param>
-        /// <param name="material">The material to associate with the mesh. Cannot be null.</param>
-        /// <param name="mesh">The mesh to use for the primitive. Cannot be null.</param>
-        [Obsolete("Use Primitive(String name, Mesh mesh) instead.")]
-        public Primitive(String name, IMaterial material, Mesh mesh)
+        public Primitive()
         {
-            this.Name = name;
-            this.Mesh = mesh;
-            this.Mesh.Material = material;
-            this.ComputeAABB();
+            
         }
 
         /// <summary>
@@ -65,53 +56,6 @@ namespace LibGFX.Core.GameElements
             this.Name = name;
             this.Mesh = mesh;
             this.ComputeAABB();
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the Primitive class using the specified name, material, and primitive source.
-        /// </summary>
-        /// <remarks>This constructor is obsolete. Use Primitive(String name, Mesh mesh) instead. 
-        /// The reason for deprecation is that an GameElement should never own IGraphicsRessource. This ressources should
-        /// be managed from the AssetManager or similar systems to have them collected together and avoid duplicates.
-        /// </remarks>
-        /// <param name="name">The name to assign to the new primitive. Cannot be null.</param>
-        /// <param name="material">The material to apply to the mesh of the new primitive. Cannot be null.</param>
-        /// <param name="primitive">The source primitive from which to obtain the mesh. Cannot be null.</param>
-        [Obsolete("Use Primitive(String name, Mesh mesh) instead.")]
-        public Primitive(String name, IMaterial material, IPrimitive primitive)
-        {
-            this.Name = name;
-            this.Mesh = primitive.GetMesh();
-            this.Mesh.Material = material;
-            this.ComputeAABB();
-        }
-
-        /// <summary>
-        /// Creates a new instance of the Primitive class with a specified type.
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="material"></param>
-        /// <param name="type"></param>
-        /// <exception cref="ArgumentException"></exception>
-        public Primitive(String name, IMaterial material, PrimitiveType type = PrimitiveType.Cube)
-        {
-            this.Name = name;
-
-            switch (type)
-            {
-                case PrimitiveType.Quad:
-                    this.Mesh = new Quad().GetMesh();
-                    break;
-                case PrimitiveType.Cube:
-                    this.Mesh = new Cube().GetMesh();
-                    break;
-                case PrimitiveType.Sphere:
-                    this.Mesh = new Sphere().GetMesh();
-                    break;
-                default:
-                    throw new ArgumentException("Unsupported primitive type: " + type);
-            }
-            this.Mesh.Material = material;  
         }
 
         /// <summary>

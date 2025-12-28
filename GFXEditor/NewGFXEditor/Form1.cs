@@ -59,6 +59,7 @@ namespace NewGFXEditor
         private GameElement _selectedElement = null;
         private Layer _selectedLayer = null;
         private PhysicsHandler3D _phyisicHandler3D;
+        private bool _sceneEnabled = true;
 
         /// <summary>
         /// Initializes a new instance of the Form1 class and sets up the 3D editor panel and related event handlers.
@@ -81,6 +82,44 @@ namespace NewGFXEditor
             _editorPanel3D.OnResized += _editorPanel3D_OnResized;
             LoadStartupAssets();
             this.UpdateGUI();
+        }
+
+        /// <summary>
+        /// Displays a dialog that allows the user to save the current scene to a GFX level file.
+        /// </summary>
+        /// <remarks>If the user selects a file and confirms the dialog, the current scene is exported to
+        /// the specified file in the GFX level format. If the user cancels the dialog, no file is saved.</remarks>
+        public void SaveSceneAs()
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "GFX Level Files|*.gfxlevel";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                GFXExporter exporter = new GFXExporter();
+                exporter.Export(sfd.FileName, this.Scene as Scene3D, GFX.Instance.AssetManager);
+            }
+        }
+
+        public void OpenScene()
+        {
+            // Dispose existing scene
+            _sceneEnabled = false;
+            GFX.Instance.AssetManager.DisposeAssets(_editorPanel3D.Renderer);
+            GFX.Instance.AssetManager.ClearAssets();
+            Scene.FreeScene(_editorPanel3D.Renderer);
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "GFX Level Files|*.gfxlevel";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                GFXExporter exporter = new GFXExporter();
+                exporter.Import(openFileDialog.FileName, this.Scene as Scene3D, GFX.Instance.AssetManager);
+                GFX.Instance.AssetManager.InitializeAssets(_editorPanel3D.Renderer);
+                Scene.InitializeElements(_editorPanel3D.Viewport, _editorPanel3D.Renderer);
+                _sceneEnabled = true;
+                this.UpdateGUI();
+                _editorPanel3D.Redraw();
+            }
         }
 
         /// <summary>
@@ -109,7 +148,13 @@ namespace NewGFXEditor
         /// material.</returns>
         public Primitive CreateCube(Vector3 position, Vector3 scale, Vector3 rotation, SGMaterial material)
         {
+            // Create the cube primitive
             var cube = Primitive.CreatePrimitive("Cube", material, GFX.Instance.AssetManager, Primitive.PrimitiveType.Cube);
+
+            // Initialize the cube's mesh
+            cube.Mesh.Init(_editorPanel3D.Renderer);
+
+            // Set the cube's transform properties
             cube.Transform.Position = position;
             cube.Transform.Scale = scale;
             cube.Transform.Rotate(rotation);
@@ -126,7 +171,13 @@ namespace NewGFXEditor
         /// <returns>A new <see cref="Primitive"/> instance representing the created sphere.</returns>
         public Primitive CreateSphere(Vector3 position, Vector3 scale, Vector3 rotation, SGMaterial material)
         {
+            // Create the sphere primitive
             var sphere = Primitive.CreatePrimitive("Sphere", material, GFX.Instance.AssetManager, Primitive.PrimitiveType.Sphere);
+
+            // Initialize the sphere's mesh
+            sphere.Mesh.Init(_editorPanel3D.Renderer);
+
+            // Set the sphere's transform properties
             sphere.Transform.Position = position;
             sphere.Transform.Scale = scale;
             sphere.Transform.Rotate(rotation);
@@ -143,7 +194,13 @@ namespace NewGFXEditor
         /// <returns>A new <see cref="Primitive"/> instance representing the configured quad.</returns>
         public Primitive CreateQuad(Vector3 position, Vector3 scale, Vector3 rotation, SGMaterial material)
         {
+            // Create the quad primitive
             var quad = Primitive.CreatePrimitive("Quad", material, GFX.Instance.AssetManager, Primitive.PrimitiveType.Quad);
+
+            // Initialize the quad's mesh
+            quad.Mesh.Init(_editorPanel3D.Renderer);
+
+            // Set the quad's transform properties
             quad.Transform.Position = position;
             quad.Transform.Scale = scale;
             quad.Transform.Rotate(rotation);
@@ -331,9 +388,13 @@ namespace NewGFXEditor
         /// <param name="e">An object that contains the event data.</param>
         private void EditorPanel3D_OnRender(object sender, EventArgs e)
         {
-            _phyisicHandler3D.Process(Scene);
-            this.Scene.Render(_editorPanel3D.Viewport, _editorPanel3D.Renderer, Camera);
-            _editorPanel3D.Renderer.DrawRenderTarget(Scene.RenderTarget as MSAARenderTarget2D, 0);
+            if (_sceneEnabled)
+            {
+                _phyisicHandler3D.Process(Scene);
+                this.Scene.Render(_editorPanel3D.Viewport, _editorPanel3D.Renderer, Camera);
+                _editorPanel3D.Renderer.DrawRenderTarget(Scene.RenderTarget as MSAARenderTarget2D, 0);
+            }
+
             this.TransformGizmo.RenderGizmo(_editorPanel3D.Renderer, Camera, _editorPanel3D.Viewport);
             if (_selectedElement != null)
             {
@@ -527,15 +588,16 @@ namespace NewGFXEditor
         private void UpdateMaterialListView()
         {
             this.materialListView.Items.Clear();
+            this.materialImageList.Images.Clear();
 
             GFX.Instance.AssetManager.ForeachAsset<SGMaterial>(material =>
             {
-                if (this.materialImageList.Images.ContainsKey(material.Name))
-                {
-                    var item = new ListViewItem(material.Name, material.Name);
-                    item.Tag = material;
-                    this.materialListView.Items.Add(item);
-                }
+                var thumbnail = material.DiffuseTexture.ToBitmap();
+                this.materialImageList.Images.Add(material.Name, thumbnail);
+
+                var item = new ListViewItem(material.Name, material.Name);
+                item.Tag = material;
+                this.materialListView.Items.Add(item);
             });
 
         }
@@ -1080,24 +1142,43 @@ namespace NewGFXEditor
         /// <param name="e">An EventArgs instance containing event data.</param>
         private void gFXLevelFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "GFX Level Files|*.gfxlevel";
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                GFXExporter exporter = new GFXExporter();
-                exporter.Export(sfd.FileName, this.Scene as Scene3D, GFX.Instance.AssetManager);
-            }
+            SaveSceneAs();
         }
 
+        /// <summary>
+        /// Handles the Click event for the GFX Level File menu item and initiates the process of opening a scene.
+        /// </summary>
+        /// <param name="sender">The source of the event, typically the menu item that was clicked.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
         private void gFXLevelFileToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "GFX Level Files|*.gfxlevel";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                GFXExporter exporter = new GFXExporter();
-                exporter.Import(openFileDialog.FileName, this.Scene as Scene3D, GFX.Instance.AssetManager);
-            }
+            OpenScene();
+        }
+
+        /// <summary>
+        /// Handles the Click event of the neuToolStripButton control and releases resources associated with the current
+        /// 3D scene.
+        /// </summary>
+        /// <param name="sender">The source of the event, typically the neuToolStripButton control.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
+        private void neuToolStripButton_Click(object sender, EventArgs e)
+        {
+            this.Scene.FreeScene(_editorPanel3D.Renderer);
+        }
+
+        /// <summary>
+        /// Handles the Click event of the Öffnen menu item to initiate the process of opening a scene.
+        /// </summary>
+        /// <param name="sender">The source of the event, typically the Öffnen menu item.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
+        private void öffnenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenScene();
+        }
+
+        private void speichernunterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveSceneAs();
         }
     }
 }
