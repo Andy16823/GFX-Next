@@ -13,8 +13,18 @@ namespace LibGFX.Graphics.Lights
     /// <summary>
     /// Base class for all light types.
     /// </summary>
-    public abstract class Light : ISerialization
+    public abstract class Light : IIdentifier, ISerialization
     {
+        /// <summary>
+        /// Gets or sets the name associated with the object.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets the unique identifier for this instance.
+        /// </summary>
+        public Guid ID { get; private set; } = Guid.NewGuid();
+
         /// <summary>
         /// The color of the light.
         /// </summary>
@@ -62,7 +72,20 @@ namespace LibGFX.Graphics.Lights
         /// </summary>
         /// <param name="serializationContext">The context that provides information and settings required for serialization.</param>
         /// <returns>A <see cref="JObject"/> representing the serialized form of the current object.</returns>
-        public abstract JObject Serialize(SerializationContext serializationContext);
+        public virtual JObject Serialize(SerializationContext serializationContext)
+        {
+            // Create basic light serialization
+            return new JObject
+            {
+                ["Type"] = this.GetType().FullName,
+                ["Name"] = !String.IsNullOrEmpty(Name) ? Name : ID.ToString(),
+                ["ID"] = ID.ToString(),
+                ["Color"] = Utils.SerializeVec4(Color),
+                ["Position"] = Utils.SerializeVec3(Position),
+                ["Intensity"] = Intensity,
+                ["ShadowMapSize"] = Utils.SerializeVec2i(ShadowMapSize)
+            };
+        }
 
         /// <summary>
         /// Populates the current object with values from the specified JSON object using the provided serialization
@@ -70,6 +93,18 @@ namespace LibGFX.Graphics.Lights
         /// </summary>
         /// <param name="jObject">The JSON object containing the data to deserialize into the current instance. Cannot be null.</param>
         /// <param name="serializationContext">The context that provides information and services for the deserialization process.</param>
-        public abstract void Deserialize(JObject jObject, SerializationContext serializationContext);
+        public virtual void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            // Populate basic light properties
+            Name = jObject.Value<string>("Name");
+            ID = Guid.Parse(jObject.Value<string>("ID"));
+            Color = Utils.DeserializeVec4(jObject.Value<JObject>("Color"));
+            Position = Utils.DeserializeVec3(jObject.Value<JObject>("Position"));
+            Intensity = jObject.Value<float>("Intensity");
+            ShadowMapSize = Utils.DeserializeVec2i(jObject.Value<JObject>("ShadowMapSize"));
+
+            // Register in context
+            serializationContext.SetValue<Light>(ID.ToString(), this);
+        }
     }
 }

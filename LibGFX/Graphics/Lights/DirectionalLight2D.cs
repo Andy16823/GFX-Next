@@ -20,6 +20,14 @@ namespace LibGFX.Graphics.Lights
         public override bool HasShadowMap => false;
 
         /// <summary>
+        /// Initializes a new instance of the DirectionalLight2D class.
+        /// </summary>
+        public DirectionalLight2D()
+        {
+            
+        }
+
+        /// <summary>
         /// Creates a new instance of the <see cref="DirectionalLight2D"/> class.
         /// </summary>
         /// <param name="color"></param>
@@ -57,14 +65,9 @@ namespace LibGFX.Graphics.Lights
         /// intensity, and shadow map size.</returns>
         public override JObject Serialize(SerializationContext serializationContext)
         {
-            return new JObject()
-            {
-                ["Type"] = this.GetType().FullName,
-                ["Color"] = Utils.SerializeVec4(this.Color),
-                ["Position"] = Utils.SerializeVec3(this.Position),
-                ["Intensity"] = this.Intensity,
-                ["ShadowMapSize"] = Utils.SerializeVec2i(this.ShadowMapSize),
-            };
+            var result = base.Serialize(serializationContext);
+            result["Type"] = this.GetType().FullName;
+            return result;
         }
 
         /// <summary>
@@ -76,10 +79,7 @@ namespace LibGFX.Graphics.Lights
         /// process.</param>
         public override void Deserialize(JObject jObject, SerializationContext serializationContext)
         {
-            this.Color = Utils.DeserializeVec4(jObject["Color"] as JObject);
-            this.Position = Utils.DeserializeVec3(jObject["Position"] as JObject);
-            this.Intensity = jObject["Intensity"]!.Value<float>();
-            this.ShadowMapSize = Utils.DeserializeVec2i(jObject["ShadowMapSize"] as JObject);
+            base.Deserialize(jObject, serializationContext);
         }
     }
 }

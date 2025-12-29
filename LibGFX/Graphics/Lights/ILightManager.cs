@@ -1,4 +1,5 @@
-﻿using OpenTK.Mathematics;
+﻿using LibGFX.Core;
+using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace LibGFX.Graphics.Lights
     /// <summary>
     /// Interface for managing lights in a scene.
     /// </summary>
-    public interface ILightManager
+    public interface ILightManager : ISerialization
     {
         /// <summary>
         /// Initializes the light manager with the given render device.

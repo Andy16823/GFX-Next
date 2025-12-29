@@ -36,7 +36,18 @@ namespace LibGFX.Graphics.Lights
         /// </summary>
         public float Bias { get; set; } = 0.005f;
 
+        /// <summary>
+        /// Gets a value indicating whether this object supports a shadow map.
+        /// </summary>
         public override bool HasShadowMap => true;
+
+        /// <summary>
+        /// Initializes a new instance of the DirectionalLight3D class.
+        /// </summary>
+        public DirectionalLight3D()
+        {
+            
+        }
 
         /// <summary>
         /// Creates a new instance of the <see cref="DirectionalLight3D"/> class.
@@ -54,12 +65,20 @@ namespace LibGFX.Graphics.Lights
             Specular = new Vector3(1.0f, 1.0f, 1.0f);
         }
 
+        /// <summary>
+        /// Initializes the shadow map resources for the directional light using the specified render device.
+        /// </summary>
+        /// <param name="renderer">The render device used to create the shadow map render target. Cannot be null.</param>
         public override void Init(IRenderDevice renderer)
         {
             Debug.WriteLine($"Creating Shadow Map for Directional Light: {this.GetType().Name} at {Position} with size {ShadowMapSize}");
             this.ShadowMap = renderer.CreateDepthRenderTarget2D(ShadowMapSize.X, ShadowMapSize.Y);
         }
 
+        /// <summary>
+        /// Releases all resources used by the shadow map associated with the directional light.
+        /// </summary>
+        /// <param name="renderer">The rendering device to use when disposing of resources. Cannot be null.</param>
         public override void Dispose(IRenderDevice renderer)
         {
             Debug.WriteLine($"Disposing Shadow Map for Directional Light: {this.GetType().Name} at {Position}");
@@ -76,18 +95,14 @@ namespace LibGFX.Graphics.Lights
         /// <returns>A <see cref="JObject"/> containing the serialized properties of the light object.</returns>
         public override JObject Serialize(SerializationContext serializationContext)
         {
-            return new JObject()
-            {
-                ["Type"] = this.GetType().FullName,
-                ["Color"] = Utils.SerializeVec4(this.Color),
-                ["Position"] = Utils.SerializeVec3(this.Position),
-                ["Intensity"] = this.Intensity,
-                ["ShadowMapSize"] = Utils.SerializeVec2i(this.ShadowMapSize),
-                ["Direction"] = Utils.SerializeVec3(this.Direction),
-                ["Ambient"] = Utils.SerializeVec3(this.Ambient),
-                ["Specular"] = Utils.SerializeVec3(this.Specular),
-                ["Bias"] = this.Bias,
-            };
+            // Start with the base serialization and then add specific properties
+            var result = base.Serialize(serializationContext);
+            result["Type"] = this.GetType().FullName;
+            result["Direction"] = Utils.SerializeVec3(this.Direction);
+            result["Ambient"] = Utils.SerializeVec3(this.Ambient);
+            result["Specular"] = Utils.SerializeVec3(this.Specular);
+            result["Bias"] = this.Bias;
+            return result;
         }
 
         /// <summary>
@@ -102,13 +117,10 @@ namespace LibGFX.Graphics.Lights
         /// <param name="serializationContext">A <see cref="SerializationContext"/> that provides context or settings for the deserialization process.</param>
         public override void Deserialize(JObject jObject, SerializationContext serializationContext)
         {
+            base.Deserialize(jObject, serializationContext);
             this.Direction = Utils.DeserializeVec3(jObject["Direction"] as JObject);
-            this.Position = Utils.DeserializeVec3(jObject["Position"] as JObject);
             this.Ambient = Utils.DeserializeVec3(jObject["Ambient"] as JObject);
             this.Specular = Utils.DeserializeVec3(jObject["Specular"] as JObject);
-            this.Color = Utils.DeserializeVec4(jObject["Color"] as JObject);
-            this.Intensity = jObject["Intensity"].Value<float>();
-            this.ShadowMapSize = Utils.DeserializeVec2i(jObject["ShadowMapSize"] as JObject);
             this.Bias = jObject["Bias"].Value<float>();
         }
     }

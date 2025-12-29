@@ -21,6 +21,7 @@ using System.CodeDom;
 using System.Diagnostics;
 using System.Security.Authentication.ExtendedProtection;
 using System.Windows.Forms;
+using static OpenTK.Graphics.OpenGL.GL;
 using static System.Formats.Asn1.AsnWriter;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -52,6 +53,11 @@ namespace NewGFXEditor
         /// Gets or sets a value indicating whether grid lines are displayed.
         /// </summary>
         public bool ShowGrid { get; set; } = true;
+        
+        /// <summary>
+        /// Gets or sets a value indicating whether light sources are selectable during picking operations.
+        /// </summary>
+        public bool PickLights { get; set; } = false;
 
         /// <summary>
         /// The transform gizmo for manipulating objects in the scene.
@@ -344,24 +350,52 @@ namespace NewGFXEditor
         /// <returns></returns>
         private GameElement? PickElement(PerspectiveCamera camera, IEnumerable<GameElement> elements, int x, int y, Viewport viewport)
         {
+            // Set min distance to max value to detect closest hit
             var minDist = float.MaxValue;
             GameElement hitElement = null;
+
+            // Create a ray from the screen point
             var ray = MeshRaycast.ScreenPointToWorldRay(camera, viewport, x, y);
+
+            // Iterate through all elements and check for intersection
             foreach (var element in elements)
             {
-                var meshes = element.GetMeshes();
-                if (meshes == null)
+                // Check against light handles if enabled
+                if (this.PickLights && element.GetType() == typeof(PointLight3DHandle))
                 {
-                    continue;
-                }
-
-                foreach (var mesh in meshes)
-                {
-                    var hit = MeshRaycast.IntersectsMesh(ray, element.Transform, mesh);
-                    if (hit.Hit && hit.Distance < minDist)
+                    // Check against AABB since lights have no meshes
+                    if (MeshRaycast.IntersectsAABB(ray, element.WorldAABB, out float min, out float max))
                     {
-                        minDist = hit.Distance;
-                        hitElement = element;
+                        // Check if this is the closest hit
+                        if (min < minDist)
+                        {
+                            // Update closest hit
+                            minDist = min;
+                            hitElement = element;
+                        }
+                    }
+                }
+                else
+                {
+                    // Check against meshes
+                    var meshes = element.GetMeshes();
+                    if (meshes == null)
+                    {
+                        continue;
+                    }
+
+                    // Check each mesh for intersection
+                    foreach (var mesh in meshes)
+                    {
+                        // Perform ray-mesh intersection test
+                        var hit = MeshRaycast.IntersectsMesh(ray, element.Transform, mesh);
+
+                        // Update closest hit if necessary
+                        if (hit.Hit && hit.Distance < minDist)
+                        {
+                            minDist = hit.Distance;
+                            hitElement = element;
+                        }
                     }
                 }
             }
@@ -499,13 +533,14 @@ namespace NewGFXEditor
 
             // Creates an 3D Scene
             var scene3d = new Scene3D("BASE_LAYER", "OBJECT_LAYER", "PLAYER_LAYER", "AI_LAYER");
-            scene3d.DirectionalLight = new DirectionalLight3D(new Vector3(-0.2f, 1.0f, -0.3f), new Vector4(1, 1, 1, 1), 1.5f);
+            scene3d.DirectionalLight = new DirectionalLight3D(new Vector3(-0.2f, 1.0f, -0.3f), new Vector4(0.4f, 0.4f, 0.4f, 1.0f), 1.0f);
             Scene = scene3d;
 
             // Create the physics handler
             _phyisicHandler3D = new PhysicsHandler3D(Vector3.Zero);
             scene3d.PhysicsHandler = _phyisicHandler3D;
 
+            // Create an defaul material and add it to the asset manager
             // Create an defaul material and add it to the asset manager
             var blankMaterial = new SGMaterial("e_BlankMaterial", Vector4.One);
             GFX.Instance.AssetManager.Add<SGMaterial>(blankMaterial.Name, blankMaterial);
@@ -1221,6 +1256,20 @@ namespace NewGFXEditor
         private void neuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewScene();
+        }
+
+        private void pointLightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var pointLight = new PointLight3DHandle("PointLight", new Vector3(-2f, 1f, 0f), new Vector4(0.0f, 0.8f, 0.0f, 1.0f), 4f, 30f);
+            pointLight.Init(Scene, _editorPanel3D.Viewport, _editorPanel3D.Renderer);
+            Scene.AddGameElement(_selectedLayer.Name, pointLight);
+            pointLight.ComputeAABB();
+        }
+
+        private void lightPickingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.PickLights = !this.PickLights;
+            lightPickingToolStripMenuItem.Checked = this.PickLights;
         }
     }
 }

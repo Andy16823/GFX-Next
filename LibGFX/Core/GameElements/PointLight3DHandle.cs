@@ -1,6 +1,7 @@
 ﻿using LibGFX.Graphics;
 using LibGFX.Graphics.Lights;
 using LibGFX.Math;
+using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,14 @@ namespace LibGFX.Core.GameElements
         /// <remarks>Changing this property affects how objects in the scene are lit and how shadows are
         /// rendered. The light source position and intensity determine the appearance of lighting effects.</remarks>
         public PointLight3D LightSource { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the PointLight3DHandle class.
+        /// </summary>
+        public PointLight3DHandle()
+        {
+            
+        }
 
         /// <summary>
         /// Initializes a new instance of the PointLight3DHandle class with the specified name, position, color, range,
@@ -99,6 +108,33 @@ namespace LibGFX.Core.GameElements
                 LightSource.Position - new Vector3(LightSource.Range),
                 LightSource.Position + new Vector3(LightSource.Range)
             );
+        }
+
+        /// <summary>
+        /// Serializes the current object to a JSON representation, including type and light source information.
+        /// </summary>
+        /// <param name="serializationContext">The context that provides settings and state for the serialization process.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized representation of the object, including its type and
+        /// serialized light source.</returns>
+        public override JObject Serialize(SerializationContext serializationContext)
+        {
+            var result = base.Serialize(serializationContext);
+            result["Type"] = this.GetType().FullName;
+            result["LightSource"] = this.LightSource.Serialize(serializationContext);
+            return result;
+        }
+
+        /// <summary>
+        /// Deserializes the object's state from the specified JSON object using the provided serialization context.
+        /// </summary>
+        /// <param name="jObject">A <see cref="JObject"/> containing the JSON data to deserialize from. Must not be null.</param>
+        /// <param name="serializationContext">The <see cref="SerializationContext"/> to use during deserialization. Provides context and settings for the
+        /// operation.</param>
+        public override void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            base.Deserialize(jObject, serializationContext);
+            LightSource = new PointLight3D();
+            LightSource.Deserialize(jObject["LightSource"] as JObject, serializationContext);
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Assimp;
+using LibGFX.Core;
+using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Concurrent;
@@ -13,13 +15,66 @@ namespace LibGFX.Graphics.Lights
     /// <summary>
     /// Represents an chunk of lights in the scene.
     /// </summary>
-    public class Light2DChunk
+    public class Light2DChunk : ISerialization
     {
+        /// <summary>
+        /// Gets or sets the collection of 2D point lights used in the scene.
+        /// </summary>
         public List<PointLight2D> Lights { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the Light2DChunk class.
+        /// </summary>
+        /// <remarks>This constructor creates an empty collection of PointLight2D objects, ready to be
+        /// populated after instantiation.</remarks>
         public Light2DChunk()
         {
             Lights = new List<PointLight2D>();
+        }
+
+        /// <summary>
+        /// Serializes the current object and its child lights into a JSON representation.
+        /// </summary>
+        /// <param name="serializationContext">The context to use during serialization, which may provide settings or state required for the serialization
+        /// process.</param>
+        /// <returns>A <see cref="JObject"/> containing the serialized data for this object, including its type information and
+        /// an array of serialized child lights.</returns>
+        public JObject Serialize(SerializationContext serializationContext)
+        {
+            var array = new JArray();
+            foreach (var light in Lights)
+            {
+                array.Add(light.Serialize(serializationContext));
+            }
+            
+            return new JObject
+            {
+                ["Type"] = this.GetType().FullName,
+                ["Lights"] = array
+            };
+        }
+
+        /// <summary>
+        /// Populates the collection of point lights from the specified JSON object using the provided serialization
+        /// context.
+        /// </summary>
+        /// <remarks>This method clears the existing collection of point lights before adding the
+        /// deserialized lights from the JSON object. Any existing lights will be removed.</remarks>
+        /// <param name="jObject">A <see cref="JObject"/> containing the serialized data for the point lights. Must include a "Lights" array
+        /// property.</param>
+        /// <param name="serializationContext">The <see cref="SerializationContext"/> to use during deserialization. Provides context or settings required
+        /// for the operation.</param>
+        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            var lightsArray = jObject["Lights"] as JArray;
+            Lights.Clear();
+            foreach(var lightToken in lightsArray)
+            {
+                var lightObject = lightToken as JObject;
+                var light = new PointLight2D();
+                light.Deserialize(lightObject, serializationContext);
+                Lights.Add(light);
+            }
         }
     }
 
@@ -287,6 +342,60 @@ namespace LibGFX.Graphics.Lights
                 {
                     action(light);
                 }
+            }
+        }
+
+        public JObject Serialize(SerializationContext serializationContext)
+        {
+            var chunksArray = new JArray();
+            foreach (var kvp in Chunks)
+            {
+                var chunkObject = new JObject
+                {
+                    ["ChunkX"] = kvp.Key.Item1,
+                    ["ChunkY"] = kvp.Key.Item2,
+                    ["LightChunk"] = kvp.Value.Serialize(serializationContext)
+                };
+                chunksArray.Add(chunkObject);
+            }
+
+            return new JObject()
+            {
+                ["Type"] = this.GetType().FullName,
+                ["DirectionalLight"] = DirectionalLight?.Serialize(serializationContext),
+                ["Chunks"] = chunksArray
+            };
+        }
+
+        /// <summary>
+        /// Populates the current object with data from the specified JSON object using the provided serialization
+        /// context. 
+        /// </summary>
+        /// <remarks>Existing chunk and directional light data in the current object are replaced by the
+        /// values from the JSON object. The method expects the JSON structure to match the expected schema; missing or
+        /// malformed properties may result in runtime errors.</remarks>
+        /// <param name="jObject">A JSON object containing the serialized data to deserialize into the current instance. Must not be null and
+        /// is expected to contain 'Chunks' and optionally 'DirectionalLight' properties.</param>
+        /// <param name="serializationContext">The context to use during deserialization, providing any necessary state or configuration for the process.</param>
+        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            var chunksArray = jObject["Chunks"] as JArray;
+            Chunks.Clear();
+            foreach (var chunkToken in chunksArray)
+            {
+                var chunkObject = chunkToken as JObject;
+                int chunkX = chunkObject["ChunkX"].Value<int>();
+                int chunkY = chunkObject["ChunkY"].Value<int>();
+                var lightChunkObject = chunkObject["LightChunk"] as JObject;
+                var lightChunk = new Light2DChunk();
+                lightChunk.Deserialize(lightChunkObject, serializationContext);
+                Chunks[(chunkX, chunkY)] = lightChunk;
+            }
+            var directionalLightObject = jObject["DirectionalLight"] as JObject;
+            if (directionalLightObject != null)
+            {
+                DirectionalLight = new DirectionalLight2D();
+                DirectionalLight.Deserialize(directionalLightObject, serializationContext);
             }
         }
     }

@@ -38,6 +38,14 @@ namespace LibGFX.Graphics.Lights
         public override bool HasShadowMap => false;
 
         /// <summary>
+        /// Initializes a new instance of the PointLight2D class.
+        /// </summary>
+        public PointLight2D()
+        {
+            
+        }
+
+        /// <summary>
         /// Creates a new instance of the <see cref="PointLight2D"/> class.
         /// </summary>
         /// <param name="position"></param>
@@ -94,15 +102,10 @@ namespace LibGFX.Graphics.Lights
         /// <returns>A <see cref="JObject"/> containing the serialized properties of the light object.</returns>
         public override JObject Serialize(SerializationContext serializationContext)
         {
-            return new JObject()
-            {
-                ["Type"] = this.GetType().FullName,
-                ["Color"] = Utils.SerializeVec4(this.Color),
-                ["Position"] = Utils.SerializeVec3(this.Position),
-                ["Intensity"] = this.Intensity,
-                ["ShadowMapSize"] = Utils.SerializeVec2i(this.ShadowMapSize),
-                ["Radius"] = this.Radius
-            };
+            var result = base.Serialize(serializationContext);
+            result["Type"] = this.GetType().FullName;
+            result["Radius"] = this.Radius;
+            return result;
         }
 
         /// <summary>
@@ -113,10 +116,7 @@ namespace LibGFX.Graphics.Lights
         /// <param name="serializationContext">A <see cref="SerializationContext"/> that provides context or settings for the deserialization process.</param>
         public override void Deserialize(JObject jObject, SerializationContext serializationContext)
         {
-            this.Color = Utils.DeserializeVec4(jObject["Color"] as JObject);
-            this.Position = Utils.DeserializeVec3(jObject["Position"] as JObject);
-            this.Intensity = jObject["Intensity"]!.Value<float>();
-            this.ShadowMapSize = Utils.DeserializeVec2i(jObject["ShadowMapSize"] as JObject);
+            base.Deserialize(jObject, serializationContext);
             this.Radius = jObject["Radius"]!.Value<float>();
         }
     }

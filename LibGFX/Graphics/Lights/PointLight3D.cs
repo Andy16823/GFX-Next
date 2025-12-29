@@ -77,6 +77,14 @@ namespace LibGFX.Graphics.Lights
         private float _range;
 
         /// <summary>
+        /// Initializes a new instance of the PointLight3D class with default property values.
+        /// </summary>
+        public PointLight3D()
+        {
+            
+        }
+
+        /// <summary>
         /// Creates a new instance of the <see cref="PointLight3D"/> class.
         /// </summary>
         /// <param name="postion"></param>
@@ -184,20 +192,15 @@ namespace LibGFX.Graphics.Lights
         /// intensity, shadow map size, range, attenuation factors, ambient, and specular values.</returns>
         public override JObject Serialize(SerializationContext serializationContext)
         {
-            return new JObject()
-            {
-                ["Type"] = this.GetType().FullName,
-                ["Color"] = Utils.SerializeVec4(this.Color),
-                ["Position"] = Utils.SerializeVec3(this.Position),
-                ["Intensity"] = this.Intensity,
-                ["ShadowMapSize"] = Utils.SerializeVec2i(this.ShadowMapSize),
-                ["Range"] = this.Range,
-                ["Constant"] = this.Constant,
-                ["Linear"] = this.Linear,
-                ["Quadratic"] = this.Quadratic,
-                ["Ambient"] = Utils.SerializeVec4(this.Ambient),
-                ["Specular"] = Utils.SerializeVec4(this.Specular)
-            };
+            var result = base.Serialize(serializationContext);
+            result["Type"] = this.GetType().FullName;
+            result["Range"] = this.Range;
+            result["Constant"] = this.Constant;
+            result["Linear"] = this.Linear;
+            result["Quadratic"] = this.Quadratic;
+            result["Ambient"] = Utils.SerializeVec4(this.Ambient);
+            result["Specular"] = Utils.SerializeVec4(this.Specular);
+            return result;
         }
 
         /// <summary>
@@ -209,9 +212,7 @@ namespace LibGFX.Graphics.Lights
         /// process.</param>
         public override void Deserialize(JObject jObject, SerializationContext serializationContext)
         {
-            this.Color = Utils.DeserializeVec4(jObject["Color"] as JObject);
-            this.Position = Utils.DeserializeVec3(jObject["Position"] as JObject);
-            this.Intensity = jObject["Intensity"]!.Value<float>();
+            base.Deserialize(jObject, serializationContext);
             this.Range = jObject["Range"]!.Value<float>();
             this.Constant = jObject["Constant"]!.Value<float>();
             this.Linear = jObject["Linear"]!.Value<float>();
