@@ -39,6 +39,24 @@ namespace LibGFX.Core
         private RenderTarget2D _renderTarget;
         private float _physicsAccumulator = 0.0f;
 
+        public override event Action<BaseScene, Viewport, IRenderDevice> OnInitStart;
+        public override event Action<BaseScene, Viewport, IRenderDevice> AfterRenderTargetCreation;
+        public override event Action<BaseScene, Viewport, IRenderDevice> OnInitEnd;
+        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassStart;
+        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassEnd;
+        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderStart;
+        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> AfterLightCulling;
+        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassBegin;
+        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassEnd;
+        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderEnd;
+        public override event Action<BaseScene, float> OnUpdateStart;
+        public override event Action<BaseScene, float> OnUpdateEnd;
+        public override event Action<BaseScene, float> OnPhysicsUpdateStart;
+        public override event Action<BaseScene, float> OnPhysicsUpdateEnd;
+        public override event Action<BaseScene, IRenderDevice> OnDisposeStart;
+        public override event Action<BaseScene, IRenderDevice> OnDispose;
+        public override event Action<BaseScene, IRenderDevice> OnDisposeEnd;
+
 
         /// <summary>
         /// Creates a new 2D scene
@@ -138,7 +156,13 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public override void Init(Viewport viewport, IRenderDevice renderer)
         {
+            // Call the on init start event
+            OnInitStart?.Invoke(this, viewport, renderer);
+
             _renderTarget = renderer.CreateRenderTarget2D(viewport.Width, viewport.Height);
+
+            // Call the after render target creation event
+            AfterRenderTargetCreation?.Invoke(this, viewport, renderer);
 
             // Iinitialize the layers of the scene
             this.Layers.ForEach(l =>
@@ -149,11 +173,8 @@ namespace LibGFX.Core
             // Initialize the light manager
             this.LightManager.Init(renderer);
 
-            // Call the init behaviors for the scene
-            this.SceneBehaviors.ForEach(behavior =>
-            {
-                behavior.OnInit(this, viewport, renderer);
-            });
+            // Call the on init end event
+            OnInitEnd?.Invoke(this, viewport, renderer);
 
             // OnStart the render stats for the scene
             this.RenderStats.Start();
@@ -167,16 +188,19 @@ namespace LibGFX.Core
         /// <param name="camera"></param>
         public override void Render(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
+            // Start a new frame for the render stats
             this.RenderStats.NewFrame();
-            this.SceneBehaviors.ForEach(behavior =>
-            {
-                behavior.BeforeRender(this, viewport, renderer, camera);
-            });
+
+            // Call the before render behaviors for the scene
+            OnRenderStart?.Invoke(this, viewport, renderer, camera);
 
             if (this.LightManager != null)
             {
                 this.LightManager.CullLights(viewport, renderer, camera);
             }
+
+            // Call the after light culling event
+            AfterLightCulling?.Invoke(this, viewport, renderer, camera);
 
             var depthTest = renderer.IsDepthTestEnabled();
 
@@ -189,6 +213,9 @@ namespace LibGFX.Core
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
+
+            // Call the on render pass begin event
+            OnRenderPassBegin?.Invoke(this, viewport, renderer, camera);
 
             this.Layers.ForEach(layer => { 
                 layer.RenderLayer(this, viewport, renderer, camera); 
@@ -206,15 +233,14 @@ namespace LibGFX.Core
                 }
             }
 
-            this.SceneBehaviors.ForEach(behavior =>
-            {
-                behavior.AfterRender(this, viewport, renderer, camera);
-            });
-
-            this.ProcessRenderActions(viewport, renderer, camera);
+            // Call the on render pass end event
+            OnRenderPassEnd?.Invoke(this, viewport, renderer, camera);
 
             renderer.UnbindRenderTarget();
             renderer.SetDepthTest(depthTest);
+
+            // Call the on render end event
+            OnRenderEnd?.Invoke(this, viewport, renderer, camera);
         }
 
         public override void RenderShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera)
@@ -228,10 +254,7 @@ namespace LibGFX.Core
         public override void Update(float dt)
         {
             // Call the before update behaviors for the scene
-            this.SceneBehaviors.ForEach(behavior =>
-            {
-                behavior.BeforeUpdate(this);
-            });
+            OnUpdateStart?.Invoke(this, dt);
 
             // Update the scene
             this.Layers.ForEach(l => { 
@@ -239,10 +262,7 @@ namespace LibGFX.Core
             });
 
             // Call the after update behaviors for the scene
-            this.SceneBehaviors.ForEach(behavior =>
-            {
-                behavior.AfterUpdate(this);
-            });
+            OnUpdateEnd?.Invoke(this, dt);
         }
 
         /// <summary>
@@ -251,22 +271,26 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public override void DisposeScene(IRenderDevice renderer)
         {
+            // Call the on dispose start event
+            OnDisposeStart?.Invoke(this, renderer);
+
             // Dispose the layers of the scene
             this.Layers.ForEach(l =>
             {
                 l.Dispose(this, renderer);
             });
 
-            // Call the dispose behaviors for the scene
-            this.SceneBehaviors.ForEach(behavior => {
-                behavior.OnDispose(this, renderer);
-            });
+            // Call the on dispose event
+            OnDispose?.Invoke(this, renderer);
 
             // Dispose the render target of the scene
             _renderTarget.Dispose(renderer);
 
             // Dispose the light manager
             this.LightManager.Dispose(renderer);
+
+            // Call the on dispose end event
+            OnDisposeEnd?.Invoke(this, renderer);
         }
 
         /// <summary>
@@ -280,14 +304,14 @@ namespace LibGFX.Core
             while (_physicsAccumulator >= this.PhysicsHandler.FixedTimeStep)
             {
                 // Before physics update behaviors
-                this.SceneBehaviors.ForEach(b => b.BeforePhysicsUpdate(this, this.PhysicsHandler));
+                OnPhysicsUpdateStart?.Invoke(this, dt);
 
                 // Process the physics handler
                 this.PhysicsHandler.Process(this);
                 _physicsAccumulator -= this.PhysicsHandler.FixedTimeStep;
 
                 // After physics update behaviors
-                this.SceneBehaviors.ForEach(b => b.AfterPhysicsUpdate(this, this.PhysicsHandler));
+                OnPhysicsUpdateEnd?.Invoke(this, dt);
             }
         }
 

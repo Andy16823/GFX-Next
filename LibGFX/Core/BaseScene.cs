@@ -40,6 +40,16 @@ namespace LibGFX.Core
     public abstract class BaseScene : IIdentifier, ISerialization
     {
         /// <summary>
+        /// Gets or sets the name associated with the object.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets the unique identifier for this instance.
+        /// </summary>
+        public Guid ID { get; private set; } = Guid.NewGuid();
+
+        /// <summary>
         /// Gets the render target associated with this instance.
         /// </summary>
         public abstract IRenderTarget RenderTarget { get; }
@@ -66,25 +76,10 @@ namespace LibGFX.Core
         public virtual RenderStats RenderStats { get; set; }
 
         /// <summary>
-        /// List of scene behaviors
-        /// </summary>
-        public List<ISceneBehavior> SceneBehaviors { get; set; }
-
-        /// <summary>
         /// Entries to be enqueued at the end of the update cycle
         /// This allows to safely add elements to the scene without modifying the scene during update or render
         /// </summary>
         public List<EnqueEntry> EnqueEntries { get; set; } = new List<EnqueEntry>();
-
-        /// <summary>
-        /// Gets or sets the name associated with the object.
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets the unique identifier for this instance.
-        /// </summary>
-        public Guid ID { get; private set; } = Guid.NewGuid();
 
         /// <summary>
         /// Event that is triggered when an element is enqueued
@@ -92,7 +87,34 @@ namespace LibGFX.Core
         /// <param name="args"></param>
         public delegate void EnqueEvent(EnqueEventArgs args);
 
-        private readonly List<Action<Viewport, IRenderDevice, Camera>> _renderActions = new();
+        // Initialization events
+        public abstract event Action<BaseScene, Viewport, IRenderDevice> OnInitStart;
+        public abstract event Action<BaseScene, Viewport, IRenderDevice> AfterRenderTargetCreation;
+        public abstract event Action<BaseScene, Viewport, IRenderDevice> OnInitEnd;
+
+        // Shadowpass Events
+        public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassStart;
+        public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassEnd;
+
+        // Rendering events
+        public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderStart;
+        public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> AfterLightCulling;
+        public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassBegin;
+        public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassEnd;
+        public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderEnd;
+
+        // Update events
+        public abstract event Action<BaseScene, float> OnUpdateStart;
+        public abstract event Action<BaseScene, float> OnUpdateEnd;
+
+        // Physics events
+        public abstract event Action<BaseScene, float> OnPhysicsUpdateStart;
+        public abstract event Action<BaseScene, float> OnPhysicsUpdateEnd;
+
+        // Disposal events
+        public abstract event Action<BaseScene, IRenderDevice> OnDisposeStart;
+        public abstract event Action<BaseScene, IRenderDevice> OnDispose;
+        public abstract event Action<BaseScene, IRenderDevice> OnDisposeEnd;
 
         /// <summary>
         /// Creates a new scene
@@ -101,31 +123,6 @@ namespace LibGFX.Core
         {
             this.Layers = new List<Layer>(); 
             this.RenderStats = new RenderStats();
-            this.SceneBehaviors = new List<ISceneBehavior>();
-        }
-
-        /// <summary>
-        /// Adds a render action to be performed during the render phase
-        /// </summary>
-        /// <param name="action"></param>
-        public void AddRenderAction(Action<Viewport, IRenderDevice, Camera> action)
-        {
-            _renderActions.Add(action);
-        }
-
-        /// <summary>
-        /// Processes and executes all render actions added to the scene and then clears the list
-        /// </summary>
-        /// <param name="viewport"></param>
-        /// <param name="renderer"></param>
-        /// <param name="camera"></param>
-        public void ProcessRenderActions(Viewport viewport, IRenderDevice renderer, Camera camera)
-        {
-            foreach (var action in _renderActions)
-            {
-                action(viewport, renderer, camera);
-            }
-            _renderActions.Clear();
         }
 
         /// <summary>
@@ -404,41 +401,6 @@ namespace LibGFX.Core
             foreach (var layer in this.Layers)
             {
                 layer.Elements.Clear();
-            }
-        }
-
-        /// <summary>
-        /// Adds a scene behavior to the scene
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="behavior"></param>
-        /// <returns></returns>
-        public virtual T AddSceneBehavior<T>(ISceneBehavior behavior) where T : ISceneBehavior
-        {
-            this.SceneBehaviors.Add(behavior);
-            return (T)behavior;
-        }
-
-        /// <summary>
-        /// Gets a scene behavior from the scene
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public virtual T? GetSceneBehavior<T>() where T : ISceneBehavior
-        {
-            return this.SceneBehaviors.OfType<T>().FirstOrDefault();
-        }
-
-        /// <summary>
-        /// Removes a scene behavior from the scene
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        public virtual void RemoveSceneBehavior<T>() where T : ISceneBehavior
-        {
-            var behavior = this.GetSceneBehavior<T>();
-            if (behavior != null)
-            {
-                this.SceneBehaviors.Remove(behavior);
             }
         }
 
