@@ -41,8 +41,8 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         private int _currentProgram;
         private bool _depthTestEnabled = false;
         private bool _blendEnabled = false;
-        private int _srcBlendMode = (int) BlendingFactor.SrcAlpha;
-        private int _destBlendMode = (int)BlendingFactor.OneMinusSrcAlpha;
+        private int _srcBlendMode = (int) BlendingFactor.Zero;
+        private int _destBlendMode = (int) BlendingFactor.Zero;
         private Viewport _viewport;
 
         public void Init(IGLFWGraphicsContext context)
@@ -177,9 +177,11 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void EnableBlend()
         {
-            GL.Enable(EnableCap.Blend);
-            GL.BlendFunc((BlendingFactor) _srcBlendMode, (BlendingFactor) _destBlendMode);
-            _blendEnabled = true;
+            if(!_blendEnabled)
+            {
+                GL.Enable(EnableCap.Blend);
+                _blendEnabled = true;
+            }
         }
 
         public bool BlendEnabled()
@@ -194,15 +196,21 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void SetBlendMode(int srcFactor, int dstFactor)
         {
-            _srcBlendMode = srcFactor;
-            _destBlendMode = dstFactor;
-            GL.BlendFunc((BlendingFactor)_srcBlendMode, (BlendingFactor) _destBlendMode);
+            if(_srcBlendMode != srcFactor || _destBlendMode != dstFactor)
+            {
+                _srcBlendMode = srcFactor;
+                _destBlendMode = dstFactor;
+                GL.BlendFunc((BlendingFactor)_srcBlendMode, (BlendingFactor)_destBlendMode);
+            }
         }
 
         public void DisableBlend()
         {
-            GL.Disable(EnableCap.Blend);
-            _blendEnabled = false;
+            if(_blendEnabled)
+            {
+                GL.Disable(EnableCap.Blend);
+                _blendEnabled = false;
+            }
         }
 
         public void SetViewport(Viewport viewport)
@@ -859,9 +867,13 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void DrawRenderTarget(int textureId)
         {
-            // Enable AlphaBlending
-            GL.Enable(EnableCap.Blend);
-            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
+            // Get old blending state
+            var enableState = this.BlendEnabled();
+            var blendmode = this.GetCurrentBlendMode();
+
+            // Ensure Blending is enabled
+            this.EnableBlend();
+            this.SetBlendMode((int)BlendingFactor.SrcAlpha, (int)BlendingFactor.OneMinusSrcAlpha);
 
             // Draw Frambuffer
             var shape = _shapes["FramebufferShape"];
@@ -879,7 +891,14 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                 SetDepthTest(depthTest);
             }
 
-            GL.Disable(EnableCap.Blend);
+            // Disable blending if it was disabled
+            if(!enableState)
+            {
+                this.DisableBlend();
+            }
+
+            // Set old blendmode
+            this.SetBlendMode(blendmode.srcFactor, blendmode.dstFactor);
         }
 
         public void DrawFullScreenQuad()
@@ -1362,6 +1381,9 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void DrawGrid(Camera camera, Vector4 color)
         {
+            var blendEnabled = this.BlendEnabled();
+            var blendMode = this.GetCurrentBlendMode();
+
             float gridSize = 1.0f;
             float majorStep = 5.0f;
             float fadeStart = 40.0f;
@@ -1392,8 +1414,8 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.Uniform4(GetUniformLocation(_currentProgram, "u_AxisColorX"), 1f, 0.3f, 0.3f, 1f);
             GL.Uniform4(GetUniformLocation(_currentProgram, "u_AxisColorZ"), 0.3f, 0.3f, 1f, 1f);
 
-            GL.Enable(EnableCap.Blend);
-            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
+            this.EnableBlend();
+            this.SetBlendMode((int)BlendingFactor.SrcAlpha, (int)BlendingFactor.OneMinusSrcAlpha);
             GL.Enable(EnableCap.DepthTest);
             GL.DepthMask(false);
 
@@ -1404,7 +1426,10 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
             // restore states
             GL.DepthMask(true);
-            GL.Disable(EnableCap.Blend);
+            if(!blendEnabled)
+            {
+                this.DisableBlend();
+            }
             GL.UseProgram(0);
         }
 

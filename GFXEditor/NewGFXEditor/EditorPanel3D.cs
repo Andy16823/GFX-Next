@@ -339,7 +339,7 @@ namespace NewGFXEditor
                 }
 
                 // Clear the backbuffer
-                _renderer.ClearColor(0.392f, 0.584f, 0.929f, 1.0f);
+                _renderer.ClearColor(0.1f, 0.1f, 0.1f, 1.0f);
                 _renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
 
                 // Trigger the OnRender event

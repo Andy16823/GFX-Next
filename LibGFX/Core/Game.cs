@@ -16,6 +16,7 @@ using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.Renderer.OpenGL;
 using LibGFX.Physics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
+using OpenTK.Graphics.OpenGL4;
 
 namespace LibGFX.Core
 {
@@ -80,6 +81,7 @@ namespace LibGFX.Core
             this.RenderDevice.Init(this.Window);
             this.RenderDevice.UseVsync(useVsync);
             this.RenderDevice.EnableBlend();
+            this.RenderDevice.SetBlendMode((int)BlendingFactor.SrcAlpha, (int)BlendingFactor.OneMinusSrcAlpha);
 
             // Load content and assets
             this.LoadContent(this.AssetManager);
