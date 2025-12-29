@@ -5,7 +5,9 @@ using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,7 +34,7 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         public PointLight3DHandle()
         {
-            
+
         }
 
         /// <summary>
@@ -70,12 +72,20 @@ namespace LibGFX.Core.GameElements
         private void Transform_Changed(Transform obj)
         {
             LightSource.Position = this.Transform.Position;
+            Debug.WriteLine($"PointLight3DHandle: Updated LightSource position to {LightSource.Position}");
         }
 
         public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             base.Init(scene, viewport, renderer);
-            scene.AddLight<PointLight3D>(LightSource);
+            if(!scene.LightManager.ContainsLight(LightSource))
+            {
+                scene.AddLight<PointLight3D>(LightSource);
+            }
+            else
+            {
+                Debug.WriteLine($"LightSource with ID {LightSource.ID} is already present in the scene.");
+            }
         }
 
         /// <summary>
@@ -133,12 +143,13 @@ namespace LibGFX.Core.GameElements
         public override void Deserialize(JObject jObject, SerializationContext serializationContext)
         {
             base.Deserialize(jObject, serializationContext);
-
+            this.Transform.Changed += Transform_Changed;
             var lightSourceId = jObject["LightSource"]?.ToString();
             var lightSource = serializationContext.GetValue<Light>(lightSourceId);
             if(lightSource != null && lightSource is PointLight3D pointLight)
             {
                 LightSource = pointLight;
+                this.Transform.Position = LightSource.Position;
             }
             else if (lightSourceId != null)
             {

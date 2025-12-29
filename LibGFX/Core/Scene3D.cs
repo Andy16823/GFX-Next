@@ -431,10 +431,6 @@ namespace LibGFX.Core
             base.Deserialize(jObject, serializationContext);
 
             // Deserialize the light manager Make sure its disposed first
-            if(this.LightManager?.IsInitialized == true)
-            {
-                throw new InvalidOperationException("Cannot deserialize LightManager when it is already initialized.");
-            }
             this.LightManager = new Light3DManager();
             this.LightManager.Deserialize(jObject["LightManager"] as JObject, serializationContext);
 

@@ -480,5 +480,34 @@ namespace LibGFX.Graphics.Lights
             this.Chunks.Clear();
             this.DirectionalLight = null;
         }
+
+        /// <summary>
+        /// Determines whether the specified light is contained within this collection.
+        /// </summary>
+        /// <remarks>This method checks for both directional and point lights. For directional lights, it
+        /// compares with the collection's directional light. For point lights, it searches all chunks in the
+        /// collection.</remarks>
+        /// <param name="light">The light to locate in the collection. This can be a directional or point light.</param>
+        /// <returns>true if the specified light is present in the collection; otherwise, false.</returns>
+        public bool ContainsLight(Light light)
+        {
+            // Check directional light
+            if (light is DirectionalLight3D dirLight)
+            {
+                return this.DirectionalLight == dirLight;
+            }
+            // Check point lights in chunks
+            else if (light is PointLight3D pointLight)
+            {
+                foreach(var chunk in Chunks.Values)
+                {
+                    if(chunk.Lights.Contains(pointLight))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 }

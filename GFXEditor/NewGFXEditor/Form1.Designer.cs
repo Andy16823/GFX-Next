@@ -73,6 +73,8 @@
             viewToolStripMenuItem = new ToolStripMenuItem();
             showAABBsToolStripMenuItem = new ToolStripMenuItem();
             showGridToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator16 = new ToolStripSeparator();
+            lightPickingToolStripMenuItem = new ToolStripMenuItem();
             createToolStripMenuItem = new ToolStripMenuItem();
             cubeToolStripMenuItem = new ToolStripMenuItem();
             sphereToolStripMenuItem = new ToolStripMenuItem();
@@ -120,12 +122,20 @@
             materialImageList = new ImageList(components);
             tabPage3 = new TabPage();
             propertyGrid1 = new PropertyGrid();
-            toolStripSeparator16 = new ToolStripSeparator();
-            lightPickingToolStripMenuItem = new ToolStripMenuItem();
+            splitContainer3 = new SplitContainer();
+            editorHostPanel = new Panel();
+            tabControl2 = new TabControl();
+            tabPage4 = new TabPage();
+            lightProfilerListView = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            tabPage5 = new TabPage();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
             splitContainer2.Panel1.SuspendLayout();
@@ -134,6 +144,12 @@
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer3).BeginInit();
+            splitContainer3.Panel1.SuspendLayout();
+            splitContainer3.Panel2.SuspendLayout();
+            splitContainer3.SuspendLayout();
+            tabControl2.SuspendLayout();
+            tabPage4.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -141,7 +157,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { dateiToolStripMenuItem, bearbeitenToolStripMenuItem, selectionToolStripMenuItem, viewToolStripMenuItem, createToolStripMenuItem, extrasToolStripMenuItem, hilfeToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1247, 24);
+            menuStrip1.Size = new Size(1433, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -426,7 +442,7 @@
             // 
             showAABBsToolStripMenuItem.CheckOnClick = true;
             showAABBsToolStripMenuItem.Name = "showAABBsToolStripMenuItem";
-            showAABBsToolStripMenuItem.Size = new Size(180, 22);
+            showAABBsToolStripMenuItem.Size = new Size(144, 22);
             showAABBsToolStripMenuItem.Text = "Show AABB's";
             showAABBsToolStripMenuItem.Click += showAABBsToolStripMenuItem_Click;
             // 
@@ -435,9 +451,21 @@
             showGridToolStripMenuItem.Checked = true;
             showGridToolStripMenuItem.CheckState = CheckState.Checked;
             showGridToolStripMenuItem.Name = "showGridToolStripMenuItem";
-            showGridToolStripMenuItem.Size = new Size(180, 22);
+            showGridToolStripMenuItem.Size = new Size(144, 22);
             showGridToolStripMenuItem.Text = "Show Grid";
             showGridToolStripMenuItem.Click += showGridToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator16
+            // 
+            toolStripSeparator16.Name = "toolStripSeparator16";
+            toolStripSeparator16.Size = new Size(141, 6);
+            // 
+            // lightPickingToolStripMenuItem
+            // 
+            lightPickingToolStripMenuItem.Name = "lightPickingToolStripMenuItem";
+            lightPickingToolStripMenuItem.Size = new Size(144, 22);
+            lightPickingToolStripMenuItem.Text = "Light Picking";
+            lightPickingToolStripMenuItem.Click += lightPickingToolStripMenuItem_Click;
             // 
             // createToolStripMenuItem
             // 
@@ -450,45 +478,45 @@
             // cubeToolStripMenuItem
             // 
             cubeToolStripMenuItem.Name = "cubeToolStripMenuItem";
-            cubeToolStripMenuItem.Size = new Size(180, 22);
+            cubeToolStripMenuItem.Size = new Size(132, 22);
             cubeToolStripMenuItem.Text = "Cube";
             cubeToolStripMenuItem.Click += cubeToolStripMenuItem_Click;
             // 
             // sphereToolStripMenuItem
             // 
             sphereToolStripMenuItem.Name = "sphereToolStripMenuItem";
-            sphereToolStripMenuItem.Size = new Size(180, 22);
+            sphereToolStripMenuItem.Size = new Size(132, 22);
             sphereToolStripMenuItem.Text = "Sphere";
             sphereToolStripMenuItem.Click += sphereToolStripMenuItem_Click;
             // 
             // quadToolStripMenuItem
             // 
             quadToolStripMenuItem.Name = "quadToolStripMenuItem";
-            quadToolStripMenuItem.Size = new Size(180, 22);
+            quadToolStripMenuItem.Size = new Size(132, 22);
             quadToolStripMenuItem.Text = "Quad";
             quadToolStripMenuItem.Click += quadToolStripMenuItem_Click;
             // 
             // toolStripSeparator10
             // 
             toolStripSeparator10.Name = "toolStripSeparator10";
-            toolStripSeparator10.Size = new Size(177, 6);
+            toolStripSeparator10.Size = new Size(129, 6);
             // 
             // modelToolStripMenuItem
             // 
             modelToolStripMenuItem.Name = "modelToolStripMenuItem";
-            modelToolStripMenuItem.Size = new Size(180, 22);
+            modelToolStripMenuItem.Size = new Size(132, 22);
             modelToolStripMenuItem.Text = "Model";
             modelToolStripMenuItem.Click += modelToolStripMenuItem_Click;
             // 
             // toolStripSeparator15
             // 
             toolStripSeparator15.Name = "toolStripSeparator15";
-            toolStripSeparator15.Size = new Size(177, 6);
+            toolStripSeparator15.Size = new Size(129, 6);
             // 
             // pointLightToolStripMenuItem
             // 
             pointLightToolStripMenuItem.Name = "pointLightToolStripMenuItem";
-            pointLightToolStripMenuItem.Size = new Size(180, 22);
+            pointLightToolStripMenuItem.Size = new Size(132, 22);
             pointLightToolStripMenuItem.Text = "Point Light";
             pointLightToolStripMenuItem.Click += pointLightToolStripMenuItem_Click;
             // 
@@ -572,7 +600,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { neuToolStripButton, öffnenToolStripButton, speichernToolStripButton, druckenToolStripButton, toolStripSeparator6, ausschneidenToolStripButton, kopierenToolStripButton, einfügenToolStripButton, toolStripSeparator7, hilfeToolStripButton, layerComboBox, toolStripSeparator9, gizmoModeTranslateBtn, gizmoModeScaleBtn, toolStripButton3 });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1247, 25);
+            toolStrip1.Size = new Size(1433, 25);
             toolStrip1.TabIndex = 1;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -699,12 +727,13 @@
             toolStripButton3.Name = "toolStripButton3";
             toolStripButton3.Size = new Size(23, 22);
             toolStripButton3.Text = "toolStripButton3";
+            toolStripButton3.Click += toolStripButton3_Click;
             // 
             // statusStrip1
             // 
-            statusStrip1.Location = new Point(0, 675);
+            statusStrip1.Location = new Point(0, 621);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(1247, 22);
+            statusStrip1.Size = new Size(1433, 22);
             statusStrip1.TabIndex = 2;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -717,8 +746,12 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.Controls.Add(splitContainer2);
-            splitContainer1.Size = new Size(1247, 626);
-            splitContainer1.SplitterDistance = 286;
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.Controls.Add(splitContainer3);
+            splitContainer1.Size = new Size(1433, 572);
+            splitContainer1.SplitterDistance = 328;
             splitContainer1.TabIndex = 3;
             // 
             // splitContainer2
@@ -735,8 +768,8 @@
             // splitContainer2.Panel2
             // 
             splitContainer2.Panel2.Controls.Add(propertyGrid1);
-            splitContainer2.Size = new Size(286, 626);
-            splitContainer2.SplitterDistance = 409;
+            splitContainer2.Size = new Size(328, 572);
+            splitContainer2.SplitterDistance = 373;
             splitContainer2.TabIndex = 0;
             // 
             // tabControl1
@@ -750,7 +783,7 @@
             tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(286, 409);
+            tabControl1.Size = new Size(328, 373);
             tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -759,7 +792,7 @@
             tabPage1.Location = new Point(27, 4);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(255, 401);
+            tabPage1.Size = new Size(297, 365);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Scene";
             tabPage1.UseVisualStyleBackColor = true;
@@ -769,7 +802,7 @@
             treeView1.Dock = DockStyle.Fill;
             treeView1.Location = new Point(3, 3);
             treeView1.Name = "treeView1";
-            treeView1.Size = new Size(249, 395);
+            treeView1.Size = new Size(291, 359);
             treeView1.TabIndex = 0;
             treeView1.AfterSelect += treeView1_AfterSelect;
             // 
@@ -779,7 +812,7 @@
             tabPage2.Location = new Point(27, 4);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(255, 401);
+            tabPage2.Size = new Size(297, 365);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Materials";
             tabPage2.UseVisualStyleBackColor = true;
@@ -791,7 +824,7 @@
             materialListView.LargeImageList = materialImageList;
             materialListView.Location = new Point(3, 3);
             materialListView.Name = "materialListView";
-            materialListView.Size = new Size(249, 395);
+            materialListView.Size = new Size(291, 359);
             materialListView.TabIndex = 0;
             materialListView.UseCompatibleStateImageBehavior = false;
             materialListView.DragDrop += materialListView_DragDrop;
@@ -809,7 +842,7 @@
             tabPage3.Location = new Point(27, 4);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(255, 401);
+            tabPage3.Size = new Size(297, 365);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Models";
             tabPage3.UseVisualStyleBackColor = true;
@@ -819,26 +852,95 @@
             propertyGrid1.Dock = DockStyle.Fill;
             propertyGrid1.Location = new Point(0, 0);
             propertyGrid1.Name = "propertyGrid1";
-            propertyGrid1.Size = new Size(286, 213);
+            propertyGrid1.Size = new Size(328, 195);
             propertyGrid1.TabIndex = 0;
             // 
-            // toolStripSeparator16
+            // splitContainer3
             // 
-            toolStripSeparator16.Name = "toolStripSeparator16";
-            toolStripSeparator16.Size = new Size(177, 6);
+            splitContainer3.Dock = DockStyle.Fill;
+            splitContainer3.Location = new Point(0, 0);
+            splitContainer3.Name = "splitContainer3";
+            splitContainer3.Orientation = Orientation.Horizontal;
             // 
-            // lightPickingToolStripMenuItem
+            // splitContainer3.Panel1
             // 
-            lightPickingToolStripMenuItem.Name = "lightPickingToolStripMenuItem";
-            lightPickingToolStripMenuItem.Size = new Size(180, 22);
-            lightPickingToolStripMenuItem.Text = "Light Picking";
-            lightPickingToolStripMenuItem.Click += lightPickingToolStripMenuItem_Click;
+            splitContainer3.Panel1.Controls.Add(editorHostPanel);
+            // 
+            // splitContainer3.Panel2
+            // 
+            splitContainer3.Panel2.Controls.Add(tabControl2);
+            splitContainer3.Size = new Size(1101, 572);
+            splitContainer3.SplitterDistance = 384;
+            splitContainer3.TabIndex = 0;
+            // 
+            // editorHostPanel
+            // 
+            editorHostPanel.Dock = DockStyle.Fill;
+            editorHostPanel.Location = new Point(0, 0);
+            editorHostPanel.Name = "editorHostPanel";
+            editorHostPanel.Size = new Size(1101, 384);
+            editorHostPanel.TabIndex = 0;
+            // 
+            // tabControl2
+            // 
+            tabControl2.Controls.Add(tabPage4);
+            tabControl2.Controls.Add(tabPage5);
+            tabControl2.Dock = DockStyle.Fill;
+            tabControl2.Location = new Point(0, 0);
+            tabControl2.Name = "tabControl2";
+            tabControl2.SelectedIndex = 0;
+            tabControl2.Size = new Size(1101, 184);
+            tabControl2.TabIndex = 0;
+            // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(lightProfilerListView);
+            tabPage4.Location = new Point(4, 24);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Padding = new Padding(3);
+            tabPage4.Size = new Size(1093, 156);
+            tabPage4.TabIndex = 0;
+            tabPage4.Text = "Light Profiler";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // lightProfilerListView
+            // 
+            lightProfilerListView.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            lightProfilerListView.Dock = DockStyle.Fill;
+            lightProfilerListView.Location = new Point(3, 3);
+            lightProfilerListView.Name = "lightProfilerListView";
+            lightProfilerListView.Size = new Size(1087, 150);
+            lightProfilerListView.TabIndex = 0;
+            lightProfilerListView.UseCompatibleStateImageBehavior = false;
+            lightProfilerListView.View = View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "ID";
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Type";
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Chunk";
+            // 
+            // tabPage5
+            // 
+            tabPage5.Location = new Point(4, 24);
+            tabPage5.Name = "tabPage5";
+            tabPage5.Padding = new Padding(3);
+            tabPage5.Size = new Size(1093, 156);
+            tabPage5.TabIndex = 1;
+            tabPage5.Text = "Asset Inspector";
+            tabPage5.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1247, 697);
+            ClientSize = new Size(1433, 643);
             Controls.Add(splitContainer1);
             Controls.Add(statusStrip1);
             Controls.Add(toolStrip1);
@@ -854,6 +956,7 @@
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             splitContainer2.Panel1.ResumeLayout(false);
@@ -863,6 +966,12 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
+            splitContainer3.Panel1.ResumeLayout(false);
+            splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer3).EndInit();
+            splitContainer3.ResumeLayout(false);
+            tabControl2.ResumeLayout(false);
+            tabPage4.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -961,5 +1070,14 @@
         private ToolStripMenuItem pointLightToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator16;
         private ToolStripMenuItem lightPickingToolStripMenuItem;
+        private SplitContainer splitContainer3;
+        private Panel editorHostPanel;
+        private TabControl tabControl2;
+        private TabPage tabPage4;
+        private TabPage tabPage5;
+        private ListView lightProfilerListView;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
     }
 }

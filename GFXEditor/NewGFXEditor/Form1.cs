@@ -53,7 +53,7 @@ namespace NewGFXEditor
         /// Gets or sets a value indicating whether grid lines are displayed.
         /// </summary>
         public bool ShowGrid { get; set; } = true;
-        
+
         /// <summary>
         /// Gets or sets a value indicating whether light sources are selectable during picking operations.
         /// </summary>
@@ -81,7 +81,7 @@ namespace NewGFXEditor
         public Form1()
         {
             InitializeComponent();
-            _editorPanel3D = new EditorPanel3D(this.splitContainer1.Panel2);
+            _editorPanel3D = new EditorPanel3D(this.editorHostPanel);
             _editorPanel3D.EditorLoaded += EditorPanel3D_EditorLoaded;
             _editorPanel3D.OnKeyDown += EditorPanel3D_OnKeyDown;
             _editorPanel3D.BeforeRender += EditorPanel3D_BeforeRender;
@@ -106,6 +106,12 @@ namespace NewGFXEditor
             TransformGizmo.Enabled = false;
             _selectedElement = null;
             this.Scene.FreeScene(_editorPanel3D.Renderer);
+            this.Scene.LightManager.Dispose(_editorPanel3D.Renderer);
+
+            this.Scene.Layers.Add(new Layer("BASE_LAYER"));
+            this.Scene.AddLight<DirectionalLight3D>(new DirectionalLight3D(new Vector3(-0.2f, 1.0f, -0.3f), new Vector4(0.4f, 0.4f, 0.4f, 1.0f), 1.0f));
+            this.Scene.LightManager.Init(_editorPanel3D.Renderer);
+
             this.UpdateGUI();
             _editorPanel3D.Redraw();
         }
@@ -132,6 +138,7 @@ namespace NewGFXEditor
             _sceneEnabled = false;
             GFX.Instance.AssetManager.DisposeAssets(_editorPanel3D.Renderer);
             GFX.Instance.AssetManager.ClearAssets();
+            Scene.LightManager.Dispose(_editorPanel3D.Renderer);
             Scene.FreeScene(_editorPanel3D.Renderer);
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -141,6 +148,7 @@ namespace NewGFXEditor
                 GFXExporter exporter = new GFXExporter();
                 exporter.Import(openFileDialog.FileName, this.Scene as Scene3D, GFX.Instance.AssetManager);
                 GFX.Instance.AssetManager.InitializeAssets(_editorPanel3D.Renderer);
+                Scene.LightManager.Init(_editorPanel3D.Renderer);
                 Scene.InitializeElements(_editorPanel3D.Viewport, _editorPanel3D.Renderer);
                 _sceneEnabled = true;
                 this.UpdateGUI();
@@ -270,6 +278,10 @@ namespace NewGFXEditor
                 else if (TransformGizmo.Type == GizmoType.Scale)
                 {
                     TransformGizmo.ScaleAlongAxis((PerspectiveCamera)Camera, _editorPanel3D.Viewport, (int)_mousePos.X, (int)_mousePos.Y, e.X, e.Y);
+                }
+                else if (TransformGizmo.Type == GizmoType.Rotation)
+                {
+                    TransformGizmo.RotateAlongAxis((PerspectiveCamera)Camera, _editorPanel3D.Viewport, (int)_mousePos.X, (int)_mousePos.Y, e.X, e.Y);
                 }
                 setNewMousePos = true;
             }
@@ -553,6 +565,31 @@ namespace NewGFXEditor
             TransformGizmo = new Gizmo("Assets/Gizmos/Transform/TransformGizmo.obj");
             TransformGizmo.GizmoMoved += TransformGizmo_GizmoMoved;
             TransformGizmo.GizmoScaled += TransformGizmo_GizmoScaled;
+            TransformGizmo.GizmoRotated += TransformGizmo_GizmoRotated;
+        }
+
+        private void TransformGizmo_GizmoRotated(float rotationFactor)
+        {
+            if(_selectedElement != null)
+            {
+                float rotMultiplier = 5.0f;
+                switch (this.TransformGizmo.ActiveAxis)
+                {
+                    case GizmoActiveAxis.None:
+                        break;
+                    case GizmoActiveAxis.X:
+                        _selectedElement.Transform.Rotate(new Vector3(rotationFactor * rotMultiplier, 0, 0));
+                        break;
+                    case GizmoActiveAxis.Y:
+                        _selectedElement.Transform.Rotate(new Vector3(0, rotationFactor * rotMultiplier, 0));
+                        break;
+                    case GizmoActiveAxis.Z:
+                        _selectedElement.Transform.Rotate(new Vector3(0, 0, rotationFactor * rotMultiplier));
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         /// <summary>
@@ -604,6 +641,7 @@ namespace NewGFXEditor
             this.UpdateSceneTree();
             this.UpdateMaterialListView();
             this.UpdateLayersCombobox();
+            this.UpdateLightProfiler();
         }
 
         /// <summary>
@@ -669,6 +707,29 @@ namespace NewGFXEditor
             {
                 this.layerComboBox.SelectedIndex = 0;
             }
+        }
+
+        public void UpdateLightProfiler()
+        {
+            this.lightProfilerListView.Columns.Clear();
+            this.lightProfilerListView.Columns.Add("ID", 100);
+            this.lightProfilerListView.Columns.Add("Type", 200);
+            this.lightProfilerListView.Columns.Add("Chunk", 150);
+            this.lightProfilerListView.Columns.Add("Position", 250);
+            this.lightProfilerListView.Columns.Add("Color", 250);
+            this.lightProfilerListView.Columns.Add("Intensity", 250);
+
+            this.lightProfilerListView.Items.Clear();
+            this.Scene.LightManager.ForEachLight(light =>
+            {
+                var lightItem = new ListViewItem(light.ID.ToString());
+                lightItem.SubItems.Add(light.GetType().FullName);
+                lightItem.SubItems.Add("-");
+                lightItem.SubItems.Add(light.Position.ToString());
+                lightItem.SubItems.Add(light.Color.ToString());
+                lightItem.SubItems.Add(light.Intensity.ToString());
+                this.lightProfilerListView.Items.Add(lightItem);
+            });
         }
 
         /// <summary>
@@ -1270,6 +1331,11 @@ namespace NewGFXEditor
         {
             this.PickLights = !this.PickLights;
             lightPickingToolStripMenuItem.Checked = this.PickLights;
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            this.TransformGizmo.Type = GizmoType.Rotation;
         }
     }
 }

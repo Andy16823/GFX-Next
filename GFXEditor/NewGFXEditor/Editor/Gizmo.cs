@@ -59,6 +59,13 @@ namespace NewGFXEditor.Editor
         public delegate void GizmoScaledDelegate(float scaleFactor);
 
         /// <summary>
+        /// Represents the method that handles the event when a gizmo is rotated.
+        /// </summary>
+        /// <param name="angleDegrees">The rotation of the gizmo, expressed as a quaternion in degrees.</param>
+
+        public delegate void GizmoRotatedDelegate(float rotationFactor);
+
+        /// <summary>
         /// Gets or sets the static mesh model used to represent the gizmo in the scene.
         /// </summary>
         public StaticMeshModel GizmoModel { get; set; }
@@ -103,6 +110,8 @@ namespace NewGFXEditor.Editor
         /// provides information about the scaling operation, such as the new scale value and the context in which the
         /// scaling occurred.</remarks>
         public event GizmoScaledDelegate GizmoScaled;
+
+        public event GizmoRotatedDelegate GizmoRotated;
 
         /// <summary>
         /// Flag indicating whether to swap the X and Z axes.
@@ -343,6 +352,44 @@ namespace NewGFXEditor.Editor
             float scaleFactor = projectedMovement * 0.01f;
 
             this.GizmoScaled?.Invoke(scaleFactor);
+        }
+
+        public void RotateAlongAxis(PerspectiveCamera camera, Viewport viewport, int prevMouseX, int prevMouseY, int currMouseX, int currMouseY)
+        {
+            if (this.ActiveAxis == GizmoActiveAxis.None || this.Enabled == false)
+                return;
+
+            Vector3 axisWorld = GetAxisDirection(this.ActiveAxis, _swapXZAxes);
+
+            // Swap Axis for rotation gizmo
+            if(this.Type == GizmoType.Rotation)
+            {
+                if (this.ActiveAxis == GizmoActiveAxis.X)
+                {
+                    axisWorld = Vector3.UnitY;
+                }
+                else if (this.ActiveAxis == GizmoActiveAxis.Z)
+                {
+                    axisWorld = Vector3.UnitY;
+                }
+                else if(this.ActiveAxis == GizmoActiveAxis.Y)
+                {
+                    axisWorld = Vector3.UnitX;
+                }
+            }
+
+            Vector3 gizmoOrigin = this.Transform.Position;
+            Vector3 gizmoAxisEnd = gizmoOrigin + axisWorld;
+
+            var screenOrigin = PerspectiveCamera.WorldToScreen(camera, gizmoOrigin, viewport);
+            var screenAxisEnd = PerspectiveCamera.WorldToScreen(camera, gizmoAxisEnd, viewport);
+
+            var axisScreenDir = (screenAxisEnd - screenOrigin).Xy.Normalized();
+            var mouseDelta = new Vector2(currMouseX - prevMouseX, currMouseY - prevMouseY);
+
+            var projectedMovement = Vector2.Dot(mouseDelta, axisScreenDir);
+            float rotationFactor = projectedMovement * 0.01f;
+            GizmoRotated?.Invoke(rotationFactor);
         }
 
         /// <summary>

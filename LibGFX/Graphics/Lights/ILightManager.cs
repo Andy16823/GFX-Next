@@ -81,6 +81,13 @@ namespace LibGFX.Graphics.Lights
         public void DisposeLights(IRenderDevice renderDevice);
 
         /// <summary>
+        /// Determines whether the specified light is contained within the collection.
+        /// </summary>
+        /// <param name="light">The light to locate in the collection. Cannot be null.</param>
+        /// <returns>true if the specified light is found in the collection; otherwise, false.</returns>
+        public bool ContainsLight(Light light);
+
+        /// <summary>
         /// Removes all lights from the collection.
         /// </summary>
         /// <remarks>Call this method to reset the collection to an empty state. After calling this

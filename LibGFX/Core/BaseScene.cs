@@ -475,7 +475,6 @@ namespace LibGFX.Core
         /// <param name="renderer">The rendering device used to release resources for each layer. Cannot be null.</param>
         public void FreeScene(IRenderDevice renderer)
         {
-            this.LightManager.DisposeLights(renderer);
             foreach (var layer in Layers)
             {
                 layer.Dispose(this, renderer);
