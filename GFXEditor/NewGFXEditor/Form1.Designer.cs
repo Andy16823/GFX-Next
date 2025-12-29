@@ -72,6 +72,7 @@
             deleteToolStripMenuItem = new ToolStripMenuItem();
             viewToolStripMenuItem = new ToolStripMenuItem();
             showAABBsToolStripMenuItem = new ToolStripMenuItem();
+            showGridToolStripMenuItem = new ToolStripMenuItem();
             createToolStripMenuItem = new ToolStripMenuItem();
             cubeToolStripMenuItem = new ToolStripMenuItem();
             sphereToolStripMenuItem = new ToolStripMenuItem();
@@ -155,6 +156,7 @@
             neuToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.N;
             neuToolStripMenuItem.Size = new Size(180, 22);
             neuToolStripMenuItem.Text = "&Neu";
+            neuToolStripMenuItem.Click += neuToolStripMenuItem_Click;
             // 
             // öffnenToolStripMenuItem
             // 
@@ -411,7 +413,7 @@
             // 
             // viewToolStripMenuItem
             // 
-            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { showAABBsToolStripMenuItem });
+            viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { showAABBsToolStripMenuItem, showGridToolStripMenuItem });
             viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             viewToolStripMenuItem.Size = new Size(44, 20);
             viewToolStripMenuItem.Text = "View";
@@ -423,6 +425,15 @@
             showAABBsToolStripMenuItem.Size = new Size(144, 22);
             showAABBsToolStripMenuItem.Text = "Show AABB's";
             showAABBsToolStripMenuItem.Click += showAABBsToolStripMenuItem_Click;
+            // 
+            // showGridToolStripMenuItem
+            // 
+            showGridToolStripMenuItem.Checked = true;
+            showGridToolStripMenuItem.CheckState = CheckState.Checked;
+            showGridToolStripMenuItem.Name = "showGridToolStripMenuItem";
+            showGridToolStripMenuItem.Size = new Size(144, 22);
+            showGridToolStripMenuItem.Text = "Show Grid";
+            showGridToolStripMenuItem.Click += showGridToolStripMenuItem_Click;
             // 
             // createToolStripMenuItem
             // 
@@ -917,5 +928,6 @@
         private ToolStripMenuItem importToolStripMenuItem;
         private ToolStripMenuItem gFXLevelFileToolStripMenuItem1;
         private ToolStripSeparator toolStripSeparator14;
+        private ToolStripMenuItem showGridToolStripMenuItem;
     }
 }

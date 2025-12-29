@@ -49,6 +49,11 @@ namespace NewGFXEditor
         public EditorPanel3D Editor { get => _editorPanel3D; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether grid lines are displayed.
+        /// </summary>
+        public bool ShowGrid { get; set; } = true;
+
+        /// <summary>
         /// The transform gizmo for manipulating objects in the scene.
         /// </summary>
         public Gizmo TransformGizmo { get; set; }
@@ -82,6 +87,21 @@ namespace NewGFXEditor
             _editorPanel3D.OnResized += _editorPanel3D_OnResized;
             LoadStartupAssets();
             this.UpdateGUI();
+        }
+
+        /// <summary>
+        /// Resets the current scene to a new, empty state and clears all selections in the editor.
+        /// </summary>
+        /// <remarks>Call this method to discard the existing scene and start with a blank workspace. All
+        /// current selections and transformations are cleared, and the editor interface is updated to reflect the new
+        /// scene state.</remarks>
+        public void NewScene()
+        {
+            TransformGizmo.Enabled = false;
+            _selectedElement = null;
+            this.Scene.FreeScene(_editorPanel3D.Renderer);
+            this.UpdateGUI();
+            _editorPanel3D.Redraw();
         }
 
         /// <summary>
@@ -372,6 +392,7 @@ namespace NewGFXEditor
         /// <param name="e">An object that contains the event data.</param>
         private void EditorPanel3D_OnRender(object sender, EventArgs e)
         {
+            // Render the scene
             if (_sceneEnabled)
             {
                 _phyisicHandler3D.Process(Scene);
@@ -379,14 +400,23 @@ namespace NewGFXEditor
                 _editorPanel3D.Renderer.DrawRenderTarget(Scene.RenderTarget as MSAARenderTarget2D, 0);
             }
 
-            _editorPanel3D.Renderer.DrawGrid(this.Camera, new Vector4(0.3f, 0.3f, 0.3f, 1.0f));
+            // Render grid
+            if (ShowGrid)
+            {
+                _editorPanel3D.Renderer.DrawGrid(this.Camera, new Vector4(0.3f, 0.3f, 0.3f, 1.0f));
+            }
 
+            // Render the transform gizmo
             this.TransformGizmo.RenderGizmo(_editorPanel3D.Renderer, Camera, _editorPanel3D.Viewport);
+
+            // Render selected element AABB
             if (_selectedElement != null)
             {
                 var aabb = _selectedElement.WorldAABB;
                 _editorPanel3D.Renderer.DrawAABB(aabb, ColorPresets.LightCyan);
             }
+
+            // Render all AABBs
             if (showAABBsToolStripMenuItem.Checked)
             {
                 this.Scene.ForEachElement(element =>
@@ -399,7 +429,6 @@ namespace NewGFXEditor
                     _editorPanel3D.Renderer.DrawAABB(aabb, ColorPresets.LimeGreen);
                 });
             }
-            //_editorPanel3D.Renderer.DrawGrid(this.Camera, new Vector4(0.3f, 0.3f, 0.3f, 1.0f));
         }
 
         /// <summary>
@@ -1145,7 +1174,7 @@ namespace NewGFXEditor
         /// <param name="e">An EventArgs object that contains the event data.</param>
         private void neuToolStripButton_Click(object sender, EventArgs e)
         {
-            this.Scene.FreeScene(_editorPanel3D.Renderer);
+            NewScene();
         }
 
         /// <summary>
@@ -1158,9 +1187,40 @@ namespace NewGFXEditor
             OpenScene();
         }
 
+        /// <summary>
+        /// Handles the Click event of the 'Save As' menu item to prompt the user to save the current scene under a new
+        /// file name.
+        /// </summary>
+        /// <param name="sender">The source of the event, typically the 'Save As' menu item.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
         private void speichernunterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveSceneAs();
+        }
+
+        /// <summary>
+        /// Handles the Click event of the Show Grid menu item, toggling the visibility of the grid in the 3D editor
+        /// panel.
+        /// </summary>
+        /// <remarks>This method updates both the grid visibility in the editor and the checked state of
+        /// the menu item to reflect the current setting.</remarks>
+        /// <param name="sender">The source of the event, typically the Show Grid menu item.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
+        private void showGridToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.ShowGrid = !this.ShowGrid;
+            _editorPanel3D.Redraw();
+            showGridToolStripMenuItem.Checked = this.ShowGrid;
+        }
+
+        /// <summary>
+        /// Handles the Click event of the 'New' menu item to create a new scene.
+        /// </summary>
+        /// <param name="sender">The source of the event, typically the 'New' menu item.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
+        private void neuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewScene();
         }
     }
 }

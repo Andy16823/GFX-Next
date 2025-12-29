@@ -48,7 +48,7 @@ namespace LibGFX.Core
         /// <summary>
         /// Sets the directional light for the scene
         /// </summary>
-        public DirectionalLight3D DirectionalLight { get => this.GetDirectionalLight(); set => this.SetDirectionalLight(value); }
+        public DirectionalLight3D DirectionalLight { get => _lightManager.DirectionalLight; set => _lightManager.DirectionalLight = value; }
 
         /// <summary>
         /// The number of samples for the scene rendering
@@ -263,7 +263,6 @@ namespace LibGFX.Core
             var lightPos = cameraXZ + lightOffset;
             var lightTarget = lightPos - (light.Direction.Normalized() * 20.0f);
 
-
             float near_plane = 0.1f, far_plane = 20.0f;
             var lightView = Matrix4.LookAt(lightPos, lightTarget, new Vector3(0, 1, 0));
             var lightProjection = Matrix4.CreateOrthographic(60, 60, near_plane, far_plane);
@@ -332,30 +331,76 @@ namespace LibGFX.Core
         }
 
         /// <summary>
-        /// Sets the directional light of the scene
+        /// Adds a light to the scene. Supports point and directional lights.
         /// </summary>
-        /// <param name="light"></param>
-        public void SetDirectionalLight(DirectionalLight3D light)
+        /// <remarks>Only PointLight3D and DirectionalLight3D types are supported. Attempting to add other
+        /// light types will result in a NotSupportedException.</remarks>
+        /// <typeparam name="T">The type of the light to add. Must be either PointLight3D or DirectionalLight3D.</typeparam>
+        /// <param name="light">The light instance to add to the scene. Must be a supported light type.</param>
+        /// <exception cref="NotSupportedException">Thrown if the specified light type is not supported by the scene.</exception>
+        public override void AddLight<T>(T light)
         {
-            _lightManager.DirectionalLight = light;
+            if (light is PointLight3D pointLight)
+            {
+                _lightManager.AddPointLight(pointLight);
+            }
+            else if (light is DirectionalLight3D directionalLight)
+            {
+                _lightManager.DirectionalLight = directionalLight;
+            }
+            else
+            {
+                throw new NotSupportedException($"Light type {typeof(T).Name} is not supported in Scene3D.");
+            }
         }
 
         /// <summary>
-        /// Gets the directional light of the scene
+        /// Retrieves the scene's directional light if the specified type is supported.
         /// </summary>
-        /// <returns></returns>
-        public DirectionalLight3D GetDirectionalLight()
+        /// <remarks>This method only supports retrieval of the directional light. Attempting to request
+        /// other light types will result in an exception.</remarks>
+        /// <typeparam name="T">The type of light to retrieve. Only <see cref="DirectionalLight3D"/> is supported.</typeparam>
+        /// <returns>The directional light instance cast to the specified type <typeparamref name="T"/>.</returns>
+        /// <exception cref="NotSupportedException">Thrown if <typeparamref name="T"/> is not <see cref="DirectionalLight3D"/>.</exception>
+        public override T GetLight<T>()
         {
-            return _lightManager.DirectionalLight;
+            if(typeof(T) == typeof(DirectionalLight3D))
+            {
+                return (T)(object)_lightManager.DirectionalLight;
+            }
+            else
+            {
+                throw new NotSupportedException($"Light type {typeof(T).Name} is not supported in Scene3D.");
+            }
         }
 
         /// <summary>
-        /// Adds a point light to the scene
+        /// Removes a directional light from the scene if it is currently present.
         /// </summary>
-        /// <param name="light"></param>
-        public void AddPointLight(PointLight3D light)
+        /// <remarks>Only directional lights are supported for removal. Attempting to remove other light
+        /// types will result in a NotSupportedException.</remarks>
+        /// <typeparam name="T">The type of light to remove. Must be a DirectionalLight3D.</typeparam>
+        /// <param name="light">The light instance to remove from the scene. Must be a DirectionalLight3D that is part of the scene.</param>
+        /// <exception cref="InvalidOperationException">Thrown if the specified directional light is not part of the scene.</exception>
+        /// <exception cref="NotSupportedException">Thrown if the specified light type is not supported by Scene3D.</exception>
+        public override void RemoveLight<T>(T light)
         {
-            _lightManager.AddPointLight(light);
+            // TODO: Support removal of point lights
+            if (light is DirectionalLight3D directionalLight)
+            {
+                if (_lightManager.DirectionalLight == directionalLight)
+                {
+                    _lightManager.DirectionalLight = null;
+                }
+                else
+                {
+                    throw new InvalidOperationException("The specified directional light is not part of the scene.");
+                }
+            }
+            else
+            {
+                throw new NotSupportedException($"Light type {typeof(T).Name} is not supported in Scene3D.");
+            }
         }
 
         /// <summary>
@@ -365,7 +410,7 @@ namespace LibGFX.Core
         public static Scene3D CreateDefaultScene()
         {
             var scene = new Scene3D("Default");
-            scene.SetDirectionalLight(new DirectionalLight3D(new Vector3(-0.2f, 1.0f, -0.3f), ColorPresets.Gray, 5.0f));
+            scene.DirectionalLight = new DirectionalLight3D(new Vector3(-0.2f, 1.0f, -0.3f), ColorPresets.Gray, 1.0f);
             return scene;
         }
     }

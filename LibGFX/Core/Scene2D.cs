@@ -23,7 +23,7 @@ namespace LibGFX.Core
         /// <summary>
         /// Sets the main light manager for the scene
         /// </summary>
-        public DirectionalLight2D SceneLight { get => this.GetDirectionalLight(); set => this.SetDirectionalLight(value); }
+        public DirectionalLight2D SceneLight { get => _lightManager.DirectionalLight; set => _lightManager.DirectionalLight = value; }
 
         /// <summary>
         /// The light manager of the scene
@@ -37,7 +37,6 @@ namespace LibGFX.Core
 
         private RenderTarget2D _renderTarget;
         private float _physicsAccumulator = 0.0f;
-
 
 
         /// <summary>
@@ -62,39 +61,73 @@ namespace LibGFX.Core
         }
 
         /// <summary>
-        /// Sets the directional light for the scene
+        /// Adds a light to the 2D scene. Supports adding either a directional light or a point light.
         /// </summary>
-        /// <param name="light"></param>
-        public void SetDirectionalLight(DirectionalLight2D light)
+        /// <remarks>If a DirectionalLight2D is provided, it replaces the current directional light in the
+        /// scene. If a PointLight2D is provided, it is added to the collection of point lights managed by the
+        /// scene.</remarks>
+        /// <typeparam name="T">The type of the light to add. Must be either DirectionalLight2D or PointLight2D.</typeparam>
+        /// <param name="light">The light instance to add to the scene. Must be of type DirectionalLight2D or PointLight2D.</param>
+        /// <exception cref="ArgumentException">Thrown if <paramref name="light"/> is not of type DirectionalLight2D or PointLight2D.</exception>
+        public override void AddLight<T>(T light)
         {
-            _lightManager.DirectionalLight = light;
+            if(light is DirectionalLight2D dirLight)
+            {
+                _lightManager.DirectionalLight = dirLight;
+            }
+            else if (light is PointLight2D pointLight)
+            {
+                _lightManager.AddPointLight(pointLight);
+            }
+            else
+            {
+                throw new ArgumentException("Invalid light type for Scene2D. Only PointLight2D is supported.");
+            }
         }
 
         /// <summary>
-        /// Gets the directional light for the scene
+        /// Retrieves the directional light for the 2D scene if the specified type is supported.
         /// </summary>
-        /// <returns></returns>
-        public DirectionalLight2D GetDirectionalLight()
+        /// <remarks>Only <see cref="DirectionalLight2D"/> is supported for 2D scenes. Attempting to
+        /// retrieve any other light type will result in an exception.</remarks>
+        /// <typeparam name="T">The type of light to retrieve. Must be <see cref="DirectionalLight2D"/>.</typeparam>
+        /// <returns>The directional light instance cast to the specified type <typeparamref name="T"/>.</returns>
+        /// <exception cref="ArgumentException">Thrown if <typeparamref name="T"/> is not <see cref="DirectionalLight2D"/>.</exception>
+        public override T GetLight<T>()
         {
-            return _lightManager.DirectionalLight;
+            if(typeof(T) == typeof(DirectionalLight2D))
+            {
+                return (T)(object)_lightManager.DirectionalLight;
+            }
+            else
+            {
+                throw new ArgumentException("Invalid light type for Scene2D. Only DirectionalLight2D is supported.");
+            }
         }
 
         /// <summary>
-        /// Adds a point light to the scene
+        /// Removes the specified light from the scene. Supports removal of directional and point lights.
         /// </summary>
-        /// <param name="light"></param>
-        public void AddPointLight(PointLight2D light)
+        /// <remarks>If a DirectionalLight2D is specified, it will be unset from the scene. If a
+        /// PointLight2D is specified, it will be removed from the collection of point lights. Other light types are not
+        /// supported and will result in an exception.</remarks>
+        /// <typeparam name="T">The type of the light to remove. Must be either DirectionalLight2D or PointLight2D.</typeparam>
+        /// <param name="light">The light instance to remove from the scene. Must be a DirectionalLight2D or PointLight2D object.</param>
+        /// <exception cref="ArgumentException">Thrown if <paramref name="light"/> is not a DirectionalLight2D or PointLight2D.</exception>
+        public override void RemoveLight<T>(T light)
         {
-            _lightManager.AddPointLight(light);
-        }
-
-        /// <summary>
-        /// Removes a point light from the scene
-        /// </summary>
-        /// <param name="light"></param>
-        public void RemovePointLight(PointLight2D light)
-        {
-            _lightManager.RemovePointLight(light);
+            if(light is DirectionalLight2D)
+            {
+                _lightManager.DirectionalLight = null;
+            }
+            else if (light is PointLight2D pointLight)
+            {
+                _lightManager.RemovePointLight(pointLight);
+            }
+            else
+            {
+                throw new ArgumentException("Invalid light type for Scene2D. Only PointLight2D is supported.");
+            }
         }
 
         /// <summary>

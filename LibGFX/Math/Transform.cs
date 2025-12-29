@@ -15,20 +15,31 @@ namespace LibGFX.Math
     /// </summary>
     public class Transform : ISerialization
     {
+        private Vector3 _position;
         /// <summary>
         /// The position of the transformation.
         /// </summary>
-        public Vector3 Position { get; set; }
+        public Vector3 Position { get => _position; set { _position = value; Changed?.Invoke(this); } }
 
+        private Quaternion _rotation;
         /// <summary>
         /// The rotation of the transformation.
         /// </summary>
-        public Quaternion Rotation { get; set; }
+        public Quaternion Rotation { get => _rotation; set { _rotation = value; Changed?.Invoke(this); } }
 
+        private Vector3 _scale;
         /// <summary>
         /// The scale of the transformation.
         /// </summary>
-        public Vector3 Scale { get; set; }
+        public Vector3 Scale { get => _scale; set { _scale = value; Changed?.Invoke(this); } }
+
+        /// <summary>
+        /// Occurs when the transform has changed.
+        /// </summary>
+        /// <remarks>Subscribe to this event to be notified whenever the associated transform is modified.
+        /// The event provides the updated transform as an argument to the event handler. Handlers are invoked in the
+        /// order in which they were added.</remarks>
+        public event Action<Transform> Changed;
 
         /// <summary>
         /// Gets the forward direction based on the current rotation.

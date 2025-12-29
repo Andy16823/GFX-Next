@@ -173,6 +173,27 @@ namespace LibGFX.Core
         }
 
         /// <summary>
+        /// Adds a light object to the collection of managed lights.
+        /// </summary>
+        /// <typeparam name="T">The type of light to add. Must derive from <see cref="Light"/>.</typeparam>
+        /// <param name="light">The light instance to add. Cannot be null.</param>
+        public abstract void AddLight<T>(T light) where T : Light;
+
+        /// <summary>
+        /// Retrieves an instance of a light of the specified type.
+        /// </summary>
+        /// <typeparam name="T">The type of light to retrieve. Must inherit from <see cref="Light"/>.</typeparam>
+        /// <returns>An instance of type <typeparamref name="T"/> representing the requested light.</returns>
+        public abstract T GetLight<T>() where T : Light;
+
+        /// <summary>
+        /// Removes the specified light from the collection of managed lights.
+        /// </summary>
+        /// <typeparam name="T">The type of light to remove. Must derive from <see cref="Light"/>.</typeparam>
+        /// <param name="light">The light instance to remove from the collection. Cannot be null.</param>
+        public abstract void RemoveLight<T>(T light) where T : Light;
+
+        /// <summary>
         /// Finds a layer by name
         /// </summary>
         /// <param name="name"></param>
