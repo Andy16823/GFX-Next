@@ -119,3 +119,4 @@ C:\Users\andy1\Documents\GitHub\GFX-Next\GFXEditor\NewGFXEditor\obj\Debug\net8.0
 C:\Users\andy1\Documents\GitHub\GFX-Next\GFXEditor\NewGFXEditor\obj\Debug\net8.0-windows\ref\NewGFXEditor.dll
 C:\Users\andy1\Documents\GitHub\GFX-Next\GFXEditor\NewGFXEditor\obj\Debug\net8.0-windows\NewGFXEditor.Dialogs.CollisionTypeProperty.resources
 C:\Users\andy1\Documents\GitHub\GFX-Next\GFXEditor\NewGFXEditor\obj\Debug\net8.0-windows\NewGFXEditor.Dialogs.StringProperty.resources
+C:\Users\andy1\Documents\GitHub\GFX-Next\GFXEditor\NewGFXEditor\obj\Debug\net8.0-windows\NewGFXEditor.Properties.Resources.resources

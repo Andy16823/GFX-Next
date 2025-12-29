@@ -330,6 +330,7 @@ namespace NewGFXEditor
                 if (gizmoPicked)
                 {
                     _mousePos = new Vector2(e.X, e.Y);
+                    TransformGizmo.PrepareForAction();
                 }
                 else
                 {
@@ -570,7 +571,7 @@ namespace NewGFXEditor
 
         private void TransformGizmo_GizmoRotated(float rotationFactor)
         {
-            if(_selectedElement != null)
+            if (_selectedElement != null)
             {
                 float rotMultiplier = 5.0f;
                 switch (this.TransformGizmo.ActiveAxis)
@@ -1109,6 +1110,9 @@ namespace NewGFXEditor
         private void gizmoModeTranslateBtn_Click(object sender, EventArgs e)
         {
             TransformGizmo.Type = GizmoType.Translation;
+            gizmoModeTranslateBtn.Checked = true;
+            gizmoModeScaleBtn.Checked = false;
+            gizmoModeRotateBtn.Checked = false;
         }
 
         /// <summary>
@@ -1119,6 +1123,22 @@ namespace NewGFXEditor
         private void gizmoModeScaleBtn_Click(object sender, EventArgs e)
         {
             TransformGizmo.Type = GizmoType.Scale;
+            gizmoModeTranslateBtn.Checked = false;
+            gizmoModeScaleBtn.Checked = true;
+            gizmoModeRotateBtn.Checked = false;
+        }
+
+        /// <summary>
+        /// Handles the Click event of the third tool strip button and sets the transform gizmo to rotation mode.
+        /// </summary>
+        /// <param name="sender">The source of the event, typically the tool strip button that was clicked.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
+        private void gizmoModeRotateBtn_Click(object sender, EventArgs e)
+        {
+            this.TransformGizmo.Type = GizmoType.Rotation;
+            gizmoModeTranslateBtn.Checked = false;
+            gizmoModeScaleBtn.Checked = false;
+            gizmoModeRotateBtn.Checked = true;
         }
 
         /// <summary>
@@ -1319,6 +1339,15 @@ namespace NewGFXEditor
             NewScene();
         }
 
+        /// <summary>
+        /// Handles the Click event of the Point Light menu item by creating and adding a new point light to the current
+        /// scene.
+        /// </summary>
+        /// <remarks>This method initializes a new point light with predefined position and color
+        /// settings, adds it to the selected scene layer, and updates its bounding box. Use this handler to insert a
+        /// point light into the 3D editor environment via the menu.</remarks>
+        /// <param name="sender">The source of the event, typically the menu item that was clicked.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
         private void pointLightToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var pointLight = new PointLight3DHandle("PointLight", new Vector3(-2f, 1f, 0f), new Vector4(0.0f, 0.8f, 0.0f, 1.0f), 4f, 30f);
@@ -1327,15 +1356,21 @@ namespace NewGFXEditor
             pointLight.ComputeAABB();
         }
 
+        /// <summary>
+        /// Handles the Click event of the Light Picking menu item, toggling the light picking mode in the application.
+        /// </summary>
+        /// <param name="sender">The source of the event, typically the Light Picking menu item.</param>
+        /// <param name="e">An EventArgs object that contains the event data.</param>
         private void lightPickingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.PickLights = !this.PickLights;
             lightPickingToolStripMenuItem.Checked = this.PickLights;
         }
 
-        private void toolStripButton3_Click(object sender, EventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            this.TransformGizmo.Type = GizmoType.Rotation;
+            this.TransformGizmo.EnableSnapping = !this.TransformGizmo.EnableSnapping;
+            toolStripButton1.Checked = this.TransformGizmo.EnableSnapping;
         }
     }
 }

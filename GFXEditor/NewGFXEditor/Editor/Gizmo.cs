@@ -96,6 +96,24 @@ namespace NewGFXEditor.Editor
         public GizmoType Type { get; set; } = GizmoType.Translation;
 
         /// <summary>
+        /// Gets or sets the distance, in units, used for snapping operations.
+        /// </summary>
+        public float SnappingUnit { get; set; } = 1.0f;
+
+        /// <summary>
+        /// Gets or sets the angle, in degrees, at which snapping occurs during rotation operations.
+        /// </summary>
+        /// <remarks>Use this property to control the increment at which objects snap when rotated. A
+        /// smaller value allows for finer rotation steps, while a larger value restricts snapping to coarser angles.
+        /// The default value is 45 degrees.</remarks>
+        public float SnappingAngle { get; set; } = 45.0f;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether snapping behavior is enabled.
+        /// </summary>
+        public bool EnableSnapping { get; set; } = false;
+
+        /// <summary>
         /// Occurs when the gizmo has been moved to a new position.
         /// </summary>
         /// <remarks>Subscribers can use this event to respond to changes in the gizmo's position, such as
@@ -111,12 +129,21 @@ namespace NewGFXEditor.Editor
         /// scaling occurred.</remarks>
         public event GizmoScaledDelegate GizmoScaled;
 
+        /// <summary>
+        /// Occurs when the gizmo has been rotated by the user.
+        /// </summary>
+        /// <remarks>Subscribe to this event to be notified whenever the gizmo's orientation changes as a
+        /// result of user interaction. Handlers receive information about the rotation through the associated
+        /// delegate.</remarks>
         public event GizmoRotatedDelegate GizmoRotated;
 
-        /// <summary>
-        /// Flag indicating whether to swap the X and Z axes.
-        /// </summary>
+        // Indicates whether to swap the X and Z axes for certain operations.
         private bool _swapXZAxes = false;
+
+        // Stores the unsnapped position of the gizmo before snapping operations.
+        private Vector3 _unsnappedPosition;
+        private float _rotationSnapRemainder = 0f;
+        private float _scaleSnapRemainder = 0f;
 
         /// <summary>
         /// Constructor for the Gizmo class.
@@ -268,6 +295,17 @@ namespace NewGFXEditor.Editor
         }
 
         /// <summary>
+        /// Prepares the current instance for performing an action.
+        /// Such as moving, scaling, or rotating along the active axis.
+        /// </summary>
+        public void PrepareForAction()
+        {
+            _unsnappedPosition = this.Transform.Position;
+            _rotationSnapRemainder = 0.0f;
+            _scaleSnapRemainder = 0.0f;
+        }
+
+        /// <summary>
         /// Releases the gizmo, setting the active axis to none.
         /// </summary>
         public void ReleaseGizmo()
@@ -317,9 +355,32 @@ namespace NewGFXEditor.Editor
             float movementOnAxis = Vector2.Dot(mouseDelta, axisScreenDir);
             float scaleFactor = 0.01f; // ggf. dynamisch skalieren
 
-            this.Transform.Position += axisWorld * movementOnAxis * scaleFactor;
+            _unsnappedPosition += axisWorld * movementOnAxis * scaleFactor;
 
-            this.GizmoMoved?.Invoke(this.Transform.Position);
+            var finalPosition = _unsnappedPosition;
+
+            if(this.EnableSnapping)
+            {
+                switch (ActiveAxis)
+                {
+                    case GizmoActiveAxis.None:
+                        break;
+                    case GizmoActiveAxis.X:
+                        finalPosition.X = (float)Math.Round(finalPosition.X / SnappingUnit) * SnappingUnit;
+                        break;
+                    case GizmoActiveAxis.Y:
+                        finalPosition.Y = (float)Math.Round(finalPosition.Y / SnappingUnit) * SnappingUnit;
+                        break;
+                    case GizmoActiveAxis.Z:
+                        finalPosition.Z = (float)Math.Round(finalPosition.Z / SnappingUnit) * SnappingUnit;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            this.Transform.Position = finalPosition;
+            this.GizmoMoved?.Invoke(finalPosition);
         }
 
         /// <summary>
@@ -334,62 +395,119 @@ namespace NewGFXEditor.Editor
         /// <param name="currMouseY"></param>
         public void ScaleAlongAxis(PerspectiveCamera camera, Viewport viewport, int prevMouseX, int prevMouseY, int currMouseX, int currMouseY)
         {
-            if (this.ActiveAxis == GizmoActiveAxis.None || this.Enabled == false)
+            if (ActiveAxis == GizmoActiveAxis.None || !Enabled)
                 return;
 
-            Vector3 axisWorld = GetAxisDirection(this.ActiveAxis, _swapXZAxes);
+            // Get the world direction of the active axis
+            Vector3 axisWorld = GetAxisDirection(ActiveAxis, _swapXZAxes);
 
-            Vector3 gizmoOrigin = this.Transform.Position;
+            // Project axis to screen space
+            Vector3 gizmoOrigin = Transform.Position;
             Vector3 gizmoAxisEnd = gizmoOrigin + axisWorld;
 
+            // Screen space positions
             var screenOrigin = PerspectiveCamera.WorldToScreen(camera, gizmoOrigin, viewport);
             var screenAxisEnd = PerspectiveCamera.WorldToScreen(camera, gizmoAxisEnd, viewport);
 
-            var axisScreenDir = (screenAxisEnd - screenOrigin).Xy.Normalized();
-            var mouseDelta = new Vector2(currMouseX - prevMouseX, currMouseY - prevMouseY);
+            // Axis direction in screen space
+            var axisScreenDir = (screenAxisEnd - screenOrigin).Xy;
+            if (axisScreenDir.LengthSquared < 0.0001f)
+                return;
 
-            var projectedMovement = Vector2.Dot(mouseDelta, axisScreenDir);
-            float scaleFactor = projectedMovement * 0.01f;
+            axisScreenDir.Normalize();
 
-            this.GizmoScaled?.Invoke(scaleFactor);
+            // Mouse delta
+            var mouseDelta = new Vector2(
+                currMouseX - prevMouseX,
+                currMouseY - prevMouseY
+            );
+
+            float delta = Vector2.Dot(mouseDelta, axisScreenDir) * 0.01f;
+
+            // Return if snapping is disabled
+            if (!EnableSnapping)
+            {
+                GizmoScaled?.Invoke(delta);
+                return;
+            }
+
+            // Snap-accumulator
+            _scaleSnapRemainder += delta;
+
+            float snap = SnappingUnit;
+            float snappedDelta = 0f;
+
+            if (Math.Abs(_scaleSnapRemainder) >= snap)
+            {
+                snappedDelta = MathF.Floor(_scaleSnapRemainder / snap) * snap;
+                _scaleSnapRemainder -= snappedDelta;
+            }
+
+            if (snappedDelta != 0f)
+                GizmoScaled?.Invoke(snappedDelta);
         }
 
         public void RotateAlongAxis(PerspectiveCamera camera, Viewport viewport, int prevMouseX, int prevMouseY, int currMouseX, int currMouseY)
         {
-            if (this.ActiveAxis == GizmoActiveAxis.None || this.Enabled == false)
+            if (ActiveAxis == GizmoActiveAxis.None || !Enabled)
                 return;
 
-            Vector3 axisWorld = GetAxisDirection(this.ActiveAxis, _swapXZAxes);
+            Vector3 axisWorld = GetAxisDirection(ActiveAxis, _swapXZAxes);
 
-            // Swap Axis for rotation gizmo
-            if(this.Type == GizmoType.Rotation)
+            // Axis swap for rotation gizmo
+            if (Type == GizmoType.Rotation)
             {
-                if (this.ActiveAxis == GizmoActiveAxis.X)
-                {
+                if (ActiveAxis == GizmoActiveAxis.X || ActiveAxis == GizmoActiveAxis.Z)
                     axisWorld = Vector3.UnitY;
-                }
-                else if (this.ActiveAxis == GizmoActiveAxis.Z)
-                {
-                    axisWorld = Vector3.UnitY;
-                }
-                else if(this.ActiveAxis == GizmoActiveAxis.Y)
-                {
+                else if (ActiveAxis == GizmoActiveAxis.Y)
                     axisWorld = Vector3.UnitX;
-                }
             }
 
-            Vector3 gizmoOrigin = this.Transform.Position;
-            Vector3 gizmoAxisEnd = gizmoOrigin + axisWorld;
+            // Project axis to screen space
+            Vector3 origin = Transform.Position;
+            Vector3 axisEnd = origin + axisWorld;
 
-            var screenOrigin = PerspectiveCamera.WorldToScreen(camera, gizmoOrigin, viewport);
-            var screenAxisEnd = PerspectiveCamera.WorldToScreen(camera, gizmoAxisEnd, viewport);
+            // Screen space positions
+            var screenOrigin = PerspectiveCamera.WorldToScreen(camera, origin, viewport);
+            var screenAxisEnd = PerspectiveCamera.WorldToScreen(camera, axisEnd, viewport);
 
-            var axisScreenDir = (screenAxisEnd - screenOrigin).Xy.Normalized();
-            var mouseDelta = new Vector2(currMouseX - prevMouseX, currMouseY - prevMouseY);
+            // Axis direction in screen space
+            Vector2 axisScreenDir = (screenAxisEnd - screenOrigin).Xy;
+            if (axisScreenDir.LengthSquared < 0.0001f)
+                return;
 
-            var projectedMovement = Vector2.Dot(mouseDelta, axisScreenDir);
-            float rotationFactor = projectedMovement * 0.01f;
-            GizmoRotated?.Invoke(rotationFactor);
+            axisScreenDir.Normalize();
+
+            // Mouse delta
+            Vector2 mouseDelta = new Vector2(
+                currMouseX - prevMouseX,
+                currMouseY - prevMouseY
+            );
+
+            // Calculate rotation delta
+            float deltaAngle = Vector2.Dot(mouseDelta, axisScreenDir) * 0.01f;
+
+            // Return if snapping is disabled
+            if (!EnableSnapping)
+            {
+                GizmoRotated?.Invoke(deltaAngle);
+                return;
+            }
+
+            // Snap-accumulator
+            _rotationSnapRemainder += deltaAngle;
+
+            float snapAngle = MathHelper.DegreesToRadians(this.SnappingAngle);
+            float snappedDelta = 0f;
+
+            if (Math.Abs(_rotationSnapRemainder) >= snapAngle)
+            {
+                snappedDelta = MathF.Floor(_rotationSnapRemainder / snapAngle) * snapAngle;
+                _rotationSnapRemainder -= snappedDelta;
+            }
+
+            if (snappedDelta != 0f)
+                GizmoRotated?.Invoke(snappedDelta);
         }
 
         /// <summary>

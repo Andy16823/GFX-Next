@@ -110,7 +110,9 @@
             toolStripSeparator9 = new ToolStripSeparator();
             gizmoModeTranslateBtn = new ToolStripButton();
             gizmoModeScaleBtn = new ToolStripButton();
-            toolStripButton3 = new ToolStripButton();
+            gizmoModeRotateBtn = new ToolStripButton();
+            toolStripSeparator17 = new ToolStripSeparator();
+            toolStripButton1 = new ToolStripButton();
             statusStrip1 = new StatusStrip();
             splitContainer1 = new SplitContainer();
             splitContainer2 = new SplitContainer();
@@ -597,7 +599,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { neuToolStripButton, öffnenToolStripButton, speichernToolStripButton, druckenToolStripButton, toolStripSeparator6, ausschneidenToolStripButton, kopierenToolStripButton, einfügenToolStripButton, toolStripSeparator7, hilfeToolStripButton, layerComboBox, toolStripSeparator9, gizmoModeTranslateBtn, gizmoModeScaleBtn, toolStripButton3 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { neuToolStripButton, öffnenToolStripButton, speichernToolStripButton, druckenToolStripButton, toolStripSeparator6, ausschneidenToolStripButton, kopierenToolStripButton, einfügenToolStripButton, toolStripSeparator7, hilfeToolStripButton, layerComboBox, toolStripSeparator9, gizmoModeTranslateBtn, gizmoModeScaleBtn, gizmoModeRotateBtn, toolStripSeparator17, toolStripButton1 });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1433, 25);
@@ -702,32 +704,47 @@
             // gizmoModeTranslateBtn
             // 
             gizmoModeTranslateBtn.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            gizmoModeTranslateBtn.Image = (Image)resources.GetObject("gizmoModeTranslateBtn.Image");
+            gizmoModeTranslateBtn.Image = Properties.Resources.Translate1;
             gizmoModeTranslateBtn.ImageTransparentColor = Color.Magenta;
             gizmoModeTranslateBtn.Name = "gizmoModeTranslateBtn";
             gizmoModeTranslateBtn.Size = new Size(23, 22);
-            gizmoModeTranslateBtn.Text = "toolStripButton1";
+            gizmoModeTranslateBtn.Text = "Translate";
             gizmoModeTranslateBtn.Click += gizmoModeTranslateBtn_Click;
             // 
             // gizmoModeScaleBtn
             // 
             gizmoModeScaleBtn.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            gizmoModeScaleBtn.Image = (Image)resources.GetObject("gizmoModeScaleBtn.Image");
+            gizmoModeScaleBtn.Image = Properties.Resources.Scale1;
             gizmoModeScaleBtn.ImageTransparentColor = Color.Magenta;
             gizmoModeScaleBtn.Name = "gizmoModeScaleBtn";
             gizmoModeScaleBtn.Size = new Size(23, 22);
-            gizmoModeScaleBtn.Text = "toolStripButton2";
+            gizmoModeScaleBtn.Text = "Scale";
             gizmoModeScaleBtn.Click += gizmoModeScaleBtn_Click;
             // 
-            // toolStripButton3
+            // gizmoModeRotateBtn
             // 
-            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton3.Image = (Image)resources.GetObject("toolStripButton3.Image");
-            toolStripButton3.ImageTransparentColor = Color.Magenta;
-            toolStripButton3.Name = "toolStripButton3";
-            toolStripButton3.Size = new Size(23, 22);
-            toolStripButton3.Text = "toolStripButton3";
-            toolStripButton3.Click += toolStripButton3_Click;
+            gizmoModeRotateBtn.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            gizmoModeRotateBtn.Image = Properties.Resources.Rotation1;
+            gizmoModeRotateBtn.ImageTransparentColor = Color.Magenta;
+            gizmoModeRotateBtn.Name = "gizmoModeRotateBtn";
+            gizmoModeRotateBtn.Size = new Size(23, 22);
+            gizmoModeRotateBtn.Text = "Rotate";
+            gizmoModeRotateBtn.Click += gizmoModeRotateBtn_Click;
+            // 
+            // toolStripSeparator17
+            // 
+            toolStripSeparator17.Name = "toolStripSeparator17";
+            toolStripSeparator17.Size = new Size(6, 25);
+            // 
+            // toolStripButton1
+            // 
+            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
+            toolStripButton1.ImageTransparentColor = Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new Size(23, 22);
+            toolStripButton1.Text = "toolStripButton1";
+            toolStripButton1.Click += toolStripButton1_Click;
             // 
             // statusStrip1
             // 
@@ -1044,7 +1061,7 @@
         private ToolStripSeparator toolStripSeparator9;
         private ToolStripButton gizmoModeTranslateBtn;
         private ToolStripButton gizmoModeScaleBtn;
-        private ToolStripButton toolStripButton3;
+        private ToolStripButton gizmoModeRotateBtn;
         private ToolStripSeparator toolStripSeparator10;
         private ToolStripMenuItem modelToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator11;
@@ -1079,5 +1096,7 @@
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
+        private ToolStripSeparator toolStripSeparator17;
+        private ToolStripButton toolStripButton1;
     }
 }
