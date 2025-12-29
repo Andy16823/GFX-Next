@@ -80,8 +80,8 @@ namespace LibGFX.Core
             this.Window = GFX.Instance.CreateWindow(title, this.Viewport, windowState);
             this.RenderDevice.Init(this.Window);
             this.RenderDevice.UseVsync(useVsync);
-            this.RenderDevice.EnableBlend();
-            this.RenderDevice.SetBlendMode((int)BlendingFactor.SrcAlpha, (int)BlendingFactor.OneMinusSrcAlpha);
+            //this.RenderDevice.EnableBlend();
+            //this.RenderDevice.SetBlendMode((int)BlendingFactor.SrcAlpha, (int)BlendingFactor.OneMinusSrcAlpha);
 
             // Load content and assets
             this.LoadContent(this.AssetManager);

@@ -867,10 +867,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void DrawRenderTarget(int textureId)
         {
-            // Get old blending state
-            var enableState = this.BlendEnabled();
-            var blendmode = this.GetCurrentBlendMode();
-
             // Ensure Blending is enabled
             this.EnableBlend();
             this.SetBlendMode((int)BlendingFactor.SrcAlpha, (int)BlendingFactor.OneMinusSrcAlpha);
@@ -892,13 +888,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             }
 
             // Disable blending if it was disabled
-            if(!enableState)
-            {
-                this.DisableBlend();
-            }
-
-            // Set old blendmode
-            this.SetBlendMode(blendmode.srcFactor, blendmode.dstFactor);
+            this.DisableBlend();
         }
 
         public void DrawFullScreenQuad()
@@ -1381,9 +1371,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void DrawGrid(Camera camera, Vector4 color)
         {
-            var blendEnabled = this.BlendEnabled();
-            var blendMode = this.GetCurrentBlendMode();
-
             float gridSize = 1.0f;
             float majorStep = 5.0f;
             float fadeStart = 40.0f;
@@ -1426,10 +1413,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
             // restore states
             GL.DepthMask(true);
-            if(!blendEnabled)
-            {
-                this.DisableBlend();
-            }
+            this.DisableBlend();
             GL.UseProgram(0);
         }
 
