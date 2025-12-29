@@ -39,9 +39,12 @@ namespace LibGFX.Core
         private RenderTarget2D _renderTarget;
         private float _physicsAccumulator = 0.0f;
 
+        // Init events
         public override event Action<BaseScene, Viewport, IRenderDevice> OnInitStart;
         public override event Action<BaseScene, Viewport, IRenderDevice> AfterRenderTargetCreation;
         public override event Action<BaseScene, Viewport, IRenderDevice> OnInitEnd;
+
+        // Render events
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassStart;
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassEnd;
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderStart;
@@ -49,10 +52,16 @@ namespace LibGFX.Core
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassBegin;
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassEnd;
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderEnd;
+
+        // Update events
         public override event Action<BaseScene, float> OnUpdateStart;
         public override event Action<BaseScene, float> OnUpdateEnd;
+
+        // Physics events
         public override event Action<BaseScene, float> OnPhysicsUpdateStart;
         public override event Action<BaseScene, float> OnPhysicsUpdateEnd;
+
+        // Dispose events
         public override event Action<BaseScene, IRenderDevice> OnDisposeStart;
         public override event Action<BaseScene, IRenderDevice> OnDispose;
         public override event Action<BaseScene, IRenderDevice> OnDisposeEnd;

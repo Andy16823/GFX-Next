@@ -441,12 +441,6 @@ namespace NewGFXEditor
         /// <param name="e">An object that contains the event data.</param>
         private void EditorPanel3D_OnRender(object sender, EventArgs e)
         {
-            // Render grid
-            if (ShowGrid)
-            {
-                _editorPanel3D.Renderer.DrawGrid(this.SelectedCamera, new Vector4(0.3f, 0.3f, 0.3f, 1.0f));
-            }
-
             // Render the scene
             if (_sceneEnabled)
             {
@@ -549,6 +543,7 @@ namespace NewGFXEditor
             // Creates an 3D Scene
             var scene3d = new Scene3D("BASE_LAYER", "OBJECT_LAYER", "PLAYER_LAYER", "AI_LAYER");
             scene3d.DirectionalLight = new DirectionalLight3D(new Vector3(-0.2f, 1.0f, -0.3f), new Vector4(0.4f, 0.4f, 0.4f, 1.0f), 1.0f);
+            scene3d.OnRenderPassEnd += Scene3d_OnRenderPassEnd;
             Scene = scene3d;
 
             // Create the physics handler
@@ -569,6 +564,11 @@ namespace NewGFXEditor
             TransformGizmo.GizmoMoved += TransformGizmo_GizmoMoved;
             TransformGizmo.GizmoScaled += TransformGizmo_GizmoScaled;
             TransformGizmo.GizmoRotated += TransformGizmo_GizmoRotated;
+        }
+
+        private void Scene3d_OnRenderPassEnd(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
+        {
+            renderer.DrawGrid(camera, new Vector4(0.3f, 0.3f, 0.3f, 1.0f));
         }
 
         private void TransformGizmo_GizmoRotated(float rotationFactor)

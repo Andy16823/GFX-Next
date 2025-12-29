@@ -87,33 +87,89 @@ namespace LibGFX.Core
         /// <param name="args"></param>
         public delegate void EnqueEvent(EnqueEventArgs args);
 
-        // Initialization events
+        /// <summary>
+        /// Called when the scene is initializing
+        /// </summary>
         public abstract event Action<BaseScene, Viewport, IRenderDevice> OnInitStart;
+
+        /// <summary>
+        /// Called after the render target for the scene has been created
+        /// </summary>
         public abstract event Action<BaseScene, Viewport, IRenderDevice> AfterRenderTargetCreation;
+
+        /// <summary>
+        /// Called when the scene has been initialized
+        /// </summary>
         public abstract event Action<BaseScene, Viewport, IRenderDevice> OnInitEnd;
 
-        // Shadowpass Events
+        /// <summary>
+        /// Called when the shadow pass starts
+        /// </summary>
         public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassStart;
+
+        /// <summary>
+        /// Called when the shadow pass ends
+        /// </summary>
         public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassEnd;
 
-        // Rendering events
+        /// <summary>
+        /// Called immediately on the start of the render process
+        /// </summary>
         public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderStart;
+
+        /// <summary>
+        /// Called after light culling has been performed
+        /// </summary>
         public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> AfterLightCulling;
+
+        /// <summary>
+        /// Called before the game elements get rendered
+        /// </summary>
         public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassBegin;
+
+        /// <summary>
+        /// Called when all game elements have been rendered before the render target blitting
+        /// </summary>
         public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassEnd;
+
+        /// <summary>
+        /// Called at the end of the render process
+        /// </summary>
         public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderEnd;
 
-        // Update events
+        /// <summary>
+        /// Called when the scene is updating
+        /// </summary>
         public abstract event Action<BaseScene, float> OnUpdateStart;
+
+        /// <summary>
+        /// Called when the scene has been updated
+        /// </summary>
         public abstract event Action<BaseScene, float> OnUpdateEnd;
 
-        // Physics events
+        /// <summary>
+        /// Called when the physics update starts
+        /// </summary>
         public abstract event Action<BaseScene, float> OnPhysicsUpdateStart;
+
+        /// <summary>
+        /// Called when the physics update ends
+        /// </summary>
         public abstract event Action<BaseScene, float> OnPhysicsUpdateEnd;
 
-        // Disposal events
+        /// <summary>
+        /// Called before the scene is disposed
+        /// </summary>
         public abstract event Action<BaseScene, IRenderDevice> OnDisposeStart;
+
+        /// <summary>
+        /// Called when the scene gets disposed
+        /// </summary>
         public abstract event Action<BaseScene, IRenderDevice> OnDispose;
+
+        /// <summary>
+        /// Called after the scene has been disposed
+        /// </summary>
         public abstract event Action<BaseScene, IRenderDevice> OnDisposeEnd;
 
         /// <summary>
