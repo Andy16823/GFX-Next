@@ -120,7 +120,7 @@ namespace LibGFX.Core.GameElements
         {
             var result = base.Serialize(serializationContext);
             result["Type"] = this.GetType().FullName;
-            result["LightSource"] = this.LightSource.Serialize(serializationContext);
+            result["LightSource"] = this.LightSource.ID.ToString();
             return result;
         }
 
@@ -133,8 +133,21 @@ namespace LibGFX.Core.GameElements
         public override void Deserialize(JObject jObject, SerializationContext serializationContext)
         {
             base.Deserialize(jObject, serializationContext);
-            LightSource = new PointLight3D();
-            LightSource.Deserialize(jObject["LightSource"] as JObject, serializationContext);
+
+            var lightSourceId = jObject["LightSource"]?.ToString();
+            var lightSource = serializationContext.GetValue<Light>(lightSourceId);
+            if(lightSource != null && lightSource is PointLight3D pointLight)
+            {
+                LightSource = pointLight;
+            }
+            else if (lightSourceId != null)
+            {
+                throw new InvalidOperationException($"Light with ID {lightSourceId} is not a PointLight3D or could not be found.");
+            }
+            else
+            {
+                throw new InvalidOperationException("LightSource ID is missing in the JSON data.");
+            }
         }
     }
 }

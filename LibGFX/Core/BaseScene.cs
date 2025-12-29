@@ -475,6 +475,7 @@ namespace LibGFX.Core
         /// <param name="renderer">The rendering device used to release resources for each layer. Cannot be null.</param>
         public void FreeScene(IRenderDevice renderer)
         {
+            this.LightManager.DisposeLights(renderer);
             foreach (var layer in Layers)
             {
                 layer.Dispose(this, renderer);
@@ -539,7 +540,7 @@ namespace LibGFX.Core
         /// <param name="serializationContext">The context that provides configuration and state information for the serialization process.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized JSON representation of the object.</returns>
         /// <exception cref="NotImplementedException">Thrown in all cases as the method is not yet implemented.</exception>
-        public JObject Serialize(SerializationContext serializationContext)
+        public virtual JObject Serialize(SerializationContext serializationContext)
         {
             var layerArray = new JArray();
             foreach(var layer in Layers)
@@ -550,9 +551,10 @@ namespace LibGFX.Core
             return new JObject
             {
                 ["Type"] = this.GetType().FullName,
-                ["Name"] = Name,
-                ["ID"] = ID.ToString(),
-                ["Layers"] = layerArray
+                ["Name"] = !String.IsNullOrEmpty(Name) ? this.Name : this.ID.ToString(),
+                ["ID"] = this.ID.ToString(),
+                ["LightManager"] = LightManager.Serialize(serializationContext),
+                ["Layers"] = layerArray,
             };
         }
 
@@ -566,22 +568,10 @@ namespace LibGFX.Core
         /// array.</param>
         /// <param name="serializationContext">The context used to control serialization and deserialization behavior, such as type resolution or custom
         /// converters.</param>
-        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public virtual void Deserialize(JObject jObject, SerializationContext serializationContext)
         {
             this.Name = jObject["Name"]?.ToString() ?? String.Empty;
             this.ID = Guid.Parse(jObject["ID"]?.ToString() ?? Guid.NewGuid().ToString());
-
-            var layerArray = jObject["Layers"] as JArray;
-            if(layerArray != null)
-            {
-                Layers.Clear();
-                foreach (var layerToken in layerArray)
-                {
-                    var layer = new Layer();
-                    layer.Deserialize(layerToken as JObject, serializationContext);
-                    Layers.Add(layer);
-                }
-            }
         }
     }
 }

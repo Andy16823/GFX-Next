@@ -11,7 +11,7 @@ namespace LibGFX.Graphics.Lights
     /// <summary>
     /// Interface for managing lights in a scene.
     /// </summary>
-    public interface ILightManager : ISerialization
+    public interface ILightManager : ISerialization, IGraphicsResource
     {
         /// <summary>
         /// Initializes the light manager with the given render device.
@@ -73,5 +73,18 @@ namespace LibGFX.Graphics.Lights
         /// </summary>
         /// <param name="lightViewMatrix"></param>
         public void SetLightSpaceMatrix(Matrix4 lightViewMatrix);
+
+        /// <summary>
+        /// Releases all light resources associated with the specified render device.
+        /// </summary>
+        /// <param name="renderDevice">The render device whose light resources will be disposed. Cannot be null.</param>
+        public void DisposeLights(IRenderDevice renderDevice);
+
+        /// <summary>
+        /// Removes all lights from the collection.
+        /// </summary>
+        /// <remarks>Call this method to reset the collection to an empty state. After calling this
+        /// method, no lights will remain until new ones are added.</remarks>
+        public void ClearLights();
     }
 }

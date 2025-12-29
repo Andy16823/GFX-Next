@@ -1,5 +1,6 @@
 ﻿using LibGFX.Graphics;
 using LibGFX.Graphics.Lights;
+using Newtonsoft.Json.Linq;
 using OpenTK.Graphics.OpenGL4;
 using System;
 using System.Collections.Generic;
@@ -298,6 +299,32 @@ namespace LibGFX.Core
         {
             var scene = new Scene2D("Default");
             return scene;
+        }
+
+        public override void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            base.Deserialize(jObject, serializationContext);
+
+            // Deserialize the light manager Make sure its disposed first
+            if (this.LightManager?.IsInitialized == true)
+            {
+                throw new InvalidOperationException("Cannot deserialize LightManager when it is already initialized.");
+            }
+            this.LightManager = new Light2DManager();
+            this.LightManager.Deserialize(jObject["LightManager"] as JObject, serializationContext);
+
+            // Deserialize the Layers
+            var layerArray = jObject["Layers"] as JArray;
+            if (layerArray != null)
+            {
+                Layers.Clear();
+                foreach (var layerToken in layerArray)
+                {
+                    var layer = new Layer();
+                    layer.Deserialize(layerToken as JObject, serializationContext);
+                    Layers.Add(layer);
+                }
+            }
         }
 
     }

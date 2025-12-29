@@ -98,7 +98,17 @@ namespace LibGFX.Graphics.Lights
         /// </summary>
         public int LightSSBO { get; set; }
 
+        /// <summary>
+        /// Gets or sets the size, in characters, of each chunk used during processing.
+        /// </summary>
+        /// <remarks>Adjust this value to control the maximum number of characters included in a single
+        /// chunk. Larger chunk sizes may improve performance but can increase memory usage.</remarks>
         public float ChunkSize { get; set; } = 4000;
+
+        /// <summary>
+        /// Gets a value indicating whether the object has been initialized.
+        /// </summary>
+        public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Light2DManager"/> class.
@@ -204,6 +214,7 @@ namespace LibGFX.Graphics.Lights
             {
                 light.Init(renderDevice);
             });
+            this.IsInitialized = true;
         }
 
         /// <summary>
@@ -244,7 +255,8 @@ namespace LibGFX.Graphics.Lights
         {
             renderDevice.DisposeBuffer(this.LightSSBO);
             this.LightSSBO = 0;
-            this.Chunks.Clear();
+            this.DisposeLights(renderDevice);
+            this.IsInitialized = false;
         }
 
         /// <summary>
@@ -397,6 +409,42 @@ namespace LibGFX.Graphics.Lights
                 DirectionalLight = new DirectionalLight2D();
                 DirectionalLight.Deserialize(directionalLightObject, serializationContext);
             }
+        }
+
+        /// <summary>
+        /// Releases all light resources associated with the current instance using the specified render device.
+        /// </summary>
+        /// <remarks>Call this method to ensure that all light resources are properly released before
+        /// disposing of the parent object or when lights are no longer needed. After calling this method, the
+        /// collection of lights will be cleared.</remarks>
+        /// <param name="renderDevice">The render device to use when disposing of light resources. Cannot be null.</param>
+        public void DisposeLights(IRenderDevice renderDevice)
+        {
+            if(this.DirectionalLight != null)
+            {
+                this.DirectionalLight.Dispose(renderDevice);
+            }
+
+            foreach (var chunk in Chunks.Values)
+            {
+                foreach (var light in chunk.Lights)
+                {
+                    light.Dispose(renderDevice);
+                }
+            }
+            this.ClearLights();
+        }
+
+        /// <summary>
+        /// Removes all lights from the scene, including the directional light and any additional light sources.
+        /// </summary>
+        /// <remarks>After calling this method, the scene will contain no active lights. Use this method
+        /// to reset the lighting configuration before adding new lights or reconfiguring the scene's
+        /// illumination.</remarks>
+        public void ClearLights()
+        {
+            this.DirectionalLight = null;
+            this.Chunks.Clear();
         }
     }
 }

@@ -3,6 +3,7 @@ using LibGFX.Graphics.Enviroment;
 using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.PostProcessing;
 using LibGFX.Math;
+using Newtonsoft.Json.Linq;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using System;
@@ -412,6 +413,43 @@ namespace LibGFX.Core
             var scene = new Scene3D("Default");
             scene.DirectionalLight = new DirectionalLight3D(new Vector3(-0.2f, 1.0f, -0.3f), ColorPresets.Gray, 1.0f);
             return scene;
+        }
+
+        /// <summary>
+        /// Deserializes the object's state from the specified JSON object, restoring the LightManager and Layers
+        /// collections.
+        /// </summary>
+        /// <remarks>This method replaces the current LightManager and clears and repopulates the Layers
+        /// collection based on the provided JSON data. Ensure that the object is in a valid state for deserialization
+        /// before calling this method.</remarks>
+        /// <param name="jObject">A <see cref="JObject"/> containing the serialized data to deserialize from. Must include 'LightManager' and
+        /// 'Layers' properties.</param>
+        /// <param name="serializationContext">A <see cref="SerializationContext"/> that provides context and settings for the deserialization process.</param>
+        /// <exception cref="InvalidOperationException">Thrown if the LightManager is already initialized when deserialization is attempted.</exception>
+        public override void Deserialize(JObject jObject, SerializationContext serializationContext)
+        {
+            base.Deserialize(jObject, serializationContext);
+
+            // Deserialize the light manager Make sure its disposed first
+            if(this.LightManager?.IsInitialized == true)
+            {
+                throw new InvalidOperationException("Cannot deserialize LightManager when it is already initialized.");
+            }
+            this.LightManager = new Light3DManager();
+            this.LightManager.Deserialize(jObject["LightManager"] as JObject, serializationContext);
+
+            // Deserialize the Layers
+            var layerArray = jObject["Layers"] as JArray;
+            if (layerArray != null)
+            {
+                Layers.Clear();
+                foreach (var layerToken in layerArray)
+                {
+                    var layer = new Layer();
+                    layer.Deserialize(layerToken as JObject, serializationContext);
+                    Layers.Add(layer);
+                }
+            }
         }
     }
 }

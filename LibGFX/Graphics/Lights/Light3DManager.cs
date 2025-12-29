@@ -95,6 +95,11 @@ namespace LibGFX.Graphics.Lights
         /// </summary>
         public float ChunkSize { get; internal set; } = 100f;
 
+        /// <summary>
+        /// Gets a value indicating whether the object has been initialized.
+        /// </summary>
+        public bool IsInitialized { get; private set; } = false;
+
         // the point light SSBO
         private int _pointLightsSSBO;
 
@@ -172,11 +177,8 @@ namespace LibGFX.Graphics.Lights
         {
             renderDevice.DisposeBuffer(_pointLightsSSBO);
             _pointLightsSSBO = 0;
-
-            this.ForEachLight(light =>
-            {
-                light.Dispose(renderDevice);
-            });
+            this.DisposeLights(renderDevice);
+            this.IsInitialized = false;
         }
 
         /// <summary>
@@ -200,6 +202,7 @@ namespace LibGFX.Graphics.Lights
             {
                 light.Init(renderDevice);
             });
+            this.IsInitialized = true;
         }
 
         /// <summary>
@@ -445,6 +448,37 @@ namespace LibGFX.Graphics.Lights
                 DirectionalLight = new DirectionalLight3D();
                 DirectionalLight.Deserialize(directionalLightObject, serializationContext);
             }
+        }
+
+        public void DisposeLights(IRenderDevice renderDevice)
+        {
+            // Dispose directional light
+            if (this.DirectionalLight != null)
+            {
+                this.DirectionalLight.Dispose(renderDevice);
+            }
+
+            // Dispose chunk lights
+            foreach (var chunk in Chunks.Values)
+            {
+                foreach(var light in chunk.Lights)
+                {
+                    light.Dispose(renderDevice);
+                }
+            }
+
+            this.ClearLights();
+        }
+
+        /// <summary>
+        /// Removes all light sources from the current scene, including directional and chunk-based lights.
+        /// </summary>
+        /// <remarks>After calling this method, the scene will contain no active lights. Use this method
+        /// to reset lighting before configuring new light sources.</remarks>
+        public void ClearLights()
+        {
+            this.Chunks.Clear();
+            this.DirectionalLight = null;
         }
     }
 }
