@@ -176,7 +176,7 @@
             neuToolStripMenuItem.ImageTransparentColor = Color.Magenta;
             neuToolStripMenuItem.Name = "neuToolStripMenuItem";
             neuToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.N;
-            neuToolStripMenuItem.Size = new Size(168, 22);
+            neuToolStripMenuItem.Size = new Size(180, 22);
             neuToolStripMenuItem.Text = "&Neu";
             neuToolStripMenuItem.Click += neuToolStripMenuItem_Click;
             // 

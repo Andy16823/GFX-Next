@@ -98,7 +98,7 @@ namespace NewGFXEditor.Editor
         /// <summary>
         /// Gets or sets the distance, in units, used for snapping operations.
         /// </summary>
-        public float SnappingUnit { get; set; } = 1.0f;
+        public float SnappingUnit { get; set; } = 0.32f;
 
         /// <summary>
         /// Gets or sets the angle, in degrees, at which snapping occurs during rotation operations.

@@ -1372,5 +1372,10 @@ namespace NewGFXEditor
             this.TransformGizmo.EnableSnapping = !this.TransformGizmo.EnableSnapping;
             toolStripButton1.Checked = this.TransformGizmo.EnableSnapping;
         }
+
+        private void orthogalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
