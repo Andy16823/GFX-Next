@@ -35,7 +35,9 @@ namespace NewGFXEditor
         /// <summary>
         /// The main camera used for rendering the scene.
         /// </summary>
-        public Camera Camera { get; set; }
+        public Camera SelectedCamera { get; set; }
+        public PerspectiveCamera PerspectiveCamera { get; set; }
+        public OrthographicCamera OrthographicCamera { get; set; }
 
         /// <summary>
         /// Gets or sets the current scene associated with the application context.
@@ -165,7 +167,7 @@ namespace NewGFXEditor
         /// <param name="e">An object that contains the event data.</param>
         private void _editorPanel3D_OnResized(object sender, Viewport viewport, EventArgs e)
         {
-            if (this.Camera is PerspectiveCamera pc)
+            if (this.SelectedCamera is PerspectiveCamera pc)
             {
                 pc.Resolution = new Vector2(viewport.Width, viewport.Height);
             }
@@ -265,7 +267,7 @@ namespace NewGFXEditor
         private void EditorPanel3D_OnMouseMove(object sender, MouseEventArgs e)
         {
             // Highlight the gizmo based on mouse position
-            TransformGizmo.HighlightGizmo((PerspectiveCamera)Camera, _editorPanel3D.Viewport, e.X, e.Y);
+            TransformGizmo.HighlightGizmo((PerspectiveCamera)SelectedCamera, _editorPanel3D.Viewport, e.X, e.Y);
 
             // Move the gizmo or rotate the camera
             bool setNewMousePos = false;
@@ -273,15 +275,15 @@ namespace NewGFXEditor
             {
                 if (TransformGizmo.Type == GizmoType.Translation)
                 {
-                    TransformGizmo.MoveAlongAxis2D((PerspectiveCamera)Camera, _editorPanel3D.Viewport, (int)_mousePos.X, (int)_mousePos.Y, e.X, e.Y);
+                    TransformGizmo.MoveAlongAxis2D((PerspectiveCamera)SelectedCamera, _editorPanel3D.Viewport, (int)_mousePos.X, (int)_mousePos.Y, e.X, e.Y);
                 }
                 else if (TransformGizmo.Type == GizmoType.Scale)
                 {
-                    TransformGizmo.ScaleAlongAxis((PerspectiveCamera)Camera, _editorPanel3D.Viewport, (int)_mousePos.X, (int)_mousePos.Y, e.X, e.Y);
+                    TransformGizmo.ScaleAlongAxis((PerspectiveCamera)SelectedCamera, _editorPanel3D.Viewport, (int)_mousePos.X, (int)_mousePos.Y, e.X, e.Y);
                 }
                 else if (TransformGizmo.Type == GizmoType.Rotation)
                 {
-                    TransformGizmo.RotateAlongAxis((PerspectiveCamera)Camera, _editorPanel3D.Viewport, (int)_mousePos.X, (int)_mousePos.Y, e.X, e.Y);
+                    TransformGizmo.RotateAlongAxis((PerspectiveCamera)SelectedCamera, _editorPanel3D.Viewport, (int)_mousePos.X, (int)_mousePos.Y, e.X, e.Y);
                 }
                 setNewMousePos = true;
             }
@@ -291,7 +293,7 @@ namespace NewGFXEditor
             {
                 var delataX = e.X - _mousePos.X;
                 var delataY = e.Y - _mousePos.Y;
-                Camera.Transform.Rotate(new Vector3(-delataY * 0.1f, -delataX * 0.1f, 0.0f));
+                SelectedCamera.Transform.Rotate(new Vector3(-delataY * 0.1f, -delataX * 0.1f, 0.0f));
                 setNewMousePos = true;
             }
 
@@ -326,7 +328,7 @@ namespace NewGFXEditor
             // Pick gizmo or scene element
             if (e.Button == MouseButtons.Left)
             {
-                var gizmoPicked = this.TransformGizmo.PickGizmo((PerspectiveCamera)Camera, _editorPanel3D.Viewport, e.X, e.Y);
+                var gizmoPicked = this.TransformGizmo.PickGizmo((PerspectiveCamera)SelectedCamera, _editorPanel3D.Viewport, e.X, e.Y);
                 if (gizmoPicked)
                 {
                     _mousePos = new Vector2(e.X, e.Y);
@@ -334,7 +336,7 @@ namespace NewGFXEditor
                 }
                 else
                 {
-                    var pickedElement = PickElement((PerspectiveCamera)Camera, Scene.GetAllElements(), e.X, e.Y, _editorPanel3D.Viewport);
+                    var pickedElement = PickElement((PerspectiveCamera)SelectedCamera, Scene.GetAllElements(), e.X, e.Y, _editorPanel3D.Viewport);
                     if (pickedElement != null)
                     {
                         _selectedElement = pickedElement;
@@ -424,8 +426,8 @@ namespace NewGFXEditor
         private void EditorPanel3D_BeforeRender(object sender, EventArgs e)
         {
             _editorPanel3D.Renderer.SetViewport(new Viewport(_editorPanel3D.GLControl.Width, _editorPanel3D.GLControl.Height));
-            _editorPanel3D.Renderer.SetViewMatrix(this.Camera.GetViewMatrix());
-            _editorPanel3D.Renderer.SetProjectionMatrix(this.Camera.GetProjectionMatrix(_editorPanel3D.Viewport));
+            _editorPanel3D.Renderer.SetViewMatrix(this.SelectedCamera.GetViewMatrix());
+            _editorPanel3D.Renderer.SetProjectionMatrix(this.SelectedCamera.GetProjectionMatrix(_editorPanel3D.Viewport));
         }
 
         /// <summary>
@@ -439,22 +441,22 @@ namespace NewGFXEditor
         /// <param name="e">An object that contains the event data.</param>
         private void EditorPanel3D_OnRender(object sender, EventArgs e)
         {
+            // Render grid
+            if (ShowGrid)
+            {
+                _editorPanel3D.Renderer.DrawGrid(this.SelectedCamera, new Vector4(0.3f, 0.3f, 0.3f, 1.0f));
+            }
+
             // Render the scene
             if (_sceneEnabled)
             {
                 _phyisicHandler3D.Process(Scene);
-                this.Scene.Render(_editorPanel3D.Viewport, _editorPanel3D.Renderer, Camera);
+                this.Scene.Render(_editorPanel3D.Viewport, _editorPanel3D.Renderer, SelectedCamera);
                 _editorPanel3D.Renderer.DrawRenderTarget(Scene.RenderTarget as MSAARenderTarget2D, 0);
             }
 
-            // Render grid
-            if (ShowGrid)
-            {
-                _editorPanel3D.Renderer.DrawGrid(this.Camera, new Vector4(0.3f, 0.3f, 0.3f, 1.0f));
-            }
-
             // Render the transform gizmo
-            this.TransformGizmo.RenderGizmo(_editorPanel3D.Renderer, Camera, _editorPanel3D.Viewport);
+            this.TransformGizmo.RenderGizmo(_editorPanel3D.Renderer, SelectedCamera, _editorPanel3D.Viewport);
 
             // Render selected element AABB
             if (_selectedElement != null)
@@ -500,24 +502,24 @@ namespace NewGFXEditor
         {
             if (e.KeyCode == Keys.W)
             {
-                var front = Camera.Transform.Forward * 0.1f;
-                Camera.Transform.Position += front;
+                var front = SelectedCamera.Transform.Forward * 0.1f;
+                SelectedCamera.Transform.Position += front;
             }
             else if (e.KeyCode == Keys.S)
             {
-                var back = Camera.Transform.Forward * 0.1f;
-                Camera.Transform.Position -= back;
+                var back = SelectedCamera.Transform.Forward * 0.1f;
+                SelectedCamera.Transform.Position -= back;
             }
 
             if (e.KeyCode == Keys.A)
             {
-                var right = Camera.Transform.GetRightFlat() * 0.1f;
-                Camera.Transform.Position -= right;
+                var right = SelectedCamera.Transform.GetRightFlat() * 0.1f;
+                SelectedCamera.Transform.Position -= right;
             }
             else if (e.KeyCode == Keys.D)
             {
-                var right = Camera.Transform.GetRightFlat() * 0.1f;
-                Camera.Transform.Position += right;
+                var right = SelectedCamera.Transform.GetRightFlat() * 0.1f;
+                SelectedCamera.Transform.Position += right;
             }
             else if (e.KeyCode == Keys.Delete)
             {
@@ -540,9 +542,9 @@ namespace NewGFXEditor
         private void LoadStartupAssets()
         {
             // Create the 3D Cameara
-            var perspectiveCamera = new PerspectiveCamera(new Vector3(0, 5, -10), new Vector2(800, 600));
-            perspectiveCamera.LookAt(new Vector3(0, 0, 0));
-            Camera = perspectiveCamera;
+            this.PerspectiveCamera = new PerspectiveCamera(new Vector3(0, 5, -10), new Vector2(800, 600));
+            PerspectiveCamera.LookAt(new Vector3(0, 0, 0));
+            SelectedCamera = PerspectiveCamera;
 
             // Creates an 3D Scene
             var scene3d = new Scene3D("BASE_LAYER", "OBJECT_LAYER", "PLAYER_LAYER", "AI_LAYER");

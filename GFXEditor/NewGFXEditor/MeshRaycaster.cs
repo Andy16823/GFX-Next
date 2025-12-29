@@ -117,7 +117,7 @@ namespace NewGFXEditor
     //        // 2. NDC → Clip Space
     //        Vector4 rayClip = new Vector4(x, y, -1.0f, 1.0f);
 
-    //        // 3. Clip Space → Eye (Camera) Space
+    //        // 3. Clip Space → Eye (SelectedCamera) Space
     //        Matrix4 invProjection = Matrix4.Invert(camera.GetProjectionMatrix(viewport));
     //        Vector4 rayEye = rayClip * invProjection;
     //        rayEye = new Vector4(rayEye.X, rayEye.Y, -1.0f, 0.0f);
