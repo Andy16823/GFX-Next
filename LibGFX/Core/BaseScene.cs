@@ -588,19 +588,61 @@ namespace LibGFX.Core
         }
 
         /// <summary>
-        /// Populates the object's properties and layers from the specified JSON object using the provided serialization
-        /// context.
+        /// Deserializes the specified JSON object into an instance using the provided serialization context.
         /// </summary>
-        /// <remarks>Existing layers are cleared before new layers are deserialized from the JSON data. If
-        /// the 'Layers' property is not present or is null, the object's Layers collection will remain empty.</remarks>
-        /// <param name="jObject">The JSON object containing the data to deserialize. Must include 'Name', 'ID', and optionally a 'Layers'
-        /// array.</param>
-        /// <param name="serializationContext">The context used to control serialization and deserialization behavior, such as type resolution or custom
-        /// converters.</param>
-        public virtual void Deserialize(JObject jObject, SerializationContext serializationContext)
+        /// <param name="jObject">The JSON reader positioned at the object to deserialize. Must not be null.</param>
+        /// <param name="serializationContext">The context that provides information and services required for deserialization. Must not be null.</param>
+        public virtual void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            this.Name = jObject["Name"]?.Value<String>() ?? String.Empty;
-            this.ID = Guid.Parse(jObject["ID"]?.Value<String>() ?? Guid.NewGuid().ToString());
+            if(reader.TokenType != JsonToken.StartObject)
+                throw new Exception("Expected StartObject token");
+
+            while (reader.Read())
+            {
+                if(reader.TokenType == JsonToken.EndObject)
+                    break;
+
+                if (reader.TokenType == JsonToken.PropertyName)
+                {
+                    string propertyName = (string) reader.Value;
+                    reader.Read();
+
+                    switch (propertyName)
+                    {
+                        case "Name":
+                            this.Name = (string)reader.Value;
+                            break;
+                        case "ID":
+                            this.ID = Guid.Parse((string)reader.Value);
+                            break;
+                        case "Layers":
+                            if (reader.TokenType != JsonToken.StartArray)
+                                throw new JsonSerializationException("Expected StartArray token for Layers property.");
+
+                            Layers.Clear();
+                            while (reader.Read())
+                            {
+                                if (reader.TokenType == JsonToken.EndArray)
+                                    break;
+
+                                if (reader.TokenType == JsonToken.StartObject)
+                                {
+                                    var layer = new Layer();
+                                    layer.Deserialize(reader, serializationContext);
+                                    Layers.Add(layer);
+                                }
+                            }
+                            break;
+                        default:
+                            if (callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
+                    }
+                }
+            }
         }
     }
 }

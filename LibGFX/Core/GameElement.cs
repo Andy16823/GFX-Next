@@ -430,84 +430,120 @@ namespace LibGFX.Core
             writer.WriteEndObject();
         }
 
-        /// <summary>
-        /// Populates the properties of the current object by deserializing data from the specified JSON object using
-        /// the provided serialization context.
-        /// </summary>
-        /// <remarks>This method updates the state of the current object based on the contents of
-        /// <paramref name="jObject"/>. It also registers the object in the serialization context to support reference
-        /// resolution for child and parent relationships. All child elements are deserialized after the parent is
-        /// registered to ensure correct hierarchy reconstruction.</remarks>
-        /// <param name="jObject">A <see cref="JObject"/> containing the serialized data to deserialize into this object. Must not be null and
-        /// must contain all required fields.</param>
-        /// <param name="serializationContext">A <see cref="SerializationContext"/> used to resolve references and manage object identity during
-        /// deserialization. Must not be null.</param>
-        /// <exception cref="Exception">Thrown if a referenced parent object or a required type cannot be found during deserialization.</exception>
-        public virtual void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public virtual void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            // Get Identifier properties
-            this.ID = Guid.Parse(jObject["ID"].Value<string>());
-            this.Name = jObject["Name"].Value<string>();
+            if(reader.TokenType != JsonToken.StartObject)
+                throw new Exception("Expected StartObject token.");
 
-            // Get Transform
-            this.Transform = new Transform();
-            this.Transform.Deserialize((JObject)jObject["Transform"], serializationContext);
-
-            // Get Renderable properties
-            this.Visible = jObject["Visible"].Value<bool>();
-            this.Enabled = jObject["Enabled"].Value<bool>();
-            this.CastShadows = jObject["CastShadows"].Value<bool>();
-
-            // Get Parent if parent exists
-            if (jObject["Parent"].Value<string>() != null)
+            while (reader.Read()) 
             {
-                var parentId = jObject["Parent"].Value<string>();
-                var parent = serializationContext.GetValue<GameElement>(parentId);
-                if (parent == null)
+                if (reader.TokenType == JsonToken.EndObject) 
+                    break;
+
+                if (reader.TokenType == JsonToken.PropertyName)
                 {
-                    throw new Exception("Parent GameElement not found during deserialization.");
+                    string propertyName = (string)reader.Value;
+                    reader.Read(); // Move to property value
+
+                    switch (propertyName)
+                    {
+                        case "Type":
+                            reader.Skip();
+                            break;
+                        case "ID":
+                            this.ID = Guid.Parse((string) reader.Value);
+                            break;
+                        case "Name":
+                            this.Name = (string) reader.Value;
+                            break;
+                        case "Transform":
+                            this.Transform = new Transform();
+                            this.Transform.Deserialize(reader, serializationContext);
+                            break;
+                        case "Visible":
+                            this.Visible = Convert.ToBoolean(reader.Value);
+                            break;
+                        case "Enabled":
+                            this.Enabled = Convert.ToBoolean(reader.Value);
+                            break;
+                        case "CastShadows":
+                            this.CastShadows = Convert.ToBoolean(reader.Value);
+                            break;
+                        case "Parent":
+                            var parentId = (string) reader.Value;
+                            if (parentId != null)
+                            {
+                                var parent = serializationContext.GetValue<GameElement>(parentId);
+                                if (parent == null)
+                                {
+                                    throw new Exception("Parent GameElement not found during deserialization.");
+                                }
+                            }
+                            break;
+                        case "Tags":
+                            if(reader.TokenType != JsonToken.StartArray)
+                                throw new Exception("Expected StartArray token for Tags.");
+
+                            this.Tags = new HashSet<string>();
+                            while (reader.Read())
+                            {
+                                if (reader.TokenType == JsonToken.EndArray) 
+                                    break;
+
+                                this.Tags.Add((string) reader.Value);
+                            }
+                            break;
+                        case "AABB":
+                            this.AABB = Utils.DeserializeAABB(reader);
+                            break;
+                        case "Properties":
+                            if(reader.TokenType != JsonToken.StartObject)
+                                throw new Exception("Expected StartObject token for Properties.");
+
+                            this.Properties.Clear();
+                            while (reader.Read())
+                            {
+                                if (reader.TokenType == JsonToken.EndObject) 
+                                    break;
+
+                                var key = (string) reader.Value;
+                                reader.Read();
+                                var value = reader.Value;
+                                if(!this.Properties.TryAdd(key, value))
+                                {
+                                    throw new Exception($"Duplicate property key '{key}' found during deserialization.");
+                                }
+                            }
+                            break;
+                        case "Children":
+                            if(reader.TokenType != JsonToken.StartArray)
+                                throw new Exception("Expected StartArray token for Children.");
+
+                            while (reader.Read())
+                            {
+                                if (reader.TokenType == JsonToken.EndArray) 
+                                    break;
+
+                                if(reader.TokenType == JsonToken.StartObject)
+                                {
+                                    var element = Utils.DeserializeGameElement(reader, serializationContext);
+                                    if(element == null)
+                                    {
+                                        throw new Exception("Failed to deserialize child GameElement.");
+                                    }
+                                    this.AddChild(element);
+                                }
+                            }
+                            break;
+                        default:
+                            if(callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
+                    }
                 }
-            }
-
-            // Get Behaviors TODO: Deserialize behaviors
-            this.Behaviors = new List<IGameBehavior>();
-
-            // Get Tags
-            this.Tags = new HashSet<string>();
-            foreach (var tagToken in (JArray)jObject["Tags"])
-            {
-                this.Tags.Add(tagToken.Value<string>());
-            }
-
-            // Get AABB
-            this.AABB = Utils.DeserializeAABB((JObject)jObject["AABB"]);
-            // WorldAABB is computed, no need to deserialize
-
-            // Get Properties
-            this.Properties.Clear();
-            var propertiesObject = (JObject)jObject["Properties"];
-            foreach (var property in propertiesObject)
-            {
-                this.Properties[property.Key] = property.Value.ToObject<object>();
-            }
-
-            // Register this object in the serialization context so that children can reference it as parent
-            serializationContext.SetValue(this.ID.ToString(), this);
-
-            // Deserialize Children after registering parent
-            this._children.Clear();
-            foreach (var childToken in (JArray)jObject["Children"])
-            {
-                var childObject = (JObject)childToken;
-                var typeName = childObject["Type"].Value<string>();
-                var type = Type.GetType(typeName);
-                if (type == null)
-                {
-                    throw new Exception($"Type '{typeName}' not found during deserialization.");
-                }
-                var child = (GameElement)Activator.CreateInstance(type);
-                child.Deserialize(childObject, serializationContext);
-                this.AddChild(child);
             }
         }
 

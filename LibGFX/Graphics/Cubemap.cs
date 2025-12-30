@@ -185,20 +185,61 @@ namespace LibGFX.Graphics
         /// <param name="serializationContext">The context for the deserialization process. Provides additional information or services required during
         /// deserialization.</param>
         /// <exception cref="InvalidOperationException">Thrown if the cubemap is already initialized. The cubemap must be disposed before deserialization.</exception>
-        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            if(this.IsInitialized)
-            {
+            if (this.IsInitialized)
                 throw new InvalidOperationException("Cannot deserialize an initialized Cubemap. Dispose it first.");
-            }
 
-            this.Width = jObject["Width"].Value<int>();
-            this.Height = jObject["Height"].Value<int>();
-            this.Faces.Clear();
-            foreach (var faceToken in jObject["Faces"] as JArray)
+            if (reader.TokenType != JsonToken.StartObject) 
+                throw new JsonException("Expected StartObject token");
+
+            while(reader.Read())
             {
-                var faceData = Convert.FromBase64String(faceToken.Value<string>());
-                this.Faces.Add(faceData);
+                if(reader.TokenType == JsonToken.EndObject)
+                    break;
+
+                if(reader.TokenType == JsonToken.PropertyName)
+                {
+                    string propertyName = (string)reader.Value;
+                    reader.Read();
+
+                    switch (propertyName)
+                    {
+                        case "Type":
+                            reader.Skip();
+                            break;
+                        case "Width":
+                            this.Width = Convert.ToInt32(reader.Value);
+                            break;
+                        case "Height":
+                            this.Height = Convert.ToInt32(reader.Value);
+                            break;
+                        case "Faces":
+                            if (reader.TokenType != JsonToken.StartArray)
+                                throw new JsonException("Expected StartArray token for Faces");
+
+                            this.Faces.Clear();
+                            while (reader.Read())
+                            {
+                                if (reader.TokenType == JsonToken.EndArray)
+                                    break;
+
+                                if (reader.TokenType == JsonToken.String)
+                                {
+                                    var faceData = Convert.FromBase64String((string)reader.Value);
+                                    this.Faces.Add(faceData);
+                                }
+                            }
+                            break;
+                        default:
+                            if (callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
+                    }
+                }
             }
         }
     }

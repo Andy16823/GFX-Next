@@ -207,25 +207,80 @@ namespace LibGFX.Graphics.Enviroment
         /// required fields for this object.</param>
         /// <param name="serializationContext">The <see cref="SerializationContext"/> to use during deserialization. Provides context or settings that may
         /// influence how the data is interpreted.</param>
-        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            Transform.Deserialize(jObject["Transform"] as JObject, serializationContext);
-            SkyTopColor = Utils.DeserializeVec3(jObject["SkyTopColor"] as JObject);
-            SkyBottomColor = Utils.DeserializeVec3(jObject["SkyBottomColor"] as JObject);
-            SunDirection = Utils.DeserializeVec3(jObject["SunDirection"] as JObject);
-            SunColor = Utils.DeserializeVec3(jObject["SunColor"] as JObject);
-            SunSize = jObject["SunSize"].Value<float>();
-            SunIntensity = jObject["SunIntensity"].Value<float>();
-            SkylineOffset = jObject["SkylineOffset"].Value<float>();
-            SkylineScale = jObject["SkylineScale"].Value<float>();
-            Coverage = jObject["Coverage"].Value<bool>();
-            if (jObject["CoverageTexture"] != null && jObject["CoverageTexture"].Type != JTokenType.Null)
+            if(reader.TokenType != JsonToken.StartObject)
+                throw new JsonException("Expected StartObject token");
+
+            while(reader.Read())
             {
-                CoverageTexture = new Texture();
-                CoverageTexture.Deserialize(jObject["CoverageTexture"] as JObject, serializationContext);
+                if(reader.TokenType == JsonToken.EndObject)
+                    break;
+
+                if(reader.TokenType == JsonToken.PropertyName)
+                {
+                    string propertyName = (string)reader.Value;
+                    reader.Read();
+
+                    switch (propertyName)
+                    {
+                        case "Type":
+                            // Skip type property
+                            reader.Skip();
+                            break;
+                        case "Transform":
+                            Transform.Deserialize(reader, serializationContext);
+                            break;
+                        case "SkyTopColor":
+                            SkyTopColor = Utils.DeserializeVec3(reader);
+                            break;
+                        case "SkyBottomColor":
+                            SkyBottomColor = Utils.DeserializeVec3(reader);
+                            break;
+                        case "SunDirection":
+                            SunDirection = Utils.DeserializeVec3(reader);
+                            break;
+                        case "SunColor":
+                            SunColor = Utils.DeserializeVec3(reader);
+                            break;
+                        case "SunSize":
+                            SunSize = Convert.ToSingle(reader.Value);
+                            break;
+                        case "SunIntensity":
+                            SunIntensity = Convert.ToSingle(reader.Value);
+                            break;
+                        case "SkylineOffset":
+                            SkylineOffset = Convert.ToSingle(reader.Value);
+                            break;
+                        case "SkylineScale":
+                            SkylineScale = Convert.ToSingle(reader.Value);
+                            break;
+                        case "Coverage":
+                            Coverage = Convert.ToBoolean(reader.Value);
+                            break;
+                        case "CoverageTexture":
+                            if (reader.TokenType != JsonToken.Null)
+                            {
+                                CoverageTexture = new Texture();
+                                CoverageTexture.Deserialize(reader, serializationContext);
+                            }
+                            break;
+                        case "CoverageFactor":
+                            CoverageFactor = Convert.ToSingle(reader.Value);
+                            break;
+                        case "CloudColor":
+                            CloudColor = Utils.DeserializeVec3(reader);
+                            break;
+                        default:
+                            if(callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
+                    }
+                }
             }
-            CoverageFactor = jObject["CoverageFactor"].Value<float>();
-            CloudColor = Utils.DeserializeVec3(jObject["CloudColor"] as JObject);
         }
     }
 }

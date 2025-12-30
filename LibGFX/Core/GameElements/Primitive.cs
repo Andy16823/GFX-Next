@@ -184,21 +184,33 @@ namespace LibGFX.Core.GameElements
         /// <param name="jObject">The JSON object containing the serialized data for the primitive.</param>
         /// <param name="serializationContext">The context used to resolve references and retrieve objects during deserialization.</param>
         /// <exception cref="Exception">Thrown if the mesh referenced in the JSON object cannot be found in the serialization context.</exception>
-        public override void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            base.Deserialize(jObject, serializationContext);
-
-            // Deserialize primitive-specific data if needed
-            var meshId = jObject["Mesh"]?.Value<string>();
-            var mesh = serializationContext.GetValue<Mesh>(meshId);
-            if(serializationContext.GetValue<Mesh>(meshId) != null)
+            base.Deserialize(reader, serializationContext, (r, param) =>
             {
-                this.Mesh = mesh;
-            }
-            else
-            {
-                throw new Exception("Failed to deserialize Primitive: Mesh with ID " + meshId + " not found in serialization context.");
-            }
+                switch (param)
+                {
+                    case "Mesh":
+                        var meshId = (string)r.Value;
+                        var mesh = serializationContext.GetValue<Mesh>(meshId);
+                        if (mesh != null)
+                        {
+                            this.Mesh = mesh;
+                        }
+                        else
+                        {
+                            throw new Exception("Failed to deserialize Primitive: Mesh with ID " + meshId + " not found in serialization context.");
+                        }
+                        return true;
+                    default:
+                        if(callback != null)
+                        {
+                            return callback(r, param);
+                        }
+                        break;
+                }
+                return false;
+            });
         }
 
         /// <summary>

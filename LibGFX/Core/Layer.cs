@@ -287,27 +287,63 @@ namespace LibGFX.Core
         /// and elements.</param>
         /// <param name="serializationContext">The context used to assist with deserialization, providing any necessary configuration or state.</param>
         /// <exception cref="Exception">Thrown if an element type specified in the JSON cannot be found during deserialization.</exception>
-        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            this.Name = jObject["Name"]?.Value<string>();
-            this.ID = Guid.Parse(jObject["ID"]?.Value<string>() ?? Guid.NewGuid().ToString());
-            this.Visible = jObject["Visible"]?.Value<bool>() ?? true;
-            this.Enabled = jObject["Enabled"]?.Value<bool>() ?? true;
+            if(reader.TokenType != JsonToken.StartObject)
+                throw new Exception("Expected StartObject token");
 
-            var elementsArray = jObject["Elements"] as JArray;
-            if (elementsArray != null)
+            while(reader.Read())
             {
-                foreach (var elementToken in elementsArray)
+                if(reader.TokenType == JsonToken.EndObject)
+                    break;
+
+                if(reader.TokenType == JsonToken.PropertyName)
                 {
-                    var typeName = elementToken["Type"].Value<string>();
-                    var type = Type.GetType(typeName);
-                    if (type == null)
+                    string propertyName = reader.Value.ToString();
+                    reader.Read(); // Move to the value token
+
+                    switch (propertyName)
                     {
-                        throw new Exception($"Type '{typeName}' not found during deserialization.");
+                        case "Name":
+                            this.Name = (string)reader.Value;
+                            break;
+                        case "ID":
+                            this.ID = Guid.Parse((string)reader.Value);
+                            break;
+                        case "Visible":
+                            this.Visible = Convert.ToBoolean(reader.Value);
+                            break;
+                        case "Enabled":
+                            this.Enabled = Convert.ToBoolean(reader.Value);
+                            break;
+                        case "Elements":
+                            if (reader.TokenType != JsonToken.StartArray)
+                                throw new Exception("Expected StartArray token for Elements");
+
+                            while (reader.Read())
+                            {
+                                if (reader.TokenType == JsonToken.EndArray)
+                                    break;
+
+                                if (reader.TokenType == JsonToken.StartObject)
+                                {
+                                    var element = Utils.DeserializeGameElement(reader, serializationContext);
+                                    if (element == null)
+                                    {
+                                        throw new Exception("Failed to deserialize child GameElement.");
+                                    }
+                                    this.Elements.Add(element);
+                                }
+                            }
+                            break;
+                        default:
+                            if(callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
                     }
-                    var element = (GameElement)Activator.CreateInstance(type);
-                    element.Deserialize(elementToken as JObject, serializationContext);
-                    this.Elements.Add(element);
                 }
             }
         }

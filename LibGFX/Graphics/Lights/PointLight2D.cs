@@ -117,10 +117,24 @@ namespace LibGFX.Graphics.Lights
         /// <param name="jObject">A <see cref="JObject"/> containing the JSON data to deserialize. Must not be null and should include the
         /// required properties for this object.</param>
         /// <param name="serializationContext">A <see cref="SerializationContext"/> that provides context or settings for the deserialization process.</param>
-        public override void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            base.Deserialize(jObject, serializationContext);
-            this.Radius = jObject["Radius"]!.Value<float>();
+            base.Deserialize(reader, serializationContext, (r, param) =>
+            {
+                switch (param)
+                {   
+                    case "Radius":
+                        this.Radius = Convert.ToSingle(r.Value);
+                        return true;
+                    default:
+                        if(callback != null)
+                        {
+                            return callback(r, param);
+                        }   
+                        break;
+                }
+                return false;
+            });
         }
     }
 }

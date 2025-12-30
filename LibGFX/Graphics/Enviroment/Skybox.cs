@@ -109,17 +109,46 @@ namespace LibGFX.Graphics.Enviroment
         /// properties.</param>
         /// <param name="serializationContext">The context to use during deserialization, providing necessary settings and references.</param>
         /// <exception cref="InvalidOperationException">Thrown if the skybox is already initialized. Dispose the skybox before deserializing.</exception>
-        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
             if(this.IsInitialized)
             {
                 throw new InvalidOperationException("Cannot deserialize an initialized Skybox. Dispose it first.");
             }
 
-            this.Cubemap = new Cubemap();
-            this.Cubemap.Deserialize(jObject["Cubemap"] as JObject, serializationContext);
-            this.Transform = new Transform();
-            this.Transform.Deserialize(jObject["Transform"] as JObject, serializationContext);
+            if(reader.TokenType != JsonToken.StartObject)
+                throw new JsonException("Expected StartObject token.");
+
+            while(reader.Read())
+            {
+                if(reader.TokenType == JsonToken.EndObject)
+                    break;
+
+                if(reader.TokenType == JsonToken.PropertyName)
+                {
+                    string propertyName = (string) reader.Value;
+                    reader.Read();
+
+                    switch (propertyName)
+                    {
+                        case "Cubemap":
+                            this.Cubemap = new Cubemap();
+                            this.Cubemap.Deserialize(reader, serializationContext);
+                            break;
+                        case "Transform":
+                            this.Transform = new Transform();
+                            this.Transform.Deserialize(reader, serializationContext);
+                            break;
+                        default:
+                            if(callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
+                    }
+                }
+            }
         }
     }
 }

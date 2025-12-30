@@ -224,29 +224,80 @@ namespace LibGFX.Graphics.Materials
         /// <param name="jObject">The JSON object containing the data to deserialize into the current object. Cannot be null.</param>
         /// <param name="serializationContext">The context that provides information and services for the deserialization process. Cannot be null.</param>
         /// <exception cref="NotImplementedException">The method is not implemented.</exception>
-        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
             if(this.IsInitialized)
             {
                 throw new InvalidOperationException("Cannot deserialize into an already initialized material.");
             }
 
-            this.Name = jObject["Name"].Value<string>();
-            this.ID = Guid.Parse(jObject["ID"].Value<string>());
-            this.Albedo = Utils.DeserializeVec3(jObject["Albedo"] as JObject);
-            this.Metallic = jObject["Metallic"].Value<float>();
-            this.Roughness = jObject["Roughness"].Value<float>();
-            this.Occlusion = jObject["Occlusion"].Value<float>();
-            this.AlbedoTexture = new Texture();
-            this.AlbedoTexture.Deserialize(jObject["AlbedoTexture"] as JObject, serializationContext);
-            this.NormalTexture = new Texture();
-            this.NormalTexture.Deserialize(jObject["NormalTexture"] as JObject, serializationContext);
-            this.MetallicTexture = new Texture();
-            this.MetallicTexture.Deserialize(jObject["MetallicTexture"] as JObject, serializationContext);
-            this.RoughnessTexture = new Texture();
-            this.RoughnessTexture.Deserialize(jObject["RoughnessTexture"] as JObject, serializationContext);
-            this.OcclusionTexture = new Texture();
-            this.OcclusionTexture.Deserialize(jObject["OcclusionTexture"] as JObject, serializationContext);
+            if(reader.TokenType != JsonToken.StartObject)
+                throw new JsonException("Expected StartObject token.");
+
+            while(reader.Read())
+            {
+                if(reader.TokenType == JsonToken.EndObject)
+                    break;
+
+                if(reader.TokenType == JsonToken.PropertyName)
+                {
+                    string propertyName = (string)reader.Value;
+                    reader.Read(); // Move to the value token
+
+                    switch (propertyName)
+                    {
+                        case "Type":
+                            // We can skip the type as we already know it
+                            reader.Skip();
+                            break;
+                        case "Name":
+                            this.Name = (string)reader.Value;
+                            break;
+                        case "ID":
+                            this.ID = Guid.Parse((string)reader.Value);
+                            break;
+                        case "Albedo":
+                            this.Albedo = Utils.DeserializeVec3(reader);
+                            break;
+                        case "Metallic":
+                            this.Metallic = Convert.ToSingle(reader.Value);
+                            break;
+                        case "Roughness":
+                            this.Roughness = Convert.ToSingle(reader.Value);
+                            break;
+                        case "Occlusion":
+                            this.Occlusion = Convert.ToSingle(reader.Value);
+                            break;
+                        case "AlbedoTexture":
+                            this.AlbedoTexture = new Texture();
+                            this.AlbedoTexture.Deserialize(reader, serializationContext);
+                            break;
+                        case "NormalTexture":
+                            this.NormalTexture = new Texture();
+                            this.NormalTexture.Deserialize(reader, serializationContext);
+                            break;
+                        case "MetallicTexture":
+                            this.MetallicTexture = new Texture();
+                            this.MetallicTexture.Deserialize(reader, serializationContext);
+                            break;
+                        case "RoughnessTexture":
+                            this.RoughnessTexture = new Texture();
+                            this.RoughnessTexture.Deserialize(reader, serializationContext);
+                            break;
+                        case "OcclusionTexture":
+                            this.OcclusionTexture = new Texture();
+                            this.OcclusionTexture.Deserialize(reader, serializationContext);
+                            break;
+                        default:
+                            if (callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
+                    }
+                }
+            }
         }
     }
 }

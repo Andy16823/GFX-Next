@@ -100,15 +100,55 @@ namespace LibGFX.Graphics.Lights
         /// </summary>
         /// <param name="jObject">The JSON object containing the data to deserialize into the current instance. Cannot be null.</param>
         /// <param name="serializationContext">The context that provides information and services for the deserialization process.</param>
-        public virtual void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public virtual void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            // Populate basic light properties
-            Name = jObject.Value<string>("Name");
-            ID = Guid.Parse(jObject.Value<string>("ID"));
-            Color = Utils.DeserializeVec4(jObject.Value<JObject>("Color"));
-            Position = Utils.DeserializeVec3(jObject.Value<JObject>("Position"));
-            Intensity = jObject.Value<float>("Intensity");
-            ShadowMapSize = Utils.DeserializeVec2i(jObject.Value<JObject>("ShadowMapSize"));
+            if(reader.TokenType != JsonToken.StartObject)
+                throw new JsonSerializationException("Expected StartObject token");
+
+            while(reader.Read())
+            {
+                if(reader.TokenType == JsonToken.EndObject)
+                    break;
+
+                if(reader.TokenType == JsonToken.PropertyName)
+                {
+                    string propertyName = (string)reader.Value;
+                    reader.Read();
+
+                    switch (propertyName)
+                    {
+                        case "Type":
+                            // Type is handled externally
+                            reader.Skip();
+                            break;
+                        case "Name":
+                            Name = (string)reader.Value;
+                            break;
+                        case "ID":
+                            ID = Guid.Parse((string)reader.Value);
+                            break;
+                        case "Color":
+                            Color = Utils.DeserializeVec4(reader);
+                            break;
+                        case "Position":
+                            Position = Utils.DeserializeVec3(reader);
+                            break;
+                        case "Intensity":
+                            Intensity = Convert.ToSingle(reader.Value);
+                            break;
+                        case "ShadowMapSize":
+                            ShadowMapSize = Utils.DeserializeVec2i(reader);
+                            break;
+                        default:
+                            if(callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
+                    }
+                }
+            }
 
             // Register in context
             serializationContext.SetValue<Light>(ID.ToString(), this);

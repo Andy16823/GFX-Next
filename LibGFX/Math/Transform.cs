@@ -502,11 +502,43 @@ namespace LibGFX.Math
         /// <param name="jObject">A JSON object containing the serialized position, rotation, and scale data. Must not be null.</param>
         /// <param name="serializationContext">The context to use during deserialization. Provides additional information or services required for the
         /// deserialization process.</param>
-        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            this.Position = Utils.DeserializeVec3(jObject["Position"] as JObject);
-            this.Rotation = Utils.DeserializeQuat(jObject["Rotation"] as JObject);
-            this.Scale = Utils.DeserializeVec3(jObject["Scale"] as JObject);
+            if(reader.TokenType != JsonToken.StartObject)
+                throw new JsonException("Expected StartObject token");
+
+            while(reader.Read())
+            {
+                if(reader.TokenType == JsonToken.EndObject)
+                    break;
+
+                if(reader.TokenType == JsonToken.PropertyName)
+                {
+                    string propertyName = (string) reader.Value;
+                    reader.Read();
+
+                    switch(propertyName)
+                    {
+                        case "Position":
+                            this.Position = Utils.DeserializeVec3(reader);
+                            break;
+                        case "Rotation":
+                            this.Rotation = Utils.DeserializeQuat(reader);
+                            break;
+                        case "Scale":
+                            this.Scale = Utils.DeserializeVec3(reader);
+                            break;
+                        default:
+                            if(callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
+
+                    }
+                }
+            }
         }
     }
 }

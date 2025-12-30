@@ -1,11 +1,13 @@
 ﻿using LibGFX.Graphics;
 using LibGFX.Graphics.Lights;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Graphics.OpenGL4;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -334,26 +336,27 @@ namespace LibGFX.Core
             return scene;
         }
 
-        public override void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            base.Deserialize(jObject, serializationContext);
-
-            // Deserialize the light manager Make sure its disposed first
-            this.LightManager = new Light2DManager();
-            this.LightManager.Deserialize(jObject["LightManager"] as JObject, serializationContext);
-
-            // Deserialize the Layers
-            var layerArray = jObject["Layers"] as JArray;
-            if (layerArray != null)
+            base.Deserialize(reader, serializationContext, (r, param) =>
             {
-                Layers.Clear();
-                foreach (var layerToken in layerArray)
+                switch (param)
                 {
-                    var layer = new Layer();
-                    layer.Deserialize(layerToken as JObject, serializationContext);
-                    Layers.Add(layer);
+                    case "LightManager":
+                        if(r.TokenType == JsonToken.StartObject)
+                        {
+                            this.LightManager = new Light2DManager();
+                            this.LightManager.Deserialize(r, serializationContext);
+                            return true;
+                        }
+                        break;
+                    default:
+                        if(callback != null)
+                            return callback(r, param);
+                        break;
                 }
-            }
+                return false;
+            });
         }
 
     }

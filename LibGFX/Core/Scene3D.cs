@@ -3,6 +3,7 @@ using LibGFX.Graphics.Enviroment;
 using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.PostProcessing;
 using LibGFX.Math;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
@@ -455,26 +456,25 @@ namespace LibGFX.Core
         /// 'Layers' properties.</param>
         /// <param name="serializationContext">A <see cref="SerializationContext"/> that provides context and settings for the deserialization process.</param>
         /// <exception cref="InvalidOperationException">Thrown if the LightManager is already initialized when deserialization is attempted.</exception>
-        public override void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            base.Deserialize(jObject, serializationContext);
-
-            // Deserialize the light manager Make sure its disposed first
-            this.LightManager = new Light3DManager();
-            this.LightManager.Deserialize(jObject["LightManager"] as JObject, serializationContext);
-
-            // Deserialize the Layers
-            var layerArray = jObject["Layers"] as JArray;
-            if (layerArray != null)
+            base.Deserialize(reader, serializationContext, (r, param) =>
             {
-                Layers.Clear();
-                foreach (var layerToken in layerArray)
+                switch (param)
                 {
-                    var layer = new Layer();
-                    layer.Deserialize(layerToken as JObject, serializationContext);
-                    Layers.Add(layer);
+                    case "LightManager":
+                        if(r.TokenType == JsonToken.StartObject)
+                        {
+                            this.LightManager = new Light3DManager();
+                            this.LightManager.Deserialize(r, serializationContext);
+                            return true;
+                        }
+                        break;
+                    default:
+                        break;
                 }
-            }
+                return false;
+            });
         }
     }
 }

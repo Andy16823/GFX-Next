@@ -21,7 +21,7 @@ namespace NewGFXEditor.Editor
         public bool Hovered { get; set; } = false;
         public bool IsInitialized { get; private set; } = false;
 
-        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
             throw new NotImplementedException();
         }

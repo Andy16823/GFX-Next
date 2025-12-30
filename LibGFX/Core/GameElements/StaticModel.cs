@@ -161,22 +161,34 @@ namespace LibGFX.Core.GameElements
         /// <param name="jObject">The JSON object containing the data to deserialize into this StaticModel instance.</param>
         /// <param name="serializationContext">The context used to resolve references and retrieve objects during deserialization.</param>
         /// <exception cref="Exception">Thrown if the model identifier specified in the JSON object cannot be found in the serialization context.</exception>
-        public override void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
             // Deserialize base properties
-            base.Deserialize(jObject, serializationContext);
-
-            // Deserialize StaticModel specific properties
-            var modelId = jObject["Model"].Value<string>();
-            var model = serializationContext.GetValue<StaticMeshModel>(modelId);
-            if(model != null)
+            base.Deserialize(reader, serializationContext, (r, param) =>
             {
-                _model = model;
-            }
-            else
-            {
-                throw new Exception($"StaticModel deserialization failed: Model with ID {modelId} not found in serialization context.");
-            }
+                switch (param)
+                {
+                    case "Model":
+                        var modelId = (string)r.Value;
+                        var model = serializationContext.GetValue<StaticMeshModel>(modelId);
+                        if (model != null)
+                        {
+                            _model = model;
+                        }
+                        else
+                        {
+                            throw new Exception($"StaticModel deserialization failed: Model with ID {modelId} not found in serialization context.");
+                        }
+                        return true;
+                    default:
+                        if(callback != null)
+                        {
+                            return callback(r, param);
+                        }
+                        break;
+                }
+                return false;
+            });
         }
     }
 }

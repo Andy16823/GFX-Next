@@ -151,20 +151,54 @@ namespace LibGFX.Graphics.Materials
         /// <param name="jObject">The JSON object containing the data to deserialize. Must not be null.</param>
         /// <param name="context">The serialization context to use during deserialization. Provides additional information or services
         /// required for the operation.</param>
-        public void Deserialize(JObject jObject, SerializationContext context)
+        public void Deserialize(JsonReader reader, SerializationContext context, Func<JsonReader, string, bool> callback = null)
         {
             if (this.IsInitialized)
             {
                 throw new InvalidOperationException("Cannot deserialize into an already initialized material.");
             }
 
-            Name = jObject.Value<string>("Name") ?? "Unnamed SpriteMaterial";
-            ID = Guid.Parse(jObject.Value<string>("ID") ?? Guid.NewGuid().ToString());
-            JObject? textureObj = jObject.Value<JObject>("Texture");
-            if (textureObj != null)
+            if(reader.TokenType != JsonToken.StartObject)
+                throw new JsonException("Expected StartObject token");
+
+            while(reader.Read())
             {
-                Texture = new Texture();
-                Texture.Deserialize(textureObj, context);
+                if(reader.TokenType == JsonToken.EndObject)
+                    break;
+                
+                if(reader.TokenType == JsonToken.PropertyName)
+                {
+                    string propertyName = (string)reader.Value;
+                    reader.Read();
+
+                    switch(propertyName)
+                    {
+                        case "Name":
+                            Name = (string) reader.Value;
+                            break;
+                        case "ID":
+                            ID = Guid.Parse((string)reader.Value);
+                            break;
+                        case "Texture":
+                            if(reader.TokenType == JsonToken.StartObject)
+                            {
+                                Texture = new Texture();
+                                Texture.Deserialize(reader, context);
+                            }
+                            else
+                            {
+                                Texture = null;
+                            }
+                            break;
+                        default:
+                            if(callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
+                    }
+                }
             }
         }
     }

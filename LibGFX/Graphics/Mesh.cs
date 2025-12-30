@@ -181,7 +181,7 @@ namespace LibGFX.Graphics
             writer.WriteEndObject();
         }
 
-        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
             // Ensure the mesh is not initialized before deserializing
             if (this.IsInitialized)
@@ -189,28 +189,87 @@ namespace LibGFX.Graphics
                 throw new InvalidOperationException("Cannot deserialize into an initialized Mesh. Dispose the mesh before deserializing.");
             }
 
-            // Deserialize General Properties
-            Name = jObject["Name"].Value<string>();
-            ID = Guid.Parse(jObject["ID"].Value<string>());
-            Vertices = new List<Vertex>();
-            var vertArray = jObject["Vertices"] as JArray;
-            foreach (var vertToken in vertArray)
-            {
-                Vertices.Add(Utils.DeserializeVertex(vertToken as JObject));
-            }
-            Indices = jObject["Indices"].ToObject<List<int>>();
-            LocalTranslation = Utils.DeserializeVec3(jObject["LocalTranslation"] as JObject);
-            LocalRotation = Utils.DeserializeQuat(jObject["LocalRotation"] as JObject);
-            LocalScale = Utils.DeserializeVec3(jObject["LocalScale"] as JObject);
+            if (reader.TokenType != JsonToken.StartObject)
+                throw new JsonException("Expected StartObject token");
 
-            // Deserialize Material
-            var materialID = Guid.Parse(jObject["Material"].Value<string>());
-            var material = serializationContext.GetValue<IMaterial>(materialID.ToString());
-            if (material == null)
-            {
-                throw new InvalidOperationException($"Material with ID {materialID} not found in serialization context.");
+            while (reader.Read()) {
+                if (reader.TokenType == JsonToken.EndObject)
+                    break;
+
+                if (reader.TokenType == JsonToken.PropertyName)
+                {
+                    string propertyName = (string)reader.Value;
+                    reader.Read();
+
+                    switch (propertyName)
+                    {
+                        case "Type":
+                            // Skip Type property
+                            reader.Skip();
+                            break;
+                        case "Name":
+                            Name = (string) reader.Value;
+                            break;
+                        case "ID":
+                            ID = Guid.Parse((string) reader.Value);
+                            break;
+                        case "Vertices":
+                            if (reader.TokenType != JsonToken.StartArray)
+                                throw new JsonException("Expected StartArray token for Vertices");
+
+                            Vertices = new List<Vertex>();
+                            while (reader.Read())
+                            {
+                                if (reader.TokenType == JsonToken.EndArray)
+                                    break;
+
+                                if (reader.TokenType == JsonToken.StartObject)
+                                {
+                                    var vertex = Utils.DeserializeVertex(reader);
+                                    Vertices.Add(vertex);
+                                }
+                            }
+                            break;
+                        case "Indices":
+                            if (reader.TokenType != JsonToken.StartArray)
+                                throw new JsonException("Expected StartArray token for Indices");
+
+                            Indices = new List<int>();
+                            while (reader.Read())
+                            {
+                                if (reader.TokenType == JsonToken.EndArray)
+                                    break;
+
+                                if (reader.TokenType == JsonToken.Integer)
+                                {
+                                    Indices.Add(Convert.ToInt32(reader.Value));
+                                }
+                            }
+                            break;
+                        case "LocalTranslation":
+                            LocalTranslation = Utils.DeserializeVec3(reader);
+                            break;
+                        case "LocalRotation":
+                            LocalRotation = Utils.DeserializeQuat(reader);
+                            break;
+                        case "LocalScale":
+                            LocalScale = Utils.DeserializeVec3(reader);
+                            break;
+                        case "Material":
+                            var materialID = Guid.Parse((string) reader.Value);
+                            var material = serializationContext.GetValue<IMaterial>(materialID.ToString());
+                            if (material == null)
+                            {
+                                throw new InvalidOperationException($"Material with ID {materialID} not found in serialization context.");
+                            }
+                            this.Material = material;
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
             }
-            this.Material = material;
         }
     }
 }

@@ -254,6 +254,8 @@ namespace LibGFX.Graphics
             writer.WriteValue(!String.IsNullOrEmpty(Name) ? Name : ID.ToString());
             writer.WritePropertyName("ID");
             writer.WriteValue(ID.ToString());
+            writer.WritePropertyName("FilePath");
+            writer.WriteValue(FilePath);
             writer.WritePropertyName("Meshes");
             writer.WriteStartArray();
             foreach (var kvp in Meshes)
@@ -261,10 +263,10 @@ namespace LibGFX.Graphics
                 writer.WriteStartObject();
                 writer.WritePropertyName("Key");
                 writer.WriteValue(kvp.Key);
-                writer.WritePropertyName("Mesh");
-                kvp.Value.Serialize(writer, serializationContext);
                 writer.WritePropertyName("Material");
                 kvp.Value.Material.Serialize(writer, serializationContext);
+                writer.WritePropertyName("Mesh");
+                kvp.Value.Serialize(writer, serializationContext);
                 writer.WriteEndObject();
             }
             writer.WriteEndArray();
@@ -282,39 +284,101 @@ namespace LibGFX.Graphics
         /// <param name="jObject">A <see cref="JObject"/> containing the serialized model data to deserialize.</param>
         /// <param name="serializationContext">A <see cref="SerializationContext"/> that provides context and services required during deserialization.</param>
         /// <exception cref="InvalidOperationException">Thrown if the model has already been initialized.</exception>
-        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
             if (this.IsInitialized)
             {
                 throw new InvalidOperationException("Cannot deserialize an initialized model.");
             }
 
-            // Deserialize meshes and materials
-            Meshes = new Dictionary<string, Mesh>();
-            var meshesArray = (JArray)jObject["Meshes"];
-            foreach (var meshToken in meshesArray)
+            if(reader.TokenType != JsonToken.StartObject)
+                throw new JsonException("Expected StartObject token.");
+
+            while(reader.Read())
             {
-                var meshObject = (JObject)meshToken;
-                var key = meshObject["Key"].Value<string>();
+                if(reader.TokenType == JsonToken.EndObject)
+                    break;
 
-                // Deserialize Material
-                var material = new SGMaterial();
-                material.Deserialize((JObject)meshObject["Material"], serializationContext);
-                serializationContext.SetValue(material.ID.ToString(), material);
+                if(reader.TokenType == JsonToken.PropertyName)
+                {
+                    var propertyName = (string)reader.Value;
+                    reader.Read();
 
-                // Deserialize Mesh
-                var mesh = new Mesh();
-                mesh.Deserialize((JObject)meshObject["Mesh"], serializationContext);
+                    switch (propertyName)
+                    {
+                        case "Type":
+                            // Skip type property
+                            reader.Skip();
+                            break;
+                        case "Name":
+                            this.Name = (string)reader.Value;
+                            break;
+                        case "ID":
+                            this.ID = Guid.Parse((string)reader.Value);
+                            break;
+                        case "Meshes":
+                            if (reader.TokenType != JsonToken.StartArray)
+                                throw new JsonException("Expected start of JSON array for 'Meshes'.");
 
-                // Assign material to mesh and add to dictionary
-                mesh.Material = material;
-                Meshes.Add(key, mesh);
+                            this.Meshes = new Dictionary<string, Mesh>();
+                            while (reader.Read())
+                            {
+                                if (reader.TokenType == JsonToken.EndArray)
+                                    break;
+
+                                if (reader.TokenType == JsonToken.StartObject)
+                                {
+                                    string key = null;
+                                    Mesh mesh = null;
+                                    SGMaterial material = null;
+                                    while (reader.Read())
+                                    {
+                                        if (reader.TokenType == JsonToken.EndObject)
+                                            break;
+
+                                        if (reader.TokenType == JsonToken.PropertyName)
+                                        {
+                                            var meshPropName = (string)reader.Value;
+                                            reader.Read();
+
+                                            switch (meshPropName)
+                                            {
+                                                case "Key":
+                                                    key = (string)reader.Value;
+                                                    break;
+                                                case "Mesh":
+                                                    mesh = new Mesh();
+                                                    mesh.Deserialize(reader, serializationContext);
+                                                    break;
+                                                case "Material":
+                                                    material = new SGMaterial();
+                                                    material.Deserialize(reader, serializationContext);
+                                                    serializationContext.SetValue(material.ID.ToString(), material);
+                                                    break;
+                                            }
+                                        }
+                                    }
+                                    if (key != null && mesh != null && material != null)
+                                    {
+                                        mesh.Material = material;
+                                        this.Meshes.Add(key, mesh);
+                                    }
+                                }
+                            }
+                            break;
+                        case "NodeStructure":
+                            this.NodeStructure = Utils.DeserializeSceneNodeData(reader);
+                            break;
+                        default:
+                            if(callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
+                    }
+                }
             }
-
-            // Deserialize other properties
-            this.Name = jObject["Name"]?.Value<string>() ?? String.Empty;
-            this.ID = Guid.Parse(jObject["ID"]?.Value<string>() ?? Guid.NewGuid().ToString());
-            this.NodeStructure = Utils.DeserializeSceneNodeData(jObject["NodeStructure"] as JObject);
         }
     }
 }

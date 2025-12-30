@@ -208,13 +208,49 @@ namespace LibGFX.Graphics.Animation3D
         /// </summary>
         /// <param name="jObject">A <see cref="JObject"/> containing the serialized data to deserialize. Must not be <see langword="null"/>.</param>
         /// <param name="serializationContext">A <see cref="SerializationContext"/> that provides context or settings for the deserialization process.</param>
-        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            this.Name = jObject.Value<string>("Name");
-            this.ID = jObject.Value<int>("ID");
-            this.AnimationChannel = new AnimationChannel();
-            this.AnimationChannel.Deserialize(jObject.Value<JObject>("AnimationChannel"), serializationContext);
-            this.LocalTransform = LibGFX.Core.Utils.DeserializeMatrix4(jObject.Value<JObject>("LocalTransform"));
+            if(reader.TokenType != JsonToken.StartObject)
+                throw new JsonException("Expected StartObject token");
+
+            while(reader.Read())
+            {
+                if (reader.TokenType == JsonToken.EndObject)
+                    break;
+
+                if (reader.TokenType == JsonToken.PropertyName)
+                {
+                    string propertyName = (string) reader.Value;
+                    reader.Read();
+
+                    switch (propertyName)
+                    {
+                        case "Type":
+                            reader.Skip();
+                            break;
+                        case "Name":
+                            this.Name = (string)reader.Value;
+                            break;
+                        case "ID":
+                            this.ID = Convert.ToInt32(reader.Value);
+                            break;
+                        case "AnimationChannel":
+                            this.AnimationChannel = new AnimationChannel();
+                            this.AnimationChannel.Deserialize(reader, serializationContext);
+                            break;
+                        case "LocalTransform":
+                            this.LocalTransform = LibGFX.Core.Utils.DeserializeMatrix4(reader);
+                            break;
+                        default:
+                            if(callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
+                    }
+                }
+            }
         }
     }
 }

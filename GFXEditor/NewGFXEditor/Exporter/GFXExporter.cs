@@ -19,78 +19,76 @@ namespace NewGFXEditor.Exporter
         public string Name => "GFX Exporter";
         public string FileExtension => ".gfxlevel";
         public bool SupportsImport => true;
-  
+
 
         private void ReadAssets(JsonReader reader, AssetManager assets, SerializationContext ctx)
         {
-            var settings = new JsonLoadSettings
-            {
-                LineInfoHandling = LineInfoHandling.Ignore,
-                CommentHandling = CommentHandling.Ignore
-            };
+            if (reader.TokenType != JsonToken.StartObject)
+                throw new JsonSerializationException("Expected start of Assets object");
 
-            reader.Read(); // StartArray
-            while(reader.Read())
+            // move into object
+            reader.Read();
+
+            while (reader.TokenType != JsonToken.EndObject)
             {
-                if(reader.TokenType == JsonToken.EndArray)
+                if (reader.TokenType != JsonToken.PropertyName)
+                    throw new JsonSerializationException("Expected asset category property name");
+
+                string assetType = (string)reader.Value;
+
+                // move to value (array)
+                reader.Read();
+
+                if (reader.TokenType != JsonToken.StartArray)
+                    throw new JsonSerializationException($"Expected start of {assetType} array");
+
+                switch (assetType)
                 {
-                    break;
+                    case "Materials":
+                        while (reader.Read() && reader.TokenType != JsonToken.EndArray)
+                        {
+                            var material = new SGMaterial();
+                            material.Deserialize(reader, ctx);
+                            ctx.SetValue(material.ID.ToString(), material);
+                            assets.Add(material);
+                        }
+                        break;
+
+                    case "Meshes":
+                        while (reader.Read() && reader.TokenType != JsonToken.EndArray)
+                        {
+                            var mesh = new Mesh();
+                            mesh.Deserialize(reader, ctx);
+                            ctx.SetValue(mesh.ID.ToString(), mesh);
+                            assets.Add(mesh);
+                        }
+                        break;
+
+                    case "StaticMeshModels":
+                        while (reader.Read() && reader.TokenType != JsonToken.EndArray)
+                        {
+                            var staticMeshModel = new StaticMeshModel();
+                            staticMeshModel.Deserialize(reader, ctx);
+                            ctx.SetValue(staticMeshModel.ID.ToString(), staticMeshModel);
+                            assets.Add(staticMeshModel);
+                        }
+                        break;
+
+                    default:
+                        // unbekannte Asset-Kategorie überspringen
+                        reader.Skip();
+                        break;
                 }
 
-                if(reader.TokenType == JsonToken.StartObject)
-                {
-                    JObject assetObj = JObject.Load(reader, settings);
-                    string typeName = assetObj["Type"].Value<string>();
-
-                    if(typeName == null)
-                    {
-                        Debug.WriteLine("[GFXExporter] Asset type is null during import.");
-                        continue;
-                    }
-
-                    if(typeName == typeof(SGMaterial).FullName)
-                    {
-                        var material = new SGMaterial();
-                        material.Deserialize(assetObj, ctx);
-                        assets.Add(material);
-                        ctx.SetValue(material.ID.ToString(), material); // Register in context
-                        continue;
-                    }
-
-                    if(typeName == typeof(Mesh).FullName)
-                    {
-                        var mesh = new Mesh();
-                        mesh.Deserialize(assetObj, ctx);
-                        assets.Add(mesh);
-                        ctx.SetValue(mesh.ID.ToString(), mesh); // Register in context
-                        continue;
-                    }
-
-                    if(typeName == typeof(StaticMeshModel).FullName)
-                    {
-                        var model = new StaticMeshModel();
-                        model.Deserialize(assetObj, ctx);
-                        assets.Add(model);
-                        ctx.SetValue(model.ID.ToString(), model); // Register in context
-                        continue;
-                    }
-
-                    Debug.WriteLine($"[GFXExporter] Unknown asset type during import: {typeName}");
-                }
+                // nach EndArray weiter
+                reader.Read();
             }
         }
 
+
         private void ReadScene(JsonReader reader, Scene3D scene, SerializationContext ctx)
         {
-            var settings = new JsonLoadSettings
-            {
-                LineInfoHandling = LineInfoHandling.Ignore,
-                CommentHandling = CommentHandling.Ignore
-            };
-
-            reader.Read();
-            JObject sceneObject = JObject.Load(reader, settings);
-            scene.Deserialize(sceneObject, ctx);
+            scene.Deserialize(reader, ctx);
         }
 
         public void Export(string filePath, LibGFX.Core.Scene3D scene, AssetManager assets)
@@ -106,23 +104,36 @@ namespace NewGFXEditor.Exporter
 
             // Serialize Assets
             jw.WritePropertyName("Assets");
+            jw.WriteStartObject();
+
+            // Materials Objects first
+            jw.WritePropertyName("Materials");
             jw.WriteStartArray();
-            // Serialize Materials first
             assets.ForeachAsset<IMaterial>(asset =>
             {
                 asset.Serialize(jw, null);
             });
-            // Serialize Meshes next
+            jw.WriteEndArray();
+
+            // Meshes
+            jw.WritePropertyName("Meshes");
+            jw.WriteStartArray();
             assets.ForeachAsset<Mesh>(asset =>
             {
                 asset.Serialize(jw, null);
             });
-            // Serialize Models last
+            jw.WriteEndArray();
+
+            // StaticMeshModels
+            jw.WritePropertyName("StaticMeshModels");
+            jw.WriteStartArray();
             assets.ForeachAsset<StaticMeshModel>(asset =>
             {
                 asset.Serialize(jw, null);
             });
             jw.WriteEndArray();
+
+            jw.WriteEndObject();
 
             // Serialize Scene
             jw.WritePropertyName("Scene");
@@ -137,27 +148,35 @@ namespace NewGFXEditor.Exporter
 
             using var fs = File.OpenRead(filePath);
             using var sr = new StreamReader(fs);
-            using var jr = new Newtonsoft.Json.JsonTextReader(sr);
+            using var jr = new JsonTextReader(sr);
 
-            jr.Read();
+            if (!jr.Read() || jr.TokenType != JsonToken.StartObject)
+                throw new JsonSerializationException("Expected root object");
 
             while (jr.Read())
             {
-                if(jr.TokenType != Newtonsoft.Json.JsonToken.PropertyName)
-                {
+                if (jr.TokenType != JsonToken.PropertyName)
                     continue;
-                }
 
-                switch ((string)jr.Value)
+                string prop = (string)jr.Value;
+                jr.Read(); // 🔑 auf Wert
+
+                switch (prop)
                 {
                     case "Assets":
                         ReadAssets(jr, assets, ctx);
                         break;
+
                     case "Scene":
                         ReadScene(jr, scene, ctx);
                         break;
+
+                    default:
+                        jr.Skip(); // 🔥 wichtig
+                        break;
                 }
             }
+
             ctx.ContextData.Clear();
         }
     }

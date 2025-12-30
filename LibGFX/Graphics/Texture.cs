@@ -423,25 +423,92 @@ namespace LibGFX.Graphics
             writer.WriteEndObject();
         }
 
-        public void Deserialize(JObject jObject, SerializationContext context)
+        public void Deserialize(JsonReader reader, SerializationContext context, Func<JsonReader, string, bool> callback = null)
         {
-            // Deserialize generic texture data
-            this.Width = jObject["Width"]!.Value<int>();
-            this.Height = jObject["Height"]!.Value<int>();
-            string base64Data = jObject["TextureData"]!.Value<string>()!;
-            this.TextureData = Convert.FromBase64String(base64Data);
-
-            // Deserialize texture parameters
-            JObject parameters = jObject["TextureParameters"]!.Value<JObject>()!;
-            TextureParameters texParams = new TextureParameters
+            if(this.IsInitialized)
             {
-                MinFilter = (RenderFlags.TextureFilterMode) parameters["MinFilter"]!.Value<int>(),
-                MagFilter = (RenderFlags.TextureFilterMode) parameters["MagFilter"]!.Value<int>(),
-                WrapS = (RenderFlags.TextureWrapMode) parameters["WrapS"]!.Value<int>(),
-                WrapT = (RenderFlags.TextureWrapMode) parameters["WrapT"]!.Value<int>(),
-                GenerateMipmaps = parameters["GenerateMipmaps"]!.Value<bool>()
-            };
-            this.TextureParameters = texParams;
+                throw new InvalidOperationException("Cannot deserialize into an initialized texture.");
+            }
+
+            if(reader.TokenType != JsonToken.StartObject)
+                throw new JsonException("Expected StartObject token.");
+
+            while(reader.Read())
+            {
+                if (reader.TokenType == JsonToken.EndObject)
+                    break;
+
+                if (reader.TokenType == JsonToken.PropertyName)
+                {
+                    string propertyName = (string)reader.Value;
+                    reader.Read();
+
+                    switch (propertyName)
+                    {
+                        case "Type":
+                            reader.Skip();
+                            break;
+                        case "Width":
+                            this.Width = Convert.ToInt32(reader.Value);
+                            break;
+                        case "Height":
+                            this.Height = Convert.ToInt32(reader.Value);
+                            break;
+                        case "TextureData":
+                            string base64Data = (string)reader.Value;
+                            this.TextureData = Convert.FromBase64String(base64Data);
+                            break;
+                        case "TextureParameters":
+                            if(reader.TokenType != JsonToken.StartObject)
+                                throw new JsonException("Expected StartObject token for TextureParameters.");
+
+                            TextureParameters texParams = new TextureParameters();
+
+                            while(reader.Read())
+                            {
+                                if (reader.TokenType == JsonToken.EndObject)
+                                    break;
+
+                                if (reader.TokenType == JsonToken.PropertyName)
+                                {
+                                    string paramName = (string)reader.Value;
+                                    reader.Read();
+
+                                    switch (paramName)
+                                    {
+                                        case "MinFilter":
+                                            texParams.MinFilter = (RenderFlags.TextureFilterMode)Convert.ToInt32(reader.Value);
+                                            break;
+                                        case "MagFilter":
+                                            texParams.MagFilter = (RenderFlags.TextureFilterMode)Convert.ToInt32(reader.Value);
+                                            break;
+                                        case "WrapS":
+                                            texParams.WrapS = (RenderFlags.TextureWrapMode)Convert.ToInt32(reader.Value);
+                                            break;
+                                        case "WrapT":
+                                            texParams.WrapT = (RenderFlags.TextureWrapMode)Convert.ToInt32(reader.Value);
+                                            break;
+                                        case "GenerateMipmaps":
+                                            texParams.GenerateMipmaps = Convert.ToBoolean(reader.Value);
+                                            break;
+                                        default:
+                                            reader.Skip();
+                                            break;
+                                    }
+                                }
+                            }
+                            this.TextureParameters = texParams;
+                            break;
+                        default:
+                            if(callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
+                    }
+                }
+            }   
         }
     }
 }

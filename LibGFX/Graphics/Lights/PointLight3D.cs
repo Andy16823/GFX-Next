@@ -218,15 +218,39 @@ namespace LibGFX.Graphics.Lights
         /// and must contain the expected fields.</param>
         /// <param name="serializationContext">The context to use during deserialization, providing additional information or services required for the
         /// process.</param>
-        public override void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            base.Deserialize(jObject, serializationContext);
-            this.Range = jObject["Range"]?.Value<float>() ?? 0f;
-            this.Constant = jObject["Constant"]?.Value<float>() ?? 0f;
-            this.Linear = jObject["Linear"]?.Value<float>() ?? 0f;
-            this.Quadratic = jObject["Quadratic"]?.Value<float>() ?? 0f;
-            this.Ambient = Utils.DeserializeVec4(jObject["Ambient"] as JObject);
-            this.Specular = Utils.DeserializeVec4(jObject["Specular"] as JObject);
+            base.Deserialize(reader, serializationContext, (r, param) =>
+            {
+                switch (param)
+                {
+                    case "Range":
+                        this.Range = Convert.ToSingle(r.Value);
+                        return true;
+                    case "Constant":
+                        this.Constant = Convert.ToSingle(r.Value);
+                        return true;
+                    case "Linear":
+                        this.Linear = Convert.ToSingle(r.Value);
+                        return true;
+                    case "Quadratic":
+                        this.Quadratic = Convert.ToSingle(r.Value);
+                        return true;
+                    case "Ambient":
+                        this.Ambient = Utils.DeserializeVec4(r);
+                        return true;
+                    case "Specular":
+                        this.Specular = Utils.DeserializeVec4(r);
+                        return true;
+                    default:
+                        if(callback != null)
+                        {
+                            return callback(r, param);
+                        }
+                        break;
+                }
+                return false;
+            });
         }
     }
 }

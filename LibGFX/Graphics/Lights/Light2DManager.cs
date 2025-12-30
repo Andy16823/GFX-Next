@@ -66,16 +66,50 @@ namespace LibGFX.Graphics.Lights
         /// property.</param>
         /// <param name="serializationContext">The <see cref="SerializationContext"/> to use during deserialization. Provides context or settings required
         /// for the operation.</param>
-        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            var lightsArray = jObject["Lights"] as JArray;
-            Lights.Clear();
-            foreach(var lightToken in lightsArray)
+            if(reader.TokenType != JsonToken.StartObject)
+                throw new JsonException("Expected StartObject token.");
+
+            while (reader.Read())
             {
-                var lightObject = lightToken as JObject;
-                var light = new PointLight2D();
-                light.Deserialize(lightObject, serializationContext);
-                Lights.Add(light);
+                if(reader.TokenType == JsonToken.EndObject)
+                    break;
+
+                if(reader.TokenType == JsonToken.PropertyName)
+                {
+                    var propertyName = (string)reader.Value;
+                    reader.Read();
+
+                    switch (propertyName)
+                    {
+                        case "Lights":
+                            if(reader.TokenType != JsonToken.StartArray)
+                                throw new JsonException("Expected StartArray token for Lights property.");
+                            
+                            Lights.Clear();
+                            while (reader.Read())
+                            {
+                                if(reader.TokenType == JsonToken.EndArray)
+                                    break;
+
+                                if(reader.TokenType == JsonToken.StartObject)
+                                {
+                                    var light = new PointLight2D();
+                                    light.Deserialize(reader, serializationContext);
+                                    Lights.Add(light);
+                                }
+                            }
+                            break;
+                        default:
+                            if(callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
+                    }
+                }
             }
         }
     }
@@ -391,35 +425,94 @@ namespace LibGFX.Graphics.Lights
             writer.WriteEndObject();
         }
 
-        /// <summary>
-        /// Populates the current object with data from the specified JSON object using the provided serialization
-        /// context. 
-        /// </summary>
-        /// <remarks>Existing chunk and directional light data in the current object are replaced by the
-        /// values from the JSON object. The method expects the JSON structure to match the expected schema; missing or
-        /// malformed properties may result in runtime errors.</remarks>
-        /// <param name="jObject">A JSON object containing the serialized data to deserialize into the current instance. Must not be null and
-        /// is expected to contain 'Chunks' and optionally 'DirectionalLight' properties.</param>
-        /// <param name="serializationContext">The context to use during deserialization, providing any necessary state or configuration for the process.</param>
-        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            var chunksArray = jObject["Chunks"] as JArray;
-            Chunks.Clear();
-            foreach (var chunkToken in chunksArray)
+            if(reader.TokenType != JsonToken.StartObject)
+                throw new JsonException("Expected StartObject token.");
+
+            while(reader.Read())
             {
-                var chunkObject = chunkToken as JObject;
-                int chunkX = chunkObject["ChunkX"].Value<int>();
-                int chunkY = chunkObject["ChunkY"].Value<int>();
-                var lightChunkObject = chunkObject["LightChunk"] as JObject;
-                var lightChunk = new Light2DChunk();
-                lightChunk.Deserialize(lightChunkObject, serializationContext);
-                Chunks[(chunkX, chunkY)] = lightChunk;
-            }
-            var directionalLightObject = jObject["DirectionalLight"] as JObject;
-            if (directionalLightObject != null)
-            {
-                DirectionalLight = new DirectionalLight2D();
-                DirectionalLight.Deserialize(directionalLightObject, serializationContext);
+                if(reader.TokenType == JsonToken.EndObject)
+                    break;
+
+                if(reader.TokenType == JsonToken.PropertyName)
+                {
+                    string propertyName = (string)reader.Value;
+                    reader.Read();
+
+                    switch (propertyName)
+                    {
+                        case "DirectionalLight":
+                            if(reader.TokenType == JsonToken.StartObject)
+                            {
+                                var directionalLight = new DirectionalLight2D();
+                                directionalLight.Deserialize(reader, serializationContext);
+                                DirectionalLight = directionalLight;
+                            }
+                            else
+                            {
+                                DirectionalLight = null;
+                            }
+                            break;
+                        case "Chunks":
+                            if(reader.TokenType != JsonToken.StartArray)
+                                throw new JsonException("Expected StartArray token for Chunks property.");
+
+                            Chunks.Clear();
+                            while (reader.Read())
+                            {
+                                if(reader.TokenType == JsonToken.EndArray)
+                                    break;
+
+                                if(reader.TokenType == JsonToken.StartObject)
+                                {
+                                    int chunkX = 0;
+                                    int chunkY = 0;
+                                    Light2DChunk lightChunk = null;
+                                    while (reader.Read())
+                                    {
+                                        if(reader.TokenType == JsonToken.EndObject)
+                                            break;
+
+                                        if(reader.TokenType == JsonToken.PropertyName)
+                                        {
+                                            string chunkPropertyName = (string)reader.Value;
+                                            reader.Read();
+
+                                            switch (chunkPropertyName)
+                                            {
+                                                case "ChunkX":
+                                                    chunkX = reader.Value != null ? Convert.ToInt32(reader.Value) : 0;
+                                                    break;
+                                                case "ChunkY":
+                                                    chunkY = reader.Value != null ? Convert.ToInt32(reader.Value) : 0;
+                                                    break;
+                                                case "LightChunk":
+                                                    if(reader.TokenType == JsonToken.StartObject)
+                                                    {
+                                                        lightChunk = new Light2DChunk();
+                                                        lightChunk.Deserialize(reader, serializationContext);
+                                                    }
+                                                    break;
+                                            }
+                                        }
+                                    }
+                                    if (lightChunk != null)
+                                    {
+                                        Chunks[(chunkX, chunkY)] = lightChunk;
+                                    }
+                                }
+                            }
+                            break;
+                        default:
+                            if(callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
+                    }
+                }
             }
         }
 

@@ -80,6 +80,17 @@ namespace LibGFX.Graphics.Animation3D
         /// </summary>
         public int NumScalings => Scales.Count;
 
+        /// <summary>
+        /// Serializes the bone animation data to the specified JSON writer using the provided serialization context.
+        /// Optionally invokes a callback to perform additional custom serialization.
+        /// </summary>
+        /// <remarks>The method writes the type information, bone name, and keyframe data for positions,
+        /// rotations, and scales to the JSON output. The callback parameter allows callers to extend the serialized
+        /// output with custom data if needed.</remarks>
+        /// <param name="writer">The JSON writer to which the bone animation data will be written. Must not be null.</param>
+        /// <param name="serializationContext">The context that provides information and services required for serialization. Must not be null.</param>
+        /// <param name="callback">An optional callback that receives the JSON writer and can be used to write additional custom properties or
+        /// data. If null, no additional serialization is performed.</param>
         public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
             // Serialize BoneName and keyframes
@@ -123,36 +134,102 @@ namespace LibGFX.Graphics.Animation3D
             writer.WriteEndObject();
         }
 
-        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        /// <summary>
+        /// Deserializes the object from the specified JSON reader using the provided serialization context.
+        /// </summary>
+        /// <remarks>The method expects the JSON to contain properties such as "BoneName", "Positions",
+        /// "Rotations", and "Scales". Collections for positions, rotations, and scales are cleared and repopulated
+        /// based on the JSON content. Unknown properties are skipped.</remarks>
+        /// <param name="reader">The JSON reader positioned at the start of the object to deserialize. Must not be null and must be at a
+        /// StartObject token.</param>
+        /// <param name="serializationContext">The context containing serialization settings and state information used during deserialization.</param>
+        /// <exception cref="JsonSerializationException">Thrown if the JSON structure is invalid or if expected tokens are missing during deserialization.</exception>
+        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            // Deserialize BoneName
-            this.BoneName = jObject.Value<string>("BoneName");
+            if(reader.TokenType != JsonToken.StartObject)
+                throw new JsonSerializationException("Expected StartObject token");
 
-            // Deserialize Positions
-            this.Positions.Clear();
-            JArray positionsArray = jObject.Value<JArray>("Positions");
-            foreach (var posToken in positionsArray)
+            while(reader.Read())
             {
-                KeyPosition pos = Utils.DeserializeKeyPosition(posToken as JObject);
-                this.Positions.Add(pos);
-            }
+                if(reader.TokenType == JsonToken.EndObject)
+                    break;
 
-            // Deserialize Rotations
-            this.Rotations.Clear();
-            JArray rotationsArray = jObject.Value<JArray>("Rotations");
-            foreach (var rotToken in rotationsArray)
-            {
-                KeyRotation rot = Utils.DeserializeKeyRotation(rotToken as JObject);
-                this.Rotations.Add(rot);
-            }
+                if(reader.TokenType == JsonToken.PropertyName)
+                {
+                    var propertyName = (string) reader.Value;
+                    reader.Read();
 
-            // Deserialize Scales
-            this.Scales.Clear();
-            JArray scalesArray = jObject.Value<JArray>("Scales");
-            foreach (var scaleToken in scalesArray)
-            {
-                KeyScale scale = Utils.DeserializeKeyScale(scaleToken as JObject);
-                this.Scales.Add(scale);
+                    switch (propertyName)
+                    {
+                        case "Type":
+                            reader.Skip();
+                            break;
+                        case "BoneName":
+                            this.BoneName = (string) reader.Value;
+                            break;
+                        case "Positions":
+                            this.Positions.Clear();
+                            if(reader.TokenType != JsonToken.StartArray)
+                                throw new JsonSerializationException("Expected StartArray token for Positions");
+
+                            while(reader.Read())
+                            {
+                                if (reader.TokenType == JsonToken.EndArray)
+                                    break;
+
+                                if(reader.TokenType == JsonToken.StartObject) 
+                                {
+                                    KeyPosition position = Utils.DeserializeKeyPosition(reader);
+                                    this.Positions.Add(position);
+                                }
+                            }
+                            break;
+                        case "Rotations":
+                            this.Rotations.Clear();
+
+                            if(reader.TokenType != JsonToken.StartArray)
+                                throw new JsonSerializationException("Expected StartArray token for Rotations");
+
+                            while(reader.Read())
+                            {
+                                if (reader.TokenType == JsonToken.EndArray)
+                                    break;
+
+                                if(reader.TokenType == JsonToken.StartObject) 
+                                {
+                                    KeyRotation rotation = Utils.DeserializeKeyRotation(reader);
+                                    this.Rotations.Add(rotation);
+                                }
+                            }
+                            break;
+                        case "Scales":
+                            this.Scales.Clear();
+
+                            if(reader.TokenType != JsonToken.StartArray)
+                                throw new JsonSerializationException("Expected StartArray token for Scales");
+
+                            while(reader.Read())
+                            {
+                                if (reader.TokenType == JsonToken.EndArray)
+                                    break;
+
+                                if(reader.TokenType == JsonToken.StartObject) 
+                                {
+                                    KeyScale scale = Utils.DeserializeKeyScale(reader);
+                                    this.Scales.Add(scale);
+                                }
+                            }
+                            break;
+                        default:
+                            if(callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
+                    }
+
+                }
             }
         }
     }

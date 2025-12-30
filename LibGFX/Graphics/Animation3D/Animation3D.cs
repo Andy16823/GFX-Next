@@ -266,8 +266,8 @@ namespace LibGFX.Graphics.Animation3D
             writer.WriteValue(this.Duration);
             writer.WritePropertyName("TicksPerSecond");
             writer.WriteValue(this.TicksPerSecond);
-            writer.WritePropertyName("Bones");
 
+            writer.WritePropertyName("Bones");
             writer.WriteStartArray();
             foreach (var bone in Bones)
             {
@@ -306,6 +306,116 @@ namespace LibGFX.Graphics.Animation3D
         }
 
         /// <summary>
+        /// Deserializes the list of bones from the JSON reader.
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="serializationContext"></param>
+        /// <returns></returns>
+        /// <exception cref="JsonException"></exception>
+        private List<Bone> DeserializeBones(JsonReader reader, SerializationContext serializationContext)
+        {
+            if (reader.TokenType != JsonToken.StartArray)
+                throw new JsonException("Expected StartArray token for Bones");
+
+            var bones = new List<Bone>();
+
+            while (reader.Read())
+            {
+                if (reader.TokenType == JsonToken.EndArray)
+                    break;
+
+                if (reader.TokenType == JsonToken.StartObject)
+                {
+                    var bone = new Bone();
+                    bone.Deserialize(reader, serializationContext);
+                    bones.Add(bone);
+                }
+            }
+            return bones;
+        }
+
+        /// <summary>
+        /// Deserializes the bone info map from the JSON reader.
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="serializationContext"></param>
+        /// <returns></returns>
+        /// <exception cref="JsonException"></exception>
+        private Dictionary<string, BoneInfo> DeserializeBoneInfoMap(JsonReader reader, SerializationContext serializationContext)
+        {
+            if(reader.TokenType != JsonToken.StartArray)
+                throw new JsonException("Expected StartArray token for BoneInfoMap");
+
+            var boneInfoMap = new Dictionary<string, BoneInfo>();
+
+            while (reader.Read())
+            {
+                if( reader.TokenType == JsonToken.EndArray)
+                    break;
+
+                if (reader.TokenType == JsonToken.StartObject)
+                {
+                    string key = null;
+                    BoneInfo value = new BoneInfo();
+
+                    while (reader.Read())
+                    {
+                        if (reader.TokenType == JsonToken.EndObject)
+                            break;
+
+                        if (reader.TokenType == JsonToken.PropertyName)
+                        {
+                            string propertyName = (string)reader.Value;
+                            reader.Read();
+                            switch (propertyName)
+                            {
+                                case "Key":
+                                    key = reader.Value as string;
+                                    break;
+                                case "Value":
+                                    value = Core.Utils.DeserializeBoneInfo(reader);
+                                    break;
+                            }
+                        }
+                    }
+                    if (key != null)
+                    {
+                        boneInfoMap.Add(key, value);
+                    }
+                }
+            }
+            return boneInfoMap;
+        }
+
+        /// <summary>
+        /// Deserializes the list of animation channels from the JSON reader.
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="serializationContext"></param>
+        /// <returns></returns>
+        private List<AnimationChannel> DeserializeAnimationChannels(JsonReader reader, SerializationContext serializationContext)
+        {
+            var channels = new List<AnimationChannel>();
+
+            if (reader.TokenType == JsonToken.StartArray)
+            {
+                while (reader.Read())
+                {
+                    if (reader.TokenType == JsonToken.EndArray)
+                        break;
+
+                    if (reader.TokenType == JsonToken.StartObject)
+                    {
+                        var channel = new AnimationChannel();
+                        channel.Deserialize(reader, serializationContext);
+                        channels.Add(channel);
+                    }
+                }
+            }
+            return channels;
+        }
+
+        /// <summary>
         /// Populates the object's properties by deserializing data from the specified JSON object.
         /// </summary>
         /// <remarks>This method expects the JSON object to include all necessary fields such as 'Name',
@@ -316,44 +426,57 @@ namespace LibGFX.Graphics.Animation3D
         /// contain all required fields for the object.</param>
         /// <param name="serializationContext">A <see cref="SerializationContext"/> providing context or settings used during deserialization. This may
         /// influence how certain fields are interpreted or constructed.</param>
-        public void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            this.Name = jObject["Name"]?.Value<string>() ?? String.Empty;
-            this.Duration = jObject["Duration"]?.Value<float>() ?? 0f;
-            this.TicksPerSecond = jObject["TicksPerSecond"]?.Value<float>() ?? 0f;
+            if(reader.TokenType != JsonToken.StartObject)
+                throw new JsonSerializationException("Expected StartObject token");
 
-            // Deserialize Bones
-            this.Bones = new List<Bone>();
-            var boneArray = jObject["Bones"] as JArray;
-            foreach (var boneToken in boneArray)
+            while (reader.Read())
             {
-                var bone = new Bone();
-                bone.Deserialize(boneToken as JObject, serializationContext);
-                this.Bones.Add(bone);
-            }
+                if(reader.TokenType == JsonToken.EndObject)
+                    break;
 
-            // Deserialize BoneInfoMap
-            this.BoneInfoMap = new Dictionary<string, BoneInfo>();
-            var boneInfoArray = jObject["BoneInfoMap"] as JArray;
-            foreach (var boneInfoToken in boneInfoArray)
-            {
-                var key = boneInfoToken["Key"].ToString();
-                var value = Core.Utils.DeserializeBoneInfo(boneInfoToken["Value"] as JObject);
-                this.BoneInfoMap.Add(key, value);
-            }
+                if(reader.TokenType == JsonToken.PropertyName)
+                {
+                    string propertyName = (string)reader.Value;
+                    reader.Read(); // Move to the value token
 
-            // Deserialize AnimationChannels
-            _animationChannels = new List<AnimationChannel>();
-            var animChannelArray = jObject["AnimationChannels"] as JArray;
-            foreach (var channelToken in animChannelArray)
-            {
-                var channel = new AnimationChannel();
-                channel.Deserialize(channelToken as JObject, serializationContext);
-                _animationChannels.Add(channel);
+                    switch (propertyName)
+                    {
+                        case "Type":
+                            reader.Skip();
+                            break;
+                        case "Name":
+                            this.Name = reader.Value as string ?? string.Empty;
+                            break;
+                        case "Duration":
+                            this.Duration = Convert.ToSingle(reader.Value);
+                            break;
+                        case "TicksPerSecond":
+                            this.TicksPerSecond = Convert.ToSingle(reader.Value);
+                            break;
+                        case "Bones":
+                            this.Bones = DeserializeBones(reader, serializationContext);
+                            break;
+                        case "BoneInfoMap":
+                            this.BoneInfoMap = DeserializeBoneInfoMap(reader, serializationContext);
+                            break;
+                        case "AnimationChannels":
+                            _animationChannels = DeserializeAnimationChannels(reader, serializationContext);
+                            break;
+                        case "RootNode":
+                            this.RootNode = Core.Utils.DeserializeSceneNodeData(reader);
+                            break;
+                        default:
+                            if (callback != null && callback(reader, propertyName))
+                            {
+                                break;
+                            }
+                            reader.Skip();
+                            break;
+                    }
+                }
             }
-
-            // Deserialize RootNode
-            this.RootNode = Core.Utils.DeserializeSceneNodeData(jObject["RootNode"] as JObject);
         }
     }
 }

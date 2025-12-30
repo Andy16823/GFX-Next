@@ -120,13 +120,33 @@ namespace LibGFX.Graphics.Lights
         /// <param name="jObject">A <see cref="JObject"/> containing the serialized data to deserialize. Must not be null and should include
         /// all required properties.</param>
         /// <param name="serializationContext">A <see cref="SerializationContext"/> that provides context or settings for the deserialization process.</param>
-        public override void Deserialize(JObject jObject, SerializationContext serializationContext)
+        public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
-            base.Deserialize(jObject, serializationContext);
-            this.Direction = Utils.DeserializeVec3(jObject["Direction"] as JObject);
-            this.Ambient = Utils.DeserializeVec3(jObject["Ambient"] as JObject);
-            this.Specular = Utils.DeserializeVec3(jObject["Specular"] as JObject);
-            this.Bias = jObject["Bias"].Value<float>();
+            base.Deserialize(reader, serializationContext, (r, param) =>
+            {
+                switch (param)
+                {
+                    case "Direction":
+                        this.Direction = Utils.DeserializeVec3(r);
+                        return true;
+                    case "Ambient":
+                        this.Ambient = Utils.DeserializeVec3(r);
+                        return true;
+                    case "Specular":
+                        this.Specular = Utils.DeserializeVec3(r);
+                        return true;
+                    case "Bias":
+                        this.Bias = Convert.ToSingle(r.Value);
+                        return true;
+                    default:
+                        if(callback != null)
+                        {
+                            return callback(r, param);
+                        }
+                        break;
+                }
+                return false;
+            });
         }
     }
 }
