@@ -139,11 +139,12 @@ namespace LibGFX.Core.GameElements
         }
 
         /// <summary>
-        /// Deserializes the object's state from the specified JSON object using the provided serialization context.
+        /// Deserializes the object from a JSON representation, restoring its state including the light source
         /// </summary>
-        /// <param name="jObject">A <see cref="JObject"/> containing the JSON data to deserialize from. Must not be null.</param>
-        /// <param name="serializationContext">The <see cref="SerializationContext"/> to use during deserialization. Provides context and settings for the
-        /// operation.</param>
+        /// <param name="reader"></param>
+        /// <param name="serializationContext"></param>
+        /// <param name="callback"></param>
+        /// <exception cref="InvalidOperationException"></exception>
         public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
             base.Deserialize(reader, serializationContext, (r, param) =>
@@ -176,6 +177,8 @@ namespace LibGFX.Core.GameElements
                 }
                 return false;
             });
+            this.Transform.Position = LightSource.Position;
+            this.Transform.Changed += Transform_Changed;
         }
     }
 }

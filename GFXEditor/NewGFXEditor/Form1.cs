@@ -130,25 +130,25 @@ namespace NewGFXEditor
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 GFXExporter exporter = new GFXExporter();
-                exporter.Export(sfd.FileName, this.Scene as Scene3D, GFX.Instance.AssetManager);
+                exporter.ExportScene(sfd.FileName, this.Scene as Scene3D, GFX.Instance.AssetManager);
             }
         }
 
         public void OpenScene()
         {
-            // Dispose existing scene
-            _sceneEnabled = false;
-            GFX.Instance.AssetManager.DisposeAssets(_editorPanel3D.Renderer);
-            GFX.Instance.AssetManager.ClearAssets();
-            Scene.LightManager.Dispose(_editorPanel3D.Renderer);
-            Scene.FreeScene(_editorPanel3D.Renderer);
-
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "GFX Level Files|*.gfxlevel";
+            openFileDialog.Filter = "GFX Scene File |*.gfxlevel";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                // Disable and clear assets and scene
+                _sceneEnabled = false;
+                GFX.Instance.AssetManager.DisposeAssets(_editorPanel3D.Renderer);
+                GFX.Instance.AssetManager.ClearAssets();
+                Scene.LightManager.Dispose(_editorPanel3D.Renderer);
+                Scene.FreeScene(_editorPanel3D.Renderer);
+
                 GFXExporter exporter = new GFXExporter();
-                exporter.Import(openFileDialog.FileName, this.Scene as Scene3D, GFX.Instance.AssetManager);
+                exporter.ImportScene(openFileDialog.FileName, this.Scene as Scene3D, GFX.Instance.AssetManager);
                 GFX.Instance.AssetManager.InitializeAssets(_editorPanel3D.Renderer);
                 Scene.LightManager.Init(_editorPanel3D.Renderer);
                 Scene.InitializeElements(_editorPanel3D.Viewport, _editorPanel3D.Renderer);
@@ -854,10 +854,10 @@ namespace NewGFXEditor
         }
 
         /// <summary>
-        /// Handles the Click event of the Import Material menu item and initiates the process of importing material
+        /// Handles the Click event of the ImportScene Material menu item and initiates the process of importing material
         /// from a selected file.
         /// </summary>
-        /// <param name="sender">The source of the event, typically the Import Material menu item.</param>
+        /// <param name="sender">The source of the event, typically the ImportScene Material menu item.</param>
         /// <param name="e">An EventArgs object that contains the event data.</param>
         private void importMaterialToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1424,6 +1424,11 @@ namespace NewGFXEditor
         private void reloadUToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.UpdateGUI();
+        }
+
+        private void gFXAssetsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

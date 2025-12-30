@@ -38,7 +38,7 @@ namespace NewGFXEditor.Exporter
         /// <param name="filePath">The path to the file where the scene will be exported. Must be a valid file path and cannot be null or
         /// empty.</param>
         /// <param name="scene">The 3D scene to export. Cannot be null.</param>
-        void Export(string filePath, Scene3D scene, AssetManager assets);
+        void ExportScene(string filePath, Scene3D scene, AssetManager assets);
 
         /// <summary>
         /// Imports 3D scene data from the specified file into the provided scene using the given asset manager.
@@ -49,6 +49,6 @@ namespace NewGFXEditor.Exporter
         /// <param name="filePath">The path to the file containing the 3D scene data to import. Cannot be null or empty.</param>
         /// <param name="scene">The <see cref="Scene3D"/> instance to populate with the imported scene data. Cannot be null.</param>
         /// <param name="assets">The <see cref="AssetManager"/> used to manage assets referenced by the imported scene. Cannot be null.</param>
-        void Import(string filePath, Scene3D scene, AssetManager assets);
+        void ImportScene(string filePath, Scene3D scene, AssetManager assets);
     }
 }
