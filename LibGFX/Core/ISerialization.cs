@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace LibGFX.Core
         /// Serializes the current object to a new JSON object representation.
         /// </summary>
         /// <returns>A <see cref="JObject"/> containing the serialized data of the current object.</returns>
-        JObject Serialize(SerializationContext serializationContext);
+        void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null);
 
         /// <summary>
         /// Populates the current object with values from the specified JSON object.

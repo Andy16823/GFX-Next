@@ -2,6 +2,7 @@
 using LibGFX.Core;
 using LibGFX.Core.GameElements;
 using LibGFX.Math;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Core;
 using OpenTK.Mathematics;
@@ -254,46 +255,54 @@ namespace LibGFX.Graphics.Animation3D
         /// <param name="serializationContext">The context that provides settings and state information required for serialization.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized representation of the animation, including bones, bone
         /// information, root node, and animation channels.</returns>
-        public JObject Serialize(SerializationContext serializationContext)
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            // Serialize Bones
-            var boneArray = new JArray();
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("Name");
+            writer.WriteValue(this.Name);
+            writer.WritePropertyName("Duration");
+            writer.WriteValue(this.Duration);
+            writer.WritePropertyName("TicksPerSecond");
+            writer.WriteValue(this.TicksPerSecond);
+            writer.WritePropertyName("Bones");
+
+            writer.WriteStartArray();
             foreach (var bone in Bones)
             {
-                boneArray.Add(bone.Serialize(serializationContext));
+                bone.Serialize(writer, serializationContext);
             }
+            writer.WriteEndArray();
 
-            // Serialize BoneInfoMap
-            var boneInfoArray = new JArray();
-            foreach(var boneinfo in this.BoneInfoMap)
+            writer.WritePropertyName("RootNode");
+            Core.Utils.SerializeSceneNodeData(RootNode, writer);
+
+            writer.WritePropertyName("BoneInfoMap");
+            writer.WriteStartArray();
+            foreach (var boneinfo in this.BoneInfoMap)
             {
-                var boneInfoObject = new JObject()
-                {
-                    ["Key"] = boneinfo.Key,
-                    ["Value"] = Core.Utils.SerializeBoneInfo(boneinfo.Value)
-                };
-                boneInfoArray.Add(boneInfoObject);
+                writer.WriteStartObject();
+                writer.WritePropertyName("Key");
+                writer.WriteValue(boneinfo.Key);
+                writer.WritePropertyName("Value");
+                Core.Utils.SerializeBoneInfo(boneinfo.Value, writer);
+                writer.WriteEndObject();
             }
-
-            // Serialize AnimationChannels
-            var animChannelArray = new JArray();
-            foreach(var channel in _animationChannels)
+            writer.WriteEndArray();
+            
+            writer.WritePropertyName("AnimationChannels");
+            writer.WriteStartArray();
+            foreach (var channel in _animationChannels)
             {
-                animChannelArray.Add(channel.Serialize(serializationContext));
+                channel.Serialize(writer, serializationContext);
             }
+            writer.WriteEndArray();
 
-            // Return the complete serialized object
-            return new JObject()
-            {
-                ["Type"] = this.GetType().FullName,
-                ["Name"] = this.Name,
-                ["Duration"] = this.Duration,
-                ["TicksPerSecond"] = this.TicksPerSecond,
-                ["Bones"] = boneArray,
-                ["RootNode"] = Core.Utils.SerializeSceneNodeData(RootNode),
-                ["BoneInfoMap"] = boneInfoArray,
-                ["AnimationChannels"] = animChannelArray
-            };
+            // Callback for additional serialization
+            callback?.Invoke(writer);
+
+            writer.WriteEndObject();
         }
 
         /// <summary>

@@ -2,6 +2,7 @@
 using LibGFX.Graphics.Animation3D;
 using LibGFX.Graphics.Materials;
 using LibGFX.Math;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -315,68 +316,90 @@ namespace LibGFX.Core
             return false;
         }
 
-        public static JObject SerializeVec2(Vector2 vec)
+        public static void SerializeVec2(Vector2 vec, JsonWriter writer)
         {
-            JObject obj = new JObject();
-            obj["X"] = vec.X;
-            obj["Y"] = vec.Y;
-            return obj;
+            writer.WriteStartObject();
+            writer.WritePropertyName("X");
+            writer.WriteValue(vec.X);
+            writer.WritePropertyName("Y");
+            writer.WriteValue(vec.Y);
+            writer.WriteEndObject();
         }
 
-        public static JObject SerializeVec2i(Vector2i vec)
+        public static void SerializeVec2i(Vector2i vec, JsonWriter writer)
         {
-            JObject obj = new JObject();
-            obj["X"] = vec.X;
-            obj["Y"] = vec.Y;
-            return obj;
+            writer.WriteStartObject();
+            writer.WritePropertyName("X");
+            writer.WriteValue(vec.X);
+            writer.WritePropertyName("Y");
+            writer.WriteValue(vec.Y);
+            writer.WriteEndObject();
         }
 
-        public static JObject SerializeVec3(Vector3 vec)
+        public static void SerializeVec3(Vector3 vec, JsonWriter writer)
         {
-            JObject obj = new JObject();
-            obj["X"] = vec.X;
-            obj["Y"] = vec.Y;
-            obj["Z"] = vec.Z;
-            return obj;
+            writer.WriteStartObject();
+            writer.WritePropertyName("X");
+            writer.WriteValue(vec.X);
+            writer.WritePropertyName("Y");
+            writer.WriteValue(vec.Y);
+            writer.WritePropertyName("Z");
+            writer.WriteValue(vec.Z);
+            writer.WriteEndObject();
         }
 
-        public static JObject SerializeVec3i(Vector3i vec)
+        public static void SerializeVec3i(Vector3i vec, JsonWriter writer)
         {
-            JObject obj = new JObject();
-            obj["X"] = vec.X;
-            obj["Y"] = vec.Y;
-            obj["Z"] = vec.Z;
-            return obj;
+            writer.WriteStartObject();
+            writer.WritePropertyName("X");
+            writer.WriteValue(vec.X);
+            writer.WritePropertyName("Y");
+            writer.WriteValue(vec.Y);
+            writer.WritePropertyName("Z");
+            writer.WriteValue(vec.Z);
+            writer.WriteEndObject();
         }
 
-        public static JObject SerializeVec4(Vector4 vec)
+        public static void SerializeVec4(Vector4 vec, JsonWriter writer)
         {
-            JObject obj = new JObject();
-            obj["X"] = vec.X;
-            obj["Y"] = vec.Y;
-            obj["Z"] = vec.Z;
-            obj["W"] = vec.W;
-            return obj;
+            writer.WriteStartObject();
+            writer.WritePropertyName("X");
+            writer.WriteValue(vec.X);
+            writer.WritePropertyName("Y");
+            writer.WriteValue(vec.Y);
+            writer.WritePropertyName("Z");
+            writer.WriteValue(vec.Z);
+            writer.WritePropertyName("W");
+            writer.WriteValue(vec.W);
+            writer.WriteEndObject();
         }
 
-        public static JObject SerializeVec4i(Vector4i vec)
+        public static void SerializeVec4i(Vector4i vec, JsonWriter writer)
         {
-            JObject obj = new JObject();
-            obj["X"] = vec.X;
-            obj["Y"] = vec.Y;
-            obj["Z"] = vec.Z;
-            obj["W"] = vec.W;
-            return obj;
+            writer.WriteStartObject();
+            writer.WritePropertyName("X");
+            writer.WriteValue(vec.X);
+            writer.WritePropertyName("Y");
+            writer.WriteValue(vec.Y);
+            writer.WritePropertyName("Z");
+            writer.WriteValue(vec.Z);
+            writer.WritePropertyName("W");
+            writer.WriteValue(vec.W);
+            writer.WriteEndObject();
         }
 
-        public static JObject SerializeQuat(Quaternion quat)
+        public static void SerializeQuat(Quaternion quat, JsonWriter writer)
         {
-            JObject obj = new JObject();
-            obj["X"] = quat.X;
-            obj["Y"] = quat.Y;
-            obj["Z"] = quat.Z;
-            obj["W"] = quat.W;
-            return obj;
+            writer.WriteStartObject();
+            writer.WritePropertyName("X");
+            writer.WriteValue(quat.X);
+            writer.WritePropertyName("Y");
+            writer.WriteValue(quat.Y);
+            writer.WritePropertyName("Z");
+            writer.WriteValue(quat.Z);
+            writer.WritePropertyName("W");
+            writer.WriteValue(quat.W);
+            writer.WriteEndObject();
         }
 
         public static Vector4 DeserializeVec4(JObject obj)
@@ -443,16 +466,22 @@ namespace LibGFX.Core
             );
         }
 
-        public static JObject SerializeVertex(Vertex vertex)
+        public static void SerializeVertex(Vertex vertex, JsonWriter writer)
         {
-            JObject obj = new JObject();
-            obj["Position"] = Utils.SerializeVec3(vertex.Position);
-            obj["Normal"] = Utils.SerializeVec3(vertex.Normal);
-            obj["TexCoord"] = Utils.SerializeVec2(vertex.TexCoord);
-            obj["Tangent"] = Utils.SerializeVec4(vertex.Tangent);
-            obj["BoneWeights"] = Utils.SerializeVec4(vertex.BoneWeights);
-            obj["BoneIDs"] = Utils.SerializeVec4i(vertex.BoneIDs);
-            return obj;
+            writer.WriteStartObject();
+            writer.WritePropertyName("Position");
+            SerializeVec3(vertex.Position, writer);
+            writer.WritePropertyName("Normal");
+            SerializeVec3(vertex.Normal, writer);
+            writer.WritePropertyName("TexCoord");
+            SerializeVec2(vertex.TexCoord, writer);
+            writer.WritePropertyName("Tangent");
+            SerializeVec4(vertex.Tangent, writer);
+            writer.WritePropertyName("BoneWeights");
+            SerializeVec4(vertex.BoneWeights, writer);
+            writer.WritePropertyName("BoneIDs");
+            SerializeVec4i(vertex.BoneIDs, writer);
+            writer.WriteEndObject();
         }
 
         public static Vertex DeserializeVertex(JObject obj)
@@ -467,14 +496,18 @@ namespace LibGFX.Core
             return vertex;
         }
 
-        public static JObject SerializeMatrix4(Matrix4 mat)
+        public static void SerializeMatrix4(Matrix4 mat, JsonWriter writer)
         {
-            JObject obj = new JObject();
-            obj["Row0"] = Utils.SerializeVec4(mat.Row0);
-            obj["Row1"] = Utils.SerializeVec4(mat.Row1);
-            obj["Row2"] = Utils.SerializeVec4(mat.Row2);
-            obj["Row3"] = Utils.SerializeVec4(mat.Row3);
-            return obj;
+            writer.WriteStartObject();
+            writer.WritePropertyName("Row0");
+            SerializeVec4(mat.Row0, writer);
+            writer.WritePropertyName("Row1");
+            SerializeVec4(mat.Row1, writer);
+            writer.WritePropertyName("Row2");
+            SerializeVec4(mat.Row2, writer);
+            writer.WritePropertyName("Row3");
+            SerializeVec4(mat.Row3, writer);
+            writer.WriteEndObject();
         }
 
         public static Matrix4 DeserializeMatrix4(JObject obj)
@@ -487,19 +520,23 @@ namespace LibGFX.Core
             return mat;
         }
 
-        public static JObject SerializeSceneNodeData(SceneNodeData nodedata)
+        public static void SerializeSceneNodeData(SceneNodeData nodedata, JsonWriter writer)
         {
-            JObject obj = new JObject();
-            obj["Transformation"] = Utils.SerializeMatrix4(nodedata.transformation);
-            obj["Name"] = nodedata.name;
-            obj["ChildrenCount"] = nodedata.childrenCount;
-            JArray childrenArray = new JArray();
+            writer.WriteStartObject();
+            writer.WritePropertyName("Transformation");
+            SerializeMatrix4(nodedata.transformation, writer);
+            writer.WritePropertyName("Name");
+            writer.WriteValue(nodedata.name);
+            writer.WritePropertyName("ChildrenCount");
+            writer.WriteValue(nodedata.childrenCount);
+            writer.WritePropertyName("Children");
+            writer.WriteStartArray();
             foreach (var child in nodedata.children)
             {
-                childrenArray.Add(SerializeSceneNodeData(child));
+                SerializeSceneNodeData(child, writer);
             }
-            obj["Children"] = childrenArray;
-            return obj;
+            writer.WriteEndArray();
+            writer.WriteEndObject();
         }
 
         public static SceneNodeData DeserializeSceneNodeData(JObject obj)
@@ -517,13 +554,14 @@ namespace LibGFX.Core
             return nodedata;
         }
 
-        public static JObject SerializeBoneInfo(BoneInfo boneInfo)
+        public static void SerializeBoneInfo(BoneInfo boneInfo, JsonWriter writer)
         {
-            return new JObject()
-            {
-                ["ID"] = boneInfo.id,
-                ["Offset"] = Utils.SerializeMatrix4(boneInfo.offset)
-            };
+            writer.WriteStartObject();
+            writer.WritePropertyName("ID");
+            writer.WriteValue(boneInfo.id);
+            writer.WritePropertyName("Offset");
+            SerializeMatrix4(boneInfo.offset, writer);
+            writer.WriteEndObject();
         }
 
         public static BoneInfo DeserializeBoneInfo(JObject obj)
@@ -534,12 +572,14 @@ namespace LibGFX.Core
             return boneInfo;
         }
 
-        public static JObject SerializeKeyPosition(KeyPosition keyPosition)
+        public static void SerializeKeyPosition(KeyPosition keyPosition, JsonWriter writer)
         {
-            JObject obj = new JObject();
-            obj["Position"] = Utils.SerializeVec3(keyPosition.position);
-            obj["TimeStamp"] = keyPosition.timeStamp;
-            return obj;
+            writer.WriteStartObject();
+            writer.WritePropertyName("Position");
+            SerializeVec3(keyPosition.position, writer);
+            writer.WritePropertyName("TimeStamp");
+            writer.WriteValue(keyPosition.timeStamp);
+            writer.WriteEndObject();
         }
 
         public static KeyPosition DeserializeKeyPosition(JObject obj)
@@ -550,12 +590,14 @@ namespace LibGFX.Core
             return keyPosition;
         }
 
-        public static JObject SerializeKeyRotation(KeyRotation keyRotation)
+        public static void SerializeKeyRotation(KeyRotation keyRotation, JsonWriter writer)
         {
-            JObject obj = new JObject();
-            obj["Orientation"] = Utils.SerializeQuat(keyRotation.orientation);
-            obj["TimeStamp"] = keyRotation.timeStamp;
-            return obj;
+            writer.WriteStartObject();
+            writer.WritePropertyName("Orientation");
+            SerializeQuat(keyRotation.orientation, writer);
+            writer.WritePropertyName("TimeStamp");
+            writer.WriteValue(keyRotation.timeStamp);
+            writer.WriteEndObject();
         }
 
         public static KeyRotation DeserializeKeyRotation(JObject obj)
@@ -566,12 +608,14 @@ namespace LibGFX.Core
             return keyRotation;
         }
 
-        public static JObject SerializeKeyScale(KeyScale keyScale)
+        public static void SerializeKeyScale(KeyScale keyScale, JsonWriter writer)
         {
-            JObject obj = new JObject();
-            obj["Scale"] = Utils.SerializeVec3(keyScale.scale);
-            obj["TimeStamp"] = keyScale.timeStamp;
-            return obj;
+            writer.WriteStartObject();
+            writer.WritePropertyName("Scale");
+            SerializeVec3(keyScale.scale, writer);
+            writer.WritePropertyName("TimeStamp");
+            writer.WriteValue(keyScale.timeStamp);
+            writer.WriteEndObject();
         }
 
         public static KeyScale DeserializeKeyScale(JObject obj)
@@ -582,12 +626,14 @@ namespace LibGFX.Core
             return keyScale;
         }
 
-        public static JObject SerializeAABB(AABB aabb)
+        public static void SerializeAABB(AABB aabb, JsonWriter writer)
         {
-            JObject obj = new JObject();
-            obj["Min"] = Utils.SerializeVec3(aabb.Min);
-            obj["Max"] = Utils.SerializeVec3(aabb.Max);
-            return obj;
+            writer.WriteStartObject();
+            writer.WritePropertyName("Min");
+            SerializeVec3(aabb.Min, writer);
+            writer.WritePropertyName("Max");
+            SerializeVec3(aabb.Max, writer);
+            writer.WriteEndObject();
         }
 
         public static AABB DeserializeAABB(JObject obj)

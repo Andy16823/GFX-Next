@@ -1,5 +1,6 @@
 ﻿using LibGFX.Core;
 using LibGFX.Math;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using StbImageSharp;
@@ -392,26 +393,34 @@ namespace LibGFX.Graphics
             _parameters = parameters;
         }
 
-        public JObject Serialize(SerializationContext context)
+        public void Serialize(JsonWriter writer, SerializationContext context, Action<JsonWriter> callback = null)
         {
-            // Serialize generic texture data
-            JObject result = new JObject();
-            result["Type"] = this.GetType().FullName;
-            result["Width"] = this.Width;
-            result["Height"] = this.Height;
-            result["TextureData"] = Convert.ToBase64String(this.TextureData);
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("Width");
+            writer.WriteValue(this.Width);
+            writer.WritePropertyName("Height");
+            writer.WriteValue(this.Height);
+            writer.WritePropertyName("TextureData");
+            writer.WriteValue(Convert.ToBase64String(this.TextureData));
+            writer.WritePropertyName("TextureParameters");
 
-            // Serialize texture parameters
-            JObject parameters = new JObject();
-            parameters["MinFilter"] = (int) this.TextureParameters.MinFilter;
-            parameters["MagFilter"] = (int) this.TextureParameters.MagFilter;
-            parameters["WrapS"] = (int) this.TextureParameters.WrapS;
-            parameters["WrapT"] = (int) this.TextureParameters.WrapT;
-            parameters["GenerateMipmaps"] = this.TextureParameters.GenerateMipmaps;
-            result["TextureParameters"] = parameters;
+            writer.WriteStartObject();
+            writer.WritePropertyName("MinFilter");
+            writer.WriteValue((int)this.TextureParameters.MinFilter);
+            writer.WritePropertyName("MagFilter");
+            writer.WriteValue((int)this.TextureParameters.MagFilter);
+            writer.WritePropertyName("WrapS");
+            writer.WriteValue((int)this.TextureParameters.WrapS);
+            writer.WritePropertyName("WrapT");
+            writer.WriteValue((int)this.TextureParameters.WrapT);
+            writer.WritePropertyName("GenerateMipmaps");
+            writer.WriteValue(this.TextureParameters.GenerateMipmaps);
+            writer.WriteEndObject();
 
-            // Return the serialized JObject
-            return result;
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         public void Deserialize(JObject jObject, SerializationContext context)

@@ -1,5 +1,6 @@
 ﻿using Assimp;
 using LibGFX.Core;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -480,14 +481,19 @@ namespace LibGFX.Math
         /// </summary>
         /// <param name="serializationContext">The context that provides information and settings required for the serialization process.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized position, rotation, and scale of the object.</returns>
-        public JObject Serialize(SerializationContext serializationContext)
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            JObject obj = new JObject();
-            obj["Type"] = this.GetType().FullName;
-            obj["Position"] = Utils.SerializeVec3(this.Position);
-            obj["Rotation"] = Utils.SerializeQuat(this.Rotation);
-            obj["Scale"] = Utils.SerializeVec3(this.Scale);
-            return obj;
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("Position");
+            Utils.SerializeVec3(this.Position, writer);
+            writer.WritePropertyName("Rotation");
+            Utils.SerializeQuat(this.Rotation, writer);
+            writer.WritePropertyName("Scale");
+            Utils.SerializeVec3(this.Scale, writer);
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         /// <summary>

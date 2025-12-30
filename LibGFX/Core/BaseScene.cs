@@ -2,6 +2,7 @@
 using LibGFX.Graphics;
 using LibGFX.Graphics.Lights;
 using LibGFX.Physics;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Graphics.OpenGL;
 using System;
@@ -557,22 +558,33 @@ namespace LibGFX.Core
         /// <param name="serializationContext">The context that provides configuration and state information for the serialization process.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized JSON representation of the object.</returns>
         /// <exception cref="NotImplementedException">Thrown in all cases as the method is not yet implemented.</exception>
-        public virtual JObject Serialize(SerializationContext serializationContext)
+        public virtual void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            var layerArray = new JArray();
-            foreach(var layer in Layers)
-            {
-                layerArray.Add(layer.Serialize(serializationContext));
-            }
+            // Start writing the JSON object
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType());
+            writer.WritePropertyName("Name");
+            writer.WriteValue(!String.IsNullOrEmpty(Name) ? this.Name : this.ID.ToString());
+            writer.WritePropertyName("ID");
+            writer.WriteValue(this.ID.ToString());
+            writer.WritePropertyName("LightManager");
+            LightManager.Serialize(writer, serializationContext);
 
-            return new JObject
+            // Serialize Layers
+            writer.WritePropertyName("Layers");
+            writer.WriteStartArray();
+            foreach (var layer in Layers)
             {
-                ["Type"] = this.GetType().FullName,
-                ["Name"] = !String.IsNullOrEmpty(Name) ? this.Name : this.ID.ToString(),
-                ["ID"] = this.ID.ToString(),
-                ["LightManager"] = LightManager.Serialize(serializationContext),
-                ["Layers"] = layerArray,
-            };
+                layer.Serialize(writer, serializationContext);
+            }
+            writer.WriteEndArray();
+
+            // Invoke the callback for additional serialization
+            callback?.Invoke(writer);
+
+            // End writing the JSON object
+            writer.WriteEndObject();
         }
 
         /// <summary>

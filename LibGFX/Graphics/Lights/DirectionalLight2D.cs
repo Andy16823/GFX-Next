@@ -1,4 +1,5 @@
 ﻿using LibGFX.Core;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -63,11 +64,9 @@ namespace LibGFX.Graphics.Lights
         /// <param name="serializationContext">The context that provides information and services required for serialization.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized state of the object, including type, color, position,
         /// intensity, and shadow map size.</returns>
-        public override JObject Serialize(SerializationContext serializationContext)
+        public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            var result = base.Serialize(serializationContext);
-            result["Type"] = this.GetType().FullName;
-            return result;
+            base.Serialize(writer, serializationContext, callback);
         }
 
         /// <summary>

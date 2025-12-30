@@ -1,4 +1,5 @@
 ﻿using LibGFX.Core;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -79,38 +80,47 @@ namespace LibGFX.Graphics.Animation3D
         /// </summary>
         public int NumScalings => Scales.Count;
 
-        public JObject Serialize(SerializationContext serializationContext)
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
+            // Serialize BoneName and keyframes
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("BoneName");
+            writer.WriteValue(this.BoneName);
+
             // Serialize Positions
-            JArray positionsArray = new JArray();
+            writer.WritePropertyName("Positions");
+            writer.WriteStartArray();
             foreach (var pos in this.Positions)
             {
-                positionsArray.Add(Utils.SerializeKeyPosition(pos));
+                Utils.SerializeKeyPosition(pos, writer);
             }
+            writer.WriteEndArray();
 
             // Serialize Rotations
-            JArray rotationsArray = new JArray();
+            writer.WritePropertyName("Rotations");
+            writer.WriteStartArray();
             foreach (var rot in this.Rotations)
             {
-                rotationsArray.Add(Utils.SerializeKeyRotation(rot));
+                Utils.SerializeKeyRotation(rot, writer);
             }
+            writer.WriteEndArray();
 
             // Serialize Scales
-            JArray scalesArray = new JArray();
+            writer.WritePropertyName("Scales");
+            writer.WriteStartArray();
             foreach (var scale in this.Scales)
             {
-                scalesArray.Add(Utils.SerializeKeyScale(scale));
+                Utils.SerializeKeyScale(scale, writer);
             }
+            writer.WriteEndArray();
 
-            // Return the final JObject
-            return new JObject()
-            {
-                ["Type"] = this.GetType().FullName,
-                ["BoneName"] = this.BoneName,
-                ["Positions"] = positionsArray,
-                ["Rotations"] = rotationsArray,
-                ["Scales"] = scalesArray
-            };
+            // Callback if provided
+            callback?.Invoke(writer);
+
+            // End of object
+            writer.WriteEndObject();
         }
 
         public void Deserialize(JObject jObject, SerializationContext serializationContext)

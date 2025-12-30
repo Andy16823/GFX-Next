@@ -1,4 +1,5 @@
 ﻿using LibGFX.Core;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -93,16 +94,20 @@ namespace LibGFX.Graphics.Lights
         /// typically used to persist or transfer light configuration data.</remarks>
         /// <param name="serializationContext">The context that provides information and services required for serialization.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized properties of the light object.</returns>
-        public override JObject Serialize(SerializationContext serializationContext)
+        public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            // Start with the base serialization and then add specific properties
-            var result = base.Serialize(serializationContext);
-            result["Type"] = this.GetType().FullName;
-            result["Direction"] = Utils.SerializeVec3(this.Direction);
-            result["Ambient"] = Utils.SerializeVec3(this.Ambient);
-            result["Specular"] = Utils.SerializeVec3(this.Specular);
-            result["Bias"] = this.Bias;
-            return result;
+            base.Serialize(writer, serializationContext, (w) =>
+            {
+                w.WritePropertyName("Direction");
+                Utils.SerializeVec3(this.Direction, w);
+                w.WritePropertyName("Ambient");
+                Utils.SerializeVec3(this.Ambient, w);
+                w.WritePropertyName("Specular");
+                Utils.SerializeVec3(this.Specular, w);
+                w.WritePropertyName("Bias");
+                w.WriteValue(this.Bias);
+                callback?.Invoke(w);
+            });
         }
 
         /// <summary>

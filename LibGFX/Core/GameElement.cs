@@ -2,6 +2,7 @@
 using LibGFX.Graphics.Materials;
 using LibGFX.Math;
 using LibGFX.Physics;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -372,31 +373,61 @@ namespace LibGFX.Core
         /// process.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized data of the object, including its properties, transform,
         /// children, and related metadata.</returns>
-        public virtual JObject Serialize(SerializationContext serializationContext)
+        public virtual void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            var childrenArray = new JArray();
+            // Start writing the JSON object
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("ID");
+            writer.WriteValue(this.ID.ToString());
+            writer.WritePropertyName("Name");
+            writer.WriteValue(this.Name);
+            writer.WritePropertyName("Transform");
+            this.Transform.Serialize(writer, serializationContext);
+            writer.WritePropertyName("Visible");
+            writer.WriteValue(this.Visible);
+            writer.WritePropertyName("Enabled");
+            writer.WriteValue(this.Enabled);
+            writer.WritePropertyName("CastShadows");
+            writer.WriteValue(this.CastShadows);
+            writer.WritePropertyName("Parent");
+            writer.WriteValue(this.Parent != null ? this.Parent.ID.ToString() : null);
+            writer.WritePropertyName("Behaviors");
+            writer.WriteStartArray();
+            // Empty for now TODO: Serialize behaviors
+            writer.WriteEndArray();
+            writer.WritePropertyName("Tags");
+            writer.WriteStartArray();
+            foreach (var tag in this.Tags)
+            {
+                writer.WriteValue(tag);
+            }
+            writer.WriteEndArray();
+            writer.WritePropertyName("AABB");
+            Utils.SerializeAABB(this.AABB, writer);
+            writer.WritePropertyName("WorldAABB");
+            Utils.SerializeAABB(this.WorldAABB, writer);
+            
+            writer.WritePropertyName("Children");
+            writer.WriteStartArray();
             foreach (var child in _children)
             {
-                childrenArray.Add(child.Serialize(serializationContext));
+                child.Serialize(writer, serializationContext);
             }
+            writer.WriteEndArray();
 
-            return new JObject()
+            writer.WritePropertyName("Properties");
+            writer.WriteStartObject();
+            foreach (var property in this.Properties)
             {
-                ["Type"] = this.GetType().FullName,
-                ["ID"] = this.ID.ToString(),
-                ["Name"] = this.Name,
-                ["Transform"] = this.Transform.Serialize(serializationContext),
-                ["Visible"] = this.Visible,
-                ["Enabled"] = this.Enabled,
-                ["CastShadows"] = this.CastShadows,
-                ["Parent"] = this.Parent != null ? this.Parent.ID.ToString() : null,
-                ["Behaviors"] = new JArray(), // Empty for now TODO: Serialize behaviors
-                ["Tags"] = new JArray(this.Tags.ToArray()),
-                ["AABB"] = Utils.SerializeAABB(this.AABB),
-                ["WorldAABB"] = Utils.SerializeAABB(this.WorldAABB),
-                ["Children"] = childrenArray,
-                ["Properties"] = JObject.FromObject(this.Properties)
-            };
+                writer.WritePropertyName(property.Key);
+                writer.WriteValue(property.Value);
+            }
+            writer.WriteEndObject();
+
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using LibGFX.Core;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -190,17 +191,24 @@ namespace LibGFX.Graphics.Lights
         /// <param name="serializationContext">The context that provides information and services required for the serialization process.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized properties of the light, including type, color, position,
         /// intensity, shadow map size, range, attenuation factors, ambient, and specular values.</returns>
-        public override JObject Serialize(SerializationContext serializationContext)
+        public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            var result = base.Serialize(serializationContext);
-            result["Type"] = this.GetType().FullName;
-            result["Range"] = this.Range;
-            result["Constant"] = this.Constant;
-            result["Linear"] = this.Linear;
-            result["Quadratic"] = this.Quadratic;
-            result["Ambient"] = Utils.SerializeVec4(this.Ambient);
-            result["Specular"] = Utils.SerializeVec4(this.Specular);
-            return result;
+            base.Serialize(writer,serializationContext, (w) =>
+            {
+                w.WritePropertyName("Range");
+                w.WriteValue(this.Range);
+                w.WritePropertyName("Constant");
+                w.WriteValue(this.Constant);
+                w.WritePropertyName("Linear");
+                w.WriteValue(this.Ambient);
+                w.WritePropertyName("Quadratic");
+                w.WriteValue(this.Quadratic);
+                w.WritePropertyName("Ambient");
+                Utils.SerializeVec4(this.Ambient, w);
+                w.WritePropertyName("Specular");
+                Utils.SerializeVec4(this.Specular, w);
+                callback?.Invoke(w);
+            });
         }
 
         /// <summary>

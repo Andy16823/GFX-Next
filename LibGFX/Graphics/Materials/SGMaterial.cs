@@ -1,5 +1,6 @@
 ﻿using LibGFX.Core;
 using LibGFX.Graphics.Shader;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -282,28 +283,58 @@ namespace LibGFX.Graphics.Materials
         /// systems.</remarks>
         /// <returns>A <see cref="JObject"/> containing the serialized representation of the material, including its properties
         /// and texture data.</returns>
-        public JObject Serialize(SerializationContext context)
+        public void Serialize(JsonWriter writer, SerializationContext context, Action<JsonWriter> callback = null)
         {
-            // Create main material object
-            JObject result = new JObject();
-            result["Type"] = this.GetType().FullName;
-            result["Name"] = this.Name;
-            result["ID"] = this.ID;
-            result["Color"] = Utils.SerializeVec4(this.Color);
-            result["UVScale"] = Utils.SerializeVec2(this.UVScale);
-            result["FlipNormal"] = this.FlipNormal;
-            result["Opacity"] = this.Opacity;
-            result["Shininess"] = this.Shininess;
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("Name");
+            writer.WriteValue(this.Name);
+            writer.WritePropertyName("ID");
+            writer.WriteValue(this.ID.ToString());
+            writer.WritePropertyName("Color");
+            Utils.SerializeVec4(this.Color, writer);
+            writer.WritePropertyName("UVScale");
+            Utils.SerializeVec2(this.UVScale, writer);
+            writer.WritePropertyName("FlipNormal");
+            writer.WriteValue(this.FlipNormal);
+            writer.WritePropertyName("Opacity");
+            writer.WriteValue(this.Opacity);
+            writer.WritePropertyName("Shininess");
+            writer.WriteValue(this.Shininess);
 
-            // Create material textures
-            JObject textures = new JObject();
-            textures["DiffuseTexture"] = this.DiffuseTexture.Serialize(context);
-            textures["NormalTexture"] = this.NormalTexture.Serialize(context);
-            textures["SpecularTexture"] = this.SpecularTexture.Serialize(context);
-            result["textures"] = textures;
-
-            // Return the final serialized object
-            return result;
+            writer.WritePropertyName("textures");
+            writer.WriteStartObject();
+            writer.WritePropertyName("DiffuseTexture");
+            if(this.DiffuseTexture != null)
+            {
+                this.DiffuseTexture.Serialize(writer, context, null);
+            }
+            else
+            {
+                writer.WriteNull();
+            }
+            writer.WritePropertyName("NormalTexture");
+            if (this.NormalTexture != null)
+            {
+                this.NormalTexture.Serialize(writer, context, null);
+            }
+            else
+            {
+                writer.WriteNull();
+            }
+            writer.WritePropertyName("SpecularTexture");
+            if (this.SpecularTexture != null)
+            {
+                this.SpecularTexture.Serialize(writer, context, null);
+            }
+            else
+            {
+                writer.WriteNull();
+            }
+            writer.WriteEndObject();
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         /// <summary>

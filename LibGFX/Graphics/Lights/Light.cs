@@ -1,5 +1,6 @@
 ﻿using LibGFX.Core;
 using NAudio.Wave;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -72,19 +73,25 @@ namespace LibGFX.Graphics.Lights
         /// </summary>
         /// <param name="serializationContext">The context that provides information and settings required for serialization.</param>
         /// <returns>A <see cref="JObject"/> representing the serialized form of the current object.</returns>
-        public virtual JObject Serialize(SerializationContext serializationContext)
+        public virtual void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            // Create basic light serialization
-            return new JObject
-            {
-                ["Type"] = this.GetType().FullName,
-                ["Name"] = !String.IsNullOrEmpty(Name) ? Name : ID.ToString(),
-                ["ID"] = ID.ToString(),
-                ["Color"] = Utils.SerializeVec4(Color),
-                ["Position"] = Utils.SerializeVec3(Position),
-                ["Intensity"] = Intensity,
-                ["ShadowMapSize"] = Utils.SerializeVec2i(ShadowMapSize)
-            };
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("Name");
+            writer.WriteValue(!String.IsNullOrEmpty(Name) ? Name : ID.ToString());
+            writer.WritePropertyName("ID");
+            writer.WriteValue(ID.ToString());
+            writer.WritePropertyName("Color");
+            Utils.SerializeVec4(Color, writer);
+            writer.WritePropertyName("Position");
+            Utils.SerializeVec3(Position, writer);
+            writer.WritePropertyName("Intensity");
+            writer.WriteValue(Intensity);
+            writer.WritePropertyName("ShadowMapSize");
+            Utils.SerializeVec2i(ShadowMapSize, writer);
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         /// <summary>

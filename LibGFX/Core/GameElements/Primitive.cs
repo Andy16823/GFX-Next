@@ -5,6 +5,7 @@ using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Primitives;
 using LibGFX.Graphics.Shader;
 using LibGFX.Math;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -167,13 +168,14 @@ namespace LibGFX.Core.GameElements
         /// <param name="serializationContext">The context that provides information and services for the serialization process.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized data for the object, including its type and associated
         /// mesh identifier.</returns>
-        public override JObject Serialize(SerializationContext serializationContext)
+        public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            var baseInfo = base.Serialize(serializationContext);
-            // Add primitive-specific data to the JSON object
-            baseInfo["Type"] = this.GetType().FullName;
-            baseInfo["Mesh"] = Mesh?.ID.ToString();
-            return baseInfo;
+            base.Serialize(writer, serializationContext, (w) =>
+            {
+                w.WritePropertyName("Mesh");
+                w.WriteValue(Mesh?.ID.ToString());
+                callback?.Invoke(w);
+            });
         }
 
         /// <summary>

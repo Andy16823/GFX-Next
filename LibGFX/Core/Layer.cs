@@ -1,4 +1,5 @@
 ﻿using LibGFX.Graphics;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -252,22 +253,26 @@ namespace LibGFX.Core
         /// <param name="serializationContext">The context that provides configuration and state information for the serialization process.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized data of the object, including its properties and child
         /// elements.</returns>
-        public JObject Serialize(SerializationContext serializationContext)
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            var elementsArray = new JArray();
-            foreach(var element in this.Elements)
+            writer.WriteStartObject();
+            writer.WritePropertyName("Name");
+            writer.WriteValue(this.Name);
+            writer.WritePropertyName("ID");
+            writer.WriteValue(this.ID.ToString());
+            writer.WritePropertyName("Visible");
+            writer.WriteValue(this.Visible);
+            writer.WritePropertyName("Enabled");
+            writer.WriteValue(this.Enabled);
+            writer.WritePropertyName("Elements");
+            writer.WriteStartArray();
+            foreach (var element in this.Elements)
             {
-                elementsArray.Add(element.Serialize(serializationContext));
+                element.Serialize(writer, serializationContext);
             }
-
-            return new JObject()
-            {
-                ["Name"] = this.Name,
-                ["ID"] = this.ID.ToString(),
-                ["Visible"] = this.Visible,
-                ["Enabled"] = this.Enabled,
-                ["Elements"] = elementsArray
-            };
+            writer.WriteEndArray();
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         /// <summary>

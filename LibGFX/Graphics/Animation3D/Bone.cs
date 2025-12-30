@@ -1,6 +1,7 @@
 ﻿using Assimp;
 using LibGFX.Core;
 using LibGFX.Math;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Core;
 using OpenTK.Mathematics;
@@ -185,16 +186,21 @@ namespace LibGFX.Graphics.Animation3D
         /// <param name="serializationContext">The context that provides information and settings required for serialization.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized data of the object, including type, name, ID, animation
         /// channel, and local transform information.</returns>
-        public JObject Serialize(SerializationContext serializationContext)
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            return new JObject()
-            {
-                ["Type"] = this.GetType().FullName,
-                ["Name"] = Name,
-                ["ID"] = ID,
-                ["AnimationChannel"] = AnimationChannel.Serialize(serializationContext),
-                ["LocalTransform"] = LibGFX.Core.Utils.SerializeMatrix4(LocalTransform),
-            };
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("Name");
+            writer.WriteValue(Name);
+            writer.WritePropertyName("ID");
+            writer.WriteValue(ID);
+            writer.WritePropertyName("AnimationChannel");
+            AnimationChannel.Serialize(writer, serializationContext);
+            writer.WritePropertyName("LocalTransform");
+            LibGFX.Core.Utils.SerializeMatrix4(LocalTransform, writer);
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         /// <summary>

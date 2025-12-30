@@ -1,5 +1,6 @@
 ﻿using Assimp;
 using LibGFX.Core;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -39,19 +40,20 @@ namespace LibGFX.Graphics.Lights
         /// process.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized data for this object, including its type information and
         /// an array of serialized child lights.</returns>
-        public JObject Serialize(SerializationContext serializationContext)
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            var array = new JArray();
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("Lights");
+            writer.WriteStartArray();
             foreach (var light in Lights)
             {
-                array.Add(light.Serialize(serializationContext));
+                light.Serialize(writer, serializationContext);
             }
-            
-            return new JObject
-            {
-                ["Type"] = this.GetType().FullName,
-                ["Lights"] = array
-            };
+            writer.WriteEndArray();
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         /// <summary>
@@ -357,26 +359,36 @@ namespace LibGFX.Graphics.Lights
             }
         }
 
-        public JObject Serialize(SerializationContext serializationContext)
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            var chunksArray = new JArray();
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("DirectionalLight");
+            if (DirectionalLight != null)
+            {
+                DirectionalLight.Serialize(writer, serializationContext);
+            }
+            else
+            {
+                writer.WriteNull();
+            }
+            writer.WritePropertyName("Chunks");
+            writer.WriteStartArray();
             foreach (var kvp in Chunks)
             {
-                var chunkObject = new JObject
-                {
-                    ["ChunkX"] = kvp.Key.Item1,
-                    ["ChunkY"] = kvp.Key.Item2,
-                    ["LightChunk"] = kvp.Value.Serialize(serializationContext)
-                };
-                chunksArray.Add(chunkObject);
+                writer.WriteStartObject();
+                writer.WritePropertyName("ChunkX");
+                writer.WriteValue(kvp.Key.Item1);
+                writer.WritePropertyName("ChunkY");
+                writer.WriteValue(kvp.Key.Item2);
+                writer.WritePropertyName("LightChunk");
+                kvp.Value.Serialize(writer, serializationContext);
+                writer.WriteEndObject();
             }
-
-            return new JObject()
-            {
-                ["Type"] = this.GetType().FullName,
-                ["DirectionalLight"] = DirectionalLight?.Serialize(serializationContext),
-                ["Chunks"] = chunksArray
-            };
+            writer.WriteEndArray();
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         /// <summary>

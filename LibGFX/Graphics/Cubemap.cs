@@ -1,5 +1,6 @@
 ﻿using LibGFX.Core;
 using LibGFX.Math;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using StbImageSharp;
 using System;
@@ -151,21 +152,26 @@ namespace LibGFX.Graphics
         /// serialization behavior.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized data, including type information, dimensions, and face
         /// data encoded as Base64 strings.</returns>
-        public JObject Serialize(SerializationContext serializationContext)
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            JArray facesArray = new JArray();
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("Width");
+            writer.WriteValue(this.Width);
+            writer.WritePropertyName("Height");
+            writer.WriteValue(this.Height);
+
+            writer.WritePropertyName("Faces");
+            writer.WriteStartArray();
             foreach (var face in Faces)
             {
-                facesArray.Add(Convert.ToBase64String(face));
+                writer.WriteValue(Convert.ToBase64String(face));
             }
+            writer.WriteEndArray();
 
-            return new JObject()
-            {
-                ["Type"] = this.GetType().FullName,
-                ["Width"] = this.Width,
-                ["Height"] = this.Height,
-                ["Faces"] = facesArray
-            };
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         /// <summary>

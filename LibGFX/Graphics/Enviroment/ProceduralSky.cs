@@ -1,5 +1,6 @@
 ﻿using LibGFX.Core;
 using LibGFX.Math;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -155,25 +156,46 @@ namespace LibGFX.Graphics.Enviroment
         /// process.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized representation of the object, including its type and
         /// relevant properties.</returns>
-        public JObject Serialize(SerializationContext serializationContext)
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            return new JObject()
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("Transform");
+            Transform.Serialize(writer, serializationContext);
+            writer.WritePropertyName("SkyTopColor");
+            Utils.SerializeVec3(SkyTopColor, writer);
+            writer.WritePropertyName("SkyBottomColor");
+            Utils.SerializeVec3(SkyBottomColor, writer);
+            writer.WritePropertyName("SunDirection");
+            Utils.SerializeVec3(SunDirection, writer);
+            writer.WritePropertyName("SunColor");
+            Utils.SerializeVec3(SunColor, writer);
+            writer.WritePropertyName("SunSize");
+            writer.WriteValue(SunSize);
+            writer.WritePropertyName("SunIntensity");
+            writer.WriteValue(SunIntensity);
+            writer.WritePropertyName("SkylineOffset");
+            writer.WriteValue(SkylineOffset);
+            writer.WritePropertyName("SkylineScale");
+            writer.WriteValue(SkylineScale);
+            writer.WritePropertyName("Coverage");
+            writer.WriteValue(Coverage);
+            writer.WritePropertyName("CoverageTexture");
+            if(CoverageTexture != null)
             {
-                ["Type"] = this.GetType().FullName,
-                ["Transform"] = Transform.Serialize(serializationContext),
-                ["SkyTopColor"] = Utils.SerializeVec3(SkyTopColor),
-                ["SkyBottomColor"] = Utils.SerializeVec3(SkyBottomColor),
-                ["SunDirection"] = Utils.SerializeVec3(SunDirection),
-                ["SunColor"] = Utils.SerializeVec3(SunColor),
-                ["SunSize"] = SunSize,
-                ["SunIntensity"] = SunIntensity,
-                ["SkylineOffset"] = SkylineOffset,
-                ["SkylineScale"] = SkylineScale,
-                ["Coverage"] = Coverage,
-                ["CoverageTexture"] = CoverageTexture != null ? CoverageTexture.Serialize(serializationContext) : null,
-                ["CoverageFactor"] = CoverageFactor,
-                ["CloudColor"] = Utils.SerializeVec3(CloudColor)
-            };
+                CoverageTexture.Serialize(writer, serializationContext);
+            }
+            else
+            {
+                writer.WriteNull();
+            }
+            writer.WritePropertyName("CoverageFactor");
+            writer.WriteValue(CoverageFactor);
+            writer.WritePropertyName("CloudColor");
+            Utils.SerializeVec3(CloudColor, writer);
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         /// <summary>

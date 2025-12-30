@@ -1,5 +1,6 @@
 ﻿using LibGFX.Core;
 using LibGFX.Graphics.Shader;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -121,16 +122,26 @@ namespace LibGFX.Graphics.Materials
         /// <param name="context">The serialization context that provides settings and state for the serialization process.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized data of the current object, including its name, ID, and
         /// texture information.</returns>
-        public JObject Serialize(SerializationContext context)
+        public void Serialize(JsonWriter writer, SerializationContext context, Action<JsonWriter> callback = null)
         {
-            JObject jObject = new JObject
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("Name");
+            writer.WriteValue(Name);
+            writer.WritePropertyName("ID");
+            writer.WriteValue(ID.ToString());
+            writer.WritePropertyName("Texture");
+            if (Texture != null)
             {
-                ["Type"] = this.GetType().FullName,
-                ["Name"] = Name,
-                ["ID"] = ID.ToString(),
-                ["Texture"] = Texture != null ? Texture.Serialize(context) : null
-            };
-            return jObject;
+                Texture.Serialize(writer, context);
+            }
+            else
+            {
+                writer.WriteNull();
+            }
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         /// <summary>

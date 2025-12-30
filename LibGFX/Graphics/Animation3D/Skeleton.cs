@@ -1,4 +1,5 @@
 ﻿using LibGFX.Core;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -34,27 +35,27 @@ namespace LibGFX.Graphics.Animation3D
         /// <param name="serializationContext">The context that provides serialization settings and state information used during the serialization
         /// process.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized bone counter and bone information map.</returns>
-        public JObject Serialize(SerializationContext serializationContext)
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            // Serialize the BoneInfoMap
-            var boneInfoArray = new JArray();
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("BoneCounter");
+            writer.WriteValue(BoneCounter);
+            writer.WritePropertyName("BoneInfoMap");
+            writer.WriteStartArray();
             foreach (var bone in BoneInfoMap)
             {
-                JObject boneInfoObject = new JObject
-                {
-                    ["Key"] = bone.Key,
-                    ["BoneInfo"] = Utils.SerializeBoneInfo(bone.Value)
-                };
-                boneInfoArray.Add(boneInfoObject);
+                writer.WriteStartObject();
+                writer.WritePropertyName("Key");
+                writer.WriteValue(bone.Key);
+                writer.WritePropertyName("BoneInfo");
+                Utils.SerializeBoneInfo(bone.Value, writer);
+                writer.WriteEndObject();
             }
-
-            // Return the complete serialized object
-            return new JObject
-            {
-                ["Type"] = this.GetType().FullName,
-                ["BoneCounter"] = BoneCounter,
-                ["BoneInfoMap"] = boneInfoArray
-            };
+            writer.WriteEndArray();
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         /// <summary>

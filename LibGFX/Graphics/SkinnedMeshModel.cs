@@ -3,6 +3,7 @@ using Assimp.Configs;
 using LibGFX.Core;
 using LibGFX.Graphics.Animation3D;
 using LibGFX.Graphics.Materials;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -428,39 +429,42 @@ namespace LibGFX.Graphics
         /// <param name="serializationContext">The context that provides configuration and state information for the serialization process.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized JSON representation of the object.</returns>
         /// <exception cref="NotImplementedException">Thrown in all cases, as this method is not yet implemented.</exception>
-        public JObject Serialize(SerializationContext serializationContext)
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            // Serialize meshes
-            var meshesArray = new JArray();
-            foreach(var mesh in Meshes)
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("ID");
+            writer.WriteValue(ID.ToString());
+            writer.WritePropertyName("Name");
+            writer.WriteValue(!String.IsNullOrEmpty(Name) ? Name : ID.ToString());
+            writer.WritePropertyName("Meshes");
+            writer.WriteStartArray();
+            foreach (var mesh in Meshes)
             {
-                var meshObj = new JObject()
-                {
-                    ["Key"] = mesh.Key,
-                    ["Mesh"] = mesh.Value.Serialize(serializationContext),
-                    ["Material"] = mesh.Value.Material.Serialize(serializationContext)
-                };
-                meshesArray.Add(meshObj);
+                writer.WriteStartObject();
+                writer.WritePropertyName("Key");
+                writer.WriteValue(mesh.Key);
+                writer.WritePropertyName("Mesh");
+                mesh.Value.Serialize(writer, serializationContext);
+                writer.WritePropertyName("Material");
+                mesh.Value.Material.Serialize(writer, serializationContext);
+                writer.WriteEndObject();
             }
-
-            // Serialize animations
-            var animationsArray = new JArray();
-            foreach(var animation in Animations)
+            writer.WriteEndArray();
+            writer.WritePropertyName("NodeStructure");
+            Utils.SerializeSceneNodeData(this.NodeStructure, writer);
+            writer.WritePropertyName("Skeleton");
+            Skeleton.Serialize(writer, serializationContext);
+            writer.WritePropertyName("Animations");
+            writer.WriteStartArray();
+            foreach (var animation in Animations)
             {
-                animationsArray.Add(animation.Serialize(serializationContext));
+                animation.Serialize(writer, serializationContext);
             }
-
-            // Create main JObject
-            return new JObject()
-            {
-                ["Type"] = this.GetType().FullName,
-                ["ID"] = ID.ToString(),
-                ["Name"] = !String.IsNullOrEmpty(Name) ? Name : ID.ToString(),
-                ["Meshes"] = meshesArray,
-                ["NodeStructure"] = Utils.SerializeSceneNodeData(this.NodeStructure),
-                ["Skeleton"] = Skeleton.Serialize(serializationContext),
-                ["Animations"] = animationsArray
-            };
+            writer.WriteEndArray();
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using LibGFX.Core;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -150,24 +151,70 @@ namespace LibGFX.Graphics.Materials
         /// <param name="serializationContext">The context that provides information and settings required for the serialization process.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized representation of the object.</returns>
         /// <exception cref="NotImplementedException">The method is not implemented.</exception>
-        public JObject Serialize(SerializationContext serializationContext)
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            JObject result = new JObject
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("Name");
+            writer.WriteValue(this.Name);
+            writer.WritePropertyName("ID");
+            writer.WriteValue(this.ID.ToString());
+            writer.WritePropertyName("Albedo");
+            Utils.SerializeVec3(this.Albedo, writer);
+            writer.WritePropertyName("Metallic");
+            writer.WriteValue(this.Metallic);
+            writer.WritePropertyName("Roughness");
+            writer.WriteValue(this.Roughness);
+            writer.WritePropertyName("Occlusion");
+            writer.WriteValue(this.Occlusion);
+            writer.WritePropertyName("AlbedoTexture");
+            if (this.AlbedoTexture != null)
             {
-                ["Type"] = this.GetType().FullName,
-                ["Name"] = this.Name,
-                ["ID"] = this.ID.ToString(),
-                ["Albedo"] = Utils.SerializeVec3(this.Albedo),
-                ["Metallic"] = this.Metallic,
-                ["Roughness"] = this.Roughness,
-                ["Occlusion"] = this.Occlusion,
-                ["AlbedoTexture"] = this.AlbedoTexture != null ? this.AlbedoTexture.Serialize(serializationContext) : null,
-                ["NormalTexture"] = this.NormalTexture != null ? this.NormalTexture.Serialize(serializationContext) : null,
-                ["MetallicTexture"] = this.MetallicTexture != null ? this.MetallicTexture.Serialize(serializationContext) : null,
-                ["RoughnessTexture"] = this.RoughnessTexture != null ? this.RoughnessTexture.Serialize(serializationContext) : null,
-                ["OcclusionTexture"] = this.OcclusionTexture != null ? this.OcclusionTexture.Serialize(serializationContext) : null,
-            };
-            return result;
+                this.AlbedoTexture.Serialize(writer, serializationContext);
+            }
+            else
+            {
+                writer.WriteNull();
+            }
+            writer.WritePropertyName("NormalTexture");
+            if (this.NormalTexture != null)
+            {
+                this.NormalTexture.Serialize(writer, serializationContext);
+            }
+            else
+            {
+                writer.WriteNull();
+            }
+            writer.WritePropertyName("MetallicTexture");
+            if (this.MetallicTexture != null)
+            {
+                this.MetallicTexture.Serialize(writer, serializationContext);
+            }
+            else
+            {
+                writer.WriteNull();
+            }
+            writer.WritePropertyName("RoughnessTexture");
+            if (this.RoughnessTexture != null)
+            {
+                this.RoughnessTexture.Serialize(writer, serializationContext);
+            }
+            else
+            {
+                writer.WriteNull();
+            }
+            writer.WritePropertyName("OcclusionTexture");
+            if (this.OcclusionTexture != null)
+            {
+                this.OcclusionTexture.Serialize(writer, serializationContext);
+            }
+            else
+            {
+                writer.WriteNull();
+            }
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         /// <summary>

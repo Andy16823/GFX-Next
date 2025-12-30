@@ -2,6 +2,7 @@
 using LibGFX.Core;
 using LibGFX.Graphics.Materials;
 using LibGFX.Math;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -145,25 +146,39 @@ namespace LibGFX.Graphics
             IsInitialized = false;
         }
 
-        public JObject Serialize(SerializationContext serializationContext)
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            JObject obj = new JObject();
-            obj["Type"] = this.GetType().FullName;
-            obj["Name"] = Name;
-            obj["ID"] = ID;
-
-            var vertArray = new JArray();
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("Name");
+            writer.WriteValue(Name);
+            writer.WritePropertyName("ID");
+            writer.WriteValue(ID);
+            writer.WritePropertyName("Vertices");
+            writer.WriteStartArray();
             foreach (var vertex in Vertices)
             {
-                vertArray.Add(Utils.SerializeVertex(vertex));
+                Utils.SerializeVertex(vertex, writer);
             }
-            obj["Vertices"] = vertArray;
-            obj["Indices"] = new JArray(this.Indices);
-            obj["LocalTranslation"] = Utils.SerializeVec3(this.LocalTranslation);
-            obj["LocalRotation"] = Utils.SerializeQuat(this.LocalRotation);
-            obj["LocalScale"] = Utils.SerializeVec3(this.LocalScale);
-            obj["Material"] = this.Material != null ? this.Material.ID.ToString() : null;
-            return obj;
+            writer.WriteEndArray();
+            writer.WritePropertyName("Indices");
+            writer.WriteStartArray();
+            foreach (var index in Indices)
+            {
+                writer.WriteValue(index);
+            }
+            writer.WriteEndArray();
+            writer.WritePropertyName("LocalTranslation");
+            Utils.SerializeVec3(this.LocalTranslation, writer);
+            writer.WritePropertyName("LocalRotation");
+            Utils.SerializeQuat(this.LocalRotation, writer);
+            writer.WritePropertyName("LocalScale");
+            Utils.SerializeVec3(this.LocalScale, writer);
+            writer.WritePropertyName("Material");
+            writer.WriteValue(this.Material != null ? this.Material.ID.ToString() : null);
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         public void Deserialize(JObject jObject, SerializationContext serializationContext)

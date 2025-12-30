@@ -1,6 +1,7 @@
 ﻿using Assimp;
 using LibGFX.Core;
 using LibGFX.Math;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -88,14 +89,17 @@ namespace LibGFX.Graphics.Enviroment
         /// process.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized representation of the object, including its type, cubemap,
         /// and transform information.</returns>
-        public JObject Serialize(SerializationContext serializationContext)
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            return new JObject()
-            {
-                ["Type"] = this.GetType().FullName,
-                ["Cubemap"] = this.Cubemap.Serialize(serializationContext),
-                ["Transform"] = this.Transform.Serialize(serializationContext)
-            };
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("Cubemap");
+            this.Cubemap.Serialize(writer, serializationContext);
+            writer.WritePropertyName("Transform");
+            this.Transform.Serialize(writer, serializationContext);
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         /// <summary>

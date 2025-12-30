@@ -4,6 +4,7 @@ using LibGFX.Core;
 using LibGFX.Graphics.Animation3D;
 using LibGFX.Graphics.Materials;
 using LibGFX.Math;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -244,16 +245,33 @@ namespace LibGFX.Graphics
         /// <param name="serializationContext">The context that provides information and settings required for serialization.</param>
         /// <returns>A <see cref="JObject"/> representing the serialized static mesh model, including its type, name, ID, and
         /// file path.</returns>
-        public JObject Serialize(SerializationContext serializationContext)
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            // Serialize the StaticMeshModel. Changed that the model file path is stored instead of the full model data.
-            return new JObject
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("Name");
+            writer.WriteValue(!String.IsNullOrEmpty(Name) ? Name : ID.ToString());
+            writer.WritePropertyName("ID");
+            writer.WriteValue(ID.ToString());
+            writer.WritePropertyName("Meshes");
+            writer.WriteStartArray();
+            foreach (var kvp in Meshes)
             {
-                ["Type"] = this.GetType().FullName,
-                ["Name"] = !String.IsNullOrEmpty(Name) ? Name : ID.ToString(),
-                ["ID"] = ID.ToString(),
-                ["FilePath"] = FilePath
-            };
+                writer.WriteStartObject();
+                writer.WritePropertyName("Key");
+                writer.WriteValue(kvp.Key);
+                writer.WritePropertyName("Mesh");
+                kvp.Value.Serialize(writer, serializationContext);
+                writer.WritePropertyName("Material");
+                kvp.Value.Material.Serialize(writer, serializationContext);
+                writer.WriteEndObject();
+            }
+            writer.WriteEndArray();
+            writer.WritePropertyName("NodeStructure");
+            Utils.SerializeSceneNodeData(NodeStructure, writer);
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
         }
 
         /// <summary>
@@ -266,17 +284,37 @@ namespace LibGFX.Graphics
         /// <exception cref="InvalidOperationException">Thrown if the model has already been initialized.</exception>
         public void Deserialize(JObject jObject, SerializationContext serializationContext)
         {
-            if(this.IsInitialized)
+            if (this.IsInitialized)
             {
                 throw new InvalidOperationException("Cannot deserialize an initialized model.");
             }
+
+            // Deserialize meshes and materials
+            Meshes = new Dictionary<string, Mesh>();
+            var meshesArray = (JArray)jObject["Meshes"];
+            foreach (var meshToken in meshesArray)
+            {
+                var meshObject = (JObject)meshToken;
+                var key = meshObject["Key"].ToString();
+
+                // Deserialize Material
+                var material = new SGMaterial();
+                material.Deserialize((JObject)meshObject["Material"], serializationContext);
+                serializationContext.SetValue(material.ID.ToString(), material);
+
+                // Deserialize Mesh
+                var mesh = new Mesh();
+                mesh.Deserialize((JObject)meshObject["Mesh"], serializationContext);
+
+                // Assign material to mesh and add to dictionary
+                mesh.Material = material;
+                Meshes.Add(key, mesh);
+            }
+
             // Deserialize other properties
             this.Name = jObject["Name"].ToString();
             this.ID = Guid.Parse(jObject["ID"].ToString());
-            this.FilePath = jObject["FilePath"].ToString();
-
-            // Reload the model from the file path
-            LoadFromFile(this.FilePath);    
+            this.NodeStructure = Utils.DeserializeSceneNodeData(jObject["NodeStructure"] as JObject);
         }
     }
 }

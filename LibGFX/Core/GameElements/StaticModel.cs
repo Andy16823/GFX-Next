@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LibGFX.Graphics;
 using LibGFX.Math;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 
@@ -142,15 +143,15 @@ namespace LibGFX.Core.GameElements
         /// <param name="serializationContext">The context that provides information and settings for the serialization process.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized representation of the object, including type and model
         /// information.</returns>
-        public override JObject Serialize(SerializationContext serializationContext)
+        public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
             // Serialize base properties
-            var data = base.Serialize(serializationContext);
-
-            // Serialize StaticModel specific properties override Type
-            data["Type"] = this.GetType().FullName;
-            data["Model"] = _model.ID.ToString();
-            return data;
+            base.Serialize(writer, serializationContext, (w) =>
+            {
+                w.WritePropertyName("Model");
+                w.WriteValue(_model.ID.ToString());
+                callback?.Invoke(w);
+            });
         }
 
         /// <summary>

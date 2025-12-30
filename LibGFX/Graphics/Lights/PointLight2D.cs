@@ -1,4 +1,5 @@
 ﻿using LibGFX.Core;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Mathematics;
@@ -100,12 +101,14 @@ namespace LibGFX.Graphics.Lights
         /// </summary>
         /// <param name="serializationContext">The context that provides information and services required for serialization.</param>
         /// <returns>A <see cref="JObject"/> containing the serialized properties of the light object.</returns>
-        public override JObject Serialize(SerializationContext serializationContext)
+        public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
-            var result = base.Serialize(serializationContext);
-            result["Type"] = this.GetType().FullName;
-            result["Radius"] = this.Radius;
-            return result;
+            base.Serialize(writer, serializationContext, (w) =>
+            {
+                w.WritePropertyName("Radius");
+                w.WriteValue(this.Radius);
+                callback?.Invoke(w);
+            });
         }
 
         /// <summary>
