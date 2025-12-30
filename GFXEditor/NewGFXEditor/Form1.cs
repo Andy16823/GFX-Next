@@ -787,7 +787,25 @@ namespace NewGFXEditor
         {
             if (this.treeView1.SelectedNode != null)
             {
-                this.propertyGrid1.SelectedObject = this.treeView1.SelectedNode.Tag;
+                var selectedElement = this.treeView1.SelectedNode.Tag;
+                if (selectedElement != null)
+                {
+                    this.propertyGrid1.SelectedObject = this.treeView1.SelectedNode.Tag;
+                    if (selectedElement is GameElement entity)
+                    {
+                        _selectedElement = entity;
+                        this.TransformGizmo.Transform.Position = _selectedElement.Transform.Position;
+                        this.TransformGizmo.Enabled = true;
+                        this._editorPanel3D.Redraw();
+
+                    }
+                    else
+                    {
+                        _selectedElement = null;
+                        this.TransformGizmo.Enabled = false;
+                        this._editorPanel3D.Redraw();
+                    }
+                }
             }
         }
 
@@ -1378,6 +1396,34 @@ namespace NewGFXEditor
         private void orthogalToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lightSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_selectedElement != null)
+            {
+                if (_selectedElement is PointLight3DHandle light)
+                {
+                    var pointLightDialog = new Dialogs.PointLightDialog(light.LightSource);
+                    if (pointLightDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        _editorPanel3D.Redraw();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selected element is not a light.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No element selected to edit light settings.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void reloadUToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.UpdateGUI();
         }
     }
 }

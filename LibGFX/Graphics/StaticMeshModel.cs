@@ -46,6 +46,11 @@ namespace LibGFX.Graphics
         public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
+        /// Gets or sets the full file system path associated with the current instance.
+        /// </summary>
+        public String FilePath { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the StaticMeshModel class.
         /// Used for deserialization purposes.
         /// </summary>
@@ -70,6 +75,9 @@ namespace LibGFX.Graphics
         /// <param name="file"></param>
         private void LoadFromFile(string file)
         {
+            // Set the file path
+            FilePath = file;
+
             // Get the directory of the file
             var directory = Path.GetDirectoryName(file);
 
@@ -231,35 +239,20 @@ namespace LibGFX.Graphics
         }
 
         /// <summary>
-        /// Serializes the model and its associated meshes, materials, and node structure into a JSON object.
+        /// Serializes the current static mesh model to a JSON object using the specified serialization context.
         /// </summary>
-        /// <param name="serializationContext">The context that provides serialization settings and state information used during the serialization
-        /// process.</param>
-        /// <returns>A <see cref="JObject"/> representing the serialized state of the model, including its type, name, ID,
-        /// meshes, and node structure.</returns>
+        /// <param name="serializationContext">The context that provides information and settings required for serialization.</param>
+        /// <returns>A <see cref="JObject"/> representing the serialized static mesh model, including its type, name, ID, and
+        /// file path.</returns>
         public JObject Serialize(SerializationContext serializationContext)
         {
-            // Serialize meshes and materials since IModel owns them
-            var meshesArray = new JArray();
-            foreach (var mesh in Meshes)
-            {
-                var meshObject = new JObject
-                {
-                    ["Key"] = mesh.Key,
-                    ["Mesh"] = mesh.Value.Serialize(serializationContext),
-                    ["Material"] = mesh.Value.Material.Serialize(serializationContext)
-                };
-                meshesArray.Add(meshObject);
-            }
-
-            // Serialize the StaticMeshModel
+            // Serialize the StaticMeshModel. Changed that the model file path is stored instead of the full model data.
             return new JObject
             {
                 ["Type"] = this.GetType().FullName,
                 ["Name"] = !String.IsNullOrEmpty(Name) ? Name : ID.ToString(),
                 ["ID"] = ID.ToString(),
-                ["Meshes"] = meshesArray,
-                ["NodeStructure"] = Utils.SerializeSceneNodeData(NodeStructure)
+                ["FilePath"] = FilePath
             };
         }
 
@@ -277,33 +270,13 @@ namespace LibGFX.Graphics
             {
                 throw new InvalidOperationException("Cannot deserialize an initialized model.");
             }
-
-            // Deserialize meshes and materials
-            Meshes = new Dictionary<string, Mesh>();
-            var meshesArray = (JArray)jObject["Meshes"];
-            foreach(var meshToken in meshesArray)
-            {
-                var meshObject = (JObject)meshToken;
-                var key = meshObject["Key"].ToString();
-
-                // Deserialize Material
-                var material = new SGMaterial();
-                material.Deserialize((JObject)meshObject["Material"], serializationContext);
-                serializationContext.SetValue(material.ID.ToString(), material);
-
-                // Deserialize Mesh
-                var mesh = new Mesh();
-                mesh.Deserialize((JObject)meshObject["Mesh"], serializationContext);
-
-                // Assign material to mesh and add to dictionary
-                mesh.Material = material;
-                Meshes.Add(key, mesh);
-            }
-
             // Deserialize other properties
             this.Name = jObject["Name"].ToString();
             this.ID = Guid.Parse(jObject["ID"].ToString());
-            this.NodeStructure = Utils.DeserializeSceneNodeData(jObject["NodeStructure"] as JObject);
+            this.FilePath = jObject["FilePath"].ToString();
+
+            // Reload the model from the file path
+            LoadFromFile(this.FilePath);    
         }
     }
 }

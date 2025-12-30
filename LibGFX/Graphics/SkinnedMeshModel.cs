@@ -55,6 +55,11 @@ namespace LibGFX.Graphics
         public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
+        /// Gets or sets the full path to the file associated with this instance.
+        /// </summary>
+        public string FilePath { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the SkinnedMeshModel class.
         /// Used for deserialization purposes.
         /// </summary>
@@ -80,6 +85,7 @@ namespace LibGFX.Graphics
         /// <exception cref="Exception"></exception>
         private void LoadModel(String file)
         {
+            this.FilePath = file;
             var directory = Path.GetDirectoryName(file);
 
             var importer = new AssimpContext();

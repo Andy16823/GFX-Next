@@ -22,5 +22,10 @@ namespace LibGFX.Graphics
         /// The node structure of this model
         /// </summary>
         public SceneNodeData NodeStructure { get; set; }
+
+        /// <summary>
+        /// Gets or sets the full file system path associated with this instance.
+        /// </summary>
+        public String FilePath { get; set; }
     }
 }
