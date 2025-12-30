@@ -46,9 +46,9 @@ namespace LibGFX.Graphics
         public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
-        /// Gets or sets the full file system path associated with the current instance.
+        /// Gets or sets the full path to the file associated with this instance.
         /// </summary>
-        public String FilePath { get; set; }
+        public string FilePath { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the StaticMeshModel class.

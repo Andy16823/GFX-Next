@@ -1,4 +1,5 @@
-﻿using LibGFX.Core;
+﻿using LibGFX.Assets;
+using LibGFX.Core;
 using LibGFX.Graphics.Animation3D;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Base interface for 3D models
     /// </summary>
-    public interface IModel : IGraphicsResource, IIdentifier, ISerialization
+    public interface IModel : IFileAsset, IGraphicsResource, IIdentifier, ISerialization
     {
         /// <summary>
         /// The meshes contained in this model, indexed by their names
@@ -22,10 +23,5 @@ namespace LibGFX.Graphics
         /// The node structure of this model
         /// </summary>
         public SceneNodeData NodeStructure { get; set; }
-
-        /// <summary>
-        /// Gets or sets the full file system path associated with this instance.
-        /// </summary>
-        public String FilePath { get; set; }
     }
 }
