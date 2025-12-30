@@ -189,7 +189,7 @@ namespace LibGFX.Core.GameElements
             base.Deserialize(jObject, serializationContext);
 
             // Deserialize primitive-specific data if needed
-            var meshId = jObject["Mesh"].ToString();
+            var meshId = jObject["Mesh"]?.Value<string>();
             var mesh = serializationContext.GetValue<Mesh>(meshId);
             if(serializationContext.GetValue<Mesh>(meshId) != null)
             {

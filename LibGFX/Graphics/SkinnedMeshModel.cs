@@ -481,8 +481,8 @@ namespace LibGFX.Graphics
                 throw new InvalidOperationException("Cannot deserialize an initialized model. Please dispose the model before deserialization.");
             }
 
-            this.ID = Guid.Parse(jObject["ID"].ToString());
-            this.Name = jObject["Name"].ToString();
+            this.ID = Guid.Parse(jObject["ID"]?.Value<string>() ?? Guid.NewGuid().ToString());
+            this.Name = jObject["Name"]?.Value<string>() ?? String.Empty;
 
             // Deserialize meshes
             this.Meshes = new Dictionary<string, Mesh>();
@@ -491,7 +491,7 @@ namespace LibGFX.Graphics
             {
                 // Deserialize each mesh
                 var meshObj = meshToken as JObject;
-                var key = meshObj["Key"].ToString();
+                var key = meshObj["Key"].Value<string>();
 
                 // Deserialize Material
                 var material = new SGMaterial();

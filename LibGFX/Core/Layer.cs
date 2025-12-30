@@ -289,10 +289,10 @@ namespace LibGFX.Core
         /// <exception cref="Exception">Thrown if an element type specified in the JSON cannot be found during deserialization.</exception>
         public void Deserialize(JObject jObject, SerializationContext serializationContext)
         {
-            this.Name = jObject["Name"].ToString();
-            this.ID = Guid.Parse(jObject["ID"].ToString());
-            this.Visible = jObject["Visible"].ToObject<bool>();
-            this.Enabled = jObject["Enabled"].ToObject<bool>();
+            this.Name = jObject["Name"]?.Value<string>();
+            this.ID = Guid.Parse(jObject["ID"]?.Value<string>() ?? Guid.NewGuid().ToString());
+            this.Visible = jObject["Visible"]?.Value<bool>() ?? true;
+            this.Enabled = jObject["Enabled"]?.Value<bool>() ?? true;
 
             var elementsArray = jObject["Elements"] as JArray;
             if (elementsArray != null)

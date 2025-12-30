@@ -147,7 +147,7 @@ namespace LibGFX.Core.GameElements
         {
             base.Deserialize(jObject, serializationContext);
             this.Transform.Changed += Transform_Changed;
-            var lightSourceId = jObject["LightSource"]?.ToString();
+            var lightSourceId = jObject["LightSource"]?.Value<string>();
             var lightSource = serializationContext.GetValue<Light>(lightSourceId);
             if(lightSource != null && lightSource is PointLight3D pointLight)
             {

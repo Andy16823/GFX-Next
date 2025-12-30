@@ -2,6 +2,7 @@
 using LibGFX.Core;
 using LibGFX.Graphics;
 using LibGFX.Graphics.Materials;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
@@ -35,7 +36,7 @@ namespace NewGFXEditor.Editor
             this.IsInitialized = true;
         }
 
-        public JObject Serialize(SerializationContext serializationContext)
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
             throw new NotImplementedException();
         }

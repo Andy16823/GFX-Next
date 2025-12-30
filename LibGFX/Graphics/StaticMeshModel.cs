@@ -295,7 +295,7 @@ namespace LibGFX.Graphics
             foreach (var meshToken in meshesArray)
             {
                 var meshObject = (JObject)meshToken;
-                var key = meshObject["Key"].ToString();
+                var key = meshObject["Key"].Value<string>();
 
                 // Deserialize Material
                 var material = new SGMaterial();
@@ -312,8 +312,8 @@ namespace LibGFX.Graphics
             }
 
             // Deserialize other properties
-            this.Name = jObject["Name"].ToString();
-            this.ID = Guid.Parse(jObject["ID"].ToString());
+            this.Name = jObject["Name"]?.Value<string>() ?? String.Empty;
+            this.ID = Guid.Parse(jObject["ID"]?.Value<string>() ?? Guid.NewGuid().ToString());
             this.NodeStructure = Utils.DeserializeSceneNodeData(jObject["NodeStructure"] as JObject);
         }
     }

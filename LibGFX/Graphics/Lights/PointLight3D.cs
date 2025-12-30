@@ -200,7 +200,7 @@ namespace LibGFX.Graphics.Lights
                 w.WritePropertyName("Constant");
                 w.WriteValue(this.Constant);
                 w.WritePropertyName("Linear");
-                w.WriteValue(this.Ambient);
+                w.WriteValue(this.Linear);
                 w.WritePropertyName("Quadratic");
                 w.WriteValue(this.Quadratic);
                 w.WritePropertyName("Ambient");
@@ -221,10 +221,10 @@ namespace LibGFX.Graphics.Lights
         public override void Deserialize(JObject jObject, SerializationContext serializationContext)
         {
             base.Deserialize(jObject, serializationContext);
-            this.Range = jObject["Range"]!.Value<float>();
-            this.Constant = jObject["Constant"]!.Value<float>();
-            this.Linear = jObject["Linear"]!.Value<float>();
-            this.Quadratic = jObject["Quadratic"]!.Value<float>();
+            this.Range = jObject["Range"]?.Value<float>() ?? 0f;
+            this.Constant = jObject["Constant"]?.Value<float>() ?? 0f;
+            this.Linear = jObject["Linear"]?.Value<float>() ?? 0f;
+            this.Quadratic = jObject["Quadratic"]?.Value<float>() ?? 0f;
             this.Ambient = Utils.DeserializeVec4(jObject["Ambient"] as JObject);
             this.Specular = Utils.DeserializeVec4(jObject["Specular"] as JObject);
         }

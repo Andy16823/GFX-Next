@@ -563,7 +563,7 @@ namespace LibGFX.Core
             // Start writing the JSON object
             writer.WriteStartObject();
             writer.WritePropertyName("Type");
-            writer.WriteValue(this.GetType());
+            writer.WriteValue(this.GetType().FullName);
             writer.WritePropertyName("Name");
             writer.WriteValue(!String.IsNullOrEmpty(Name) ? this.Name : this.ID.ToString());
             writer.WritePropertyName("ID");
@@ -599,8 +599,8 @@ namespace LibGFX.Core
         /// converters.</param>
         public virtual void Deserialize(JObject jObject, SerializationContext serializationContext)
         {
-            this.Name = jObject["Name"]?.ToString() ?? String.Empty;
-            this.ID = Guid.Parse(jObject["ID"]?.ToString() ?? Guid.NewGuid().ToString());
+            this.Name = jObject["Name"]?.Value<String>() ?? String.Empty;
+            this.ID = Guid.Parse(jObject["ID"]?.Value<String>() ?? Guid.NewGuid().ToString());
         }
     }
 }

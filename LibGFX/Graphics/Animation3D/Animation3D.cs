@@ -318,9 +318,9 @@ namespace LibGFX.Graphics.Animation3D
         /// influence how certain fields are interpreted or constructed.</param>
         public void Deserialize(JObject jObject, SerializationContext serializationContext)
         {
-            this.Name = jObject["Name"].ToString();
-            this.Duration = jObject["Duration"].ToObject<float>();
-            this.TicksPerSecond = jObject["TicksPerSecond"].ToObject<float>();
+            this.Name = jObject["Name"]?.Value<string>() ?? String.Empty;
+            this.Duration = jObject["Duration"]?.Value<float>() ?? 0f;
+            this.TicksPerSecond = jObject["TicksPerSecond"]?.Value<float>() ?? 0f;
 
             // Deserialize Bones
             this.Bones = new List<Bone>();
