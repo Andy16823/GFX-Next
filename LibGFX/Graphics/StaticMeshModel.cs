@@ -152,6 +152,8 @@ namespace LibGFX.Graphics
             // Load the transforms of the model
             LoadTransforms(assimpScene);
             NodeStructure = LoadNodeStructure(assimpScene.RootNode);
+
+            importer.Dispose();
         }
 
         /// <summary>

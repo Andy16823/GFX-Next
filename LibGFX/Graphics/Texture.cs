@@ -146,105 +146,16 @@ namespace LibGFX.Graphics
         public Texture(string path)
         {
             StbImage.stbi_set_flip_vertically_on_load(1);
-            var image = ImageResult.FromStream(File.OpenRead(path), ColorComponents.RedGreenBlueAlpha);
-            TextureId = 0;
-            TextureData = image.Data;
-            Width = image.Width;
-            Height = image.Height;
-            Name = Path.GetFileNameWithoutExtension(path);
-            HasAlpha = DetectAlphaUsage();
-        }
-
-        /// <summary>
-        /// Loads a texture from a file path.
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        [Obsolete("Use the constructor Texture(string path) instead.")]
-        public static Texture LoadTexture(String path)
-        {
-            StbImage.stbi_set_flip_vertically_on_load(1);
-
-            Texture texture = new Texture();
-            ImageResult image = ImageResult.FromStream(File.OpenRead(path), ColorComponents.RedGreenBlueAlpha);
-            texture.TextureData = image.Data;
-            texture.Width = image.Width;
-            texture.Height = image.Height;
-
-            return texture;
-        }
-
-        /// <summary>
-        /// Loads a texture from a Bitmap object.
-        /// </summary>
-        /// <param name="source"></param>
-        /// <returns></returns>
-        [Obsolete("Incompatible with non-Windows platforms. Use LoadTexture(string path) or CreateTexture(int width, int height, Vector4i color) instead.")]
-        public static Texture LoadTexture(Bitmap source)
-        {
-            Texture texture = new Texture()
+            using(var stream = File.OpenRead(path))
             {
-                Width = source.Width,
-                Height = source.Height,
-                TextureData = ConvertBitmapToByteArray(source),
-            };
-            return texture;
-        }
-
-        /// <summary>
-        /// Converts a Bitmap to a byte array in RGBA format.
-        /// </summary>
-        /// <param name="bitmap"></param>
-        /// <returns></returns>
-        [Obsolete("Incompatible with non-Windows platforms. Use ImageSharp or StbImageSharp for image loading and processing.")]
-        private static byte[] ConvertBitmapToByteArray(Bitmap bitmap)
-        {
-            int width = bitmap.Width;
-            int height = bitmap.Height;
-            byte[] pixelData = new byte[width * height * 4]; // RGBA -> 4 Bytes pro Pixel
-
-            int index = 0;
-            for (int y = 0; y < height; y++)
-            {
-                for (int x = 0; x < width; x++)
-                {
-                    Color pixel = bitmap.GetPixel(x, y);
-                    pixelData[index++] = pixel.R;
-                    pixelData[index++] = pixel.G;
-                    pixelData[index++] = pixel.B;
-                    pixelData[index++] = pixel.A;
-                }
+                var image = ImageResult.FromStream(stream, ColorComponents.RedGreenBlueAlpha);
+                TextureId = 0;
+                TextureData = image.Data;
+                Width = image.Width;
+                Height = image.Height;
+                Name = Path.GetFileNameWithoutExtension(path);
+                HasAlpha = DetectAlphaUsage();
             }
-
-            return pixelData;
-        }
-
-        /// <summary>
-        /// Gets the UV coordinates for a specified area of the texture.
-        /// </summary>
-        /// <param name="area"></param>
-        /// <returns></returns>
-        [Obsolete("Use GetUVTransform(Rect area) instead.")]
-        public float[] GetSubImageUVCords(Rect area)
-        {
-            float span_x = 1.0f / (float)Width;
-            float span_y = 1.0f / (float)Height;
-
-            float bottom_left_x = span_x * area.X;
-            float bottom_left_y = span_y * area.Y;
-            float top_left_x = bottom_left_x;
-            float top_left_y = bottom_left_y + (span_y * area.Height);
-            float top_right_x = top_left_x + (span_x * area.Width);
-            float top_right_y = top_left_y;
-            float bottom_right_x = top_right_x;
-            float bottom_right_y = bottom_left_y;
-
-            return [
-                bottom_left_x, bottom_left_y,
-                top_left_x, top_left_y,
-                top_right_x, top_right_y,
-                bottom_right_x, bottom_right_y
-            ];
         }
 
         /// <summary>
@@ -391,18 +302,33 @@ namespace LibGFX.Graphics
             return copy;
         }
 
+        /// <summary>
+        /// Initializes the texture with the specified render device.
+        /// </summary>
+        /// <param name="renderer"></param>
         public void Init(IRenderDevice renderer)
         {
+            // TODO: Think about if the texture data should be kept in memory after initialization or not.
             renderer.LoadTexture(this, _parameters);
+            this.TextureData = null;
             this.IsInitialized = true;
         }
 
+        /// <summary>
+        /// Frees resources used by the texture within the gpu.
+        /// </summary>
+        /// <param name="renderer"></param>
         public void Dispose(IRenderDevice renderer)
         {
             renderer.DisposeTexture(this);
             this.IsInitialized = false;
         }
 
+        /// <summary>
+        /// Sets the texture parameters.
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <exception cref="InvalidOperationException"></exception>
         private void SetTextureParameters(TextureParameters parameters)
         {
             if (this.IsInitialized)
@@ -431,6 +357,12 @@ namespace LibGFX.Graphics
             return false;
         }
 
+        /// <summary>
+        /// Serializes the texture to JSON.
+        /// </summary>
+        /// <param name="writer"></param>
+        /// <param name="context"></param>
+        /// <param name="callback"></param>
         public void Serialize(JsonWriter writer, SerializationContext context, Action<JsonWriter> callback = null)
         {
             writer.WriteStartObject();
@@ -467,6 +399,14 @@ namespace LibGFX.Graphics
             writer.WriteEndObject();
         }
 
+        /// <summary>
+        /// Constructs the texture from JSON data.
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="context"></param>
+        /// <param name="callback"></param>
+        /// <exception cref="InvalidOperationException"></exception>
+        /// <exception cref="JsonException"></exception>
         public void Deserialize(JsonReader reader, SerializationContext context, Func<JsonReader, string, bool> callback = null)
         {
             if(this.IsInitialized)
