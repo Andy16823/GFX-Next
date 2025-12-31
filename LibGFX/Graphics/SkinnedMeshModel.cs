@@ -61,12 +61,44 @@ namespace LibGFX.Graphics
         public string FilePath { get; set; }
 
         /// <summary>
+        /// Gets a value indicating whether the current image contains any transparent pixels.
+        /// </summary>
+        public bool HasTransparency => this.HasTransparencyCheck();
+
+        /// <summary>
         /// Initializes a new instance of the SkinnedMeshModel class.
         /// Used for deserialization purposes.
         /// </summary>
         public SkinnedMeshModel()
         {
 
+        }
+
+        /// <summary>
+        /// Determines whether any mesh in the collection uses a transparent material.
+        /// </summary>
+        /// <returns>true if at least one mesh has a transparent material; otherwise, false.</returns>
+        private bool HasTransparencyCheck()
+        {
+            return Meshes.Any(mesh => mesh.Material.IsTransparent);
+        }
+
+        /// <summary>
+        /// Orders the mesh transparency for rendering.
+        /// </summary>
+        private void OrderMeshTransparency()
+        {
+            this.Meshes.Sort((meshA, meshB) =>
+            {
+                bool isTransparentA = meshA.Material.IsTransparent;
+                bool isTransparentB = meshB.Material.IsTransparent;
+                if (isTransparentA && !isTransparentB)
+                    return 1; // A is transparent, B is opaque -> A after B
+                else if (!isTransparentA && isTransparentB)
+                    return -1; // A is opaque, B is transparent -> A before B
+                else
+                    return 0; // Both are the same type -> maintain order
+            });
         }
 
         /// <summary>
@@ -276,6 +308,9 @@ namespace LibGFX.Graphics
             {
                 throw new InvalidOperationException("Model is already initialized.");
             }
+
+            // Order meshes by transparency
+            this.OrderMeshTransparency();
 
             foreach (var mesh in Meshes)
             {

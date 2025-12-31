@@ -71,6 +71,11 @@ namespace LibGFX.Core.GameElements
         }
 
         /// <summary>
+        /// Gets a value indicating whether the image contains any transparent pixels.
+        /// </summary>
+        public override bool HasTransparency => false;
+
+        /// <summary>
         /// Creates a new instance of the InstanceHandle class.
         /// </summary>
         /// <param name="instancer"></param>

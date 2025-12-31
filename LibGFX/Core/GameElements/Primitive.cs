@@ -22,6 +22,9 @@ namespace LibGFX.Core.GameElements
     /// </summary>
     public class Primitive : GameElement
     {
+        /// <summary>
+        /// Specifies the basic geometric shapes that can be used for rendering or modeling operations.
+        /// </summary>
         public enum PrimitiveType
         {
             Quad,
@@ -38,6 +41,11 @@ namespace LibGFX.Core.GameElements
         /// the shader program used for rendering the primitive.
         /// </summary>
         public ShaderProgram Shader { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether the mesh's material includes transparency.
+        /// </summary>
+        public override bool HasTransparency => this.Mesh.Material.IsTransparent;
 
         /// <summary>
         /// Initializes a new instance of the Primitive class.

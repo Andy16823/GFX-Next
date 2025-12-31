@@ -32,6 +32,11 @@ namespace LibGFX.Core.GameElements
         public PointLight3D LightSource { get; set; }
 
         /// <summary>
+        /// Gets a value indicating whether the image contains any transparent pixels.
+        /// </summary>
+        public override bool HasTransparency => false;
+
+        /// <summary>
         /// Initializes a new instance of the PointLight3DHandle class.
         /// </summary>
         public PointLight3DHandle()

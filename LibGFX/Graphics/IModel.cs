@@ -20,6 +20,11 @@ namespace LibGFX.Graphics
         public List<Mesh> Meshes { get; set; }
 
         /// <summary>
+        /// Gets a value indicating whether the content includes transparent regions.
+        /// </summary>
+        public bool HasTransparency { get; }
+
+        /// <summary>
         /// The node structure of this model
         /// </summary>
         public SceneNodeData NodeStructure { get; set; }

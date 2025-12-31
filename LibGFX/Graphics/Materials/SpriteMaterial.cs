@@ -41,7 +41,7 @@ namespace LibGFX.Graphics.Materials
         /// Gets a value indicating whether the object is transparent.
         /// TODO: If this get changed it need to get an setter and also update serialization for this property in all materials.
         /// </summary>
-        public bool IsTransparent => false;
+        public bool IsTransparent => this.Texture.HasAlpha;
 
         /// <summary>
         /// Default constructor for the SpriteMaterial class.

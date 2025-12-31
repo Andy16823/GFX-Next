@@ -23,6 +23,11 @@ namespace LibGFX.Core.GameElements
         private Graphics.StaticMeshModel _model;
 
         /// <summary>
+        /// Gets a value indicating whether the image contains any transparent pixels.
+        /// </summary>
+        public override bool HasTransparency => _model.HasTransparency;
+
+        /// <summary>
         /// Initializes a new instance of the StaticModel class.
         /// </summary>
         public StaticModel()

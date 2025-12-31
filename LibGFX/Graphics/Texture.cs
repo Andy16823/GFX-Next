@@ -444,6 +444,8 @@ namespace LibGFX.Graphics
             writer.WriteValue(this.Width);
             writer.WritePropertyName("Height");
             writer.WriteValue(this.Height);
+            writer.WritePropertyName("HasAlpha");
+            writer.WriteValue(this.HasAlpha);
             writer.WritePropertyName("TextureData");
             writer.WriteValue(Convert.ToBase64String(this.TextureData));
             writer.WritePropertyName("TextureParameters");
@@ -501,6 +503,9 @@ namespace LibGFX.Graphics
                             break;
                         case "Height":
                             this.Height = Convert.ToInt32(reader.Value);
+                            break;
+                        case "HasAlpha":
+                            this.HasAlpha = Convert.ToBoolean(reader.Value);
                             break;
                         case "TextureData":
                             string base64Data = (string)reader.Value;

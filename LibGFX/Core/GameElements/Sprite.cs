@@ -59,6 +59,11 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         public TextureMirrorMode MirrorMode { get; set; } = TextureMirrorMode.None;
 
+        /// <summary>
+        /// Gets a value indicating whether the object uses a material with transparency.
+        /// </summary>
+        public override bool HasTransparency => this.Material.IsTransparent;
+
 
         /// <summary>
         /// Creates a new sprite

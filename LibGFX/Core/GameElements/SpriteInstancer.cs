@@ -38,6 +38,11 @@ namespace LibGFX.Core.GameElements
         public ShaderProgram Shader { get; set; }
 
         /// <summary>
+        /// Gets a value indicating whether the image contains any transparent pixels.
+        /// </summary>
+        public override bool HasTransparency => false;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="SpriteInstancer"/> class with the specified material.
         /// </summary>
         /// <param name="material"></param>

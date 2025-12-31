@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// ToDo: Add nested instances support
+// ToDo: Add nested instances support, add throw if user tries to add transparent material
 namespace LibGFX.Core.GameElements
 {
     /// <summary>
@@ -37,6 +37,11 @@ namespace LibGFX.Core.GameElements
         /// The shader program used for rendering the mesh instances.
         /// </summary>
         public ShaderProgram Shader { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether the image contains any transparent pixels.
+        /// </summary>
+        public override bool HasTransparency => false;
 
         /// <summary>
         /// Creates a new instance of the MeshInstancer class.

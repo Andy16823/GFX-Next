@@ -17,6 +17,7 @@ namespace LibGFX.Core.GameElements
     {
         public Mesh Mesh { get; set; }
         public ShaderProgram Shader { get; set; }
+        public override bool HasTransparency => Mesh.Material.IsTransparent;
 
         public PBRTestEntity(String name, PBRMaterial material) 
         {

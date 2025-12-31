@@ -26,6 +26,11 @@ namespace LibGFX.Core.GameElements
         public AudioSource Source { get => _source; }
 
         /// <summary>
+        /// Gets a value indicating whether the image contains any transparent pixels.
+        /// </summary>
+        public override bool HasTransparency => false;
+
+        /// <summary>
         /// Creates a new audio emitter
         /// </summary>
         /// <param name="audioDevice"></param>

@@ -79,6 +79,11 @@ namespace LibGFX.Core
         public IReadOnlyList<GameElement> Children => _children;
 
         /// <summary>
+        /// Determines if the game element has transparency.
+        /// </summary>
+        public abstract bool HasTransparency { get; }
+
+        /// <summary>
         /// Gets a collection of custom properties associated with the current instance.
         /// </summary>
         /// <remarks>Use this dictionary to store and retrieve additional metadata or user-defined values

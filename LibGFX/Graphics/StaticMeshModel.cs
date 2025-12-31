@@ -52,6 +52,11 @@ namespace LibGFX.Graphics
         public string FilePath { get; set; }
 
         /// <summary>
+        /// Gets a value indicating whether the content includes any transparent pixels.
+        /// </summary>
+        public bool HasTransparency => this.HasTransparencyCheck();
+
+        /// <summary>
         /// Initializes a new instance of the StaticMeshModel class.
         /// Used for deserialization purposes.
         /// </summary>
@@ -68,6 +73,15 @@ namespace LibGFX.Graphics
         public StaticMeshModel(string file)
         {
             LoadFromFile(file);
+        }
+
+        /// <summary>
+        /// Determines whether any mesh in the collection uses a transparent material.
+        /// </summary>
+        /// <returns>true if at least one mesh has a transparent material; otherwise, false.</returns>
+        private bool HasTransparencyCheck()
+        {
+            return Meshes.Any(mesh => mesh.Material.IsTransparent);
         }
 
         /// <summary>

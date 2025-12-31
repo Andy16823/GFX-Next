@@ -23,6 +23,11 @@ namespace LibGFX.Core.GameElements
             this.Transform = new Math.Transform(position, Vector3.One);
         }
 
+        /// <summary>
+        /// Gets a value indicating whether the image contains any transparent pixels.
+        /// </summary>
+        public override bool HasTransparency => false;
+
         public override void ComputeAABB()
         {
             this.AABB = new Math.AABB(Vector3.Zero, Vector3.Zero);

@@ -31,6 +31,8 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         public float AnimationSpeed { get; set; } = 1.0f;
 
+        public override bool HasTransparency => _model.HasTransparency;
+
         /// <summary>
         /// Creates a new animated model game element
         /// Can share the same model instance with other AnimatedModel elements
