@@ -96,6 +96,7 @@ namespace LibGFX.Core
             this.Initialize(this.RenderDevice);
 
             // Call the OnStart method
+            GC.Collect();
             this.OnStart();
 
             while (!this.Window.RequestClose())

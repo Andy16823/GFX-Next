@@ -123,22 +123,8 @@ namespace LibGFX.Core.GameElements
                 return;
             }
 
-            if (mesh.Vertices == null || mesh.Vertices.Count == 0)
-            {
-                this.AABB = new AABB(Vector3.Zero, Vector3.Zero);
-                return;
-            }
-
-            var min = new Vector3(float.MaxValue);
-            var max = new Vector3(float.MinValue);
-
-            foreach (var vertex in mesh.Vertices)
-            {
-                min = Vector3.ComponentMin(min, vertex.Position);
-                max = Vector3.ComponentMax(max, vertex.Position);
-            }
-
-            this.AABB = new AABB(min, max);
+            // Same AABB as the mesh since instancing uses the same geometry
+            this.AABB = mesh.Bounds;
         }
     }
 }

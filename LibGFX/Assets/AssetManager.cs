@@ -146,41 +146,8 @@ namespace LibGFX.Assets
                 throw new InvalidOperationException($"Failed to load asset from path '{path}'.");
             }
 
-            if(loader.ShouldCache)
-            {
-                var key = (typeof(T), path);
-                _assets.Add(key, asset);
-            }
-
-            return (T)asset;
-        }
-
-        /// <summary>
-        /// Creates a new asset of the specified type with the given ID and optional initializer.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="id"></param>
-        /// <param name="initializer"></param>
-        /// <param name="creationArgs"></param>
-        /// <returns></returns>
-        /// <exception cref="NotSupportedException"></exception>
-        /// <exception cref="InvalidOperationException"></exception>
-        public T Create<T>(string id, Action<T>? initializer = null, object? creationArgs = null) where T : class
-        {
-            if (!_loaders.TryGetValue(typeof(T), out var loader))
-            {
-                throw new NotSupportedException($"No loader found for asset type '{typeof(T)}'.");
-            }
-            if (!loader.CanCreate)
-            {
-                throw new InvalidOperationException($"Loader for asset type '{typeof(T)}' does not support creation.");
-            }
-            var asset = loader.Create<T>(id, initializer, creationArgs);
-            if(loader.ShouldCache)
-            {
-                var key = (typeof(T), id);
-                _assets.Add(key, asset);
-            }
+            var key = (typeof(T), path);
+            _assets.Add(key, asset);
 
             return (T)asset;
         }

@@ -127,19 +127,12 @@ namespace LibGFX.Core.GameElements
                 return;
             }
 
-            var min = new Vector3(float.MaxValue);
-            var max = new Vector3(float.MinValue);
-
-            foreach (var mesh in _model.Meshes)
+            AABB aabb = _model.Meshes[0].Bounds;
+            for (int i = 1; i < _model.Meshes.Count; i++)
             {
-                foreach (var vertex in mesh.Vertices)
-                {
-                    min = Vector3.ComponentMin(min, vertex.Position);
-                    max = Vector3.ComponentMax(max, vertex.Position);
-                }
+                aabb = AABB.Combine(aabb, _model.Meshes[i].Bounds);
             }
-
-            this.AABB = new AABB(min, max);
+            this.AABB = aabb;
         }
 
         /// <summary>

@@ -92,6 +92,11 @@ namespace LibGFX.Graphics
         public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
+        /// Gets the axis-aligned bounding box that defines the spatial boundaries of the object.
+        /// </summary>
+        public AABB Bounds { get; private set; }
+
+        /// <summary>
         /// Initializes a new instance of the Mesh class with default values for vertices, indices, transformation, and
         /// render data.
         /// </summary>
@@ -130,6 +135,7 @@ namespace LibGFX.Graphics
         /// <param name="renderer">The render device used to load and initialize the mesh. Cannot be null.</param>
         public void Init(IRenderDevice renderer)
         {
+            ComputeBounds();
             renderer.LoadMesh(this);
             IsInitialized = true;
         }
@@ -144,6 +150,24 @@ namespace LibGFX.Graphics
         {
             renderer.DisposeMesh(this);
             IsInitialized = false;
+        }
+
+        private void ComputeBounds()
+        {
+            if (Vertices == null || Vertices.Count == 0)
+            {
+                Bounds = new AABB(Vector3.Zero, Vector3.Zero);
+                return;
+            }
+
+            Vector3 min = new Vector3(float.MaxValue);
+            Vector3 max = new Vector3(float.MinValue);
+            foreach (var vertex in Vertices)
+            {
+                min = Vector3.ComponentMin(min, vertex.Position);
+                max = Vector3.ComponentMax(max, vertex.Position);
+            }
+            Bounds = new AABB(min, max);
         }
 
         public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)

@@ -69,6 +69,19 @@ namespace LibGFX.Math
         }
 
         /// <summary>
+        /// Combines two AABBs into a new AABB that encompasses both.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public static AABB Combine(AABB a, AABB b)
+        {
+            Vector3 min = Vector3.ComponentMin(a.Min, b.Min);
+            Vector3 max = Vector3.ComponentMax(a.Max, b.Max);
+            return new AABB(min, max);
+        }
+
+        /// <summary>
         /// Transforms the AABB by a given transformation matrix.
         /// </summary>
         /// <param name="aabb"></param>

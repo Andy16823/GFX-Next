@@ -12,21 +12,12 @@ namespace LibGFX.Assets.Loaders
     /// </summary>
     public class StaticMeshModelLoader : IAssetLoader
     {
-        public bool ShouldCache => true;
-
-        public bool CanCreate => false;
-
-        public T Create<T>(string id, Action<T>? initializer = null, object? creationArgs = null) where T : class
-        {
-            throw new Exception("StaticMeshModelLoader cannot create assets.");
-        }
-
         public T Load<T>(string path, object? loadingArgs = null) where T : class
         {
             if (typeof(T) == typeof(StaticMeshModel))
             {
                 var model = new StaticMeshModel(path);
-                return model as T;
+                return (T)(object)model;
             }
             throw new NotSupportedException($"StaticMeshModelLoader cannot load assets of type {typeof(T).FullName}");
         }
