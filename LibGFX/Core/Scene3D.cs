@@ -81,9 +81,6 @@ namespace LibGFX.Core
         /// </summary>
         public bool PerformShadowPass { get; set; } = true;
 
-        private Light3DManager _lightManager;
-        private float _physicsAccumulator = 0.0f;
-
         // Init events
         public override event Action<BaseScene, Viewport, IRenderDevice> OnInitStart;
         public override event Action<BaseScene, Viewport, IRenderDevice> AfterRenderTargetCreation;
@@ -110,6 +107,10 @@ namespace LibGFX.Core
         public override event Action<BaseScene, IRenderDevice> OnDisposeStart;
         public override event Action<BaseScene, IRenderDevice> OnDispose;
         public override event Action<BaseScene, IRenderDevice> OnDisposeEnd;
+
+        // Private members
+        private Light3DManager _lightManager;
+        private float _physicsAccumulator = 0.0f;
 
         /// <summary>
         /// Creates a new 3D scene
@@ -445,6 +446,11 @@ namespace LibGFX.Core
             }
         }
 
+        /// <summary>
+        /// Adds a game element to the scene
+        /// </summary>
+        /// <param name="element"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void AddGameElement(GameElement element)
         {
             if (element == null)
@@ -453,41 +459,79 @@ namespace LibGFX.Core
             this.Elements.Add(element);
         }
 
+        /// <summary>
+        /// Gets all game elements in the scene
+        /// </summary>
+        /// <returns></returns>
         public override IEnumerable<GameElement> GetAllElements()
         {
             return this.Elements;
         }
 
+        /// <summary>
+        /// For each game element in the scene, perform the specified action
+        /// </summary>
+        /// <param name="action"></param>
         public override void ForEachElement(Action<GameElement> action)
         {
             this.Elements.ForEach(action);
         }
 
+        /// <summary>
+        /// Gets a game element by its unique identifier (UUID)
+        /// </summary>
+        /// <param name="uuid"></param>
+        /// <returns></returns>
         public override GameElement? GetElementByID(string uuid)
         {
             return this.Elements.FirstOrDefault(e => e.ID.ToString() == uuid);
         }
 
+        /// <summary>
+        /// Finds a game element by its name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public override GameElement? FindElementByName(string name)
         {
             return this.Elements.FirstOrDefault(e => e.Name == name);
         }
 
+        /// <summary>
+        /// Gets all game elements of the specified type
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public override ICollection<GameElement> GetElements<T>()
         {
             return this.Elements.OfType<T>().Cast<GameElement>().ToList();
         }
 
+        /// <summary>
+        /// Finds all game elements with the specified behavior
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public override ICollection<GameElement> FindElementsWithBehavior<T>()
         {
             return this.Elements.Where(e => e.GetBehavior<T>() != null).ToList();
         }
 
+        /// <summary>
+        /// Finds all game elements with the specified tag
+        /// </summary>
+        /// <param name="tag"></param>
+        /// <returns></returns>
         public override ICollection<GameElement> FindElementsWithTag(string tag)
         {
             return this.Elements.Where(e => e.Tags.Contains(tag)).ToList();
         }
 
+        /// <summary>
+        /// Removes a game element from the scene
+        /// </summary>
+        /// <param name="element"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public override void RemoveElement(GameElement element)
         {
             if (element == null)
@@ -496,11 +540,18 @@ namespace LibGFX.Core
             this.Elements.Remove(element);
         }
 
+        /// <summary>
+        /// Clrears all elements from the scene
+        /// </summary>
         public override void ClearElements()
         {
             this.Elements.Clear();
         }
 
+        /// <summary>
+        /// Processes the enque entries and adds the elements to the scene. Clears the enque entries after processing.
+        /// </summary>
+        /// <exception cref="InvalidOperationException"></exception>
         public override void EnqueElements()
         {
             foreach (EnqueScene3DEntry entry in EnqueEntries)
@@ -527,6 +578,11 @@ namespace LibGFX.Core
             EnqueEntries.Clear();
         }
 
+        /// <summary>
+        /// Adds an enque entry to the scene which gets processed during the enque phase
+        /// </summary>
+        /// <param name="entry"></param>
+        /// <exception cref="ArgumentException"></exception>
         public override void AddEnqueEntry(IEnqueEntry entry)
         {
             if (entry is EnqueScene3DEntry sceneEntry)
@@ -539,6 +595,10 @@ namespace LibGFX.Core
             }
         }
 
+        /// <summary>
+        /// Frees the scene from the game elements
+        /// </summary>
+        /// <param name="renderer"></param>
         public override void FreeScene(IRenderDevice renderer)
         {
             this.Elements.ForEach(e =>
@@ -548,6 +608,11 @@ namespace LibGFX.Core
             this.Elements.Clear();
         }
 
+        /// <summary>
+        /// Initializes the scene elements
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
         public override void InitializeElements(Viewport viewport, IRenderDevice renderer)
         {
             this.Elements.ForEach(e =>
@@ -556,6 +621,10 @@ namespace LibGFX.Core
             });
         }
 
+        /// <summary>
+        /// Orders the scene elements based on transparency and distance to the camera.
+        /// </summary>
+        /// <param name="camera"></param>
         private void OrderScene(Camera camera)
         {
             this.Elements.Sort((a, b) =>
@@ -563,23 +632,22 @@ namespace LibGFX.Core
                 bool aTransparent = a.HasTransparency;
                 bool bTransparent = b.HasTransparency;
 
-                // 1️⃣ Opaque vor Transparent
+                // Opaque first
                 if (aTransparent != bTransparent)
                     return aTransparent ? 1 : -1;
 
-                // 2️⃣ Beide transparent → back-to-front
+                // Both transparent → back-to-front
                 if (aTransparent)
                 {
                     float da = (camera.Transform.Position - a.Transform.Position).LengthSquared;
                     float db = (camera.Transform.Position - b.Transform.Position).LengthSquared;
 
-                    return db.CompareTo(da); // weiter weg zuerst
+                    return db.CompareTo(da);
                 }
 
-                // 3️⃣ Beide opaque → Reihenfolge egal
+                // Both opaque → order doesn't matter
                 return 0;
             });
-
         }
 
         /// <summary>
@@ -593,6 +661,12 @@ namespace LibGFX.Core
             return scene;
         }
 
+        /// <summary>
+        /// Serializes the scene to JSON
+        /// </summary>
+        /// <param name="writer"></param>
+        /// <param name="serializationContext"></param>
+        /// <param name="callback"></param>
         public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
             base.Serialize(writer, serializationContext, (w) =>
