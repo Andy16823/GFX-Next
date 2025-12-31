@@ -242,6 +242,9 @@ namespace LibGFX.Core
                 this.Enviroment.Render(renderer, camera, viewport);
             }
 
+            // Order the scene elements based on transparency and distance to camera
+            OrderScene(camera);
+
             // Render all layers in the scene
             this.Elements.ForEach(e =>
             {
@@ -551,6 +554,32 @@ namespace LibGFX.Core
             {
                 e.Init(this, viewport, renderer);
             });
+        }
+
+        private void OrderScene(Camera camera)
+        {
+            this.Elements.Sort((a, b) =>
+            {
+                bool aTransparent = a.HasTransparency;
+                bool bTransparent = b.HasTransparency;
+
+                // 1️⃣ Opaque vor Transparent
+                if (aTransparent != bTransparent)
+                    return aTransparent ? 1 : -1;
+
+                // 2️⃣ Beide transparent → back-to-front
+                if (aTransparent)
+                {
+                    float da = (camera.Transform.Position - a.Transform.Position).LengthSquared;
+                    float db = (camera.Transform.Position - b.Transform.Position).LengthSquared;
+
+                    return db.CompareTo(da); // weiter weg zuerst
+                }
+
+                // 3️⃣ Beide opaque → Reihenfolge egal
+                return 0;
+            });
+
         }
 
         /// <summary>
