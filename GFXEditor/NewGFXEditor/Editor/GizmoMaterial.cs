@@ -21,7 +21,14 @@ namespace NewGFXEditor.Editor
         public bool Hovered { get; set; } = false;
         public bool IsInitialized { get; private set; } = false;
 
+        public bool IsTransparent => false;
+
         public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Disable(IRenderDevice renderDevice)
         {
             throw new NotImplementedException();
         }
@@ -55,7 +62,7 @@ namespace NewGFXEditor.Editor
 
         void IMaterial.LoadMaterial(Material asmat, string directory)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

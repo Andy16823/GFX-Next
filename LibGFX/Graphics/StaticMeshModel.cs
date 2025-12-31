@@ -34,7 +34,7 @@ namespace LibGFX.Graphics
         /// <summary>
         /// Meshes that make up the static model.
         /// </summary>
-        public Dictionary<string, Mesh> Meshes { get; set; }
+        public List<Mesh> Meshes { get; set; }
 
         /// <summary>
         /// Node structure of the model as imported from Assimp.
@@ -71,6 +71,24 @@ namespace LibGFX.Graphics
         }
 
         /// <summary>
+        /// Orders the mesh transparency for rendering.
+        /// </summary>
+        private void OrderMeshTransparency()
+        {
+            this.Meshes.Sort((meshA, meshB) =>
+            {
+                bool isTransparentA = meshA.Material.IsTransparent;
+                bool isTransparentB = meshB.Material.IsTransparent;
+                if (isTransparentA && !isTransparentB)
+                    return 1; // A is transparent, B is opaque -> A after B
+                else if (!isTransparentA && isTransparentB)
+                    return -1; // A is opaque, B is transparent -> A before B
+                else
+                    return 0; // Both are the same type -> maintain order
+            });
+        }
+
+        /// <summary>
         /// Loads model data from a file using Assimp.
         /// </summary>
         /// <param name="file"></param>
@@ -92,7 +110,7 @@ namespace LibGFX.Graphics
                 );
 
             // Load the meshes from the Assimp scene
-            Meshes = new Dictionary<string, Mesh>();
+            Meshes = new List<Mesh>();
             foreach (var asmesh in assimpScene.Meshes)
             {
                 var mesh = new Mesh();
@@ -114,7 +132,7 @@ namespace LibGFX.Graphics
                 }
 
                 mesh.Indices.AddRange(asmesh.GetIndices());
-                this.Meshes.Add(Guid.NewGuid().ToString(), mesh);
+                this.Meshes.Add(mesh);
             }
 
             // Load the transforms of the model
@@ -142,7 +160,7 @@ namespace LibGFX.Graphics
 
             foreach (var meshIndex in node.MeshIndices)
             {
-                var mesh = Meshes.Values.ElementAt(meshIndex);
+                var mesh = Meshes[meshIndex];
                 System.Numerics.Matrix4x4.Decompose(currentTransform, out System.Numerics.Vector3 scale, out System.Numerics.Quaternion rotation, out System.Numerics.Vector3 translation);
                 mesh.LocalTranslation = new Vector3(translation.X, translation.Y, translation.Z);
                 mesh.LocalRotation = new OpenTK.Mathematics.Quaternion(rotation.X, rotation.Y, rotation.Z, rotation.W);
@@ -194,8 +212,11 @@ namespace LibGFX.Graphics
                 throw new InvalidOperationException("Model is already initialized.");
             }
 
+            // Order meshes by transparency
+            this.OrderMeshTransparency();
+
             Debug.WriteLine("Importing Static Model with " + Meshes.Count + " meshes.");
-            foreach (var mesh in Meshes.Values)
+            foreach (var mesh in Meshes)
             {
                 mesh.Material.Init(renderer);
                 mesh.Init(renderer);
@@ -218,7 +239,7 @@ namespace LibGFX.Graphics
             }
 
             Debug.WriteLine("Disposing Static Model with " + Meshes.Count + " meshes.");
-            foreach (var mesh in Meshes.Values)
+            foreach (var mesh in Meshes)
             {
                 mesh.Dispose(renderer);
                 mesh.Material.Dispose(renderer);
@@ -258,15 +279,13 @@ namespace LibGFX.Graphics
             writer.WriteValue(FilePath);
             writer.WritePropertyName("Meshes");
             writer.WriteStartArray();
-            foreach (var kvp in Meshes)
+            foreach (var mesh in Meshes)
             {
                 writer.WriteStartObject();
-                writer.WritePropertyName("Key");
-                writer.WriteValue(kvp.Key);
                 writer.WritePropertyName("Material");
-                kvp.Value.Material.Serialize(writer, serializationContext);
+                mesh.Material.Serialize(writer, serializationContext);
                 writer.WritePropertyName("Mesh");
-                kvp.Value.Serialize(writer, serializationContext);
+                mesh.Serialize(writer, serializationContext);
                 writer.WriteEndObject();
             }
             writer.WriteEndArray();
@@ -320,7 +339,7 @@ namespace LibGFX.Graphics
                             if (reader.TokenType != JsonToken.StartArray)
                                 throw new JsonException("Expected start of JSON array for 'Meshes'.");
 
-                            this.Meshes = new Dictionary<string, Mesh>();
+                            this.Meshes = new List<Mesh>();
                             while (reader.Read())
                             {
                                 if (reader.TokenType == JsonToken.EndArray)
@@ -328,7 +347,6 @@ namespace LibGFX.Graphics
 
                                 if (reader.TokenType == JsonToken.StartObject)
                                 {
-                                    string key = null;
                                     Mesh mesh = null;
                                     SGMaterial material = null;
                                     while (reader.Read())
@@ -343,9 +361,6 @@ namespace LibGFX.Graphics
 
                                             switch (meshPropName)
                                             {
-                                                case "Key":
-                                                    key = (string)reader.Value;
-                                                    break;
                                                 case "Mesh":
                                                     mesh = new Mesh();
                                                     mesh.Deserialize(reader, serializationContext);
@@ -358,10 +373,10 @@ namespace LibGFX.Graphics
                                             }
                                         }
                                     }
-                                    if (key != null && mesh != null && material != null)
+                                    if (mesh != null && material != null)
                                     {
                                         mesh.Material = material;
-                                        this.Meshes.Add(key, mesh);
+                                        this.Meshes.Add(mesh);
                                     }
                                 }
                             }

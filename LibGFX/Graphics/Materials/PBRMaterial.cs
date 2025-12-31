@@ -26,6 +26,8 @@ namespace LibGFX.Graphics.Materials
         public Texture OcclusionTexture { get; set; } = null;
         public bool IsInitialized { get; private set; } = false;
 
+        public bool IsTransparent => throw new NotImplementedException();
+
         public void Dispose(IRenderDevice renderDevice)
         {
             Debug.WriteLine($"Disposing material {Name}");
@@ -298,6 +300,11 @@ namespace LibGFX.Graphics.Materials
                     }
                 }
             }
+        }
+
+        public void Disable(IRenderDevice renderDevice)
+        {
+            throw new NotImplementedException();
         }
     }
 }

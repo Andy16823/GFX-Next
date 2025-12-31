@@ -18,11 +18,19 @@ namespace LibGFX.Graphics.Materials
     /// external source. Implementers should ensure thread safety if materials are accessed concurrently.</remarks>
     public interface IMaterial : IGraphicsResource, IIdentifier, ISerialization
     {
+        public bool IsTransparent { get; }
+
         /// <summary>
         /// Configures the current instance to use the specified render device for rendering operations.
         /// </summary>
         /// <param name="renderDevice">The render device to be used. Cannot be null.</param>
         public void Use(IRenderDevice renderDevice);
+
+        /// <summary>
+        /// Disables the Material after rendering operations are complete.
+        /// </summary>
+        /// <param name="renderDevice"></param>
+        public void Disable(IRenderDevice renderDevice);
 
         /// <summary>
         /// Creates an IMaterial instance from the specified Assimp material and associated resource directory.

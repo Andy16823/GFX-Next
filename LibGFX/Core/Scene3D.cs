@@ -446,16 +446,11 @@ namespace LibGFX.Core
         }
 
         /// <summary>
-        /// Deserializes the object's state from the specified JSON object, restoring the LightManager and Layers
-        /// collections.
+        /// Deserializes the scene from JSON
         /// </summary>
-        /// <remarks>This method replaces the current LightManager and clears and repopulates the Layers
-        /// collection based on the provided JSON data. Ensure that the object is in a valid state for deserialization
-        /// before calling this method.</remarks>
-        /// <param name="jObject">A <see cref="JObject"/> containing the serialized data to deserialize from. Must include 'LightManager' and
-        /// 'Layers' properties.</param>
-        /// <param name="serializationContext">A <see cref="SerializationContext"/> that provides context and settings for the deserialization process.</param>
-        /// <exception cref="InvalidOperationException">Thrown if the LightManager is already initialized when deserialization is attempted.</exception>
+        /// <param name="reader"></param>
+        /// <param name="serializationContext"></param>
+        /// <param name="callback"></param>
         public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
             base.Deserialize(reader, serializationContext, (r, param) =>

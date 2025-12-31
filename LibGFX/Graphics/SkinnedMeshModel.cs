@@ -33,7 +33,7 @@ namespace LibGFX.Graphics
         /// <summary>
         /// The meshes that make up the skinned mesh model.
         /// </summary>
-        public Dictionary<string, Mesh> Meshes { get; set; }
+        public List<Mesh> Meshes { get; set; }
 
         /// <summary>
         /// The node structure of the model as imported from Assimp.
@@ -103,7 +103,7 @@ namespace LibGFX.Graphics
             }
 
             // Extract materials and meshes
-            this.Meshes = new Dictionary<string, Mesh>();
+            this.Meshes = new List<Mesh>();
             foreach (var asmesh in assimpScene.Meshes)
             {
                 var mesh = new Graphics.Mesh();
@@ -126,7 +126,7 @@ namespace LibGFX.Graphics
 
                 mesh.Indices.AddRange(asmesh.GetIndices());
                 ExtractBoneWeightForVertices(asmesh, assimpScene, mesh);
-                this.Meshes.Add(Guid.NewGuid().ToString(), mesh);
+                this.Meshes.Add(mesh);
             }
 
             this.ExtractAnimations(assimpScene);
@@ -179,7 +179,7 @@ namespace LibGFX.Graphics
 
             foreach (var meshIndex in node.MeshIndices)
             {
-                var mesh = this.Meshes.Values.ElementAt(meshIndex);
+                var mesh = this.Meshes[meshIndex];
                 System.Numerics.Matrix4x4.Decompose(currentTransform, out System.Numerics.Vector3 scale, out System.Numerics.Quaternion rotation, out System.Numerics.Vector3 translation);
                 mesh.LocalTranslation = new Vector3(translation.X, translation.Y, translation.Z);
                 mesh.LocalRotation = new OpenTK.Mathematics.Quaternion(rotation.X, rotation.Y, rotation.Z, rotation.W);
@@ -277,7 +277,7 @@ namespace LibGFX.Graphics
                 throw new InvalidOperationException("Model is already initialized.");
             }
 
-            foreach (var mesh in Meshes.Values)
+            foreach (var mesh in Meshes)
             {
                 mesh.Material.Init(renderer);
                 mesh.Init(renderer);
@@ -296,7 +296,7 @@ namespace LibGFX.Graphics
                 throw new InvalidOperationException("Model is not initialized.");
             }
 
-            foreach (var mesh in Meshes.Values)
+            foreach (var mesh in Meshes)
             {
                 mesh.Dispose(renderer);
                 mesh.Material.Dispose(renderer);
@@ -443,12 +443,10 @@ namespace LibGFX.Graphics
             foreach (var mesh in Meshes)
             {
                 writer.WriteStartObject();
-                writer.WritePropertyName("Key");
-                writer.WriteValue(mesh.Key);
                 writer.WritePropertyName("Mesh");
-                mesh.Value.Serialize(writer, serializationContext);
+                mesh.Serialize(writer, serializationContext);
                 writer.WritePropertyName("Material");
-                mesh.Value.Material.Serialize(writer, serializationContext);
+                mesh.Material.Serialize(writer, serializationContext);
                 writer.WriteEndObject();
             }
             writer.WriteEndArray();
@@ -510,7 +508,7 @@ namespace LibGFX.Graphics
                             if (reader.TokenType != JsonToken.StartArray)
                                 throw new JsonException("Expected start of JSON array for 'Meshes'.");
 
-                            this.Meshes = new Dictionary<string, Mesh>();
+                            this.Meshes = new List<Mesh>();
                             while(reader.Read())
                             {
                                 if (reader.TokenType == JsonToken.EndArray)
@@ -518,7 +516,6 @@ namespace LibGFX.Graphics
 
                                 if (reader.TokenType == JsonToken.StartObject)
                                 {
-                                    string key = null;
                                     Mesh mesh = null;
                                     SGMaterial material = null;
                                     while (reader.Read())
@@ -533,9 +530,6 @@ namespace LibGFX.Graphics
 
                                             switch (meshPropName)
                                             {
-                                                case "Key":
-                                                    key = (string)reader.Value;
-                                                    break;
                                                 case "Mesh":
                                                     mesh = new Mesh();
                                                     mesh.Deserialize(reader, serializationContext);
@@ -548,10 +542,10 @@ namespace LibGFX.Graphics
                                             }
                                         }
                                     }
-                                    if (key != null && mesh != null && material != null)
+                                    if (mesh != null && material != null)
                                     {
                                         mesh.Material = material;
-                                        this.Meshes.Add(key, mesh);
+                                        this.Meshes.Add(mesh);
                                     }
                                 }
                             }

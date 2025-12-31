@@ -2,6 +2,7 @@
 using LibGFX.Graphics.Shader;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -69,6 +70,14 @@ namespace LibGFX.Graphics.Materials
         /// </summary>
         public Vector2 UVScale { get; set; } = Texture.DefaultUVScale;
 
+        /// <summary>
+        /// Gets a value indicating whether the object is partially or fully transparent.
+        /// </summary>
+        public bool IsTransparent => this.Opacity < 1.0f;
+
+        /// <summary>
+        /// Gets a value indicating whether the object has been initialized.
+        /// </summary>
         public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
@@ -137,6 +146,12 @@ namespace LibGFX.Graphics.Materials
         /// <param name="renderDevice"></param>
         public void Use(IRenderDevice renderDevice)
         {
+            if(this.IsTransparent)
+            {
+                renderDevice.EnableBlend();
+                renderDevice.SetBlendMode((int) BlendingFactor.SrcAlpha, (int) BlendingFactor.OneMinusSrcAlpha);
+            }
+
             renderDevice.PrepareShader("material.shininess", Shininess);
             renderDevice.PrepareShader("material.vertexColor", Color);
             renderDevice.PrepareShader("material.flipNormal", FlipNormal);
@@ -168,6 +183,18 @@ namespace LibGFX.Graphics.Materials
                 renderDevice.PrepareShader("material.specularSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture2, 0);
             }
 
+        }
+
+        /// <summary>
+        /// Disables blending on the specified render device if the current object is transparent.
+        /// </summary>
+        /// <param name="renderDevice">The render device on which to disable blending. Cannot be null.</param>
+        public void Disable(IRenderDevice renderDevice)
+        {
+            if(this.IsTransparent)
+            {
+                renderDevice.DisableBlend();
+            }
         }
 
         /// <summary>

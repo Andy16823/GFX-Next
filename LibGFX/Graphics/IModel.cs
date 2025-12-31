@@ -17,7 +17,7 @@ namespace LibGFX.Graphics
         /// <summary>
         /// The meshes contained in this model, indexed by their names
         /// </summary>
-        public Dictionary<string, Mesh> Meshes { get; set; }
+        public List<Mesh> Meshes { get; set; }
 
         /// <summary>
         /// The node structure of this model

@@ -7,6 +7,7 @@ using LibGFX.Graphics;
 using LibGFX.Math;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 
 namespace LibGFX.Core.GameElements
@@ -62,9 +63,18 @@ namespace LibGFX.Core.GameElements
                 scene.LightManager.BindLights(viewport, renderer, camera);
             }
 
-            foreach (var mesh in _model.Meshes.Values)
+            foreach (var mesh in _model.Meshes)
             {
+                if(mesh.Material.IsTransparent)
+                {
+                    renderer.EnableBlend();
+                    renderer.SetBlendMode((int) BlendingFactor.SrcAlpha, (int) BlendingFactor.OneMinusSrcAlpha);
+                }
                 renderer.DrawMesh(transform, mesh);
+                if (mesh.Material.IsTransparent)
+                {
+                    renderer.DisableBlend();
+                }
                 scene.RenderStats.IncrementDrawCalls();
             }
 
@@ -83,7 +93,7 @@ namespace LibGFX.Core.GameElements
             var transform = this.GetWorldTransform();
             var shader = renderer.GetShaderProgram("DepthMeshShader");
             renderer.BindShaderProgram(shader);
-            foreach (var mesh in _model.Meshes.Values)
+            foreach (var mesh in _model.Meshes)
             {
                 renderer.DrawMesh(transform, mesh);
                 scene.RenderStats.IncrementDrawCalls();
@@ -105,7 +115,7 @@ namespace LibGFX.Core.GameElements
             var min = new Vector3(float.MaxValue);
             var max = new Vector3(float.MinValue);
 
-            foreach (var mesh in _model.Meshes.Values)
+            foreach (var mesh in _model.Meshes)
             {
                 foreach (var vertex in mesh.Vertices)
                 {
@@ -124,7 +134,7 @@ namespace LibGFX.Core.GameElements
         /// meshes are available. The array will be empty if the model contains no meshes.</returns>
         public override Mesh[]? GetMeshes()
         {
-            return _model.Meshes.Values.ToArray();
+            return _model.Meshes.ToArray();
         }
 
         /// <summary>

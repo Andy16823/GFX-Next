@@ -38,6 +38,12 @@ namespace LibGFX.Graphics.Materials
         public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
+        /// Gets a value indicating whether the object is transparent.
+        /// TODO: If this get changed it need to get an setter and also update serialization for this property in all materials.
+        /// </summary>
+        public bool IsTransparent => false;
+
+        /// <summary>
         /// Default constructor for the SpriteMaterial class.
         /// </summary>
         public SpriteMaterial()
@@ -99,6 +105,15 @@ namespace LibGFX.Graphics.Materials
         public void Use(IRenderDevice renderDevice)
         {
             renderDevice.PrepareShader("textureSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, Texture);
+        }
+
+        /// <summary>
+        /// Disables the specified render device, releasing any resources or state associated with it.
+        /// </summary>
+        /// <param name="renderDevice">The render device to disable. Cannot be null.</param>
+        public void Disable(IRenderDevice renderDevice)
+        {
+            
         }
 
 

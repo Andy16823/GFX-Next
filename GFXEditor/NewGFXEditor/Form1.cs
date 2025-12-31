@@ -568,7 +568,10 @@ namespace NewGFXEditor
 
         private void Scene3d_OnRenderPassEnd(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            renderer.DrawGrid(camera, new Vector4(0.3f, 0.3f, 0.3f, 1.0f));
+            if(this.ShowGrid)
+            {
+                renderer.DrawGrid(camera, new Vector4(0.3f, 0.3f, 0.3f, 1.0f));
+            }
         }
 
         private void TransformGizmo_GizmoRotated(float rotationFactor)

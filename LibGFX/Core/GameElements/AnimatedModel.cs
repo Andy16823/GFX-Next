@@ -83,7 +83,7 @@ namespace LibGFX.Core.GameElements
                 scene.LightManager.BindLights(viewport, renderer, camera);
             }
 
-            foreach (var mesh in _model.Meshes.Values)
+            foreach (var mesh in _model.Meshes)
             {
                 renderer.DrawMesh(transform, mesh);
                 scene.RenderStats.IncrementDrawCalls();
@@ -105,7 +105,7 @@ namespace LibGFX.Core.GameElements
             var shader = renderer.GetShaderProgram("AnimatedDepthMeshShader");
             renderer.BindShaderProgram(shader);
             renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
-            foreach (var mesh in _model.Meshes.Values)
+            foreach (var mesh in _model.Meshes)
             {
                 renderer.DrawMesh(transform, mesh);
                 scene.RenderStats.IncrementDrawCalls();
@@ -128,7 +128,7 @@ namespace LibGFX.Core.GameElements
             var min = new Vector3(float.MaxValue);
             var max = new Vector3(float.MinValue);
 
-            foreach (var mesh in _model.Meshes.Values)
+            foreach (var mesh in _model.Meshes)
             {
                 foreach (var vertex in mesh.Vertices)
                 {

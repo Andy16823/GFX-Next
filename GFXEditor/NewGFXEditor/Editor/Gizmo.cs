@@ -154,7 +154,7 @@ namespace NewGFXEditor.Editor
             this.Transform = new Transform();
             GizmoModel = new StaticMeshModel(file);
             // Change materials to GizmoMaterial
-            foreach (var mesh in this.GizmoModel.Meshes.Values)
+            foreach (var mesh in this.GizmoModel.Meshes)
             {
                 var sgMaterial = mesh.Material as SGMaterial;
                 GizmoMaterial gizmoMaterial = new GizmoMaterial()
@@ -194,7 +194,7 @@ namespace NewGFXEditor.Editor
 
             renderDevice.SetProjectionMatrix(camera.GetProjectionMatrix(viewport));
             renderDevice.BindShaderProgram(this.Shader);
-            foreach (var mesh in this.GizmoModel.Meshes.Values)
+            foreach (var mesh in this.GizmoModel.Meshes)
             {
                 renderDevice.DrawMesh(this.Transform, mesh);
             }
@@ -225,7 +225,7 @@ namespace NewGFXEditor.Editor
             this.UnhoverMaterials();
 
             var ray = MeshRaycast.ScreenPointToWorldRay(camera, viewport, mouseX, mouseY);
-            foreach (var mesh in this.GizmoModel.Meshes.Values)
+            foreach (var mesh in this.GizmoModel.Meshes)
             {
                 var hit = MeshRaycast.IntersectsMesh(ray, this.Transform, mesh);
                 if(hit.Hit)
@@ -268,7 +268,7 @@ namespace NewGFXEditor.Editor
         public bool PickGizmo(PerspectiveCamera camera, Viewport viewport, int mouseX, int mouseY)
         {
             var ray = MeshRaycast.ScreenPointToWorldRay(camera, viewport, mouseX, mouseY);
-            foreach (var mesh in this.GizmoModel.Meshes.Values)
+            foreach (var mesh in this.GizmoModel.Meshes)
             {
                 var hit = MeshRaycast.IntersectsMesh(ray, this.Transform, mesh);
                 if(hit.Hit)
@@ -515,7 +515,7 @@ namespace NewGFXEditor.Editor
         /// </summary>
         private void UnhoverMaterials()
         {
-            foreach (var mesh in this.GizmoModel.Meshes.Values)
+            foreach (var mesh in this.GizmoModel.Meshes)
             {
                 var mat = (GizmoMaterial)mesh.Material;
                 mat.Hovered = false;
@@ -528,7 +528,7 @@ namespace NewGFXEditor.Editor
         /// <param name="id"></param>
         private void HoverMaterial(int id)
         {
-            var mesh = this.GizmoModel.Meshes.Values.ToList()[id];
+            var mesh = this.GizmoModel.Meshes[id];
             var material = (GizmoMaterial)mesh.Material;
             material.Hovered = true;
         }

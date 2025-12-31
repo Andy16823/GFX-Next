@@ -358,9 +358,9 @@ namespace NewGFXEditor
                     this.AfterRender(this, EventArgs.Empty);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Debug.WriteLine("Render Error");
+                Debug.WriteLine($"Render Error: {ex.Message}");
             }
         }
 

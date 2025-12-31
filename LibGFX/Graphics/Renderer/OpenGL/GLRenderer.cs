@@ -177,11 +177,8 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void EnableBlend()
         {
-            if(!_blendEnabled)
-            {
-                GL.Enable(EnableCap.Blend);
-                _blendEnabled = true;
-            }
+            GL.Enable(EnableCap.Blend);
+            _blendEnabled = true;
         }
 
         public bool BlendEnabled()
@@ -196,21 +193,15 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void SetBlendMode(int srcFactor, int dstFactor)
         {
-            if(_srcBlendMode != srcFactor || _destBlendMode != dstFactor)
-            {
-                _srcBlendMode = srcFactor;
-                _destBlendMode = dstFactor;
-                GL.BlendFunc((BlendingFactor)_srcBlendMode, (BlendingFactor)_destBlendMode);
-            }
+            _srcBlendMode = srcFactor;
+            _destBlendMode = dstFactor;
+            GL.BlendFunc((BlendingFactor)_srcBlendMode, (BlendingFactor)_destBlendMode);
         }
 
         public void DisableBlend()
         {
-            if(_blendEnabled)
-            {
-                GL.Disable(EnableCap.Blend);
-                _blendEnabled = false;
-            }
+            GL.Disable(EnableCap.Blend);
+            _blendEnabled = false;
         }
 
         public void SetViewport(Viewport viewport)
@@ -1345,6 +1336,9 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             // Draw the mesh    
             GL.BindVertexArray(mesh.RenderData.VertexArray);
             GL.DrawElements(BeginMode.Triangles, mesh.Indices.Count, DrawElementsType.UnsignedInt, 0);
+
+            // Unbind the material and vertex array
+            mesh.Material.Disable(this);
             GL.BindVertexArray(0);
         }
 
@@ -1597,6 +1591,9 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             // Draw the mesh    
             GL.BindVertexArray(container.InstanceVAO);
             GL.DrawElementsInstanced(PrimitiveType.Triangles, container.Mesh.Indices.Count, DrawElementsType.UnsignedInt, nint.Zero, container.Instances.Count);
+
+            // Unbind the material and vertex array
+            material.Disable(this);
             GL.BindVertexArray(0);
         }
 
