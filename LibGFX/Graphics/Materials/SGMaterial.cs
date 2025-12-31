@@ -73,7 +73,7 @@ namespace LibGFX.Graphics.Materials
         /// <summary>
         /// Gets a value indicating whether the object is partially or fully transparent.
         /// </summary>
-        public bool IsTransparent => this.Opacity < 1.0f;
+        public bool IsTransparent => (this.Opacity < 1.0f) || (DiffuseTexture.HasAlpha);
 
         /// <summary>
         /// Gets a value indicating whether the object has been initialized.

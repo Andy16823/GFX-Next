@@ -33,8 +33,18 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a texture that can be used in rendering.
     /// </summary>
-    public class Texture : IGraphicsResource, ISerialization
+    public class Texture : IGraphicsResource, ISerialization, IIdentifier
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Name { get; set; } = "UnnamedTexture";
+
+        /// <summary>
+        /// Gets the unique identifier for this instance.
+        /// </summary>
+        public Guid ID { get; private set; } = Guid.NewGuid();
+
         /// <summary>
         /// The unique identifier for the texture.
         /// </summary>
@@ -61,6 +71,11 @@ namespace LibGFX.Graphics
         public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
+        /// Gets or sets a value indicating whether the image contains an alpha (transparency) channel.
+        /// </summary>
+        public bool HasAlpha { get; set; } = false;
+
+        /// <summary>
         /// The default UV transform for a texture.
         /// Scale: (1.0, 1.0), Offset: (0.0, 0.0)
         /// </summary>
@@ -77,6 +92,8 @@ namespace LibGFX.Graphics
         /// Must be set before initializing the texture with a render device.
         /// </summary>
         public TextureParameters TextureParameters { get => _parameters; set => SetTextureParameters(value); }
+
+        // Texture parameters
         private TextureParameters _parameters = TextureParameters.Default;
 
         /// <summary>
@@ -134,6 +151,8 @@ namespace LibGFX.Graphics
             TextureData = image.Data;
             Width = image.Width;
             Height = image.Height;
+            Name = Path.GetFileNameWithoutExtension(path);
+            HasAlpha = DetectAlphaUsage();
         }
 
         /// <summary>
@@ -393,11 +412,34 @@ namespace LibGFX.Graphics
             _parameters = parameters;
         }
 
+        /// <summary>
+        /// Checks if the texture uses alpha transparency.
+        /// </summary>
+        /// <returns></returns>
+        private bool DetectAlphaUsage()
+        {
+            if (this.TextureData == null)
+                return false;
+            for (int i = 3; i < this.TextureData.Length; i += 4)
+            {
+                byte alpha = this.TextureData[i];
+                if (alpha < 255)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void Serialize(JsonWriter writer, SerializationContext context, Action<JsonWriter> callback = null)
         {
             writer.WriteStartObject();
             writer.WritePropertyName("Type");
             writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("ID");
+            writer.WriteValue(this.ID.ToString());
+            writer.WritePropertyName("Name");
+            writer.WriteValue(this.Name);
             writer.WritePropertyName("Width");
             writer.WriteValue(this.Width);
             writer.WritePropertyName("Height");
@@ -447,6 +489,12 @@ namespace LibGFX.Graphics
                     {
                         case "Type":
                             reader.Skip();
+                            break;
+                        case "ID":
+                            this.ID = Guid.Parse((string)reader.Value);
+                            break;
+                        case "Name":
+                            this.Name = (string)reader.Value;
                             break;
                         case "Width":
                             this.Width = Convert.ToInt32(reader.Value);

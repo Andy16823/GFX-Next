@@ -30,7 +30,7 @@ namespace NewGFXEditor.Editor
 
         public void Disable(IRenderDevice renderDevice)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Dispose(IRenderDevice renderDevice)

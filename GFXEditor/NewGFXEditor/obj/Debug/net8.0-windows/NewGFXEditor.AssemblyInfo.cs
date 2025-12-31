@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NewGFXEditor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a29611fda0251c2f06b674c05bb988cd7061608")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11bfac22fd62bdd974f71ea4f3dad88f5c63d842")]
 [assembly: System.Reflection.AssemblyProductAttribute("NewGFXEditor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NewGFXEditor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
