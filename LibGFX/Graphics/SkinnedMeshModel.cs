@@ -121,49 +121,55 @@ namespace LibGFX.Graphics
             this.FilePath = file;
             var directory = Path.GetDirectoryName(file);
 
-            var importer = new AssimpContext();
-            importer.SetConfig(new NormalSmoothingAngleConfig(66.0f));
-            var assimpScene = importer.ImportFile(file,
-                Assimp.PostProcessSteps.Triangulate |
-                Assimp.PostProcessSteps.CalculateTangentSpace |
-                Assimp.PostProcessSteps.JoinIdenticalVertices
-                );
+            using (var importer = new AssimpContext()) {
 
-            if (!assimpScene.HasAnimations)
-            {
-                throw new Exception("The model does not contain any animations.");
-            }
+                // Configure importer
+                importer.SetConfig(new NormalSmoothingAngleConfig(66.0f));
 
-            // Extract materials and meshes
-            this.Meshes = new List<Mesh>();
-            foreach (var asmesh in assimpScene.Meshes)
-            {
-                var mesh = new Graphics.Mesh();
-                mesh.Name = asmesh.Name;
-                mesh.Material = new SGMaterial();
-                mesh.Material.LoadMaterial(assimpScene.Materials[asmesh.MaterialIndex], directory);
+                // Define post-processing steps
+                PostProcessSteps stepps = Assimp.PostProcessSteps.Triangulate |
+                                        Assimp.PostProcessSteps.CalculateTangentSpace |
+                                        Assimp.PostProcessSteps.JoinIdenticalVertices;
 
-                for (int i = 0; i < asmesh.VertexCount; i++)
+                // Import the model file
+                var assimpScene = importer.ImportFile(file, stepps);
+
+                if (!assimpScene.HasAnimations)
                 {
-                    var vertex = new Graphics.Vertex();
-
-                    vertex.Position = new Vector3(asmesh.Vertices[i].X, asmesh.Vertices[i].Y, asmesh.Vertices[i].Z);
-                    vertex.Normal = new Vector3(asmesh.Normals[i].X, asmesh.Normals[i].Y, asmesh.Normals[i].Z);
-                    vertex.TexCoord = new Vector2(asmesh.TextureCoordinateChannels[0][i].X, asmesh.TextureCoordinateChannels[0][i].Y);
-                    vertex.Tangent = new Vector4(asmesh.Tangents[i].X, asmesh.Tangents[i].Y, asmesh.Tangents[i].Z, 1.0f);
-                    vertex.BoneIDs = new Vector4i(-1);
-                    vertex.BoneWeights = new Vector4(0.0f);
-                    mesh.Vertices.Add(vertex);
+                    throw new Exception("The model does not contain any animations.");
                 }
 
-                mesh.Indices.AddRange(asmesh.GetIndices());
-                ExtractBoneWeightForVertices(asmesh, assimpScene, mesh);
-                this.Meshes.Add(mesh);
-            }
+                // Extract materials and meshes
+                this.Meshes = new List<Mesh>();
+                foreach (var asmesh in assimpScene.Meshes)
+                {
+                    var mesh = new Graphics.Mesh();
+                    mesh.Name = asmesh.Name;
+                    mesh.Material = new SGMaterial();
+                    mesh.Material.LoadMaterial(assimpScene.Materials[asmesh.MaterialIndex], directory);
 
-            this.ExtractAnimations(assimpScene);
-            LoadTransforms(assimpScene);
-            this.NodeStructure = LoadNodeStructure(assimpScene.RootNode);
+                    for (int i = 0; i < asmesh.VertexCount; i++)
+                    {
+                        var vertex = new Graphics.Vertex();
+
+                        vertex.Position = new Vector3(asmesh.Vertices[i].X, asmesh.Vertices[i].Y, asmesh.Vertices[i].Z);
+                        vertex.Normal = new Vector3(asmesh.Normals[i].X, asmesh.Normals[i].Y, asmesh.Normals[i].Z);
+                        vertex.TexCoord = new Vector2(asmesh.TextureCoordinateChannels[0][i].X, asmesh.TextureCoordinateChannels[0][i].Y);
+                        vertex.Tangent = new Vector4(asmesh.Tangents[i].X, asmesh.Tangents[i].Y, asmesh.Tangents[i].Z, 1.0f);
+                        vertex.BoneIDs = new Vector4i(-1);
+                        vertex.BoneWeights = new Vector4(0.0f);
+                        mesh.Vertices.Add(vertex);
+                    }
+
+                    mesh.Indices.AddRange(asmesh.GetIndices());
+                    ExtractBoneWeightForVertices(asmesh, assimpScene, mesh);
+                    this.Meshes.Add(mesh);
+                }
+
+                this.ExtractAnimations(assimpScene);
+                LoadTransforms(assimpScene);
+                this.NodeStructure = LoadNodeStructure(assimpScene.RootNode);
+            }
         }
 
         /// <summary>

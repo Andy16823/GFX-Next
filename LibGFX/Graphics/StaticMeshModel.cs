@@ -114,46 +114,49 @@ namespace LibGFX.Graphics
             // Get the directory of the file
             var directory = Path.GetDirectoryName(file);
 
-            // Create the Assimp importer and import the file
-            var importer = new AssimpContext();
-            importer.SetConfig(new NormalSmoothingAngleConfig(66.0f));
-            var assimpScene = importer.ImportFile(file, 
-                PostProcessSteps.Triangulate | 
-                PostProcessSteps.CalculateTangentSpace | 
-                PostProcessSteps.JoinIdenticalVertices
-                );
-
-            // Load the meshes from the Assimp scene
-            Meshes = new List<Mesh>();
-            foreach (var asmesh in assimpScene.Meshes)
+            using (var importer = new AssimpContext())
             {
-                var mesh = new Mesh();
-                mesh.Name = asmesh.Name;
-                mesh.Material = new SGMaterial();
-                mesh.Material.LoadMaterial(assimpScene.Materials[asmesh.MaterialIndex], directory);
+                // Create the Assimp importer and import the file
+                importer.SetConfig(new NormalSmoothingAngleConfig(66.0f));
 
-                for (int i = 0; i < asmesh.VertexCount; i++)
+                // Define post-processing steps
+                PostProcessSteps steps = PostProcessSteps.Triangulate |
+                                        PostProcessSteps.CalculateTangentSpace |
+                                        PostProcessSteps.JoinIdenticalVertices;
+
+                // Import the file
+                var assimpScene = importer.ImportFile(file, steps);
+
+                // Load the meshes from the Assimp scene
+                Meshes = new List<Mesh>();
+                foreach (var asmesh in assimpScene.Meshes)
                 {
-                    var vertex = new Vertex();
+                    var mesh = new Mesh();
+                    mesh.Name = asmesh.Name;
+                    mesh.Material = new SGMaterial();
+                    mesh.Material.LoadMaterial(assimpScene.Materials[asmesh.MaterialIndex], directory);
 
-                    vertex.Position = new Vector3(asmesh.Vertices[i].X, asmesh.Vertices[i].Y, asmesh.Vertices[i].Z);
-                    vertex.Normal = new Vector3(asmesh.Normals[i].X, asmesh.Normals[i].Y, asmesh.Normals[i].Z);
-                    vertex.TexCoord = new Vector2(asmesh.TextureCoordinateChannels[0][i].X, asmesh.TextureCoordinateChannels[0][i].Y);
-                    vertex.Tangent = new Vector4(asmesh.Tangents[i].X, asmesh.Tangents[i].Y, asmesh.Tangents[i].Z, 1.0f);
-                    vertex.BoneIDs = new Vector4i(-1);
-                    vertex.BoneWeights = new Vector4(0.0f);
-                    mesh.Vertices.Add(vertex);
+                    for (int i = 0; i < asmesh.VertexCount; i++)
+                    {
+                        var vertex = new Vertex();
+
+                        vertex.Position = new Vector3(asmesh.Vertices[i].X, asmesh.Vertices[i].Y, asmesh.Vertices[i].Z);
+                        vertex.Normal = new Vector3(asmesh.Normals[i].X, asmesh.Normals[i].Y, asmesh.Normals[i].Z);
+                        vertex.TexCoord = new Vector2(asmesh.TextureCoordinateChannels[0][i].X, asmesh.TextureCoordinateChannels[0][i].Y);
+                        vertex.Tangent = new Vector4(asmesh.Tangents[i].X, asmesh.Tangents[i].Y, asmesh.Tangents[i].Z, 1.0f);
+                        vertex.BoneIDs = new Vector4i(-1);
+                        vertex.BoneWeights = new Vector4(0.0f);
+                        mesh.Vertices.Add(vertex);
+                    }
+
+                    mesh.Indices.AddRange(asmesh.GetIndices());
+                    this.Meshes.Add(mesh);
                 }
 
-                mesh.Indices.AddRange(asmesh.GetIndices());
-                this.Meshes.Add(mesh);
+                // Load the transforms of the model
+                LoadTransforms(assimpScene);
+                NodeStructure = LoadNodeStructure(assimpScene.RootNode);
             }
-
-            // Load the transforms of the model
-            LoadTransforms(assimpScene);
-            NodeStructure = LoadNodeStructure(assimpScene.RootNode);
-
-            importer.Dispose();
         }
 
         /// <summary>
