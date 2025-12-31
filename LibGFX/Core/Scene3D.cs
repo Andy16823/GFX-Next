@@ -18,6 +18,20 @@ using System.Threading.Tasks;
 namespace LibGFX.Core
 {
     /// <summary>
+    /// Represents an entry for enqueuing a 3D scene element, including the element, an optional action to perform, and
+    /// any additional data required for processing.
+    /// </summary>
+    /// <remarks>Use this class to encapsulate all information needed to enqueue a 3D scene element for
+    /// processing or rendering. The associated action and extra data allow for flexible handling of scene-specific
+    /// logic.</remarks>
+    public class EnqueScene3DEntry : IEnqueEntry
+    {
+        public GameElement Element { get; set; }
+        public Action<BaseScene, GameElement, Dictionary<string, object>>? EnqueAction { get; set; }
+        public Dictionary<string, object>? ExtraData { get; set; }
+    }
+
+    /// <summary>
     /// Represents a 3D scene for rendering 3D objects and lights.
     /// </summary>
     public class Scene3D : BaseScene
@@ -26,6 +40,11 @@ namespace LibGFX.Core
         /// Gets the render target associated with this scene instance.
         /// </summary>
         public override IRenderTarget RenderTarget { get => _renderTarget; }
+
+        /// <summary>
+        /// Gets or sets the collection of game elements contained in this instance.
+        /// </summary>
+        public List<GameElement> Elements { get; set; } = new List<GameElement>();
 
         /// <summary>
         /// Determines if the enviroment texture should be rendered
@@ -101,19 +120,6 @@ namespace LibGFX.Core
         }
 
         /// <summary>
-        /// Creates a new 3D scene with the given layers
-        /// </summary>
-        /// <param name="layers"></param>
-        public Scene3D(params String[] layers) : base()
-        {
-            _lightManager = new Light3DManager();
-            foreach (var item in layers)
-            {
-                this.Layers.Add(new Layer(item));
-            }
-        }
-
-        /// <summary>
         /// Disposes the scene and all its layers
         /// </summary>
         /// <param name="renderer"></param>
@@ -129,9 +135,9 @@ namespace LibGFX.Core
             }
 
             // Dispose all layers and their elements
-            this.Layers.ForEach(l =>
+            this.Elements.ForEach(e =>
             {
-                l.Dispose(this, renderer);
+                e.Dispose(this, renderer);
             });
 
             // On dispose event
@@ -170,9 +176,9 @@ namespace LibGFX.Core
             }
 
             // Init all layers and there elements
-            this.Layers.ForEach(l =>
+            this.Elements.ForEach(e =>
             {
-                l.Init(this, viewport, renderer);
+                e.Init(this, viewport, renderer);
             });
 
             // Initialize the light manager
@@ -237,8 +243,9 @@ namespace LibGFX.Core
             }
 
             // Render all layers in the scene
-            this.Layers.ForEach(layer => {
-                layer.RenderLayer(this, viewport, renderer, camera);
+            this.Elements.ForEach(e =>
+            {
+                e.Render(this, viewport, renderer, camera);
             });
 
             // Debug draw the physics if enabled
@@ -311,9 +318,9 @@ namespace LibGFX.Core
             renderer.Clear(RenderFlags.ClearFlags.Depth);
 
             renderer.SetCullMode(CullMode.Front);
-            this.Layers.ForEach(layer =>
+            this.Elements.ForEach(e =>
             {
-                layer.RenderShadows(this, viewport, renderer);
+                e.RenderShadow(this, viewport, renderer);
             });
             renderer.SetCullMode(CullMode.Back);
 
@@ -332,8 +339,9 @@ namespace LibGFX.Core
         {
             OnUpdateStart?.Invoke(this, dt);
 
-            this.Layers.ForEach(l => {
-                l.Update(this, dt);
+            this.Elements.ForEach(e =>
+            {
+                e.Update(this, dt);
             });
 
             OnUpdateEnd?.Invoke(this, dt);
@@ -434,15 +442,140 @@ namespace LibGFX.Core
             }
         }
 
+        public override void AddGameElement(GameElement element)
+        {
+            if (element == null)
+                throw new ArgumentNullException(nameof(element));
+
+            this.Elements.Add(element);
+        }
+
+        public override IEnumerable<GameElement> GetAllElements()
+        {
+            return this.Elements;
+        }
+
+        public override void ForEachElement(Action<GameElement> action)
+        {
+            this.Elements.ForEach(action);
+        }
+
+        public override GameElement? GetElementByID(string uuid)
+        {
+            return this.Elements.FirstOrDefault(e => e.ID.ToString() == uuid);
+        }
+
+        public override GameElement? FindElementByName(string name)
+        {
+            return this.Elements.FirstOrDefault(e => e.Name == name);
+        }
+
+        public override ICollection<GameElement> GetElements<T>()
+        {
+            return this.Elements.OfType<T>().Cast<GameElement>().ToList();
+        }
+
+        public override ICollection<GameElement> FindElementsWithBehavior<T>()
+        {
+            return this.Elements.Where(e => e.GetBehavior<T>() != null).ToList();
+        }
+
+        public override ICollection<GameElement> FindElementsWithTag(string tag)
+        {
+            return this.Elements.Where(e => e.Tags.Contains(tag)).ToList();
+        }
+
+        public override void RemoveElement(GameElement element)
+        {
+            if (element == null)
+                throw new ArgumentNullException(nameof(element));
+
+            this.Elements.Remove(element);
+        }
+
+        public override void ClearElements()
+        {
+            this.Elements.Clear();
+        }
+
+        public override void EnqueElements()
+        {
+            foreach (EnqueScene3DEntry entry in EnqueEntries)
+            {
+                // Skip null elements
+                if (entry.Element == null)
+                {
+                    continue;
+                }
+
+                // Trigger the event before adding the element to the scene
+                entry.EnqueAction?.Invoke(this, entry.Element, entry.ExtraData ?? new Dictionary<string, object>());
+
+                // Add the element to the scene
+                if (entry.Element != null)
+                {
+                    AddGameElement(entry.Element);
+                }
+                else
+                {
+                    throw new InvalidOperationException("EnqueScene3DEntry contains a null Element after EnqueAction execution.");
+                }
+            }
+            EnqueEntries.Clear();
+        }
+
+        public override void AddEnqueEntry(IEnqueEntry entry)
+        {
+            if (entry is EnqueScene3DEntry sceneEntry)
+            {
+                EnqueEntries.Add(sceneEntry);
+            }
+            else
+            {
+                throw new ArgumentException("Entry must be of type EnqueScene3DEntry", nameof(entry));
+            }
+        }
+
+        public override void FreeScene(IRenderDevice renderer)
+        {
+            this.Elements.ForEach(e =>
+            {
+                e.Dispose(this, renderer);
+            });
+            this.Elements.Clear();
+        }
+
+        public override void InitializeElements(Viewport viewport, IRenderDevice renderer)
+        {
+            this.Elements.ForEach(e =>
+            {
+                e.Init(this, viewport, renderer);
+            });
+        }
+
         /// <summary>
         /// Creates a new 3D scene with a default configuration, including a directional light source.
         /// </summary>
         /// <returns>A new instance of <see cref="Scene3D"/> preconfigured with default lighting and settings.</returns>
         public static Scene3D CreateDefaultScene()
         {
-            var scene = new Scene3D("Default");
+            var scene = new Scene3D();
             scene.DirectionalLight = new DirectionalLight3D(new Vector3(-0.2f, 1.0f, -0.3f), ColorPresets.Gray, 1.0f);
             return scene;
+        }
+
+        public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
+        {
+            base.Serialize(writer, serializationContext, (w) =>
+            {
+                w.WritePropertyName("Elements");
+                w.WriteStartArray();
+                this.Elements.ForEach(e =>
+                {
+                    e.Serialize(w, serializationContext);
+                });
+                w.WriteEndArray();
+            });
         }
 
         /// <summary>
@@ -465,6 +598,26 @@ namespace LibGFX.Core
                             return true;
                         }
                         break;
+                    case "Elements":
+                        if(r.TokenType != JsonToken.StartArray)
+                            throw new JsonSerializationException("Expected StartArray token for Elements property.");
+                        
+                        while (r.Read())
+                        {
+                            if (r.TokenType == JsonToken.EndArray)
+                                break;
+
+                            if(r.TokenType == JsonToken.StartObject)
+                            {
+                                var element = Utils.DeserializeGameElement(r, serializationContext);
+                                if (element == null)
+                                {
+                                    throw new Exception("Failed to deserialize child GameElement.");
+                                }
+                                this.Elements.Add(element);
+                            }
+                        }
+                        return true;
                     default:
                         break;
                 }

@@ -14,6 +14,18 @@ using System.Threading.Tasks;
 namespace LibGFX.Core
 {
     /// <summary>
+    /// Represents an entry for enqueuing a 2D scene element, including the element, its target layer, an optional
+    /// action to perform during enqueuing, and any additional data.
+    /// </summary>
+    public class EnqueScene2DEntry : IEnqueEntry
+    {
+        public GameElement Element { get; set; }
+        public String LayerName { get; set; }
+        public Action<BaseScene, GameElement, Dictionary<string, object>>? EnqueAction { get; set; }
+        public Dictionary<string, object>? ExtraData { get; set; }
+    }
+
+    /// <summary>
     /// Represents a 2D scene
     /// </summary>
     public class Scene2D : BaseScene
@@ -21,7 +33,14 @@ namespace LibGFX.Core
         /// <summary>
         /// Gets the render target associated with this instance.
         /// </summary>
-        public override IRenderTarget RenderTarget { get => _renderTarget; }       
+        public override IRenderTarget RenderTarget { get => _renderTarget; }
+
+        /// <summary>
+        /// Gets or sets the collection of layers contained in the model.
+        /// </summary>
+        /// <remarks>Layers are typically processed in the order they appear in the collection. Modifying
+        /// this list will affect the structure and behavior of the model.</remarks>
+        public List<Layer> Layers { get; set; } = new List<Layer>();
 
         /// <summary>
         /// Sets the main light manager for the scene
@@ -87,6 +106,283 @@ namespace LibGFX.Core
             foreach (var item in layers)
             {
                 this.Layers.Add(new Layer(item));
+            }
+        }
+
+        /// <summary>
+        /// Searches for a layer with the specified name and returns the first matching layer, if found.
+        /// </summary>
+        /// <param name="name">The name of the layer to locate. The comparison is case-sensitive.</param>
+        /// <returns>The first <see cref="Layer"/> whose <c>Name</c> property matches the specified name, or <see
+        /// langword="null"/> if no such layer exists.</returns>
+        public Layer? FindLayer(string name)
+        {
+            return this.Layers.FirstOrDefault(layer => layer.Name == name);
+        }
+
+        /// <summary>
+        /// Adds a game element to the first layer of the collection, creating a default layer if none exist.
+        /// </summary>
+        /// <remarks>If no layers are present, a new layer named "Default" is created before adding the
+        /// element. The element is always added to the first layer in the collection.</remarks>
+        /// <param name="element">The game element to add to the collection. If null, the method performs no action.</param>
+        public override void AddGameElement(GameElement element)
+        {
+            if (element == null) return;
+            if (this.Layers.Count == 0)
+            {
+                this.Layers.Add(new Layer("Default"));
+            }
+            this.Layers[0].Elements.Add(element);
+        }
+
+        /// <summary>
+        /// Attempts to add a game element to the specified layer.
+        /// </summary>
+        /// <param name="layerName">The name of the layer to which the game element will be added. Cannot be null or empty.</param>
+        /// <param name="element">The game element to add to the layer. Cannot be null.</param>
+        /// <returns>true if the element was successfully added to the specified layer; otherwise, false.</returns>
+        public bool AddGameElement(String layerName, GameElement element)
+        {
+            if (element == null || String.IsNullOrEmpty(layerName))
+            {
+                return false;
+            }
+
+            var layer = this.FindLayer(layerName);
+            if (layer != null)
+            {
+                layer.Elements.Add(element);
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Returns a collection containing all game elements from all layers in the order they appear.
+        /// </summary>
+        /// <returns>An enumerable collection of all <see cref="GameElement"/> instances contained in every layer. The collection
+        /// will be empty if there are no elements in any layer.</returns>
+        public override IEnumerable<GameElement> GetAllElements()
+        {
+            List<GameElement> elements = new List<GameElement>();
+            foreach (var layer in Layers)
+            {
+                elements.AddRange(layer.Elements);
+            }
+            return elements;
+        }
+
+        /// <summary>
+        /// Retrieves the first game element with the specified unique identifier from all layers.
+        /// </summary>
+        /// <remarks>Searches each layer in order and returns the first matching element. If multiple
+        /// elements share the same identifier across layers, only the first encountered is returned.</remarks>
+        /// <param name="uuid">The unique identifier of the game element to locate. Cannot be null.</param>
+        /// <returns>The first <see cref="GameElement"/> with the specified identifier, or <see langword="null"/> if no matching
+        /// element is found.</returns>
+        public override GameElement? GetElementByID(string uuid)
+        {
+            foreach (var layer in Layers)
+            {
+                var element = layer.FindElementByID(uuid);
+                if (element != null)
+                {
+                    return element;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Searches all layers for a game element with the specified name and returns the first match found.
+        /// </summary>
+        /// <remarks>The search is performed in the order of the layers as they appear in the collection.
+        /// If multiple elements share the same name across different layers, only the first match is
+        /// returned.</remarks>
+        /// <param name="name">The name of the game element to locate. The search is case-sensitive and matches the element's name exactly.</param>
+        /// <returns>The first <see cref="GameElement"/> with the specified name, or <see langword="null"/> if no matching
+        /// element is found.</returns>
+        public override GameElement? FindElementByName(string name)
+        {
+            foreach (var layer in Layers)
+            {
+                var element = layer.FindElementByName(name);
+                if (element != null)
+                {
+                    return element;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Retrieves all game elements of the specified type from all layers.
+        /// </summary>
+        /// <remarks>This method searches each layer in parallel and aggregates the results. The returned
+        /// collection is not thread-safe.</remarks>
+        /// <typeparam name="T">The type of game elements to retrieve.</typeparam>
+        /// <returns>A collection containing all elements of type T found in all layers. The collection is empty if no matching
+        /// elements are found.</returns>
+        public override ICollection<GameElement> GetElements<T>()
+        {
+            List<GameElement> elements = new List<GameElement>();
+            this.Layers.AsParallel().ForAll(layer =>
+            {
+                elements.AddRange(layer.GetElements<T>());
+            });
+            return elements;
+        }
+
+        /// <summary>
+        /// Finds all game elements that implement the specified behavior type.
+        /// </summary>
+        /// <typeparam name="T">The type of behavior to search for. Must be implemented by the game elements to be included in the results.</typeparam>
+        /// <returns>A collection of game elements that implement the specified behavior type. The collection is empty if no
+        /// elements with the behavior are found.</returns>
+        public override ICollection<GameElement> FindElementsWithBehavior<T>()
+        {
+            List<GameElement> elements = new List<GameElement>();
+
+            this.Layers.AsParallel().ForAll(layer =>
+            {
+                elements.AddRange(layer.FindElementsWithBehavior<T>());
+            });
+
+            return elements;
+        }
+
+        /// <summary>
+        /// Finds all game elements that have the specified tag across all layers.
+        /// </summary>
+        /// <remarks>This method searches all layers in parallel to improve performance when working with
+        /// a large number of layers. The returned collection is not thread-safe.</remarks>
+        /// <param name="tag">The tag to search for. Only elements with this tag will be included in the results. Cannot be null.</param>
+        /// <returns>A collection of game elements that have the specified tag. The collection is empty if no elements with the
+        /// tag are found.</returns>
+        public override ICollection<GameElement> FindElementsWithTag(string tag)
+        {
+            return this.Layers.AsParallel().SelectMany(layer => layer.FindElementsWithTag(tag)).ToList();
+        }
+
+        /// <summary>
+        /// Removes the specified game element from all layers in the collection.
+        /// </summary>
+        /// <remarks>This method attempts to remove the element from every layer in parallel. If the
+        /// element does not exist in a layer, that layer is unaffected. This operation is thread-safe.</remarks>
+        /// <param name="element">The game element to remove from each layer. Cannot be null.</param>
+        public override void RemoveElement(GameElement element)
+        {
+            this.Layers.AsParallel().ForAll(layer =>
+            {
+                layer.TryRemoveElement(element);
+            });
+        }
+
+        /// <summary>
+        /// Removes all elements from the collection.
+        /// </summary>
+        public override void ClearElements()
+        {
+            foreach (var layer in this.Layers)
+            {
+                layer.Elements.Clear();
+            }
+        }
+
+        /// <summary>
+        /// Invokes the specified action for each game element contained in all layers.
+        /// </summary>
+        /// <remarks>The action is invoked once for every element in every layer, in the order they are
+        /// stored. If the collection of layers or elements is modified during iteration, the behavior is
+        /// undefined.</remarks>
+        /// <param name="action">The action to perform on each <see cref="GameElement"/>. Cannot be null.</param>
+        public override void ForEachElement(Action<GameElement> action)
+        {
+            foreach (var layer in Layers)
+            {
+                foreach (var element in layer.Elements)
+                {
+                    action(element);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Adds all queued 2D scene elements to their designated layers and triggers any associated actions before
+        /// insertion.
+        /// </summary>
+        /// <remarks>This method processes each entry in the queue, invoking any specified actions prior
+        /// to adding the element to the scene. After all elements have been enqueued, the queue is cleared. Elements
+        /// with a null reference are skipped and not added to the scene.</remarks>
+        public override void EnqueElements()
+        {
+            foreach (EnqueScene2DEntry entry in EnqueEntries)
+            {
+                // Skip null elements
+                if (entry.Element == null)
+                {
+                    continue;
+                }
+
+                // Trigger the event before adding the element to the scene
+                entry.EnqueAction?.Invoke(this, entry.Element, entry.ExtraData ?? new Dictionary<string, object>());
+
+                // Add the element to the scene
+                if (!string.IsNullOrEmpty(entry.LayerName) && entry.Element != null)
+                {
+                    AddGameElement(entry.LayerName, entry.Element);
+                }
+            }
+            EnqueEntries.Clear();
+        }
+
+        /// <summary>
+        /// Adds an enque entry to the collection if it is of type EnqueScene2DEntry.
+        /// </summary>
+        /// <remarks>Only entries of type EnqueScene2DEntry are supported by this method. Attempting to
+        /// add an entry of a different type will result in an exception.</remarks>
+        /// <param name="entry">The enque entry to add. Must be an instance of EnqueScene2DEntry.</param>
+        /// <exception cref="ArgumentException">Thrown if entry is not of type EnqueScene2DEntry.</exception>
+        public override void AddEnqueEntry(IEnqueEntry entry)
+        {
+            if(entry is EnqueScene2DEntry sceneEntry)
+            {
+                EnqueEntries.Add(sceneEntry);
+            }
+            else
+            {
+                throw new ArgumentException("Invalid enque entry type for Scene2D. Only EnqueScene2DEntry is supported.");
+            }
+        }
+
+        /// <summary>
+        /// Releases all resources associated with the scene and its layers using the specified render device.
+        /// </summary>
+        /// <remarks>After calling this method, the scene's layers are cleared and should not be used
+        /// further. This method should be called when the scene is no longer needed to ensure proper resource
+        /// cleanup.</remarks>
+        /// <param name="renderer">The render device to use when releasing resources for each layer. Cannot be null.</param>
+        public override void FreeScene(IRenderDevice renderer)
+        {
+            foreach (var layer in Layers)
+            {
+                layer.Dispose(this, renderer);
+            }
+            this.Layers.Clear();
+        }
+
+        /// <summary>
+        /// Initializes all elements in the collection using the specified viewport and render device.
+        /// </summary>
+        /// <param name="viewport">The viewport that defines the rendering context for the elements.</param>
+        /// <param name="renderer">The render device used to initialize the elements for drawing operations.</param>
+        public override void InitializeElements(Viewport viewport, IRenderDevice renderer)
+        {
+            foreach (var layer in Layers)
+            {
+                layer.Init(this, viewport, renderer);
             }
         }
 
@@ -336,6 +632,37 @@ namespace LibGFX.Core
             return scene;
         }
 
+        /// <summary>
+        /// Serializes the current object to JSON using the specified writer and serialization context.
+        /// </summary>
+        /// <param name="writer">The JsonWriter to which the JSON output will be written. Cannot be null.</param>
+        /// <param name="serializationContext">The context that provides serialization settings and state. Cannot be null.</param>
+        /// <param name="callback">An optional callback that allows additional custom serialization logic to be executed. If null, no
+        /// additional logic is applied.</param>
+        public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
+        {
+            base.Serialize(writer, serializationContext, (w) =>
+            {
+                w.WritePropertyName("Layers");
+                w.WriteStartArray();
+                foreach (var layer in Layers)
+                {
+                    layer.Serialize(w, serializationContext);
+                }
+                w.WriteEndArray();
+            });
+        }
+
+        /// <summary>
+        /// Deserializes the object from the specified JSON reader using the provided serialization context.
+        /// </summary>
+        /// <remarks>If a callback is provided, it is called for each property not handled by the method.
+        /// This allows for custom processing of additional or unknown properties during deserialization.</remarks>
+        /// <param name="reader">The JSON reader positioned at the start of the object to deserialize. Must not be null.</param>
+        /// <param name="serializationContext">The context that provides information required for the deserialization process.</param>
+        /// <param name="callback">An optional callback invoked for each property encountered during deserialization. The callback receives the
+        /// JSON reader and the property name, and should return <see langword="true"/> if the property was handled;
+        /// otherwise, <see langword="false"/>.</param>
         public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
         {
             base.Deserialize(reader, serializationContext, (r, param) =>
@@ -350,6 +677,24 @@ namespace LibGFX.Core
                             return true;
                         }
                         break;
+                    case "Layers":
+                        if (r.TokenType != JsonToken.StartArray)
+                            throw new JsonSerializationException("Expected StartArray token for Layers property.");
+
+                        Layers.Clear();
+                        while (r.Read())
+                        {
+                            if (r.TokenType == JsonToken.EndArray)
+                                break;
+
+                            if (r.TokenType == JsonToken.StartObject)
+                            {
+                                var layer = new Layer();
+                                layer.Deserialize(r, serializationContext);
+                                Layers.Add(layer);
+                            }
+                        }
+                        return true;
                     default:
                         if(callback != null)
                             return callback(r, param);

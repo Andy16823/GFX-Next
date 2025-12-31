@@ -146,19 +146,9 @@ namespace LibGFX.Core
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public GameElement? FindElement(String name)
+        public GameElement? FindElementByName(String name)
         {
             return this.Elements.FirstOrDefault(e => e.Name == name);
-        }
-
-        /// <summary>
-        /// Finds an element by ID using its hash code
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public GameElement? FindElementByID(int id)
-        {
-            return this.Elements.FirstOrDefault(e => e.ID.GetHashCode() == id);
         }
 
         /// <summary>
@@ -169,16 +159,6 @@ namespace LibGFX.Core
         public GameElement? FindElementByID(String id)
         {
             return this.Elements.FirstOrDefault(e => e.ID.ToString() == id);
-        }
-
-        /// <summary>
-        /// Finds an element by a predicate
-        /// </summary>
-        /// <param name="predicate"></param>
-        /// <returns></returns>
-        public GameElement? FindElement(Func<GameElement, bool> predicate)
-        {
-            return this.Elements.FirstOrDefault(predicate);
         }
 
         /// <summary>
@@ -216,7 +196,7 @@ namespace LibGFX.Core
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public ICollection<GameElement> FindElementsWithBehaviors<T>() where T : IGameBehavior
+        public ICollection<GameElement> FindElementsWithBehavior<T>() where T : IGameBehavior
         {
             return this.Elements.Where(e => e.Behaviors.Any(b => b is T)).ToList();
         }
@@ -226,7 +206,7 @@ namespace LibGFX.Core
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public ICollection<GameElement> FindElements<T>() where T : GameElement
+        public ICollection<GameElement> GetElements<T>() where T : GameElement
         {
             return this.Elements.Where(e => e is T).ToList();
         }
