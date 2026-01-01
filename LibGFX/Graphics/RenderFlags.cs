@@ -350,7 +350,7 @@ namespace LibGFX.Graphics
             DynamicCopy
         }   
 
-        public enum  GFXFramebufferErrorCode
+        public enum GFXFramebufferErrorCode
         {
             FramebufferComplete,
             FramebufferUndefined,
