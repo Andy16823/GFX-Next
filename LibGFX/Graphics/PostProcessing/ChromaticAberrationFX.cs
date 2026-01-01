@@ -63,13 +63,13 @@ namespace LibGFX.Graphics.PostProcessing
         public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)
         {
             _shader = new ChromaticAberrationFXShader();
-            renderer.BuildShaderProgram(_shader);
+            renderer.BuildRenderShader(_shader);
             this.RenderTarget = renderer.CreateRenderTarget2D(viewport.Width, viewport.Height);
         }
 
         public void Dispose(PostProcessStack stack, IRenderDevice renderer)
         {
-            renderer.DisposeShaderProgram(_shader);
+            renderer.DisposeRenderShader(_shader);
             this.RenderTarget.Dispose(renderer);
         }
 

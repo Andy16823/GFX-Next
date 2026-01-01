@@ -47,7 +47,7 @@ namespace LibGFX.Graphics.PostProcessing
         public void Dispose(PostProcessStack stack, IRenderDevice renderer)
         {
             this.RenderTarget.Dispose(renderer);
-            renderer.DisposeShaderProgram(_shader);
+            renderer.DisposeRenderShader(_shader);
         }
 
         public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)
@@ -55,7 +55,7 @@ namespace LibGFX.Graphics.PostProcessing
             this.RenderTarget = renderer.CreateRenderTarget2D(viewport.Width, viewport.Height);
 
             _shader = new SharpenFXShader();
-            renderer.BuildShaderProgram(_shader);
+            renderer.BuildRenderShader(_shader);
 
             _texelSize = new Vector2(1.0f / viewport.Width, 1.0f / viewport.Height);
         }

@@ -63,7 +63,7 @@ namespace LibGFX.Graphics.Shader
             {
                 throw new InvalidOperationException("ShaderProgram is already initialized.");
             }
-            renderer.BuildShaderProgram(this);
+            renderer.BuildRenderShader(this);
             IsInitialized = true;
         }
 
@@ -78,7 +78,7 @@ namespace LibGFX.Graphics.Shader
             {
                 throw new InvalidOperationException("ShaderProgram is not initialized.");
             }
-            renderer.DisposeShaderProgram(this);
+            renderer.DisposeRenderShader(this);
             IsInitialized = false;
         }
     }

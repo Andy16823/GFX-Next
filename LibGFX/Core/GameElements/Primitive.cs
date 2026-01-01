@@ -80,7 +80,7 @@ namespace LibGFX.Core.GameElements
             // Get the default shader if none is assigned
             if (this.Shader == null)
             {
-                this.Shader = renderer.GetShaderProgram("MeshShader");
+                this.Shader = renderer.GetRenderShader("MeshShader");
             }
         }
 
@@ -117,7 +117,7 @@ namespace LibGFX.Core.GameElements
         {
             base.RenderShadow(scene, viewport, renderer);
 
-            var shader = renderer.GetShaderProgram("DepthMeshShader");
+            var shader = renderer.GetRenderShader("DepthMeshShader");
             renderer.BindShaderProgram(shader);
             renderer.DrawMesh(this.Transform, Mesh);
             scene.RenderStats.IncrementDrawCalls();

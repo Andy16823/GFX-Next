@@ -70,9 +70,9 @@ namespace LibGFX.Graphics
         byte[] GetRenderTargetData(MSAARenderTarget2D renderTarget);
         byte[] GetRenderTargetData(MSAARenderTarget2D renderTarget, int width, int height);
         int GetFramebufferIndex();
-        void BuildShaderProgram(RenderShader shaderProgram);
-        void DisposeShaderProgram(RenderShader shaderProgram);
-        void AddShaderProgram(String name, RenderShader shaderProgram);
+        void BuildRenderShader(RenderShader shaderProgram);
+        void DisposeRenderShader(RenderShader shaderProgram);
+        void RegisterRenderShader(String name, RenderShader shaderProgram);
         void BuildComputeShader(ComputeShader computeShader);
         void DisposeComputeShader(ComputeShader computeShader);
         void AddShape(Shape shape);
@@ -80,8 +80,8 @@ namespace LibGFX.Graphics
         void InitShape(Shape shape);
         void DrawShape(Shape shape);
         void DisposeShape(Shape shape);
-        bool ExistsShaderProgram(String name);
-        RenderShader GetShaderProgram(String name);
+        bool IsRenderShaderRegistered(String name);
+        RenderShader GetRenderShader(String name);
         void BindShaderProgram(IShaderProgram shaderProgram);
         void UnbindShaderProgram();
         int GetUniformLocation(int program, String name);

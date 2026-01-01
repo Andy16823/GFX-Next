@@ -120,7 +120,7 @@ namespace LibGFX.Graphics.Enviroment
         public void Render(IRenderDevice renderer, Camera camera, Viewport viewport)
         {
             this.Transform.Position = camera.Transform.Position;
-            var shader = renderer.GetShaderProgram("ProceduralSkyShader");
+            var shader = renderer.GetRenderShader("ProceduralSkyShader");
             var projectionMatrix = renderer.GetProjectionMatrix();
             var viewMatrix = renderer.GetViewMatrix();
 

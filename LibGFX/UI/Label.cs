@@ -112,7 +112,7 @@ namespace LibGFX.UI
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
 
-            renderer.BindShaderProgram(renderer.GetShaderProgram("FontShader"));
+            renderer.BindShaderProgram(renderer.GetRenderShader("FontShader"));
             renderer.DrawString2D(this.Text, new Vector2(0, 0), this.Font, new Vector4(1, 1, 1, 1), this.FontScale, this.Alignment);
             renderer.UnbindShaderProgram();
             renderer.UnbindRenderTarget();

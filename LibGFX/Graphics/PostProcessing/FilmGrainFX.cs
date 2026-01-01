@@ -60,13 +60,13 @@ namespace LibGFX.Graphics.PostProcessing
         {
             _shader = new FilmGrainFXShader();
             this.RenderTarget = renderer.CreateRenderTarget2D(viewport.Width, viewport.Height);
-            renderer.BuildShaderProgram(_shader);
+            renderer.BuildRenderShader(_shader);
         }
 
         public void Dispose(PostProcessStack stack, IRenderDevice renderer)
         {
             this.RenderTarget.Dispose(renderer);
-            renderer.DisposeShaderProgram(_shader);
+            renderer.DisposeRenderShader(_shader);
         }
 
         public void Resize(Viewport viewport, IRenderDevice renderer)

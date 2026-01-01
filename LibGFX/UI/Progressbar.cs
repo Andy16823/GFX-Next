@@ -192,7 +192,7 @@ namespace LibGFX.UI
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
 
-            renderer.BindShaderProgram(renderer.GetShaderProgram("RectShader"));
+            renderer.BindShaderProgram(renderer.GetRenderShader("RectShader"));
             renderer.FillRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), this.BackgroundColor);
             renderer.FillRect(new Rect(-progressOffset.X, progressOffset.Y, progressSize.X, progressSize.Y), this.ProgressColor);
             renderer.DrawRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), this.BorderColor, 0.25f);

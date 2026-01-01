@@ -116,7 +116,7 @@ namespace LibGFX.Core.GameElements
             var transform = this.GetWorldTransform();
 
             // Bind and prepare shader uniforms
-            var shader = renderer.GetShaderProgram("AnimatedMeshShader");
+            var shader = renderer.GetRenderShader("AnimatedMeshShader");
             renderer.BindShaderProgram(shader);
             renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
             renderer.PrepareShader("viewPos", camera.Transform.Position);
@@ -144,7 +144,7 @@ namespace LibGFX.Core.GameElements
         {
             base.RenderShadow(scene, viewport, renderer);
             var transform = this.GetWorldTransform();
-            var shader = renderer.GetShaderProgram("AnimatedDepthMeshShader");
+            var shader = renderer.GetRenderShader("AnimatedDepthMeshShader");
             renderer.BindShaderProgram(shader);
             renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
             foreach (var mesh in _model.Meshes)

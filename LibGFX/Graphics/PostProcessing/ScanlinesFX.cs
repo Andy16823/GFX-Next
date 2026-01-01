@@ -58,13 +58,13 @@ namespace LibGFX.Graphics.PostProcessing
         public void Dispose(PostProcessStack stack, IRenderDevice renderer)
         {
             this.RenderTarget.Dispose(renderer);
-            renderer.DisposeShaderProgram(_shader);
+            renderer.DisposeRenderShader(_shader);
         }
 
         public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)
         {
             _shader = new ScanlinesFXShader();
-            renderer.BuildShaderProgram(_shader);
+            renderer.BuildRenderShader(_shader);
             this.RenderTarget = renderer.CreateRenderTarget2D(viewport.Width, viewport.Height);
         }
 

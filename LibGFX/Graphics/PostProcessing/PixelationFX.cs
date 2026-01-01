@@ -46,7 +46,7 @@ namespace LibGFX.Graphics.PostProcessing
         public void Dispose(PostProcessStack stack, IRenderDevice renderer)
         {
             this.RenderTarget.Dispose(renderer);
-            renderer.DisposeShaderProgram(_shader);
+            renderer.DisposeRenderShader(_shader);
         }
 
         public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)
@@ -54,7 +54,7 @@ namespace LibGFX.Graphics.PostProcessing
             this.RenderTarget = renderer.CreateRenderTarget2D(viewport.Width, viewport.Height);
             _resolution = new Vector2(viewport.Width, viewport.Height);
             _shader = new PixelationFXShader();
-            renderer.BuildShaderProgram(_shader);
+            renderer.BuildRenderShader(_shader);
         }
 
         public void Resize(Viewport viewport, IRenderDevice renderer)

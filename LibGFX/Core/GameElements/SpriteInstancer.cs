@@ -86,7 +86,7 @@ namespace LibGFX.Core.GameElements
 
             if (this.Shader == null)
             {
-                this.Shader = renderer.GetShaderProgram("InstancedShader2D");
+                this.Shader = renderer.GetRenderShader("InstancedShader2D");
             }
         }
 

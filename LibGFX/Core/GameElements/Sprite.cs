@@ -111,7 +111,7 @@ namespace LibGFX.Core.GameElements
 
             if (this.Shader == null)
             {
-                this.Shader = renderer.GetShaderProgram("LitSpriteShader");
+                this.Shader = renderer.GetRenderShader("LitSpriteShader");
             }
         }
 

@@ -67,7 +67,7 @@ namespace LibGFX.Graphics.Enviroment
         public void Render(IRenderDevice renderer, Camera camera, Viewport viewport)
         {
             this.Transform.Position = camera.Transform.Position;
-            renderer.BindShaderProgram(renderer.GetShaderProgram("EnviromentShader"));
+            renderer.BindShaderProgram(renderer.GetRenderShader("EnviromentShader"));
             renderer.DrawCubemap(this.Transform, this.Cubemap, Vector4.Zero);
             renderer.UnbindShaderProgram();
         }

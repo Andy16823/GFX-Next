@@ -75,7 +75,7 @@ namespace LibGFX.Core.GameElements
 
             if (this.Shader == null)
             {
-                this.Shader = renderer.GetShaderProgram("InstancedShader3D");
+                this.Shader = renderer.GetRenderShader("InstancedShader3D");
             }
         }
 
@@ -129,7 +129,7 @@ namespace LibGFX.Core.GameElements
         {
             base.RenderShadow(scene, viewport, renderer);
 
-            renderer.BindShaderProgram(renderer.GetShaderProgram("DepthInstancedShader3D"));
+            renderer.BindShaderProgram(renderer.GetRenderShader("DepthInstancedShader3D"));
             renderer.DrawInstances(InstanceContainer, this.Material);
             renderer.UnbindShaderProgram();
         }

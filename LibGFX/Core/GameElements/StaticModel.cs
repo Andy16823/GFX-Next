@@ -88,7 +88,7 @@ namespace LibGFX.Core.GameElements
         {
             base.Render(scene, viewport, renderer, camera);
             var transform = this.GetWorldTransform();
-            var shader = renderer.GetShaderProgram("MeshShader");
+            var shader = renderer.GetRenderShader("MeshShader");
 
             renderer.BindShaderProgram(shader);
             renderer.PrepareShader("viewPos", camera.Transform.Position);
@@ -125,7 +125,7 @@ namespace LibGFX.Core.GameElements
         {
             base.RenderShadow(scene, viewport, renderer);
             var transform = this.GetWorldTransform();
-            var shader = renderer.GetShaderProgram("DepthMeshShader");
+            var shader = renderer.GetRenderShader("DepthMeshShader");
             renderer.BindShaderProgram(shader);
             foreach (var mesh in _model.Meshes)
             {

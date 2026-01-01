@@ -52,30 +52,30 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         {
             _context = context;
             _programs = new Dictionary<string, RenderShader>();
-            AddShaderProgram("ScreenShader", new ScreenShader());
-            AddShaderProgram("RectShader", new RectShader());
-            AddShaderProgram("SpriteShader", new SpriteShader());
-            AddShaderProgram("FontShader", new FontShader());
-            AddShaderProgram("MeshShader", new MeshShader());
-            AddShaderProgram("AnimatedMeshShader", new AnimatedMeshShader());
-            AddShaderProgram("LineShader", new LineShader());
-            AddShaderProgram("EnviromentShader", new EnviromentShader());
-            AddShaderProgram("InstancedShader3D", new InstancedShader3D());
-            AddShaderProgram("ProceduralSkyShader", new ProceduralSkyShader());
-            AddShaderProgram("InstancedShader2D", new InstancedShader2D());
-            AddShaderProgram("PBRMeshShader", new PBRMeshShader());
-            AddShaderProgram("LitSpriteShader", new LitSpriteShader());
-            AddShaderProgram("ShadowMapTest", new ShadowMapTest());
-            AddShaderProgram("DepthMeshShader", new DepthMeshShader());
-            AddShaderProgram("AnimatedDepthMeshShader", new AnimatedDepthMeshShader());
-            AddShaderProgram("DepthInstancedShader3D", new DepthInstancedShader3D());
-            AddShaderProgram("SolidMeshShader", new SolidMeshShader());
-            AddShaderProgram("AABBShader", new AABBShader());
-            AddShaderProgram("InfiniteGridShader", new InfiniteGridShader());
+            RegisterRenderShader("ScreenShader", new ScreenShader());
+            RegisterRenderShader("RectShader", new RectShader());
+            RegisterRenderShader("SpriteShader", new SpriteShader());
+            RegisterRenderShader("FontShader", new FontShader());
+            RegisterRenderShader("MeshShader", new MeshShader());
+            RegisterRenderShader("AnimatedMeshShader", new AnimatedMeshShader());
+            RegisterRenderShader("LineShader", new LineShader());
+            RegisterRenderShader("EnviromentShader", new EnviromentShader());
+            RegisterRenderShader("InstancedShader3D", new InstancedShader3D());
+            RegisterRenderShader("ProceduralSkyShader", new ProceduralSkyShader());
+            RegisterRenderShader("InstancedShader2D", new InstancedShader2D());
+            RegisterRenderShader("PBRMeshShader", new PBRMeshShader());
+            RegisterRenderShader("LitSpriteShader", new LitSpriteShader());
+            RegisterRenderShader("ShadowMapTest", new ShadowMapTest());
+            RegisterRenderShader("DepthMeshShader", new DepthMeshShader());
+            RegisterRenderShader("AnimatedDepthMeshShader", new AnimatedDepthMeshShader());
+            RegisterRenderShader("DepthInstancedShader3D", new DepthInstancedShader3D());
+            RegisterRenderShader("SolidMeshShader", new SolidMeshShader());
+            RegisterRenderShader("AABBShader", new AABBShader());
+            RegisterRenderShader("InfiniteGridShader", new InfiniteGridShader());
 
             foreach (RenderShader program in _programs.Values)
             {
-                BuildShaderProgram(program);
+                BuildRenderShader(program);
             }
 
             _shapes = new Dictionary<string, Shape>();
@@ -503,7 +503,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return currentFramebuffer;
         }
 
-        public void BuildShaderProgram(RenderShader shaderProgram)
+        public void BuildRenderShader(RenderShader shaderProgram)
         {
             CompileShader(shaderProgram.VertexShader, ShaderType.VertexShader);
             CompileShader(shaderProgram.FragmentShader, ShaderType.FragmentShader);
@@ -535,7 +535,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.CompileShader(shader.ShaderID);
             Debug.WriteLine($"Compiled shader with error {GetError()}");
         }
-        public void DisposeShaderProgram(RenderShader shaderProgram)
+        public void DisposeRenderShader(RenderShader shaderProgram)
         {
             Debug.WriteLine($"Disposing shader program {shaderProgram.ProgramID}");
             GL.DeleteProgram(shaderProgram.ProgramID);
@@ -543,17 +543,17 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             Debug.WriteLine($"ShaderProgram {shaderProgram.GetType().ToString()} deleted");
         }
 
-        public void AddShaderProgram(string name, RenderShader shaderProgram)
+        public void RegisterRenderShader(string name, RenderShader shaderProgram)
         {
             _programs.Add(name, shaderProgram);
         }
 
-        public bool ExistsShaderProgram(string name)
+        public bool IsRenderShaderRegistered(string name)
         {
             return _programs.ContainsKey(name);
         }
 
-        public RenderShader GetShaderProgram(string name)
+        public RenderShader GetRenderShader(string name)
         {
             return _programs[name];
         }
@@ -742,7 +742,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         {
             foreach (var shader in _programs)
             {
-                DisposeShaderProgram(shader.Value);
+                DisposeRenderShader(shader.Value);
             }
 
             foreach (var shape in _shapes)
@@ -943,7 +943,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void DrawRenderTarget(int textureId, int framebuffer)
         {
-            this.BindShaderProgram(this.GetShaderProgram("ScreenShader"));
+            this.BindShaderProgram(this.GetRenderShader("ScreenShader"));
             GL.BindFramebuffer(FramebufferTarget.Framebuffer, framebuffer);
             this.DrawRenderTarget(textureId);
             this.UnbindShaderProgram();
@@ -1415,7 +1415,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             var trans = Matrix4.Identity;
             var m_mat = scale;
 
-            var shader = this.GetShaderProgram("InfiniteGridShader");
+            var shader = this.GetRenderShader("InfiniteGridShader");
             this.BindShaderProgram(shader);
 
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);

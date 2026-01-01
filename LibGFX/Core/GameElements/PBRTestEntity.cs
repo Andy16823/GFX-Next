@@ -36,7 +36,7 @@ namespace LibGFX.Core.GameElements
 
             if(this.Shader == null)
             {
-                this.Shader = renderer.GetShaderProgram("PBRMeshShader");
+                this.Shader = renderer.GetRenderShader("PBRMeshShader");
             }
         }
 

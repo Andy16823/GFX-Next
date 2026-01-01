@@ -38,13 +38,13 @@ namespace LibGFX.Graphics.PostProcessing
         public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)
         {
             _renderTarget = renderer.CreateRenderTarget2D(viewport.Width, viewport.Height);
-            renderer.BuildShaderProgram(_shader);
+            renderer.BuildRenderShader(_shader);
         }
 
         public void Dispose(PostProcessStack stack, IRenderDevice renderer)
         {
             _renderTarget.Dispose(renderer);
-            renderer.DisposeShaderProgram(_shader);
+            renderer.DisposeRenderShader(_shader);
         }
 
         public void Resize(Viewport viewport, IRenderDevice renderer)
