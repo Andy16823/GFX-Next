@@ -135,6 +135,7 @@ namespace LibGFX.Graphics
         void UpdateBufferData<T>(int buffer, T[] data, int offset, RenderFlags.GFXBufferTarget target) where T : unmanaged;
         void UpdateVertexBufferData<T>(int buffer, T[] data, int offset) where T : unmanaged;
         void UpdateElementBufferData(int buffer, int[] data, int offset);
+        T[] GetBufferData<T>(int buffer, int length, RenderFlags.GFXBufferTarget target) where T : unmanaged;
         void DisposeBuffer(int buffer);
         void BindShaderStorageBuffer(int binding, int buffer);
         void UnbindShaderStorageBuffer(int binding);
@@ -143,6 +144,10 @@ namespace LibGFX.Graphics
         void BindVertexArray(int value);
         void EnableVertexArrayAttribute(int index);
         void SetVertexArrayAttribute(int index, int size, RenderFlags.RenderDataTypes type, bool normalized, int stride, nint pointer);
+        void DispatchCompute(int numGroupsX, int numGroupsY, int numGroupsZ);
+        void MemoryBarrier(MemoryBarrierFlags barriers); // TODO: Change to internal render flags
+        IntPtr MapBufferRange(RenderFlags.GFXBufferTarget target, int offset, int length, MapBufferAccessMask access); // TODO: Change to internal render flags
+        void UnmapBuffer(RenderFlags.GFXBufferTarget target);
         void PrepareShader(String location, bool value);
         void PrepareShader(String location, float value);
         void PrepareShader(String location, int value);

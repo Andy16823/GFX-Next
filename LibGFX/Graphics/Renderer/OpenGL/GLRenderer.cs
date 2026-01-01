@@ -1734,6 +1734,16 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindBuffer(BufferTarget.ElementArrayBuffer, 0);
         }
 
+        public T[] GetBufferData<T>(int buffer, int length, RenderFlags.GFXBufferTarget target) where T : unmanaged
+        {
+            int dataSize = Unsafe.SizeOf<T>();
+            T[] data = new T[length];
+            GL.BindBuffer(GLMappings.ToBufferTarget(target), buffer);
+            GL.GetBufferSubData(GLMappings.ToBufferTarget(target), IntPtr.Zero, length * dataSize, data);
+            GL.BindBuffer(GLMappings.ToBufferTarget(target), 0);
+            return data;
+        }
+
         public void DisposeBuffer(int buffer)
         {
             GL.DeleteBuffer(buffer);
@@ -1773,6 +1783,26 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         public void SetVertexArrayAttribute(int index, int size, RenderFlags.RenderDataTypes type, bool normalized, int stride, nint pointer)
         {
             GL.VertexAttribPointer(index, size, GLMappings.GetVertexAttribPointerType(type), normalized, stride, pointer);
+        }
+
+        public void DispatchCompute(int numGroupsX, int numGroupsY, int numGroupsZ)
+        {
+            GL.DispatchCompute(numGroupsX, numGroupsY, numGroupsZ);
+        }
+
+        public void MemoryBarrier(MemoryBarrierFlags barriers)
+        {
+            GL.MemoryBarrier(barriers);
+        }
+
+        public IntPtr MapBufferRange(RenderFlags.GFXBufferTarget target, int offset, int length, MapBufferAccessMask access)
+        {
+            return GL.MapBufferRange(GLMappings.ToBufferTarget(target), offset, length, access);
+        }
+
+        public void UnmapBuffer(RenderFlags.GFXBufferTarget target)
+        {
+            GL.UnmapBuffer(GLMappings.ToBufferTarget(target));
         }
 
         public void PrepareShader(string location, bool value)
