@@ -15,7 +15,12 @@ namespace LibGFX.Assets
     /// </summary>
     public class AssetManager
     {
+        /// <summary>
+        /// Assembly path of the executing assembly.
+        /// </summary>
         public String AssemblyPath { get => this.GetAssemblyPath(); }
+
+
         private readonly Dictionary<object, IAssetLoader> _loaders = new();
         private readonly Dictionary<(Type, string), object> _assets = new();
 
@@ -153,6 +158,26 @@ namespace LibGFX.Assets
         }
 
         /// <summary>
+        /// Retrieves an asset of the specified type and name from the asset collection.
+        /// </summary>
+        /// <remarks>If multiple assets exist with the same name but different types, only the asset
+        /// matching the specified type is returned. The method returns <see langword="null"/> if the asset does not
+        /// exist or is not of the requested type.</remarks>
+        /// <typeparam name="T">The type of asset to retrieve. Must be a reference type.</typeparam>
+        /// <param name="name">The name of the asset to retrieve. The name is case-sensitive.</param>
+        /// <returns>The asset of type <typeparamref name="T"/> with the specified name, or <see langword="null"/> if no matching
+        /// asset is found.</returns>
+        public T ?Get<T>(string name) where T : class
+        {
+            var key = (typeof(T), name);
+            if (_assets.TryGetValue(key, out var asset))
+            {
+                return (T)(object)asset;
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Get all assets of a specific type from the asset manager.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -205,14 +230,6 @@ namespace LibGFX.Assets
             {
                 _assets.Remove(key);
             }
-        }
-
-        /// <summary>
-        /// Unloads all assets from the asset manager.
-        /// </summary>
-        public void UnloadAllAssets()
-        {
-            _assets.Clear();
         }
 
         /// <summary>

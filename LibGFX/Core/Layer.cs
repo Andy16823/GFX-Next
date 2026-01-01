@@ -146,9 +146,9 @@ namespace LibGFX.Core
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public GameElement? FindElementByName(String name)
+        public T? FindElement<T>(String name) where T : GameElement
         {
-            return this.Elements.FirstOrDefault(e => e.Name == name);
+            return this.Elements.OfType<T>().FirstOrDefault(e => e.Name == name);
         }
 
         /// <summary>

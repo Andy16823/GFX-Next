@@ -492,9 +492,9 @@ namespace LibGFX.Core
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public override GameElement? FindElementByName(string name)
+        public override T? FindElement<T>(string name) where T : class
         {
-            return this.Elements.FirstOrDefault(e => e.Name == name);
+            return this.Elements.OfType<T>().FirstOrDefault(e => e.Name == name);
         }
 
         /// <summary>

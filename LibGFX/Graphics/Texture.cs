@@ -310,7 +310,7 @@ namespace LibGFX.Graphics
         {
             // TODO: Think about if the texture data should be kept in memory after initialization or not.
             renderer.LoadTexture(this, _parameters);
-            this.TextureData = null;
+            //this.TextureData = null;
             this.IsInitialized = true;
         }
 

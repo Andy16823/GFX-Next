@@ -203,7 +203,7 @@ namespace LibGFX.Core
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public abstract GameElement? FindElementByName(string name);
+        public abstract T? FindElement<T>(string name) where T : GameElement;
 
         /// <summary>
         /// Retrieves a collection of game elements of the specified type.

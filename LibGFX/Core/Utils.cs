@@ -1,4 +1,7 @@
-﻿using LibGFX.Graphics;
+﻿using LibGFX.Assets;
+using LibGFX.Assets.Loaders;
+using LibGFX.Audio;
+using LibGFX.Graphics;
 using LibGFX.Graphics.Animation3D;
 using LibGFX.Graphics.Materials;
 using LibGFX.Math;
@@ -23,6 +26,27 @@ namespace LibGFX.Core
     /// </summary>
     public class Utils
     {
+        /// <summary>
+        /// Creates a new instance of the default asset manager configured with loaders for common asset types.
+        /// </summary>
+        /// <remarks>Use this method to obtain an asset manager that is ready to load standard asset types
+        /// without additional configuration. Custom loaders can be registered with the returned manager if
+        /// needed.</remarks>
+        /// <returns>An <see cref="AssetManager"/> instance pre-registered with loaders for textures, audio clips, materials,
+        /// cubemaps, sprite materials, skinned mesh models, and static mesh models.</returns>
+        public static AssetManager CreateDefaultAssetManager()
+        {
+            var manager = new AssetManager();
+            manager.RegisterLoader<Texture>(new TextureLoader());
+            manager.RegisterLoader<AudioClip>(new AudioLoader());
+            manager.RegisterLoader<SGMaterial>(new SGMaterialLoader());
+            manager.RegisterLoader<Cubemap>(new CubemapLoader());
+            manager.RegisterLoader<SpriteMaterial>(new SpriteMaterialLoader());
+            manager.RegisterLoader<SkinnedMeshModel>(new SkinnedMeshModelLoader());
+            manager.RegisterLoader<StaticMeshModel>(new StaticMeshModelLoader());
+            return manager;
+        }
+
         /// <summary>
         /// Creates an empty normal map with the given width and height.
         /// </summary>

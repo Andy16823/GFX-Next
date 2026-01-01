@@ -37,13 +37,42 @@ namespace LibGFX.Core.GameElements
 
         /// <summary>
         /// Creates a new static model game element
-        /// Shared models should be used when multiple instances of the same model are needed
         /// </summary>
         /// <param name="name"></param>
         /// <param name="model"></param>
         public StaticModel(String name, Graphics.StaticMeshModel model)
         {
             this.Name = name;
+            _model = model;
+            this.ComputeAABB();
+        }
+
+        /// <summary>
+        /// Creates a new static model game element
+        /// Shared models should be used when multiple instances of the same model are needed
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="model"></param>
+        public StaticModel(String name, Vector3 position, Graphics.StaticMeshModel model)
+        {
+            this.Name = name;
+            _model = model;
+            this.Transform.Position = position; 
+            this.ComputeAABB();
+        }
+
+        /// <summary>
+        /// Creates a new static model game element
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="position"></param>
+        /// <param name="scale"></param>
+        /// <param name="model"></param>
+        public StaticModel(String name, Vector3 position, Vector3 scale, Graphics.StaticMeshModel model)
+        {
+            this.Name = name;
+            this.Transform.Position = position;
+            this.Transform.Scale = scale;
             _model = model;
             this.ComputeAABB();
         }

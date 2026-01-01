@@ -60,7 +60,7 @@ namespace LibGFX.Core
         /// </summary>
         protected Game()
         {
-            this.AssetManager = GFX.Instance.AssetManager;
+            this.AssetManager = Utils.CreateDefaultAssetManager();
             this.Services = GFX.Instance.Services;
         }
 
@@ -130,6 +130,7 @@ namespace LibGFX.Core
 
             // Dispose resources and clean up
             this.AssetManager.DisposeAssets(this.RenderDevice);
+            this.AssetManager.ClearAssets();
             this.Dispose();
             this.RenderDevice.Dispose();
             Environment.Exit(0);

@@ -23,11 +23,6 @@ namespace LibGFX
         /// </summary>
         public ServiceContainer Services { get; } = new();
 
-        /// <summary>
-        /// The asset manager for managing assets.
-        /// </summary>
-        public AssetManager AssetManager { get; set; }
-
         private static readonly object _lock = new object();
         private static GFX _instance;
         private Window? _window;
@@ -39,14 +34,6 @@ namespace LibGFX
         {
 
             Debug.WriteLine("GFX instance created.");
-            AssetManager = new AssetManager();
-            AssetManager.RegisterLoader<Texture>(new TextureLoader());
-            AssetManager.RegisterLoader<AudioClip>(new AudioLoader());
-            AssetManager.RegisterLoader<SGMaterial>(new SGMaterialLoader());
-            AssetManager.RegisterLoader<Cubemap>(new CubemapLoader());
-            AssetManager.RegisterLoader<SpriteMaterial>(new SpriteMaterialLoader());
-            AssetManager.RegisterLoader<SkinnedMeshModel>(new SkinnedMeshModelLoader());
-            AssetManager.RegisterLoader<StaticMeshModel>(new StaticMeshModelLoader());
         }
 
         /// <summary>
@@ -98,7 +85,7 @@ namespace LibGFX
         /// </summary>
         public void Dispose()
         {
-            AssetManager.UnloadAllAssets();
+
         }
 
         /// <summary>

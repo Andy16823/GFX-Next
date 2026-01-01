@@ -34,6 +34,14 @@ namespace LibGFX.Core.GameElements
         public override bool HasTransparency => _model.HasTransparency;
 
         /// <summary>
+        /// Creates a new instance of the AnimatedModel class.
+        /// </summary>
+        public AnimatedModel()
+        {
+            this.Animator = new Animator();
+        }
+
+        /// <summary>
         /// Creates a new animated model game element
         /// Can share the same model instance with other AnimatedModel elements
         /// </summary>
@@ -42,6 +50,38 @@ namespace LibGFX.Core.GameElements
         public AnimatedModel(String name, Graphics.SkinnedMeshModel model)
         {
             this.Name = name;
+            this.Animator = new Animator();
+            _model = model;
+            this.ComputeAABB();
+        }
+
+        /// <summary>
+        /// Creates a new animated model game element
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="position"></param>
+        /// <param name="model"></param>
+        public AnimatedModel(String name, Vector3 position, Graphics.SkinnedMeshModel model)
+        {
+            this.Name = name;
+            this.Transform.Position = position;
+            this.Animator = new Animator();
+            _model = model;
+            this.ComputeAABB();
+        }
+
+        /// <summary>
+        /// Creates a new animated model game element
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="position"></param>
+        /// <param name="scale"></param>
+        /// <param name="model"></param>
+        public AnimatedModel(String name, Vector3 position, Vector3 scale, Graphics.SkinnedMeshModel model)
+        {
+            this.Name = name;
+            this.Transform.Position = position;
+            this.Transform.Scale = scale;
             this.Animator = new Animator();
             _model = model;
             this.ComputeAABB();

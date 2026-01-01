@@ -31,6 +31,8 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 {
     public class GLRenderer : IRenderDevice
     {
+        public static int Backbuffer = 0;
+
         private CullMode _cullMode = CullMode.Back;
         private Dictionary<string, ShaderProgram> _programs;
         private Dictionary<string, Shape> _shapes;

@@ -204,11 +204,11 @@ namespace LibGFX.Core
         /// <param name="name">The name of the game element to locate. The search is case-sensitive and matches the element's name exactly.</param>
         /// <returns>The first <see cref="GameElement"/> with the specified name, or <see langword="null"/> if no matching
         /// element is found.</returns>
-        public override GameElement? FindElementByName(string name)
+        public override T? FindElement<T>(string name) where T : class
         {
             foreach (var layer in Layers)
             {
-                var element = layer.FindElementByName(name);
+                var element = layer.FindElement<T>(name);
                 if (element != null)
                 {
                     return element;
