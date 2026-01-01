@@ -456,5 +456,38 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             _ => throw new ArgumentOutOfRangeException(nameof(code), code, null)
         };
 
+        internal static BufferTarget ToBufferTarget(RenderFlags.GFXBufferTarget target) => target switch
+        {
+            RenderFlags.GFXBufferTarget.ArrayBuffer => BufferTarget.ArrayBuffer,
+            RenderFlags.GFXBufferTarget.AtomicCounterBuffer => BufferTarget.AtomicCounterBuffer,
+            RenderFlags.GFXBufferTarget.CopyReadBuffer => BufferTarget.CopyReadBuffer,
+            RenderFlags.GFXBufferTarget.CopyWriteBuffer => BufferTarget.CopyWriteBuffer,
+            RenderFlags.GFXBufferTarget.DispatchIndirectBuffer => BufferTarget.DispatchIndirectBuffer,
+            RenderFlags.GFXBufferTarget.DrawIndirectBuffer => BufferTarget.DrawIndirectBuffer,
+            RenderFlags.GFXBufferTarget.ElementArrayBuffer => BufferTarget.ElementArrayBuffer,
+            RenderFlags.GFXBufferTarget.PixelPackBuffer => BufferTarget.PixelPackBuffer,
+            RenderFlags.GFXBufferTarget.PixelUnpackBuffer => BufferTarget.PixelUnpackBuffer,
+            RenderFlags.GFXBufferTarget.QueryBuffer => BufferTarget.QueryBuffer,
+            RenderFlags.GFXBufferTarget.ShaderStorageBuffer => BufferTarget.ShaderStorageBuffer,
+            RenderFlags.GFXBufferTarget.TextureBuffer => BufferTarget.TextureBuffer,
+            RenderFlags.GFXBufferTarget.TransformFeedbackBuffer => BufferTarget.TransformFeedbackBuffer,
+            RenderFlags.GFXBufferTarget.UniformBuffer => BufferTarget.UniformBuffer,
+            _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
+        };
+
+        internal static BufferUsageHint ToBufferUsageHint(RenderFlags.GFXBufferUsageHint hint) => hint switch
+        {
+            RenderFlags.GFXBufferUsageHint.StreamDraw => BufferUsageHint.StreamDraw,
+            RenderFlags.GFXBufferUsageHint.StreamRead => BufferUsageHint.StreamRead,
+            RenderFlags.GFXBufferUsageHint.StreamCopy => BufferUsageHint.StreamCopy,
+            RenderFlags.GFXBufferUsageHint.StaticDraw => BufferUsageHint.StaticDraw,
+            RenderFlags.GFXBufferUsageHint.StaticRead => BufferUsageHint.StaticRead,
+            RenderFlags.GFXBufferUsageHint.StaticCopy => BufferUsageHint.StaticCopy,
+            RenderFlags.GFXBufferUsageHint.DynamicDraw => BufferUsageHint.DynamicDraw,
+            RenderFlags.GFXBufferUsageHint.DynamicRead => BufferUsageHint.DynamicRead,
+            RenderFlags.GFXBufferUsageHint.DynamicCopy => BufferUsageHint.DynamicCopy,
+            _ => throw new ArgumentOutOfRangeException(nameof(hint), hint, null)
+        };
+
     }
 }

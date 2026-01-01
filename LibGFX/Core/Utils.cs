@@ -1,6 +1,7 @@
 ﻿using LibGFX.Assets;
 using LibGFX.Assets.Loaders;
 using LibGFX.Audio;
+using LibGFX.Compute;
 using LibGFX.Graphics;
 using LibGFX.Graphics.Animation3D;
 using LibGFX.Graphics.Materials;
@@ -15,6 +16,7 @@ using System.Drawing.Imaging;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
 using static LibGFX.Graphics.RenderFlags;
@@ -44,6 +46,7 @@ namespace LibGFX.Core
             manager.RegisterLoader<SpriteMaterial>(new SpriteMaterialLoader());
             manager.RegisterLoader<SkinnedMeshModel>(new SkinnedMeshModelLoader());
             manager.RegisterLoader<StaticMeshModel>(new StaticMeshModelLoader());
+            manager.RegisterLoader<ComputeShader>(new ComputeShaderLoader());
             return manager;
         }
 

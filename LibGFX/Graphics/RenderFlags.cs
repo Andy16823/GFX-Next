@@ -319,6 +319,37 @@ namespace LibGFX.Graphics
             Rgb10A2ui
         }
 
+        public enum GFXBufferTarget
+        {
+            ArrayBuffer,
+            AtomicCounterBuffer,
+            CopyReadBuffer,
+            CopyWriteBuffer,
+            DispatchIndirectBuffer,
+            DrawIndirectBuffer,
+            ElementArrayBuffer,
+            PixelPackBuffer,
+            PixelUnpackBuffer,
+            QueryBuffer,
+            ShaderStorageBuffer,
+            TextureBuffer,
+            TransformFeedbackBuffer,
+            UniformBuffer
+        }
+
+        public enum GFXBufferUsageHint
+        {
+            StreamDraw,
+            StreamRead,
+            StreamCopy,
+            StaticDraw,
+            StaticRead,
+            StaticCopy,
+            DynamicDraw,
+            DynamicRead,
+            DynamicCopy
+        }   
+
         public enum  GFXFramebufferErrorCode
         {
             FramebufferComplete,

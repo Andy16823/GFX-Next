@@ -1,4 +1,5 @@
-﻿using LibGFX.Core;
+﻿using LibGFX.Compute;
+using LibGFX.Core;
 using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Shader;
@@ -72,6 +73,8 @@ namespace LibGFX.Graphics
         void BuildShaderProgram(ShaderProgram shaderProgram);
         void DisposeShaderProgram(ShaderProgram shaderProgram);
         void AddShaderProgram(String name, ShaderProgram shaderProgram);
+        void BuildComputeShader(ComputeShader computeShader);
+        void DisposeComputeShader(ComputeShader computeShader);
         void AddShape(Shape shape);
         Shape GetShape(String name);
         void InitShape(Shape shape);
@@ -123,8 +126,10 @@ namespace LibGFX.Graphics
         int CreateBuffer();
         int CreateVertexBuffer<T>(T[] data, bool dynamic = false) where T : unmanaged;
         int CreateElementBuffer(int[] data, bool dynamic = false);
+        void BindBuffer(RenderFlags.GFXBufferTarget target, int buffer);
         void BindVertexBuffer(int buffer);
         void BindElementBuffer(int buffer);
+        void SetBufferData<T>(int buffer, T[] data, RenderFlags.GFXBufferTarget target, RenderFlags.GFXBufferUsageHint bufferUsageHint) where T : unmanaged;
         void SetVertexBufferData<T>(int buffer, T[] data, bool dynamic = false) where T : unmanaged;
         void SetElementBufferData(int buffer, int[] data, bool dynamic = false);
         void UpdateVertexBufferData<T>(int buffer, T[] data, int offset) where T : unmanaged;

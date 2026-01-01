@@ -1,4 +1,5 @@
 ﻿using FreeTypeSharp;
+using LibGFX.Compute;
 using LibGFX.Core;
 using LibGFX.Core.GameElements;
 using LibGFX.Graphics.Lights;
@@ -555,6 +556,41 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         public ShaderProgram GetShaderProgram(string name)
         {
             return _programs[name];
+        }
+
+        public void BuildComputeShader(ComputeShader shader)
+        {
+            int shaderId = GL.CreateShader(ShaderType.ComputeShader);
+            GL.ShaderSource(shaderId, shader.ShaderSource);
+            GL.CompileShader(shaderId);
+            GL.GetShader(shaderId, ShaderParameter.CompileStatus, out int success);
+            if(success == 0)
+            {
+                GL.GetShaderInfoLog(shaderId, out string log);
+                Debug.WriteLine($"Compute Shader Compilation Failed: {log}");
+                throw new Exception($"Compute Shader Compilation Failed: {log}");
+            }
+
+            shader.ProgramId = GL.CreateProgram();
+            GL.AttachShader(shader.ProgramId, shaderId);
+            GL.LinkProgram(shader.ProgramId);
+            GL.GetProgram(shader.ProgramId, GetProgramParameterName.LinkStatus, out success);
+            if(success == 0)
+            {
+                GL.GetProgramInfoLog(shader.ProgramId, out string log);
+                Debug.WriteLine($"Compute Shader Program Linking Failed: {log}");
+                throw new Exception($"Compute Shader Program Linking Failed: {log}");
+            }
+            GL.DeleteShader(shaderId);
+            Debug.WriteLine($"Compute Shader Program {shader.ProgramId} created with error {GetError()}");
+        }
+
+        public void DisposeComputeShader(ComputeShader shader)
+        {
+            Debug.WriteLine($"Disposing compute shader program {shader.ProgramId}");
+            GL.DeleteProgram(shader.ProgramId);
+            shader.ProgramId = 0;
+            Debug.WriteLine($"Compute Shader Program deleted");
         }
 
         public void AddShape(Shape shape)
@@ -1633,6 +1669,11 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return bufferId;
         }
 
+        public void BindBuffer(RenderFlags.GFXBufferTarget target, int buffer)
+        {
+            GL.BindBuffer(GLMappings.ToBufferTarget(target), buffer);
+        }
+
         public void BindVertexBuffer(int buffer)
         {
             GL.BindBuffer(BufferTarget.ArrayBuffer, buffer);
@@ -1641,6 +1682,14 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         public void BindElementBuffer(int buffer)
         {
             GL.BindBuffer(BufferTarget.ElementArrayBuffer, buffer);
+        }
+
+        public void SetBufferData<T>(int buffer, T[] data, RenderFlags.GFXBufferTarget target, RenderFlags.GFXBufferUsageHint bufferUsageHint) where T : unmanaged
+        {
+            int dataSize = Unsafe.SizeOf<T>();
+            GL.BindBuffer(GLMappings.ToBufferTarget(target), buffer);
+            GL.BufferData(GLMappings.ToBufferTarget(target), data.Length * dataSize, data, GLMappings.ToBufferUsageHint(bufferUsageHint));
+            GL.BindBuffer(GLMappings.ToBufferTarget(target), 0);
         }
 
         public void SetVertexBufferData<T>(int buffer, T[] data, bool dynamic = false) where T : unmanaged
@@ -1659,6 +1708,14 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindBuffer(BufferTarget.ElementArrayBuffer, buffer);
             GL.BufferData(BufferTarget.ElementArrayBuffer, data.Length * dataSize, data, bufferUsageHint);
             GL.BindBuffer(BufferTarget.ElementArrayBuffer, 0);
+        }
+
+        public void UpdateBufferData<T>(int buffer, T[] data, int offset, RenderFlags.GFXBufferTarget target) where T : unmanaged
+        {
+            int dataSize = Unsafe.SizeOf<T>();
+            GL.BindBuffer(GLMappings.ToBufferTarget(target), buffer);
+            GL.BufferSubData(GLMappings.ToBufferTarget(target), offset * dataSize, data.Length * dataSize, data);
+            GL.BindBuffer(GLMappings.ToBufferTarget(target), 0);
         }
 
         public void UpdateVertexBufferData<T>(int buffer, T[] data, int offset) where T : unmanaged
