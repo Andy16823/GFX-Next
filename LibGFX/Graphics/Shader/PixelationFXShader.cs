@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shader
 {
-    public class PixelationFXShader : ShaderProgram
+    public class PixelationFXShader : RenderShader
     {
         public PixelationFXShader()
         {

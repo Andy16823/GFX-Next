@@ -10,7 +10,7 @@ namespace LibGFX.Graphics.Shader
     /// <summary>
     /// Represents a shader program that consists of a vertex shader and a fragment shader.
     /// </summary>
-    public class ShaderProgram : IGraphicsResource
+    public class RenderShader : IShaderProgram, IGraphicsResource
     {
         /// <summary>
         /// Gets or sets the ID of the shader program.
@@ -35,7 +35,7 @@ namespace LibGFX.Graphics.Shader
         /// <summary>
         /// Default constructor for the ShaderProgram class.
         /// </summary>
-        public ShaderProgram()
+        public RenderShader()
         {
             this.VertexShader = new Shader();
             this.FragmentShader = new Shader();
@@ -46,7 +46,7 @@ namespace LibGFX.Graphics.Shader
         /// </summary>
         /// <param name="vertexShader"></param>
         /// <param name="fragmentShader"></param>
-        public ShaderProgram(Shader vertexShader, Shader fragmentShader)
+        public RenderShader(Shader vertexShader, Shader fragmentShader)
         {
             this.VertexShader = vertexShader;
             this.FragmentShader = fragmentShader;

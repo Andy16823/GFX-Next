@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shader
 {
-    public class AnimatedMeshShader : ShaderProgram
+    public class AnimatedMeshShader : RenderShader
     {
         public AnimatedMeshShader()
         {

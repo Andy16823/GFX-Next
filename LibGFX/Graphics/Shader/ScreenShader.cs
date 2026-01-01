@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shader
 {
-    public class ScreenShader : ShaderProgram
+    public class ScreenShader : RenderShader
     {
         public ScreenShader()
         {

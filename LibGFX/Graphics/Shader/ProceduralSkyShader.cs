@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shader
 {
-    public class ProceduralSkyShader : ShaderProgram
+    public class ProceduralSkyShader : RenderShader
     {
         public ProceduralSkyShader()
         {

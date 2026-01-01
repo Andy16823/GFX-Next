@@ -35,7 +35,7 @@ namespace LibGFX.Core.GameElements
         /// <summary>
         /// The shader program used for rendering the sprite instances.
         /// </summary>
-        public ShaderProgram Shader { get; set; }
+        public RenderShader Shader { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether the image contains any transparent pixels.

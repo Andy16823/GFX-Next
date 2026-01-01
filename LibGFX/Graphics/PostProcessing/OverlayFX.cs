@@ -13,7 +13,7 @@ namespace LibGFX.Graphics.PostProcessing
         public RenderTarget2D RenderTarget { get => _renderTarget; }
 
         public Vector4 Color { get; set; }
-        private ShaderProgram _shader;
+        private RenderShader _shader;
         private RenderTarget2D _renderTarget;
 
         public OverlayFX(Vector4 color)

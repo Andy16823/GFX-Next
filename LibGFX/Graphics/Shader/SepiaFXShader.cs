@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shader
 {
-    public class SepiaFXShader : ShaderProgram
+    public class SepiaFXShader : RenderShader
     {
         public SepiaFXShader()
         {

@@ -9,7 +9,7 @@ namespace LibGFX.Graphics.Shader
     /// <summary>
     /// Solid Mesh Shader Program
     /// </summary>
-    public class SolidMeshShader : ShaderProgram
+    public class SolidMeshShader : RenderShader
     {
         public SolidMeshShader()
         {

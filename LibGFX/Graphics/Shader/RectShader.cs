@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shader
 {
-    public class RectShader : ShaderProgram
+    public class RectShader : RenderShader
     {
         public RectShader()
         {

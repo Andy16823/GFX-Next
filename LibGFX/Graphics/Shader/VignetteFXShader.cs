@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shader
 {
-    public class VignetteFXShader : ShaderProgram
+    public class VignetteFXShader : RenderShader
     {
         public VignetteFXShader()
         {

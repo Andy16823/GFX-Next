@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shader
 {
-    public class PBRMeshShader : ShaderProgram
+    public class PBRMeshShader : RenderShader
     {
         public PBRMeshShader()
         {

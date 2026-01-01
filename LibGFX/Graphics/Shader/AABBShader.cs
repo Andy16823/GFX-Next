@@ -10,7 +10,7 @@ namespace LibGFX.Graphics.Shader
     /// AABB Shader Program
     /// Used to render Axis-Aligned Bounding Boxes
     /// </summary>
-    public class AABBShader : ShaderProgram
+    public class AABBShader : RenderShader
     {
         public AABBShader()
         {

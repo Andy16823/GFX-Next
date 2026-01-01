@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shader
 {
-    public class EnviromentShader : ShaderProgram
+    public class EnviromentShader : RenderShader
     {
         public EnviromentShader()
         {

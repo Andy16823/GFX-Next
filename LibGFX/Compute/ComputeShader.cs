@@ -1,5 +1,6 @@
 ﻿using LibGFX.Core;
 using LibGFX.Graphics;
+using LibGFX.Graphics.Shader;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace LibGFX.Compute
     /// <remarks>Use this class to manage the source and configuration of a compute shader for GPU-based
     /// parallel processing tasks. The properties provide access to the shader's source code, the number of invocations,
     /// and the program identifier required for execution within a graphics or compute API.</remarks>
-    public class ComputeShader : IIdentifier, IGraphicsResource
+    public class ComputeShader : IShaderProgram, IIdentifier, IGraphicsResource
     {
         /// <summary>
         /// Name of the compute shader.
@@ -37,14 +38,14 @@ namespace LibGFX.Compute
         public int Invocations { get; set; }
 
         /// <summary>
-        /// Gets or sets the unique identifier for the program.
-        /// </summary>
-        public int ProgramId { get; set; }
-
-        /// <summary>
         /// Gets a value indicating whether the object has been successfully initialized.
         /// </summary>
         public bool IsInitialized { get; private set; }
+
+        /// <summary>
+        /// Program ID of the compute shader.
+        /// </summary>
+        public int ProgramID { get; set; }
 
         /// <summary>
         /// Disposes of the resources used by the compute shader.

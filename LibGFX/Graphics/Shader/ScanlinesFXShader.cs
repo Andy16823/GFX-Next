@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shader
 {
-    public class ScanlinesFXShader : ShaderProgram
+    public class ScanlinesFXShader : RenderShader
     {
         public ScanlinesFXShader()
         {

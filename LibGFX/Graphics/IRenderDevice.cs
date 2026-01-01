@@ -70,9 +70,9 @@ namespace LibGFX.Graphics
         byte[] GetRenderTargetData(MSAARenderTarget2D renderTarget);
         byte[] GetRenderTargetData(MSAARenderTarget2D renderTarget, int width, int height);
         int GetFramebufferIndex();
-        void BuildShaderProgram(ShaderProgram shaderProgram);
-        void DisposeShaderProgram(ShaderProgram shaderProgram);
-        void AddShaderProgram(String name, ShaderProgram shaderProgram);
+        void BuildShaderProgram(RenderShader shaderProgram);
+        void DisposeShaderProgram(RenderShader shaderProgram);
+        void AddShaderProgram(String name, RenderShader shaderProgram);
         void BuildComputeShader(ComputeShader computeShader);
         void DisposeComputeShader(ComputeShader computeShader);
         void AddShape(Shape shape);
@@ -81,8 +81,8 @@ namespace LibGFX.Graphics
         void DrawShape(Shape shape);
         void DisposeShape(Shape shape);
         bool ExistsShaderProgram(String name);
-        ShaderProgram GetShaderProgram(String name);
-        void BindShaderProgram(ShaderProgram shaderProgram);
+        RenderShader GetShaderProgram(String name);
+        void BindShaderProgram(IShaderProgram shaderProgram);
         void UnbindShaderProgram();
         int GetUniformLocation(int program, String name);
         void LoadTexture(Texture texture);
@@ -132,6 +132,7 @@ namespace LibGFX.Graphics
         void SetBufferData<T>(int buffer, T[] data, RenderFlags.GFXBufferTarget target, RenderFlags.GFXBufferUsageHint bufferUsageHint) where T : unmanaged;
         void SetVertexBufferData<T>(int buffer, T[] data, bool dynamic = false) where T : unmanaged;
         void SetElementBufferData(int buffer, int[] data, bool dynamic = false);
+        void UpdateBufferData<T>(int buffer, T[] data, int offset, RenderFlags.GFXBufferTarget target) where T : unmanaged;
         void UpdateVertexBufferData<T>(int buffer, T[] data, int offset) where T : unmanaged;
         void UpdateElementBufferData(int buffer, int[] data, int offset);
         void DisposeBuffer(int buffer);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shader
 {
-    public class InfiniteGridShader : ShaderProgram
+    public class InfiniteGridShader : RenderShader
     {
         public InfiniteGridShader()
         {

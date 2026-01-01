@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shader
 {
-    public class FontShader : ShaderProgram
+    public class FontShader : RenderShader
     {
         public FontShader()
         {

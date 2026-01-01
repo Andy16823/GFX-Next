@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shader
 {
-    public class OverlayFXShader : ShaderProgram
+    public class OverlayFXShader : RenderShader
     {
         public OverlayFXShader()
         {

@@ -42,7 +42,7 @@ namespace LibGFX.Core.GameElements
         /// <summary>
         /// The shader program used for rendering the sprite
         /// </summary>
-        public ShaderProgram Shader { get; set; }
+        public RenderShader Shader { get; set; }
 
         /// <summary>
         /// The animator of the sprite

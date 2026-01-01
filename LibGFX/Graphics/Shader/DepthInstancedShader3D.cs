@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shader
 {
-    public class DepthInstancedShader3D : ShaderProgram
+    public class DepthInstancedShader3D : RenderShader
     {
         public DepthInstancedShader3D()
         {

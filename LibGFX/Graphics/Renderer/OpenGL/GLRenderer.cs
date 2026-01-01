@@ -35,7 +35,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         public static int Backbuffer = 0;
 
         private CullMode _cullMode = CullMode.Back;
-        private Dictionary<string, ShaderProgram> _programs;
+        private Dictionary<string, RenderShader> _programs;
         private Dictionary<string, Shape> _shapes;
         private IGLFWGraphicsContext _context;
         private Window _window;
@@ -51,7 +51,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         public void Init(IGLFWGraphicsContext context)
         {
             _context = context;
-            _programs = new Dictionary<string, ShaderProgram>();
+            _programs = new Dictionary<string, RenderShader>();
             AddShaderProgram("ScreenShader", new ScreenShader());
             AddShaderProgram("RectShader", new RectShader());
             AddShaderProgram("SpriteShader", new SpriteShader());
@@ -73,7 +73,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             AddShaderProgram("AABBShader", new AABBShader());
             AddShaderProgram("InfiniteGridShader", new InfiniteGridShader());
 
-            foreach (ShaderProgram program in _programs.Values)
+            foreach (RenderShader program in _programs.Values)
             {
                 BuildShaderProgram(program);
             }
@@ -503,7 +503,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return currentFramebuffer;
         }
 
-        public void BuildShaderProgram(ShaderProgram shaderProgram)
+        public void BuildShaderProgram(RenderShader shaderProgram)
         {
             CompileShader(shaderProgram.VertexShader, ShaderType.VertexShader);
             CompileShader(shaderProgram.FragmentShader, ShaderType.FragmentShader);
@@ -535,7 +535,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.CompileShader(shader.ShaderID);
             Debug.WriteLine($"Compiled shader with error {GetError()}");
         }
-        public void DisposeShaderProgram(ShaderProgram shaderProgram)
+        public void DisposeShaderProgram(RenderShader shaderProgram)
         {
             Debug.WriteLine($"Disposing shader program {shaderProgram.ProgramID}");
             GL.DeleteProgram(shaderProgram.ProgramID);
@@ -543,7 +543,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             Debug.WriteLine($"ShaderProgram {shaderProgram.GetType().ToString()} deleted");
         }
 
-        public void AddShaderProgram(string name, ShaderProgram shaderProgram)
+        public void AddShaderProgram(string name, RenderShader shaderProgram)
         {
             _programs.Add(name, shaderProgram);
         }
@@ -553,7 +553,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return _programs.ContainsKey(name);
         }
 
-        public ShaderProgram GetShaderProgram(string name)
+        public RenderShader GetShaderProgram(string name)
         {
             return _programs[name];
         }
@@ -571,25 +571,25 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                 throw new Exception($"Compute Shader Compilation Failed: {log}");
             }
 
-            shader.ProgramId = GL.CreateProgram();
-            GL.AttachShader(shader.ProgramId, shaderId);
-            GL.LinkProgram(shader.ProgramId);
-            GL.GetProgram(shader.ProgramId, GetProgramParameterName.LinkStatus, out success);
+            shader.ProgramID = GL.CreateProgram();
+            GL.AttachShader(shader.ProgramID, shaderId);
+            GL.LinkProgram(shader.ProgramID);
+            GL.GetProgram(shader.ProgramID, GetProgramParameterName.LinkStatus, out success);
             if(success == 0)
             {
-                GL.GetProgramInfoLog(shader.ProgramId, out string log);
+                GL.GetProgramInfoLog(shader.ProgramID, out string log);
                 Debug.WriteLine($"Compute Shader Program Linking Failed: {log}");
                 throw new Exception($"Compute Shader Program Linking Failed: {log}");
             }
             GL.DeleteShader(shaderId);
-            Debug.WriteLine($"Compute Shader Program {shader.ProgramId} created with error {GetError()}");
+            Debug.WriteLine($"Compute Shader Program {shader.ProgramID} created with error {GetError()}");
         }
 
         public void DisposeComputeShader(ComputeShader shader)
         {
-            Debug.WriteLine($"Disposing compute shader program {shader.ProgramId}");
-            GL.DeleteProgram(shader.ProgramId);
-            shader.ProgramId = 0;
+            Debug.WriteLine($"Disposing compute shader program {shader.ProgramID}");
+            GL.DeleteProgram(shader.ProgramID);
+            shader.ProgramID = 0;
             Debug.WriteLine($"Compute Shader Program deleted");
         }
 
@@ -751,7 +751,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             }
         }
 
-        public void BindShaderProgram(ShaderProgram shaderProgram)
+        public void BindShaderProgram(IShaderProgram shaderProgram)
         {
             if (_currentProgram == shaderProgram.ProgramID)
             {

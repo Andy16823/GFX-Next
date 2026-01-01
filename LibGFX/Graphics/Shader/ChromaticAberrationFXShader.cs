@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shader
 {
-    public class ChromaticAberrationFXShader : ShaderProgram
+    public class ChromaticAberrationFXShader : RenderShader
     {
         public ChromaticAberrationFXShader()
         {
