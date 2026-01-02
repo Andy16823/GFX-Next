@@ -1345,7 +1345,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             var renderData = new RenderData
             {
                 VertexArray = vao,
-                PositionsBuffer = positionBuffer,
+                PositionBuffer = positionBuffer,
                 VertexBuffer = vbo,
                 IndexBuffer = ibo
             };
@@ -1501,7 +1501,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindVertexArray(container.InstanceVAO);
 
             // Positions
-            GL.BindBuffer(BufferTarget.ArrayBuffer, mesh.RenderData.PositionsBuffer);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, mesh.RenderData.PositionBuffer);
             GL.EnableVertexAttribArray(0);
             GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, positionSize, nint.Zero);
 

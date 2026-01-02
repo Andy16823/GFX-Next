@@ -50,6 +50,9 @@ namespace LibGFX.Graphics
         /// </summary>
         public Guid ID { get; private set; } = Guid.NewGuid();
 
+        /// <summary>
+        /// Gets or sets the collection of 3D positions associated with this instance.
+        /// </summary>
         public List<Vector3> Positions { get; set; }
 
         /// <summary>
