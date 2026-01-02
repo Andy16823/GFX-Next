@@ -181,6 +181,15 @@ namespace LibGFX.Graphics
             writer.WriteValue(Name);
             writer.WritePropertyName("ID");
             writer.WriteValue(ID);
+
+            writer.WritePropertyName("Positions");
+            writer.WriteStartArray();
+            foreach (var position in Positions)
+            {
+                Utils.SerializeVec3(position, writer);
+            }
+            writer.WriteEndArray();
+
             writer.WritePropertyName("Vertices");
             writer.WriteStartArray();
             foreach (var vertex in Vertices)
@@ -238,6 +247,23 @@ namespace LibGFX.Graphics
                             break;
                         case "ID":
                             ID = Guid.Parse((string) reader.Value);
+                            break;
+                        case "Positions":
+                            if (reader.TokenType != JsonToken.StartArray)
+                                throw new JsonException("Expected StartArray token for Positions");
+
+                            Positions = new List<Vector3>();
+                            while (reader.Read())
+                            {
+                                if (reader.TokenType == JsonToken.EndArray)
+                                    break;
+
+                                if (reader.TokenType == JsonToken.StartObject)
+                                {
+                                    var position = Utils.DeserializeVec3(reader);
+                                    Positions.Add(position);
+                                }
+                            }
                             break;
                         case "Vertices":
                             if (reader.TokenType != JsonToken.StartArray)
