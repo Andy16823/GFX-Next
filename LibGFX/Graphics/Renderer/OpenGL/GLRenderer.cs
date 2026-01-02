@@ -883,7 +883,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                 GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
                 GL.Uniform4(GetUniformLocation(_currentProgram, "solidColor"), color);
                 GL.BindVertexArray(mesh.RenderData.VertexArray);
-                GL.DrawElements(BeginMode.Triangles, mesh.Indices.Count, DrawElementsType.UnsignedInt, 0);
+                GL.DrawElements(BeginMode.Triangles, mesh.RenderData.IndexCount, DrawElementsType.UnsignedInt, 0);
                 GL.BindVertexArray(0);
                 this.UnbindShaderProgram();
             }
@@ -1407,6 +1407,8 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                 throw new Exception("Mesh is not initialized");
             }
 
+            var material = materialOverwrite ?? mesh.Material;
+
             // Create the model matrix
             //var mt_mat = Matrix4.CreateTranslation(position);
             //var mr_mat = Matrix4.CreateRotationX(Math.Math.ToRadians(rotation.X)) * Matrix4.CreateRotationY(Math.Math.ToRadians(rotation.Y)) * Matrix4.CreateRotationZ(Math.Math.ToRadians(rotation.Z));
@@ -1419,28 +1421,14 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
 
             // Use the material
-            if(materialOverwrite != null)
-            {
-                materialOverwrite.Use(this);
-            }
-            else
-            {
-                mesh.Material.Use(this);
-            }
+            material.Use(this);
 
             // Draw the mesh    
             GL.BindVertexArray(mesh.RenderData.VertexArray);
             GL.DrawElements(BeginMode.Triangles, mesh.RenderData.IndexCount, DrawElementsType.UnsignedInt, 0);
 
             // Unbind the material and vertex array
-            if(materialOverwrite != null)
-            {
-                materialOverwrite.Disable(this);
-            }
-            else
-            {
-                mesh.Material.Disable(this);
-            }
+            material.Disable(this);
             GL.BindVertexArray(0);
         }
 

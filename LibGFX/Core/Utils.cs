@@ -606,5 +606,16 @@ namespace LibGFX.Core
 
             return element;
         }
+
+        public static LibGFX.Graphics.Primitives.PrimitiveType ToPrimitiveType(int value)
+        {
+            return value switch
+            {
+                0 => LibGFX.Graphics.Primitives.PrimitiveType.Cube,
+                1 => LibGFX.Graphics.Primitives.PrimitiveType.Sphere,
+                2 => LibGFX.Graphics.Primitives.PrimitiveType.Quad,
+                _ => throw new ArgumentOutOfRangeException(nameof(value), $"Invalid PrimitiveType value: {value}"),
+            };
+        }
     }
 }

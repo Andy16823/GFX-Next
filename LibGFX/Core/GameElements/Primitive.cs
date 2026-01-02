@@ -75,14 +75,14 @@ namespace LibGFX.Core.GameElements
         /// <param name="renderer"></param>
         public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
-            base.Init(scene, viewport, renderer);
-
             // Get the primitive mesh based on the primitive type
             _mesh = renderer.GetPrimitiveMesh(this.PrimitiveType);
             if (_mesh == null)
             {
                 throw new Exception($"Failed to get mesh for primitive type {this.PrimitiveType}");
             }
+
+            base.Init(scene, viewport, renderer);
 
             // Get the default shader if none is assigned
             if (this.Shader == null)
@@ -176,7 +176,9 @@ namespace LibGFX.Core.GameElements
             base.Serialize(writer, serializationContext, (w) =>
             {
                 w.WritePropertyName("PrimitiveType");
-                w.WriteValue(this.PrimitiveType);
+                w.WriteValue((int)this.PrimitiveType);
+                w.WritePropertyName("Material");
+                w.WriteValue(this.Material.ID.ToString());
                 callback?.Invoke(w);
             });
         }
@@ -191,11 +193,24 @@ namespace LibGFX.Core.GameElements
         {
             base.Deserialize(obj, serializationContext, (refObj) =>
             {
-                this.PrimitiveType = refObj.Value<PrimitiveType>("PrimitiveType");
+                // Deserialize PrimitiveType
+                this.PrimitiveType = (PrimitiveType)refObj.Value<int>("PrimitiveType");
                 if (callback != null)
                 {
                     return callback(refObj);
                 }
+
+                // Deserialize Material
+                var materialIdStr = refObj.Value<string>("Material");
+                if(materialIdStr != null)
+                {
+                    var material = serializationContext.GetValue<IMaterial>(materialIdStr);
+                    if(material != null)
+                    {
+                        this.Material = material;
+                    }
+                }
+
                 return true;
             });
         }

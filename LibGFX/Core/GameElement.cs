@@ -458,10 +458,13 @@ namespace LibGFX.Core
 
             // Deserialize Parent if exists
             var parentId = obj.Value<string>("Parent");
-            var parent = serializationContext.GetValue<GameElement>(parentId);
-            if (parent == null)
+            if (parentId != null)
             {
-                throw new Exception("Parent GameElement not found during deserialization.");
+                var parent = serializationContext.GetValue<GameElement>(parentId);
+                if (parent == null)
+                {
+                    throw new Exception("Parent GameElement not found during deserialization.");
+                }
             }
 
             // Deserialize Tags
