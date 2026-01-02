@@ -37,6 +37,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         private CullMode _cullMode = CullMode.Back;
         private Dictionary<string, RenderShader> _programs;
         private Dictionary<string, Shape> _shapes;
+        private Dictionary<Primitives.PrimitiveType, Mesh> _primitives;
         private IGLFWGraphicsContext _context;
         private Window _window;
         private Matrix4 _viewMatrix;
@@ -51,6 +52,8 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         public void Init(IGLFWGraphicsContext context)
         {
             _context = context;
+
+            // Register default shaders
             _programs = new Dictionary<string, RenderShader>();
             RegisterRenderShader("ScreenShader", new ScreenShader());
             RegisterRenderShader("RectShader", new RectShader());
@@ -72,12 +75,12 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             RegisterRenderShader("SolidMeshShader", new SolidMeshShader());
             RegisterRenderShader("AABBShader", new AABBShader());
             RegisterRenderShader("InfiniteGridShader", new InfiniteGridShader());
-
             foreach (RenderShader program in _programs.Values)
             {
                 BuildRenderShader(program);
             }
 
+            // Register default shapes
             _shapes = new Dictionary<string, Shape>();
             AddShape(new FramebufferShape());
             AddShape(new RectShape());
@@ -89,6 +92,16 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             foreach (var shape in _shapes.Values)
             {
                 shape.Init(this);
+            }
+
+            // Register default primitives
+            _primitives = new Dictionary<Primitives.PrimitiveType, Mesh>();
+            _primitives.Add(Primitives.PrimitiveType.Cube, new Primitives.Cube().GetMesh());
+            _primitives.Add(Primitives.PrimitiveType.Sphere, new Primitives.Sphere().GetMesh());
+            _primitives.Add(Primitives.PrimitiveType.Quad, new Primitives.Quad().GetMesh());
+            foreach(var primitive in _primitives.Values)
+            {
+                this.LoadMesh(primitive);
             }
         }
 
@@ -740,14 +753,22 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void Dispose()
         {
+            // Dispose all shaders
             foreach (var shader in _programs)
             {
                 DisposeRenderShader(shader.Value);
             }
 
+            // Dispose all shapes
             foreach (var shape in _shapes)
             {
                 shape.Value.Dispose(this);
+            }
+
+            // Dispose all primitives
+            foreach (var primitive in _primitives)
+            {
+                DisposeMesh(primitive.Value);
             }
         }
 
@@ -841,6 +862,26 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             }
             GL.BindTexture(TextureTarget.TextureCubeMap, 0);
             Debug.WriteLine($"Cubemap loaded with error {GetError()}");
+        }
+
+        public void DrawPrimitive(Transform tansform, Primitives.PrimitiveType type, Vector4 color)
+        {
+            //TODO: Currently we are using an mesh for the rendering, maybe we can optimize this later since the mesh for this dont have an material
+            var shader = _programs["SolidMeshShader"];
+            var mesh = _primitives[type];
+            if(shader != null && mesh != null)
+            {
+                this.BindShaderProgram(shader);
+                var m_mat = tansform.GetMatrix();
+                GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
+                GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
+                GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
+                GL.Uniform4(GetUniformLocation(_currentProgram, "solidColor"), color);
+                GL.BindVertexArray(mesh.RenderData.VertexArray);
+                GL.DrawElements(BeginMode.Triangles, mesh.Indices.Count, DrawElementsType.UnsignedInt, 0);
+                GL.BindVertexArray(0);
+                this.UnbindShaderProgram();
+            }
         }
 
         public void DrawCubemap(Transform transform, Cubemap cubemap, Vector4 color)

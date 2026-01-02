@@ -106,6 +106,7 @@ namespace LibGFX.Graphics
         void DrawTexture(Transform transform, int textureId, Vector4 color);
         void DrawTexture(Transform transform, int textureId, Vector4 color, Vector4 uvTransform);
         void DrawTexture(Transform transform, int textureId, Vector4 color, Vector4 uvTransform, Vector2 uvScale);
+        void DrawPrimitive(Transform tansform, Primitives.PrimitiveType type, Vector4 color);
         void DrawCubemap(Transform transform, Cubemap cubemap, Vector4 color);
         void DrawVertexArray(Transform transform, int vertexBuffer, int vertexCount, RenderFlags.PrimitiveTypes primitiveTypes);
         Font LoadFont(String path, int fontsize = 48);

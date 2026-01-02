@@ -23,16 +23,6 @@ namespace LibGFX.Core.GameElements
     public class Primitive : GameElement
     {
         /// <summary>
-        /// Specifies the basic geometric shapes that can be used for rendering or modeling operations.
-        /// </summary>
-        public enum PrimitiveType
-        {
-            Quad,
-            Cube,
-            Sphere
-        }
-
-        /// <summary>
         /// The name of the primitive.
         /// </summary>
         public Mesh Mesh { get; set; }
