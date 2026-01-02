@@ -81,5 +81,10 @@ namespace LibGFX.Graphics.Shader
             renderer.DisposeRenderShader(this);
             IsInitialized = false;
         }
+
+        public void FreeCPUResources()
+        {
+            // No CPU resources to free in the ShaderProgram class.
+        }
     }
 }

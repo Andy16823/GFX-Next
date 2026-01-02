@@ -34,5 +34,13 @@ namespace LibGFX.Core
         /// </summary>
         /// <param name="renderer">The render device to use for releasing resources. Cannot be null.</param>
         void Dispose(IRenderDevice renderer);
+
+        /// <summary>
+        /// Releases any CPU resources that are currently allocated by the component.
+        /// </summary>
+        /// <remarks>Call this method when the component no longer needs to perform CPU-intensive
+        /// operations to allow the system to reclaim resources. After calling this method, the component may not be
+        /// able to perform certain operations until resources are reallocated.</remarks>
+        void FreeCPUResources();
     }
 }

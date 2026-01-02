@@ -66,5 +66,10 @@ namespace LibGFX.Compute
             renderer.BuildComputeShader(this);
             this.IsInitialized = true;
         }
+
+        public void FreeCPUResources()
+        {
+            // Nothing to free for now.
+        }
     }
 }

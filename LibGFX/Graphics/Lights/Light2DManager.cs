@@ -219,6 +219,14 @@ namespace LibGFX.Graphics.Lights
         }
 
         /// <summary>
+        /// Frees any CPU resources used by the light manager.
+        /// </summary>
+        public void FreeCPUResources()
+        {
+            // No CPU resources to free in the Light2DManager
+        }
+
+        /// <summary>
         /// Culls the lights based on the camera's view and the viewport.
         /// </summary>
         /// <param name="viewport"></param>

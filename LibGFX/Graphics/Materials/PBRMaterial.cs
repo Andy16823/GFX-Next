@@ -284,5 +284,10 @@ namespace LibGFX.Graphics.Materials
         {
             throw new NotImplementedException();
         }
+
+        public void FreeCPUResources()
+        {
+            // TODO: Free Texture CPU resources
+        }
     }
 }

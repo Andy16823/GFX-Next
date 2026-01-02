@@ -99,6 +99,14 @@ namespace LibGFX.Graphics.Materials
         }
 
         /// <summary>
+        /// Frees any CPU resources used by the material.
+        /// </summary>
+        public void FreeCPUResources()
+        {
+            this.Texture?.FreeCPUResources();
+        }
+
+        /// <summary>
         /// Sets the material as the current material for rendering. No-op for SpriteMaterial.
         /// </summary>
         /// <param name="renderDevice"></param>

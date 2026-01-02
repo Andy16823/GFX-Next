@@ -327,6 +327,18 @@ namespace LibGFX.Graphics
         }
 
         /// <summary>
+        /// Frees the CPU resources used by the skinned mesh model.
+        /// </summary>
+        public void FreeCPUResources()
+        {
+            this.Meshes.ForEach(m =>
+            {
+                m.FreeCPUResources();
+                m.Material?.FreeCPUResources();
+            });
+        }
+
+        /// <summary>
         /// Disposes the skinned mesh model with the specified render device.
         /// </summary>
         /// <param name="renderer"></param>

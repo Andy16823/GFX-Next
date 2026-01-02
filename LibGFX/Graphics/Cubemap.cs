@@ -201,5 +201,10 @@ namespace LibGFX.Graphics
             }
             callback?.Invoke(obj);
         }
+
+        public void FreeCPUResources()
+        {
+            this.Faces = null;
+        }
     }
 }

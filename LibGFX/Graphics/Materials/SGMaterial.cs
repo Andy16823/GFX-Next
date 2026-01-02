@@ -415,5 +415,12 @@ namespace LibGFX.Graphics.Materials
 
             callback?.Invoke(obj);
         }
+
+        public void FreeCPUResources()
+        {
+            this.DiffuseTexture?.FreeCPUResources();
+            this.NormalTexture?.FreeCPUResources();
+            this.SpecularTexture?.FreeCPUResources();
+        }
     }
 }

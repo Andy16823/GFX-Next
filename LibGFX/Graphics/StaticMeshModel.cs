@@ -245,6 +245,18 @@ namespace LibGFX.Graphics
         }
 
         /// <summary>
+        /// Frees the CPU resources used by the static model and its associated meshes.
+        /// </summary>
+        public void FreeCPUResources()
+        {
+            this.Meshes.ForEach(m =>
+            {
+                m.FreeCPUResources();
+                m.Material?.FreeCPUResources();
+            });
+        }
+
+        /// <summary>
         /// Releases all resources used by the static model and its associated meshes using the specified render device.
         /// </summary>
         /// <remarks>After calling this method, the static model and its meshes should not be used. This

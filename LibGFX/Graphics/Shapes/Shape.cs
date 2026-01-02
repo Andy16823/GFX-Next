@@ -54,5 +54,10 @@ namespace LibGFX.Graphics.Shapes
             renderer.DisposeShape(this);
             IsInitialized = false;
         }
+
+        public void FreeCPUResources()
+        {
+            // No CPU resources to free in the base Shape class.
+        }
     }
 }

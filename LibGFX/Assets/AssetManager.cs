@@ -286,6 +286,24 @@ namespace LibGFX.Assets
         }
 
         /// <summary>
+        /// Frees the CPU resources associated with the managed assets.
+        /// </summary>
+        public void FreeCPUResources()
+        {
+            foreach (var asset in _assets.Values)
+            {
+                if (asset is IGraphicsResource renderResource)
+                {
+                    renderResource.FreeCPUResources();
+                }
+                else
+                {
+                    Debug.WriteLine($"Asset of type '{asset.GetType()}' does not implement IRenderResource. Skipping FreeCPURessources.");
+                }
+            }
+        }
+
+        /// <summary>
         /// Releases all graphics resources associated with the managed assets using the specified rendering device.
         /// </summary>
         /// <remarks>Only assets that implement the IGraphicsResource interface are disposed. Assets that

@@ -230,5 +230,10 @@ namespace LibGFX.Graphics.Enviroment
             CloudColor = Utils.DeserializeVec3(obj.Value<JObject>("CloudColor"));
             callback?.Invoke(obj);
         }
+
+        public void FreeCPUResources()
+        {
+            // No CPU resources to free
+        }
     }
 }

@@ -143,7 +143,16 @@ namespace LibGFX.Graphics
             ComputeBounds();
             renderer.LoadMesh(this);
             IsInitialized = true;
-            this.FreeCPUResources();
+        }
+
+        /// <summary>
+        /// Free any CPU resources that are currently allocated by the mesh.
+        /// </summary>
+        public void FreeCPUResources()
+        {
+            Positions?.Clear();
+            Vertices?.Clear();
+            Indices?.Clear();
         }
 
         /// <summary>
@@ -156,13 +165,6 @@ namespace LibGFX.Graphics
         {
             renderer.DisposeMesh(this);
             IsInitialized = false;
-        }
-
-        private void FreeCPUResources()
-        {
-            Positions = null;
-            Vertices = null;
-            Indices = null;
         }
 
         /// <summary>

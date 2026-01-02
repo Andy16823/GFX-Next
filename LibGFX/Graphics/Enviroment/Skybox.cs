@@ -123,5 +123,10 @@ namespace LibGFX.Graphics.Enviroment
 
             callback?.Invoke(obj);
         }
+
+        public void FreeCPUResources()
+        {
+            // No CPU resources to free in the Skybox class.
+        }
     }
 }

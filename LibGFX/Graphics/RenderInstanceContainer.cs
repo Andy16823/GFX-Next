@@ -101,5 +101,10 @@ namespace LibGFX.Graphics
             renderer.DisposeInstanceContainer(this);
             this.IsInitialized = false;
         }
+
+        public void FreeCPUResources()
+        {
+            // No CPU resources to free in the current implementation.
+        }
     }
 }
