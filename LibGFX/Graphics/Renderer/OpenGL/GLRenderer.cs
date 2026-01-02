@@ -1295,17 +1295,22 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
             // Create the vertex array object
             var vertexSize = Marshal.SizeOf<Vertex>(); // Der Abstand zwischen den Elementen der Struktur
+            var vec3Size = Marshal.SizeOf<Vector3>();
+
             int vao = GL.GenVertexArray();
             GL.BindVertexArray(vao);
+
+            // Positions
+            int positionBuffer = GL.GenBuffer();
+            GL.BindBuffer(BufferTarget.ArrayBuffer, positionBuffer);
+            GL.BufferData(BufferTarget.ArrayBuffer, mesh.Positions.Count * vec3Size, mesh.Positions.ToArray(), BufferUsageHint.DynamicDraw);
+            GL.EnableVertexAttribArray(0);
+            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 0, 0);
 
             // Create the vertex buffer object
             int vbo = GL.GenBuffer();
             GL.BindBuffer(BufferTarget.ArrayBuffer, vbo);
             GL.BufferData(BufferTarget.ArrayBuffer, mesh.Vertices.Count * vertexSize, mesh.Vertices.ToArray(), BufferUsageHint.DynamicDraw);
-
-            // Position (3 floats)
-            GL.EnableVertexAttribArray(0);
-            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, vertexSize, nint.Zero);
 
             // Texture Coordinates (2 floats)
             GL.EnableVertexAttribArray(1);
@@ -1340,10 +1345,8 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             var renderData = new RenderData
             {
                 VertexArray = vao,
+                PositionsBuffer = positionBuffer,
                 VertexBuffer = vbo,
-                TextureBuffer = 0,
-                NormalBuffer = 0,
-                TangentBuffer = 0,
                 IndexBuffer = ibo
             };
             mesh.RenderData = renderData;
@@ -1459,9 +1462,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             Debug.WriteLine($"Disposing Mesh {mesh.Name}");
             GL.DeleteVertexArray(mesh.RenderData.VertexArray);
             GL.DeleteBuffer(mesh.RenderData.VertexBuffer);
-            GL.DeleteBuffer(mesh.RenderData.TextureBuffer);
-            GL.DeleteBuffer(mesh.RenderData.NormalBuffer);
-            GL.DeleteBuffer(mesh.RenderData.TangentBuffer);
             GL.DeleteBuffer(mesh.RenderData.IndexBuffer);
             Debug.WriteLine($"Mesh {mesh.Name} disposed");
 
@@ -1495,13 +1495,18 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                 throw new Exception("Mesh is not initialized.");
             }
 
+            var positionSize = Marshal.SizeOf<Vector3>();
             var vertexSize = Marshal.SizeOf<Vertex>();
 
             GL.BindVertexArray(container.InstanceVAO);
-            GL.BindBuffer(BufferTarget.ArrayBuffer, mesh.RenderData.VertexBuffer);
 
+            // Positions
+            GL.BindBuffer(BufferTarget.ArrayBuffer, mesh.RenderData.PositionsBuffer);
             GL.EnableVertexAttribArray(0);
-            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, vertexSize, nint.Zero);
+            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, positionSize, nint.Zero);
+
+            // Other Vertex Data
+            GL.BindBuffer(BufferTarget.ArrayBuffer, mesh.RenderData.VertexBuffer);            
 
             // Texture Coordinates (2 floats)
             GL.EnableVertexAttribArray(1);

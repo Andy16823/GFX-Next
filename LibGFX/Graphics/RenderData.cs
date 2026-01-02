@@ -9,10 +9,11 @@ namespace LibGFX.Graphics
     public struct RenderData
     {
         public int VertexArray;
+        public int PositionsBuffer;
         public int VertexBuffer;
-        public int TextureBuffer;
-        public int NormalBuffer;
-        public int TangentBuffer;
+        //public int TextureBuffer;
+        //public int NormalBuffer;
+        //public int TangentBuffer;
         public int IndexBuffer;
     }
 }

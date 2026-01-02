@@ -62,7 +62,7 @@ namespace LibGFX.Core.GameElements
 
         public override void ComputeAABB()
         {
-            if (Mesh.Vertices == null || Mesh.Vertices.Count == 0)
+            if (Mesh.Positions == null || Mesh.Positions.Count == 0)
             {
                 this.AABB = new AABB(Vector3.Zero, Vector3.Zero);
                 return;
@@ -71,10 +71,11 @@ namespace LibGFX.Core.GameElements
             var min = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
             var max = new Vector3(float.MinValue, float.MinValue, float.MinValue);
 
-            foreach (var vertex in Mesh.Vertices)
+            for (int i = 0; i < Mesh.Positions.Count; i++)
             {
-                min = Vector3.ComponentMin(min, vertex.Position);
-                max = Vector3.ComponentMax(max, vertex.Position);
+                var position = Mesh.Positions[i];
+                min = Vector3.ComponentMin(min, position);
+                max = Vector3.ComponentMax(max, position);
             }
 
             this.AABB = new AABB(min, max);

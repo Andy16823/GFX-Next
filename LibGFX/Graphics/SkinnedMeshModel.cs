@@ -150,9 +150,9 @@ namespace LibGFX.Graphics
 
                     for (int i = 0; i < asmesh.VertexCount; i++)
                     {
-                        var vertex = new Graphics.Vertex();
+                        mesh.Positions.Add(new Vector3(asmesh.Vertices[i].X, asmesh.Vertices[i].Y, asmesh.Vertices[i].Z));
 
-                        vertex.Position = new Vector3(asmesh.Vertices[i].X, asmesh.Vertices[i].Y, asmesh.Vertices[i].Z);
+                        var vertex = new Graphics.Vertex();
                         vertex.Normal = new Vector3(asmesh.Normals[i].X, asmesh.Normals[i].Y, asmesh.Normals[i].Z);
                         vertex.TexCoord = new Vector2(asmesh.TextureCoordinateChannels[0][i].X, asmesh.TextureCoordinateChannels[0][i].Y);
                         vertex.Tangent = new Vector4(asmesh.Tangents[i].X, asmesh.Tangents[i].Y, asmesh.Tangents[i].Z, 1.0f);

@@ -41,9 +41,10 @@ namespace LibGFX.Graphics.Primitives
                     Vector3 tangent = Vector3.Normalize(new Vector3(-sinPhi, 0, cosPhi));
                     Vector4 tangent4 = new Vector4(tangent, 1);
 
+                    mesh.Positions.Add(position);
+
                     vertices.Add(new Vertex
                     {
-                        Position = position,
                         Normal = normal,
                         TexCoord = texCoord,
                         Tangent = tangent4

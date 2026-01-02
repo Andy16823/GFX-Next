@@ -743,8 +743,6 @@ namespace LibGFX.Core
         public static void SerializeVertex(Vertex vertex, JsonWriter writer)
         {
             writer.WriteStartObject();
-            writer.WritePropertyName("Position");
-            SerializeVec3(vertex.Position, writer);
             writer.WritePropertyName("Normal");
             SerializeVec3(vertex.Normal, writer);
             writer.WritePropertyName("TexCoord");
@@ -778,9 +776,6 @@ namespace LibGFX.Core
                     // We will handle properties below
                     switch (propertyName)
                     {
-                        case "Position":
-                            vert.Position = DeserializeVec3(reader);
-                            break;
                         case "Normal":
                             vert.Normal = DeserializeVec3(reader);
                             break;

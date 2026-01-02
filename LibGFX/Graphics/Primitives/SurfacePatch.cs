@@ -61,9 +61,10 @@ namespace LibGFX.Graphics.Primitives
                     float u = ((float)x / this.Resolution) * this.UVTiling;
                     float v = ((float)z / this.Resolution) * this.UVTiling;
 
+                    mesh.Positions.Add(new Vector3(posX, 0.0f, posZ));
+
                     mesh.Vertices.Add(new Vertex
                     {
-                        Position = new Vector3(posX, 0.0f, posZ),
                         TexCoord = new Vector2(u, v),
                         Normal = Vector3.UnitY,
                         Tangent = new Vector4(1.0f, 0.0f, 0.0f, 1.0f)

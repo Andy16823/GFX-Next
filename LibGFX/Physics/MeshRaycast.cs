@@ -80,9 +80,9 @@ namespace LibGFX.Physics
 
             for (int i = 0; i < mesh.Indices.Count; i += 3)
             {
-                var v0 = Vector3.TransformPosition(mesh.Vertices[mesh.Indices[i]].Position, finalMatrix);
-                var v1 = Vector3.TransformPosition(mesh.Vertices[mesh.Indices[i + 1]].Position, finalMatrix);
-                var v2 = Vector3.TransformPosition(mesh.Vertices[mesh.Indices[i + 2]].Position, finalMatrix);
+                var v0 = Vector3.TransformPosition(mesh.Positions[mesh.Indices[i]], finalMatrix);
+                var v1 = Vector3.TransformPosition(mesh.Positions[mesh.Indices[i + 1]], finalMatrix);
+                var v2 = Vector3.TransformPosition(mesh.Positions[mesh.Indices[i + 2]], finalMatrix);
 
                 if (RayIntersectsTriangle(ray, v0, v1, v2, out float t, out Vector3 normal))
                 {

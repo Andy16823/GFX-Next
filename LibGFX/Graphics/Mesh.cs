@@ -19,7 +19,6 @@ namespace LibGFX.Graphics
     /// </summary>
     public struct Vertex
     {
-        public Vector3 Position;
         public Vector2 TexCoord;
         public Vector3 Normal;
         public Vector4 Tangent;
@@ -50,6 +49,8 @@ namespace LibGFX.Graphics
         /// The unique identifier of the mesh.
         /// </summary>
         public Guid ID { get; private set; } = Guid.NewGuid();
+
+        public List<Vector3> Positions { get; set; }
 
         /// <summary>
         /// The vertices of the mesh.
@@ -105,6 +106,7 @@ namespace LibGFX.Graphics
         /// to configure the mesh as needed before rendering or processing.</remarks>
         public Mesh()
         {
+            Positions = new List<Vector3>();
             Vertices = new List<Vertex>();
             Indices = new List<int>();
             LocalTranslation = Vector3.Zero;
@@ -162,10 +164,10 @@ namespace LibGFX.Graphics
 
             Vector3 min = new Vector3(float.MaxValue);
             Vector3 max = new Vector3(float.MinValue);
-            foreach (var vertex in Vertices)
+            foreach (var position in Positions)
             {
-                min = Vector3.ComponentMin(min, vertex.Position);
-                max = Vector3.ComponentMax(max, vertex.Position);
+                min = Vector3.ComponentMin(min, position);
+                max = Vector3.ComponentMax(max, position);
             }
             Bounds = new AABB(min, max);
         }
