@@ -218,38 +218,22 @@ namespace LibGFX.Graphics.Lights
         /// and must contain the expected fields.</param>
         /// <param name="serializationContext">The context to use during deserialization, providing additional information or services required for the
         /// process.</param>
-        public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
+        public override void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
-            base.Deserialize(reader, serializationContext, (r, param) =>
+            base.Deserialize(obj, serializationContext, (refObj) =>
             {
-                switch (param)
+                this.Range = obj.Value<float>("Range");
+                this.Constant = obj.Value<float>("Constant");
+                this.Linear = obj.Value<float>("Linear");
+                this.Quadratic = obj.Value<float>("Quadratic");
+                this.Ambient = Utils.DeserializeVec4(obj.Value<JObject>("Ambient"));
+                this.Specular = Utils.DeserializeVec4(obj.Value<JObject>("Specular"));
+
+                if(callback != null)
                 {
-                    case "Range":
-                        this.Range = Convert.ToSingle(r.Value);
-                        return true;
-                    case "Constant":
-                        this.Constant = Convert.ToSingle(r.Value);
-                        return true;
-                    case "Linear":
-                        this.Linear = Convert.ToSingle(r.Value);
-                        return true;
-                    case "Quadratic":
-                        this.Quadratic = Convert.ToSingle(r.Value);
-                        return true;
-                    case "Ambient":
-                        this.Ambient = Utils.DeserializeVec4(r);
-                        return true;
-                    case "Specular":
-                        this.Specular = Utils.DeserializeVec4(r);
-                        return true;
-                    default:
-                        if(callback != null)
-                        {
-                            return callback(r, param);
-                        }
-                        break;
+                    return callback(refObj);
                 }
-                return false;
+                return true;
             });
         }
     }

@@ -330,43 +330,22 @@ namespace LibGFX.Core
         }
 
         /// <summary>
-        /// Deserializes the specified JSON object into an instance using the provided serialization context.
+        /// Deserializes the object from the provided JSON representation using the specified serialization context.
         /// </summary>
-        /// <param name="jObject">The JSON reader positioned at the object to deserialize. Must not be null.</param>
-        /// <param name="serializationContext">The context that provides information and services required for deserialization. Must not be null.</param>
-        public virtual void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
+        /// <param name="obj"></param>
+        /// <param name="serializationContext"></param>
+        /// <param name="callback"></param>
+        public virtual void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new Exception("Expected StartObject token");
+            // Basic properties
+            this.Name = obj.Value<string>("Name") ?? this.Name;
+            this.ID = Guid.Parse(obj.Value<string>("ID") ?? this.ID.ToString());
 
-            while (reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
+            // Light manager
+            this.LightManager.Deserialize(obj.Value<JObject>("LightManager")!, serializationContext);
 
-                if (reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string) reader.Value;
-                    reader.Read();
-
-                    switch (propertyName)
-                    {
-                        case "Name":
-                            this.Name = (string)reader.Value;
-                            break;
-                        case "ID":
-                            this.ID = Guid.Parse((string)reader.Value);
-                            break;
-                        default:
-                            if (callback != null && callback(reader, propertyName))
-                            {
-                                break;
-                            }
-                            reader.Skip();
-                            break;
-                    }
-                }
-            }
+            // Invoke the callback for additional deserialization
+            callback?.Invoke(obj);
         }
     }
 }

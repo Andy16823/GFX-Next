@@ -17,7 +17,7 @@ namespace LibGFX.Graphics.Animation3D
     /// <summary>
     /// Represents a bone in a skeletal animation system.
     /// </summary>
-    public class Bone : ISerialization
+    public class Bone
     {
         /// <summary>
         /// List of position keyframes for the bone.
@@ -177,79 +177,6 @@ namespace LibGFX.Graphics.Animation3D
                 Matrix4 rotation = Matrix4.CreateFromQuaternion(AnimationChannel.Rotations[GetRotationIndex(animationTime)].orientation);
                 Matrix4 scale = Matrix4.CreateScale(AnimationChannel.Scales[GetScaleIndex(animationTime)].scale);
                 LocalTransform = scale * rotation * translation; // translation * rotation * scale;
-            }
-        }
-
-        /// <summary>
-        /// Serializes the current object to a JSON representation using the specified serialization context.
-        /// </summary>
-        /// <param name="serializationContext">The context that provides information and settings required for serialization.</param>
-        /// <returns>A <see cref="JObject"/> containing the serialized data of the object, including type, name, ID, animation
-        /// channel, and local transform information.</returns>
-        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
-        {
-            writer.WriteStartObject();
-            writer.WritePropertyName("Type");
-            writer.WriteValue(this.GetType().FullName);
-            writer.WritePropertyName("Name");
-            writer.WriteValue(Name);
-            writer.WritePropertyName("ID");
-            writer.WriteValue(ID);
-            writer.WritePropertyName("AnimationChannel");
-            AnimationChannel.Serialize(writer, serializationContext);
-            writer.WritePropertyName("LocalTransform");
-            LibGFX.Core.Utils.SerializeMatrix4(LocalTransform, writer);
-            callback?.Invoke(writer);
-            writer.WriteEndObject();
-        }
-
-        /// <summary>
-        /// Populates the object's properties by deserializing values from the specified JSON object.
-        /// </summary>
-        /// <param name="jObject">A <see cref="JObject"/> containing the serialized data to deserialize. Must not be <see langword="null"/>.</param>
-        /// <param name="serializationContext">A <see cref="SerializationContext"/> that provides context or settings for the deserialization process.</param>
-        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
-        {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
-
-            while(reader.Read())
-            {
-                if (reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if (reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string) reader.Value;
-                    reader.Read();
-
-                    switch (propertyName)
-                    {
-                        case "Type":
-                            reader.Skip();
-                            break;
-                        case "Name":
-                            this.Name = (string)reader.Value;
-                            break;
-                        case "ID":
-                            this.ID = Convert.ToInt32(reader.Value);
-                            break;
-                        case "AnimationChannel":
-                            this.AnimationChannel = new AnimationChannel();
-                            this.AnimationChannel.Deserialize(reader, serializationContext);
-                            break;
-                        case "LocalTransform":
-                            this.LocalTransform = LibGFX.Core.Utils.DeserializeMatrix4(reader);
-                            break;
-                        default:
-                            if(callback != null && callback(reader, propertyName))
-                            {
-                                break;
-                            }
-                            reader.Skip();
-                            break;
-                    }
-                }
             }
         }
     }

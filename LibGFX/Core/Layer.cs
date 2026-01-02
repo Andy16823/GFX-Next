@@ -256,76 +256,30 @@ namespace LibGFX.Core
         }
 
         /// <summary>
-        /// Populates the object's properties and elements from the specified JSON object using the provided
-        /// serialization context.
+        /// Deserializes the current object and its child elements from a JSON representation using the specified
         /// </summary>
-        /// <remarks>This method expects the JSON object to contain all necessary fields, including
-        /// 'Name', 'ID', 'Visible', 'Enabled', and an 'Elements' array. Each element in the 'Elements' array must
-        /// specify a valid type name that can be resolved at runtime. Existing elements in the collection are not
-        /// cleared before new elements are added.</remarks>
-        /// <param name="jObject">The JSON object containing the data to deserialize. Must include valid values for all required properties
-        /// and elements.</param>
-        /// <param name="serializationContext">The context used to assist with deserialization, providing any necessary configuration or state.</param>
-        /// <exception cref="Exception">Thrown if an element type specified in the JSON cannot be found during deserialization.</exception>
-        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
+        /// <param name="obj"></param>
+        /// <param name="serializationContext"></param>
+        /// <param name="callback"></param>
+        /// <exception cref="Exception"></exception>
+        public void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new Exception("Expected StartObject token");
-
-            while(reader.Read())
+            this.Name = obj.Value<string>("Name");
+            this.ID = Guid.Parse(obj.Value<string>("ID"));
+            this.Visible = obj.Value<bool>("Visible");
+            this.Enabled = obj.Value<bool>("Enabled");
+            var elementsArray = obj.Value<JArray>("Elements");
+            foreach (var elementToken in elementsArray)
             {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if(reader.TokenType == JsonToken.PropertyName)
+                var elementObj = (JObject)elementToken;
+                var element = Utils.DeserializeGameElement(elementObj, serializationContext);
+                if (element == null)
                 {
-                    string propertyName = reader.Value.ToString();
-                    reader.Read(); // Move to the value token
-
-                    switch (propertyName)
-                    {
-                        case "Name":
-                            this.Name = (string)reader.Value;
-                            break;
-                        case "ID":
-                            this.ID = Guid.Parse((string)reader.Value);
-                            break;
-                        case "Visible":
-                            this.Visible = Convert.ToBoolean(reader.Value);
-                            break;
-                        case "Enabled":
-                            this.Enabled = Convert.ToBoolean(reader.Value);
-                            break;
-                        case "Elements":
-                            if (reader.TokenType != JsonToken.StartArray)
-                                throw new Exception("Expected StartArray token for Elements");
-
-                            while (reader.Read())
-                            {
-                                if (reader.TokenType == JsonToken.EndArray)
-                                    break;
-
-                                if (reader.TokenType == JsonToken.StartObject)
-                                {
-                                    var element = Utils.DeserializeGameElement(reader, serializationContext);
-                                    if (element == null)
-                                    {
-                                        throw new Exception("Failed to deserialize child GameElement.");
-                                    }
-                                    this.Elements.Add(element);
-                                }
-                            }
-                            break;
-                        default:
-                            if(callback != null && callback(reader, propertyName))
-                            {
-                                break;
-                            }
-                            reader.Skip();
-                            break;
-                    }
+                    throw new Exception("Failed to deserialize child GameElement.");
                 }
+                this.Elements.Add(element);
             }
+            callback?.Invoke(obj);
         }
     }
 }

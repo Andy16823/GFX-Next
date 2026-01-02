@@ -479,29 +479,8 @@ namespace LibGFX.Graphics
             writer.WriteValue(ID.ToString());
             writer.WritePropertyName("Name");
             writer.WriteValue(!String.IsNullOrEmpty(Name) ? Name : ID.ToString());
-            writer.WritePropertyName("Meshes");
-            writer.WriteStartArray();
-            foreach (var mesh in Meshes)
-            {
-                writer.WriteStartObject();
-                writer.WritePropertyName("Mesh");
-                mesh.Serialize(writer, serializationContext);
-                writer.WritePropertyName("Material");
-                mesh.Material.Serialize(writer, serializationContext);
-                writer.WriteEndObject();
-            }
-            writer.WriteEndArray();
-            writer.WritePropertyName("NodeStructure");
-            Utils.SerializeSceneNodeData(this.NodeStructure, writer);
-            writer.WritePropertyName("Skeleton");
-            Skeleton.Serialize(writer, serializationContext);
-            writer.WritePropertyName("Animations");
-            writer.WriteStartArray();
-            foreach (var animation in Animations)
-            {
-                animation.Serialize(writer, serializationContext);
-            }
-            writer.WriteEndArray();
+            writer.WritePropertyName("FilePath");
+            writer.WriteValue(FilePath);
             callback?.Invoke(writer);
             writer.WriteEndObject();
         }
@@ -513,118 +492,20 @@ namespace LibGFX.Graphics
         /// <param name="jObject">The JSON object to deserialize. Cannot be null.</param>
         /// <param name="serializationContext">The context that provides information and services required for the deserialization process. Cannot be null.</param>
         /// <exception cref="NotImplementedException">Thrown in all cases as this method is not yet implemented.</exception>
-        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
+        public void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
-            if (this.IsInitialized)
+            this.ID = Guid.Parse(obj.Value<string>("ID")!);
+            this.Name = obj.Value<string>("Name") ?? this.ID.ToString();
+            var filepath = obj.Value<string>("FilePath");
+            if(String.IsNullOrEmpty(filepath))
             {
-                throw new InvalidOperationException("Cannot deserialize an initialized model. Please dispose the model before deserialization.");
+                throw new Exception("FilePath is null or empty in the serialized data.");
             }
+            this.FilePath = filepath;
+            LoadModel(this.FilePath);
+            callback?.Invoke(obj);
 
-            if (reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected start of JSON object.");
-
-            while(reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if(reader.TokenType == JsonToken.PropertyName)
-                {
-                    var propertyName = (string)reader.Value;
-                    reader.Read();
-
-                    switch (propertyName)
-                    {
-                        case "Type":
-                            // Skip type property
-                            reader.Skip();
-                            break;
-                        case "ID":
-                            this.ID = Guid.Parse((string)reader.Value);
-                            break;
-                        case "Name":
-                            this.Name = (string)reader.Value;
-                            break;
-                        case "Meshes":
-                            if (reader.TokenType != JsonToken.StartArray)
-                                throw new JsonException("Expected start of JSON array for 'Meshes'.");
-
-                            this.Meshes = new List<Mesh>();
-                            while(reader.Read())
-                            {
-                                if (reader.TokenType == JsonToken.EndArray)
-                                    break;
-
-                                if (reader.TokenType == JsonToken.StartObject)
-                                {
-                                    Mesh mesh = null;
-                                    SGMaterial material = null;
-                                    while (reader.Read())
-                                    {
-                                        if (reader.TokenType == JsonToken.EndObject)
-                                            break;
-
-                                        if (reader.TokenType == JsonToken.PropertyName)
-                                        {
-                                            var meshPropName = (string)reader.Value;
-                                            reader.Read();
-
-                                            switch (meshPropName)
-                                            {
-                                                case "Mesh":
-                                                    mesh = new Mesh();
-                                                    mesh.Deserialize(reader, serializationContext);
-                                                    break;
-                                                case "Material":
-                                                    material = new SGMaterial();
-                                                    material.Deserialize(reader, serializationContext);
-                                                    serializationContext.SetValue(material.ID.ToString(), material);
-                                                    break;
-                                            }
-                                        }
-                                    }
-                                    if (mesh != null && material != null)
-                                    {
-                                        mesh.Material = material;
-                                        this.Meshes.Add(mesh);
-                                    }
-                                }
-                            }
-                            break;
-                        case "NodeStructure":
-                            this.NodeStructure = Utils.DeserializeSceneNodeData(reader);
-                            break;
-                        case "Skeleton":
-                            this.Skeleton = new Skeleton();
-                            this.Skeleton.Deserialize(reader, serializationContext);
-                            break;
-                        case "Animations":
-                            if (reader.TokenType != JsonToken.StartArray)
-                                throw new JsonException("Expected start of JSON array for 'Animations'.");
-                           
-                            this.Animations = new List<Graphics.Animation3D.Animation3D>();
-                            while(reader.Read())
-                            {
-                                if (reader.TokenType == JsonToken.EndArray)
-                                    break;
-                                if (reader.TokenType == JsonToken.StartObject)
-                                {
-                                    var animation = new Graphics.Animation3D.Animation3D();
-                                    animation.Deserialize(reader, serializationContext);
-                                    this.Animations.Add(animation);
-                                }
-                            }
-                            break;
-                        default:
-                            if(callback != null && callback(reader, propertyName))
-                            {
-                                break;
-                            }
-                            reader.Skip();
-                            break;
-                    }
-                }
-            }
+            serializationContext.SetValue<SkinnedMeshModel>(this.ID.ToString(), this);
         }
     }
 }

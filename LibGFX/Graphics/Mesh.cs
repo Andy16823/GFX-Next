@@ -38,7 +38,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a mesh for the rendering pipeline
     /// </summary>
-    public class Mesh : IGraphicsResource, IIdentifier, ISerialization
+    public class Mesh : IGraphicsResource, IIdentifier
     {
         /// <summary>
         /// The name of the mesh.
@@ -143,6 +143,8 @@ namespace LibGFX.Graphics
             ComputeBounds();
             renderer.LoadMesh(this);
             IsInitialized = true;
+            Positions = new List<Vector3>();
+            Vertices = new List<Vertex>();
         }
 
         /// <summary>
@@ -157,6 +159,9 @@ namespace LibGFX.Graphics
             IsInitialized = false;
         }
 
+        /// <summary>
+        /// Computes the axis-aligned bounding box (AABB) for the mesh based on its vertex positions.
+        /// </summary>
         private void ComputeBounds()
         {
             if (Vertices == null || Vertices.Count == 0)
@@ -173,158 +178,6 @@ namespace LibGFX.Graphics
                 max = Vector3.ComponentMax(max, position);
             }
             Bounds = new AABB(min, max);
-        }
-
-        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
-        {
-            writer.WriteStartObject();
-            writer.WritePropertyName("Type");
-            writer.WriteValue(this.GetType().FullName);
-            writer.WritePropertyName("Name");
-            writer.WriteValue(Name);
-            writer.WritePropertyName("ID");
-            writer.WriteValue(ID);
-
-            writer.WritePropertyName("Positions");
-            writer.WriteStartArray();
-            foreach (var position in Positions)
-            {
-                Utils.SerializeVec3(position, writer);
-            }
-            writer.WriteEndArray();
-
-            writer.WritePropertyName("Vertices");
-            writer.WriteStartArray();
-            foreach (var vertex in Vertices)
-            {
-                Utils.SerializeVertex(vertex, writer);
-            }
-            writer.WriteEndArray();
-            writer.WritePropertyName("Indices");
-            writer.WriteStartArray();
-            foreach (var index in Indices)
-            {
-                writer.WriteValue(index);
-            }
-            writer.WriteEndArray();
-            writer.WritePropertyName("LocalTranslation");
-            Utils.SerializeVec3(this.LocalTranslation, writer);
-            writer.WritePropertyName("LocalRotation");
-            Utils.SerializeQuat(this.LocalRotation, writer);
-            writer.WritePropertyName("LocalScale");
-            Utils.SerializeVec3(this.LocalScale, writer);
-            writer.WritePropertyName("Material");
-            writer.WriteValue(this.Material != null ? this.Material.ID.ToString() : null);
-            callback?.Invoke(writer);
-            writer.WriteEndObject();
-        }
-
-        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
-        {
-            // Ensure the mesh is not initialized before deserializing
-            if (this.IsInitialized)
-            {
-                throw new InvalidOperationException("Cannot deserialize into an initialized Mesh. Dispose the mesh before deserializing.");
-            }
-
-            if (reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
-
-            while (reader.Read()) {
-                if (reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if (reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read();
-
-                    switch (propertyName)
-                    {
-                        case "Type":
-                            // Skip Type property
-                            reader.Skip();
-                            break;
-                        case "Name":
-                            Name = (string) reader.Value;
-                            break;
-                        case "ID":
-                            ID = Guid.Parse((string) reader.Value);
-                            break;
-                        case "Positions":
-                            if (reader.TokenType != JsonToken.StartArray)
-                                throw new JsonException("Expected StartArray token for Positions");
-
-                            Positions = new List<Vector3>();
-                            while (reader.Read())
-                            {
-                                if (reader.TokenType == JsonToken.EndArray)
-                                    break;
-
-                                if (reader.TokenType == JsonToken.StartObject)
-                                {
-                                    var position = Utils.DeserializeVec3(reader);
-                                    Positions.Add(position);
-                                }
-                            }
-                            break;
-                        case "Vertices":
-                            if (reader.TokenType != JsonToken.StartArray)
-                                throw new JsonException("Expected StartArray token for Vertices");
-
-                            Vertices = new List<Vertex>();
-                            while (reader.Read())
-                            {
-                                if (reader.TokenType == JsonToken.EndArray)
-                                    break;
-
-                                if (reader.TokenType == JsonToken.StartObject)
-                                {
-                                    var vertex = Utils.DeserializeVertex(reader);
-                                    Vertices.Add(vertex);
-                                }
-                            }
-                            break;
-                        case "Indices":
-                            if (reader.TokenType != JsonToken.StartArray)
-                                throw new JsonException("Expected StartArray token for Indices");
-
-                            Indices = new List<int>();
-                            while (reader.Read())
-                            {
-                                if (reader.TokenType == JsonToken.EndArray)
-                                    break;
-
-                                if (reader.TokenType == JsonToken.Integer)
-                                {
-                                    Indices.Add(Convert.ToInt32(reader.Value));
-                                }
-                            }
-                            break;
-                        case "LocalTranslation":
-                            LocalTranslation = Utils.DeserializeVec3(reader);
-                            break;
-                        case "LocalRotation":
-                            LocalRotation = Utils.DeserializeQuat(reader);
-                            break;
-                        case "LocalScale":
-                            LocalScale = Utils.DeserializeVec3(reader);
-                            break;
-                        case "Material":
-                            var materialID = Guid.Parse((string) reader.Value);
-                            var material = serializationContext.GetValue<IMaterial>(materialID.ToString());
-                            if (material == null)
-                            {
-                                throw new InvalidOperationException($"Material with ID {materialID} not found in serialization context.");
-                            }
-                            this.Material = material;
-                            break;
-                        default:
-                            break;
-                    }
-
-                }
-            }
         }
     }
 }

@@ -373,100 +373,47 @@ namespace LibGFX.Graphics.Materials
         /// deserialized data.</remarks>
         /// <param name="jObject">A <see cref="JObject"/> containing the material data to deserialize. Must include all required material
         /// properties and texture definitions.</param>
-        public void Deserialize(JsonReader reader, SerializationContext context, Func<JsonReader, string, bool> callback = null)
+        public void Deserialize(JObject obj, SerializationContext context, Func<JObject, bool> callback = null)
         {
-            // Ensure material is not already initialized
-            if (this.IsInitialized)
-            {
-                throw new InvalidOperationException("Cannot deserialize into an already initialized material.");
-            }
+            // Texture properties
+            this.Name = obj.Value<string>("Name");
+            this.ID = Guid.Parse(obj.Value<string>("ID"));
+            this.Color = Utils.DeserializeVec4(obj.Value<JObject>("Color"));
+            this.UVScale = Utils.DeserializeVec2(obj.Value<JObject>("UVScale"));
+            this.FlipNormal = obj.Value<bool>("FlipNormal");
+            this.Opacity = obj.Value<float>("Opacity");
+            this.Shininess = obj.Value<float>("Shininess");
 
-            if (reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token.");
+            // Texture objects
+            var texturesObj = obj.Value<JObject>("textures");
+            if (texturesObj != null) {
 
-            while(reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if(reader.TokenType == JsonToken.PropertyName)
+                // Diffuse Texture
+                var diffuseTexObj = texturesObj.Value<JObject>("DiffuseTexture");
+                if (diffuseTexObj != null)
                 {
-                    string propertyName = (string) reader.Value;
-                    reader.Read();
+                    this.DiffuseTexture = new Texture();
+                    this.DiffuseTexture.Deserialize(diffuseTexObj, context);
+                }
 
-                    switch (propertyName)
-                    {
-                        case "Type":
-                            // Ignore type during deserialization
-                            reader.Skip();
-                            break;
-                        case "Name":
-                            this.Name = (string) reader.Value;
-                            break;
-                        case "ID":
-                            this.ID = Guid.Parse((string) reader.Value);
-                            break;
-                        case "Color":
-                            this.Color = Utils.DeserializeVec4(reader);
-                            break;
-                        case "UVScale":
-                            this.UVScale = Utils.DeserializeVec2(reader);
-                            break;
-                        case "FlipNormal":
-                            this.FlipNormal = Convert.ToBoolean(reader.Value);
-                            break;
-                        case "Opacity":
-                            this.Opacity = Convert.ToSingle(reader.Value);
-                            break;
-                        case "Shininess":
-                            this.Shininess = Convert.ToSingle(reader.Value);
-                            break;
-                        case "textures":
-                            if (reader.TokenType != JsonToken.StartObject)
-                                throw new JsonException("Expected StartObject token for textures.");
+                // Normal Texture
+                var normalTexObj = texturesObj.Value<JObject>("NormalTexture");
+                if (normalTexObj != null)
+                {
+                    this.NormalTexture = new Texture();
+                    this.NormalTexture.Deserialize(normalTexObj, context);
+                }
 
-                            while(reader.Read())
-                            {
-                                if(reader.TokenType == JsonToken.EndObject)
-                                    break;
-
-                                if(reader.TokenType == JsonToken.PropertyName)
-                                {
-                                    string texPropertyName = (string) reader.Value;
-                                    reader.Read();
-
-                                    switch (texPropertyName)
-                                    {
-                                        case "DiffuseTexture":
-                                            this.DiffuseTexture = new Texture();
-                                            this.DiffuseTexture.Deserialize(reader, context);
-                                            break;
-                                        case "NormalTexture":
-                                            this.NormalTexture = new Texture();
-                                            this.NormalTexture.Deserialize(reader, context);
-                                            break;
-                                        case "SpecularTexture":
-                                            this.SpecularTexture = new Texture();
-                                            this.SpecularTexture.Deserialize(reader, context);
-                                            break;
-                                        default:
-                                            reader.Skip();
-                                            break;
-                                    }
-                                }
-                            }
-                            break;
-                        default:
-                            if(callback != null && callback(reader, propertyName))
-                            {
-                                break;
-                            }
-                            reader.Skip();
-                            break;
-                    }
-
+                // Specular Texture
+                var specularTexObj = texturesObj.Value<JObject>("SpecularTexture");
+                if (specularTexObj != null)
+                {
+                    this.SpecularTexture = new Texture();
+                    this.SpecularTexture.Deserialize(specularTexObj, context);
                 }
             }
+
+            callback?.Invoke(obj);
         }
     }
 }

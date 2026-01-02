@@ -175,72 +175,31 @@ namespace LibGFX.Graphics
         }
 
         /// <summary>
-        /// Populates the cubemap's properties and face data from the specified JSON object.
+        /// Deserializes the object from a JSON representation.
         /// </summary>
-        /// <remarks>This method resets the cubemap's dimensions and face data based on the provided JSON.
-        /// Existing face data will be cleared before loading new data. The method does not support deserializing into
-        /// an already initialized cubemap.</remarks>
-        /// <param name="jObject">A <see cref="JObject"/> containing the serialized cubemap data. Must include "Width", "Height", and "Faces"
-        /// properties.</param>
-        /// <param name="serializationContext">The context for the deserialization process. Provides additional information or services required during
-        /// deserialization.</param>
-        /// <exception cref="InvalidOperationException">Thrown if the cubemap is already initialized. The cubemap must be disposed before deserialization.</exception>
-        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
+        /// <param name="obj"></param>
+        /// <param name="serializationContext"></param>
+        /// <param name="callback"></param>
+        /// <exception cref="InvalidOperationException"></exception>
+        public void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
             if (this.IsInitialized)
                 throw new InvalidOperationException("Cannot deserialize an initialized Cubemap. Dispose it first.");
 
-            if (reader.TokenType != JsonToken.StartObject) 
-                throw new JsonException("Expected StartObject token");
+            this.Width = obj.Value<int>("Width");
+            this.Height = obj.Value<int>("Height");
 
-            while(reader.Read())
+            this.Faces.Clear();
+            var facesArray = obj.Value<JArray>("Faces");
+            if (facesArray != null)
             {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if(reader.TokenType == JsonToken.PropertyName)
+                foreach (var face in facesArray)
                 {
-                    string propertyName = (string)reader.Value;
-                    reader.Read();
-
-                    switch (propertyName)
-                    {
-                        case "Type":
-                            reader.Skip();
-                            break;
-                        case "Width":
-                            this.Width = Convert.ToInt32(reader.Value);
-                            break;
-                        case "Height":
-                            this.Height = Convert.ToInt32(reader.Value);
-                            break;
-                        case "Faces":
-                            if (reader.TokenType != JsonToken.StartArray)
-                                throw new JsonException("Expected StartArray token for Faces");
-
-                            this.Faces.Clear();
-                            while (reader.Read())
-                            {
-                                if (reader.TokenType == JsonToken.EndArray)
-                                    break;
-
-                                if (reader.TokenType == JsonToken.String)
-                                {
-                                    var faceData = Convert.FromBase64String((string)reader.Value);
-                                    this.Faces.Add(faceData);
-                                }
-                            }
-                            break;
-                        default:
-                            if (callback != null && callback(reader, propertyName))
-                            {
-                                break;
-                            }
-                            reader.Skip();
-                            break;
-                    }
+                    var faceData = Convert.FromBase64String(face.Value<string>());
+                    this.Faces.Add(faceData);
                 }
             }
+            callback?.Invoke(obj);
         }
     }
 }

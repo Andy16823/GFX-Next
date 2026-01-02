@@ -633,12 +633,11 @@ namespace LibGFX.Core
         }
 
         /// <summary>
-        /// Serializes the current object to JSON using the specified writer and serialization context.
+        /// Serializes the scene to a JSON object
         /// </summary>
-        /// <param name="writer">The JsonWriter to which the JSON output will be written. Cannot be null.</param>
-        /// <param name="serializationContext">The context that provides serialization settings and state. Cannot be null.</param>
-        /// <param name="callback">An optional callback that allows additional custom serialization logic to be executed. If null, no
-        /// additional logic is applied.</param>
+        /// <param name="writer"></param>
+        /// <param name="serializationContext"></param>
+        /// <param name="callback"></param>
         public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
             base.Serialize(writer, serializationContext, (w) =>
@@ -654,53 +653,47 @@ namespace LibGFX.Core
         }
 
         /// <summary>
-        /// Deserializes the object from the specified JSON reader using the provided serialization context.
+        /// Deserializes the scene from a JSON object
         /// </summary>
-        /// <remarks>If a callback is provided, it is called for each property not handled by the method.
-        /// This allows for custom processing of additional or unknown properties during deserialization.</remarks>
-        /// <param name="reader">The JSON reader positioned at the start of the object to deserialize. Must not be null.</param>
-        /// <param name="serializationContext">The context that provides information required for the deserialization process.</param>
-        /// <param name="callback">An optional callback invoked for each property encountered during deserialization. The callback receives the
-        /// JSON reader and the property name, and should return <see langword="true"/> if the property was handled;
-        /// otherwise, <see langword="false"/>.</param>
-        public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
+        /// <param name="obj"></param>
+        /// <param name="serializationContext"></param>
+        /// <param name="callback"></param>
+        public override void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
-            base.Deserialize(reader, serializationContext, (r, param) =>
+            base.Deserialize(obj, serializationContext, (refObj) =>
             {
-                switch (param)
+                // Deserialize the light manager
+                var lightManagerToken = refObj.Value<JObject>("LightManager");
+                if (lightManagerToken != null)
                 {
-                    case "LightManager":
-                        if(r.TokenType == JsonToken.StartObject)
-                        {
-                            this.LightManager = new Light2DManager();
-                            this.LightManager.Deserialize(r, serializationContext);
-                            return true;
-                        }
-                        break;
-                    case "Layers":
-                        if (r.TokenType != JsonToken.StartArray)
-                            throw new JsonSerializationException("Expected StartArray token for Layers property.");
-
-                        Layers.Clear();
-                        while (r.Read())
-                        {
-                            if (r.TokenType == JsonToken.EndArray)
-                                break;
-
-                            if (r.TokenType == JsonToken.StartObject)
-                            {
-                                var layer = new Layer();
-                                layer.Deserialize(r, serializationContext);
-                                Layers.Add(layer);
-                            }
-                        }
-                        return true;
-                    default:
-                        if(callback != null)
-                            return callback(r, param);
-                        break;
+                    this.LightManager = new Light2DManager();
+                    this.LightManager.Deserialize(lightManagerToken, serializationContext);
                 }
-                return false;
+
+                // Deserialize the layers
+                var layersToken = refObj.Value<JArray>("Layers");
+                if (layersToken != null)
+                {
+                    Layers.Clear();
+                    foreach (var layerToken in layersToken)
+                    {
+                        var layerObj = layerToken as JObject;
+                        if (layerObj != null)
+                        {
+                            var layer = new Layer();
+                            layer.Deserialize(layerObj, serializationContext);
+                            Layers.Add(layer);
+                        }
+                    }
+                }
+
+                // Invoke the callback if provided
+                if (callback != null)
+                {
+                    return callback(refObj);
+                }
+
+                return true;
             });
         }
 

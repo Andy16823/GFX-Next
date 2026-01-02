@@ -27,6 +27,6 @@ namespace LibGFX.Core
         /// Populates the current object with values from the specified JSON object.
         /// </summary>
         /// <param name="jObject">A <see cref="JObject"/> containing the JSON data to deserialize into the current object. Cannot be null.</param>
-        void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null);
+        void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null);
     }
 }

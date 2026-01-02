@@ -120,32 +120,16 @@ namespace LibGFX.Graphics.Lights
         /// <param name="jObject">A <see cref="JObject"/> containing the serialized data to deserialize. Must not be null and should include
         /// all required properties.</param>
         /// <param name="serializationContext">A <see cref="SerializationContext"/> that provides context or settings for the deserialization process.</param>
-        public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
+        public override void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
-            base.Deserialize(reader, serializationContext, (r, param) =>
+            base.Deserialize(obj, serializationContext, (refObj) =>
             {
-                switch (param)
-                {
-                    case "Direction":
-                        this.Direction = Utils.DeserializeVec3(r);
-                        return true;
-                    case "Ambient":
-                        this.Ambient = Utils.DeserializeVec3(r);
-                        return true;
-                    case "Specular":
-                        this.Specular = Utils.DeserializeVec3(r);
-                        return true;
-                    case "Bias":
-                        this.Bias = Convert.ToSingle(r.Value);
-                        return true;
-                    default:
-                        if(callback != null)
-                        {
-                            return callback(r, param);
-                        }
-                        break;
-                }
-                return false;
+                this.Direction = Utils.DeserializeVec3(refObj["Direction"] as JObject);
+                this.Ambient = Utils.DeserializeVec3(refObj["Ambient"] as JObject);
+                this.Specular = Utils.DeserializeVec3(refObj["Specular"] as JObject);
+                this.Bias = Convert.ToSingle(refObj["Bias"].Value<float>());
+                callback?.Invoke(refObj);
+                return true;
             });
         }
     }

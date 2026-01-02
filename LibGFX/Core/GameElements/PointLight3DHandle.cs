@@ -144,43 +144,35 @@ namespace LibGFX.Core.GameElements
         }
 
         /// <summary>
-        /// Deserializes the object from a JSON representation, restoring its state including the light source
+        /// Deserializes the object from a JSON representation, restoring its state including the associated light source.
         /// </summary>
-        /// <param name="reader"></param>
+        /// <param name="obj"></param>
         /// <param name="serializationContext"></param>
         /// <param name="callback"></param>
         /// <exception cref="InvalidOperationException"></exception>
-        public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
+        public override void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
-            base.Deserialize(reader, serializationContext, (r, param) =>
+            base.Deserialize(obj, serializationContext, (refObj) =>
             {
-                switch (param)
+                var lightSourceId = refObj.Value<string>("LightSource");
+                if(!string.IsNullOrEmpty(lightSourceId))
                 {
-                    case "LightSource":
-                        var lightSourceId = (string) r.Value;
-                        var lightSource = serializationContext.GetValue<Light>(lightSourceId);
-                        if (lightSource != null && lightSource is PointLight3D pointLight)
-                        {
-                            LightSource = pointLight;
-                            this.Transform.Position = LightSource.Position;
-                        }
-                        else if (lightSourceId != null)
-                        {
-                            throw new InvalidOperationException($"Light with ID {lightSourceId} is not a PointLight3D or could not be found.");
-                        }
-                        else
-                        {
-                            throw new InvalidOperationException("LightSource ID is missing in the JSON data.");
-                        }
-                        return true;
-                    default:
-                        if(callback != null)
-                        {
-                            return callback(r, param);
-                        }
-                        break;
+                    var lightSource = serializationContext.GetValue<Light>(lightSourceId);
+                    if (lightSource != null && lightSource is PointLight3D pointLight)
+                    {
+                        LightSource = pointLight;
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException($"Light with ID {lightSourceId} is not a PointLight3D or could not be found.");
+                    }
                 }
-                return false;
+
+                if(callback != null)
+                {
+                    return callback(refObj);
+                }
+                return true;
             });
             this.Transform.Position = LightSource.Position;
             this.Transform.Changed += Transform_Changed;

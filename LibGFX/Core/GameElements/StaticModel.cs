@@ -190,39 +190,34 @@ namespace LibGFX.Core.GameElements
         }
 
         /// <summary>
-        /// Deserializes the StaticModel instance from the specified JSON object using the provided serialization
-        /// context.
+        /// Deserializes the object from a JSON representation using the specified serialization context.
         /// </summary>
-        /// <param name="jObject">The JSON object containing the data to deserialize into this StaticModel instance.</param>
-        /// <param name="serializationContext">The context used to resolve references and retrieve objects during deserialization.</param>
-        /// <exception cref="Exception">Thrown if the model identifier specified in the JSON object cannot be found in the serialization context.</exception>
-        public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
+        /// <param name="obj"></param>
+        /// <param name="serializationContext"></param>
+        /// <param name="callback"></param>
+        /// <exception cref="Exception"></exception>
+        public override void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
             // Deserialize base properties
-            base.Deserialize(reader, serializationContext, (r, param) =>
+            base.Deserialize(obj, serializationContext, (refObj) =>
             {
-                switch (param)
+                var modelId = refObj.Value<string>("Model");
+                var model = serializationContext.GetValue<StaticMeshModel>(modelId!);
+                if (model != null)
                 {
-                    case "Model":
-                        var modelId = (string)r.Value;
-                        var model = serializationContext.GetValue<StaticMeshModel>(modelId);
-                        if (model != null)
-                        {
-                            _model = model;
-                        }
-                        else
-                        {
-                            throw new Exception($"StaticModel deserialization failed: Model with ID {modelId} not found in serialization context.");
-                        }
-                        return true;
-                    default:
-                        if(callback != null)
-                        {
-                            return callback(r, param);
-                        }
-                        break;
+                    _model = model;
                 }
-                return false;
+                else
+                {
+                    throw new Exception($"StaticModel deserialization failed: Model with ID {modelId} not found in serialization context.");
+                }
+
+                if(callback != null)
+                {
+                    return callback(refObj);
+                }
+
+                return true;
             });
         }
     }

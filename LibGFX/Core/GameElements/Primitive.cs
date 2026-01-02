@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 namespace LibGFX.Core.GameElements
 {
     /// <summary>
+    /// TODO REWORK!
     /// Represents a primitive game element that can be rendered with a material and shader.
     /// </summary>
     public class Primitive : GameElement
@@ -31,6 +32,11 @@ namespace LibGFX.Core.GameElements
         /// the shader program used for rendering the primitive.
         /// </summary>
         public RenderShader Shader { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of primitive geometry to use for rendering.
+        /// </summary>
+        public PrimitiveType PrimitiveType { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether the mesh's material includes transparency.
@@ -147,60 +153,6 @@ namespace LibGFX.Core.GameElements
         }
 
         /// <summary>
-        /// Serializes the current object to a JSON representation, including type and mesh information.
-        /// </summary>
-        /// <remarks>The returned JSON object includes additional fields specific to the primitive, such
-        /// as the fully qualified type name and the mesh ID if available. This method extends the base serialization
-        /// with primitive-specific data.</remarks>
-        /// <param name="serializationContext">The context that provides information and services for the serialization process.</param>
-        /// <returns>A <see cref="JObject"/> containing the serialized data for the object, including its type and associated
-        /// mesh identifier.</returns>
-        public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
-        {
-            base.Serialize(writer, serializationContext, (w) =>
-            {
-                w.WritePropertyName("Mesh");
-                w.WriteValue(Mesh?.ID.ToString());
-                callback?.Invoke(w);
-            });
-        }
-
-        /// <summary>
-        /// Deserializes the primitive object from the specified JSON object using the provided serialization context.
-        /// </summary>
-        /// <param name="jObject">The JSON object containing the serialized data for the primitive.</param>
-        /// <param name="serializationContext">The context used to resolve references and retrieve objects during deserialization.</param>
-        /// <exception cref="Exception">Thrown if the mesh referenced in the JSON object cannot be found in the serialization context.</exception>
-        public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
-        {
-            base.Deserialize(reader, serializationContext, (r, param) =>
-            {
-                switch (param)
-                {
-                    case "Mesh":
-                        var meshId = (string)r.Value;
-                        var mesh = serializationContext.GetValue<Mesh>(meshId);
-                        if (mesh != null)
-                        {
-                            this.Mesh = mesh;
-                        }
-                        else
-                        {
-                            throw new Exception("Failed to deserialize Primitive: Mesh with ID " + meshId + " not found in serialization context.");
-                        }
-                        return true;
-                    default:
-                        if(callback != null)
-                        {
-                            return callback(r, param);
-                        }
-                        break;
-                }
-                return false;
-            });
-        }
-
-        /// <summary>
         /// Creates a new primitive object with the specified name, material, and type, and registers its mesh with the
         /// asset manager.
         /// </summary>
@@ -235,6 +187,29 @@ namespace LibGFX.Core.GameElements
             mesh.Material = material;
             assets.Add(mesh);
             return new Primitive(name, mesh);
+        }
+
+        public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
+        {
+            base.Serialize(writer, serializationContext, (w) =>
+            {
+                w.WritePropertyName("PrimitiveType");
+                w.WriteValue(this.PrimitiveType);
+                callback?.Invoke(w);
+            });
+        }
+
+        public override void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
+        {
+            base.Deserialize(obj, serializationContext, (refObj) =>
+            {
+                this.PrimitiveType = refObj.Value<PrimitiveType>("PrimitiveType");
+                if (callback != null)
+                {
+                    return callback(refObj);
+                }
+                return true;
+            });
         }
     }
 }

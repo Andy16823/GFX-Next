@@ -102,53 +102,26 @@ namespace LibGFX.Graphics.Enviroment
             writer.WriteEndObject();
         }
 
-        /// <summary>
-        /// Deserializes the skybox state from the specified JSON object using the provided serialization context.
-        /// </summary>
-        /// <param name="jObject">A <see cref="JObject"/> containing the serialized skybox data. Must include 'Cubemap' and 'Transform'
-        /// properties.</param>
-        /// <param name="serializationContext">The context to use during deserialization, providing necessary settings and references.</param>
-        /// <exception cref="InvalidOperationException">Thrown if the skybox is already initialized. Dispose the skybox before deserializing.</exception>
-        public void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
+        public void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
             if(this.IsInitialized)
             {
                 throw new InvalidOperationException("Cannot deserialize an initialized Skybox. Dispose it first.");
             }
 
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token.");
-
-            while(reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if(reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string) reader.Value;
-                    reader.Read();
-
-                    switch (propertyName)
-                    {
-                        case "Cubemap":
-                            this.Cubemap = new Cubemap();
-                            this.Cubemap.Deserialize(reader, serializationContext);
-                            break;
-                        case "Transform":
-                            this.Transform = new Transform();
-                            this.Transform.Deserialize(reader, serializationContext);
-                            break;
-                        default:
-                            if(callback != null && callback(reader, propertyName))
-                            {
-                                break;
-                            }
-                            reader.Skip();
-                            break;
-                    }
-                }
+            var qubemapToken = obj.Value<JObject>("Cubemap");
+            if(qubemapToken != null) {
+                this.Cubemap = new Cubemap();
+                this.Cubemap.Deserialize(qubemapToken, serializationContext);
             }
+
+            var transformToken = obj.Value<JObject>("Transform");
+            if(transformToken != null) {
+                this.Transform = new Transform();
+                this.Transform.Deserialize(transformToken, serializationContext);
+            }
+
+            callback?.Invoke(obj);
         }
     }
 }

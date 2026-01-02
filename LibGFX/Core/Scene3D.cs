@@ -684,47 +684,48 @@ namespace LibGFX.Core
         /// <summary>
         /// Deserializes the scene from JSON
         /// </summary>
-        /// <param name="reader"></param>
+        /// <param name="obj"></param>
         /// <param name="serializationContext"></param>
         /// <param name="callback"></param>
-        public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
+        /// <exception cref="Exception"></exception>
+        public override void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
-            base.Deserialize(reader, serializationContext, (r, param) =>
+            base.Deserialize(obj, serializationContext, (refObj) =>
             {
-                switch (param)
+                // Deserialize the light manager
+                var lightManagerToken = refObj.Value<JObject>("LightManager");
+                if (lightManagerToken != null)
                 {
-                    case "LightManager":
-                        if(r.TokenType == JsonToken.StartObject)
-                        {
-                            this.LightManager = new Light3DManager();
-                            this.LightManager.Deserialize(r, serializationContext);
-                            return true;
-                        }
-                        break;
-                    case "Elements":
-                        if(r.TokenType != JsonToken.StartArray)
-                            throw new JsonSerializationException("Expected StartArray token for Elements property.");
-                        
-                        while (r.Read())
-                        {
-                            if (r.TokenType == JsonToken.EndArray)
-                                break;
-
-                            if(r.TokenType == JsonToken.StartObject)
-                            {
-                                var element = Utils.DeserializeGameElement(r, serializationContext);
-                                if (element == null)
-                                {
-                                    throw new Exception("Failed to deserialize child GameElement.");
-                                }
-                                this.Elements.Add(element);
-                            }
-                        }
-                        return true;
-                    default:
-                        break;
+                    this.LightManager = new Light3DManager();
+                    this.LightManager.Deserialize(lightManagerToken, serializationContext);
                 }
-                return false;
+
+                // Deserialize the scene elements
+                var elementsToken = refObj.Value<JArray>("Elements");
+                if (elementsToken != null)
+                {
+                    this.Elements.Clear();
+                    foreach (var elementToken in elementsToken)
+                    {
+                        if (elementToken is JObject elementObj)
+                        {
+                            var element = Utils.DeserializeGameElement(elementObj, serializationContext);
+                            if (element == null)
+                            {
+                                throw new Exception("Failed to deserialize child GameElement.");
+                            }
+                            this.Elements.Add(element);
+                        }
+                    }
+                }
+
+                // Invoke the callback if provided
+                if (callback != null)
+                {
+                    return callback(refObj);
+                }
+
+                return true;
             });
         }
     }

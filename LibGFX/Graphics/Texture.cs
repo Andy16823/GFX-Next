@@ -407,101 +407,38 @@ namespace LibGFX.Graphics
         /// <param name="callback"></param>
         /// <exception cref="InvalidOperationException"></exception>
         /// <exception cref="JsonException"></exception>
-        public void Deserialize(JsonReader reader, SerializationContext context, Func<JsonReader, string, bool> callback = null)
+        public void Deserialize(JObject obj, SerializationContext context, Func<JObject, bool> callback = null)
         {
             if(this.IsInitialized)
             {
                 throw new InvalidOperationException("Cannot deserialize into an initialized texture.");
             }
 
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token.");
+            // Texture properties
+            this.Name = obj.Value<string>("Name");
+            this.ID = Guid.Parse(obj.Value<string>("ID"));
+            this.Width = obj.Value<int>("Width");
+            this.Height = obj.Value<int>("Height");
+            this.HasAlpha = obj.Value<bool>("HasAlpha");
 
-            while(reader.Read())
+            // Texture data
+            string base64Data = obj.Value<string>("TextureData");
+            this.TextureData = Convert.FromBase64String(base64Data);
+
+            // Texture parameters
+            JObject texParamsObj = obj.Value<JObject>("TextureParameters");
+            TextureParameters texParams = new TextureParameters
             {
-                if (reader.TokenType == JsonToken.EndObject)
-                    break;
+                MinFilter = (RenderFlags.TextureFilterMode) texParamsObj.Value<int>("MinFilter"),
+                MagFilter = (RenderFlags.TextureFilterMode) texParamsObj.Value<int>("MagFilter"),
+                WrapS = (RenderFlags.TextureWrapMode) texParamsObj.Value<int>("WrapS"),
+                WrapT = (RenderFlags.TextureWrapMode) texParamsObj.Value<int>("WrapT"),
+                GenerateMipmaps = texParamsObj.Value<bool>("GenerateMipmaps")
+            };
+            this.TextureParameters = texParams;
 
-                if (reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read();
-
-                    switch (propertyName)
-                    {
-                        case "Type":
-                            reader.Skip();
-                            break;
-                        case "ID":
-                            this.ID = Guid.Parse((string)reader.Value);
-                            break;
-                        case "Name":
-                            this.Name = (string)reader.Value;
-                            break;
-                        case "Width":
-                            this.Width = Convert.ToInt32(reader.Value);
-                            break;
-                        case "Height":
-                            this.Height = Convert.ToInt32(reader.Value);
-                            break;
-                        case "HasAlpha":
-                            this.HasAlpha = Convert.ToBoolean(reader.Value);
-                            break;
-                        case "TextureData":
-                            string base64Data = (string)reader.Value;
-                            this.TextureData = Convert.FromBase64String(base64Data);
-                            break;
-                        case "TextureParameters":
-                            if(reader.TokenType != JsonToken.StartObject)
-                                throw new JsonException("Expected StartObject token for TextureParameters.");
-
-                            TextureParameters texParams = new TextureParameters();
-
-                            while(reader.Read())
-                            {
-                                if (reader.TokenType == JsonToken.EndObject)
-                                    break;
-
-                                if (reader.TokenType == JsonToken.PropertyName)
-                                {
-                                    string paramName = (string)reader.Value;
-                                    reader.Read();
-
-                                    switch (paramName)
-                                    {
-                                        case "MinFilter":
-                                            texParams.MinFilter = (RenderFlags.TextureFilterMode)Convert.ToInt32(reader.Value);
-                                            break;
-                                        case "MagFilter":
-                                            texParams.MagFilter = (RenderFlags.TextureFilterMode)Convert.ToInt32(reader.Value);
-                                            break;
-                                        case "WrapS":
-                                            texParams.WrapS = (RenderFlags.TextureWrapMode)Convert.ToInt32(reader.Value);
-                                            break;
-                                        case "WrapT":
-                                            texParams.WrapT = (RenderFlags.TextureWrapMode)Convert.ToInt32(reader.Value);
-                                            break;
-                                        case "GenerateMipmaps":
-                                            texParams.GenerateMipmaps = Convert.ToBoolean(reader.Value);
-                                            break;
-                                        default:
-                                            reader.Skip();
-                                            break;
-                                    }
-                                }
-                            }
-                            this.TextureParameters = texParams;
-                            break;
-                        default:
-                            if(callback != null && callback(reader, propertyName))
-                            {
-                                break;
-                            }
-                            reader.Skip();
-                            break;
-                    }
-                }
-            }   
+            // Callback
+            callback?.Invoke(obj);
         }
     }
 }

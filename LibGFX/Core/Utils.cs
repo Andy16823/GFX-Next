@@ -18,6 +18,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Authentication;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using static LibGFX.Graphics.RenderFlags;
 
@@ -482,322 +483,68 @@ namespace LibGFX.Core
             writer.WriteEndObject();
         }
 
-        public static Vector4 DeserializeVec4(JsonReader reader)
+        public static Vector4 DeserializeVec4(JObject value)
         {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
+            float x = value["X"].Value<float>();
+            float y = value["Y"].Value<float>();
+            float z = value["Z"].Value<float>();
+            float w = value["W"].Value<float>();
 
-            float x = 0f, y = 0f, z = 0f, w = 0f;
-
-            while(reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if(reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read(); // Move to the value
-
-                    float value = ReadFloat(reader);
-
-                    switch (propertyName)
-                    {
-                        case "X":
-                            x = value;
-                            break;
-                        case "Y":
-                            y = value;
-                            break;
-                        case "Z":
-                            z = value;
-                            break;
-                        case "W":
-                            w = value;
-                            break;
-                        default:
-                            throw new JsonException($"Unexpected property name: {propertyName}");
-                    }
-                }
-            }
             return new Vector4(x, y, z, w);
         }
 
-        public static Vector4i DeserializeVec4i(JsonReader reader)
+        public static Vector4i DeserializeVec4i(JObject value)
         {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
+            int x = value["X"].Value<int>();
+            int y = value["Y"].Value<int>();
+            int z = value["Z"].Value<int>();
+            int w = value["W"].Value<int>();
 
-            int x = 0, y = 0, z = 0, w = 0;
-
-            while(reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if(reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read(); // Move to the value
-                    switch(propertyName)
-                    {
-                        case "X":
-                            x = Convert.ToInt32(reader.Value);
-                            break;
-                        case "Y":
-                            y = Convert.ToInt32(reader.Value);
-                            break;
-                        case "Z":
-                            z = Convert.ToInt32(reader.Value);
-                            break;
-                        case "W":
-                            w = Convert.ToInt32(reader.Value);
-                            break;
-                        default:
-                            throw new JsonException($"Unexpected property name: {propertyName}");
-                    }
-                }
-            }
             return new Vector4i(x, y, z, w);
         }
 
-        public static Quaternion DeserializeQuat(JsonReader reader)
+        public static Quaternion DeserializeQuat(JObject value)
         {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
+            float x = value["X"].Value<float>();
+            float y = value["Y"].Value<float>();
+            float z = value["Z"].Value<float>();
+            float w = value["W"].Value<float>();
 
-            float x = 0f, y = 0f, z = 0f, w = 0f;
-
-            while(reader.Read())
-            {
-                if (reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if (reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read(); // Move to the value
-
-                    float value = ReadFloat(reader);
-
-                    switch (propertyName)
-                    {
-                        case "X":
-                            x = value;
-                            break;
-                        case "Y":
-                            y = value;
-                            break;
-                        case "Z":
-                            z = value;
-                            break;
-                        case "W":
-                            w = value;
-                            break;
-                        default:
-                            throw new JsonException($"Unexpected property name: {propertyName}");
-                    }
-                }
-            }
             return new Quaternion(x, y, z, w);
         }
 
-        public static Vector3 DeserializeVec3(JsonReader reader)
+        public static Vector3 DeserializeVec3(JObject value)
         {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
+            float x = value["X"].Value<float>();
+            float y = value["Y"].Value<float>();
+            float z = value["Z"].Value<float>();
 
-            float x = 0f, y = 0f, z = 0f;
-            while(reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if(reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read(); // Move to the value
-
-                    float value = ReadFloat(reader);
-                    
-                    switch(propertyName)
-                    {
-                        case "X":
-                            x = value;
-                            break;
-                        case "Y":
-                            y = value;
-                            break;
-                        case "Z":
-                            z = value;
-                            break;
-                        default:
-                            throw new JsonException($"Unexpected property name: {propertyName}");
-                    }
-                }
-            }
             return new Vector3(x, y, z);
         }
 
-        public static Vector3i DeserializeVec3i(JsonReader reader)
+        public static Vector3i DeserializeVec3i(JObject value)
         {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
+            int x = value["X"].Value<int>();
+            int y = value["Y"].Value<int>();
+            int z = value["Z"].Value<int>();
 
-            int x = 0, y = 0, z = 0;
-
-            while(reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if(reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read(); // Move to the value
-                    switch(propertyName)
-                    {
-                        case "X":
-                            x = Convert.ToInt32(reader.Value);
-                            break;
-                        case "Y":
-                            y = Convert.ToInt32(reader.Value);
-                            break;
-                        case "Z":
-                            z = Convert.ToInt32(reader.Value);
-                            break;
-                        default:
-                            throw new JsonException($"Unexpected property name: {propertyName}");
-                    }
-                }
-            }
             return new Vector3i(x, y, z);
         }
 
-        public static Vector2 DeserializeVec2(JsonReader reader)
+        public static Vector2 DeserializeVec2(JObject value)
         {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
+            float x = value["X"].Value<float>();
+            float y = value["Y"].Value<float>();
 
-            float x = 0f, y = 0f;
-            while(reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if(reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read(); // Move to the value
-
-                    float value = ReadFloat(reader);
-
-                    switch (propertyName)
-                    {
-                        case "X":
-                            x = value;
-                            break;
-                        case "Y":
-                            y = value;
-                            break;
-                        default:
-                            throw new JsonException($"Unexpected property name: {propertyName}");
-                    }
-                }
-            }
             return new Vector2(x, y);
         }
 
-        public static Vector2i DeserializeVec2i(JsonReader reader)
+        public static Vector2i DeserializeVec2i(JObject value)
         {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
+            int x = value["X"].Value<int>();
+            int y = value["Y"].Value<int>();
 
-            int x = 0, y = 0;
-
-            while(reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if(reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read(); // Move to the value
-                    switch(propertyName)
-                    {
-                        case "X":
-                            x = Convert.ToInt32(reader.Value);
-                            break;
-                        case "Y":
-                            y = Convert.ToInt32(reader.Value);
-                            break;
-                        default:
-                            throw new JsonException($"Unexpected property name: {propertyName}");
-                    }
-                }
-            }
             return new Vector2i(x, y);
-        }
-
-        public static void SerializeVertex(Vertex vertex, JsonWriter writer)
-        {
-            writer.WriteStartObject();
-            writer.WritePropertyName("Normal");
-            SerializeVec3(vertex.Normal, writer);
-            writer.WritePropertyName("TexCoord");
-            SerializeVec2(vertex.TexCoord, writer);
-            writer.WritePropertyName("Tangent");
-            SerializeVec4(vertex.Tangent, writer);
-            writer.WritePropertyName("BoneWeights");
-            SerializeVec4(vertex.BoneWeights, writer);
-            writer.WritePropertyName("BoneIDs");
-            SerializeVec4i(vertex.BoneIDs, writer);
-            writer.WriteEndObject();
-        }
-
-        public static Vertex DeserializeVertex(JsonReader reader)
-        {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
-
-            Vertex vert = new Vertex();
-
-            while(reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if (reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read(); // Move to the value
-
-                    // We will handle properties below
-                    switch (propertyName)
-                    {
-                        case "Normal":
-                            vert.Normal = DeserializeVec3(reader);
-                            break;
-                        case "TexCoord":
-                            vert.TexCoord = DeserializeVec2(reader);
-                            break;
-                        case "Tangent":
-                            vert.Tangent = DeserializeVec4(reader);
-                            break;
-                        case "BoneWeights":
-                            vert.BoneWeights = DeserializeVec4(reader);
-                            break;
-                        case "BoneIDs":
-                            vert.BoneIDs = DeserializeVec4i(reader);
-                            break;
-                        default:
-                            throw new JsonException($"Unexpected property name: {propertyName}");
-                    }
-                }
-            }
-
-            return vert;
         }
 
         public static void SerializeMatrix4(Matrix4 mat, JsonWriter writer)
@@ -814,286 +561,16 @@ namespace LibGFX.Core
             writer.WriteEndObject();
         }
 
-        public static Matrix4 DeserializeMatrix4(JsonReader reader)
+        public static Matrix4 DeserializeMatrix4(JObject reader)
         {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
-
             Matrix4 matrix = new Matrix4();
 
-            while(reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
+            matrix.Row0 = DeserializeVec4(reader["Row0"] as JObject);
+            matrix.Row1 = DeserializeVec4(reader["Row1"] as JObject);
+            matrix.Row2 = DeserializeVec4(reader["Row2"] as JObject);
+            matrix.Row3 = DeserializeVec4(reader["Row3"] as JObject);
 
-                if (reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read(); // Move to the value
-                    switch (propertyName)
-                    {
-                        case "Row0":
-                            matrix.Row0 = DeserializeVec4(reader);
-                            break;
-                        case "Row1":
-                            matrix.Row1 = DeserializeVec4(reader);
-                            break;
-                        case "Row2":
-                            matrix.Row2 = DeserializeVec4(reader);
-                            break;
-                        case "Row3":
-                            matrix.Row3 = DeserializeVec4(reader);
-                            break;
-                        default:
-                            throw new JsonException($"Unexpected property name: {propertyName}");
-                    }
-                }
-            }
             return matrix;
-        }
-
-        public static void SerializeSceneNodeData(SceneNodeData nodedata, JsonWriter writer)
-        {
-            writer.WriteStartObject();
-            writer.WritePropertyName("Transformation");
-            SerializeMatrix4(nodedata.transformation, writer);
-            writer.WritePropertyName("Name");
-            writer.WriteValue(nodedata.name);
-            writer.WritePropertyName("ChildrenCount");
-            writer.WriteValue(nodedata.childrenCount);
-            writer.WritePropertyName("Children");
-            writer.WriteStartArray();
-            foreach (var child in nodedata.children)
-            {
-                SerializeSceneNodeData(child, writer);
-            }
-            writer.WriteEndArray();
-            writer.WriteEndObject();
-        }
-
-        public static SceneNodeData DeserializeSceneNodeData(JsonReader reader)
-        {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
-
-            SceneNodeData nodeData = new SceneNodeData();
-
-            while(reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if (reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read(); // Move to the value
-
-                    switch (propertyName)
-                    {
-                        case "Transformation":
-                            nodeData.transformation = DeserializeMatrix4(reader);
-                            break;
-                        case "Name":
-                            nodeData.name = reader.Value.ToString();
-                            break;
-                        case "ChildrenCount":
-                            nodeData.childrenCount = Convert.ToInt32(reader.Value);
-                            break;
-                        case "Children":
-                            nodeData.children = new List<SceneNodeData>();
-                            if (reader.TokenType != JsonToken.StartArray)
-                                throw new JsonException("Expected StartArray token for Children");
-
-                            while (reader.Read())
-                            {
-                                if (reader.TokenType == JsonToken.EndArray)
-                                    break;
-
-                                if (reader.TokenType == JsonToken.StartObject)
-                                {
-                                    var childNode = DeserializeSceneNodeData(reader);
-                                    nodeData.children.Add(childNode);
-                                }
-                            }
-                            break;
-                        default:
-                            throw new JsonException($"Unexpected property name: {propertyName}");
-                    }
-                }
-            }
-            return nodeData;
-        }
-
-        public static void SerializeBoneInfo(BoneInfo boneInfo, JsonWriter writer)
-        {
-            writer.WriteStartObject();
-            writer.WritePropertyName("ID");
-            writer.WriteValue(boneInfo.id);
-            writer.WritePropertyName("Offset");
-            SerializeMatrix4(boneInfo.offset, writer);
-            writer.WriteEndObject();
-        }
-
-        public static BoneInfo DeserializeBoneInfo(JsonReader reader)
-        {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
-
-            var nodeData = new BoneInfo();
-
-            while(reader.Read())
-            {
-                if (reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if (reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read(); // Move to the value
-
-                    switch (propertyName)
-                    {
-                        case "ID":
-                            nodeData.id = Convert.ToInt32(reader.Value);
-                            break;
-                        case "Offset":
-                            nodeData.offset = Utils.DeserializeMatrix4(reader);
-                            break;
-                        default:
-                            throw new JsonException($"Unexpected property name: {propertyName}");
-                    }
-                }
-            }
-            return nodeData;
-        }
-
-        public static void SerializeKeyPosition(KeyPosition keyPosition, JsonWriter writer)
-        {
-            writer.WriteStartObject();
-            writer.WritePropertyName("Position");
-            SerializeVec3(keyPosition.position, writer);
-            writer.WritePropertyName("TimeStamp");
-            writer.WriteValue(keyPosition.timeStamp);
-            writer.WriteEndObject();
-        }
-
-        public static KeyPosition DeserializeKeyPosition(JsonReader reader)
-        {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
-
-            KeyPosition keyPosition = new KeyPosition();
-
-            while (reader.Read())
-            {
-                if (reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if (reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read(); // Move to the value
-                    switch (propertyName)
-                    {
-                        case "Position":
-                            keyPosition.position = DeserializeVec3(reader);
-                            break;
-                        case "TimeStamp":
-                            keyPosition.timeStamp = Convert.ToSingle(reader.Value);
-                            break;
-                        default:
-                            throw new JsonException($"Unexpected property name: {propertyName}");
-                    }
-                }
-            }
-            return keyPosition;
-        }
-
-        public static void SerializeKeyRotation(KeyRotation keyRotation, JsonWriter writer)
-        {
-            writer.WriteStartObject();
-            writer.WritePropertyName("Orientation");
-            SerializeQuat(keyRotation.orientation, writer);
-            writer.WritePropertyName("TimeStamp");
-            writer.WriteValue(keyRotation.timeStamp);
-            writer.WriteEndObject();
-        }
-
-        public static KeyRotation DeserializeKeyRotation(JsonReader reader)
-        {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
-
-            KeyRotation keyRotation = new KeyRotation();
-
-            while(reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if (reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read(); // Move to the value
-                    switch (propertyName)
-                    {
-                        case "Orientation":
-                            keyRotation.orientation = DeserializeQuat(reader);
-                            break;
-                        case "TimeStamp":
-                            keyRotation.timeStamp = Convert.ToSingle(reader.Value);
-                            break;
-                        default:
-                            throw new JsonException($"Unexpected property name: {propertyName}");
-                    }
-                }
-            }
-
-            return keyRotation;
-        }
-
-        public static void SerializeKeyScale(KeyScale keyScale, JsonWriter writer)
-        {
-            writer.WriteStartObject();
-            writer.WritePropertyName("Scale");
-            SerializeVec3(keyScale.scale, writer);
-            writer.WritePropertyName("TimeStamp");
-            writer.WriteValue(keyScale.timeStamp);
-            writer.WriteEndObject();
-        }
-
-        public static KeyScale DeserializeKeyScale(JsonReader reader)
-        {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
-
-            KeyScale keyScale = new KeyScale();
-
-            while(reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if (reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read(); // Move to the value
-
-                    switch (propertyName)
-                    {
-                        case "Scale":
-                            keyScale.scale = DeserializeVec3(reader);
-                            break;
-                        case "TimeStamp":
-                            keyScale.timeStamp = Convert.ToSingle(reader.Value);
-                            break;
-                        default:
-                            throw new JsonException($"Unexpected property name: {propertyName}");
-                    }
-                }
-            }
-
-            return keyScale;
         }
 
         public static void SerializeAABB(AABB aabb, JsonWriter writer)
@@ -1106,44 +583,16 @@ namespace LibGFX.Core
             writer.WriteEndObject();
         }
 
-        public static AABB DeserializeAABB(JsonReader reader)
+        public static AABB DeserializeAABB(JObject value)
         {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonException("Expected StartObject token");
-
             AABB aabb = new AABB();
-
-            while(reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if (reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read(); // Move to the value
-
-                    switch (propertyName)
-                    {
-                        case "Min":
-                            aabb.Min = DeserializeVec3(reader);
-                            break;
-                        case "Max":
-                            aabb.Max = DeserializeVec3(reader);
-                            break;
-                        default:
-                            throw new JsonException($"Unexpected property name: {propertyName}");
-                    }
-                }
-            }
+            aabb.Min = DeserializeVec3(value["Min"] as JObject);
+            aabb.Max = DeserializeVec3(value["Max"] as JObject);
             return aabb;
         }
 
-        public static GameElement DeserializeGameElement(JsonReader reader, SerializationContext serializationContext)
+        public static GameElement DeserializeGameElement(JObject obj, SerializationContext serializationContext)
         {
-            // Original-Reader steht auf StartObject
-            JObject obj = JObject.Load(reader);
-
             string typeName = obj["Type"]?.Value<string>()
                 ?? throw new JsonException("Missing Type");
 
@@ -1152,10 +601,8 @@ namespace LibGFX.Core
 
             var element = (GameElement)Activator.CreateInstance(type);
 
-            using var subReader = obj.CreateReader();
-            subReader.Read();
 
-            element.Deserialize(subReader, serializationContext);
+            element.Deserialize(obj, serializationContext);
 
             return element;
         }

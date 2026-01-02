@@ -76,9 +76,9 @@ namespace LibGFX.Graphics.Lights
         /// 'ShadowMapSize' properties.</param>
         /// <param name="serializationContext">The context to use during deserialization, providing additional information or services required for the
         /// process.</param>
-        public override void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
+        public override void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
-            base.Deserialize(reader, serializationContext, callback);
+            base.Deserialize(obj, serializationContext, callback);
         }
     }
 }

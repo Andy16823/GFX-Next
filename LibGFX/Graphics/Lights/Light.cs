@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Lights
@@ -94,64 +95,19 @@ namespace LibGFX.Graphics.Lights
             writer.WriteEndObject();
         }
 
-        /// <summary>
-        /// Populates the current object with values from the specified JSON object using the provided serialization
-        /// context.
-        /// </summary>
-        /// <param name="jObject">The JSON object containing the data to deserialize into the current instance. Cannot be null.</param>
-        /// <param name="serializationContext">The context that provides information and services for the deserialization process.</param>
-        public virtual void Deserialize(JsonReader reader, SerializationContext serializationContext, Func<JsonReader, string, bool> callback = null)
+        public virtual void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
-            if(reader.TokenType != JsonToken.StartObject)
-                throw new JsonSerializationException("Expected StartObject token");
-
-            while(reader.Read())
-            {
-                if(reader.TokenType == JsonToken.EndObject)
-                    break;
-
-                if(reader.TokenType == JsonToken.PropertyName)
-                {
-                    string propertyName = (string)reader.Value;
-                    reader.Read();
-
-                    switch (propertyName)
-                    {
-                        case "Type":
-                            // Type is handled externally
-                            reader.Skip();
-                            break;
-                        case "Name":
-                            Name = (string)reader.Value;
-                            break;
-                        case "ID":
-                            ID = Guid.Parse((string)reader.Value);
-                            break;
-                        case "Color":
-                            Color = Utils.DeserializeVec4(reader);
-                            break;
-                        case "Position":
-                            Position = Utils.DeserializeVec3(reader);
-                            break;
-                        case "Intensity":
-                            Intensity = Convert.ToSingle(reader.Value);
-                            break;
-                        case "ShadowMapSize":
-                            ShadowMapSize = Utils.DeserializeVec2i(reader);
-                            break;
-                        default:
-                            if(callback != null && callback(reader, propertyName))
-                            {
-                                break;
-                            }
-                            reader.Skip();
-                            break;
-                    }
-                }
-            }
+            // Read properties
+            this.Name = obj.Value<string>("Name") ?? ID.ToString();
+            this.ID = Guid.Parse(obj.Value<string>("ID") ?? Guid.NewGuid().ToString());
+            this.Color = Utils.DeserializeVec4(obj.Value<JObject>("Color"));
+            this.Position = Utils.DeserializeVec3(obj.Value<JObject>("Position"));
+            this.Intensity = obj.Value<float?>("Intensity") ?? 1.0f;
+            this.ShadowMapSize = Utils.DeserializeVec2i(obj.Value<JObject>("ShadowMapSize"));
 
             // Register in context
             serializationContext.SetValue<Light>(ID.ToString(), this);
+            callback?.Invoke(obj);
         }
     }
 }
