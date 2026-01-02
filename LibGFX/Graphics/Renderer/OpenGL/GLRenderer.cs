@@ -101,7 +101,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             _primitives.Add(Primitives.PrimitiveType.Quad, new Primitives.Quad().GetMesh());
             foreach(var primitive in _primitives.Values)
             {
-                this.LoadMesh(primitive);
+                primitive.Init(this);
             }
         }
 
@@ -768,7 +768,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             // Dispose all primitives
             foreach (var primitive in _primitives)
             {
-                DisposeMesh(primitive.Value);
+                primitive.Value.Dispose(this);
             }
         }
 
