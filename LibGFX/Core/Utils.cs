@@ -20,6 +20,7 @@ using System.Security.Authentication;
 using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
+using static BulletSharp.Dbvt;
 using static LibGFX.Graphics.RenderFlags;
 
 namespace LibGFX.Core
@@ -607,15 +608,45 @@ namespace LibGFX.Core
             return element;
         }
 
-        public static LibGFX.Graphics.Primitives.PrimitiveType ToPrimitiveType(int value)
+        /// <summary>
+        /// Serializes the specified vertex to JSON using the provided writer.
+        /// </summary>
+        /// <param name="writer">The JsonWriter instance used to write the serialized JSON output. Must not be null.</param>
+        /// <param name="vertex">The vertex to serialize. Must not be null.</param>
+        public static void SerializeVertex(Vertex vertex, JsonWriter writer)
         {
-            return value switch
-            {
-                0 => LibGFX.Graphics.Primitives.PrimitiveType.Cube,
-                1 => LibGFX.Graphics.Primitives.PrimitiveType.Sphere,
-                2 => LibGFX.Graphics.Primitives.PrimitiveType.Quad,
-                _ => throw new ArgumentOutOfRangeException(nameof(value), $"Invalid PrimitiveType value: {value}"),
-            };
+            writer.WriteStartObject();
+            writer.WritePropertyName("TexCoord");
+            SerializeVec2(vertex.TexCoord, writer);
+            writer.WritePropertyName("Normal");
+            SerializeVec3(vertex.Normal, writer);
+            writer.WritePropertyName("Tangent");
+            SerializeVec4(vertex.Tangent, writer);
+            writer.WritePropertyName("BoneIDs");
+            SerializeVec4i(vertex.BoneIDs, writer);
+            writer.WritePropertyName("BoneWeights");
+            SerializeVec4(vertex.BoneWeights, writer);
+            writer.WriteEndObject();
+        }
+
+        /// <summary>
+        /// Deserializes a vertex from the specified JSON object.
+        /// </summary>
+        /// <remarks>The JSON object is expected to contain the fields "TexCoord", "Normal", "Tangent",
+        /// "BoneIDs", and "BoneWeights" as nested objects. Missing or incorrectly typed fields may result in
+        /// exceptions.</remarks>
+        /// <param name="value">A <see cref="JObject"/> containing the serialized vertex data. Must not be <see langword="null"/> and must
+        /// include the required fields.</param>
+        /// <returns>A <see cref="Vertex"/> instance populated with data from the JSON object.</returns>
+        public static Vertex DeserializeVertex(JObject value)
+        {
+            Vertex vertex = new Vertex();
+            vertex.TexCoord = DeserializeVec2(value.Value<JObject>("TexCoord")!);
+            vertex.Normal = DeserializeVec3(value.Value<JObject>("Normal")!);
+            vertex.Tangent = DeserializeVec4(value.Value<JObject>("Tangent")!);
+            vertex.BoneIDs = DeserializeVec4i(value.Value<JObject>("BoneIDs")!);
+            vertex.BoneWeights = DeserializeVec4(value.Value<JObject>("BoneWeights")!);
+            return vertex;
         }
     }
 }

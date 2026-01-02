@@ -6,6 +6,7 @@ using OpenTK.Mathematics;
 using StbImageSharp;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -318,8 +319,9 @@ namespace LibGFX.Graphics
         /// </summary>
         public void FreeCPUResources()
         {
-            if(this.TextureData != null)
+            if (this.TextureData != null)
             {
+                Debug.WriteLine($"Freeing CPU resources for texture: {Name} ({ID})");
                 this.TextureData = null;
             }
         }

@@ -38,7 +38,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a mesh for the rendering pipeline
     /// </summary>
-    public class Mesh : IGraphicsResource, IIdentifier
+    public class Mesh : IGraphicsResource, IIdentifier, ISerialization
     {
         /// <summary>
         /// The name of the mesh.
@@ -150,6 +150,7 @@ namespace LibGFX.Graphics
         /// </summary>
         public void FreeCPUResources()
         {
+            Debug.WriteLine($"Freeing CPU resources for mesh: {Name} ({ID})");
             Positions?.Clear();
             Vertices?.Clear();
             Indices?.Clear();
@@ -186,6 +187,110 @@ namespace LibGFX.Graphics
                 max = Vector3.ComponentMax(max, position);
             }
             Bounds = new AABB(min, max);
+        }
+
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
+        {
+            // Write basic properties
+            writer.WriteStartObject();
+            writer.WritePropertyName("Name");
+            writer.WriteValue(Name);
+            writer.WritePropertyName("ID");
+            writer.WriteValue(ID.ToString());
+
+            // Write Positions
+            writer.WritePropertyName("Positions");
+            writer.WriteStartArray();
+            foreach (var position in Positions)
+            {
+                Utils.SerializeVec3(position, writer);
+            }
+            writer.WriteEndArray();
+
+            // Write Vertices
+            writer.WritePropertyName("Vertices");
+            writer.WriteStartArray();
+            foreach (var vertex in Vertices)
+            {
+                Utils.SerializeVertex(vertex, writer);
+            }
+            writer.WriteEndArray();
+
+            // Write Indices
+            writer.WritePropertyName("Indices");
+            writer.WriteStartArray();
+            foreach (var index in Indices)
+            {
+                writer.WriteValue(index);
+            }
+            writer.WriteEndArray();
+
+            // Write Transform
+            writer.WritePropertyName("LocalTranslation");
+            Utils.SerializeVec3(LocalTranslation, writer);
+            writer.WritePropertyName("LocalRotation");
+            Utils.SerializeQuat(LocalRotation, writer);
+            writer.WritePropertyName("LocalScale");
+            Utils.SerializeVec3(LocalScale, writer);
+
+            // Write Material reference
+            writer.WritePropertyName("Material");
+            writer.WriteValue(Material.ID.ToString());
+            writer.WriteEndObject();
+        }
+
+        public void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
+        {
+            if(this.IsInitialized) 
+                throw new InvalidOperationException("Cannot deserialize an already initialized mesh.");
+
+            // Read basic properties
+            this.Name = obj.Value<string>("Name");
+            this.ID = Guid.Parse(obj.Value<string>("ID"));
+
+            // Read Positions
+            this.Positions = new List<Vector3>();
+            var positionsArray = obj.Value<JArray>("Positions");
+            foreach (var posToken in positionsArray)
+            {
+                var posObj = (JObject)posToken;
+                this.Positions.Add(Utils.DeserializeVec3(posObj));
+            }
+
+            // Read Vertices
+            this.Vertices = new List<Vertex>();
+            var verticesArray = obj.Value<JArray>("Vertices");
+            foreach (var vertToken in verticesArray)
+            {
+                var vertObj = (JObject)vertToken;
+                this.Vertices.Add(Utils.DeserializeVertex(vertObj));
+            }
+
+            // Read Indices
+            this.Indices = new List<int>();
+            var indicesArray = obj.Value<JArray>("Indices");
+            foreach (var indexToken in indicesArray)
+            {
+                this.Indices.Add(indexToken.Value<int>());
+            }
+
+            // Read Transform
+            this.LocalTranslation = Utils.DeserializeVec3(obj.Value<JObject>("LocalTranslation"));
+            this.LocalRotation = Utils.DeserializeQuat(obj.Value<JObject>("LocalRotation"));
+            this.LocalScale = Utils.DeserializeVec3(obj.Value<JObject>("LocalScale"));
+
+            // Read Material reference
+            var materialID = obj.Value<string>("Material");
+            if(materialID != null)
+            {
+                this.Material = serializationContext.GetValue<IMaterial>(materialID);
+            }
+
+            // Invoke callback if provided
+            callback?.Invoke(obj);
+
+            // Register this mesh in the serialization context
+            serializationContext.SetValue(this.ID.ToString(), this);
         }
     }
 }

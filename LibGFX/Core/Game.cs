@@ -17,6 +17,7 @@ using LibGFX.Graphics.Renderer.OpenGL;
 using LibGFX.Physics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using OpenTK.Graphics.OpenGL4;
+using System.Diagnostics;
 
 namespace LibGFX.Core
 {
@@ -56,6 +57,11 @@ namespace LibGFX.Core
         public int TargetFrameRate { get; set; } = 120;
 
         /// <summary>
+        /// Determines whether CPU resources should be freed after loading assets.
+        /// </summary>
+        public bool FreeCPUResources { get; set; } = true;
+
+        /// <summary>
         /// Initializes a new instance of the Game class.
         /// </summary>
         protected Game()
@@ -90,12 +96,20 @@ namespace LibGFX.Core
             this.RenderDevice.MakeCurrent();
 
             // Load assets in the asset manager
+            Debug.WriteLine($"Initializing assets...");
             this.AssetManager.InitializeAssets(this.RenderDevice);
+
+            if(this.FreeCPUResources)
+            {
+                Debug.WriteLine($"Freeing CPU resources after loading assets...");
+                this.AssetManager.FreeCPUResources();
+            }
 
             // Initialize game elements
             this.Initialize(this.RenderDevice);
 
             // Call the OnStart method
+            Debug.WriteLine($"Starting game loop...");
             GC.Collect();
             this.OnStart();
 

@@ -141,6 +141,17 @@ namespace LibGFX.Graphics.Materials
         }
 
         /// <summary>
+        /// Releases any CPU-side resources associated with the material and its textures.
+        /// </summary>
+        public void FreeCPUResources()
+        {
+            Debug.WriteLine($"Freeing CPU resources for material: {Name} ({ID})");
+            this.DiffuseTexture?.FreeCPUResources();
+            this.NormalTexture?.FreeCPUResources();
+            this.SpecularTexture?.FreeCPUResources();
+        }
+
+        /// <summary>
         /// Prepares the material for rendering.
         /// </summary>
         /// <param name="renderDevice"></param>
@@ -414,13 +425,6 @@ namespace LibGFX.Graphics.Materials
             }
 
             callback?.Invoke(obj);
-        }
-
-        public void FreeCPUResources()
-        {
-            this.DiffuseTexture?.FreeCPUResources();
-            this.NormalTexture?.FreeCPUResources();
-            this.SpecularTexture?.FreeCPUResources();
         }
     }
 }
