@@ -44,7 +44,6 @@ namespace LibGFX.Core.GameElements
         {
             this.Name = name;
             _model = model;
-            this.ComputeAABB();
         }
 
         /// <summary>
@@ -58,7 +57,6 @@ namespace LibGFX.Core.GameElements
             this.Name = name;
             _model = model;
             this.Transform.Position = position; 
-            this.ComputeAABB();
         }
 
         /// <summary>
@@ -74,7 +72,6 @@ namespace LibGFX.Core.GameElements
             this.Transform.Position = position;
             this.Transform.Scale = scale;
             _model = model;
-            this.ComputeAABB();
         }
 
         /// <summary>

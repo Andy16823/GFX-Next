@@ -52,7 +52,6 @@ namespace LibGFX.Core.GameElements
             this.Name = name;
             this.Animator = new Animator();
             _model = model;
-            this.ComputeAABB();
         }
 
         /// <summary>
@@ -67,7 +66,6 @@ namespace LibGFX.Core.GameElements
             this.Transform.Position = position;
             this.Animator = new Animator();
             _model = model;
-            this.ComputeAABB();
         }
 
         /// <summary>
@@ -84,7 +82,6 @@ namespace LibGFX.Core.GameElements
             this.Transform.Scale = scale;
             this.Animator = new Animator();
             _model = model;
-            this.ComputeAABB();
         }
 
         /// <summary>

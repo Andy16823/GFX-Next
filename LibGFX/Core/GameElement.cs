@@ -121,6 +121,8 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public virtual void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
+            this.ComputeAABB();
+
             this.Behaviors.ForEach(behavior =>
             {
                 behavior.OnInit(scene, viewport, renderer);

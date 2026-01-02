@@ -79,7 +79,6 @@ namespace LibGFX.Core.GameElements
             this.Transform = new Math.Transform(position, scale);
             this.Material = material;
             this.Animator = new Animator();
-            this.ComputeAABB(); 
         }
 
         /// <summary>
@@ -96,7 +95,6 @@ namespace LibGFX.Core.GameElements
             this.Transform = new Math.Transform(position, scale);
             this.Material = material;
             this.Animator = new Animator();
-            this.ComputeAABB(); 
         }
 
         /// <summary>

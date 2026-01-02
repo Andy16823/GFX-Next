@@ -64,7 +64,6 @@ namespace LibGFX.Core.GameElements
         {
             this.Name = name;
             this.Mesh = mesh;
-            this.ComputeAABB();
         }
 
         /// <summary>

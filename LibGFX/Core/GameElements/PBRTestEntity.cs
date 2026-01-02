@@ -25,7 +25,6 @@ namespace LibGFX.Core.GameElements
             this.Mesh = new Cube().GetMesh();
             this.Mesh.Material = material;
             this.Transform = new Transform();
-            this.ComputeAABB();
         }
 
         public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
