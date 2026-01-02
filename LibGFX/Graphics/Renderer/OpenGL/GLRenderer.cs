@@ -566,6 +566,11 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return _programs.ContainsKey(name);
         }
 
+        public Mesh GetPrimitiveMesh(Primitives.PrimitiveType type)
+        {
+            return _primitives[type];
+        }
+
         public RenderShader GetRenderShader(string name)
         {
             return _programs[name];
@@ -1388,13 +1393,14 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                 VertexArray = vao,
                 PositionBuffer = positionBuffer,
                 VertexBuffer = vbo,
-                IndexBuffer = ibo
+                IndexBuffer = ibo,
+                IndexCount = mesh.Indices.Count
             };
             mesh.RenderData = renderData;
         }
 
 
-        public void DrawMesh(Transform transform, Mesh mesh)
+        public void DrawMesh(Transform transform, Mesh mesh, IMaterial materialOverwrite = null)
         {
             if(!mesh.IsInitialized)
             {
@@ -1413,14 +1419,28 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
 
             // Use the material
-            mesh.Material.Use(this);
+            if(materialOverwrite != null)
+            {
+                materialOverwrite.Use(this);
+            }
+            else
+            {
+                mesh.Material.Use(this);
+            }
 
             // Draw the mesh    
             GL.BindVertexArray(mesh.RenderData.VertexArray);
-            GL.DrawElements(BeginMode.Triangles, mesh.Indices.Count, DrawElementsType.UnsignedInt, 0);
+            GL.DrawElements(BeginMode.Triangles, mesh.RenderData.IndexCount, DrawElementsType.UnsignedInt, 0);
 
             // Unbind the material and vertex array
-            mesh.Material.Disable(this);
+            if(materialOverwrite != null)
+            {
+                materialOverwrite.Disable(this);
+            }
+            else
+            {
+                mesh.Material.Disable(this);
+            }
             GL.BindVertexArray(0);
         }
 
@@ -1674,7 +1694,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
             // Draw the mesh    
             GL.BindVertexArray(container.InstanceVAO);
-            GL.DrawElementsInstanced(PrimitiveType.Triangles, container.Mesh.Indices.Count, DrawElementsType.UnsignedInt, nint.Zero, container.Instances.Count);
+            GL.DrawElementsInstanced(PrimitiveType.Triangles, container.Mesh.RenderData.IndexCount, DrawElementsType.UnsignedInt, nint.Zero, container.Instances.Count);
 
             // Unbind the material and vertex array
             material.Disable(this);

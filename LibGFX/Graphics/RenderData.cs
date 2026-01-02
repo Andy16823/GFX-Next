@@ -12,5 +12,6 @@ namespace LibGFX.Graphics
         public int PositionBuffer;
         public int VertexBuffer;
         public int IndexBuffer;
+        public int IndexCount;
     }
 }

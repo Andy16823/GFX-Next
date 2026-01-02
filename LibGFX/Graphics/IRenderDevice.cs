@@ -81,6 +81,7 @@ namespace LibGFX.Graphics
         void DrawShape(Shape shape);
         void DisposeShape(Shape shape);
         bool IsRenderShaderRegistered(String name);
+        Mesh GetPrimitiveMesh(Primitives.PrimitiveType type);
         RenderShader GetRenderShader(String name);
         void BindShaderProgram(IShaderProgram shaderProgram);
         void UnbindShaderProgram();
@@ -113,7 +114,7 @@ namespace LibGFX.Graphics
         void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f, FontAlignment alignment = FontAlignment.BottomLeft);
         void DisposeFont(Font font);
         void LoadMesh(Mesh mesh);
-        void DrawMesh(Transform transform, Mesh mesh);
+        void DrawMesh(Transform transform, Mesh mesh, IMaterial materialOverwrite = null);
         void DisposeMesh(Mesh mesh);
         void DrawAABB(AABB aabb, Vector4 color);
         void DrawGrid(Camera camera, Vector4 color);

@@ -3,6 +3,7 @@ using LibGFX.Graphics;
 using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Primitives;
+using LibGFX.Graphics.Renderer.OpenGL;
 using LibGFX.Graphics.Shader;
 using LibGFX.Math;
 using Newtonsoft.Json;
@@ -24,11 +25,6 @@ namespace LibGFX.Core.GameElements
     public class Primitive : GameElement
     {
         /// <summary>
-        /// The name of the primitive.
-        /// </summary>
-        public Mesh Mesh { get; set; }
-
-        /// <summary>
         /// the shader program used for rendering the primitive.
         /// </summary>
         public RenderShader Shader { get; set; }
@@ -39,9 +35,17 @@ namespace LibGFX.Core.GameElements
         public PrimitiveType PrimitiveType { get; set; }
 
         /// <summary>
+        /// Gets or sets the material used to render the object.
+        /// </summary>
+        public IMaterial Material { get; set; }
+
+        /// <summary>
         /// Gets a value indicating whether the mesh's material includes transparency.
         /// </summary>
-        public override bool HasTransparency => this.Mesh.Material.IsTransparent;
+        public override bool HasTransparency => Material.IsTransparent;
+
+        // Mesh associated with the primitive
+        private Mesh _mesh;
 
         /// <summary>
         /// Initializes a new instance of the Primitive class.
@@ -56,10 +60,11 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         /// <param name="name">The name to assign to the primitive. Cannot be null or empty.</param>
         /// <param name="mesh">The mesh that defines the geometry of the primitive. Cannot be null.</param>
-        public Primitive(String name, Mesh mesh)
+        public Primitive(String name, IMaterial material, PrimitiveType type)
         {
             this.Name = name;
-            this.Mesh = mesh;
+            this.Material = material;
+            this.PrimitiveType = type;
         }
 
         /// <summary>
@@ -71,6 +76,13 @@ namespace LibGFX.Core.GameElements
         public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             base.Init(scene, viewport, renderer);
+
+            // Get the primitive mesh based on the primitive type
+            _mesh = renderer.GetPrimitiveMesh(this.PrimitiveType);
+            if (_mesh == null)
+            {
+                throw new Exception($"Failed to get mesh for primitive type {this.PrimitiveType}");
+            }
 
             // Get the default shader if none is assigned
             if (this.Shader == null)
@@ -89,7 +101,7 @@ namespace LibGFX.Core.GameElements
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             base.Render(scene, viewport, renderer, camera);
-            var transform = this.GetWorldTransform(); // Get the world transform of the primitive
+            var transform = this.GetWorldTransform();
 
             renderer.BindShaderProgram(this.Shader);
             renderer.PrepareShader("viewPos", camera.Transform.Position);
@@ -97,7 +109,7 @@ namespace LibGFX.Core.GameElements
             {
                 scene.LightManager.BindLights(viewport, renderer, camera);
             }
-            renderer.DrawMesh(transform, Mesh);
+            renderer.DrawMesh(transform, _mesh, Material);
             scene.RenderStats.IncrementDrawCalls();
             renderer.UnbindShaderProgram();
         }
@@ -112,9 +124,10 @@ namespace LibGFX.Core.GameElements
         {
             base.RenderShadow(scene, viewport, renderer);
 
+            // Use the depth mesh shader for shadow rendering
             var shader = renderer.GetRenderShader("DepthMeshShader");
             renderer.BindShaderProgram(shader);
-            renderer.DrawMesh(this.Transform, Mesh);
+            renderer.DrawMesh(this.Transform, _mesh, Material);
             scene.RenderStats.IncrementDrawCalls();
             renderer.UnbindShaderProgram();
         }
@@ -135,7 +148,7 @@ namespace LibGFX.Core.GameElements
         /// <returns></returns>
         public override Mesh[]? GetMeshes()
         {
-            return new Mesh[] { this.Mesh };
+            return new Mesh[] { _mesh };
         }
 
         /// <summary>
@@ -143,52 +156,21 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         public override void ComputeAABB()
         {
-            if (Mesh == null)
+            if (_mesh == null)
             {
                 this.AABB = new AABB(Vector3.Zero, Vector3.Zero);
                 return;
             }
 
-            this.AABB = this.Mesh.Bounds;
+            this.AABB = _mesh.Bounds;
         }
 
         /// <summary>
-        /// Creates a new primitive object with the specified name, material, and type, and registers its mesh with the
-        /// asset manager.
+        /// Serializes the primitive to JSON format.
         /// </summary>
-        /// <remarks>The created mesh is automatically added to the provided asset manager. Supported
-        /// primitive types include quad, cube, and sphere. If an unsupported type is specified, a cube is created by
-        /// default.</remarks>
-        /// <param name="name">The name to assign to the created primitive.</param>
-        /// <param name="material">The material to apply to the primitive's mesh. Cannot be null.</param>
-        /// <param name="assets">The asset manager used to register the generated mesh. Cannot be null.</param>
-        /// <param name="type">The type of primitive to create. Defaults to <see cref="PrimitiveType.Cube"/> if not specified.</param>
-        /// <returns>A new <see cref="Primitive"/> instance representing the created primitive with the specified properties.</returns>
-        public static Primitive CreatePrimitive(String name, IMaterial material, AssetManager assets, PrimitiveType type = PrimitiveType.Cube)
-        {
-            var mesh = new Mesh();
-            switch (type)
-            {
-                case PrimitiveType.Quad:
-                    mesh = new Quad().GetMesh();
-                    break;
-                case PrimitiveType.Cube:
-                    mesh = new Cube().GetMesh();
-                    break;
-                case PrimitiveType.Sphere:
-                    mesh = new Sphere().GetMesh();
-                    break;
-                default:
-                    mesh = new Cube().GetMesh();
-                    break;
-            }
-
-            mesh.Name = mesh.ID.ToString();
-            mesh.Material = material;
-            assets.Add(mesh);
-            return new Primitive(name, mesh);
-        }
-
+        /// <param name="writer"></param>
+        /// <param name="serializationContext"></param>
+        /// <param name="callback"></param>
         public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
             base.Serialize(writer, serializationContext, (w) =>
@@ -199,6 +181,12 @@ namespace LibGFX.Core.GameElements
             });
         }
 
+        /// <summary>
+        /// Deserializes the primitive from JSON format.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="serializationContext"></param>
+        /// <param name="callback"></param>
         public override void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
             base.Deserialize(obj, serializationContext, (refObj) =>

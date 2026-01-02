@@ -143,8 +143,7 @@ namespace LibGFX.Graphics
             ComputeBounds();
             renderer.LoadMesh(this);
             IsInitialized = true;
-            Positions = new List<Vector3>();
-            Vertices = new List<Vertex>();
+            this.FreeCPUResources();
         }
 
         /// <summary>
@@ -157,6 +156,13 @@ namespace LibGFX.Graphics
         {
             renderer.DisposeMesh(this);
             IsInitialized = false;
+        }
+
+        private void FreeCPUResources()
+        {
+            Positions = null;
+            Vertices = null;
+            Indices = null;
         }
 
         /// <summary>
