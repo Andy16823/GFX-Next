@@ -113,13 +113,18 @@ namespace LibGFX.Core
             GC.Collect();
             this.OnStart();
 
+            double lastTime = GLFW.GetTime();
+
             while (!this.Window.RequestClose())
             {
-                var deltaTime = (float)GLFW.GetTime();
+                // Calculate delta time
+                var currentTime = GLFW.GetTime();
+                float deltaTime = (float)(currentTime - lastTime);
 
-                if(deltaTime >= 1.0f / this.TargetFrameRate)
+                // Update and render the game
+                if (useVsync || deltaTime >= 1.0f / this.TargetFrameRate)
                 {
-                    GLFW.SetTime(0);
+                    lastTime = currentTime;
 
                     // Process window events and update game state
                     this.Window.ProcessEvents();

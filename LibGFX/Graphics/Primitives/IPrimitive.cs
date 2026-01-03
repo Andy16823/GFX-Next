@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibGFX.Graphics.Materials;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +14,8 @@ namespace LibGFX.Graphics.Primitives
         Quad,
     }
 
-    public interface IPrimitive
+    public interface IPrimitive<TSelf> where TSelf : IPrimitive<TSelf>
     {
-        Mesh GetMesh();    
+        static abstract Mesh GetMesh(IMaterial material = null);
     }
 }

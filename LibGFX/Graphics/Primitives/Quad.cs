@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assimp;
+using LibGFX.Graphics.Materials;
 using OpenTK.Mathematics;
 
 namespace LibGFX.Graphics.Primitives
 {
-    public class Quad : IPrimitive
+    public class Quad : IPrimitive<Quad>
     {
-        public Mesh GetMesh()
+        public static Mesh GetMesh(IMaterial material = null)
         {
             var mesh = new Mesh();
             mesh.Name = "Quad";
+            mesh.Material = material;
 
             mesh.Positions = new List<Vector3>
             {

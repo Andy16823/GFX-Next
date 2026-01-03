@@ -96,9 +96,9 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
             // Register default primitives
             _primitives = new Dictionary<Primitives.PrimitiveType, Mesh>();
-            _primitives.Add(Primitives.PrimitiveType.Cube, new Primitives.Cube().GetMesh());
-            _primitives.Add(Primitives.PrimitiveType.Sphere, new Primitives.Sphere().GetMesh());
-            _primitives.Add(Primitives.PrimitiveType.Quad, new Primitives.Quad().GetMesh());
+            _primitives.Add(Primitives.PrimitiveType.Cube, Primitives.Cube.GetMesh());
+            _primitives.Add(Primitives.PrimitiveType.Sphere, Primitives.Sphere.GetMesh());
+            _primitives.Add(Primitives.PrimitiveType.Quad, Primitives.Quad.GetMesh());
             foreach(var primitive in _primitives.Values)
             {
                 primitive.Init(this);

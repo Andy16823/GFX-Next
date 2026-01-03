@@ -22,8 +22,7 @@ namespace LibGFX.Core.GameElements
         public PBRTestEntity(String name, PBRMaterial material) 
         {
             this.Name = name;
-            this.Mesh = new Cube().GetMesh();
-            this.Mesh.Material = material;
+            this.Mesh = Cube.GetMesh(material);
             this.Transform = new Transform();
         }
 

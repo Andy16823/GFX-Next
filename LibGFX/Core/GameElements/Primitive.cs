@@ -35,9 +35,14 @@ namespace LibGFX.Core.GameElements
         public Mesh Mesh { get; set; }
 
         /// <summary>
+        /// Override to get or set the material associated with this primitive.
+        /// </summary>
+        public IMaterial Material { get; set; }
+
+        /// <summary>
         /// Gets a value indicating whether the mesh's material includes transparency.
         /// </summary>
-        public override bool HasTransparency => Mesh.Material.IsTransparent;
+        public override bool HasTransparency => hasTransparency();
 
         /// <summary>
         /// Initializes a new instance of the Primitive class.
@@ -56,6 +61,20 @@ namespace LibGFX.Core.GameElements
         {
             this.Name = name;
             this.Mesh = mesh;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the Primitive class with the specified name, mesh, and material.
+        /// </summary>
+        /// <remarks>This constructor uses an material override. The mesh material wont get replaced.</remarks>
+        /// <param name="name">The name to assign to the primitive. Cannot be null or empty.</param>
+        /// <param name="mesh">The mesh that defines the geometry of the primitive. Cannot be null.</param>
+        /// <param name="material">The material to apply to the primitive. Cannot be null.</param>
+        public Primitive(String name, Mesh mesh, IMaterial material)
+        {
+            this.Name = name;
+            this.Mesh = mesh;
+            this.Material = material;
         }
 
         /// <summary>
@@ -94,7 +113,7 @@ namespace LibGFX.Core.GameElements
             {
                 scene.LightManager.BindLights(viewport, renderer, camera);
             }
-            renderer.DrawMesh(transform, Mesh);
+            renderer.DrawMesh(transform, Mesh, Material);
             scene.RenderStats.IncrementDrawCalls();
             renderer.UnbindShaderProgram();
         }
@@ -112,7 +131,7 @@ namespace LibGFX.Core.GameElements
             // Use the depth mesh shader for shadow rendering
             var shader = renderer.GetRenderShader("DepthMeshShader");
             renderer.BindShaderProgram(shader);
-            renderer.DrawMesh(this.Transform, this.Mesh);
+            renderer.DrawMesh(this.Transform, this.Mesh, this.Material);
             scene.RenderStats.IncrementDrawCalls();
             renderer.UnbindShaderProgram();
         }
@@ -148,6 +167,20 @@ namespace LibGFX.Core.GameElements
             }
 
             this.AABB = Mesh.Bounds;
+        }
+
+        /// <summary>
+        /// Internal method to determine if the primitive has transparency.
+        /// </summary>
+        /// <returns></returns>
+        private bool hasTransparency()
+        {
+            if(this.Material != null)
+            {
+                return this.Material.IsTransparent;
+            }
+            
+            return this.Mesh?.Material.IsTransparent ?? false;
         }
 
         /// <summary>
@@ -215,21 +248,20 @@ namespace LibGFX.Core.GameElements
             switch (type)
             {
                 case PrimitiveType.Quad:
-                    mesh = new Quad().GetMesh();
+                    mesh = Quad.GetMesh(material);
                     break;
                 case PrimitiveType.Cube:
-                    mesh = new Cube().GetMesh();
+                    mesh = Cube.GetMesh(material);
                     break;
                 case PrimitiveType.Sphere:
-                    mesh = new Sphere().GetMesh();
+                    mesh = Sphere.GetMesh(material);
                     break;
                 default:
-                    mesh = new Cube().GetMesh();
+                    mesh = Cube.GetMesh(material);
                     break;
             }
 
             mesh.Name = mesh.ID.ToString();
-            mesh.Material = material;
             assets.Add(mesh);
             return new Primitive(name, mesh);
         }

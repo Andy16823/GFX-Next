@@ -1,4 +1,5 @@
-﻿using OpenTK.Mathematics;
+﻿using LibGFX.Graphics.Materials;
+using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Primitives
 {
-    public class Cube : IPrimitive
+    public class Cube : IPrimitive<Cube>
     {
-        public Mesh GetMesh()
+        public static Mesh GetMesh(IMaterial material = null)
         {
             var mesh = new Mesh();
             mesh.Name = "Cube";
+            mesh.Material = material;
 
             mesh.Positions = new List<Vector3>
             {

@@ -48,7 +48,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="material"></param>
         public SpriteInstancer(IMaterial material)
         {
-            this.Mesh = new Quad().GetMesh();
+            this.Mesh = Quad.GetMesh();
             this.Material = material;
             this.InstanceContainer = new RenderInstanceContainer();
         }
@@ -60,7 +60,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="instances"></param>
         public SpriteInstancer(IMaterial material, uint instances)
         {
-            this.Mesh = new Quad().GetMesh();
+            this.Mesh = Quad.GetMesh();
             this.Material = material;
             this.InstanceContainer = new RenderInstanceContainer();
             this.BakeInstances((uint)instances);
