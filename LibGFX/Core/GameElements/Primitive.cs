@@ -37,7 +37,7 @@ namespace LibGFX.Core.GameElements
         /// <summary>
         /// Override to get or set the material associated with this primitive.
         /// </summary>
-        public IMaterial Material { get; set; }
+        public IMaterial MaterialOverride { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether the mesh's material includes transparency.
@@ -74,7 +74,7 @@ namespace LibGFX.Core.GameElements
         {
             this.Name = name;
             this.Mesh = mesh;
-            this.Material = material;
+            this.MaterialOverride = material;
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace LibGFX.Core.GameElements
             {
                 scene.LightManager.BindLights(viewport, renderer, camera);
             }
-            renderer.DrawMesh(transform, Mesh, Material);
+            renderer.DrawMesh(transform, Mesh, MaterialOverride);
             scene.RenderStats.IncrementDrawCalls();
             renderer.UnbindShaderProgram();
         }
@@ -131,7 +131,7 @@ namespace LibGFX.Core.GameElements
             // Use the depth mesh shader for shadow rendering
             var shader = renderer.GetRenderShader("DepthMeshShader");
             renderer.BindShaderProgram(shader);
-            renderer.DrawMesh(this.Transform, this.Mesh, this.Material);
+            renderer.DrawMesh(Transform, Mesh, MaterialOverride);
             scene.RenderStats.IncrementDrawCalls();
             renderer.UnbindShaderProgram();
         }
@@ -175,9 +175,9 @@ namespace LibGFX.Core.GameElements
         /// <returns></returns>
         private bool hasTransparency()
         {
-            if(this.Material != null)
+            if(this.MaterialOverride != null)
             {
-                return this.Material.IsTransparent;
+                return this.MaterialOverride.IsTransparent;
             }
             
             return this.Mesh?.Material.IsTransparent ?? false;
