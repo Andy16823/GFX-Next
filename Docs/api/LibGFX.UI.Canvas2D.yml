@@ -1,0 +1,1144 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.UI.Canvas2D
+  commentId: T:LibGFX.UI.Canvas2D
+  id: Canvas2D
+  parent: LibGFX.UI
+  children:
+  - LibGFX.UI.Canvas2D.#ctor(System.Single,System.Single,System.Single,System.Single)
+  - LibGFX.UI.Canvas2D.Dispose(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.UI.Canvas2D.GetMousePosition(LibGFX.Core.Window)
+  - LibGFX.UI.Canvas2D.Init(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.UI.Canvas2D.Render(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.UI.Canvas2D.RenderTarget
+  - LibGFX.UI.Canvas2D.Update(LibGFX.Core.Window)
+  langs:
+  - csharp
+  - vb
+  name: Canvas2D
+  nameWithType: Canvas2D
+  fullName: LibGFX.UI.Canvas2D
+  type: Class
+  source:
+    remote:
+      path: LibGFX/UI/Canvas2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Canvas2D
+    path: ../LibGFX/UI/Canvas2D.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: Represents a 2D canvas for rendering UI elements.
+  example: []
+  syntax:
+    content: 'public class Canvas2D : Canvas'
+    content.vb: Public Class Canvas2D Inherits Canvas
+  inheritance:
+  - System.Object
+  - LibGFX.UI.Canvas
+  inheritedMembers:
+  - LibGFX.UI.Canvas.Name
+  - LibGFX.UI.Canvas.Camera
+  - LibGFX.UI.Canvas.Transform
+  - LibGFX.UI.Canvas.Controls
+  - LibGFX.UI.Canvas.AddRenderAction(System.Action{LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice})
+  - LibGFX.UI.Canvas.ProcessRenderActions(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.UI.Canvas.AddControl(LibGFX.UI.Control)
+  - LibGFX.UI.Canvas.RemoveControl(System.String)
+  - LibGFX.UI.Canvas.GetControl(System.String)
+  - LibGFX.UI.Canvas.GetControl``1(System.String)
+  - LibGFX.UI.Canvas.GetControl``1
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.UI.Canvas2D.RenderTarget
+  commentId: P:LibGFX.UI.Canvas2D.RenderTarget
+  id: RenderTarget
+  parent: LibGFX.UI.Canvas2D
+  langs:
+  - csharp
+  - vb
+  name: RenderTarget
+  nameWithType: Canvas2D.RenderTarget
+  fullName: LibGFX.UI.Canvas2D.RenderTarget
+  type: Property
+  source:
+    remote:
+      path: LibGFX/UI/Canvas2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderTarget
+    path: ../LibGFX/UI/Canvas2D.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: The render target of the canvas
+  example: []
+  syntax:
+    content: public override IRenderTarget RenderTarget { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.IRenderTarget
+    content.vb: Public Overrides ReadOnly Property RenderTarget As IRenderTarget
+  overridden: LibGFX.UI.Canvas.RenderTarget
+  overload: LibGFX.UI.Canvas2D.RenderTarget*
+- uid: LibGFX.UI.Canvas2D.#ctor(System.Single,System.Single,System.Single,System.Single)
+  commentId: M:LibGFX.UI.Canvas2D.#ctor(System.Single,System.Single,System.Single,System.Single)
+  id: '#ctor(System.Single,System.Single,System.Single,System.Single)'
+  parent: LibGFX.UI.Canvas2D
+  langs:
+  - csharp
+  - vb
+  name: Canvas2D(float, float, float, float)
+  nameWithType: Canvas2D.Canvas2D(float, float, float, float)
+  fullName: LibGFX.UI.Canvas2D.Canvas2D(float, float, float, float)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/UI/Canvas2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/UI/Canvas2D.cs
+    startLine: 31
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: Creates a new instance of the Canvas2D class with the specified position and size.
+  example: []
+  syntax:
+    content: public Canvas2D(float x, float y, float width, float height)
+    parameters:
+    - id: x
+      type: System.Single
+      description: ''
+    - id: y
+      type: System.Single
+      description: ''
+    - id: width
+      type: System.Single
+      description: ''
+    - id: height
+      type: System.Single
+      description: ''
+    content.vb: Public Sub New(x As Single, y As Single, width As Single, height As Single)
+  overload: LibGFX.UI.Canvas2D.#ctor*
+  nameWithType.vb: Canvas2D.New(Single, Single, Single, Single)
+  fullName.vb: LibGFX.UI.Canvas2D.New(Single, Single, Single, Single)
+  name.vb: New(Single, Single, Single, Single)
+- uid: LibGFX.UI.Canvas2D.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.UI.Canvas2D.Dispose(LibGFX.Graphics.IRenderDevice)
+  id: Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.UI.Canvas2D
+  langs:
+  - csharp
+  - vb
+  name: Dispose(IRenderDevice)
+  nameWithType: Canvas2D.Dispose(IRenderDevice)
+  fullName: LibGFX.UI.Canvas2D.Dispose(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/UI/Canvas2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/UI/Canvas2D.cs
+    startLine: 46
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: Disposes the canvas and its controls.
+  example: []
+  syntax:
+    content: public override void Dispose(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Overrides Sub Dispose(renderer As IRenderDevice)
+  overridden: LibGFX.UI.Canvas.Dispose(LibGFX.Graphics.IRenderDevice)
+  overload: LibGFX.UI.Canvas2D.Dispose*
+- uid: LibGFX.UI.Canvas2D.Init(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.UI.Canvas2D.Init(LibGFX.Graphics.IRenderDevice)
+  id: Init(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.UI.Canvas2D
+  langs:
+  - csharp
+  - vb
+  name: Init(IRenderDevice)
+  nameWithType: Canvas2D.Init(IRenderDevice)
+  fullName: LibGFX.UI.Canvas2D.Init(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/UI/Canvas2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Init
+    path: ../LibGFX/UI/Canvas2D.cs
+    startLine: 60
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: Initializes the canvas and its controls.
+  example: []
+  syntax:
+    content: public override void Init(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Overrides Sub Init(renderer As IRenderDevice)
+  overridden: LibGFX.UI.Canvas.Init(LibGFX.Graphics.IRenderDevice)
+  overload: LibGFX.UI.Canvas2D.Init*
+- uid: LibGFX.UI.Canvas2D.Render(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.UI.Canvas2D.Render(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: Render(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.UI.Canvas2D
+  langs:
+  - csharp
+  - vb
+  name: Render(Viewport, IRenderDevice)
+  nameWithType: Canvas2D.Render(Viewport, IRenderDevice)
+  fullName: LibGFX.UI.Canvas2D.Render(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/UI/Canvas2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Render
+    path: ../LibGFX/UI/Canvas2D.cs
+    startLine: 74
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: Renders the canvas and its controls to the specified viewport using the specified render _device.
+  example: []
+  syntax:
+    content: public override void Render(Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Overrides Sub Render(viewport As Viewport, renderer As IRenderDevice)
+  overridden: LibGFX.UI.Canvas.Render(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  overload: LibGFX.UI.Canvas2D.Render*
+- uid: LibGFX.UI.Canvas2D.Update(LibGFX.Core.Window)
+  commentId: M:LibGFX.UI.Canvas2D.Update(LibGFX.Core.Window)
+  id: Update(LibGFX.Core.Window)
+  parent: LibGFX.UI.Canvas2D
+  langs:
+  - csharp
+  - vb
+  name: Update(Window)
+  nameWithType: Canvas2D.Update(Window)
+  fullName: LibGFX.UI.Canvas2D.Update(LibGFX.Core.Window)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/UI/Canvas2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Update
+    path: ../LibGFX/UI/Canvas2D.cs
+    startLine: 123
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: Updates the canvas and its controls.
+  example: []
+  syntax:
+    content: public override void Update(Window window)
+    parameters:
+    - id: window
+      type: LibGFX.Core.Window
+    content.vb: Public Overrides Sub Update(window As Window)
+  overridden: LibGFX.UI.Canvas.Update(LibGFX.Core.Window)
+  overload: LibGFX.UI.Canvas2D.Update*
+- uid: LibGFX.UI.Canvas2D.GetMousePosition(LibGFX.Core.Window)
+  commentId: M:LibGFX.UI.Canvas2D.GetMousePosition(LibGFX.Core.Window)
+  id: GetMousePosition(LibGFX.Core.Window)
+  parent: LibGFX.UI.Canvas2D
+  langs:
+  - csharp
+  - vb
+  name: GetMousePosition(Window)
+  nameWithType: Canvas2D.GetMousePosition(Window)
+  fullName: LibGFX.UI.Canvas2D.GetMousePosition(LibGFX.Core.Window)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/UI/Canvas2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetMousePosition
+    path: ../LibGFX/UI/Canvas2D.cs
+    startLine: 136
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: Gets the mouse position in the canvas.
+  example: []
+  syntax:
+    content: public override Vector2 GetMousePosition(Window window)
+    parameters:
+    - id: window
+      type: LibGFX.Core.Window
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector2
+      description: ''
+    content.vb: Public Overrides Function GetMousePosition(window As Window) As Vector2
+  overridden: LibGFX.UI.Canvas.GetMousePosition(LibGFX.Core.Window)
+  overload: LibGFX.UI.Canvas2D.GetMousePosition*
+references:
+- uid: LibGFX.UI
+  commentId: N:LibGFX.UI
+  href: LibGFX.html
+  name: LibGFX.UI
+  nameWithType: LibGFX.UI
+  fullName: LibGFX.UI
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.UI
+    name: UI
+    href: LibGFX.UI.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.UI
+    name: UI
+    href: LibGFX.UI.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.UI.Canvas
+  commentId: T:LibGFX.UI.Canvas
+  parent: LibGFX.UI
+  href: LibGFX.UI.Canvas.html
+  name: Canvas
+  nameWithType: Canvas
+  fullName: LibGFX.UI.Canvas
+- uid: LibGFX.UI.Canvas.Name
+  commentId: P:LibGFX.UI.Canvas.Name
+  parent: LibGFX.UI.Canvas
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_Name
+  name: Name
+  nameWithType: Canvas.Name
+  fullName: LibGFX.UI.Canvas.Name
+- uid: LibGFX.UI.Canvas.Camera
+  commentId: P:LibGFX.UI.Canvas.Camera
+  parent: LibGFX.UI.Canvas
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_Camera
+  name: Camera
+  nameWithType: Canvas.Camera
+  fullName: LibGFX.UI.Canvas.Camera
+- uid: LibGFX.UI.Canvas.Transform
+  commentId: P:LibGFX.UI.Canvas.Transform
+  parent: LibGFX.UI.Canvas
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_Transform
+  name: Transform
+  nameWithType: Canvas.Transform
+  fullName: LibGFX.UI.Canvas.Transform
+- uid: LibGFX.UI.Canvas.Controls
+  commentId: P:LibGFX.UI.Canvas.Controls
+  parent: LibGFX.UI.Canvas
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_Controls
+  name: Controls
+  nameWithType: Canvas.Controls
+  fullName: LibGFX.UI.Canvas.Controls
+- uid: LibGFX.UI.Canvas.AddRenderAction(System.Action{LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice})
+  commentId: M:LibGFX.UI.Canvas.AddRenderAction(System.Action{LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice})
+  parent: LibGFX.UI.Canvas
+  isExternal: true
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_AddRenderAction_System_Action_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice__
+  name: AddRenderAction(Action<Viewport, IRenderDevice>)
+  nameWithType: Canvas.AddRenderAction(Action<Viewport, IRenderDevice>)
+  fullName: LibGFX.UI.Canvas.AddRenderAction(System.Action<LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice>)
+  nameWithType.vb: Canvas.AddRenderAction(Action(Of Viewport, IRenderDevice))
+  fullName.vb: LibGFX.UI.Canvas.AddRenderAction(System.Action(Of LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice))
+  name.vb: AddRenderAction(Action(Of Viewport, IRenderDevice))
+  spec.csharp:
+  - uid: LibGFX.UI.Canvas.AddRenderAction(System.Action{LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice})
+    name: AddRenderAction
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_AddRenderAction_System_Action_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice__
+  - name: (
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Canvas.AddRenderAction(System.Action{LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice})
+    name: AddRenderAction
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_AddRenderAction_System_Action_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice__
+  - name: (
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  - name: )
+- uid: LibGFX.UI.Canvas.ProcessRenderActions(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.UI.Canvas.ProcessRenderActions(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.UI.Canvas
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_ProcessRenderActions_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: ProcessRenderActions(Viewport, IRenderDevice)
+  nameWithType: Canvas.ProcessRenderActions(Viewport, IRenderDevice)
+  fullName: LibGFX.UI.Canvas.ProcessRenderActions(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.UI.Canvas.ProcessRenderActions(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: ProcessRenderActions
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_ProcessRenderActions_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Canvas.ProcessRenderActions(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: ProcessRenderActions
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_ProcessRenderActions_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.UI.Canvas.AddControl(LibGFX.UI.Control)
+  commentId: M:LibGFX.UI.Canvas.AddControl(LibGFX.UI.Control)
+  parent: LibGFX.UI.Canvas
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_AddControl_LibGFX_UI_Control_
+  name: AddControl(Control)
+  nameWithType: Canvas.AddControl(Control)
+  fullName: LibGFX.UI.Canvas.AddControl(LibGFX.UI.Control)
+  spec.csharp:
+  - uid: LibGFX.UI.Canvas.AddControl(LibGFX.UI.Control)
+    name: AddControl
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_AddControl_LibGFX_UI_Control_
+  - name: (
+  - uid: LibGFX.UI.Control
+    name: Control
+    href: LibGFX.UI.Control.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Canvas.AddControl(LibGFX.UI.Control)
+    name: AddControl
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_AddControl_LibGFX_UI_Control_
+  - name: (
+  - uid: LibGFX.UI.Control
+    name: Control
+    href: LibGFX.UI.Control.html
+  - name: )
+- uid: LibGFX.UI.Canvas.RemoveControl(System.String)
+  commentId: M:LibGFX.UI.Canvas.RemoveControl(System.String)
+  parent: LibGFX.UI.Canvas
+  isExternal: true
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_RemoveControl_System_String_
+  name: RemoveControl(string)
+  nameWithType: Canvas.RemoveControl(string)
+  fullName: LibGFX.UI.Canvas.RemoveControl(string)
+  nameWithType.vb: Canvas.RemoveControl(String)
+  fullName.vb: LibGFX.UI.Canvas.RemoveControl(String)
+  name.vb: RemoveControl(String)
+  spec.csharp:
+  - uid: LibGFX.UI.Canvas.RemoveControl(System.String)
+    name: RemoveControl
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_RemoveControl_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Canvas.RemoveControl(System.String)
+    name: RemoveControl
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_RemoveControl_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: LibGFX.UI.Canvas.GetControl(System.String)
+  commentId: M:LibGFX.UI.Canvas.GetControl(System.String)
+  parent: LibGFX.UI.Canvas
+  isExternal: true
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_GetControl_System_String_
+  name: GetControl(string)
+  nameWithType: Canvas.GetControl(string)
+  fullName: LibGFX.UI.Canvas.GetControl(string)
+  nameWithType.vb: Canvas.GetControl(String)
+  fullName.vb: LibGFX.UI.Canvas.GetControl(String)
+  name.vb: GetControl(String)
+  spec.csharp:
+  - uid: LibGFX.UI.Canvas.GetControl(System.String)
+    name: GetControl
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_GetControl_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Canvas.GetControl(System.String)
+    name: GetControl
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_GetControl_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: LibGFX.UI.Canvas.GetControl``1(System.String)
+  commentId: M:LibGFX.UI.Canvas.GetControl``1(System.String)
+  parent: LibGFX.UI.Canvas
+  isExternal: true
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_GetControl__1_System_String_
+  name: GetControl<T>(string)
+  nameWithType: Canvas.GetControl<T>(string)
+  fullName: LibGFX.UI.Canvas.GetControl<T>(string)
+  nameWithType.vb: Canvas.GetControl(Of T)(String)
+  fullName.vb: LibGFX.UI.Canvas.GetControl(Of T)(String)
+  name.vb: GetControl(Of T)(String)
+  spec.csharp:
+  - uid: LibGFX.UI.Canvas.GetControl``1(System.String)
+    name: GetControl
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_GetControl__1_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Canvas.GetControl``1(System.String)
+    name: GetControl
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_GetControl__1_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: LibGFX.UI.Canvas.GetControl``1
+  commentId: M:LibGFX.UI.Canvas.GetControl``1
+  parent: LibGFX.UI.Canvas
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_GetControl__1
+  name: GetControl<T>()
+  nameWithType: Canvas.GetControl<T>()
+  fullName: LibGFX.UI.Canvas.GetControl<T>()
+  nameWithType.vb: Canvas.GetControl(Of T)()
+  fullName.vb: LibGFX.UI.Canvas.GetControl(Of T)()
+  name.vb: GetControl(Of T)()
+  spec.csharp:
+  - uid: LibGFX.UI.Canvas.GetControl``1
+    name: GetControl
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_GetControl__1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Canvas.GetControl``1
+    name: GetControl
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_GetControl__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.UI.Canvas.RenderTarget
+  commentId: P:LibGFX.UI.Canvas.RenderTarget
+  parent: LibGFX.UI.Canvas
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_RenderTarget
+  name: RenderTarget
+  nameWithType: Canvas.RenderTarget
+  fullName: LibGFX.UI.Canvas.RenderTarget
+- uid: LibGFX.UI.Canvas2D.RenderTarget*
+  commentId: Overload:LibGFX.UI.Canvas2D.RenderTarget
+  href: LibGFX.UI.Canvas2D.html#LibGFX_UI_Canvas2D_RenderTarget
+  name: RenderTarget
+  nameWithType: Canvas2D.RenderTarget
+  fullName: LibGFX.UI.Canvas2D.RenderTarget
+- uid: LibGFX.Graphics.IRenderTarget
+  commentId: T:LibGFX.Graphics.IRenderTarget
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderTarget.html
+  name: IRenderTarget
+  nameWithType: IRenderTarget
+  fullName: LibGFX.Graphics.IRenderTarget
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.UI.Canvas2D.#ctor*
+  commentId: Overload:LibGFX.UI.Canvas2D.#ctor
+  href: LibGFX.UI.Canvas2D.html#LibGFX_UI_Canvas2D__ctor_System_Single_System_Single_System_Single_System_Single_
+  name: Canvas2D
+  nameWithType: Canvas2D.Canvas2D
+  fullName: LibGFX.UI.Canvas2D.Canvas2D
+  nameWithType.vb: Canvas2D.New
+  fullName.vb: LibGFX.UI.Canvas2D.New
+  name.vb: New
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.UI.Canvas.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.UI.Canvas.Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.UI.Canvas
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose(IRenderDevice)
+  nameWithType: Canvas.Dispose(IRenderDevice)
+  fullName: LibGFX.UI.Canvas.Dispose(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.UI.Canvas.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Canvas.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.UI.Canvas2D.Dispose*
+  commentId: Overload:LibGFX.UI.Canvas2D.Dispose
+  href: LibGFX.UI.Canvas2D.html#LibGFX_UI_Canvas2D_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose
+  nameWithType: Canvas2D.Dispose
+  fullName: LibGFX.UI.Canvas2D.Dispose
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.UI.Canvas.Init(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.UI.Canvas.Init(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.UI.Canvas
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_Init_LibGFX_Graphics_IRenderDevice_
+  name: Init(IRenderDevice)
+  nameWithType: Canvas.Init(IRenderDevice)
+  fullName: LibGFX.UI.Canvas.Init(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.UI.Canvas.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Canvas.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.UI.Canvas2D.Init*
+  commentId: Overload:LibGFX.UI.Canvas2D.Init
+  href: LibGFX.UI.Canvas2D.html#LibGFX_UI_Canvas2D_Init_LibGFX_Graphics_IRenderDevice_
+  name: Init
+  nameWithType: Canvas2D.Init
+  fullName: LibGFX.UI.Canvas2D.Init
+- uid: LibGFX.UI.Canvas.Render(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.UI.Canvas.Render(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.UI.Canvas
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_Render_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Render(Viewport, IRenderDevice)
+  nameWithType: Canvas.Render(Viewport, IRenderDevice)
+  fullName: LibGFX.UI.Canvas.Render(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.UI.Canvas.Render(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Render
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_Render_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Canvas.Render(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Render
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_Render_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.UI.Canvas2D.Render*
+  commentId: Overload:LibGFX.UI.Canvas2D.Render
+  href: LibGFX.UI.Canvas2D.html#LibGFX_UI_Canvas2D_Render_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Render
+  nameWithType: Canvas2D.Render
+  fullName: LibGFX.UI.Canvas2D.Render
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.UI.Canvas.Update(LibGFX.Core.Window)
+  commentId: M:LibGFX.UI.Canvas.Update(LibGFX.Core.Window)
+  parent: LibGFX.UI.Canvas
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_Update_LibGFX_Core_Window_
+  name: Update(Window)
+  nameWithType: Canvas.Update(Window)
+  fullName: LibGFX.UI.Canvas.Update(LibGFX.Core.Window)
+  spec.csharp:
+  - uid: LibGFX.UI.Canvas.Update(LibGFX.Core.Window)
+    name: Update
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_Update_LibGFX_Core_Window_
+  - name: (
+  - uid: LibGFX.Core.Window
+    name: Window
+    href: LibGFX.Core.Window.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Canvas.Update(LibGFX.Core.Window)
+    name: Update
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_Update_LibGFX_Core_Window_
+  - name: (
+  - uid: LibGFX.Core.Window
+    name: Window
+    href: LibGFX.Core.Window.html
+  - name: )
+- uid: LibGFX.UI.Canvas2D.Update*
+  commentId: Overload:LibGFX.UI.Canvas2D.Update
+  href: LibGFX.UI.Canvas2D.html#LibGFX_UI_Canvas2D_Update_LibGFX_Core_Window_
+  name: Update
+  nameWithType: Canvas2D.Update
+  fullName: LibGFX.UI.Canvas2D.Update
+- uid: LibGFX.Core.Window
+  commentId: T:LibGFX.Core.Window
+  parent: LibGFX.Core
+  href: LibGFX.Core.Window.html
+  name: Window
+  nameWithType: Window
+  fullName: LibGFX.Core.Window
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.UI.Canvas.GetMousePosition(LibGFX.Core.Window)
+  commentId: M:LibGFX.UI.Canvas.GetMousePosition(LibGFX.Core.Window)
+  parent: LibGFX.UI.Canvas
+  href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_GetMousePosition_LibGFX_Core_Window_
+  name: GetMousePosition(Window)
+  nameWithType: Canvas.GetMousePosition(Window)
+  fullName: LibGFX.UI.Canvas.GetMousePosition(LibGFX.Core.Window)
+  spec.csharp:
+  - uid: LibGFX.UI.Canvas.GetMousePosition(LibGFX.Core.Window)
+    name: GetMousePosition
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_GetMousePosition_LibGFX_Core_Window_
+  - name: (
+  - uid: LibGFX.Core.Window
+    name: Window
+    href: LibGFX.Core.Window.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Canvas.GetMousePosition(LibGFX.Core.Window)
+    name: GetMousePosition
+    href: LibGFX.UI.Canvas.html#LibGFX_UI_Canvas_GetMousePosition_LibGFX_Core_Window_
+  - name: (
+  - uid: LibGFX.Core.Window
+    name: Window
+    href: LibGFX.Core.Window.html
+  - name: )
+- uid: LibGFX.UI.Canvas2D.GetMousePosition*
+  commentId: Overload:LibGFX.UI.Canvas2D.GetMousePosition
+  href: LibGFX.UI.Canvas2D.html#LibGFX_UI_Canvas2D_GetMousePosition_LibGFX_Core_Window_
+  name: GetMousePosition
+  nameWithType: Canvas2D.GetMousePosition
+  fullName: LibGFX.UI.Canvas2D.GetMousePosition
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true

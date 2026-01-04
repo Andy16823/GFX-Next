@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Generator
+  commentId: N:LibGFX.Graphics.Generator
+  id: LibGFX.Graphics.Generator
+  children:
+  - LibGFX.Graphics.Generator.SphereGenerator
+  - LibGFX.Graphics.Generator.SurfaceGenerator
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Graphics.Generator
+  nameWithType: LibGFX.Graphics.Generator
+  fullName: LibGFX.Graphics.Generator
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Graphics.Generator.SphereGenerator
+  commentId: T:LibGFX.Graphics.Generator.SphereGenerator
+  href: LibGFX.Graphics.Generator.SphereGenerator.html
+  name: SphereGenerator
+  nameWithType: SphereGenerator
+  fullName: LibGFX.Graphics.Generator.SphereGenerator
+- uid: LibGFX.Graphics.Generator.SurfaceGenerator
+  commentId: T:LibGFX.Graphics.Generator.SurfaceGenerator
+  href: LibGFX.Graphics.Generator.SurfaceGenerator.html
+  name: SurfaceGenerator
+  nameWithType: SurfaceGenerator
+  fullName: LibGFX.Graphics.Generator.SurfaceGenerator

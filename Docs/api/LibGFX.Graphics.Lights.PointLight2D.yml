@@ -1,0 +1,1303 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Lights.PointLight2D
+  commentId: T:LibGFX.Graphics.Lights.PointLight2D
+  id: PointLight2D
+  parent: LibGFX.Graphics.Lights
+  children:
+  - LibGFX.Graphics.Lights.PointLight2D.#ctor
+  - LibGFX.Graphics.Lights.PointLight2D.#ctor(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector3,System.Single,System.Single)
+  - LibGFX.Graphics.Lights.PointLight2D.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  - LibGFX.Graphics.Lights.PointLight2D.Dispose(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.Lights.PointLight2D.HasShadowMap
+  - LibGFX.Graphics.Lights.PointLight2D.Init(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.Lights.PointLight2D.Radius
+  - LibGFX.Graphics.Lights.PointLight2D.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  - LibGFX.Graphics.Lights.PointLight2D.ToStruct
+  langs:
+  - csharp
+  - vb
+  name: PointLight2D
+  nameWithType: PointLight2D
+  fullName: LibGFX.Graphics.Lights.PointLight2D
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/PointLight2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PointLight2D
+    path: ../LibGFX/Graphics/Lights/PointLight2D.cs
+    startLine: 28
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Represents a 2D point light in the scene.
+  example: []
+  syntax:
+    content: 'public class PointLight2D : Light, IIdentifier, ISerialization'
+    content.vb: Public Class PointLight2D Inherits Light Implements IIdentifier, ISerialization
+  inheritance:
+  - System.Object
+  - LibGFX.Graphics.Lights.Light
+  implements:
+  - LibGFX.Core.IIdentifier
+  - LibGFX.Core.ISerialization
+  inheritedMembers:
+  - LibGFX.Graphics.Lights.Light.Name
+  - LibGFX.Graphics.Lights.Light.ID
+  - LibGFX.Graphics.Lights.Light.Color
+  - LibGFX.Graphics.Lights.Light.Position
+  - LibGFX.Graphics.Lights.Light.Intensity
+  - LibGFX.Graphics.Lights.Light.ShadowMap
+  - LibGFX.Graphics.Lights.Light.ShadowMapSize
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Graphics.Lights.PointLight2D.Radius
+  commentId: P:LibGFX.Graphics.Lights.PointLight2D.Radius
+  id: Radius
+  parent: LibGFX.Graphics.Lights.PointLight2D
+  langs:
+  - csharp
+  - vb
+  name: Radius
+  nameWithType: PointLight2D.Radius
+  fullName: LibGFX.Graphics.Lights.PointLight2D.Radius
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/PointLight2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Radius
+    path: ../LibGFX/Graphics/Lights/PointLight2D.cs
+    startLine: 33
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: The Radius of the light.
+  example: []
+  syntax:
+    content: public float Radius { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Radius As Single
+  overload: LibGFX.Graphics.Lights.PointLight2D.Radius*
+- uid: LibGFX.Graphics.Lights.PointLight2D.HasShadowMap
+  commentId: P:LibGFX.Graphics.Lights.PointLight2D.HasShadowMap
+  id: HasShadowMap
+  parent: LibGFX.Graphics.Lights.PointLight2D
+  langs:
+  - csharp
+  - vb
+  name: HasShadowMap
+  nameWithType: PointLight2D.HasShadowMap
+  fullName: LibGFX.Graphics.Lights.PointLight2D.HasShadowMap
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/PointLight2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: HasShadowMap
+    path: ../LibGFX/Graphics/Lights/PointLight2D.cs
+    startLine: 38
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Determines if the light has a shadow map.
+  example: []
+  syntax:
+    content: public override bool HasShadowMap { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property HasShadowMap As Boolean
+  overridden: LibGFX.Graphics.Lights.Light.HasShadowMap
+  overload: LibGFX.Graphics.Lights.PointLight2D.HasShadowMap*
+- uid: LibGFX.Graphics.Lights.PointLight2D.#ctor
+  commentId: M:LibGFX.Graphics.Lights.PointLight2D.#ctor
+  id: '#ctor'
+  parent: LibGFX.Graphics.Lights.PointLight2D
+  langs:
+  - csharp
+  - vb
+  name: PointLight2D()
+  nameWithType: PointLight2D.PointLight2D()
+  fullName: LibGFX.Graphics.Lights.PointLight2D.PointLight2D()
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/PointLight2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/Lights/PointLight2D.cs
+    startLine: 43
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Initializes a new instance of the PointLight2D class.
+  example: []
+  syntax:
+    content: public PointLight2D()
+    content.vb: Public Sub New()
+  overload: LibGFX.Graphics.Lights.PointLight2D.#ctor*
+  nameWithType.vb: PointLight2D.New()
+  fullName.vb: LibGFX.Graphics.Lights.PointLight2D.New()
+  name.vb: New()
+- uid: LibGFX.Graphics.Lights.PointLight2D.#ctor(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector3,System.Single,System.Single)
+  commentId: M:LibGFX.Graphics.Lights.PointLight2D.#ctor(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector3,System.Single,System.Single)
+  id: '#ctor(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector3,System.Single,System.Single)'
+  parent: LibGFX.Graphics.Lights.PointLight2D
+  langs:
+  - csharp
+  - vb
+  name: PointLight2D(Vector2, Vector3, float, float)
+  nameWithType: PointLight2D.PointLight2D(Vector2, Vector3, float, float)
+  fullName: LibGFX.Graphics.Lights.PointLight2D.PointLight2D(OpenTK.Mathematics.Vector2, OpenTK.Mathematics.Vector3, float, float)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/PointLight2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/Lights/PointLight2D.cs
+    startLine: 55
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Creates a new instance of the <xref href="LibGFX.Graphics.Lights.PointLight2D" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public PointLight2D(Vector2 position, Vector3 color, float radius, float intensity)
+    parameters:
+    - id: position
+      type: OpenTK.Mathematics.Vector2
+      description: ''
+    - id: color
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    - id: radius
+      type: System.Single
+      description: ''
+    - id: intensity
+      type: System.Single
+      description: ''
+    content.vb: Public Sub New(position As Vector2, color As Vector3, radius As Single, intensity As Single)
+  overload: LibGFX.Graphics.Lights.PointLight2D.#ctor*
+  nameWithType.vb: PointLight2D.New(Vector2, Vector3, Single, Single)
+  fullName.vb: LibGFX.Graphics.Lights.PointLight2D.New(OpenTK.Mathematics.Vector2, OpenTK.Mathematics.Vector3, Single, Single)
+  name.vb: New(Vector2, Vector3, Single, Single)
+- uid: LibGFX.Graphics.Lights.PointLight2D.ToStruct
+  commentId: M:LibGFX.Graphics.Lights.PointLight2D.ToStruct
+  id: ToStruct
+  parent: LibGFX.Graphics.Lights.PointLight2D
+  langs:
+  - csharp
+  - vb
+  name: ToStruct()
+  nameWithType: PointLight2D.ToStruct()
+  fullName: LibGFX.Graphics.Lights.PointLight2D.ToStruct()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/PointLight2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ToStruct
+    path: ../LibGFX/Graphics/Lights/PointLight2D.cs
+    startLine: 67
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Converts the light data to a structure for use in the shader.
+  example: []
+  syntax:
+    content: public Point2DLightData ToStruct()
+    return:
+      type: LibGFX.Graphics.Lights.Point2DLightData
+      description: ''
+    content.vb: Public Function ToStruct() As Point2DLightData
+  overload: LibGFX.Graphics.Lights.PointLight2D.ToStruct*
+- uid: LibGFX.Graphics.Lights.PointLight2D.Init(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Lights.PointLight2D.Init(LibGFX.Graphics.IRenderDevice)
+  id: Init(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Lights.PointLight2D
+  langs:
+  - csharp
+  - vb
+  name: Init(IRenderDevice)
+  nameWithType: PointLight2D.Init(IRenderDevice)
+  fullName: LibGFX.Graphics.Lights.PointLight2D.Init(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/PointLight2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Init
+    path: ../LibGFX/Graphics/Lights/PointLight2D.cs
+    startLine: 81
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Initializes the object using the specified render device.
+  example: []
+  syntax:
+    content: public override void Init(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: The render device to use for initialization. Cannot be null.
+    content.vb: Public Overrides Sub Init(renderer As IRenderDevice)
+  overridden: LibGFX.Graphics.Lights.Light.Init(LibGFX.Graphics.IRenderDevice)
+  overload: LibGFX.Graphics.Lights.PointLight2D.Init*
+- uid: LibGFX.Graphics.Lights.PointLight2D.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Lights.PointLight2D.Dispose(LibGFX.Graphics.IRenderDevice)
+  id: Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Lights.PointLight2D
+  langs:
+  - csharp
+  - vb
+  name: Dispose(IRenderDevice)
+  nameWithType: PointLight2D.Dispose(IRenderDevice)
+  fullName: LibGFX.Graphics.Lights.PointLight2D.Dispose(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/PointLight2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/Graphics/Lights/PointLight2D.cs
+    startLine: 93
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: >-
+    Releases all resources used by the object and performs any necessary cleanup using the specified render
+
+    device.
+  remarks: >-
+    Call this method when the object is no longer needed to free associated resources.
+        After calling this method, the object should not be used.
+  example: []
+  syntax:
+    content: public override void Dispose(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: The render device to use for releasing graphics resources. Cannot be null.
+    content.vb: Public Overrides Sub Dispose(renderer As IRenderDevice)
+  overridden: LibGFX.Graphics.Lights.Light.Dispose(LibGFX.Graphics.IRenderDevice)
+  overload: LibGFX.Graphics.Lights.PointLight2D.Dispose*
+- uid: LibGFX.Graphics.Lights.PointLight2D.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Graphics.Lights.PointLight2D.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  id: Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Graphics.Lights.PointLight2D
+  langs:
+  - csharp
+  - vb
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: PointLight2D.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Graphics.Lights.PointLight2D.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/PointLight2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Serialize
+    path: ../LibGFX/Graphics/Lights/PointLight2D.cs
+    startLine: 103
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Serializes the current light object to a JSON representation suitable for storage or transmission.
+  example: []
+  syntax:
+    content: public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
+    parameters:
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+    - id: serializationContext
+      type: LibGFX.Core.SerializationContext
+      description: The context that provides information and services required for serialization.
+    - id: callback
+      type: System.Action{Newtonsoft.Json.JsonWriter}
+    content.vb: Public Overrides Sub Serialize(writer As JsonWriter, serializationContext As SerializationContext, callback As Action(Of JsonWriter) = Nothing)
+  overridden: LibGFX.Graphics.Lights.Light.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  overload: LibGFX.Graphics.Lights.PointLight2D.Serialize*
+  nameWithType.vb: PointLight2D.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Graphics.Lights.PointLight2D.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+- uid: LibGFX.Graphics.Lights.PointLight2D.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Graphics.Lights.PointLight2D.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  id: Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Graphics.Lights.PointLight2D
+  langs:
+  - csharp
+  - vb
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: PointLight2D.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Graphics.Lights.PointLight2D.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/PointLight2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Deserialize
+    path: ../LibGFX/Graphics/Lights/PointLight2D.cs
+    startLine: 119
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Populates the object's properties from the specified JSON object using the provided serialization context.
+  example: []
+  syntax:
+    content: public override void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
+    parameters:
+    - id: obj
+      type: Newtonsoft.Json.Linq.JObject
+    - id: serializationContext
+      type: LibGFX.Core.SerializationContext
+      description: A <xref href="LibGFX.Core.SerializationContext" data-throw-if-not-resolved="false"></xref> that provides context or settings for the deserialization process.
+    - id: callback
+      type: System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+    content.vb: Public Overrides Sub Deserialize(obj As JObject, serializationContext As SerializationContext, callback As Func(Of JObject, Boolean) = Nothing)
+  overridden: LibGFX.Graphics.Lights.Light.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  overload: LibGFX.Graphics.Lights.PointLight2D.Deserialize*
+  nameWithType.vb: PointLight2D.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Graphics.Lights.PointLight2D.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+references:
+- uid: LibGFX.Graphics.Lights
+  commentId: N:LibGFX.Graphics.Lights
+  href: LibGFX.html
+  name: LibGFX.Graphics.Lights
+  nameWithType: LibGFX.Graphics.Lights
+  fullName: LibGFX.Graphics.Lights
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Lights
+    name: Lights
+    href: LibGFX.Graphics.Lights.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Lights
+    name: Lights
+    href: LibGFX.Graphics.Lights.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Graphics.Lights.Light
+  commentId: T:LibGFX.Graphics.Lights.Light
+  parent: LibGFX.Graphics.Lights
+  href: LibGFX.Graphics.Lights.Light.html
+  name: Light
+  nameWithType: Light
+  fullName: LibGFX.Graphics.Lights.Light
+- uid: LibGFX.Core.IIdentifier
+  commentId: T:LibGFX.Core.IIdentifier
+  parent: LibGFX.Core
+  href: LibGFX.Core.IIdentifier.html
+  name: IIdentifier
+  nameWithType: IIdentifier
+  fullName: LibGFX.Core.IIdentifier
+- uid: LibGFX.Core.ISerialization
+  commentId: T:LibGFX.Core.ISerialization
+  parent: LibGFX.Core
+  href: LibGFX.Core.ISerialization.html
+  name: ISerialization
+  nameWithType: ISerialization
+  fullName: LibGFX.Core.ISerialization
+- uid: LibGFX.Graphics.Lights.Light.Name
+  commentId: P:LibGFX.Graphics.Lights.Light.Name
+  parent: LibGFX.Graphics.Lights.Light
+  href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Name
+  name: Name
+  nameWithType: Light.Name
+  fullName: LibGFX.Graphics.Lights.Light.Name
+- uid: LibGFX.Graphics.Lights.Light.ID
+  commentId: P:LibGFX.Graphics.Lights.Light.ID
+  parent: LibGFX.Graphics.Lights.Light
+  href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_ID
+  name: ID
+  nameWithType: Light.ID
+  fullName: LibGFX.Graphics.Lights.Light.ID
+- uid: LibGFX.Graphics.Lights.Light.Color
+  commentId: P:LibGFX.Graphics.Lights.Light.Color
+  parent: LibGFX.Graphics.Lights.Light
+  href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Color
+  name: Color
+  nameWithType: Light.Color
+  fullName: LibGFX.Graphics.Lights.Light.Color
+- uid: LibGFX.Graphics.Lights.Light.Position
+  commentId: P:LibGFX.Graphics.Lights.Light.Position
+  parent: LibGFX.Graphics.Lights.Light
+  href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Position
+  name: Position
+  nameWithType: Light.Position
+  fullName: LibGFX.Graphics.Lights.Light.Position
+- uid: LibGFX.Graphics.Lights.Light.Intensity
+  commentId: P:LibGFX.Graphics.Lights.Light.Intensity
+  parent: LibGFX.Graphics.Lights.Light
+  href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Intensity
+  name: Intensity
+  nameWithType: Light.Intensity
+  fullName: LibGFX.Graphics.Lights.Light.Intensity
+- uid: LibGFX.Graphics.Lights.Light.ShadowMap
+  commentId: P:LibGFX.Graphics.Lights.Light.ShadowMap
+  parent: LibGFX.Graphics.Lights.Light
+  href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_ShadowMap
+  name: ShadowMap
+  nameWithType: Light.ShadowMap
+  fullName: LibGFX.Graphics.Lights.Light.ShadowMap
+- uid: LibGFX.Graphics.Lights.Light.ShadowMapSize
+  commentId: P:LibGFX.Graphics.Lights.Light.ShadowMapSize
+  parent: LibGFX.Graphics.Lights.Light
+  href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_ShadowMapSize
+  name: ShadowMapSize
+  nameWithType: Light.ShadowMapSize
+  fullName: LibGFX.Graphics.Lights.Light.ShadowMapSize
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Graphics.Lights.PointLight2D.Radius*
+  commentId: Overload:LibGFX.Graphics.Lights.PointLight2D.Radius
+  href: LibGFX.Graphics.Lights.PointLight2D.html#LibGFX_Graphics_Lights_PointLight2D_Radius
+  name: Radius
+  nameWithType: PointLight2D.Radius
+  fullName: LibGFX.Graphics.Lights.PointLight2D.Radius
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Graphics.Lights.Light.HasShadowMap
+  commentId: P:LibGFX.Graphics.Lights.Light.HasShadowMap
+  parent: LibGFX.Graphics.Lights.Light
+  href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_HasShadowMap
+  name: HasShadowMap
+  nameWithType: Light.HasShadowMap
+  fullName: LibGFX.Graphics.Lights.Light.HasShadowMap
+- uid: LibGFX.Graphics.Lights.PointLight2D.HasShadowMap*
+  commentId: Overload:LibGFX.Graphics.Lights.PointLight2D.HasShadowMap
+  href: LibGFX.Graphics.Lights.PointLight2D.html#LibGFX_Graphics_Lights_PointLight2D_HasShadowMap
+  name: HasShadowMap
+  nameWithType: PointLight2D.HasShadowMap
+  fullName: LibGFX.Graphics.Lights.PointLight2D.HasShadowMap
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Graphics.Lights.PointLight2D.#ctor*
+  commentId: Overload:LibGFX.Graphics.Lights.PointLight2D.#ctor
+  href: LibGFX.Graphics.Lights.PointLight2D.html#LibGFX_Graphics_Lights_PointLight2D__ctor
+  name: PointLight2D
+  nameWithType: PointLight2D.PointLight2D
+  fullName: LibGFX.Graphics.Lights.PointLight2D.PointLight2D
+  nameWithType.vb: PointLight2D.New
+  fullName.vb: LibGFX.Graphics.Lights.PointLight2D.New
+  name.vb: New
+- uid: LibGFX.Graphics.Lights.PointLight2D
+  commentId: T:LibGFX.Graphics.Lights.PointLight2D
+  parent: LibGFX.Graphics.Lights
+  href: LibGFX.Graphics.Lights.PointLight2D.html
+  name: PointLight2D
+  nameWithType: PointLight2D
+  fullName: LibGFX.Graphics.Lights.PointLight2D
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: OpenTK.Mathematics.Vector3
+  commentId: T:OpenTK.Mathematics.Vector3
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  name: Vector3
+  nameWithType: Vector3
+  fullName: OpenTK.Mathematics.Vector3
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Graphics.Lights.PointLight2D.ToStruct*
+  commentId: Overload:LibGFX.Graphics.Lights.PointLight2D.ToStruct
+  href: LibGFX.Graphics.Lights.PointLight2D.html#LibGFX_Graphics_Lights_PointLight2D_ToStruct
+  name: ToStruct
+  nameWithType: PointLight2D.ToStruct
+  fullName: LibGFX.Graphics.Lights.PointLight2D.ToStruct
+- uid: LibGFX.Graphics.Lights.Point2DLightData
+  commentId: T:LibGFX.Graphics.Lights.Point2DLightData
+  parent: LibGFX.Graphics.Lights
+  href: LibGFX.Graphics.Lights.Point2DLightData.html
+  name: Point2DLightData
+  nameWithType: Point2DLightData
+  fullName: LibGFX.Graphics.Lights.Point2DLightData
+- uid: LibGFX.Graphics.Lights.Light.Init(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Lights.Light.Init(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Lights.Light
+  href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Init_LibGFX_Graphics_IRenderDevice_
+  name: Init(IRenderDevice)
+  nameWithType: Light.Init(IRenderDevice)
+  fullName: LibGFX.Graphics.Lights.Light.Init(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Graphics.Lights.Light.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Lights.Light.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.Lights.PointLight2D.Init*
+  commentId: Overload:LibGFX.Graphics.Lights.PointLight2D.Init
+  href: LibGFX.Graphics.Lights.PointLight2D.html#LibGFX_Graphics_Lights_PointLight2D_Init_LibGFX_Graphics_IRenderDevice_
+  name: Init
+  nameWithType: PointLight2D.Init
+  fullName: LibGFX.Graphics.Lights.PointLight2D.Init
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.Lights.Light.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Lights.Light.Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Lights.Light
+  href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose(IRenderDevice)
+  nameWithType: Light.Dispose(IRenderDevice)
+  fullName: LibGFX.Graphics.Lights.Light.Dispose(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Graphics.Lights.Light.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Lights.Light.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.Lights.PointLight2D.Dispose*
+  commentId: Overload:LibGFX.Graphics.Lights.PointLight2D.Dispose
+  href: LibGFX.Graphics.Lights.PointLight2D.html#LibGFX_Graphics_Lights_PointLight2D_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose
+  nameWithType: PointLight2D.Dispose
+  fullName: LibGFX.Graphics.Lights.PointLight2D.Dispose
+- uid: Newtonsoft.Json.Linq.JObject
+  commentId: T:Newtonsoft.Json.Linq.JObject
+  parent: Newtonsoft.Json.Linq
+  isExternal: true
+  name: JObject
+  nameWithType: JObject
+  fullName: Newtonsoft.Json.Linq.JObject
+- uid: LibGFX.Graphics.Lights.Light.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Graphics.Lights.Light.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Graphics.Lights.Light
+  isExternal: true
+  href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: Light.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Graphics.Lights.Light.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  nameWithType.vb: Light.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Graphics.Lights.Light.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  spec.csharp:
+  - uid: LibGFX.Graphics.Lights.Light.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Lights.Light.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+  - name: )
+- uid: LibGFX.Graphics.Lights.PointLight2D.Serialize*
+  commentId: Overload:LibGFX.Graphics.Lights.PointLight2D.Serialize
+  href: LibGFX.Graphics.Lights.PointLight2D.html#LibGFX_Graphics_Lights_PointLight2D_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize
+  nameWithType: PointLight2D.Serialize
+  fullName: LibGFX.Graphics.Lights.PointLight2D.Serialize
+- uid: Newtonsoft.Json.JsonWriter
+  commentId: T:Newtonsoft.Json.JsonWriter
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonWriter
+  nameWithType: JsonWriter
+  fullName: Newtonsoft.Json.JsonWriter
+- uid: LibGFX.Core.SerializationContext
+  commentId: T:LibGFX.Core.SerializationContext
+  parent: LibGFX.Core
+  href: LibGFX.Core.SerializationContext.html
+  name: SerializationContext
+  nameWithType: SerializationContext
+  fullName: LibGFX.Core.SerializationContext
+- uid: System.Action{Newtonsoft.Json.JsonWriter}
+  commentId: T:System.Action{Newtonsoft.Json.JsonWriter}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<JsonWriter>
+  nameWithType: Action<JsonWriter>
+  fullName: System.Action<Newtonsoft.Json.JsonWriter>
+  nameWithType.vb: Action(Of JsonWriter)
+  fullName.vb: System.Action(Of Newtonsoft.Json.JsonWriter)
+  name.vb: Action(Of JsonWriter)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+- uid: Newtonsoft.Json.Linq
+  commentId: N:Newtonsoft.Json.Linq
+  isExternal: true
+  name: Newtonsoft.Json.Linq
+  nameWithType: Newtonsoft.Json.Linq
+  fullName: Newtonsoft.Json.Linq
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: LibGFX.Graphics.Lights.Light.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Graphics.Lights.Light.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Graphics.Lights.Light
+  isExternal: true
+  href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: Light.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Graphics.Lights.Light.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  nameWithType.vb: Light.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Graphics.Lights.Light.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  spec.csharp:
+  - uid: LibGFX.Graphics.Lights.Light.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Lights.Light.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: LibGFX.Graphics.Lights.PointLight2D.Deserialize*
+  commentId: Overload:LibGFX.Graphics.Lights.PointLight2D.Deserialize
+  href: LibGFX.Graphics.Lights.PointLight2D.html#LibGFX_Graphics_Lights_PointLight2D_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize
+  nameWithType: PointLight2D.Deserialize
+  fullName: LibGFX.Graphics.Lights.PointLight2D.Deserialize
+- uid: System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+  commentId: T:System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<JObject, bool>
+  nameWithType: Func<JObject, bool>
+  fullName: System.Func<Newtonsoft.Json.Linq.JObject, bool>
+  nameWithType.vb: Func(Of JObject, Boolean)
+  fullName.vb: System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean)
+  name.vb: Func(Of JObject, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )

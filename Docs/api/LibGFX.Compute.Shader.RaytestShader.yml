@@ -1,0 +1,572 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Compute.Shader.RaytestShader
+  commentId: T:LibGFX.Compute.Shader.RaytestShader
+  id: RaytestShader
+  parent: LibGFX.Compute.Shader
+  children:
+  - LibGFX.Compute.Shader.RaytestShader.#ctor
+  langs:
+  - csharp
+  - vb
+  name: RaytestShader
+  nameWithType: RaytestShader
+  fullName: LibGFX.Compute.Shader.RaytestShader
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Compute/Shader/RaytestShader.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RaytestShader
+    path: ../LibGFX/Compute/Shader/RaytestShader.cs
+    startLine: 8
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Compute.Shader
+  syntax:
+    content: 'public class RaytestShader : ComputeShader, IShaderProgram, IIdentifier, IGraphicsResource'
+    content.vb: Public Class RaytestShader Inherits ComputeShader Implements IShaderProgram, IIdentifier, IGraphicsResource
+  inheritance:
+  - System.Object
+  - LibGFX.Compute.ComputeShader
+  implements:
+  - LibGFX.Graphics.Shader.IShaderProgram
+  - LibGFX.Core.IIdentifier
+  - LibGFX.Core.IGraphicsResource
+  inheritedMembers:
+  - LibGFX.Compute.ComputeShader.Name
+  - LibGFX.Compute.ComputeShader.ID
+  - LibGFX.Compute.ComputeShader.ShaderSource
+  - LibGFX.Compute.ComputeShader.Invocations
+  - LibGFX.Compute.ComputeShader.IsInitialized
+  - LibGFX.Compute.ComputeShader.ProgramID
+  - LibGFX.Compute.ComputeShader.Dispose(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Compute.ComputeShader.Init(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Compute.ComputeShader.FreeCPUResources
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Compute.Shader.RaytestShader.#ctor
+  commentId: M:LibGFX.Compute.Shader.RaytestShader.#ctor
+  id: '#ctor'
+  parent: LibGFX.Compute.Shader.RaytestShader
+  langs:
+  - csharp
+  - vb
+  name: RaytestShader()
+  nameWithType: RaytestShader.RaytestShader()
+  fullName: LibGFX.Compute.Shader.RaytestShader.RaytestShader()
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Compute/Shader/RaytestShader.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Compute/Shader/RaytestShader.cs
+    startLine: 10
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Compute.Shader
+  syntax:
+    content: public RaytestShader()
+    content.vb: Public Sub New()
+  overload: LibGFX.Compute.Shader.RaytestShader.#ctor*
+  nameWithType.vb: RaytestShader.New()
+  fullName.vb: LibGFX.Compute.Shader.RaytestShader.New()
+  name.vb: New()
+references:
+- uid: LibGFX.Compute.Shader
+  commentId: N:LibGFX.Compute.Shader
+  href: LibGFX.html
+  name: LibGFX.Compute.Shader
+  nameWithType: LibGFX.Compute.Shader
+  fullName: LibGFX.Compute.Shader
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Compute
+    name: Compute
+    href: LibGFX.Compute.html
+  - name: .
+  - uid: LibGFX.Compute.Shader
+    name: Shader
+    href: LibGFX.Compute.Shader.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Compute
+    name: Compute
+    href: LibGFX.Compute.html
+  - name: .
+  - uid: LibGFX.Compute.Shader
+    name: Shader
+    href: LibGFX.Compute.Shader.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Compute.ComputeShader
+  commentId: T:LibGFX.Compute.ComputeShader
+  parent: LibGFX.Compute
+  href: LibGFX.Compute.ComputeShader.html
+  name: ComputeShader
+  nameWithType: ComputeShader
+  fullName: LibGFX.Compute.ComputeShader
+- uid: LibGFX.Graphics.Shader.IShaderProgram
+  commentId: T:LibGFX.Graphics.Shader.IShaderProgram
+  parent: LibGFX.Graphics.Shader
+  href: LibGFX.Graphics.Shader.IShaderProgram.html
+  name: IShaderProgram
+  nameWithType: IShaderProgram
+  fullName: LibGFX.Graphics.Shader.IShaderProgram
+- uid: LibGFX.Core.IIdentifier
+  commentId: T:LibGFX.Core.IIdentifier
+  parent: LibGFX.Core
+  href: LibGFX.Core.IIdentifier.html
+  name: IIdentifier
+  nameWithType: IIdentifier
+  fullName: LibGFX.Core.IIdentifier
+- uid: LibGFX.Core.IGraphicsResource
+  commentId: T:LibGFX.Core.IGraphicsResource
+  parent: LibGFX.Core
+  href: LibGFX.Core.IGraphicsResource.html
+  name: IGraphicsResource
+  nameWithType: IGraphicsResource
+  fullName: LibGFX.Core.IGraphicsResource
+- uid: LibGFX.Compute.ComputeShader.Name
+  commentId: P:LibGFX.Compute.ComputeShader.Name
+  parent: LibGFX.Compute.ComputeShader
+  href: LibGFX.Compute.ComputeShader.html#LibGFX_Compute_ComputeShader_Name
+  name: Name
+  nameWithType: ComputeShader.Name
+  fullName: LibGFX.Compute.ComputeShader.Name
+- uid: LibGFX.Compute.ComputeShader.ID
+  commentId: P:LibGFX.Compute.ComputeShader.ID
+  parent: LibGFX.Compute.ComputeShader
+  href: LibGFX.Compute.ComputeShader.html#LibGFX_Compute_ComputeShader_ID
+  name: ID
+  nameWithType: ComputeShader.ID
+  fullName: LibGFX.Compute.ComputeShader.ID
+- uid: LibGFX.Compute.ComputeShader.ShaderSource
+  commentId: P:LibGFX.Compute.ComputeShader.ShaderSource
+  parent: LibGFX.Compute.ComputeShader
+  href: LibGFX.Compute.ComputeShader.html#LibGFX_Compute_ComputeShader_ShaderSource
+  name: ShaderSource
+  nameWithType: ComputeShader.ShaderSource
+  fullName: LibGFX.Compute.ComputeShader.ShaderSource
+- uid: LibGFX.Compute.ComputeShader.Invocations
+  commentId: P:LibGFX.Compute.ComputeShader.Invocations
+  parent: LibGFX.Compute.ComputeShader
+  href: LibGFX.Compute.ComputeShader.html#LibGFX_Compute_ComputeShader_Invocations
+  name: Invocations
+  nameWithType: ComputeShader.Invocations
+  fullName: LibGFX.Compute.ComputeShader.Invocations
+- uid: LibGFX.Compute.ComputeShader.IsInitialized
+  commentId: P:LibGFX.Compute.ComputeShader.IsInitialized
+  parent: LibGFX.Compute.ComputeShader
+  href: LibGFX.Compute.ComputeShader.html#LibGFX_Compute_ComputeShader_IsInitialized
+  name: IsInitialized
+  nameWithType: ComputeShader.IsInitialized
+  fullName: LibGFX.Compute.ComputeShader.IsInitialized
+- uid: LibGFX.Compute.ComputeShader.ProgramID
+  commentId: P:LibGFX.Compute.ComputeShader.ProgramID
+  parent: LibGFX.Compute.ComputeShader
+  href: LibGFX.Compute.ComputeShader.html#LibGFX_Compute_ComputeShader_ProgramID
+  name: ProgramID
+  nameWithType: ComputeShader.ProgramID
+  fullName: LibGFX.Compute.ComputeShader.ProgramID
+- uid: LibGFX.Compute.ComputeShader.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Compute.ComputeShader.Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Compute.ComputeShader
+  href: LibGFX.Compute.ComputeShader.html#LibGFX_Compute_ComputeShader_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose(IRenderDevice)
+  nameWithType: ComputeShader.Dispose(IRenderDevice)
+  fullName: LibGFX.Compute.ComputeShader.Dispose(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Compute.ComputeShader.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Compute.ComputeShader.html#LibGFX_Compute_ComputeShader_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Compute.ComputeShader.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Compute.ComputeShader.html#LibGFX_Compute_ComputeShader_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Compute.ComputeShader.Init(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Compute.ComputeShader.Init(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Compute.ComputeShader
+  href: LibGFX.Compute.ComputeShader.html#LibGFX_Compute_ComputeShader_Init_LibGFX_Graphics_IRenderDevice_
+  name: Init(IRenderDevice)
+  nameWithType: ComputeShader.Init(IRenderDevice)
+  fullName: LibGFX.Compute.ComputeShader.Init(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Compute.ComputeShader.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Compute.ComputeShader.html#LibGFX_Compute_ComputeShader_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Compute.ComputeShader.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Compute.ComputeShader.html#LibGFX_Compute_ComputeShader_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Compute.ComputeShader.FreeCPUResources
+  commentId: M:LibGFX.Compute.ComputeShader.FreeCPUResources
+  parent: LibGFX.Compute.ComputeShader
+  href: LibGFX.Compute.ComputeShader.html#LibGFX_Compute_ComputeShader_FreeCPUResources
+  name: FreeCPUResources()
+  nameWithType: ComputeShader.FreeCPUResources()
+  fullName: LibGFX.Compute.ComputeShader.FreeCPUResources()
+  spec.csharp:
+  - uid: LibGFX.Compute.ComputeShader.FreeCPUResources
+    name: FreeCPUResources
+    href: LibGFX.Compute.ComputeShader.html#LibGFX_Compute_ComputeShader_FreeCPUResources
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Compute.ComputeShader.FreeCPUResources
+    name: FreeCPUResources
+    href: LibGFX.Compute.ComputeShader.html#LibGFX_Compute_ComputeShader_FreeCPUResources
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Compute
+  commentId: N:LibGFX.Compute
+  href: LibGFX.html
+  name: LibGFX.Compute
+  nameWithType: LibGFX.Compute
+  fullName: LibGFX.Compute
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Compute
+    name: Compute
+    href: LibGFX.Compute.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Compute
+    name: Compute
+    href: LibGFX.Compute.html
+- uid: LibGFX.Graphics.Shader
+  commentId: N:LibGFX.Graphics.Shader
+  href: LibGFX.html
+  name: LibGFX.Graphics.Shader
+  nameWithType: LibGFX.Graphics.Shader
+  fullName: LibGFX.Graphics.Shader
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Shader
+    name: Shader
+    href: LibGFX.Graphics.Shader.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Shader
+    name: Shader
+    href: LibGFX.Graphics.Shader.html
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Compute.Shader.RaytestShader.#ctor*
+  commentId: Overload:LibGFX.Compute.Shader.RaytestShader.#ctor
+  href: LibGFX.Compute.Shader.RaytestShader.html#LibGFX_Compute_Shader_RaytestShader__ctor
+  name: RaytestShader
+  nameWithType: RaytestShader.RaytestShader
+  fullName: LibGFX.Compute.Shader.RaytestShader.RaytestShader
+  nameWithType.vb: RaytestShader.New
+  fullName.vb: LibGFX.Compute.Shader.RaytestShader.New
+  name.vb: New

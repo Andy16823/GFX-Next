@@ -1,0 +1,123 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Core.IRendererResource
+  commentId: T:LibGFX.Core.IRendererResource
+  id: IRendererResource
+  parent: LibGFX.Core
+  children:
+  - LibGFX.Core.IRendererResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  langs:
+  - csharp
+  - vb
+  name: IRendererResource
+  nameWithType: IRendererResource
+  fullName: LibGFX.Core.IRendererResource
+  type: Interface
+  source:
+    remote:
+      path: LibGFX/Core/IRendererResource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IRendererResource
+    path: ../LibGFX/Core/IRendererResource.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Defines a resource that can be released or cleaned up by a renderer device.
+  remarks: >-
+    Implement this interface for objects that hold resources tied to a specific rendering device,
+        such as GPU buffers or textures. The resource should be disposed of using the provided renderer to ensure proper
+        cleanup within the rendering context.
+        The owner of an IRenderResource is always the IRenderDevice that created it.
+  example: []
+  syntax:
+    content: public interface IRendererResource
+    content.vb: Public Interface IRendererResource
+- uid: LibGFX.Core.IRendererResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IRendererResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  id: Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IRendererResource
+  langs:
+  - csharp
+  - vb
+  name: Dispose(IRenderDevice)
+  nameWithType: IRendererResource.Dispose(IRenderDevice)
+  fullName: LibGFX.Core.IRendererResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/IRendererResource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/Core/IRendererResource.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: void Dispose(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Sub Dispose(renderer As IRenderDevice)
+  overload: LibGFX.Core.IRendererResource.Dispose*
+references:
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Core.IRendererResource.Dispose*
+  commentId: Overload:LibGFX.Core.IRendererResource.Dispose
+  href: LibGFX.Core.IRendererResource.html#LibGFX_Core_IRendererResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose
+  nameWithType: IRendererResource.Dispose
+  fullName: LibGFX.Core.IRendererResource.Dispose
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html

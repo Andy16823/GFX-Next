@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class VignetteFX | LibGFX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class VignetteFX | LibGFX ">
+      
+      <meta name="description" content="Vignette Post-Processing Effekt">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Graphics_PostProcessing_VignetteFX.md&amp;value=---%0Auid%3A%20LibGFX.Graphics.PostProcessing.VignetteFX%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="LibGFX">
+            LibGFX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LibGFX.Graphics.PostProcessing.VignetteFX">
+
+
+
+  <h1 id="LibGFX_Graphics_PostProcessing_VignetteFX" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX" class="text-break">
+Class VignetteFX  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LibGFX.html">LibGFX</a>.<a class="xref" href="LibGFX.Graphics.html">Graphics</a>.<a class="xref" href="LibGFX.Graphics.PostProcessing.html">PostProcessing</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LibGFX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Vignette Post-Processing Effekt</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class VignetteFX : IPostProcessFilter</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">VignetteFX</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LibGFX.Graphics.PostProcessing.IPostProcessFilter.html">IPostProcessFilter</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX__ctor_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.#ctor*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX__ctor" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.#ctor">
+  VignetteFX()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VignetteFX()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX__ctor_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.#ctor*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX__ctor_System_Single_System_Single_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.#ctor(System.Single,System.Single,OpenTK.Mathematics.Vector3)">
+  VignetteFX(float, float, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VignetteFX(float intensity, float smoothness, Vector3 vignetteColor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>intensity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>smoothness</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>vignetteColor</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Cinematic_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Cinematic*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Cinematic" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Cinematic">
+  Cinematic
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Cinematic vignette (film-like, subtle)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VignetteFX Cinematic { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.VignetteFX.html">VignetteFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Cold_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Cold*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Cold" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Cold">
+  Cold
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Blue vignette (cold/frost effect)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VignetteFX Cold { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.VignetteFX.html">VignetteFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Hard_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Hard*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Hard" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Hard">
+  Hard
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hard vignette (sharp edge, tunnel vision)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VignetteFX Hard { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.VignetteFX.html">VignetteFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Horror_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Horror*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Horror" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Horror">
+  Horror
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Horror vignette (very dark, oppressive)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VignetteFX Horror { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.VignetteFX.html">VignetteFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Intensity_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Intensity*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Intensity" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Intensity">
+  Intensity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The intensity of the vignette effect (0 = no effect, 1 = full effect).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Intensity { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Mystical_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Mystical*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Mystical" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Mystical">
+  Mystical
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L212"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Purple vignette (magic/mystical effect)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VignetteFX Mystical { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.VignetteFX.html">VignetteFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_RedDamage_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.RedDamage*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_RedDamage" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.RedDamage">
+  RedDamage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L182"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Red vignette (damage/low health indicator)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VignetteFX RedDamage { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.VignetteFX.html">VignetteFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_RenderTarget_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.RenderTarget*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_RenderTarget" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.RenderTarget">
+  RenderTarget
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The internal render target used to store the result of this effect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderTarget2D RenderTarget { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.RenderTarget2D.html">RenderTarget2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Scope_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Scope*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Scope" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Scope">
+  Scope
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scope vignette (sniper scope, circular mask)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VignetteFX Scope { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.VignetteFX.html">VignetteFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Smoothness_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Smoothness*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Smoothness" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Smoothness">
+  Smoothness
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the smoothness factor used in rendering or calculations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Smoothness { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Soft_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Soft*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Soft" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Soft">
+  Soft
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Soft vignette (very smooth transition)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VignetteFX Soft { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.VignetteFX.html">VignetteFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Standard_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Standard*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Standard" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Standard">
+  Standard
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Standard vignette (balanced, general use)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VignetteFX Standard { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.VignetteFX.html">VignetteFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Strong_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Strong*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Strong" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Strong">
+  Strong
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Strong vignette (noticeable focus effect)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VignetteFX Strong { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.VignetteFX.html">VignetteFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Subtle_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Subtle*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Subtle" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Subtle">
+  Subtle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subtle vignette (barely noticeable, always-on)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VignetteFX Subtle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.VignetteFX.html">VignetteFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Toxic_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Toxic*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Toxic" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Toxic">
+  Toxic
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L202"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Green vignette (poison/toxic effect)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VignetteFX Toxic { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.VignetteFX.html">VignetteFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_VeryStrong_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.VeryStrong*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_VeryStrong" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.VeryStrong">
+  VeryStrong
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Very strong vignette (dramatic, dark edges)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VignetteFX VeryStrong { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.VignetteFX.html">VignetteFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_VignetteColor_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.VignetteColor*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_VignetteColor" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.VignetteColor">
+  VignetteColor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the color applied to the vignette effect as an RGB vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 VignetteColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_WhiteFade_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.WhiteFade*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_WhiteFade" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.WhiteFade">
+  WhiteFade
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L222"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>White vignette (fade to white, overexposure)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VignetteFX WhiteFade { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.VignetteFX.html">VignetteFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Apply_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Apply*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)">
+  Apply(PostProcessStack, IRenderDevice, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Apply(PostProcessStack stack, IRenderDevice renderer, int sourceTexture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stack</code> <a class="xref" href="LibGFX.Graphics.PostProcessing.PostProcessStack.html">PostProcessStack</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+    <dt><code>sourceTexture</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Dispose_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Dispose*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)">
+  Dispose(PostProcessStack, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose(PostProcessStack stack, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stack</code> <a class="xref" href="LibGFX.Graphics.PostProcessing.PostProcessStack.html">PostProcessStack</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Init_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Init*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)">
+  Init(PostProcessStack, Viewport, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stack</code> <a class="xref" href="LibGFX.Graphics.PostProcessing.PostProcessStack.html">PostProcessStack</a></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Resize_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Resize*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)">
+  Resize(Viewport, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Resize(Viewport viewport, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_VignetteFX_Update_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Update*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_VignetteFX_Update_System_Single_" data-uid="LibGFX.Graphics.PostProcessing.VignetteFX.Update(System.Single)">
+  Update(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update(float deltaTime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>deltaTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/VignetteFX.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

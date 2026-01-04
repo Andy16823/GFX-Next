@@ -1,0 +1,791 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Math.AABB
+  commentId: T:LibGFX.Math.AABB
+  id: AABB
+  parent: LibGFX.Math
+  children:
+  - LibGFX.Math.AABB.#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - LibGFX.Math.AABB.Combine(LibGFX.Math.AABB,LibGFX.Math.AABB)
+  - LibGFX.Math.AABB.Contains(OpenTK.Mathematics.Vector3)
+  - LibGFX.Math.AABB.GenerateBoxIndices
+  - LibGFX.Math.AABB.GenerateBoxVertices
+  - LibGFX.Math.AABB.Intersects(LibGFX.Math.AABB)
+  - LibGFX.Math.AABB.Max
+  - LibGFX.Math.AABB.Min
+  - LibGFX.Math.AABB.TransformAABB(LibGFX.Math.AABB,OpenTK.Mathematics.Matrix4)
+  - LibGFX.Math.AABB.Zero
+  langs:
+  - csharp
+  - vb
+  name: AABB
+  nameWithType: AABB
+  fullName: LibGFX.Math.AABB
+  type: Struct
+  source:
+    remote:
+      path: LibGFX/Math/AABB.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AABB
+    path: ../LibGFX/Math/AABB.cs
+    startLine: 12
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Represents an Axis-Aligned Bounding Box (AABB) in 3D space.
+  example: []
+  syntax:
+    content: public struct AABB
+    content.vb: Public Structure AABB
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: LibGFX.Math.AABB.Min
+  commentId: P:LibGFX.Math.AABB.Min
+  id: Min
+  parent: LibGFX.Math.AABB
+  langs:
+  - csharp
+  - vb
+  name: Min
+  nameWithType: AABB.Min
+  fullName: LibGFX.Math.AABB.Min
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Math/AABB.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Min
+    path: ../LibGFX/Math/AABB.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: The minimum point of the AABB, which defines one corner of the box.
+  example: []
+  syntax:
+    content: public Vector3 Min { readonly get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Property Min As Vector3
+  overload: LibGFX.Math.AABB.Min*
+- uid: LibGFX.Math.AABB.Max
+  commentId: P:LibGFX.Math.AABB.Max
+  id: Max
+  parent: LibGFX.Math.AABB
+  langs:
+  - csharp
+  - vb
+  name: Max
+  nameWithType: AABB.Max
+  fullName: LibGFX.Math.AABB.Max
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Math/AABB.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Max
+    path: ../LibGFX/Math/AABB.cs
+    startLine: 22
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: The maximum point of the AABB, which defines the opposite corner from the minimum point.
+  example: []
+  syntax:
+    content: public Vector3 Max { readonly get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Property Max As Vector3
+  overload: LibGFX.Math.AABB.Max*
+- uid: LibGFX.Math.AABB.#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Math.AABB.#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  id: '#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)'
+  parent: LibGFX.Math.AABB
+  langs:
+  - csharp
+  - vb
+  name: AABB(Vector3, Vector3)
+  nameWithType: AABB.AABB(Vector3, Vector3)
+  fullName: LibGFX.Math.AABB.AABB(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Math/AABB.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Math/AABB.cs
+    startLine: 29
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Creates a new Axis-Aligned Bounding Box (AABB) with the specified minimum and maximum points.
+  example: []
+  syntax:
+    content: public AABB(Vector3 min, Vector3 max)
+    parameters:
+    - id: min
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    - id: max
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Sub New(min As Vector3, max As Vector3)
+  overload: LibGFX.Math.AABB.#ctor*
+  nameWithType.vb: AABB.New(Vector3, Vector3)
+  fullName.vb: LibGFX.Math.AABB.New(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  name.vb: New(Vector3, Vector3)
+- uid: LibGFX.Math.AABB.Zero
+  commentId: P:LibGFX.Math.AABB.Zero
+  id: Zero
+  parent: LibGFX.Math.AABB
+  langs:
+  - csharp
+  - vb
+  name: Zero
+  nameWithType: AABB.Zero
+  fullName: LibGFX.Math.AABB.Zero
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Math/AABB.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Zero
+    path: ../LibGFX/Math/AABB.cs
+    startLine: 38
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Represents an empty AABB with minimum and maximum points at zero.
+  example: []
+  syntax:
+    content: public readonly AABB Zero { get; }
+    parameters: []
+    return:
+      type: LibGFX.Math.AABB
+    content.vb: Public ReadOnly Property Zero As AABB
+  overload: LibGFX.Math.AABB.Zero*
+- uid: LibGFX.Math.AABB.Contains(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Math.AABB.Contains(OpenTK.Mathematics.Vector3)
+  id: Contains(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Math.AABB
+  langs:
+  - csharp
+  - vb
+  name: Contains(Vector3)
+  nameWithType: AABB.Contains(Vector3)
+  fullName: LibGFX.Math.AABB.Contains(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/AABB.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Contains
+    path: ../LibGFX/Math/AABB.cs
+    startLine: 51
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Checks if the AABB contains a given point.
+  example: []
+  syntax:
+    content: public bool Contains(Vector3 point)
+    parameters:
+    - id: point
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Function Contains(point As Vector3) As Boolean
+  overload: LibGFX.Math.AABB.Contains*
+- uid: LibGFX.Math.AABB.Intersects(LibGFX.Math.AABB)
+  commentId: M:LibGFX.Math.AABB.Intersects(LibGFX.Math.AABB)
+  id: Intersects(LibGFX.Math.AABB)
+  parent: LibGFX.Math.AABB
+  langs:
+  - csharp
+  - vb
+  name: Intersects(AABB)
+  nameWithType: AABB.Intersects(AABB)
+  fullName: LibGFX.Math.AABB.Intersects(LibGFX.Math.AABB)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/AABB.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Intersects
+    path: ../LibGFX/Math/AABB.cs
+    startLine: 63
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Checks if the AABB intersects with another AABB.
+  example: []
+  syntax:
+    content: public bool Intersects(AABB other)
+    parameters:
+    - id: other
+      type: LibGFX.Math.AABB
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Function Intersects(other As AABB) As Boolean
+  overload: LibGFX.Math.AABB.Intersects*
+- uid: LibGFX.Math.AABB.Combine(LibGFX.Math.AABB,LibGFX.Math.AABB)
+  commentId: M:LibGFX.Math.AABB.Combine(LibGFX.Math.AABB,LibGFX.Math.AABB)
+  id: Combine(LibGFX.Math.AABB,LibGFX.Math.AABB)
+  parent: LibGFX.Math.AABB
+  langs:
+  - csharp
+  - vb
+  name: Combine(AABB, AABB)
+  nameWithType: AABB.Combine(AABB, AABB)
+  fullName: LibGFX.Math.AABB.Combine(LibGFX.Math.AABB, LibGFX.Math.AABB)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/AABB.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Combine
+    path: ../LibGFX/Math/AABB.cs
+    startLine: 76
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Combines two AABBs into a new AABB that encompasses both.
+  example: []
+  syntax:
+    content: public static AABB Combine(AABB a, AABB b)
+    parameters:
+    - id: a
+      type: LibGFX.Math.AABB
+      description: ''
+    - id: b
+      type: LibGFX.Math.AABB
+      description: ''
+    return:
+      type: LibGFX.Math.AABB
+      description: ''
+    content.vb: Public Shared Function Combine(a As AABB, b As AABB) As AABB
+  overload: LibGFX.Math.AABB.Combine*
+- uid: LibGFX.Math.AABB.TransformAABB(LibGFX.Math.AABB,OpenTK.Mathematics.Matrix4)
+  commentId: M:LibGFX.Math.AABB.TransformAABB(LibGFX.Math.AABB,OpenTK.Mathematics.Matrix4)
+  id: TransformAABB(LibGFX.Math.AABB,OpenTK.Mathematics.Matrix4)
+  parent: LibGFX.Math.AABB
+  langs:
+  - csharp
+  - vb
+  name: TransformAABB(AABB, Matrix4)
+  nameWithType: AABB.TransformAABB(AABB, Matrix4)
+  fullName: LibGFX.Math.AABB.TransformAABB(LibGFX.Math.AABB, OpenTK.Mathematics.Matrix4)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/AABB.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TransformAABB
+    path: ../LibGFX/Math/AABB.cs
+    startLine: 89
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Transforms the AABB by a given transformation matrix.
+  example: []
+  syntax:
+    content: public static AABB TransformAABB(AABB aabb, Matrix4 matrix)
+    parameters:
+    - id: aabb
+      type: LibGFX.Math.AABB
+      description: ''
+    - id: matrix
+      type: OpenTK.Mathematics.Matrix4
+      description: ''
+    return:
+      type: LibGFX.Math.AABB
+      description: ''
+    content.vb: Public Shared Function TransformAABB(aabb As AABB, matrix As Matrix4) As AABB
+  overload: LibGFX.Math.AABB.TransformAABB*
+- uid: LibGFX.Math.AABB.GenerateBoxVertices
+  commentId: M:LibGFX.Math.AABB.GenerateBoxVertices
+  id: GenerateBoxVertices
+  parent: LibGFX.Math.AABB
+  langs:
+  - csharp
+  - vb
+  name: GenerateBoxVertices()
+  nameWithType: AABB.GenerateBoxVertices()
+  fullName: LibGFX.Math.AABB.GenerateBoxVertices()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/AABB.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GenerateBoxVertices
+    path: ../LibGFX/Math/AABB.cs
+    startLine: 116
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Generates the vertices for a box defined by the AABB.
+  example: []
+  syntax:
+    content: public float[] GenerateBoxVertices()
+    return:
+      type: System.Single[]
+      description: ''
+    content.vb: Public Function GenerateBoxVertices() As Single()
+  overload: LibGFX.Math.AABB.GenerateBoxVertices*
+- uid: LibGFX.Math.AABB.GenerateBoxIndices
+  commentId: M:LibGFX.Math.AABB.GenerateBoxIndices
+  id: GenerateBoxIndices
+  parent: LibGFX.Math.AABB
+  langs:
+  - csharp
+  - vb
+  name: GenerateBoxIndices()
+  nameWithType: AABB.GenerateBoxIndices()
+  fullName: LibGFX.Math.AABB.GenerateBoxIndices()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/AABB.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GenerateBoxIndices
+    path: ../LibGFX/Math/AABB.cs
+    startLine: 157
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Generates the indices for a box defined by the AABB.
+  example: []
+  syntax:
+    content: public int[] GenerateBoxIndices()
+    return:
+      type: System.Int32[]
+      description: ''
+    content.vb: Public Function GenerateBoxIndices() As Integer()
+  overload: LibGFX.Math.AABB.GenerateBoxIndices*
+references:
+- uid: LibGFX.Math
+  commentId: N:LibGFX.Math
+  href: LibGFX.html
+  name: LibGFX.Math
+  nameWithType: LibGFX.Math
+  fullName: LibGFX.Math
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Math.AABB.Min*
+  commentId: Overload:LibGFX.Math.AABB.Min
+  href: LibGFX.Math.AABB.html#LibGFX_Math_AABB_Min
+  name: Min
+  nameWithType: AABB.Min
+  fullName: LibGFX.Math.AABB.Min
+- uid: OpenTK.Mathematics.Vector3
+  commentId: T:OpenTK.Mathematics.Vector3
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  name: Vector3
+  nameWithType: Vector3
+  fullName: OpenTK.Mathematics.Vector3
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Math.AABB.Max*
+  commentId: Overload:LibGFX.Math.AABB.Max
+  href: LibGFX.Math.AABB.html#LibGFX_Math_AABB_Max
+  name: Max
+  nameWithType: AABB.Max
+  fullName: LibGFX.Math.AABB.Max
+- uid: LibGFX.Math.AABB.#ctor*
+  commentId: Overload:LibGFX.Math.AABB.#ctor
+  href: LibGFX.Math.AABB.html#LibGFX_Math_AABB__ctor_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  name: AABB
+  nameWithType: AABB.AABB
+  fullName: LibGFX.Math.AABB.AABB
+  nameWithType.vb: AABB.New
+  fullName.vb: LibGFX.Math.AABB.New
+  name.vb: New
+- uid: LibGFX.Math.AABB.Zero*
+  commentId: Overload:LibGFX.Math.AABB.Zero
+  href: LibGFX.Math.AABB.html#LibGFX_Math_AABB_Zero
+  name: Zero
+  nameWithType: AABB.Zero
+  fullName: LibGFX.Math.AABB.Zero
+- uid: LibGFX.Math.AABB
+  commentId: T:LibGFX.Math.AABB
+  parent: LibGFX.Math
+  href: LibGFX.Math.AABB.html
+  name: AABB
+  nameWithType: AABB
+  fullName: LibGFX.Math.AABB
+- uid: LibGFX.Math.AABB.Contains*
+  commentId: Overload:LibGFX.Math.AABB.Contains
+  href: LibGFX.Math.AABB.html#LibGFX_Math_AABB_Contains_OpenTK_Mathematics_Vector3_
+  name: Contains
+  nameWithType: AABB.Contains
+  fullName: LibGFX.Math.AABB.Contains
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Math.AABB.Intersects*
+  commentId: Overload:LibGFX.Math.AABB.Intersects
+  href: LibGFX.Math.AABB.html#LibGFX_Math_AABB_Intersects_LibGFX_Math_AABB_
+  name: Intersects
+  nameWithType: AABB.Intersects
+  fullName: LibGFX.Math.AABB.Intersects
+- uid: LibGFX.Math.AABB.Combine*
+  commentId: Overload:LibGFX.Math.AABB.Combine
+  href: LibGFX.Math.AABB.html#LibGFX_Math_AABB_Combine_LibGFX_Math_AABB_LibGFX_Math_AABB_
+  name: Combine
+  nameWithType: AABB.Combine
+  fullName: LibGFX.Math.AABB.Combine
+- uid: LibGFX.Math.AABB.TransformAABB*
+  commentId: Overload:LibGFX.Math.AABB.TransformAABB
+  href: LibGFX.Math.AABB.html#LibGFX_Math_AABB_TransformAABB_LibGFX_Math_AABB_OpenTK_Mathematics_Matrix4_
+  name: TransformAABB
+  nameWithType: AABB.TransformAABB
+  fullName: LibGFX.Math.AABB.TransformAABB
+- uid: OpenTK.Mathematics.Matrix4
+  commentId: T:OpenTK.Mathematics.Matrix4
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Matrix/Matrix4.cs
+  name: Matrix4
+  nameWithType: Matrix4
+  fullName: OpenTK.Mathematics.Matrix4
+- uid: LibGFX.Math.AABB.GenerateBoxVertices*
+  commentId: Overload:LibGFX.Math.AABB.GenerateBoxVertices
+  href: LibGFX.Math.AABB.html#LibGFX_Math_AABB_GenerateBoxVertices
+  name: GenerateBoxVertices
+  nameWithType: AABB.GenerateBoxVertices
+  fullName: LibGFX.Math.AABB.GenerateBoxVertices
+- uid: System.Single[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float[]
+  nameWithType: float[]
+  fullName: float[]
+  nameWithType.vb: Single()
+  fullName.vb: Single()
+  name.vb: Single()
+  spec.csharp:
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: (
+  - name: )
+- uid: LibGFX.Math.AABB.GenerateBoxIndices*
+  commentId: Overload:LibGFX.Math.AABB.GenerateBoxIndices
+  href: LibGFX.Math.AABB.html#LibGFX_Math_AABB_GenerateBoxIndices
+  name: GenerateBoxIndices
+  nameWithType: AABB.GenerateBoxIndices
+  fullName: LibGFX.Math.AABB.GenerateBoxIndices
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )

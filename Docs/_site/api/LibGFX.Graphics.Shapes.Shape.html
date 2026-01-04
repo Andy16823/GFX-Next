@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Shape | LibGFX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Shape | LibGFX ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Graphics_Shapes_Shape.md&amp;value=---%0Auid%3A%20LibGFX.Graphics.Shapes.Shape%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="LibGFX">
+            LibGFX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LibGFX.Graphics.Shapes.Shape">
+
+
+
+  <h1 id="LibGFX_Graphics_Shapes_Shape" data-uid="LibGFX.Graphics.Shapes.Shape" class="text-break">
+Class Shape  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LibGFX.html">LibGFX</a>.<a class="xref" href="LibGFX.Graphics.html">Graphics</a>.<a class="xref" href="LibGFX.Graphics.Shapes.html">Shapes</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LibGFX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class Shape : IGraphicsResource</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Shape</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LibGFX.Core.IGraphicsResource.html">IGraphicsResource</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="LibGFX.Graphics.Shapes.CubeShape.html">CubeShape</a></div>
+      <div><a class="xref" href="LibGFX.Graphics.Shapes.CubeWireShape.html">CubeWireShape</a></div>
+      <div><a class="xref" href="LibGFX.Graphics.Shapes.FramebufferShape.html">FramebufferShape</a></div>
+      <div><a class="xref" href="LibGFX.Graphics.Shapes.LineShape.html">LineShape</a></div>
+      <div><a class="xref" href="LibGFX.Graphics.Shapes.PlaneShape.html">PlaneShape</a></div>
+      <div><a class="xref" href="LibGFX.Graphics.Shapes.RectShape.html">RectShape</a></div>
+      <div><a class="xref" href="LibGFX.Graphics.Shapes.SpriteShape.html">SpriteShape</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_IndexBuffer_" data-uid="LibGFX.Graphics.Shapes.Shape.IndexBuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_IndexBuffer" data-uid="LibGFX.Graphics.Shapes.Shape.IndexBuffer">
+  IndexBuffer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexBuffer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_IsInitialized_" data-uid="LibGFX.Graphics.Shapes.Shape.IsInitialized*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_IsInitialized" data-uid="LibGFX.Graphics.Shapes.Shape.IsInitialized">
+  IsInitialized
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the object has been initialized and is ready for use.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsInitialized { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_NormalBuffer_" data-uid="LibGFX.Graphics.Shapes.Shape.NormalBuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_NormalBuffer" data-uid="LibGFX.Graphics.Shapes.Shape.NormalBuffer">
+  NormalBuffer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int NormalBuffer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_TangentBuffer_" data-uid="LibGFX.Graphics.Shapes.Shape.TangentBuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_TangentBuffer" data-uid="LibGFX.Graphics.Shapes.Shape.TangentBuffer">
+  TangentBuffer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TangentBuffer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_TextureBuffer_" data-uid="LibGFX.Graphics.Shapes.Shape.TextureBuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_TextureBuffer" data-uid="LibGFX.Graphics.Shapes.Shape.TextureBuffer">
+  TextureBuffer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int TextureBuffer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_VertexArray_" data-uid="LibGFX.Graphics.Shapes.Shape.VertexArray*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_VertexArray" data-uid="LibGFX.Graphics.Shapes.Shape.VertexArray">
+  VertexArray
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int VertexArray { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_VertexBuffer_" data-uid="LibGFX.Graphics.Shapes.Shape.VertexBuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_VertexBuffer" data-uid="LibGFX.Graphics.Shapes.Shape.VertexBuffer">
+  VertexBuffer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int VertexBuffer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_Dispose_" data-uid="LibGFX.Graphics.Shapes.Shape.Dispose*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_Dispose_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Graphics.Shapes.Shape.Dispose(LibGFX.Graphics.IRenderDevice)">
+  Dispose(IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Releases all resources used by the current instance and performs cleanup using the specified render device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose(IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd><p>The render device to use for releasing resources. Cannot be null.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_DynamicNormals_" data-uid="LibGFX.Graphics.Shapes.Shape.DynamicNormals*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_DynamicNormals" data-uid="LibGFX.Graphics.Shapes.Shape.DynamicNormals">
+  DynamicNormals()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool DynamicNormals()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_DynamicTangents_" data-uid="LibGFX.Graphics.Shapes.Shape.DynamicTangents*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_DynamicTangents" data-uid="LibGFX.Graphics.Shapes.Shape.DynamicTangents">
+  DynamicTangents()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool DynamicTangents()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_DynamicUVCoords_" data-uid="LibGFX.Graphics.Shapes.Shape.DynamicUVCoords*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_DynamicUVCoords" data-uid="LibGFX.Graphics.Shapes.Shape.DynamicUVCoords">
+  DynamicUVCoords()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool DynamicUVCoords()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_DynamicVertices_" data-uid="LibGFX.Graphics.Shapes.Shape.DynamicVertices*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_DynamicVertices" data-uid="LibGFX.Graphics.Shapes.Shape.DynamicVertices">
+  DynamicVertices()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool DynamicVertices()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_FreeCPUResources_" data-uid="LibGFX.Graphics.Shapes.Shape.FreeCPUResources*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_FreeCPUResources" data-uid="LibGFX.Graphics.Shapes.Shape.FreeCPUResources">
+  FreeCPUResources()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Releases any CPU resources that are currently allocated by the component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void FreeCPUResources()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Graphics_Shapes_Shape_FreeCPUResources_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Call this method when the component no longer needs to perform CPU-intensive
+operations to allow the system to reclaim resources. After calling this method, the component may not be
+able to perform certain operations until resources are reallocated.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_GetIndexCount_" data-uid="LibGFX.Graphics.Shapes.Shape.GetIndexCount*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_GetIndexCount" data-uid="LibGFX.Graphics.Shapes.Shape.GetIndexCount">
+  GetIndexCount()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int GetIndexCount()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_GetIndices_" data-uid="LibGFX.Graphics.Shapes.Shape.GetIndices*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_GetIndices" data-uid="LibGFX.Graphics.Shapes.Shape.GetIndices">
+  GetIndices()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract uint[] GetIndices()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_GetNormals_" data-uid="LibGFX.Graphics.Shapes.Shape.GetNormals*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_GetNormals" data-uid="LibGFX.Graphics.Shapes.Shape.GetNormals">
+  GetNormals()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract float[] GetNormals()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_GetShapeName_" data-uid="LibGFX.Graphics.Shapes.Shape.GetShapeName*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_GetShapeName" data-uid="LibGFX.Graphics.Shapes.Shape.GetShapeName">
+  GetShapeName()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string GetShapeName()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_GetTangents_" data-uid="LibGFX.Graphics.Shapes.Shape.GetTangents*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_GetTangents" data-uid="LibGFX.Graphics.Shapes.Shape.GetTangents">
+  GetTangents()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract float[] GetTangents()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_GetUVCoords_" data-uid="LibGFX.Graphics.Shapes.Shape.GetUVCoords*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_GetUVCoords" data-uid="LibGFX.Graphics.Shapes.Shape.GetUVCoords">
+  GetUVCoords()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract float[] GetUVCoords()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_GetVertices_" data-uid="LibGFX.Graphics.Shapes.Shape.GetVertices*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_GetVertices" data-uid="LibGFX.Graphics.Shapes.Shape.GetVertices">
+  GetVertices()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract float[] GetVertices()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_HasNormals_" data-uid="LibGFX.Graphics.Shapes.Shape.HasNormals*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_HasNormals" data-uid="LibGFX.Graphics.Shapes.Shape.HasNormals">
+  HasNormals()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool HasNormals()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_HasTangents_" data-uid="LibGFX.Graphics.Shapes.Shape.HasTangents*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_HasTangents" data-uid="LibGFX.Graphics.Shapes.Shape.HasTangents">
+  HasTangents()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool HasTangents()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_HasUvCoords_" data-uid="LibGFX.Graphics.Shapes.Shape.HasUvCoords*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_HasUvCoords" data-uid="LibGFX.Graphics.Shapes.Shape.HasUvCoords">
+  HasUvCoords()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool HasUvCoords()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Shapes_Shape_Init_" data-uid="LibGFX.Graphics.Shapes.Shape.Init*"></a>
+
+  <h3 id="LibGFX_Graphics_Shapes_Shape_Init_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Graphics.Shapes.Shape.Init(LibGFX.Graphics.IRenderDevice)">
+  Init(IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the current instance using the specified render device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Init(IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd><p>The render device to use for initialization. Cannot be null.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Shapes/Shape.cs/#L11" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

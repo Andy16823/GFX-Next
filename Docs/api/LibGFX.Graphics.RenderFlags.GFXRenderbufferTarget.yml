@@ -1,0 +1,128 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget
+  id: RenderFlags.GFXRenderbufferTarget
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget.Renderbuffer
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget.RenderbufferExt
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.GFXRenderbufferTarget
+  nameWithType: RenderFlags.GFXRenderbufferTarget
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GFXRenderbufferTarget
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 239
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public enum RenderFlags.GFXRenderbufferTarget
+    content.vb: Public Enum RenderFlags.GFXRenderbufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget.Renderbuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget.Renderbuffer
+  id: Renderbuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget
+  langs:
+  - csharp
+  - vb
+  name: Renderbuffer
+  nameWithType: RenderFlags.GFXRenderbufferTarget.Renderbuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget.Renderbuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Renderbuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 241
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Renderbuffer = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget.RenderbufferExt
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget.RenderbufferExt
+  id: RenderbufferExt
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget
+  langs:
+  - csharp
+  - vb
+  name: RenderbufferExt
+  nameWithType: RenderFlags.GFXRenderbufferTarget.RenderbufferExt
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget.RenderbufferExt
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderbufferExt
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 242
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RenderbufferExt = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.GFXRenderbufferTarget
+  nameWithType: RenderFlags.GFXRenderbufferTarget
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget
+    name: GFXRenderbufferTarget
+    href: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget
+    name: GFXRenderbufferTarget
+    href: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget.html

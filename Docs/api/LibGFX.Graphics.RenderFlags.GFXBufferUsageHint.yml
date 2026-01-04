@@ -1,0 +1,317 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+  id: RenderFlags.GFXBufferUsageHint
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.DynamicCopy
+  - LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.DynamicDraw
+  - LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.DynamicRead
+  - LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StaticCopy
+  - LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StaticDraw
+  - LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StaticRead
+  - LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StreamCopy
+  - LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StreamDraw
+  - LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StreamRead
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.GFXBufferUsageHint
+  nameWithType: RenderFlags.GFXBufferUsageHint
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GFXBufferUsageHint
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 339
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public enum RenderFlags.GFXBufferUsageHint
+    content.vb: Public Enum RenderFlags.GFXBufferUsageHint
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StreamDraw
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StreamDraw
+  id: StreamDraw
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+  langs:
+  - csharp
+  - vb
+  name: StreamDraw
+  nameWithType: RenderFlags.GFXBufferUsageHint.StreamDraw
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StreamDraw
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StreamDraw
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 341
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: StreamDraw = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StreamRead
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StreamRead
+  id: StreamRead
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+  langs:
+  - csharp
+  - vb
+  name: StreamRead
+  nameWithType: RenderFlags.GFXBufferUsageHint.StreamRead
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StreamRead
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StreamRead
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 342
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: StreamRead = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StreamCopy
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StreamCopy
+  id: StreamCopy
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+  langs:
+  - csharp
+  - vb
+  name: StreamCopy
+  nameWithType: RenderFlags.GFXBufferUsageHint.StreamCopy
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StreamCopy
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StreamCopy
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 343
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: StreamCopy = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StaticDraw
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StaticDraw
+  id: StaticDraw
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+  langs:
+  - csharp
+  - vb
+  name: StaticDraw
+  nameWithType: RenderFlags.GFXBufferUsageHint.StaticDraw
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StaticDraw
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StaticDraw
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 344
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: StaticDraw = 3
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StaticRead
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StaticRead
+  id: StaticRead
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+  langs:
+  - csharp
+  - vb
+  name: StaticRead
+  nameWithType: RenderFlags.GFXBufferUsageHint.StaticRead
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StaticRead
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StaticRead
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 345
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: StaticRead = 4
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StaticCopy
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StaticCopy
+  id: StaticCopy
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+  langs:
+  - csharp
+  - vb
+  name: StaticCopy
+  nameWithType: RenderFlags.GFXBufferUsageHint.StaticCopy
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.StaticCopy
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StaticCopy
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 346
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: StaticCopy = 5
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.DynamicDraw
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.DynamicDraw
+  id: DynamicDraw
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+  langs:
+  - csharp
+  - vb
+  name: DynamicDraw
+  nameWithType: RenderFlags.GFXBufferUsageHint.DynamicDraw
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.DynamicDraw
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DynamicDraw
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 347
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: DynamicDraw = 6
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.DynamicRead
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.DynamicRead
+  id: DynamicRead
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+  langs:
+  - csharp
+  - vb
+  name: DynamicRead
+  nameWithType: RenderFlags.GFXBufferUsageHint.DynamicRead
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.DynamicRead
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DynamicRead
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 348
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: DynamicRead = 7
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.DynamicCopy
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.DynamicCopy
+  id: DynamicCopy
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+  langs:
+  - csharp
+  - vb
+  name: DynamicCopy
+  nameWithType: RenderFlags.GFXBufferUsageHint.DynamicCopy
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.DynamicCopy
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DynamicCopy
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 349
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: DynamicCopy = 8
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.GFXBufferUsageHint
+  nameWithType: RenderFlags.GFXBufferUsageHint
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+    name: GFXBufferUsageHint
+    href: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+    name: GFXBufferUsageHint
+    href: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.html

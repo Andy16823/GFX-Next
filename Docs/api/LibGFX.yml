@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX
+  commentId: N:LibGFX
+  id: LibGFX
+  children:
+  - LibGFX.GFX
+  langs:
+  - csharp
+  - vb
+  name: LibGFX
+  nameWithType: LibGFX
+  fullName: LibGFX
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.GFX
+  commentId: T:LibGFX.GFX
+  parent: LibGFX
+  href: LibGFX.GFX.html
+  name: GFX
+  nameWithType: GFX
+  fullName: LibGFX.GFX
+- uid: LibGFX
+  commentId: N:LibGFX
+  href: LibGFX.html
+  name: LibGFX
+  nameWithType: LibGFX
+  fullName: LibGFX

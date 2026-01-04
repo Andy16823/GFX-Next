@@ -1,0 +1,317 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+  id: RenderFlags.GFXFramebufferErrorCode
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferComplete
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteAttachment
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteDrawBuffer
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteLayerTargets
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteMissingAttachment
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteMultisample
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteReadBuffer
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferUndefined
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferUnsupported
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.GFXFramebufferErrorCode
+  nameWithType: RenderFlags.GFXFramebufferErrorCode
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GFXFramebufferErrorCode
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 352
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public enum RenderFlags.GFXFramebufferErrorCode
+    content.vb: Public Enum RenderFlags.GFXFramebufferErrorCode
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferComplete
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferComplete
+  id: FramebufferComplete
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+  langs:
+  - csharp
+  - vb
+  name: FramebufferComplete
+  nameWithType: RenderFlags.GFXFramebufferErrorCode.FramebufferComplete
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferComplete
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FramebufferComplete
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 354
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: FramebufferComplete = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferUndefined
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferUndefined
+  id: FramebufferUndefined
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+  langs:
+  - csharp
+  - vb
+  name: FramebufferUndefined
+  nameWithType: RenderFlags.GFXFramebufferErrorCode.FramebufferUndefined
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferUndefined
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FramebufferUndefined
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 355
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: FramebufferUndefined = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteAttachment
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteAttachment
+  id: FramebufferIncompleteAttachment
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+  langs:
+  - csharp
+  - vb
+  name: FramebufferIncompleteAttachment
+  nameWithType: RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteAttachment
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteAttachment
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FramebufferIncompleteAttachment
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 356
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: FramebufferIncompleteAttachment = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteMissingAttachment
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteMissingAttachment
+  id: FramebufferIncompleteMissingAttachment
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+  langs:
+  - csharp
+  - vb
+  name: FramebufferIncompleteMissingAttachment
+  nameWithType: RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteMissingAttachment
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteMissingAttachment
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FramebufferIncompleteMissingAttachment
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 357
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: FramebufferIncompleteMissingAttachment = 3
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteDrawBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteDrawBuffer
+  id: FramebufferIncompleteDrawBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+  langs:
+  - csharp
+  - vb
+  name: FramebufferIncompleteDrawBuffer
+  nameWithType: RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteDrawBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteDrawBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FramebufferIncompleteDrawBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 358
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: FramebufferIncompleteDrawBuffer = 4
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteReadBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteReadBuffer
+  id: FramebufferIncompleteReadBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+  langs:
+  - csharp
+  - vb
+  name: FramebufferIncompleteReadBuffer
+  nameWithType: RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteReadBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteReadBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FramebufferIncompleteReadBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 359
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: FramebufferIncompleteReadBuffer = 5
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferUnsupported
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferUnsupported
+  id: FramebufferUnsupported
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+  langs:
+  - csharp
+  - vb
+  name: FramebufferUnsupported
+  nameWithType: RenderFlags.GFXFramebufferErrorCode.FramebufferUnsupported
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferUnsupported
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FramebufferUnsupported
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 360
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: FramebufferUnsupported = 6
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteMultisample
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteMultisample
+  id: FramebufferIncompleteMultisample
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+  langs:
+  - csharp
+  - vb
+  name: FramebufferIncompleteMultisample
+  nameWithType: RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteMultisample
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteMultisample
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FramebufferIncompleteMultisample
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 361
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: FramebufferIncompleteMultisample = 7
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteLayerTargets
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteLayerTargets
+  id: FramebufferIncompleteLayerTargets
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+  langs:
+  - csharp
+  - vb
+  name: FramebufferIncompleteLayerTargets
+  nameWithType: RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteLayerTargets
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.FramebufferIncompleteLayerTargets
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FramebufferIncompleteLayerTargets
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 362
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: FramebufferIncompleteLayerTargets = 8
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.GFXFramebufferErrorCode
+  nameWithType: RenderFlags.GFXFramebufferErrorCode
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+    name: GFXFramebufferErrorCode
+    href: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+    name: GFXFramebufferErrorCode
+    href: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.html

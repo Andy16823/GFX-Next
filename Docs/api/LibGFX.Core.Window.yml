@@ -1,0 +1,1168 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Core.Window
+  commentId: T:LibGFX.Core.Window
+  id: Window
+  parent: LibGFX.Core
+  children:
+  - LibGFX.Core.Window.#ctor(System.String,LibGFX.Graphics.Viewport,LibGFX.Core.Window.WindowState)
+  - LibGFX.Core.Window.Close
+  - LibGFX.Core.Window.GetContext
+  - LibGFX.Core.Window.GetMousePosition
+  - LibGFX.Core.Window.GetViewport
+  - LibGFX.Core.Window.HideCursor
+  - LibGFX.Core.Window.IsFocused
+  - LibGFX.Core.Window.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys)
+  - LibGFX.Core.Window.IsKeyPressed(OpenTK.Windowing.GraphicsLibraryFramework.Keys)
+  - LibGFX.Core.Window.IsMouseDown(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)
+  - LibGFX.Core.Window.IsMousePressed(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)
+  - LibGFX.Core.Window.IsMouseReleased(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)
+  - LibGFX.Core.Window.ProcessEvents
+  - LibGFX.Core.Window.RequestClose
+  - LibGFX.Core.Window.SetMousePosition(OpenTK.Mathematics.Vector2)
+  - LibGFX.Core.Window.SetMousePosition(System.Single,System.Single)
+  - LibGFX.Core.Window.ShowCursor
+  langs:
+  - csharp
+  - vb
+  name: Window
+  nameWithType: Window
+  fullName: LibGFX.Core.Window
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Window
+    path: ../LibGFX/Core/Window.cs
+    startLine: 16
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Represents a window for rendering graphics.
+  example: []
+  syntax:
+    content: public class Window
+    content.vb: Public Class Window
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Core.Window.#ctor(System.String,LibGFX.Graphics.Viewport,LibGFX.Core.Window.WindowState)
+  commentId: M:LibGFX.Core.Window.#ctor(System.String,LibGFX.Graphics.Viewport,LibGFX.Core.Window.WindowState)
+  id: '#ctor(System.String,LibGFX.Graphics.Viewport,LibGFX.Core.Window.WindowState)'
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: Window(string, Viewport, WindowState)
+  nameWithType: Window.Window(string, Viewport, Window.WindowState)
+  fullName: LibGFX.Core.Window.Window(string, LibGFX.Graphics.Viewport, LibGFX.Core.Window.WindowState)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Core/Window.cs
+    startLine: 34
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Creates a new window with the specified title, viewport, and window state.
+  example: []
+  syntax:
+    content: public Window(string title, Viewport viewport, Window.WindowState windowState = WindowState.Normal)
+    parameters:
+    - id: title
+      type: System.String
+      description: ''
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: windowState
+      type: LibGFX.Core.Window.WindowState
+      description: ''
+    content.vb: Public Sub New(title As String, viewport As Viewport, windowState As Window.WindowState = WindowState.Normal)
+  overload: LibGFX.Core.Window.#ctor*
+  nameWithType.vb: Window.New(String, Viewport, Window.WindowState)
+  fullName.vb: LibGFX.Core.Window.New(String, LibGFX.Graphics.Viewport, LibGFX.Core.Window.WindowState)
+  name.vb: New(String, Viewport, WindowState)
+- uid: LibGFX.Core.Window.RequestClose
+  commentId: M:LibGFX.Core.Window.RequestClose
+  id: RequestClose
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: RequestClose()
+  nameWithType: Window.RequestClose()
+  fullName: LibGFX.Core.Window.RequestClose()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RequestClose
+    path: ../LibGFX/Core/Window.cs
+    startLine: 51
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Requests to close the window.
+  example: []
+  syntax:
+    content: public bool RequestClose()
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Function RequestClose() As Boolean
+  overload: LibGFX.Core.Window.RequestClose*
+- uid: LibGFX.Core.Window.ProcessEvents
+  commentId: M:LibGFX.Core.Window.ProcessEvents
+  id: ProcessEvents
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: ProcessEvents()
+  nameWithType: Window.ProcessEvents()
+  fullName: LibGFX.Core.Window.ProcessEvents()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ProcessEvents
+    path: ../LibGFX/Core/Window.cs
+    startLine: 59
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Processes the window events.
+  example: []
+  syntax:
+    content: public void ProcessEvents()
+    content.vb: Public Sub ProcessEvents()
+  overload: LibGFX.Core.Window.ProcessEvents*
+- uid: LibGFX.Core.Window.GetContext
+  commentId: M:LibGFX.Core.Window.GetContext
+  id: GetContext
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: GetContext()
+  nameWithType: Window.GetContext()
+  fullName: LibGFX.Core.Window.GetContext()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetContext
+    path: ../LibGFX/Core/Window.cs
+    startLine: 68
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Gets the window _context.
+  example: []
+  syntax:
+    content: public IGLFWGraphicsContext GetContext()
+    return:
+      type: OpenTK.Windowing.Desktop.IGLFWGraphicsContext
+      description: ''
+    content.vb: Public Function GetContext() As IGLFWGraphicsContext
+  overload: LibGFX.Core.Window.GetContext*
+- uid: LibGFX.Core.Window.GetViewport
+  commentId: M:LibGFX.Core.Window.GetViewport
+  id: GetViewport
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: GetViewport()
+  nameWithType: Window.GetViewport()
+  fullName: LibGFX.Core.Window.GetViewport()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetViewport
+    path: ../LibGFX/Core/Window.cs
+    startLine: 77
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Gets the current window size.
+  example: []
+  syntax:
+    content: public Viewport GetViewport()
+    return:
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    content.vb: Public Function GetViewport() As Viewport
+  overload: LibGFX.Core.Window.GetViewport*
+- uid: LibGFX.Core.Window.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys)
+  commentId: M:LibGFX.Core.Window.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys)
+  id: IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys)
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: IsKeyDown(Keys)
+  nameWithType: Window.IsKeyDown(Keys)
+  fullName: LibGFX.Core.Window.IsKeyDown(OpenTK.Windowing.GraphicsLibraryFramework.Keys)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IsKeyDown
+    path: ../LibGFX/Core/Window.cs
+    startLine: 87
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Checks if the specified key is down.
+  example: []
+  syntax:
+    content: public bool IsKeyDown(Keys key)
+    parameters:
+    - id: key
+      type: OpenTK.Windowing.GraphicsLibraryFramework.Keys
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Function IsKeyDown(key As Keys) As Boolean
+  overload: LibGFX.Core.Window.IsKeyDown*
+- uid: LibGFX.Core.Window.IsKeyPressed(OpenTK.Windowing.GraphicsLibraryFramework.Keys)
+  commentId: M:LibGFX.Core.Window.IsKeyPressed(OpenTK.Windowing.GraphicsLibraryFramework.Keys)
+  id: IsKeyPressed(OpenTK.Windowing.GraphicsLibraryFramework.Keys)
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: IsKeyPressed(Keys)
+  nameWithType: Window.IsKeyPressed(Keys)
+  fullName: LibGFX.Core.Window.IsKeyPressed(OpenTK.Windowing.GraphicsLibraryFramework.Keys)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IsKeyPressed
+    path: ../LibGFX/Core/Window.cs
+    startLine: 97
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Checks if the specified key is pressed.
+  example: []
+  syntax:
+    content: public bool IsKeyPressed(Keys key)
+    parameters:
+    - id: key
+      type: OpenTK.Windowing.GraphicsLibraryFramework.Keys
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Function IsKeyPressed(key As Keys) As Boolean
+  overload: LibGFX.Core.Window.IsKeyPressed*
+- uid: LibGFX.Core.Window.IsFocused
+  commentId: M:LibGFX.Core.Window.IsFocused
+  id: IsFocused
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: IsFocused()
+  nameWithType: Window.IsFocused()
+  fullName: LibGFX.Core.Window.IsFocused()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IsFocused
+    path: ../LibGFX/Core/Window.cs
+    startLine: 106
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Checks if the window is focused.
+  example: []
+  syntax:
+    content: public bool IsFocused()
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Function IsFocused() As Boolean
+  overload: LibGFX.Core.Window.IsFocused*
+- uid: LibGFX.Core.Window.GetMousePosition
+  commentId: M:LibGFX.Core.Window.GetMousePosition
+  id: GetMousePosition
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: GetMousePosition()
+  nameWithType: Window.GetMousePosition()
+  fullName: LibGFX.Core.Window.GetMousePosition()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetMousePosition
+    path: ../LibGFX/Core/Window.cs
+    startLine: 115
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Gets the current mouse position in the window.
+  example: []
+  syntax:
+    content: public Vector2 GetMousePosition()
+    return:
+      type: OpenTK.Mathematics.Vector2
+      description: ''
+    content.vb: Public Function GetMousePosition() As Vector2
+  overload: LibGFX.Core.Window.GetMousePosition*
+- uid: LibGFX.Core.Window.IsMouseDown(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)
+  commentId: M:LibGFX.Core.Window.IsMouseDown(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)
+  id: IsMouseDown(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: IsMouseDown(MouseButton)
+  nameWithType: Window.IsMouseDown(MouseButton)
+  fullName: LibGFX.Core.Window.IsMouseDown(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IsMouseDown
+    path: ../LibGFX/Core/Window.cs
+    startLine: 125
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Checks if the specified mouse button is down.
+  example: []
+  syntax:
+    content: public bool IsMouseDown(MouseButton button)
+    parameters:
+    - id: button
+      type: OpenTK.Windowing.GraphicsLibraryFramework.MouseButton
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Function IsMouseDown(button As MouseButton) As Boolean
+  overload: LibGFX.Core.Window.IsMouseDown*
+- uid: LibGFX.Core.Window.IsMousePressed(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)
+  commentId: M:LibGFX.Core.Window.IsMousePressed(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)
+  id: IsMousePressed(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: IsMousePressed(MouseButton)
+  nameWithType: Window.IsMousePressed(MouseButton)
+  fullName: LibGFX.Core.Window.IsMousePressed(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IsMousePressed
+    path: ../LibGFX/Core/Window.cs
+    startLine: 135
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Checks if the specified mouse button is pressed.
+  example: []
+  syntax:
+    content: public bool IsMousePressed(MouseButton button)
+    parameters:
+    - id: button
+      type: OpenTK.Windowing.GraphicsLibraryFramework.MouseButton
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Function IsMousePressed(button As MouseButton) As Boolean
+  overload: LibGFX.Core.Window.IsMousePressed*
+- uid: LibGFX.Core.Window.IsMouseReleased(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)
+  commentId: M:LibGFX.Core.Window.IsMouseReleased(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)
+  id: IsMouseReleased(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: IsMouseReleased(MouseButton)
+  nameWithType: Window.IsMouseReleased(MouseButton)
+  fullName: LibGFX.Core.Window.IsMouseReleased(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IsMouseReleased
+    path: ../LibGFX/Core/Window.cs
+    startLine: 145
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Checks if the specified mouse button is released.
+  example: []
+  syntax:
+    content: public bool IsMouseReleased(MouseButton button)
+    parameters:
+    - id: button
+      type: OpenTK.Windowing.GraphicsLibraryFramework.MouseButton
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Function IsMouseReleased(button As MouseButton) As Boolean
+  overload: LibGFX.Core.Window.IsMouseReleased*
+- uid: LibGFX.Core.Window.SetMousePosition(OpenTK.Mathematics.Vector2)
+  commentId: M:LibGFX.Core.Window.SetMousePosition(OpenTK.Mathematics.Vector2)
+  id: SetMousePosition(OpenTK.Mathematics.Vector2)
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: SetMousePosition(Vector2)
+  nameWithType: Window.SetMousePosition(Vector2)
+  fullName: LibGFX.Core.Window.SetMousePosition(OpenTK.Mathematics.Vector2)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetMousePosition
+    path: ../LibGFX/Core/Window.cs
+    startLine: 154
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Sets the mouse position to the specified coordinates.
+  example: []
+  syntax:
+    content: public void SetMousePosition(Vector2 position)
+    parameters:
+    - id: position
+      type: OpenTK.Mathematics.Vector2
+      description: ''
+    content.vb: Public Sub SetMousePosition(position As Vector2)
+  overload: LibGFX.Core.Window.SetMousePosition*
+- uid: LibGFX.Core.Window.SetMousePosition(System.Single,System.Single)
+  commentId: M:LibGFX.Core.Window.SetMousePosition(System.Single,System.Single)
+  id: SetMousePosition(System.Single,System.Single)
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: SetMousePosition(float, float)
+  nameWithType: Window.SetMousePosition(float, float)
+  fullName: LibGFX.Core.Window.SetMousePosition(float, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetMousePosition
+    path: ../LibGFX/Core/Window.cs
+    startLine: 164
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Sets the mouse position to the specified coordinates.
+  example: []
+  syntax:
+    content: public void SetMousePosition(float x, float y)
+    parameters:
+    - id: x
+      type: System.Single
+      description: ''
+    - id: y
+      type: System.Single
+      description: ''
+    content.vb: Public Sub SetMousePosition(x As Single, y As Single)
+  overload: LibGFX.Core.Window.SetMousePosition*
+  nameWithType.vb: Window.SetMousePosition(Single, Single)
+  fullName.vb: LibGFX.Core.Window.SetMousePosition(Single, Single)
+  name.vb: SetMousePosition(Single, Single)
+- uid: LibGFX.Core.Window.HideCursor
+  commentId: M:LibGFX.Core.Window.HideCursor
+  id: HideCursor
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: HideCursor()
+  nameWithType: Window.HideCursor()
+  fullName: LibGFX.Core.Window.HideCursor()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: HideCursor
+    path: ../LibGFX/Core/Window.cs
+    startLine: 172
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Hides the mouse cursor.
+  example: []
+  syntax:
+    content: public void HideCursor()
+    content.vb: Public Sub HideCursor()
+  overload: LibGFX.Core.Window.HideCursor*
+- uid: LibGFX.Core.Window.ShowCursor
+  commentId: M:LibGFX.Core.Window.ShowCursor
+  id: ShowCursor
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: ShowCursor()
+  nameWithType: Window.ShowCursor()
+  fullName: LibGFX.Core.Window.ShowCursor()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ShowCursor
+    path: ../LibGFX/Core/Window.cs
+    startLine: 180
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Shows the mouse cursor.
+  example: []
+  syntax:
+    content: public void ShowCursor()
+    content.vb: Public Sub ShowCursor()
+  overload: LibGFX.Core.Window.ShowCursor*
+- uid: LibGFX.Core.Window.Close
+  commentId: M:LibGFX.Core.Window.Close
+  id: Close
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: Close()
+  nameWithType: Window.Close()
+  fullName: LibGFX.Core.Window.Close()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Close
+    path: ../LibGFX/Core/Window.cs
+    startLine: 188
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Closes the window.
+  example: []
+  syntax:
+    content: public void Close()
+    content.vb: Public Sub Close()
+  overload: LibGFX.Core.Window.Close*
+references:
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core.Window.#ctor*
+  commentId: Overload:LibGFX.Core.Window.#ctor
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window__ctor_System_String_LibGFX_Graphics_Viewport_LibGFX_Core_Window_WindowState_
+  name: Window
+  nameWithType: Window.Window
+  fullName: LibGFX.Core.Window.Window
+  nameWithType.vb: Window.New
+  fullName.vb: LibGFX.Core.Window.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.Core.Window.WindowState
+  commentId: T:LibGFX.Core.Window.WindowState
+  parent: LibGFX.Core
+  href: LibGFX.Core.Window.html
+  name: Window.WindowState
+  nameWithType: Window.WindowState
+  fullName: LibGFX.Core.Window.WindowState
+  spec.csharp:
+  - uid: LibGFX.Core.Window
+    name: Window
+    href: LibGFX.Core.Window.html
+  - name: .
+  - uid: LibGFX.Core.Window.WindowState
+    name: WindowState
+    href: LibGFX.Core.Window.WindowState.html
+  spec.vb:
+  - uid: LibGFX.Core.Window
+    name: Window
+    href: LibGFX.Core.Window.html
+  - name: .
+  - uid: LibGFX.Core.Window.WindowState
+    name: WindowState
+    href: LibGFX.Core.Window.WindowState.html
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Core.Window.RequestClose*
+  commentId: Overload:LibGFX.Core.Window.RequestClose
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window_RequestClose
+  name: RequestClose
+  nameWithType: Window.RequestClose
+  fullName: LibGFX.Core.Window.RequestClose
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Core.Window.ProcessEvents*
+  commentId: Overload:LibGFX.Core.Window.ProcessEvents
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window_ProcessEvents
+  name: ProcessEvents
+  nameWithType: Window.ProcessEvents
+  fullName: LibGFX.Core.Window.ProcessEvents
+- uid: LibGFX.Core.Window.GetContext*
+  commentId: Overload:LibGFX.Core.Window.GetContext
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window_GetContext
+  name: GetContext
+  nameWithType: Window.GetContext
+  fullName: LibGFX.Core.Window.GetContext
+- uid: OpenTK.Windowing.Desktop.IGLFWGraphicsContext
+  commentId: T:OpenTK.Windowing.Desktop.IGLFWGraphicsContext
+  parent: OpenTK.Windowing.Desktop
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Windowing.Desktop/IGLFWGraphicsContext.cs
+  name: IGLFWGraphicsContext
+  nameWithType: IGLFWGraphicsContext
+  fullName: OpenTK.Windowing.Desktop.IGLFWGraphicsContext
+- uid: OpenTK.Windowing.Desktop
+  commentId: N:OpenTK.Windowing.Desktop
+  isExternal: true
+  name: OpenTK.Windowing.Desktop
+  nameWithType: OpenTK.Windowing.Desktop
+  fullName: OpenTK.Windowing.Desktop
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Windowing
+    name: Windowing
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Windowing.Desktop
+    name: Desktop
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Windowing
+    name: Windowing
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Windowing.Desktop
+    name: Desktop
+    isExternal: true
+- uid: LibGFX.Core.Window.GetViewport*
+  commentId: Overload:LibGFX.Core.Window.GetViewport
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window_GetViewport
+  name: GetViewport
+  nameWithType: Window.GetViewport
+  fullName: LibGFX.Core.Window.GetViewport
+- uid: LibGFX.Core.Window.IsKeyDown*
+  commentId: Overload:LibGFX.Core.Window.IsKeyDown
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window_IsKeyDown_OpenTK_Windowing_GraphicsLibraryFramework_Keys_
+  name: IsKeyDown
+  nameWithType: Window.IsKeyDown
+  fullName: LibGFX.Core.Window.IsKeyDown
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.Keys
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.Keys
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Windowing.GraphicsLibraryFramework/Enums/Keys.cs
+  name: Keys
+  nameWithType: Keys
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.Keys
+- uid: OpenTK.Windowing.GraphicsLibraryFramework
+  commentId: N:OpenTK.Windowing.GraphicsLibraryFramework
+  isExternal: true
+  name: OpenTK.Windowing.GraphicsLibraryFramework
+  nameWithType: OpenTK.Windowing.GraphicsLibraryFramework
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Windowing
+    name: Windowing
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Windowing.GraphicsLibraryFramework
+    name: GraphicsLibraryFramework
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Windowing
+    name: Windowing
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Windowing.GraphicsLibraryFramework
+    name: GraphicsLibraryFramework
+    isExternal: true
+- uid: LibGFX.Core.Window.IsKeyPressed*
+  commentId: Overload:LibGFX.Core.Window.IsKeyPressed
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window_IsKeyPressed_OpenTK_Windowing_GraphicsLibraryFramework_Keys_
+  name: IsKeyPressed
+  nameWithType: Window.IsKeyPressed
+  fullName: LibGFX.Core.Window.IsKeyPressed
+- uid: LibGFX.Core.Window.IsFocused*
+  commentId: Overload:LibGFX.Core.Window.IsFocused
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window_IsFocused
+  name: IsFocused
+  nameWithType: Window.IsFocused
+  fullName: LibGFX.Core.Window.IsFocused
+- uid: LibGFX.Core.Window.GetMousePosition*
+  commentId: Overload:LibGFX.Core.Window.GetMousePosition
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window_GetMousePosition
+  name: GetMousePosition
+  nameWithType: Window.GetMousePosition
+  fullName: LibGFX.Core.Window.GetMousePosition
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Core.Window.IsMouseDown*
+  commentId: Overload:LibGFX.Core.Window.IsMouseDown
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window_IsMouseDown_OpenTK_Windowing_GraphicsLibraryFramework_MouseButton_
+  name: IsMouseDown
+  nameWithType: Window.IsMouseDown
+  fullName: LibGFX.Core.Window.IsMouseDown
+- uid: OpenTK.Windowing.GraphicsLibraryFramework.MouseButton
+  commentId: T:OpenTK.Windowing.GraphicsLibraryFramework.MouseButton
+  parent: OpenTK.Windowing.GraphicsLibraryFramework
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Windowing.GraphicsLibraryFramework/Enums/MouseButton.cs
+  name: MouseButton
+  nameWithType: MouseButton
+  fullName: OpenTK.Windowing.GraphicsLibraryFramework.MouseButton
+- uid: LibGFX.Core.Window.IsMousePressed*
+  commentId: Overload:LibGFX.Core.Window.IsMousePressed
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window_IsMousePressed_OpenTK_Windowing_GraphicsLibraryFramework_MouseButton_
+  name: IsMousePressed
+  nameWithType: Window.IsMousePressed
+  fullName: LibGFX.Core.Window.IsMousePressed
+- uid: LibGFX.Core.Window.IsMouseReleased*
+  commentId: Overload:LibGFX.Core.Window.IsMouseReleased
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window_IsMouseReleased_OpenTK_Windowing_GraphicsLibraryFramework_MouseButton_
+  name: IsMouseReleased
+  nameWithType: Window.IsMouseReleased
+  fullName: LibGFX.Core.Window.IsMouseReleased
+- uid: LibGFX.Core.Window.SetMousePosition*
+  commentId: Overload:LibGFX.Core.Window.SetMousePosition
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window_SetMousePosition_OpenTK_Mathematics_Vector2_
+  name: SetMousePosition
+  nameWithType: Window.SetMousePosition
+  fullName: LibGFX.Core.Window.SetMousePosition
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Core.Window.HideCursor*
+  commentId: Overload:LibGFX.Core.Window.HideCursor
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window_HideCursor
+  name: HideCursor
+  nameWithType: Window.HideCursor
+  fullName: LibGFX.Core.Window.HideCursor
+- uid: LibGFX.Core.Window.ShowCursor*
+  commentId: Overload:LibGFX.Core.Window.ShowCursor
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window_ShowCursor
+  name: ShowCursor
+  nameWithType: Window.ShowCursor
+  fullName: LibGFX.Core.Window.ShowCursor
+- uid: LibGFX.Core.Window.Close*
+  commentId: Overload:LibGFX.Core.Window.Close
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window_Close
+  name: Close
+  nameWithType: Window.Close
+  fullName: LibGFX.Core.Window.Close

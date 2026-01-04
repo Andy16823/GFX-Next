@@ -1,0 +1,157 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.PostProcessing
+  commentId: N:LibGFX.Graphics.PostProcessing
+  id: LibGFX.Graphics.PostProcessing
+  children:
+  - LibGFX.Graphics.PostProcessing.BrightnessContrastFX
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  - LibGFX.Graphics.PostProcessing.ColorTintFX
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX
+  - LibGFX.Graphics.PostProcessing.GrayscaleFX
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  - LibGFX.Graphics.PostProcessing.OverlayFX
+  - LibGFX.Graphics.PostProcessing.PixelationFX
+  - LibGFX.Graphics.PostProcessing.PostProcessStack
+  - LibGFX.Graphics.PostProcessing.PosterizationFX
+  - LibGFX.Graphics.PostProcessing.ScanlinesFX
+  - LibGFX.Graphics.PostProcessing.SepiaFX
+  - LibGFX.Graphics.PostProcessing.SharpenFX
+  - LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Graphics.PostProcessing
+  nameWithType: LibGFX.Graphics.PostProcessing
+  fullName: LibGFX.Graphics.PostProcessing
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Graphics.PostProcessing.BrightnessContrastFX
+  commentId: T:LibGFX.Graphics.PostProcessing.BrightnessContrastFX
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.BrightnessContrastFX.html
+  name: BrightnessContrastFX
+  nameWithType: BrightnessContrastFX
+  fullName: LibGFX.Graphics.PostProcessing.BrightnessContrastFX
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  commentId: T:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html
+  name: ChromaticAberrationFX
+  nameWithType: ChromaticAberrationFX
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+- uid: LibGFX.Graphics.PostProcessing.ColorTintFX
+  commentId: T:LibGFX.Graphics.PostProcessing.ColorTintFX
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.ColorTintFX.html
+  name: ColorTintFX
+  nameWithType: ColorTintFX
+  fullName: LibGFX.Graphics.PostProcessing.ColorTintFX
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  commentId: T:LibGFX.Graphics.PostProcessing.FilmGrainFX
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html
+  name: FilmGrainFX
+  nameWithType: FilmGrainFX
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX
+- uid: LibGFX.Graphics.PostProcessing.GrayscaleFX
+  commentId: T:LibGFX.Graphics.PostProcessing.GrayscaleFX
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.GrayscaleFX.html
+  name: GrayscaleFX
+  nameWithType: GrayscaleFX
+  fullName: LibGFX.Graphics.PostProcessing.GrayscaleFX
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  commentId: T:LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html
+  name: IPostProcessFilter
+  nameWithType: IPostProcessFilter
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+- uid: LibGFX.Graphics.PostProcessing.OverlayFX
+  commentId: T:LibGFX.Graphics.PostProcessing.OverlayFX
+  href: LibGFX.Graphics.PostProcessing.OverlayFX.html
+  name: OverlayFX
+  nameWithType: OverlayFX
+  fullName: LibGFX.Graphics.PostProcessing.OverlayFX
+- uid: LibGFX.Graphics.PostProcessing.PixelationFX
+  commentId: T:LibGFX.Graphics.PostProcessing.PixelationFX
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.PixelationFX.html
+  name: PixelationFX
+  nameWithType: PixelationFX
+  fullName: LibGFX.Graphics.PostProcessing.PixelationFX
+- uid: LibGFX.Graphics.PostProcessing.PosterizationFX
+  commentId: T:LibGFX.Graphics.PostProcessing.PosterizationFX
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.PosterizationFX.html
+  name: PosterizationFX
+  nameWithType: PosterizationFX
+  fullName: LibGFX.Graphics.PostProcessing.PosterizationFX
+- uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+  commentId: T:LibGFX.Graphics.PostProcessing.PostProcessStack
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  name: PostProcessStack
+  nameWithType: PostProcessStack
+  fullName: LibGFX.Graphics.PostProcessing.PostProcessStack
+- uid: LibGFX.Graphics.PostProcessing.ScanlinesFX
+  commentId: T:LibGFX.Graphics.PostProcessing.ScanlinesFX
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.ScanlinesFX.html
+  name: ScanlinesFX
+  nameWithType: ScanlinesFX
+  fullName: LibGFX.Graphics.PostProcessing.ScanlinesFX
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX
+  commentId: T:LibGFX.Graphics.PostProcessing.SepiaFX
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html
+  name: SepiaFX
+  nameWithType: SepiaFX
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX
+- uid: LibGFX.Graphics.PostProcessing.SharpenFX
+  commentId: T:LibGFX.Graphics.PostProcessing.SharpenFX
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.SharpenFX.html
+  name: SharpenFX
+  nameWithType: SharpenFX
+  fullName: LibGFX.Graphics.PostProcessing.SharpenFX
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX
+  commentId: T:LibGFX.Graphics.PostProcessing.VignetteFX
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html
+  name: VignetteFX
+  nameWithType: VignetteFX
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX
+- uid: LibGFX.Graphics.PostProcessing
+  commentId: N:LibGFX.Graphics.PostProcessing
+  href: LibGFX.html
+  name: LibGFX.Graphics.PostProcessing
+  nameWithType: LibGFX.Graphics.PostProcessing
+  fullName: LibGFX.Graphics.PostProcessing
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.PostProcessing
+    name: PostProcessing
+    href: LibGFX.Graphics.PostProcessing.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.PostProcessing
+    name: PostProcessing
+    href: LibGFX.Graphics.PostProcessing.html

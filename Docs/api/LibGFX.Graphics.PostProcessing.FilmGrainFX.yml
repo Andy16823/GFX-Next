@@ -1,0 +1,1499 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  commentId: T:LibGFX.Graphics.PostProcessing.FilmGrainFX
+  id: FilmGrainFX
+  parent: LibGFX.Graphics.PostProcessing
+  children:
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.Cinematic
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.Classic
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.FilmResolution
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.FoundFootage
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.HighISO
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.IMAX
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.Intensity
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.NightVision
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.RenderTarget
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.SecurityCamera
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.SilentFilm
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.Subtle
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.Super8
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.Time
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.Update(System.Single)
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.VHS
+  - LibGFX.Graphics.PostProcessing.FilmGrainFX.Vintage
+  langs:
+  - csharp
+  - vb
+  name: FilmGrainFX
+  nameWithType: FilmGrainFX
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FilmGrainFX
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Applies a film grain post-processing effect to a rendered image as part of a post-processing stack.
+  remarks: >-
+    Thanks to https://www.shadertoy.com/view/dlGGW1 for the shader
+
+    FilmGrainFX simulates the appearance of analog film grain by overlaying dynamic noise onto
+
+    the rendered output. The effect can be customized using properties such as Intensity, GrainSize, and Colored to
+
+    achieve various visual styles. This class is typically used in graphics pipelines to add a cinematic or vintage
+
+    look to scenes. FilmGrainFX is not thread-safe and should be used on the rendering thread.
+  example: []
+  syntax:
+    content: 'public class FilmGrainFX : IPostProcessFilter'
+    content.vb: Public Class FilmGrainFX Implements IPostProcessFilter
+  inheritance:
+  - System.Object
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.RenderTarget
+  commentId: P:LibGFX.Graphics.PostProcessing.FilmGrainFX.RenderTarget
+  id: RenderTarget
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: RenderTarget
+  nameWithType: FilmGrainFX.RenderTarget
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.RenderTarget
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderTarget
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 24
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Gets the render target used for drawing operations.
+  example: []
+  syntax:
+    content: public RenderTarget2D RenderTarget { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.RenderTarget2D
+    content.vb: Public Property RenderTarget As RenderTarget2D
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.RenderTarget*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Intensity
+  commentId: P:LibGFX.Graphics.PostProcessing.FilmGrainFX.Intensity
+  id: Intensity
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: Intensity
+  nameWithType: FilmGrainFX.Intensity
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Intensity
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Intensity
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 29
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Gets or sets the intensity value.
+  example: []
+  syntax:
+    content: public float Intensity { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Intensity As Single
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.Intensity*
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Time
+  commentId: P:LibGFX.Graphics.PostProcessing.FilmGrainFX.Time
+  id: Time
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: Time
+  nameWithType: FilmGrainFX.Time
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Time
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Time
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 34
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Gets the current time value, in seconds.
+  example: []
+  syntax:
+    content: public float Time { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Time As Single
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.Time*
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.FilmResolution
+  commentId: P:LibGFX.Graphics.PostProcessing.FilmGrainFX.FilmResolution
+  id: FilmResolution
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: FilmResolution
+  nameWithType: FilmGrainFX.FilmResolution
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.FilmResolution
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FilmResolution
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 39
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Gets or sets the resolution of the film, in pixels.
+  example: []
+  syntax:
+    content: public Vector2 FilmResolution { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector2
+    content.vb: Public Property FilmResolution As Vector2
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.FilmResolution*
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  commentId: M:LibGFX.Graphics.PostProcessing.FilmGrainFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  id: Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: Apply(PostProcessStack, IRenderDevice, int)
+  nameWithType: FilmGrainFX.Apply(PostProcessStack, IRenderDevice, int)
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Apply
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 44
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Apply(PostProcessStack stack, IRenderDevice renderer, int sourceTexture)
+    parameters:
+    - id: stack
+      type: LibGFX.Graphics.PostProcessing.PostProcessStack
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    - id: sourceTexture
+      type: System.Int32
+    content.vb: Public Sub Apply(stack As PostProcessStack, renderer As IRenderDevice, sourceTexture As Integer)
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.Apply*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  nameWithType.vb: FilmGrainFX.Apply(PostProcessStack, IRenderDevice, Integer)
+  fullName.vb: LibGFX.Graphics.PostProcessing.FilmGrainFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, Integer)
+  name.vb: Apply(PostProcessStack, IRenderDevice, Integer)
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.FilmGrainFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: Init(PostProcessStack, Viewport, IRenderDevice)
+  nameWithType: FilmGrainFX.Init(PostProcessStack, Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Init
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 58
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: stack
+      type: LibGFX.Graphics.PostProcessing.PostProcessStack
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Public Sub Init(stack As PostProcessStack, viewport As Viewport, renderer As IRenderDevice)
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.Init*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.FilmGrainFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  id: Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: Dispose(PostProcessStack, IRenderDevice)
+  nameWithType: FilmGrainFX.Dispose(PostProcessStack, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 65
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Dispose(PostProcessStack stack, IRenderDevice renderer)
+    parameters:
+    - id: stack
+      type: LibGFX.Graphics.PostProcessing.PostProcessStack
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Public Sub Dispose(stack As PostProcessStack, renderer As IRenderDevice)
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.Dispose*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.FilmGrainFX.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: Resize(Viewport, IRenderDevice)
+  nameWithType: FilmGrainFX.Resize(Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Resize(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Resize
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 71
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Resize(Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Public Sub Resize(viewport As Viewport, renderer As IRenderDevice)
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.Resize*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Update(System.Single)
+  commentId: M:LibGFX.Graphics.PostProcessing.FilmGrainFX.Update(System.Single)
+  id: Update(System.Single)
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: Update(float)
+  nameWithType: FilmGrainFX.Update(float)
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Update(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Update
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 77
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Update(float deltaTime)
+    parameters:
+    - id: deltaTime
+      type: System.Single
+    content.vb: Public Sub Update(deltaTime As Single)
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.Update*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+  nameWithType.vb: FilmGrainFX.Update(Single)
+  fullName.vb: LibGFX.Graphics.PostProcessing.FilmGrainFX.Update(Single)
+  name.vb: Update(Single)
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Subtle
+  commentId: P:LibGFX.Graphics.PostProcessing.FilmGrainFX.Subtle
+  id: Subtle
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: Subtle
+  nameWithType: FilmGrainFX.Subtle
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Subtle
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Subtle
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 89
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Subtle grain (barely noticeable, always-on)
+
+    Modern digital camera look
+  example: []
+  syntax:
+    content: public static FilmGrainFX Subtle { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.FilmGrainFX
+    content.vb: Public Shared ReadOnly Property Subtle As FilmGrainFX
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.Subtle*
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Cinematic
+  commentId: P:LibGFX.Graphics.PostProcessing.FilmGrainFX.Cinematic
+  id: Cinematic
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: Cinematic
+  nameWithType: FilmGrainFX.Cinematic
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Cinematic
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Cinematic
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 99
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Standard cinematic grain (noticeable but not distracting)
+
+    Modern film look
+  example: []
+  syntax:
+    content: public static FilmGrainFX Cinematic { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.FilmGrainFX
+    content.vb: Public Shared ReadOnly Property Cinematic As FilmGrainFX
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.Cinematic*
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Classic
+  commentId: P:LibGFX.Graphics.PostProcessing.FilmGrainFX.Classic
+  id: Classic
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: Classic
+  nameWithType: FilmGrainFX.Classic
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Classic
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Classic
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 109
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Strong grain (classic film look)
+
+    35mm film aesthetic
+  example: []
+  syntax:
+    content: public static FilmGrainFX Classic { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.FilmGrainFX
+    content.vb: Public Shared ReadOnly Property Classic As FilmGrainFX
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.Classic*
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Vintage
+  commentId: P:LibGFX.Graphics.PostProcessing.FilmGrainFX.Vintage
+  id: Vintage
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: Vintage
+  nameWithType: FilmGrainFX.Vintage
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Vintage
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Vintage
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 119
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Heavy grain (old film, vintage)
+
+    16mm film or old footage
+  example: []
+  syntax:
+    content: public static FilmGrainFX Vintage { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.FilmGrainFX
+    content.vb: Public Shared ReadOnly Property Vintage As FilmGrainFX
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.Vintage*
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Super8
+  commentId: P:LibGFX.Graphics.PostProcessing.FilmGrainFX.Super8
+  id: Super8
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: Super8
+  nameWithType: FilmGrainFX.Super8
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Super8
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Super8
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 129
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Very heavy grain (extreme vintage or damaged film)
+
+    Super 8 or very old footage
+  example: []
+  syntax:
+    content: public static FilmGrainFX Super8 { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.FilmGrainFX
+    content.vb: Public Shared ReadOnly Property Super8 As FilmGrainFX
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.Super8*
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.VHS
+  commentId: P:LibGFX.Graphics.PostProcessing.FilmGrainFX.VHS
+  id: VHS
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: VHS
+  nameWithType: FilmGrainFX.VHS
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.VHS
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: VHS
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 139
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    VHS tape grain (home video look)
+
+    Analog video noise
+  example: []
+  syntax:
+    content: public static FilmGrainFX VHS { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.FilmGrainFX
+    content.vb: Public Shared ReadOnly Property VHS As FilmGrainFX
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.VHS*
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.SecurityCamera
+  commentId: P:LibGFX.Graphics.PostProcessing.FilmGrainFX.SecurityCamera
+  id: SecurityCamera
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: SecurityCamera
+  nameWithType: FilmGrainFX.SecurityCamera
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.SecurityCamera
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SecurityCamera
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 149
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Security camera grain (low quality CCTV)
+
+    Surveillance footage look
+  example: []
+  syntax:
+    content: public static FilmGrainFX SecurityCamera { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.FilmGrainFX
+    content.vb: Public Shared ReadOnly Property SecurityCamera As FilmGrainFX
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.SecurityCamera*
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.NightVision
+  commentId: P:LibGFX.Graphics.PostProcessing.FilmGrainFX.NightVision
+  id: NightVision
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: NightVision
+  nameWithType: FilmGrainFX.NightVision
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.NightVision
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: NightVision
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 159
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Night vision grain (electronic noise)
+
+    Night vision goggles look
+  example: []
+  syntax:
+    content: public static FilmGrainFX NightVision { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.FilmGrainFX
+    content.vb: Public Shared ReadOnly Property NightVision As FilmGrainFX
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.NightVision*
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.FoundFootage
+  commentId: P:LibGFX.Graphics.PostProcessing.FilmGrainFX.FoundFootage
+  id: FoundFootage
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: FoundFootage
+  nameWithType: FilmGrainFX.FoundFootage
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.FoundFootage
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FoundFootage
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 169
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Found footage grain (horror/documentary style)
+
+    Blair Witch / Paranormal Activity look
+  example: []
+  syntax:
+    content: public static FilmGrainFX FoundFootage { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.FilmGrainFX
+    content.vb: Public Shared ReadOnly Property FoundFootage As FilmGrainFX
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.FoundFootage*
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.HighISO
+  commentId: P:LibGFX.Graphics.PostProcessing.FilmGrainFX.HighISO
+  id: HighISO
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: HighISO
+  nameWithType: FilmGrainFX.HighISO
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.HighISO
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: HighISO
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 179
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Digital camera high ISO noise
+
+    Modern camera in low light
+  example: []
+  syntax:
+    content: public static FilmGrainFX HighISO { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.FilmGrainFX
+    content.vb: Public Shared ReadOnly Property HighISO As FilmGrainFX
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.HighISO*
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.SilentFilm
+  commentId: P:LibGFX.Graphics.PostProcessing.FilmGrainFX.SilentFilm
+  id: SilentFilm
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: SilentFilm
+  nameWithType: FilmGrainFX.SilentFilm
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.SilentFilm
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SilentFilm
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 189
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Silent film grain (very old, 1920s)
+
+    Ancient footage look
+  example: []
+  syntax:
+    content: public static FilmGrainFX SilentFilm { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.FilmGrainFX
+    content.vb: Public Shared ReadOnly Property SilentFilm As FilmGrainFX
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.SilentFilm*
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.IMAX
+  commentId: P:LibGFX.Graphics.PostProcessing.FilmGrainFX.IMAX
+  id: IMAX
+  parent: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  langs:
+  - csharp
+  - vb
+  name: IMAX
+  nameWithType: FilmGrainFX.IMAX
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.IMAX
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IMAX
+    path: ../LibGFX/Graphics/PostProcessing/FilmGrainFX.cs
+    startLine: 199
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    IMAX / Premium film (minimal grain, high quality)
+
+    High-budget production
+  example: []
+  syntax:
+    content: public static FilmGrainFX IMAX { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.FilmGrainFX
+    content.vb: Public Shared ReadOnly Property IMAX As FilmGrainFX
+  overload: LibGFX.Graphics.PostProcessing.FilmGrainFX.IMAX*
+references:
+- uid: LibGFX.Graphics.PostProcessing
+  commentId: N:LibGFX.Graphics.PostProcessing
+  href: LibGFX.html
+  name: LibGFX.Graphics.PostProcessing
+  nameWithType: LibGFX.Graphics.PostProcessing
+  fullName: LibGFX.Graphics.PostProcessing
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.PostProcessing
+    name: PostProcessing
+    href: LibGFX.Graphics.PostProcessing.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.PostProcessing
+    name: PostProcessing
+    href: LibGFX.Graphics.PostProcessing.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  commentId: T:LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html
+  name: IPostProcessFilter
+  nameWithType: IPostProcessFilter
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.RenderTarget*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.RenderTarget
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_RenderTarget
+  name: RenderTarget
+  nameWithType: FilmGrainFX.RenderTarget
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.RenderTarget
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+  commentId: P:LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_RenderTarget
+  name: RenderTarget
+  nameWithType: IPostProcessFilter.RenderTarget
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+- uid: LibGFX.Graphics.RenderTarget2D
+  commentId: T:LibGFX.Graphics.RenderTarget2D
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderTarget2D.html
+  name: RenderTarget2D
+  nameWithType: RenderTarget2D
+  fullName: LibGFX.Graphics.RenderTarget2D
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Intensity*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.Intensity
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_Intensity
+  name: Intensity
+  nameWithType: FilmGrainFX.Intensity
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Intensity
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Time*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.Time
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_Time
+  name: Time
+  nameWithType: FilmGrainFX.Time
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Time
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.FilmResolution*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.FilmResolution
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_FilmResolution
+  name: FilmResolution
+  nameWithType: FilmGrainFX.FilmResolution
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.FilmResolution
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Apply*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.Apply
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  name: Apply
+  nameWithType: FilmGrainFX.Apply
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Apply
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  isExternal: true
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  name: Apply(PostProcessStack, IRenderDevice, int)
+  nameWithType: IPostProcessFilter.Apply(PostProcessStack, IRenderDevice, int)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, int)
+  nameWithType.vb: IPostProcessFilter.Apply(PostProcessStack, IRenderDevice, Integer)
+  fullName.vb: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, Integer)
+  name.vb: Apply(PostProcessStack, IRenderDevice, Integer)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+    name: Apply
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+    name: Apply
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+  commentId: T:LibGFX.Graphics.PostProcessing.PostProcessStack
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  name: PostProcessStack
+  nameWithType: PostProcessStack
+  fullName: LibGFX.Graphics.PostProcessing.PostProcessStack
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Init*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.Init
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Init
+  nameWithType: FilmGrainFX.Init
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Init
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Init(PostProcessStack, Viewport, IRenderDevice)
+  nameWithType: IPostProcessFilter.Init(PostProcessStack, Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Dispose*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.Dispose
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  name: Dispose
+  nameWithType: FilmGrainFX.Dispose
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Dispose
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  name: Dispose(PostProcessStack, IRenderDevice)
+  nameWithType: IPostProcessFilter.Dispose(PostProcessStack, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Resize*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.Resize
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Resize
+  nameWithType: FilmGrainFX.Resize
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Resize
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Resize(Viewport, IRenderDevice)
+  nameWithType: IPostProcessFilter.Resize(Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Resize
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Resize
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Update*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.Update
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_Update_System_Single_
+  name: Update
+  nameWithType: FilmGrainFX.Update
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Update
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  isExternal: true
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Update_System_Single_
+  name: Update(float)
+  nameWithType: IPostProcessFilter.Update(float)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(float)
+  nameWithType.vb: IPostProcessFilter.Update(Single)
+  fullName.vb: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(Single)
+  name.vb: Update(Single)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+    name: Update
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Update_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+    name: Update
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Update_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Subtle*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.Subtle
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_Subtle
+  name: Subtle
+  nameWithType: FilmGrainFX.Subtle
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Subtle
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX
+  commentId: T:LibGFX.Graphics.PostProcessing.FilmGrainFX
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html
+  name: FilmGrainFX
+  nameWithType: FilmGrainFX
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Cinematic*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.Cinematic
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_Cinematic
+  name: Cinematic
+  nameWithType: FilmGrainFX.Cinematic
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Cinematic
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Classic*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.Classic
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_Classic
+  name: Classic
+  nameWithType: FilmGrainFX.Classic
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Classic
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Vintage*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.Vintage
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_Vintage
+  name: Vintage
+  nameWithType: FilmGrainFX.Vintage
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Vintage
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.Super8*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.Super8
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_Super8
+  name: Super8
+  nameWithType: FilmGrainFX.Super8
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.Super8
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.VHS*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.VHS
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_VHS
+  name: VHS
+  nameWithType: FilmGrainFX.VHS
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.VHS
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.SecurityCamera*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.SecurityCamera
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_SecurityCamera
+  name: SecurityCamera
+  nameWithType: FilmGrainFX.SecurityCamera
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.SecurityCamera
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.NightVision*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.NightVision
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_NightVision
+  name: NightVision
+  nameWithType: FilmGrainFX.NightVision
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.NightVision
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.FoundFootage*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.FoundFootage
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_FoundFootage
+  name: FoundFootage
+  nameWithType: FilmGrainFX.FoundFootage
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.FoundFootage
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.HighISO*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.HighISO
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_HighISO
+  name: HighISO
+  nameWithType: FilmGrainFX.HighISO
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.HighISO
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.SilentFilm*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.SilentFilm
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_SilentFilm
+  name: SilentFilm
+  nameWithType: FilmGrainFX.SilentFilm
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.SilentFilm
+- uid: LibGFX.Graphics.PostProcessing.FilmGrainFX.IMAX*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.FilmGrainFX.IMAX
+  href: LibGFX.Graphics.PostProcessing.FilmGrainFX.html#LibGFX_Graphics_PostProcessing_FilmGrainFX_IMAX
+  name: IMAX
+  nameWithType: FilmGrainFX.IMAX
+  fullName: LibGFX.Graphics.PostProcessing.FilmGrainFX.IMAX

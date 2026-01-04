@@ -1,0 +1,265 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+  commentId: T:LibGFX.Graphics.RenderFlags.PrimitiveTypes
+  id: RenderFlags.PrimitiveTypes
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.PrimitiveTypes.LineLoop
+  - LibGFX.Graphics.RenderFlags.PrimitiveTypes.LineStrip
+  - LibGFX.Graphics.RenderFlags.PrimitiveTypes.Lines
+  - LibGFX.Graphics.RenderFlags.PrimitiveTypes.Points
+  - LibGFX.Graphics.RenderFlags.PrimitiveTypes.TriangleFan
+  - LibGFX.Graphics.RenderFlags.PrimitiveTypes.TriangleStrip
+  - LibGFX.Graphics.RenderFlags.PrimitiveTypes.Triangles
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.PrimitiveTypes
+  nameWithType: RenderFlags.PrimitiveTypes
+  fullName: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PrimitiveTypes
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 203
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Primitive types used for rendering geometric shapes.
+  example: []
+  syntax:
+    content: public enum RenderFlags.PrimitiveTypes
+    content.vb: Public Enum RenderFlags.PrimitiveTypes
+- uid: LibGFX.Graphics.RenderFlags.PrimitiveTypes.Points
+  commentId: F:LibGFX.Graphics.RenderFlags.PrimitiveTypes.Points
+  id: Points
+  parent: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+  langs:
+  - csharp
+  - vb
+  name: Points
+  nameWithType: RenderFlags.PrimitiveTypes.Points
+  fullName: LibGFX.Graphics.RenderFlags.PrimitiveTypes.Points
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Points
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 205
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Points = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+- uid: LibGFX.Graphics.RenderFlags.PrimitiveTypes.Lines
+  commentId: F:LibGFX.Graphics.RenderFlags.PrimitiveTypes.Lines
+  id: Lines
+  parent: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+  langs:
+  - csharp
+  - vb
+  name: Lines
+  nameWithType: RenderFlags.PrimitiveTypes.Lines
+  fullName: LibGFX.Graphics.RenderFlags.PrimitiveTypes.Lines
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Lines
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 206
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Lines = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+- uid: LibGFX.Graphics.RenderFlags.PrimitiveTypes.LineLoop
+  commentId: F:LibGFX.Graphics.RenderFlags.PrimitiveTypes.LineLoop
+  id: LineLoop
+  parent: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+  langs:
+  - csharp
+  - vb
+  name: LineLoop
+  nameWithType: RenderFlags.PrimitiveTypes.LineLoop
+  fullName: LibGFX.Graphics.RenderFlags.PrimitiveTypes.LineLoop
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LineLoop
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 207
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: LineLoop = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+- uid: LibGFX.Graphics.RenderFlags.PrimitiveTypes.LineStrip
+  commentId: F:LibGFX.Graphics.RenderFlags.PrimitiveTypes.LineStrip
+  id: LineStrip
+  parent: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+  langs:
+  - csharp
+  - vb
+  name: LineStrip
+  nameWithType: RenderFlags.PrimitiveTypes.LineStrip
+  fullName: LibGFX.Graphics.RenderFlags.PrimitiveTypes.LineStrip
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LineStrip
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 208
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: LineStrip = 3
+    return:
+      type: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+- uid: LibGFX.Graphics.RenderFlags.PrimitiveTypes.Triangles
+  commentId: F:LibGFX.Graphics.RenderFlags.PrimitiveTypes.Triangles
+  id: Triangles
+  parent: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+  langs:
+  - csharp
+  - vb
+  name: Triangles
+  nameWithType: RenderFlags.PrimitiveTypes.Triangles
+  fullName: LibGFX.Graphics.RenderFlags.PrimitiveTypes.Triangles
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Triangles
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 209
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Triangles = 4
+    return:
+      type: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+- uid: LibGFX.Graphics.RenderFlags.PrimitiveTypes.TriangleStrip
+  commentId: F:LibGFX.Graphics.RenderFlags.PrimitiveTypes.TriangleStrip
+  id: TriangleStrip
+  parent: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+  langs:
+  - csharp
+  - vb
+  name: TriangleStrip
+  nameWithType: RenderFlags.PrimitiveTypes.TriangleStrip
+  fullName: LibGFX.Graphics.RenderFlags.PrimitiveTypes.TriangleStrip
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TriangleStrip
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 210
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TriangleStrip = 5
+    return:
+      type: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+- uid: LibGFX.Graphics.RenderFlags.PrimitiveTypes.TriangleFan
+  commentId: F:LibGFX.Graphics.RenderFlags.PrimitiveTypes.TriangleFan
+  id: TriangleFan
+  parent: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+  langs:
+  - csharp
+  - vb
+  name: TriangleFan
+  nameWithType: RenderFlags.PrimitiveTypes.TriangleFan
+  fullName: LibGFX.Graphics.RenderFlags.PrimitiveTypes.TriangleFan
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TriangleFan
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 211
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TriangleFan = 6
+    return:
+      type: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+  commentId: T:LibGFX.Graphics.RenderFlags.PrimitiveTypes
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.PrimitiveTypes
+  nameWithType: RenderFlags.PrimitiveTypes
+  fullName: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+    name: PrimitiveTypes
+    href: LibGFX.Graphics.RenderFlags.PrimitiveTypes.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+    name: PrimitiveTypes
+    href: LibGFX.Graphics.RenderFlags.PrimitiveTypes.html

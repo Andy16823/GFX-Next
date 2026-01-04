@@ -1,0 +1,76 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Math
+  commentId: N:LibGFX.Math
+  id: LibGFX.Math
+  children:
+  - LibGFX.Math.AABB
+  - LibGFX.Math.MathUtils
+  - LibGFX.Math.Plane
+  - LibGFX.Math.Rect
+  - LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Math
+  nameWithType: LibGFX.Math
+  fullName: LibGFX.Math
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Math.AABB
+  commentId: T:LibGFX.Math.AABB
+  parent: LibGFX.Math
+  href: LibGFX.Math.AABB.html
+  name: AABB
+  nameWithType: AABB
+  fullName: LibGFX.Math.AABB
+- uid: LibGFX.Math.MathUtils
+  commentId: T:LibGFX.Math.MathUtils
+  href: LibGFX.Math.MathUtils.html
+  name: MathUtils
+  nameWithType: MathUtils
+  fullName: LibGFX.Math.MathUtils
+- uid: LibGFX.Math.Plane
+  commentId: T:LibGFX.Math.Plane
+  href: LibGFX.Math.Plane.html
+  name: Plane
+  nameWithType: Plane
+  fullName: LibGFX.Math.Plane
+- uid: LibGFX.Math.Rect
+  commentId: T:LibGFX.Math.Rect
+  parent: LibGFX.Math
+  href: LibGFX.Math.Rect.html
+  name: Rect
+  nameWithType: Rect
+  fullName: LibGFX.Math.Rect
+- uid: LibGFX.Math.Transform
+  commentId: T:LibGFX.Math.Transform
+  parent: LibGFX.Math
+  href: LibGFX.Math.Transform.html
+  name: Transform
+  nameWithType: Transform
+  fullName: LibGFX.Math.Transform
+- uid: LibGFX.Math
+  commentId: N:LibGFX.Math
+  href: LibGFX.html
+  name: LibGFX.Math
+  nameWithType: LibGFX.Math
+  fullName: LibGFX.Math
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html

@@ -1,0 +1,346 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.RenderDataTypes
+  commentId: T:LibGFX.Graphics.RenderFlags.RenderDataTypes
+  id: RenderFlags.RenderDataTypes
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.RenderDataTypes.Byte
+  - LibGFX.Graphics.RenderFlags.RenderDataTypes.Double
+  - LibGFX.Graphics.RenderFlags.RenderDataTypes.Fixed
+  - LibGFX.Graphics.RenderFlags.RenderDataTypes.Float
+  - LibGFX.Graphics.RenderFlags.RenderDataTypes.HalfFloat
+  - LibGFX.Graphics.RenderFlags.RenderDataTypes.Int
+  - LibGFX.Graphics.RenderFlags.RenderDataTypes.Short
+  - LibGFX.Graphics.RenderFlags.RenderDataTypes.UnsignedByte
+  - LibGFX.Graphics.RenderFlags.RenderDataTypes.UnsignedInt
+  - LibGFX.Graphics.RenderFlags.RenderDataTypes.UnsignedShort
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.RenderDataTypes
+  nameWithType: RenderFlags.RenderDataTypes
+  fullName: LibGFX.Graphics.RenderFlags.RenderDataTypes
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderDataTypes
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 186
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Data types used for rendering operations, specifying the type of data being processed.
+  example: []
+  syntax:
+    content: public enum RenderFlags.RenderDataTypes
+    content.vb: Public Enum RenderFlags.RenderDataTypes
+- uid: LibGFX.Graphics.RenderFlags.RenderDataTypes.Byte
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderDataTypes.Byte
+  id: Byte
+  parent: LibGFX.Graphics.RenderFlags.RenderDataTypes
+  langs:
+  - csharp
+  - vb
+  name: Byte
+  nameWithType: RenderFlags.RenderDataTypes.Byte
+  fullName: LibGFX.Graphics.RenderFlags.RenderDataTypes.Byte
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Byte
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 188
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Byte = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderDataTypes
+- uid: LibGFX.Graphics.RenderFlags.RenderDataTypes.UnsignedByte
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderDataTypes.UnsignedByte
+  id: UnsignedByte
+  parent: LibGFX.Graphics.RenderFlags.RenderDataTypes
+  langs:
+  - csharp
+  - vb
+  name: UnsignedByte
+  nameWithType: RenderFlags.RenderDataTypes.UnsignedByte
+  fullName: LibGFX.Graphics.RenderFlags.RenderDataTypes.UnsignedByte
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: UnsignedByte
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 189
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: UnsignedByte = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderDataTypes
+- uid: LibGFX.Graphics.RenderFlags.RenderDataTypes.Short
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderDataTypes.Short
+  id: Short
+  parent: LibGFX.Graphics.RenderFlags.RenderDataTypes
+  langs:
+  - csharp
+  - vb
+  name: Short
+  nameWithType: RenderFlags.RenderDataTypes.Short
+  fullName: LibGFX.Graphics.RenderFlags.RenderDataTypes.Short
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Short
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 190
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Short = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderDataTypes
+- uid: LibGFX.Graphics.RenderFlags.RenderDataTypes.UnsignedShort
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderDataTypes.UnsignedShort
+  id: UnsignedShort
+  parent: LibGFX.Graphics.RenderFlags.RenderDataTypes
+  langs:
+  - csharp
+  - vb
+  name: UnsignedShort
+  nameWithType: RenderFlags.RenderDataTypes.UnsignedShort
+  fullName: LibGFX.Graphics.RenderFlags.RenderDataTypes.UnsignedShort
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: UnsignedShort
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 191
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: UnsignedShort = 3
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderDataTypes
+- uid: LibGFX.Graphics.RenderFlags.RenderDataTypes.Int
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderDataTypes.Int
+  id: Int
+  parent: LibGFX.Graphics.RenderFlags.RenderDataTypes
+  langs:
+  - csharp
+  - vb
+  name: Int
+  nameWithType: RenderFlags.RenderDataTypes.Int
+  fullName: LibGFX.Graphics.RenderFlags.RenderDataTypes.Int
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Int
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 192
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Int = 4
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderDataTypes
+- uid: LibGFX.Graphics.RenderFlags.RenderDataTypes.UnsignedInt
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderDataTypes.UnsignedInt
+  id: UnsignedInt
+  parent: LibGFX.Graphics.RenderFlags.RenderDataTypes
+  langs:
+  - csharp
+  - vb
+  name: UnsignedInt
+  nameWithType: RenderFlags.RenderDataTypes.UnsignedInt
+  fullName: LibGFX.Graphics.RenderFlags.RenderDataTypes.UnsignedInt
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: UnsignedInt
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 193
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: UnsignedInt = 5
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderDataTypes
+- uid: LibGFX.Graphics.RenderFlags.RenderDataTypes.Float
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderDataTypes.Float
+  id: Float
+  parent: LibGFX.Graphics.RenderFlags.RenderDataTypes
+  langs:
+  - csharp
+  - vb
+  name: Float
+  nameWithType: RenderFlags.RenderDataTypes.Float
+  fullName: LibGFX.Graphics.RenderFlags.RenderDataTypes.Float
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Float
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 194
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Float = 6
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderDataTypes
+- uid: LibGFX.Graphics.RenderFlags.RenderDataTypes.Double
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderDataTypes.Double
+  id: Double
+  parent: LibGFX.Graphics.RenderFlags.RenderDataTypes
+  langs:
+  - csharp
+  - vb
+  name: Double
+  nameWithType: RenderFlags.RenderDataTypes.Double
+  fullName: LibGFX.Graphics.RenderFlags.RenderDataTypes.Double
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Double
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 195
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Double = 7
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderDataTypes
+- uid: LibGFX.Graphics.RenderFlags.RenderDataTypes.HalfFloat
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderDataTypes.HalfFloat
+  id: HalfFloat
+  parent: LibGFX.Graphics.RenderFlags.RenderDataTypes
+  langs:
+  - csharp
+  - vb
+  name: HalfFloat
+  nameWithType: RenderFlags.RenderDataTypes.HalfFloat
+  fullName: LibGFX.Graphics.RenderFlags.RenderDataTypes.HalfFloat
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: HalfFloat
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 196
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: HalfFloat = 8
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderDataTypes
+- uid: LibGFX.Graphics.RenderFlags.RenderDataTypes.Fixed
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderDataTypes.Fixed
+  id: Fixed
+  parent: LibGFX.Graphics.RenderFlags.RenderDataTypes
+  langs:
+  - csharp
+  - vb
+  name: Fixed
+  nameWithType: RenderFlags.RenderDataTypes.Fixed
+  fullName: LibGFX.Graphics.RenderFlags.RenderDataTypes.Fixed
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Fixed
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 197
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Fixed = 9
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderDataTypes
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.RenderDataTypes
+  commentId: T:LibGFX.Graphics.RenderFlags.RenderDataTypes
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.RenderDataTypes
+  nameWithType: RenderFlags.RenderDataTypes
+  fullName: LibGFX.Graphics.RenderFlags.RenderDataTypes
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.RenderDataTypes
+    name: RenderDataTypes
+    href: LibGFX.Graphics.RenderFlags.RenderDataTypes.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.RenderDataTypes
+    name: RenderDataTypes
+    href: LibGFX.Graphics.RenderFlags.RenderDataTypes.html

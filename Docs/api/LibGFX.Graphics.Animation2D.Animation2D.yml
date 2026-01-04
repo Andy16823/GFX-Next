@@ -1,0 +1,985 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Animation2D.Animation2D
+  commentId: T:LibGFX.Graphics.Animation2D.Animation2D
+  id: Animation2D
+  parent: LibGFX.Graphics.Animation2D
+  children:
+  - LibGFX.Graphics.Animation2D.Animation2D.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,LibGFX.Graphics.Materials.SpriteMaterial)
+  - LibGFX.Graphics.Animation2D.Animation2D.CellHeight
+  - LibGFX.Graphics.Animation2D.Animation2D.CellWidth
+  - LibGFX.Graphics.Animation2D.Animation2D.CurrentFrame
+  - LibGFX.Graphics.Animation2D.Animation2D.Framerate
+  - LibGFX.Graphics.Animation2D.Animation2D.GetUVTransform
+  - LibGFX.Graphics.Animation2D.Animation2D.Material
+  - LibGFX.Graphics.Animation2D.Animation2D.Name
+  - LibGFX.Graphics.Animation2D.Animation2D.StartColumn
+  - LibGFX.Graphics.Animation2D.Animation2D.StartRow
+  - LibGFX.Graphics.Animation2D.Animation2D.TotalColumns
+  - LibGFX.Graphics.Animation2D.Animation2D.TotalFrames
+  - LibGFX.Graphics.Animation2D.Animation2D.TotalRows
+  - LibGFX.Graphics.Animation2D.Animation2D.Update(System.Single,System.Boolean@)
+  langs:
+  - csharp
+  - vb
+  name: Animation2D
+  nameWithType: Animation2D
+  fullName: LibGFX.Graphics.Animation2D.Animation2D
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/Animation2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Animation2D
+    path: ../LibGFX/Graphics/Animation2D/Animation2D.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: Represents a 2D animation. Based on a sprite sheet.
+  example: []
+  syntax:
+    content: public class Animation2D
+    content.vb: Public Class Animation2D
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Graphics.Animation2D.Animation2D.Name
+  commentId: P:LibGFX.Graphics.Animation2D.Animation2D.Name
+  id: Name
+  parent: LibGFX.Graphics.Animation2D.Animation2D
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Animation2D.Name
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.Name
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/Animation2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Name
+    path: ../LibGFX/Graphics/Animation2D/Animation2D.cs
+    startLine: 22
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: The name of the animation.
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: LibGFX.Graphics.Animation2D.Animation2D.Name*
+- uid: LibGFX.Graphics.Animation2D.Animation2D.Material
+  commentId: P:LibGFX.Graphics.Animation2D.Animation2D.Material
+  id: Material
+  parent: LibGFX.Graphics.Animation2D.Animation2D
+  langs:
+  - csharp
+  - vb
+  name: Material
+  nameWithType: Animation2D.Material
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.Material
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/Animation2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Material
+    path: ../LibGFX/Graphics/Animation2D/Animation2D.cs
+    startLine: 27
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: The material used for the animation.
+  example: []
+  syntax:
+    content: public SpriteMaterial Material { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.Materials.SpriteMaterial
+    content.vb: Public Property Material As SpriteMaterial
+  overload: LibGFX.Graphics.Animation2D.Animation2D.Material*
+- uid: LibGFX.Graphics.Animation2D.Animation2D.CellWidth
+  commentId: P:LibGFX.Graphics.Animation2D.Animation2D.CellWidth
+  id: CellWidth
+  parent: LibGFX.Graphics.Animation2D.Animation2D
+  langs:
+  - csharp
+  - vb
+  name: CellWidth
+  nameWithType: Animation2D.CellWidth
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.CellWidth
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/Animation2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CellWidth
+    path: ../LibGFX/Graphics/Animation2D/Animation2D.cs
+    startLine: 32
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: The cell width of the animation sheet.
+  example: []
+  syntax:
+    content: public int CellWidth { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property CellWidth As Integer
+  overload: LibGFX.Graphics.Animation2D.Animation2D.CellWidth*
+- uid: LibGFX.Graphics.Animation2D.Animation2D.CellHeight
+  commentId: P:LibGFX.Graphics.Animation2D.Animation2D.CellHeight
+  id: CellHeight
+  parent: LibGFX.Graphics.Animation2D.Animation2D
+  langs:
+  - csharp
+  - vb
+  name: CellHeight
+  nameWithType: Animation2D.CellHeight
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.CellHeight
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/Animation2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CellHeight
+    path: ../LibGFX/Graphics/Animation2D/Animation2D.cs
+    startLine: 37
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: The cell height of the animation sheet.
+  example: []
+  syntax:
+    content: public int CellHeight { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property CellHeight As Integer
+  overload: LibGFX.Graphics.Animation2D.Animation2D.CellHeight*
+- uid: LibGFX.Graphics.Animation2D.Animation2D.StartColumn
+  commentId: P:LibGFX.Graphics.Animation2D.Animation2D.StartColumn
+  id: StartColumn
+  parent: LibGFX.Graphics.Animation2D.Animation2D
+  langs:
+  - csharp
+  - vb
+  name: StartColumn
+  nameWithType: Animation2D.StartColumn
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.StartColumn
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/Animation2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StartColumn
+    path: ../LibGFX/Graphics/Animation2D/Animation2D.cs
+    startLine: 42
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: The starting column of the animation.
+  example: []
+  syntax:
+    content: public int StartColumn { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property StartColumn As Integer
+  overload: LibGFX.Graphics.Animation2D.Animation2D.StartColumn*
+- uid: LibGFX.Graphics.Animation2D.Animation2D.StartRow
+  commentId: P:LibGFX.Graphics.Animation2D.Animation2D.StartRow
+  id: StartRow
+  parent: LibGFX.Graphics.Animation2D.Animation2D
+  langs:
+  - csharp
+  - vb
+  name: StartRow
+  nameWithType: Animation2D.StartRow
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.StartRow
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/Animation2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StartRow
+    path: ../LibGFX/Graphics/Animation2D/Animation2D.cs
+    startLine: 47
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: The starting row of the animation.
+  example: []
+  syntax:
+    content: public int StartRow { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property StartRow As Integer
+  overload: LibGFX.Graphics.Animation2D.Animation2D.StartRow*
+- uid: LibGFX.Graphics.Animation2D.Animation2D.TotalColumns
+  commentId: P:LibGFX.Graphics.Animation2D.Animation2D.TotalColumns
+  id: TotalColumns
+  parent: LibGFX.Graphics.Animation2D.Animation2D
+  langs:
+  - csharp
+  - vb
+  name: TotalColumns
+  nameWithType: Animation2D.TotalColumns
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.TotalColumns
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/Animation2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TotalColumns
+    path: ../LibGFX/Graphics/Animation2D/Animation2D.cs
+    startLine: 52
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: The total number of columns in the animation.
+  example: []
+  syntax:
+    content: public int TotalColumns { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TotalColumns As Integer
+  overload: LibGFX.Graphics.Animation2D.Animation2D.TotalColumns*
+- uid: LibGFX.Graphics.Animation2D.Animation2D.TotalRows
+  commentId: P:LibGFX.Graphics.Animation2D.Animation2D.TotalRows
+  id: TotalRows
+  parent: LibGFX.Graphics.Animation2D.Animation2D
+  langs:
+  - csharp
+  - vb
+  name: TotalRows
+  nameWithType: Animation2D.TotalRows
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.TotalRows
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/Animation2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TotalRows
+    path: ../LibGFX/Graphics/Animation2D/Animation2D.cs
+    startLine: 57
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: The total number of rows in the animation.
+  example: []
+  syntax:
+    content: public int TotalRows { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TotalRows As Integer
+  overload: LibGFX.Graphics.Animation2D.Animation2D.TotalRows*
+- uid: LibGFX.Graphics.Animation2D.Animation2D.TotalFrames
+  commentId: P:LibGFX.Graphics.Animation2D.Animation2D.TotalFrames
+  id: TotalFrames
+  parent: LibGFX.Graphics.Animation2D.Animation2D
+  langs:
+  - csharp
+  - vb
+  name: TotalFrames
+  nameWithType: Animation2D.TotalFrames
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.TotalFrames
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/Animation2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TotalFrames
+    path: ../LibGFX/Graphics/Animation2D/Animation2D.cs
+    startLine: 62
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: The total number of frames in the animation.
+  example: []
+  syntax:
+    content: public int TotalFrames { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TotalFrames As Integer
+  overload: LibGFX.Graphics.Animation2D.Animation2D.TotalFrames*
+- uid: LibGFX.Graphics.Animation2D.Animation2D.CurrentFrame
+  commentId: P:LibGFX.Graphics.Animation2D.Animation2D.CurrentFrame
+  id: CurrentFrame
+  parent: LibGFX.Graphics.Animation2D.Animation2D
+  langs:
+  - csharp
+  - vb
+  name: CurrentFrame
+  nameWithType: Animation2D.CurrentFrame
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.CurrentFrame
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/Animation2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CurrentFrame
+    path: ../LibGFX/Graphics/Animation2D/Animation2D.cs
+    startLine: 67
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: The current frame of the animation.
+  example: []
+  syntax:
+    content: public int CurrentFrame { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property CurrentFrame As Integer
+  overload: LibGFX.Graphics.Animation2D.Animation2D.CurrentFrame*
+- uid: LibGFX.Graphics.Animation2D.Animation2D.Framerate
+  commentId: P:LibGFX.Graphics.Animation2D.Animation2D.Framerate
+  id: Framerate
+  parent: LibGFX.Graphics.Animation2D.Animation2D
+  langs:
+  - csharp
+  - vb
+  name: Framerate
+  nameWithType: Animation2D.Framerate
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.Framerate
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/Animation2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Framerate
+    path: ../LibGFX/Graphics/Animation2D/Animation2D.cs
+    startLine: 72
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: The framerate of the animation in frames per second.
+  example: []
+  syntax:
+    content: public float Framerate { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Framerate As Single
+  overload: LibGFX.Graphics.Animation2D.Animation2D.Framerate*
+- uid: LibGFX.Graphics.Animation2D.Animation2D.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,LibGFX.Graphics.Materials.SpriteMaterial)
+  commentId: M:LibGFX.Graphics.Animation2D.Animation2D.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,LibGFX.Graphics.Materials.SpriteMaterial)
+  id: '#ctor(System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Single,LibGFX.Graphics.Materials.SpriteMaterial)'
+  parent: LibGFX.Graphics.Animation2D.Animation2D
+  langs:
+  - csharp
+  - vb
+  name: Animation2D(string, int, int, int, int, int, float, SpriteMaterial)
+  nameWithType: Animation2D.Animation2D(string, int, int, int, int, int, float, SpriteMaterial)
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.Animation2D(string, int, int, int, int, int, float, LibGFX.Graphics.Materials.SpriteMaterial)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/Animation2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/Animation2D/Animation2D.cs
+    startLine: 88
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: Creates a new animation.
+  example: []
+  syntax:
+    content: public Animation2D(string name, int cellWidth, int cellHeight, int startColumn, int startRow, int frames, float framerate, SpriteMaterial material)
+    parameters:
+    - id: name
+      type: System.String
+      description: ''
+    - id: cellWidth
+      type: System.Int32
+      description: ''
+    - id: cellHeight
+      type: System.Int32
+      description: ''
+    - id: startColumn
+      type: System.Int32
+      description: ''
+    - id: startRow
+      type: System.Int32
+      description: ''
+    - id: frames
+      type: System.Int32
+      description: ''
+    - id: framerate
+      type: System.Single
+      description: ''
+    - id: material
+      type: LibGFX.Graphics.Materials.SpriteMaterial
+      description: ''
+    content.vb: Public Sub New(name As String, cellWidth As Integer, cellHeight As Integer, startColumn As Integer, startRow As Integer, frames As Integer, framerate As Single, material As SpriteMaterial)
+  overload: LibGFX.Graphics.Animation2D.Animation2D.#ctor*
+  nameWithType.vb: Animation2D.New(String, Integer, Integer, Integer, Integer, Integer, Single, SpriteMaterial)
+  fullName.vb: LibGFX.Graphics.Animation2D.Animation2D.New(String, Integer, Integer, Integer, Integer, Integer, Single, LibGFX.Graphics.Materials.SpriteMaterial)
+  name.vb: New(String, Integer, Integer, Integer, Integer, Integer, Single, SpriteMaterial)
+- uid: LibGFX.Graphics.Animation2D.Animation2D.Update(System.Single,System.Boolean@)
+  commentId: M:LibGFX.Graphics.Animation2D.Animation2D.Update(System.Single,System.Boolean@)
+  id: Update(System.Single,System.Boolean@)
+  parent: LibGFX.Graphics.Animation2D.Animation2D
+  langs:
+  - csharp
+  - vb
+  name: Update(float, out bool)
+  nameWithType: Animation2D.Update(float, out bool)
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.Update(float, out bool)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/Animation2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Update
+    path: ../LibGFX/Graphics/Animation2D/Animation2D.cs
+    startLine: 107
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: Updates the animation. It updates the current frame based on the framerate and the time passed since the last frame update.
+  example: []
+  syntax:
+    content: public void Update(float deltaTime, out bool finished)
+    parameters:
+    - id: deltaTime
+      type: System.Single
+      description: ''
+    - id: finished
+      type: System.Boolean
+    content.vb: Public Sub Update(deltaTime As Single, finished As Boolean)
+  overload: LibGFX.Graphics.Animation2D.Animation2D.Update*
+  nameWithType.vb: Animation2D.Update(Single, Boolean)
+  fullName.vb: LibGFX.Graphics.Animation2D.Animation2D.Update(Single, Boolean)
+  name.vb: Update(Single, Boolean)
+- uid: LibGFX.Graphics.Animation2D.Animation2D.GetUVTransform
+  commentId: M:LibGFX.Graphics.Animation2D.Animation2D.GetUVTransform
+  id: GetUVTransform
+  parent: LibGFX.Graphics.Animation2D.Animation2D
+  langs:
+  - csharp
+  - vb
+  name: GetUVTransform()
+  nameWithType: Animation2D.GetUVTransform()
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.GetUVTransform()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/Animation2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetUVTransform
+    path: ../LibGFX/Graphics/Animation2D/Animation2D.cs
+    startLine: 131
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: Gets the uv transform of the current frame.
+  example: []
+  syntax:
+    content: public Vector4 GetUVTransform()
+    return:
+      type: OpenTK.Mathematics.Vector4
+      description: ''
+    content.vb: Public Function GetUVTransform() As Vector4
+  overload: LibGFX.Graphics.Animation2D.Animation2D.GetUVTransform*
+references:
+- uid: LibGFX.Graphics.Animation2D
+  commentId: N:LibGFX.Graphics.Animation2D
+  href: LibGFX.html
+  name: LibGFX.Graphics.Animation2D
+  nameWithType: LibGFX.Graphics.Animation2D
+  fullName: LibGFX.Graphics.Animation2D
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Animation2D
+    name: Animation2D
+    href: LibGFX.Graphics.Animation2D.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Animation2D
+    name: Animation2D
+    href: LibGFX.Graphics.Animation2D.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Graphics.Animation2D.Animation2D.Name*
+  commentId: Overload:LibGFX.Graphics.Animation2D.Animation2D.Name
+  href: LibGFX.Graphics.Animation2D.Animation2D.html#LibGFX_Graphics_Animation2D_Animation2D_Name
+  name: Name
+  nameWithType: Animation2D.Name
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: LibGFX.Graphics.Animation2D.Animation2D.Material*
+  commentId: Overload:LibGFX.Graphics.Animation2D.Animation2D.Material
+  href: LibGFX.Graphics.Animation2D.Animation2D.html#LibGFX_Graphics_Animation2D_Animation2D_Material
+  name: Material
+  nameWithType: Animation2D.Material
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.Material
+- uid: LibGFX.Graphics.Materials.SpriteMaterial
+  commentId: T:LibGFX.Graphics.Materials.SpriteMaterial
+  parent: LibGFX.Graphics.Materials
+  href: LibGFX.Graphics.Materials.SpriteMaterial.html
+  name: SpriteMaterial
+  nameWithType: SpriteMaterial
+  fullName: LibGFX.Graphics.Materials.SpriteMaterial
+- uid: LibGFX.Graphics.Materials
+  commentId: N:LibGFX.Graphics.Materials
+  href: LibGFX.html
+  name: LibGFX.Graphics.Materials
+  nameWithType: LibGFX.Graphics.Materials
+  fullName: LibGFX.Graphics.Materials
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Materials
+    name: Materials
+    href: LibGFX.Graphics.Materials.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Materials
+    name: Materials
+    href: LibGFX.Graphics.Materials.html
+- uid: LibGFX.Graphics.Animation2D.Animation2D.CellWidth*
+  commentId: Overload:LibGFX.Graphics.Animation2D.Animation2D.CellWidth
+  href: LibGFX.Graphics.Animation2D.Animation2D.html#LibGFX_Graphics_Animation2D_Animation2D_CellWidth
+  name: CellWidth
+  nameWithType: Animation2D.CellWidth
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.CellWidth
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LibGFX.Graphics.Animation2D.Animation2D.CellHeight*
+  commentId: Overload:LibGFX.Graphics.Animation2D.Animation2D.CellHeight
+  href: LibGFX.Graphics.Animation2D.Animation2D.html#LibGFX_Graphics_Animation2D_Animation2D_CellHeight
+  name: CellHeight
+  nameWithType: Animation2D.CellHeight
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.CellHeight
+- uid: LibGFX.Graphics.Animation2D.Animation2D.StartColumn*
+  commentId: Overload:LibGFX.Graphics.Animation2D.Animation2D.StartColumn
+  href: LibGFX.Graphics.Animation2D.Animation2D.html#LibGFX_Graphics_Animation2D_Animation2D_StartColumn
+  name: StartColumn
+  nameWithType: Animation2D.StartColumn
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.StartColumn
+- uid: LibGFX.Graphics.Animation2D.Animation2D.StartRow*
+  commentId: Overload:LibGFX.Graphics.Animation2D.Animation2D.StartRow
+  href: LibGFX.Graphics.Animation2D.Animation2D.html#LibGFX_Graphics_Animation2D_Animation2D_StartRow
+  name: StartRow
+  nameWithType: Animation2D.StartRow
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.StartRow
+- uid: LibGFX.Graphics.Animation2D.Animation2D.TotalColumns*
+  commentId: Overload:LibGFX.Graphics.Animation2D.Animation2D.TotalColumns
+  href: LibGFX.Graphics.Animation2D.Animation2D.html#LibGFX_Graphics_Animation2D_Animation2D_TotalColumns
+  name: TotalColumns
+  nameWithType: Animation2D.TotalColumns
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.TotalColumns
+- uid: LibGFX.Graphics.Animation2D.Animation2D.TotalRows*
+  commentId: Overload:LibGFX.Graphics.Animation2D.Animation2D.TotalRows
+  href: LibGFX.Graphics.Animation2D.Animation2D.html#LibGFX_Graphics_Animation2D_Animation2D_TotalRows
+  name: TotalRows
+  nameWithType: Animation2D.TotalRows
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.TotalRows
+- uid: LibGFX.Graphics.Animation2D.Animation2D.TotalFrames*
+  commentId: Overload:LibGFX.Graphics.Animation2D.Animation2D.TotalFrames
+  href: LibGFX.Graphics.Animation2D.Animation2D.html#LibGFX_Graphics_Animation2D_Animation2D_TotalFrames
+  name: TotalFrames
+  nameWithType: Animation2D.TotalFrames
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.TotalFrames
+- uid: LibGFX.Graphics.Animation2D.Animation2D.CurrentFrame*
+  commentId: Overload:LibGFX.Graphics.Animation2D.Animation2D.CurrentFrame
+  href: LibGFX.Graphics.Animation2D.Animation2D.html#LibGFX_Graphics_Animation2D_Animation2D_CurrentFrame
+  name: CurrentFrame
+  nameWithType: Animation2D.CurrentFrame
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.CurrentFrame
+- uid: LibGFX.Graphics.Animation2D.Animation2D.Framerate*
+  commentId: Overload:LibGFX.Graphics.Animation2D.Animation2D.Framerate
+  href: LibGFX.Graphics.Animation2D.Animation2D.html#LibGFX_Graphics_Animation2D_Animation2D_Framerate
+  name: Framerate
+  nameWithType: Animation2D.Framerate
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.Framerate
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Graphics.Animation2D.Animation2D.#ctor*
+  commentId: Overload:LibGFX.Graphics.Animation2D.Animation2D.#ctor
+  href: LibGFX.Graphics.Animation2D.Animation2D.html#LibGFX_Graphics_Animation2D_Animation2D__ctor_System_String_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Single_LibGFX_Graphics_Materials_SpriteMaterial_
+  name: Animation2D
+  nameWithType: Animation2D.Animation2D
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.Animation2D
+  nameWithType.vb: Animation2D.New
+  fullName.vb: LibGFX.Graphics.Animation2D.Animation2D.New
+  name.vb: New
+- uid: LibGFX.Graphics.Animation2D.Animation2D.Update*
+  commentId: Overload:LibGFX.Graphics.Animation2D.Animation2D.Update
+  href: LibGFX.Graphics.Animation2D.Animation2D.html#LibGFX_Graphics_Animation2D_Animation2D_Update_System_Single_System_Boolean__
+  name: Update
+  nameWithType: Animation2D.Update
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.Update
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Graphics.Animation2D.Animation2D.GetUVTransform*
+  commentId: Overload:LibGFX.Graphics.Animation2D.Animation2D.GetUVTransform
+  href: LibGFX.Graphics.Animation2D.Animation2D.html#LibGFX_Graphics_Animation2D_Animation2D_GetUVTransform
+  name: GetUVTransform
+  nameWithType: Animation2D.GetUVTransform
+  fullName: LibGFX.Graphics.Animation2D.Animation2D.GetUVTransform
+- uid: OpenTK.Mathematics.Vector4
+  commentId: T:OpenTK.Mathematics.Vector4
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs
+  name: Vector4
+  nameWithType: Vector4
+  fullName: OpenTK.Mathematics.Vector4
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true

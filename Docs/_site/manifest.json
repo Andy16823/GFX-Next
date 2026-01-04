@@ -1,0 +1,4022 @@
+{
+  "source_base_path": "C:/Users/andy1/Documents/GitHub/GFX-Next/Docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Assets.AssetManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Assets.AssetManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Assets.AssetManager",
+      "Summary": "<p sourcefile=\"api/LibGFX.Assets.AssetManager.yml\" sourcestartlinenumber=\"1\">AssetManager is responsible for loading and managing assets in the application.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Assets.IFileAsset.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Assets.IFileAsset.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Assets.IFileAsset",
+      "Summary": "<p sourcefile=\"api/LibGFX.Assets.IFileAsset.yml\" sourcestartlinenumber=\"1\">Interface for file assets.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Assets.Loaders.AudioLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Assets.Loaders.AudioLoader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Assets.Loaders.AudioLoader",
+      "Summary": "<p sourcefile=\"api/LibGFX.Assets.Loaders.AudioLoader.yml\" sourcestartlinenumber=\"1\">Loader for audio assets.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Assets.Loaders.ComputeShaderLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Assets.Loaders.ComputeShaderLoader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Assets.Loaders.ComputeShaderLoader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Assets.Loaders.CubemapLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Assets.Loaders.CubemapLoader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Assets.Loaders.CubemapLoader",
+      "Summary": "<p sourcefile=\"api/LibGFX.Assets.Loaders.CubemapLoader.yml\" sourcestartlinenumber=\"1\">Loader for cubemap assets.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Assets.Loaders.IAssetLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Assets.Loaders.IAssetLoader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Assets.Loaders.IAssetLoader",
+      "Summary": "<p sourcefile=\"api/LibGFX.Assets.Loaders.IAssetLoader.yml\" sourcestartlinenumber=\"1\">Interface for loading assets.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Assets.Loaders.SGMaterialLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Assets.Loaders.SGMaterialLoader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Assets.Loaders.SGMaterialLoader",
+      "Summary": "<p sourcefile=\"api/LibGFX.Assets.Loaders.SGMaterialLoader.yml\" sourcestartlinenumber=\"1\">Loader for material assets.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Assets.Loaders.SkinnedMeshModelLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Assets.Loaders.SkinnedMeshModelLoader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Assets.Loaders.SkinnedMeshModelLoader",
+      "Summary": "<p sourcefile=\"api/LibGFX.Assets.Loaders.SkinnedMeshModelLoader.yml\" sourcestartlinenumber=\"1\">Loader for skinned mesh models.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Assets.Loaders.SpriteMaterialLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Assets.Loaders.SpriteMaterialLoader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Assets.Loaders.SpriteMaterialLoader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Assets.Loaders.StaticMeshModelLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Assets.Loaders.StaticMeshModelLoader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Assets.Loaders.StaticMeshModelLoader",
+      "Summary": "<p sourcefile=\"api/LibGFX.Assets.Loaders.StaticMeshModelLoader.yml\" sourcestartlinenumber=\"1\">Loader for static mesh models</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Assets.Loaders.TextureLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Assets.Loaders.TextureLoader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Assets.Loaders.TextureLoader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Assets.Loaders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Assets.Loaders.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Assets.Loaders",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Assets.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Assets.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Assets",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Audio.AudioClip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Audio.AudioClip.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Audio.AudioClip",
+      "Summary": "<p sourcefile=\"api/LibGFX.Audio.AudioClip.yml\" sourcestartlinenumber=\"1\">Represents an audio clip</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Audio.AudioClipState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Audio.AudioClipState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Audio.AudioClipState",
+      "Summary": "<p sourcefile=\"api/LibGFX.Audio.AudioClipState.yml\" sourcestartlinenumber=\"1\">Represents the state of the audio clip</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Audio.AudioSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Audio.AudioSource.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Audio.AudioSource",
+      "Summary": "<p sourcefile=\"api/LibGFX.Audio.AudioSource.yml\" sourcestartlinenumber=\"1\">Represents an audio source</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Audio.AudioSourceState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Audio.AudioSourceState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Audio.AudioSourceState",
+      "Summary": "<p sourcefile=\"api/LibGFX.Audio.AudioSourceState.yml\" sourcestartlinenumber=\"1\">Represents the state of the audio source</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Audio.IAudioDevice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Audio.IAudioDevice.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Audio.IAudioDevice",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Audio.OpenALDevice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Audio.OpenALDevice.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Audio.OpenALDevice",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Audio.PlayMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Audio.PlayMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Audio.PlayMode",
+      "Summary": "<p sourcefile=\"api/LibGFX.Audio.PlayMode.yml\" sourcestartlinenumber=\"1\">Represents the play mode of the audio source</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Audio.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Audio.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Audio",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Compute.ComputeShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Compute.ComputeShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Compute.ComputeShader",
+      "Summary": "<p sourcefile=\"api/LibGFX.Compute.ComputeShader.yml\" sourcestartlinenumber=\"1\">Represents a compute shader program, including its source code and execution parameters.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Compute.Shader.RaytestShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Compute.Shader.RaytestShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Compute.Shader.RaytestShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Compute.Shader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Compute.Shader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Compute.Shader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Compute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Compute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Compute",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.BaseScene.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.BaseScene.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.BaseScene",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.BaseScene.yml\" sourcestartlinenumber=\"1\">Base class for creating a scene</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.EnqueScene2DEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.EnqueScene2DEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.EnqueScene2DEntry",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.EnqueScene2DEntry.yml\" sourcestartlinenumber=\"1\">Represents an entry for enqueuing a 2D scene element, including the element, its target layer, an optional\naction to perform during enqueuing, and any additional data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.EnqueScene3DEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.EnqueScene3DEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.EnqueScene3DEntry",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.EnqueScene3DEntry.yml\" sourcestartlinenumber=\"1\">Represents an entry for enqueuing a 3D scene element, including the element, an optional action to perform, and\nany additional data required for processing.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.Game.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.Game.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.Game",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.Game.yml\" sourcestartlinenumber=\"1\">Base class for creating a game application.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.GameElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.GameElement.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.GameElement",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.GameElement.yml\" sourcestartlinenumber=\"1\">Represents a game element</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.GameElements.AnimatedModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.GameElements.AnimatedModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.GameElements.AnimatedModel",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.GameElements.AnimatedModel.yml\" sourcestartlinenumber=\"1\">An animated 3D model game element</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.GameElements.AudioEmitter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.GameElements.AudioEmitter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.GameElements.AudioEmitter",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.GameElements.AudioEmitter.yml\" sourcestartlinenumber=\"1\">Represents an audio emitter in 3D space</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.GameElements.Empty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.GameElements.Empty.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.GameElements.Empty",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.GameElements.Empty.yml\" sourcestartlinenumber=\"1\">Represents an empty game element that does not have any visual representation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.GameElements.InstanceHandle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.GameElements.InstanceHandle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.GameElements.InstanceHandle",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.GameElements.InstanceHandle.yml\" sourcestartlinenumber=\"1\">Represents a handle for an instance of a mesh in a mesh instancer.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.GameElements.MeshInstancer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.GameElements.MeshInstancer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.GameElements.MeshInstancer",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.GameElements.MeshInstancer.yml\" sourcestartlinenumber=\"1\">Represents a mesh instancer that can render multiple instances of a mesh with a material.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.GameElements.PBRTestEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.GameElements.PBRTestEntity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.GameElements.PBRTestEntity",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.GameElements.PointLight3DHandle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.GameElements.PointLight3DHandle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.GameElements.PointLight3DHandle",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.GameElements.PointLight3DHandle.yml\" sourcestartlinenumber=\"1\">Represents a handle for a 3D point light within a game scene, providing management and synchronization of the\nlight's position with its associated transform.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.GameElements.Primitive.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.GameElements.Primitive.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.GameElements.Primitive",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.GameElements.Primitive.yml\" sourcestartlinenumber=\"1\">TODO REWORK!\nRepresents a primitive game element that can be rendered with a material and shader.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.GameElements.Sprite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.GameElements.Sprite.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.GameElements.Sprite",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.GameElements.Sprite.yml\" sourcestartlinenumber=\"1\">Represents a sprite</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.GameElements.SpriteInstancer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.GameElements.SpriteInstancer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.GameElements.SpriteInstancer",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.GameElements.SpriteInstancer.yml\" sourcestartlinenumber=\"1\">Represents a sprite instancer that can render multiple instances of a sprite using instancing.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.GameElements.StaticModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.GameElements.StaticModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.GameElements.StaticModel",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.GameElements.StaticModel.yml\" sourcestartlinenumber=\"1\">Static model game element</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.GameElements.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.GameElements.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.GameElements",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.IEnqueEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.IEnqueEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.IEnqueEntry",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.IGameBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.IGameBehavior.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.IGameBehavior",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.IGameBehavior.yml\" sourcestartlinenumber=\"1\">Represents a game behavior interface</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.IGraphicsResource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.IGraphicsResource.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.IGraphicsResource",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.IGraphicsResource.yml\" sourcestartlinenumber=\"1\">Defines the contract for a graphics resource that can be initialized and disposed using a render device.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.IIdentifier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.IIdentifier.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.IIdentifier",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.IIdentifier.yml\" sourcestartlinenumber=\"1\">Defines a contract for objects that have a unique identifier and a name.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.IPropertyTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.IPropertyTable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.IPropertyTable",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.IPropertyTable.yml\" sourcestartlinenumber=\"1\">Represents a collection of named properties and their associated values.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.IRendererResource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.IRendererResource.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.IRendererResource",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.IRendererResource.yml\" sourcestartlinenumber=\"1\">Defines a resource that can be released or cleaned up by a renderer device.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.ISerialization.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.ISerialization.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.ISerialization",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.ISerialization.yml\" sourcestartlinenumber=\"1\">Defines methods to serialize an object to a JSON representation and to deserialize an object from a JSON\nrepresentation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.Layer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.Layer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.Layer",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.Layer.yml\" sourcestartlinenumber=\"1\">Represents a layer in the scene</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.RenderStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.RenderStats.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.RenderStats",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.RenderStats.yml\" sourcestartlinenumber=\"1\">Class to hold render statistics</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.Scene2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.Scene2D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.Scene2D",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.Scene2D.yml\" sourcestartlinenumber=\"1\">Represents a 2D scene</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.Scene3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.Scene3D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.Scene3D",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.Scene3D.yml\" sourcestartlinenumber=\"1\">Represents a 3D scene for rendering 3D objects and lights.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.SerializationContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.SerializationContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.SerializationContext",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.SerializationContext.yml\" sourcestartlinenumber=\"1\">Provides a context for storing and retrieving key-value pairs during serialization operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.ServiceContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.ServiceContainer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.ServiceContainer",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.ServiceContainer.yml\" sourcestartlinenumber=\"1\">Represents a service container that can hold and manage services.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.Utils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.Utils.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.Utils",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.Utils.yml\" sourcestartlinenumber=\"1\">Utility class for various helper functions</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.Window.WindowState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.Window.WindowState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.Window.WindowState",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.Window.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.Window.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core.Window",
+      "Summary": "<p sourcefile=\"api/LibGFX.Core.Window.yml\" sourcestartlinenumber=\"1\">Represents a window for rendering graphics.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Core.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Core.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Core",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.GFX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.GFX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.GFX",
+      "Summary": "<p sourcefile=\"api/LibGFX.GFX.yml\" sourcestartlinenumber=\"1\">Singleton class for managing graphics resources and window creation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Animation2D.Animation2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Animation2D.Animation2D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Animation2D.Animation2D",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Animation2D.Animation2D.yml\" sourcestartlinenumber=\"1\">Represents a 2D animation. Based on a sprite sheet.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Animation2D.Animator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Animation2D.Animator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Animation2D.Animator",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Animation2D.Animator.yml\" sourcestartlinenumber=\"1\">Represents an animator for 2D animations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Animation2D.IAnimationCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Animation2D.IAnimationCallback.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Animation2D.IAnimationCallback",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Animation2D.IAnimationCallback.yml\" sourcestartlinenumber=\"1\">Represents a callback interface for 2D animations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Animation2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Animation2D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Animation2D",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Animation3D.Animation3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Animation3D.Animation3D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Animation3D.Animation3D",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Animation3D.Animation3D.yml\" sourcestartlinenumber=\"1\">Represents an animation associated with a 3D model.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Animation3D.AnimationChannel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Animation3D.AnimationChannel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Animation3D.AnimationChannel",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Animation3D.AnimationChannel.yml\" sourcestartlinenumber=\"1\">Represents an animation channel for a specific bone, containing keyframes for position, rotation, and scale.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Animation3D.Animator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Animation3D.Animator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Animation3D.Animator",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Animation3D.Animator.yml\" sourcestartlinenumber=\"1\">Controls the animation playback of a 3D model.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Animation3D.Bone.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Animation3D.Bone.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Animation3D.Bone",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Animation3D.Bone.yml\" sourcestartlinenumber=\"1\">Represents a bone in a skeletal animation system.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Animation3D.IAnimationCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Animation3D.IAnimationCallback.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Animation3D.IAnimationCallback",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Animation3D.IAnimationCallback.yml\" sourcestartlinenumber=\"1\">Interface for animation callbacks.\nWith this interface, you can create custom callbacks that are triggered at specific frames during the animation.\nYou can also control the activation state of the callback.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Animation3D.KeyPosition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Animation3D.KeyPosition.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Animation3D.KeyPosition",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Animation3D.KeyPosition.yml\" sourcestartlinenumber=\"1\">Represents a keyframe position in an animation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Animation3D.KeyRotation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Animation3D.KeyRotation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Animation3D.KeyRotation",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Animation3D.KeyRotation.yml\" sourcestartlinenumber=\"1\">Represents a keyframe rotation in an animation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Animation3D.KeyScale.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Animation3D.KeyScale.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Animation3D.KeyScale",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Animation3D.KeyScale.yml\" sourcestartlinenumber=\"1\">Represents a keyframe scale in an animation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Animation3D.SceneNodeData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Animation3D.SceneNodeData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Animation3D.SceneNodeData",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Animation3D.SceneNodeData.yml\" sourcestartlinenumber=\"1\">Represents data associated with a node in the Assimp scene hierarchy.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Animation3D.Skeleton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Animation3D.Skeleton.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Animation3D.Skeleton",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Animation3D.Skeleton.yml\" sourcestartlinenumber=\"1\">Represents a bone information for the rendering pipeline</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Animation3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Animation3D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Animation3D",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.BoneInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.BoneInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.BoneInfo",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.BoneInfo.yml\" sourcestartlinenumber=\"1\">Represents a bone information for the rendering pipeline</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Camera.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Camera.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Camera",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Character.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Character.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Character",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.ColorPresets.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.ColorPresets.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.ColorPresets",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.ColorPresets.yml\" sourcestartlinenumber=\"1\">A collection of convenient color presets and helpers.\nColors are returned as Vector4 (r,g,b,a) with each component in range [0,1].</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Cubemap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Cubemap.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Cubemap",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Cubemap.yml\" sourcestartlinenumber=\"1\">Represents a cubemap texture</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.CullMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.CullMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.CullMode",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.DepthOnlyRenderTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.DepthOnlyRenderTarget.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.DepthOnlyRenderTarget",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.DepthOnlyRenderTarget.yml\" sourcestartlinenumber=\"1\">Represents a render target that only contains a depth texture.\nUseful for shadow mapping and depth pre-pass techniques.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Enviroment.IEnviroment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Enviroment.IEnviroment.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Enviroment.IEnviroment",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Enviroment.ProceduralSky.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Enviroment.ProceduralSky.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Enviroment.ProceduralSky",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Enviroment.ProceduralSky.yml\" sourcestartlinenumber=\"1\">Represents a procedural sky</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Enviroment.Skybox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Enviroment.Skybox.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Enviroment.Skybox",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Enviroment.Skybox.yml\" sourcestartlinenumber=\"1\">Represents a skybox environment that renders a surrounding cubemap in a 3D scene.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Enviroment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Enviroment.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Enviroment",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Font.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Font.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Font",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.FontAlignment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.FontAlignment.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.FontAlignment",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Generator.SphereGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Generator.SphereGenerator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Generator.SphereGenerator",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Generator.SurfaceGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Generator.SurfaceGenerator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Generator.SurfaceGenerator",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Generator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Generator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Generator",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.IModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.IModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.IModel",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.IModel.yml\" sourcestartlinenumber=\"1\">Base interface for 3D models</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.IRenderDevice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.IRenderDevice.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.IRenderDevice",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.IRenderTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.IRenderTarget.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.IRenderTarget",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.IRenderTarget.yml\" sourcestartlinenumber=\"1\">Interface for render targets such as framebuffers and the default framebuffer (screen).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Lights.DirectionalLight2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Lights.DirectionalLight2D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Lights.DirectionalLight2D",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Lights.DirectionalLight2D.yml\" sourcestartlinenumber=\"1\">An directional light</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Lights.DirectionalLight3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Lights.DirectionalLight3D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Lights.DirectionalLight3D",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Lights.DirectionalLight3D.yml\" sourcestartlinenumber=\"1\">An directional light in 3D space.\nTODO: Create an uniform for the bias</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Lights.ILightManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Lights.ILightManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Lights.ILightManager",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Lights.ILightManager.yml\" sourcestartlinenumber=\"1\">Interface for managing lights in a scene.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Lights.Light.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Lights.Light.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Lights.Light",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Lights.Light.yml\" sourcestartlinenumber=\"1\">Base class for all light types.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Lights.Light2DChunk.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Lights.Light2DChunk.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Lights.Light2DChunk",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Lights.Light2DChunk.yml\" sourcestartlinenumber=\"1\">Represents an chunk of lights in the scene.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Lights.Light2DManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Lights.Light2DManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Lights.Light2DManager",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Lights.Light2DManager.yml\" sourcestartlinenumber=\"1\">Manages 2D lights in the scene.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Lights.Light3DChunk.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Lights.Light3DChunk.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Lights.Light3DChunk",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Lights.Light3DChunk.yml\" sourcestartlinenumber=\"1\">Represents a chunk of lights in the scene.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Lights.Light3DManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Lights.Light3DManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Lights.Light3DManager",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Lights.Light3DManager.yml\" sourcestartlinenumber=\"1\">Manages 3D lights in the scene.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Lights.Point2DLightData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Lights.Point2DLightData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Lights.Point2DLightData",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Lights.Point2DLightData.yml\" sourcestartlinenumber=\"1\">Represents the data structure for a 2D point light for the shader.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Lights.PointLight2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Lights.PointLight2D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Lights.PointLight2D",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Lights.PointLight2D.yml\" sourcestartlinenumber=\"1\">Represents a 2D point light in the scene.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Lights.PointLight3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Lights.PointLight3D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Lights.PointLight3D",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Lights.PointLight3D.yml\" sourcestartlinenumber=\"1\">Represents a point light in the scene.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Lights.PointLight3DData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Lights.PointLight3DData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Lights.PointLight3DData",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Lights.PointLight3DData.yml\" sourcestartlinenumber=\"1\">Represents the data structure for a point light for the shader.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Lights.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Lights.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Lights",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.MSAARenderTarget2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.MSAARenderTarget2D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.MSAARenderTarget2D",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.MSAARenderTarget2D.yml\" sourcestartlinenumber=\"1\">A 2D render target that encapsulates a framebuffer, texture, and optional renderbuffer for depth/stencil.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Materials.IMaterial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Materials.IMaterial.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Materials.IMaterial",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Materials.IMaterial.yml\" sourcestartlinenumber=\"1\">Defines the contract for a material used in rendering operations, including identification, configuration, and\nlifecycle management.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Materials.PBRMaterial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Materials.PBRMaterial.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Materials.PBRMaterial",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Materials.SGMaterial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Materials.SGMaterial.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Materials.SGMaterial",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Materials.SGMaterial.yml\" sourcestartlinenumber=\"1\">Represents a material used in rendering.\nUses the Specular-Glossiness workflow.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Materials.SpriteMaterial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Materials.SpriteMaterial.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Materials.SpriteMaterial",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Materials.SpriteMaterial.yml\" sourcestartlinenumber=\"1\">Represents a material used in rendering.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Materials.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Materials.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Materials",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Mesh.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Mesh.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Mesh",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Mesh.yml\" sourcestartlinenumber=\"1\">Represents a mesh for the rendering pipeline</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.OrthographicCamera.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.OrthographicCamera.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.OrthographicCamera",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.OrthographicCamera.yml\" sourcestartlinenumber=\"1\">Represents an orthographic camera.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.PerspectiveCamera.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.PerspectiveCamera.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.PerspectiveCamera",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.PerspectiveCamera.yml\" sourcestartlinenumber=\"1\">Represents a perspective camera</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.PostProcessing.BrightnessContrastFX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.PostProcessing.BrightnessContrastFX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.PostProcessing.BrightnessContrastFX",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.PostProcessing.BrightnessContrastFX.yml\" sourcestartlinenumber=\"1\">Applies a post-processing effect that adjusts the brightness and contrast of a rendered image.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.PostProcessing.ChromaticAberrationFX",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.yml\" sourcestartlinenumber=\"1\">Applies a chromatic aberration post-processing effect to a rendered scene, simulating color channel separation\nfor visual distortion or stylistic purposes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.PostProcessing.ColorTintFX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.PostProcessing.ColorTintFX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.PostProcessing.ColorTintFX",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.PostProcessing.ColorTintFX.yml\" sourcestartlinenumber=\"1\">Applies a color tint effect as a post-processing filter to a rendered scene.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.PostProcessing.FilmGrainFX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.PostProcessing.FilmGrainFX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.PostProcessing.FilmGrainFX",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.PostProcessing.FilmGrainFX.yml\" sourcestartlinenumber=\"1\">Applies a film grain post-processing effect to a rendered image as part of a post-processing stack.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.PostProcessing.GrayscaleFX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.PostProcessing.GrayscaleFX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.PostProcessing.GrayscaleFX",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.PostProcessing.GrayscaleFX.yml\" sourcestartlinenumber=\"1\">Grayscale Post-Processing Effekt</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.PostProcessing.IPostProcessFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.PostProcessing.IPostProcessFilter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.PostProcessing.IPostProcessFilter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.PostProcessing.OverlayFX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.PostProcessing.OverlayFX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.PostProcessing.OverlayFX",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.PostProcessing.PixelationFX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.PostProcessing.PixelationFX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.PostProcessing.PixelationFX",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.PostProcessing.PixelationFX.yml\" sourcestartlinenumber=\"1\">Applies a pixelation post-processing effect to a rendered scene using a configurable pixel size.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.PostProcessing.PostProcessStack.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.PostProcessing.PostProcessStack.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.PostProcessing.PostProcessStack",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.PostProcessing.PosterizationFX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.PostProcessing.PosterizationFX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.PostProcessing.PosterizationFX",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.PostProcessing.PosterizationFX.yml\" sourcestartlinenumber=\"1\">Applies a posterization post-processing effect to a rendered image using configurable color levels and gamma\ncorrection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.PostProcessing.ScanlinesFX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.PostProcessing.ScanlinesFX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.PostProcessing.ScanlinesFX",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.PostProcessing.ScanlinesFX.yml\" sourcestartlinenumber=\"1\">Applies a scanline post-processing effect to a rendered image, simulating the appearance of CRT or retro\ndisplays.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.PostProcessing.SepiaFX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.PostProcessing.SepiaFX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.PostProcessing.SepiaFX",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.PostProcessing.SepiaFX.yml\" sourcestartlinenumber=\"1\">Applies a sepia tone post-processing effect to a rendered image using a configurable intensity.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.PostProcessing.SharpenFX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.PostProcessing.SharpenFX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.PostProcessing.SharpenFX",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.PostProcessing.SharpenFX.yml\" sourcestartlinenumber=\"1\">Provides a post-processing filter that applies a configurable sharpening effect to a rendered image using a\nshader-based approach.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.PostProcessing.VignetteFX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.PostProcessing.VignetteFX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.PostProcessing.VignetteFX",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.PostProcessing.VignetteFX.yml\" sourcestartlinenumber=\"1\">Vignette Post-Processing Effekt</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.PostProcessing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.PostProcessing.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.PostProcessing",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Primitives.Cube.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Primitives.Cube.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Primitives.Cube",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Primitives.IPrimitive-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Primitives.IPrimitive-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Primitives.IPrimitive<TSelf>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Primitives.PrimitiveType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Primitives.PrimitiveType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Primitives.PrimitiveType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Primitives.Quad.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Primitives.Quad.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Primitives.Quad",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Primitives.Sphere.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Primitives.Sphere.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Primitives.Sphere",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Primitives.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Primitives.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Primitives",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderData",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.ClearFlags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.ClearFlags.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.ClearFlags",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.RenderFlags.ClearFlags.yml\" sourcestartlinenumber=\"1\">Flags to specify which buffers to clear before rendering.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.ColorFormatHint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.ColorFormatHint.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.ColorFormatHint",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.RenderFlags.ColorFormatHint.yml\" sourcestartlinenumber=\"1\">Hints for color formats used in textures and render targets.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.ColorFormatLayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.ColorFormatLayout.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.ColorFormatLayout",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.RenderFlags.ColorFormatLayout.yml\" sourcestartlinenumber=\"1\">Represents the layout of color formats used in textures and render targets.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.ColorFormatType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.ColorFormatType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.ColorFormatType",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.RenderFlags.ColorFormatType.yml\" sourcestartlinenumber=\"1\">Represents the type of color format used in textures and render targets.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.GFXBufferTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.GFXBufferTarget.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.GFXBufferTarget",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.GFXBufferUsageHint",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.yml\" sourcestartlinenumber=\"1\">Attachment points for render targets, specifying where to attach textures or buffers.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.GFXFramebufferTarget",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.yml\" sourcestartlinenumber=\"1\">Framebuffer targets used to specify which framebuffer to bind for rendering operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.GFXTextureParameterName.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.GFXTextureParameterName.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.GFXTextureParameterName",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.GFXTextureTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.GFXTextureTarget.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.GFXTextureTarget",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.PrimitiveTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.PrimitiveTypes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.PrimitiveTypes",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.RenderFlags.PrimitiveTypes.yml\" sourcestartlinenumber=\"1\">Primitive types used for rendering geometric shapes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.RenderBufferMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.RenderBufferMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.RenderBufferMode",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.RenderFlags.RenderBufferMode.yml\" sourcestartlinenumber=\"1\">Modes for rendering buffers, specifying which buffer to use for rendering operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.RenderDataTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.RenderDataTypes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.RenderDataTypes",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.RenderFlags.RenderDataTypes.yml\" sourcestartlinenumber=\"1\">Data types used for rendering operations, specifying the type of data being processed.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.TextureFilterMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.TextureFilterMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.TextureFilterMode",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.RenderFlags.TextureFilterMode.yml\" sourcestartlinenumber=\"1\">Texture filtering modes used for texture sampling.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.TextureWrapMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.TextureWrapMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags.TextureWrapMode",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.RenderFlags.TextureWrapMode.yml\" sourcestartlinenumber=\"1\">Texture wrapping modes used to determine how textures are sampled outside their normal range.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderFlags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderFlags.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderFlags",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.RenderFlags.yml\" sourcestartlinenumber=\"1\">Represents various render flags and settings used in the graphics rendering pipeline.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderInstance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderInstance.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderInstance",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.RenderInstance.yml\" sourcestartlinenumber=\"1\">Represents a render instance with a transform and visibility state.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderInstanceContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderInstanceContainer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderInstanceContainer",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.RenderInstanceContainer.yml\" sourcestartlinenumber=\"1\">Represents a container for render instances.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderTarget2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderTarget2D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderTarget2D",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.RenderTarget2D.yml\" sourcestartlinenumber=\"1\">Represents a 2D render target such as a framebuffer with a texture attachment.\nand depth attachment. Used for off-screen rendering without multisampling.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.RenderTargetDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.RenderTargetDescriptor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.RenderTargetDescriptor",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.RenderTargetDescriptor.yml\" sourcestartlinenumber=\"1\">Represents a descriptor for a render target, including its dimensions, format, and other properties.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Renderer.OpenGL.GLRenderer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Renderer.OpenGL.GLRenderer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Renderer.OpenGL.GLRenderer",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Renderer.OpenGL.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Renderer.OpenGL.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Renderer.OpenGL",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.AABBShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.AABBShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.AABBShader",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Shader.AABBShader.yml\" sourcestartlinenumber=\"1\">AABB Shader Program\nUsed to render Axis-Aligned Bounding Boxes</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.AnimatedDepthMeshShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.AnimatedDepthMeshShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.AnimatedDepthMeshShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.AnimatedMeshShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.AnimatedMeshShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.AnimatedMeshShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.BrightnessContrastFXShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.BrightnessContrastFXShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.BrightnessContrastFXShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.ChromaticAberrationFXShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.ChromaticAberrationFXShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.ChromaticAberrationFXShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.ColorTintFXShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.ColorTintFXShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.ColorTintFXShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.DepthInstancedShader3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.DepthInstancedShader3D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.DepthInstancedShader3D",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.DepthMeshShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.DepthMeshShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.DepthMeshShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.EnviromentShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.EnviromentShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.EnviromentShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.FilmGrainFXShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.FilmGrainFXShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.FilmGrainFXShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.FontShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.FontShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.FontShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.GrayscaleFXShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.GrayscaleFXShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.GrayscaleFXShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.IShaderProgram.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.IShaderProgram.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.IShaderProgram",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Shader.IShaderProgram.yml\" sourcestartlinenumber=\"1\">Basic interface for shader programs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.InfiniteGridShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.InfiniteGridShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.InfiniteGridShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.InstancedShader2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.InstancedShader2D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.InstancedShader2D",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.InstancedShader3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.InstancedShader3D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.InstancedShader3D",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.LineShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.LineShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.LineShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.LitSpriteShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.LitSpriteShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.LitSpriteShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.MeshShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.MeshShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.MeshShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.OverlayFXShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.OverlayFXShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.OverlayFXShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.PBRMeshShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.PBRMeshShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.PBRMeshShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.PixelationFXShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.PixelationFXShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.PixelationFXShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.PosterizationFXShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.PosterizationFXShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.PosterizationFXShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.ProceduralSkyShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.ProceduralSkyShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.ProceduralSkyShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.RectShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.RectShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.RectShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.RenderShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.RenderShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.RenderShader",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Shader.RenderShader.yml\" sourcestartlinenumber=\"1\">Represents a shader program that consists of a vertex shader and a fragment shader.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.ScanlinesFXShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.ScanlinesFXShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.ScanlinesFXShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.ScreenShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.ScreenShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.ScreenShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.SepiaFXShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.SepiaFXShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.SepiaFXShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.Shader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.Shader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.Shader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.ShadowMapTest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.ShadowMapTest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.ShadowMapTest",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.SharpenFXShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.SharpenFXShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.SharpenFXShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.SolidMeshShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.SolidMeshShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.SolidMeshShader",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Shader.SolidMeshShader.yml\" sourcestartlinenumber=\"1\">Solid Mesh Shader Program</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.SpriteShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.SpriteShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.SpriteShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.VignetteFXShader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.VignetteFXShader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader.VignetteFXShader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shader",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shapes.CubeShape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shapes.CubeShape.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shapes.CubeShape",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shapes.CubeWireShape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shapes.CubeWireShape.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shapes.CubeWireShape",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Shapes.CubeWireShape.yml\" sourcestartlinenumber=\"1\">Wireframe representation of a cube shape.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shapes.FramebufferShape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shapes.FramebufferShape.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shapes.FramebufferShape",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shapes.LineShape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shapes.LineShape.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shapes.LineShape",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shapes.PlaneShape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shapes.PlaneShape.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shapes.PlaneShape",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Shapes.PlaneShape.yml\" sourcestartlinenumber=\"1\">Represents a geometric plane shape defined by four vertices, suitable for rendering or geometric computations in\n3D space.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shapes.RectShape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shapes.RectShape.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shapes.RectShape",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shapes.Shape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shapes.Shape.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shapes.Shape",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shapes.SpriteShape.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shapes.SpriteShape.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shapes.SpriteShape",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Shapes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Shapes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Shapes",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.SkinnedMeshModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.SkinnedMeshModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.SkinnedMeshModel",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.SkinnedMeshModel.yml\" sourcestartlinenumber=\"1\">Skinned mesh model with support for skeletal animation</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.StaticMeshModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.StaticMeshModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.StaticMeshModel",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.StaticMeshModel.yml\" sourcestartlinenumber=\"1\">Static model class that represents a 3D model loaded from a file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Texture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Texture.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Texture",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Texture.yml\" sourcestartlinenumber=\"1\">Represents a texture that can be used in rendering.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.TextureMirrorMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.TextureMirrorMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.TextureMirrorMode",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.TextureMirrorMode.yml\" sourcestartlinenumber=\"1\">Represents the mirror modes for a texture.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.TextureParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.TextureParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.TextureParameters",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.TextureParameters.yml\" sourcestartlinenumber=\"1\">Struct representing options for texture configuration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Vertex.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Vertex.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Vertex",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Vertex.yml\" sourcestartlinenumber=\"1\">Represents a vertex for the rendering pipeline</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.Viewport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.Viewport.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics.Viewport",
+      "Summary": "<p sourcefile=\"api/LibGFX.Graphics.Viewport.yml\" sourcestartlinenumber=\"1\">Represents a viewport in 2D or 3D space</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Graphics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Graphics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Graphics",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Math.AABB.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Math.AABB.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Math.AABB",
+      "Summary": "<p sourcefile=\"api/LibGFX.Math.AABB.yml\" sourcestartlinenumber=\"1\">Represents an Axis-Aligned Bounding Box (AABB) in 3D space.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Math.MathUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Math.MathUtils.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Math.MathUtils",
+      "Summary": "<p sourcefile=\"api/LibGFX.Math.MathUtils.yml\" sourcestartlinenumber=\"1\">Mathematical utility functions</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Math.Plane.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Math.Plane.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Math.Plane",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Math.Rect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Math.Rect.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Math.Rect",
+      "Summary": "<p sourcefile=\"api/LibGFX.Math.Rect.yml\" sourcestartlinenumber=\"1\">Represents a rectangle defined by its position and size.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Math.Transform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Math.Transform.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Math.Transform",
+      "Summary": "<p sourcefile=\"api/LibGFX.Math.Transform.yml\" sourcestartlinenumber=\"1\">Represents a 3D transformation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Math.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Math.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Math",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors.RigidBodyBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors.RigidBodyBehavior.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors.RigidBodyBehavior",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors.RigidBodyBehavior.yml\" sourcestartlinenumber=\"1\">Represents a 3D rigid body</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors2D.BoxCollider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors2D.BoxCollider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors2D.BoxCollider",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors2D.BoxCollider.yml\" sourcestartlinenumber=\"1\">Represents a 2D box collider behavior</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors2D.BoxRigidBody.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors2D.BoxRigidBody.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors2D.BoxRigidBody",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors2D.BoxRigidBody.yml\" sourcestartlinenumber=\"1\">Represents a 2D box rigid body behavior</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors2D.BoxTrigger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors2D.BoxTrigger.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors2D.BoxTrigger",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors2D.BoxTrigger.yml\" sourcestartlinenumber=\"1\">Represents a 2D box trigger collider.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors2D.CapsuleCollider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors2D.CapsuleCollider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors2D.CapsuleCollider",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors2D.CapsuleCollider.yml\" sourcestartlinenumber=\"1\">Represents a 2D capsule collider</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors2D.CapsuleRigidBody.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors2D.CapsuleRigidBody.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors2D.CapsuleRigidBody",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors2D.CapsuleRigidBody.yml\" sourcestartlinenumber=\"1\">Represents a 2D capsule rigid body</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors2D.CapsuleTrigger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors2D.CapsuleTrigger.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors2D.CapsuleTrigger",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors2D.CapsuleTrigger.yml\" sourcestartlinenumber=\"1\">Represents a capsule trigger collider in 2D physics</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors2D.CollisionBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors2D.CollisionBehavior.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors2D.CollisionBehavior",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors2D.CollisionBehavior.yml\" sourcestartlinenumber=\"1\">Represents a 2D collision behavior</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors2D.RigidBodyBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors2D.RigidBodyBehavior",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors2D.RigidBodyBehavior.yml\" sourcestartlinenumber=\"1\">Represents a 2D rigid body behavior</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors2D.SphereCollider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors2D.SphereCollider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors2D.SphereCollider",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors2D.SphereCollider.yml\" sourcestartlinenumber=\"1\">Represents a 2D sphere collider</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors2D.SphereRigidBody.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors2D.SphereRigidBody.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors2D.SphereRigidBody",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors2D.SphereRigidBody.yml\" sourcestartlinenumber=\"1\">Represents a 2D sphere rigid body</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors2D.SphereTrigger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors2D.SphereTrigger.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors2D.SphereTrigger",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors2D.SphereTrigger.yml\" sourcestartlinenumber=\"1\">Represents a sphere trigger collider in 2D physics</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors2D.TriggerBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors2D.TriggerBehavior.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors2D.TriggerBehavior",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors2D.TriggerBehavior.yml\" sourcestartlinenumber=\"1\">Represents a 2D trigger collider behavior</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors2D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors2D",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors3D.BoxCollider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors3D.BoxCollider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors3D.BoxCollider",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors3D.BoxCollider.yml\" sourcestartlinenumber=\"1\">Represents a 3D box collider</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors3D.BoxRigidBody.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors3D.BoxRigidBody.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors3D.BoxRigidBody",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors3D.BoxRigidBody.yml\" sourcestartlinenumber=\"1\">Represents a 3D box rigid body</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors3D.BoxTrigger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors3D.BoxTrigger.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors3D.BoxTrigger",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors3D.BoxTrigger.yml\" sourcestartlinenumber=\"1\">Represents a 3D box trigger</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors3D.CapsuleCollider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors3D.CapsuleCollider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors3D.CapsuleCollider",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors3D.CapsuleCollider.yml\" sourcestartlinenumber=\"1\">Represents a 3D capsule collider</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors3D.CapsuleRigidBody.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors3D.CapsuleRigidBody.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors3D.CapsuleRigidBody",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors3D.CapsuleRigidBody.yml\" sourcestartlinenumber=\"1\">Represents a 3D capsule rigid body</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors3D.CapsuleTrigger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors3D.CapsuleTrigger.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors3D.CapsuleTrigger",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors3D.CapsuleTrigger.yml\" sourcestartlinenumber=\"1\">Represents a 3D capsule trigger</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors3D.CollisionBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors3D.CollisionBehavior.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors3D.CollisionBehavior",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors3D.CollisionBehavior.yml\" sourcestartlinenumber=\"1\">Represents a 3D collider base behavior</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors3D.ConvexHullCollider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors3D.ConvexHullCollider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors3D.ConvexHullCollider",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors3D.ConvexHullCollider.yml\" sourcestartlinenumber=\"1\">Represents a 3D convex hull collider</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors3D.MeshCollider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors3D.MeshCollider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors3D.MeshCollider",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors3D.MeshCollider.yml\" sourcestartlinenumber=\"1\">Represents a 3D mesh collider\nThis collider creates an static mesh collider from the mesh of an 3D model File\nThis MeshCollider works with an non-uniform scale</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors3D.SphereCollider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors3D.SphereCollider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors3D.SphereCollider",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors3D.SphereCollider.yml\" sourcestartlinenumber=\"1\">Represents a 3D sphere collider</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors3D.SphereRigidBody.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors3D.SphereRigidBody.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors3D.SphereRigidBody",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors3D.SphereRigidBody.yml\" sourcestartlinenumber=\"1\">Represents a 3D sphere rigid body</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors3D.SphereTrigger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors3D.SphereTrigger.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors3D.SphereTrigger",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.Behaviors3D.SphereTrigger.yml\" sourcestartlinenumber=\"1\">Represents a 3D sphere trigger</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors3D.TriggerBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors3D.TriggerBehavior.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors3D.TriggerBehavior",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Behaviors3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Behaviors3D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Behaviors3D",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Collision.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Collision.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Collision",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.CollisionGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.CollisionGroup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.CollisionGroup",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.CollisionGroup.yml\" sourcestartlinenumber=\"1\">Defines different collision groups for physics interactions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.CollisionGroupExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.CollisionGroupExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.CollisionGroupExtensions",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.CollisionGroupExtensions.yml\" sourcestartlinenumber=\"1\">Provides extension methods for the <xref href=\"LibGFX.Physics.CollisionGroup\" data-throw-if-not-resolved=\"false\"></xref> enum.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.CollisionPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.CollisionPoint.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.CollisionPoint",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.ComputeHitResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.ComputeHitResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.ComputeHitResult",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.ComputeHitResult.yml\" sourcestartlinenumber=\"1\">Represents the result of a compute-based hit test, including the intersected triangle index, surface normal, and\nhit position.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.ComputeRaycast.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.ComputeRaycast.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.ComputeRaycast",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.ComputeRaycast.yml\" sourcestartlinenumber=\"1\">Provides functionality to perform GPU-accelerated raycasting operations against mesh geometry using compute\nshaders.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.DebugDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.DebugDrawer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.DebugDrawer",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.DebugDrawer.yml\" sourcestartlinenumber=\"1\">Represents a debug drawer</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.ElementIndex.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.ElementIndex.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.ElementIndex",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.HitResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.HitResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.HitResult",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.HitResult.yml\" sourcestartlinenumber=\"1\">Represents the result of a raycasting hit.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.MeshRay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.MeshRay.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.MeshRay",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.MeshRay.yml\" sourcestartlinenumber=\"1\">Represents a ray in 3D space for mesh raycasting.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.MeshRayHit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.MeshRayHit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.MeshRayHit",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.MeshRayHit.yml\" sourcestartlinenumber=\"1\">Represents a raycast hit result for a mesh.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.MeshRaycast.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.MeshRaycast.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.MeshRaycast",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.MeshRaycast.yml\" sourcestartlinenumber=\"1\">Class for performing raycasts against a mesh without using a physics engine.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.PhysicsBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.PhysicsBehavior.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.PhysicsBehavior",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.PhysicsBehavior.yml\" sourcestartlinenumber=\"1\">Represents a physics behavior</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.PhysicsHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.PhysicsHandler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.PhysicsHandler",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.PhysicsHandler.yml\" sourcestartlinenumber=\"1\">Represents a physics handler</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.PhysicsHandler2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.PhysicsHandler2D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.PhysicsHandler2D",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.PhysicsHandler2D.yml\" sourcestartlinenumber=\"1\">Represents a physics handler for 2D physics</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.PhysicsHandler3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.PhysicsHandler3D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.PhysicsHandler3D",
+      "Summary": "<p sourcefile=\"api/LibGFX.Physics.PhysicsHandler3D.yml\" sourcestartlinenumber=\"1\">Represents a 3D physics handler</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.Raycast.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.Raycast.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics.Raycast",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.Physics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.Physics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.Physics",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.UI.Button.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.UI.Button.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.UI.Button",
+      "Summary": "<p sourcefile=\"api/LibGFX.UI.Button.yml\" sourcestartlinenumber=\"1\">Represents a label control that can be rendered on the screen.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.UI.Canvas.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.UI.Canvas.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.UI.Canvas",
+      "Summary": "<p sourcefile=\"api/LibGFX.UI.Canvas.yml\" sourcestartlinenumber=\"1\">Represents a abstract canvas for rendering UI elements.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.UI.Canvas2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.UI.Canvas2D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.UI.Canvas2D",
+      "Summary": "<p sourcefile=\"api/LibGFX.UI.Canvas2D.yml\" sourcestartlinenumber=\"1\">Represents a 2D canvas for rendering UI elements.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.UI.Control.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.UI.Control.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.UI.Control",
+      "Summary": "<p sourcefile=\"api/LibGFX.UI.Control.yml\" sourcestartlinenumber=\"1\">Represents a abstract control for rendering UI elements.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.UI.ControlEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.UI.ControlEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.UI.ControlEventArgs",
+      "Summary": "<p sourcefile=\"api/LibGFX.UI.ControlEventArgs.yml\" sourcestartlinenumber=\"1\">Represents the event arguments for control events.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.UI.ControlEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.UI.ControlEventHandler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.UI.ControlEventHandler",
+      "Summary": "<p sourcefile=\"api/LibGFX.UI.ControlEventHandler.yml\" sourcestartlinenumber=\"1\">Delegate for control events.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.UI.ControlEventType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.UI.ControlEventType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.UI.ControlEventType",
+      "Summary": "<p sourcefile=\"api/LibGFX.UI.ControlEventType.yml\" sourcestartlinenumber=\"1\">Represents the different types of control events.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.UI.Label.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.UI.Label.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.UI.Label",
+      "Summary": "<p sourcefile=\"api/LibGFX.UI.Label.yml\" sourcestartlinenumber=\"1\">Represents a label control that can be rendered on the screen.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.UI.Progressbar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.UI.Progressbar.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.UI.Progressbar",
+      "Summary": "<p sourcefile=\"api/LibGFX.UI.Progressbar.yml\" sourcestartlinenumber=\"1\">Represents a progress bar control that can be rendered on the screen.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.UI.ProgressbarEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.UI.ProgressbarEventHandler.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.UI.ProgressbarEventHandler",
+      "Summary": "<p sourcefile=\"api/LibGFX.UI.ProgressbarEventHandler.yml\" sourcestartlinenumber=\"1\">Delegate for progress bar events.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.UI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.UI.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX.UI",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibGFX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibGFX.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "LibGFX",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

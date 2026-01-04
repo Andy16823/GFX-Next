@@ -1,0 +1,557 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Physics.CollisionGroup
+  commentId: T:LibGFX.Physics.CollisionGroup
+  id: CollisionGroup
+  parent: LibGFX.Physics
+  children:
+  - LibGFX.Physics.CollisionGroup.All
+  - LibGFX.Physics.CollisionGroup.Collider
+  - LibGFX.Physics.CollisionGroup.EditorEntity
+  - LibGFX.Physics.CollisionGroup.EnvironmentObject
+  - LibGFX.Physics.CollisionGroup.InteractiveObject
+  - LibGFX.Physics.CollisionGroup.NPC
+  - LibGFX.Physics.CollisionGroup.None
+  - LibGFX.Physics.CollisionGroup.Particles
+  - LibGFX.Physics.CollisionGroup.Player
+  - LibGFX.Physics.CollisionGroup.Projectile
+  - LibGFX.Physics.CollisionGroup.StaticObject
+  - LibGFX.Physics.CollisionGroup.Trigger
+  - LibGFX.Physics.CollisionGroup.Vehicle
+  langs:
+  - csharp
+  - vb
+  name: CollisionGroup
+  nameWithType: CollisionGroup
+  fullName: LibGFX.Physics.CollisionGroup
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Physics/CollisionGroupExtensions.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CollisionGroup
+    path: ../LibGFX/Physics/CollisionGroupExtensions.cs
+    startLine: 12
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Defines different collision groups for physics interactions.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum CollisionGroup
+    content.vb: >-
+      <Flags>
+
+      Public Enum CollisionGroup
+  extensionMethods:
+  - LibGFX.Physics.CollisionGroup.LibGFX.Physics.CollisionGroupExtensions.GetCollisionMask
+  - LibGFX.Physics.CollisionGroup.LibGFX.Physics.CollisionGroupExtensions.GetGroup
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: LibGFX.Physics.CollisionGroup.None
+  commentId: F:LibGFX.Physics.CollisionGroup.None
+  id: None
+  parent: LibGFX.Physics.CollisionGroup
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: CollisionGroup.None
+  fullName: LibGFX.Physics.CollisionGroup.None
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/CollisionGroupExtensions.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: None
+    path: ../LibGFX/Physics/CollisionGroupExtensions.cs
+    startLine: 18
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Represents no collision group.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: LibGFX.Physics.CollisionGroup
+- uid: LibGFX.Physics.CollisionGroup.StaticObject
+  commentId: F:LibGFX.Physics.CollisionGroup.StaticObject
+  id: StaticObject
+  parent: LibGFX.Physics.CollisionGroup
+  langs:
+  - csharp
+  - vb
+  name: StaticObject
+  nameWithType: CollisionGroup.StaticObject
+  fullName: LibGFX.Physics.CollisionGroup.StaticObject
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/CollisionGroupExtensions.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StaticObject
+    path: ../LibGFX/Physics/CollisionGroupExtensions.cs
+    startLine: 23
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Group for static objects that do not move.
+  example: []
+  syntax:
+    content: StaticObject = 2
+    return:
+      type: LibGFX.Physics.CollisionGroup
+- uid: LibGFX.Physics.CollisionGroup.Player
+  commentId: F:LibGFX.Physics.CollisionGroup.Player
+  id: Player
+  parent: LibGFX.Physics.CollisionGroup
+  langs:
+  - csharp
+  - vb
+  name: Player
+  nameWithType: CollisionGroup.Player
+  fullName: LibGFX.Physics.CollisionGroup.Player
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/CollisionGroupExtensions.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Player
+    path: ../LibGFX/Physics/CollisionGroupExtensions.cs
+    startLine: 28
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Group for player-controlled characters.
+  example: []
+  syntax:
+    content: Player = 32
+    return:
+      type: LibGFX.Physics.CollisionGroup
+- uid: LibGFX.Physics.CollisionGroup.NPC
+  commentId: F:LibGFX.Physics.CollisionGroup.NPC
+  id: NPC
+  parent: LibGFX.Physics.CollisionGroup
+  langs:
+  - csharp
+  - vb
+  name: NPC
+  nameWithType: CollisionGroup.NPC
+  fullName: LibGFX.Physics.CollisionGroup.NPC
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/CollisionGroupExtensions.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: NPC
+    path: ../LibGFX/Physics/CollisionGroupExtensions.cs
+    startLine: 33
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Group for non-player characters (NPCs).
+  example: []
+  syntax:
+    content: NPC = 64
+    return:
+      type: LibGFX.Physics.CollisionGroup
+- uid: LibGFX.Physics.CollisionGroup.Vehicle
+  commentId: F:LibGFX.Physics.CollisionGroup.Vehicle
+  id: Vehicle
+  parent: LibGFX.Physics.CollisionGroup
+  langs:
+  - csharp
+  - vb
+  name: Vehicle
+  nameWithType: CollisionGroup.Vehicle
+  fullName: LibGFX.Physics.CollisionGroup.Vehicle
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/CollisionGroupExtensions.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Vehicle
+    path: ../LibGFX/Physics/CollisionGroupExtensions.cs
+    startLine: 38
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Group for vehicles.
+  example: []
+  syntax:
+    content: Vehicle = 128
+    return:
+      type: LibGFX.Physics.CollisionGroup
+- uid: LibGFX.Physics.CollisionGroup.Projectile
+  commentId: F:LibGFX.Physics.CollisionGroup.Projectile
+  id: Projectile
+  parent: LibGFX.Physics.CollisionGroup
+  langs:
+  - csharp
+  - vb
+  name: Projectile
+  nameWithType: CollisionGroup.Projectile
+  fullName: LibGFX.Physics.CollisionGroup.Projectile
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/CollisionGroupExtensions.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Projectile
+    path: ../LibGFX/Physics/CollisionGroupExtensions.cs
+    startLine: 43
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Group for projectiles or other similar objects.
+  example: []
+  syntax:
+    content: Projectile = 256
+    return:
+      type: LibGFX.Physics.CollisionGroup
+- uid: LibGFX.Physics.CollisionGroup.Trigger
+  commentId: F:LibGFX.Physics.CollisionGroup.Trigger
+  id: Trigger
+  parent: LibGFX.Physics.CollisionGroup
+  langs:
+  - csharp
+  - vb
+  name: Trigger
+  nameWithType: CollisionGroup.Trigger
+  fullName: LibGFX.Physics.CollisionGroup.Trigger
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/CollisionGroupExtensions.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Trigger
+    path: ../LibGFX/Physics/CollisionGroupExtensions.cs
+    startLine: 48
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Group for trigger volumes or sensors.
+  example: []
+  syntax:
+    content: Trigger = 16
+    return:
+      type: LibGFX.Physics.CollisionGroup
+- uid: LibGFX.Physics.CollisionGroup.InteractiveObject
+  commentId: F:LibGFX.Physics.CollisionGroup.InteractiveObject
+  id: InteractiveObject
+  parent: LibGFX.Physics.CollisionGroup
+  langs:
+  - csharp
+  - vb
+  name: InteractiveObject
+  nameWithType: CollisionGroup.InteractiveObject
+  fullName: LibGFX.Physics.CollisionGroup.InteractiveObject
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/CollisionGroupExtensions.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: InteractiveObject
+    path: ../LibGFX/Physics/CollisionGroupExtensions.cs
+    startLine: 53
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Group for interactive objects.
+  example: []
+  syntax:
+    content: InteractiveObject = 512
+    return:
+      type: LibGFX.Physics.CollisionGroup
+- uid: LibGFX.Physics.CollisionGroup.EnvironmentObject
+  commentId: F:LibGFX.Physics.CollisionGroup.EnvironmentObject
+  id: EnvironmentObject
+  parent: LibGFX.Physics.CollisionGroup
+  langs:
+  - csharp
+  - vb
+  name: EnvironmentObject
+  nameWithType: CollisionGroup.EnvironmentObject
+  fullName: LibGFX.Physics.CollisionGroup.EnvironmentObject
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/CollisionGroupExtensions.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: EnvironmentObject
+    path: ../LibGFX/Physics/CollisionGroupExtensions.cs
+    startLine: 58
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Group for environmental objects.
+  example: []
+  syntax:
+    content: EnvironmentObject = 1024
+    return:
+      type: LibGFX.Physics.CollisionGroup
+- uid: LibGFX.Physics.CollisionGroup.Particles
+  commentId: F:LibGFX.Physics.CollisionGroup.Particles
+  id: Particles
+  parent: LibGFX.Physics.CollisionGroup
+  langs:
+  - csharp
+  - vb
+  name: Particles
+  nameWithType: CollisionGroup.Particles
+  fullName: LibGFX.Physics.CollisionGroup.Particles
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/CollisionGroupExtensions.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Particles
+    path: ../LibGFX/Physics/CollisionGroupExtensions.cs
+    startLine: 63
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Group for particle systems.
+  example: []
+  syntax:
+    content: Particles = 2048
+    return:
+      type: LibGFX.Physics.CollisionGroup
+- uid: LibGFX.Physics.CollisionGroup.Collider
+  commentId: F:LibGFX.Physics.CollisionGroup.Collider
+  id: Collider
+  parent: LibGFX.Physics.CollisionGroup
+  langs:
+  - csharp
+  - vb
+  name: Collider
+  nameWithType: CollisionGroup.Collider
+  fullName: LibGFX.Physics.CollisionGroup.Collider
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/CollisionGroupExtensions.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Collider
+    path: ../LibGFX/Physics/CollisionGroupExtensions.cs
+    startLine: 68
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Group for collision detection components.
+  example: []
+  syntax:
+    content: Collider = 4096
+    return:
+      type: LibGFX.Physics.CollisionGroup
+- uid: LibGFX.Physics.CollisionGroup.EditorEntity
+  commentId: F:LibGFX.Physics.CollisionGroup.EditorEntity
+  id: EditorEntity
+  parent: LibGFX.Physics.CollisionGroup
+  langs:
+  - csharp
+  - vb
+  name: EditorEntity
+  nameWithType: CollisionGroup.EditorEntity
+  fullName: LibGFX.Physics.CollisionGroup.EditorEntity
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/CollisionGroupExtensions.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: EditorEntity
+    path: ../LibGFX/Physics/CollisionGroupExtensions.cs
+    startLine: 73
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Group for editor entities such as gizmos and debug objects.
+  example: []
+  syntax:
+    content: EditorEntity = 8192
+    return:
+      type: LibGFX.Physics.CollisionGroup
+- uid: LibGFX.Physics.CollisionGroup.All
+  commentId: F:LibGFX.Physics.CollisionGroup.All
+  id: All
+  parent: LibGFX.Physics.CollisionGroup
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: CollisionGroup.All
+  fullName: LibGFX.Physics.CollisionGroup.All
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/CollisionGroupExtensions.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: All
+    path: ../LibGFX/Physics/CollisionGroupExtensions.cs
+    startLine: 78
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Group representing all collision groups.
+  example: []
+  syntax:
+    content: All = -1
+    return:
+      type: LibGFX.Physics.CollisionGroup
+references:
+- uid: LibGFX.Physics
+  commentId: N:LibGFX.Physics
+  href: LibGFX.html
+  name: LibGFX.Physics
+  nameWithType: LibGFX.Physics
+  fullName: LibGFX.Physics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+- uid: LibGFX.Physics.CollisionGroup.LibGFX.Physics.CollisionGroupExtensions.GetCollisionMask
+  commentId: M:LibGFX.Physics.CollisionGroupExtensions.GetCollisionMask(LibGFX.Physics.CollisionGroup)
+  parent: LibGFX.Physics.CollisionGroupExtensions
+  definition: LibGFX.Physics.CollisionGroupExtensions.GetCollisionMask(LibGFX.Physics.CollisionGroup)
+  href: LibGFX.Physics.CollisionGroupExtensions.html#LibGFX_Physics_CollisionGroupExtensions_GetCollisionMask_LibGFX_Physics_CollisionGroup_
+  name: GetCollisionMask(CollisionGroup)
+  nameWithType: CollisionGroupExtensions.GetCollisionMask(CollisionGroup)
+  fullName: LibGFX.Physics.CollisionGroupExtensions.GetCollisionMask(LibGFX.Physics.CollisionGroup)
+  spec.csharp:
+  - uid: LibGFX.Physics.CollisionGroupExtensions.GetCollisionMask(LibGFX.Physics.CollisionGroup)
+    name: GetCollisionMask
+    href: LibGFX.Physics.CollisionGroupExtensions.html#LibGFX_Physics_CollisionGroupExtensions_GetCollisionMask_LibGFX_Physics_CollisionGroup_
+  - name: (
+  - uid: LibGFX.Physics.CollisionGroup
+    name: CollisionGroup
+    href: LibGFX.Physics.CollisionGroup.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.CollisionGroupExtensions.GetCollisionMask(LibGFX.Physics.CollisionGroup)
+    name: GetCollisionMask
+    href: LibGFX.Physics.CollisionGroupExtensions.html#LibGFX_Physics_CollisionGroupExtensions_GetCollisionMask_LibGFX_Physics_CollisionGroup_
+  - name: (
+  - uid: LibGFX.Physics.CollisionGroup
+    name: CollisionGroup
+    href: LibGFX.Physics.CollisionGroup.html
+  - name: )
+- uid: LibGFX.Physics.CollisionGroup.LibGFX.Physics.CollisionGroupExtensions.GetGroup
+  commentId: M:LibGFX.Physics.CollisionGroupExtensions.GetGroup(LibGFX.Physics.CollisionGroup)
+  parent: LibGFX.Physics.CollisionGroupExtensions
+  definition: LibGFX.Physics.CollisionGroupExtensions.GetGroup(LibGFX.Physics.CollisionGroup)
+  href: LibGFX.Physics.CollisionGroupExtensions.html#LibGFX_Physics_CollisionGroupExtensions_GetGroup_LibGFX_Physics_CollisionGroup_
+  name: GetGroup(CollisionGroup)
+  nameWithType: CollisionGroupExtensions.GetGroup(CollisionGroup)
+  fullName: LibGFX.Physics.CollisionGroupExtensions.GetGroup(LibGFX.Physics.CollisionGroup)
+  spec.csharp:
+  - uid: LibGFX.Physics.CollisionGroupExtensions.GetGroup(LibGFX.Physics.CollisionGroup)
+    name: GetGroup
+    href: LibGFX.Physics.CollisionGroupExtensions.html#LibGFX_Physics_CollisionGroupExtensions_GetGroup_LibGFX_Physics_CollisionGroup_
+  - name: (
+  - uid: LibGFX.Physics.CollisionGroup
+    name: CollisionGroup
+    href: LibGFX.Physics.CollisionGroup.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.CollisionGroupExtensions.GetGroup(LibGFX.Physics.CollisionGroup)
+    name: GetGroup
+    href: LibGFX.Physics.CollisionGroupExtensions.html#LibGFX_Physics_CollisionGroupExtensions_GetGroup_LibGFX_Physics_CollisionGroup_
+  - name: (
+  - uid: LibGFX.Physics.CollisionGroup
+    name: CollisionGroup
+    href: LibGFX.Physics.CollisionGroup.html
+  - name: )
+- uid: LibGFX.Physics.CollisionGroupExtensions.GetCollisionMask(LibGFX.Physics.CollisionGroup)
+  commentId: M:LibGFX.Physics.CollisionGroupExtensions.GetCollisionMask(LibGFX.Physics.CollisionGroup)
+  href: LibGFX.Physics.CollisionGroupExtensions.html#LibGFX_Physics_CollisionGroupExtensions_GetCollisionMask_LibGFX_Physics_CollisionGroup_
+  name: GetCollisionMask(CollisionGroup)
+  nameWithType: CollisionGroupExtensions.GetCollisionMask(CollisionGroup)
+  fullName: LibGFX.Physics.CollisionGroupExtensions.GetCollisionMask(LibGFX.Physics.CollisionGroup)
+  spec.csharp:
+  - uid: LibGFX.Physics.CollisionGroupExtensions.GetCollisionMask(LibGFX.Physics.CollisionGroup)
+    name: GetCollisionMask
+    href: LibGFX.Physics.CollisionGroupExtensions.html#LibGFX_Physics_CollisionGroupExtensions_GetCollisionMask_LibGFX_Physics_CollisionGroup_
+  - name: (
+  - uid: LibGFX.Physics.CollisionGroup
+    name: CollisionGroup
+    href: LibGFX.Physics.CollisionGroup.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.CollisionGroupExtensions.GetCollisionMask(LibGFX.Physics.CollisionGroup)
+    name: GetCollisionMask
+    href: LibGFX.Physics.CollisionGroupExtensions.html#LibGFX_Physics_CollisionGroupExtensions_GetCollisionMask_LibGFX_Physics_CollisionGroup_
+  - name: (
+  - uid: LibGFX.Physics.CollisionGroup
+    name: CollisionGroup
+    href: LibGFX.Physics.CollisionGroup.html
+  - name: )
+- uid: LibGFX.Physics.CollisionGroupExtensions
+  commentId: T:LibGFX.Physics.CollisionGroupExtensions
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.CollisionGroupExtensions.html
+  name: CollisionGroupExtensions
+  nameWithType: CollisionGroupExtensions
+  fullName: LibGFX.Physics.CollisionGroupExtensions
+- uid: LibGFX.Physics.CollisionGroupExtensions.GetGroup(LibGFX.Physics.CollisionGroup)
+  commentId: M:LibGFX.Physics.CollisionGroupExtensions.GetGroup(LibGFX.Physics.CollisionGroup)
+  href: LibGFX.Physics.CollisionGroupExtensions.html#LibGFX_Physics_CollisionGroupExtensions_GetGroup_LibGFX_Physics_CollisionGroup_
+  name: GetGroup(CollisionGroup)
+  nameWithType: CollisionGroupExtensions.GetGroup(CollisionGroup)
+  fullName: LibGFX.Physics.CollisionGroupExtensions.GetGroup(LibGFX.Physics.CollisionGroup)
+  spec.csharp:
+  - uid: LibGFX.Physics.CollisionGroupExtensions.GetGroup(LibGFX.Physics.CollisionGroup)
+    name: GetGroup
+    href: LibGFX.Physics.CollisionGroupExtensions.html#LibGFX_Physics_CollisionGroupExtensions_GetGroup_LibGFX_Physics_CollisionGroup_
+  - name: (
+  - uid: LibGFX.Physics.CollisionGroup
+    name: CollisionGroup
+    href: LibGFX.Physics.CollisionGroup.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.CollisionGroupExtensions.GetGroup(LibGFX.Physics.CollisionGroup)
+    name: GetGroup
+    href: LibGFX.Physics.CollisionGroupExtensions.html#LibGFX_Physics_CollisionGroupExtensions_GetGroup_LibGFX_Physics_CollisionGroup_
+  - name: (
+  - uid: LibGFX.Physics.CollisionGroup
+    name: CollisionGroup
+    href: LibGFX.Physics.CollisionGroup.html
+  - name: )
+- uid: LibGFX.Physics.CollisionGroup
+  commentId: T:LibGFX.Physics.CollisionGroup
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.CollisionGroup.html
+  name: CollisionGroup
+  nameWithType: CollisionGroup
+  fullName: LibGFX.Physics.CollisionGroup

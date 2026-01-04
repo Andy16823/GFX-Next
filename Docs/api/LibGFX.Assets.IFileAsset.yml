@@ -1,0 +1,109 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Assets.IFileAsset
+  commentId: T:LibGFX.Assets.IFileAsset
+  id: IFileAsset
+  parent: LibGFX.Assets
+  children:
+  - LibGFX.Assets.IFileAsset.FilePath
+  langs:
+  - csharp
+  - vb
+  name: IFileAsset
+  nameWithType: IFileAsset
+  fullName: LibGFX.Assets.IFileAsset
+  type: Interface
+  source:
+    remote:
+      path: LibGFX/Assets/IFileAsset.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IFileAsset
+    path: ../LibGFX/Assets/IFileAsset.cs
+    startLine: 11
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Interface for file assets.
+  example: []
+  syntax:
+    content: public interface IFileAsset
+    content.vb: Public Interface IFileAsset
+- uid: LibGFX.Assets.IFileAsset.FilePath
+  commentId: P:LibGFX.Assets.IFileAsset.FilePath
+  id: FilePath
+  parent: LibGFX.Assets.IFileAsset
+  langs:
+  - csharp
+  - vb
+  name: FilePath
+  nameWithType: IFileAsset.FilePath
+  fullName: LibGFX.Assets.IFileAsset.FilePath
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Assets/IFileAsset.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FilePath
+    path: ../LibGFX/Assets/IFileAsset.cs
+    startLine: 16
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Gets or sets the full file system path associated with this instance.
+  example: []
+  syntax:
+    content: string FilePath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property FilePath As String
+  overload: LibGFX.Assets.IFileAsset.FilePath*
+references:
+- uid: LibGFX.Assets
+  commentId: N:LibGFX.Assets
+  href: LibGFX.html
+  name: LibGFX.Assets
+  nameWithType: LibGFX.Assets
+  fullName: LibGFX.Assets
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+- uid: LibGFX.Assets.IFileAsset.FilePath*
+  commentId: Overload:LibGFX.Assets.IFileAsset.FilePath
+  href: LibGFX.Assets.IFileAsset.html#LibGFX_Assets_IFileAsset_FilePath
+  name: FilePath
+  nameWithType: IFileAsset.FilePath
+  fullName: LibGFX.Assets.IFileAsset.FilePath
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

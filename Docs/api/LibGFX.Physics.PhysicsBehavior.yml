@@ -1,0 +1,1190 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Physics.PhysicsBehavior
+  commentId: T:LibGFX.Physics.PhysicsBehavior
+  id: PhysicsBehavior
+  parent: LibGFX.Physics
+  children:
+  - LibGFX.Physics.PhysicsBehavior.#ctor(LibGFX.Physics.PhysicsHandler)
+  - LibGFX.Physics.PhysicsBehavior.GetElement
+  - LibGFX.Physics.PhysicsBehavior.GetPhysicsObject
+  - LibGFX.Physics.PhysicsBehavior.OnCollide(LibGFX.Physics.Collision)
+  - LibGFX.Physics.PhysicsBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Physics.PhysicsBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Physics.PhysicsBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  - LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Physics.PhysicsBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  - LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+  - LibGFX.Physics.PhysicsBehavior.SetElement(LibGFX.Core.GameElement)
+  langs:
+  - csharp
+  - vb
+  name: PhysicsBehavior
+  nameWithType: PhysicsBehavior
+  fullName: LibGFX.Physics.PhysicsBehavior
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PhysicsBehavior
+    path: ../LibGFX/Physics/PhysicsBehavior.cs
+    startLine: 14
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Represents a physics behavior
+  example: []
+  syntax:
+    content: 'public abstract class PhysicsBehavior : IGameBehavior'
+    content.vb: Public MustInherit Class PhysicsBehavior Implements IGameBehavior
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior
+  - LibGFX.Physics.Behaviors2D.CollisionBehavior
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  - LibGFX.Physics.Behaviors2D.TriggerBehavior
+  - LibGFX.Physics.Behaviors3D.CollisionBehavior
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior
+  implements:
+  - LibGFX.Core.IGameBehavior
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+  commentId: P:LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+  id: PhysicsHandler
+  parent: LibGFX.Physics.PhysicsBehavior
+  langs:
+  - csharp
+  - vb
+  name: PhysicsHandler
+  nameWithType: PhysicsBehavior.PhysicsHandler
+  fullName: LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PhysicsHandler
+    path: ../LibGFX/Physics/PhysicsBehavior.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: The physics handler
+  example: []
+  syntax:
+    content: public PhysicsHandler PhysicsHandler { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Physics.PhysicsHandler
+    content.vb: Public Property PhysicsHandler As PhysicsHandler
+  overload: LibGFX.Physics.PhysicsBehavior.PhysicsHandler*
+- uid: LibGFX.Physics.PhysicsBehavior.#ctor(LibGFX.Physics.PhysicsHandler)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.#ctor(LibGFX.Physics.PhysicsHandler)
+  id: '#ctor(LibGFX.Physics.PhysicsHandler)'
+  parent: LibGFX.Physics.PhysicsBehavior
+  langs:
+  - csharp
+  - vb
+  name: PhysicsBehavior(PhysicsHandler)
+  nameWithType: PhysicsBehavior.PhysicsBehavior(PhysicsHandler)
+  fullName: LibGFX.Physics.PhysicsBehavior.PhysicsBehavior(LibGFX.Physics.PhysicsHandler)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Physics/PhysicsBehavior.cs
+    startLine: 25
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Creates a new physics behavior
+  example: []
+  syntax:
+    content: protected PhysicsBehavior(PhysicsHandler physicsHandler)
+    parameters:
+    - id: physicsHandler
+      type: LibGFX.Physics.PhysicsHandler
+      description: ''
+    content.vb: Protected Sub New(physicsHandler As PhysicsHandler)
+  overload: LibGFX.Physics.PhysicsBehavior.#ctor*
+  nameWithType.vb: PhysicsBehavior.New(PhysicsHandler)
+  fullName.vb: LibGFX.Physics.PhysicsBehavior.New(LibGFX.Physics.PhysicsHandler)
+  name.vb: New(PhysicsHandler)
+- uid: LibGFX.Physics.PhysicsBehavior.GetElement
+  commentId: M:LibGFX.Physics.PhysicsBehavior.GetElement
+  id: GetElement
+  parent: LibGFX.Physics.PhysicsBehavior
+  langs:
+  - csharp
+  - vb
+  name: GetElement()
+  nameWithType: PhysicsBehavior.GetElement()
+  fullName: LibGFX.Physics.PhysicsBehavior.GetElement()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetElement
+    path: ../LibGFX/Physics/PhysicsBehavior.cs
+    startLine: 34
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Gets the game element
+  example: []
+  syntax:
+    content: public abstract GameElement GetElement()
+    return:
+      type: LibGFX.Core.GameElement
+      description: ''
+    content.vb: Public MustOverride Function GetElement() As GameElement
+  overload: LibGFX.Physics.PhysicsBehavior.GetElement*
+  implements:
+  - LibGFX.Core.IGameBehavior.GetElement
+- uid: LibGFX.Physics.PhysicsBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  id: OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.PhysicsBehavior
+  langs:
+  - csharp
+  - vb
+  name: OnDispose(BaseScene, IRenderDevice)
+  nameWithType: PhysicsBehavior.OnDispose(BaseScene, IRenderDevice)
+  fullName: LibGFX.Physics.PhysicsBehavior.OnDispose(LibGFX.Core.BaseScene, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnDispose
+    path: ../LibGFX/Physics/PhysicsBehavior.cs
+    startLine: 41
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Disposes the physics behavior
+  example: []
+  syntax:
+    content: public abstract void OnDispose(BaseScene scene, IRenderDevice renderer)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public MustOverride Sub OnDispose(scene As BaseScene, renderer As IRenderDevice)
+  overload: LibGFX.Physics.PhysicsBehavior.OnDispose*
+  implements:
+  - LibGFX.Core.IGameBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Physics.PhysicsBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.PhysicsBehavior
+  langs:
+  - csharp
+  - vb
+  name: OnInit(BaseScene, Viewport, IRenderDevice)
+  nameWithType: PhysicsBehavior.OnInit(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Physics.PhysicsBehavior.OnInit(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnInit
+    path: ../LibGFX/Physics/PhysicsBehavior.cs
+    startLine: 49
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Initializes the physics behavior
+  example: []
+  syntax:
+    content: public abstract void OnInit(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public MustOverride Sub OnInit(scene As BaseScene, viewport As Viewport, renderer As IRenderDevice)
+  overload: LibGFX.Physics.PhysicsBehavior.OnInit*
+  implements:
+  - LibGFX.Core.IGameBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.PhysicsBehavior
+  langs:
+  - csharp
+  - vb
+  name: OnShadowPass(BaseScene, Viewport, IRenderDevice)
+  nameWithType: PhysicsBehavior.OnShadowPass(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnShadowPass
+    path: ../LibGFX/Physics/PhysicsBehavior.cs
+    startLine: 58
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: >-
+    Called when the shadow pass is rendered
+
+    Not all physics behaviors need to implement this
+  example: []
+  syntax:
+    content: public virtual void OnShadowPass(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Overridable Sub OnShadowPass(scene As BaseScene, viewport As Viewport, renderer As IRenderDevice)
+  overload: LibGFX.Physics.PhysicsBehavior.OnShadowPass*
+  implements:
+  - LibGFX.Core.IGameBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Physics.PhysicsBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  id: OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  parent: LibGFX.Physics.PhysicsBehavior
+  langs:
+  - csharp
+  - vb
+  name: OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  nameWithType: PhysicsBehavior.OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  fullName: LibGFX.Physics.PhysicsBehavior.OnRender(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnRender
+    path: ../LibGFX/Physics/PhysicsBehavior.cs
+    startLine: 67
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Renders the physics behavior
+  example: []
+  syntax:
+    content: public abstract void OnRender(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    - id: camera
+      type: LibGFX.Graphics.Camera
+      description: ''
+    content.vb: Public MustOverride Sub OnRender(scene As BaseScene, viewport As Viewport, renderer As IRenderDevice, camera As Camera)
+  overload: LibGFX.Physics.PhysicsBehavior.OnRender*
+  implements:
+  - LibGFX.Core.IGameBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+- uid: LibGFX.Physics.PhysicsBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  id: OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  parent: LibGFX.Physics.PhysicsBehavior
+  langs:
+  - csharp
+  - vb
+  name: OnUpdate(BaseScene, float)
+  nameWithType: PhysicsBehavior.OnUpdate(BaseScene, float)
+  fullName: LibGFX.Physics.PhysicsBehavior.OnUpdate(LibGFX.Core.BaseScene, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnUpdate
+    path: ../LibGFX/Physics/PhysicsBehavior.cs
+    startLine: 73
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Updates the physics behavior
+  example: []
+  syntax:
+    content: public abstract void OnUpdate(BaseScene scene, float dt)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: dt
+      type: System.Single
+    content.vb: Public MustOverride Sub OnUpdate(scene As BaseScene, dt As Single)
+  overload: LibGFX.Physics.PhysicsBehavior.OnUpdate*
+  implements:
+  - LibGFX.Core.IGameBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  nameWithType.vb: PhysicsBehavior.OnUpdate(BaseScene, Single)
+  fullName.vb: LibGFX.Physics.PhysicsBehavior.OnUpdate(LibGFX.Core.BaseScene, Single)
+  name.vb: OnUpdate(BaseScene, Single)
+- uid: LibGFX.Physics.PhysicsBehavior.SetElement(LibGFX.Core.GameElement)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.SetElement(LibGFX.Core.GameElement)
+  id: SetElement(LibGFX.Core.GameElement)
+  parent: LibGFX.Physics.PhysicsBehavior
+  langs:
+  - csharp
+  - vb
+  name: SetElement(GameElement)
+  nameWithType: PhysicsBehavior.SetElement(GameElement)
+  fullName: LibGFX.Physics.PhysicsBehavior.SetElement(LibGFX.Core.GameElement)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetElement
+    path: ../LibGFX/Physics/PhysicsBehavior.cs
+    startLine: 79
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Sets the game element
+  example: []
+  syntax:
+    content: public abstract void SetElement(GameElement gameElement)
+    parameters:
+    - id: gameElement
+      type: LibGFX.Core.GameElement
+      description: ''
+    content.vb: Public MustOverride Sub SetElement(gameElement As GameElement)
+  overload: LibGFX.Physics.PhysicsBehavior.SetElement*
+  implements:
+  - LibGFX.Core.IGameBehavior.SetElement(LibGFX.Core.GameElement)
+- uid: LibGFX.Physics.PhysicsBehavior.GetPhysicsObject
+  commentId: M:LibGFX.Physics.PhysicsBehavior.GetPhysicsObject
+  id: GetPhysicsObject
+  parent: LibGFX.Physics.PhysicsBehavior
+  langs:
+  - csharp
+  - vb
+  name: GetPhysicsObject()
+  nameWithType: PhysicsBehavior.GetPhysicsObject()
+  fullName: LibGFX.Physics.PhysicsBehavior.GetPhysicsObject()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetPhysicsObject
+    path: ../LibGFX/Physics/PhysicsBehavior.cs
+    startLine: 85
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Gets the physics object
+  example: []
+  syntax:
+    content: public abstract object GetPhysicsObject()
+    return:
+      type: System.Object
+      description: ''
+    content.vb: Public MustOverride Function GetPhysicsObject() As Object
+  overload: LibGFX.Physics.PhysicsBehavior.GetPhysicsObject*
+- uid: LibGFX.Physics.PhysicsBehavior.OnCollide(LibGFX.Physics.Collision)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.OnCollide(LibGFX.Physics.Collision)
+  id: OnCollide(LibGFX.Physics.Collision)
+  parent: LibGFX.Physics.PhysicsBehavior
+  langs:
+  - csharp
+  - vb
+  name: OnCollide(Collision)
+  nameWithType: PhysicsBehavior.OnCollide(Collision)
+  fullName: LibGFX.Physics.PhysicsBehavior.OnCollide(LibGFX.Physics.Collision)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnCollide
+    path: ../LibGFX/Physics/PhysicsBehavior.cs
+    startLine: 91
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Called when the physics behavior collides with another object
+  example: []
+  syntax:
+    content: public abstract void OnCollide(Collision collision)
+    parameters:
+    - id: collision
+      type: LibGFX.Physics.Collision
+      description: ''
+    content.vb: Public MustOverride Sub OnCollide(collision As Collision)
+  overload: LibGFX.Physics.PhysicsBehavior.OnCollide*
+  implements:
+  - LibGFX.Core.IGameBehavior.OnCollide(LibGFX.Physics.Collision)
+references:
+- uid: LibGFX.Physics
+  commentId: N:LibGFX.Physics
+  href: LibGFX.html
+  name: LibGFX.Physics
+  nameWithType: LibGFX.Physics
+  fullName: LibGFX.Physics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Core.IGameBehavior
+  commentId: T:LibGFX.Core.IGameBehavior
+  parent: LibGFX.Core
+  href: LibGFX.Core.IGameBehavior.html
+  name: IGameBehavior
+  nameWithType: IGameBehavior
+  fullName: LibGFX.Core.IGameBehavior
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Physics.PhysicsBehavior.PhysicsHandler*
+  commentId: Overload:LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_PhysicsHandler
+  name: PhysicsHandler
+  nameWithType: PhysicsBehavior.PhysicsHandler
+  fullName: LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+- uid: LibGFX.Physics.PhysicsHandler
+  commentId: T:LibGFX.Physics.PhysicsHandler
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.PhysicsHandler.html
+  name: PhysicsHandler
+  nameWithType: PhysicsHandler
+  fullName: LibGFX.Physics.PhysicsHandler
+- uid: LibGFX.Physics.PhysicsBehavior.#ctor*
+  commentId: Overload:LibGFX.Physics.PhysicsBehavior.#ctor
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior__ctor_LibGFX_Physics_PhysicsHandler_
+  name: PhysicsBehavior
+  nameWithType: PhysicsBehavior.PhysicsBehavior
+  fullName: LibGFX.Physics.PhysicsBehavior.PhysicsBehavior
+  nameWithType.vb: PhysicsBehavior.New
+  fullName.vb: LibGFX.Physics.PhysicsBehavior.New
+  name.vb: New
+- uid: LibGFX.Physics.PhysicsBehavior.GetElement*
+  commentId: Overload:LibGFX.Physics.PhysicsBehavior.GetElement
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_GetElement
+  name: GetElement
+  nameWithType: PhysicsBehavior.GetElement
+  fullName: LibGFX.Physics.PhysicsBehavior.GetElement
+- uid: LibGFX.Core.IGameBehavior.GetElement
+  commentId: M:LibGFX.Core.IGameBehavior.GetElement
+  parent: LibGFX.Core.IGameBehavior
+  href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_GetElement
+  name: GetElement()
+  nameWithType: IGameBehavior.GetElement()
+  fullName: LibGFX.Core.IGameBehavior.GetElement()
+  spec.csharp:
+  - uid: LibGFX.Core.IGameBehavior.GetElement
+    name: GetElement
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_GetElement
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGameBehavior.GetElement
+    name: GetElement
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_GetElement
+  - name: (
+  - name: )
+- uid: LibGFX.Core.GameElement
+  commentId: T:LibGFX.Core.GameElement
+  parent: LibGFX.Core
+  href: LibGFX.Core.GameElement.html
+  name: GameElement
+  nameWithType: GameElement
+  fullName: LibGFX.Core.GameElement
+- uid: LibGFX.Physics.PhysicsBehavior.OnDispose*
+  commentId: Overload:LibGFX.Physics.PhysicsBehavior.OnDispose
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  name: OnDispose
+  nameWithType: PhysicsBehavior.OnDispose
+  fullName: LibGFX.Physics.PhysicsBehavior.OnDispose
+- uid: LibGFX.Core.IGameBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IGameBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IGameBehavior
+  href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  name: OnDispose(BaseScene, IRenderDevice)
+  nameWithType: IGameBehavior.OnDispose(BaseScene, IRenderDevice)
+  fullName: LibGFX.Core.IGameBehavior.OnDispose(LibGFX.Core.BaseScene, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IGameBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+    name: OnDispose
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGameBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+    name: OnDispose
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Core.BaseScene
+  commentId: T:LibGFX.Core.BaseScene
+  parent: LibGFX.Core
+  href: LibGFX.Core.BaseScene.html
+  name: BaseScene
+  nameWithType: BaseScene
+  fullName: LibGFX.Core.BaseScene
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Physics.PhysicsBehavior.OnInit*
+  commentId: Overload:LibGFX.Physics.PhysicsBehavior.OnInit
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: OnInit
+  nameWithType: PhysicsBehavior.OnInit
+  fullName: LibGFX.Physics.PhysicsBehavior.OnInit
+- uid: LibGFX.Core.IGameBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IGameBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IGameBehavior
+  href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: OnInit(BaseScene, Viewport, IRenderDevice)
+  nameWithType: IGameBehavior.OnInit(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Core.IGameBehavior.OnInit(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IGameBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnInit
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGameBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnInit
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.Physics.PhysicsBehavior.OnShadowPass*
+  commentId: Overload:LibGFX.Physics.PhysicsBehavior.OnShadowPass
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: OnShadowPass
+  nameWithType: PhysicsBehavior.OnShadowPass
+  fullName: LibGFX.Physics.PhysicsBehavior.OnShadowPass
+- uid: LibGFX.Core.IGameBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IGameBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IGameBehavior
+  href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: OnShadowPass(BaseScene, Viewport, IRenderDevice)
+  nameWithType: IGameBehavior.OnShadowPass(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Core.IGameBehavior.OnShadowPass(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IGameBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnShadowPass
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGameBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnShadowPass
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Physics.PhysicsBehavior.OnRender*
+  commentId: Overload:LibGFX.Physics.PhysicsBehavior.OnRender
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  name: OnRender
+  nameWithType: PhysicsBehavior.OnRender
+  fullName: LibGFX.Physics.PhysicsBehavior.OnRender
+- uid: LibGFX.Core.IGameBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  commentId: M:LibGFX.Core.IGameBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  parent: LibGFX.Core.IGameBehavior
+  href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  name: OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  nameWithType: IGameBehavior.OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  fullName: LibGFX.Core.IGameBehavior.OnRender(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera)
+  spec.csharp:
+  - uid: LibGFX.Core.IGameBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+    name: OnRender
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    href: LibGFX.Graphics.Camera.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGameBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+    name: OnRender
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    href: LibGFX.Graphics.Camera.html
+  - name: )
+- uid: LibGFX.Graphics.Camera
+  commentId: T:LibGFX.Graphics.Camera
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Camera.html
+  name: Camera
+  nameWithType: Camera
+  fullName: LibGFX.Graphics.Camera
+- uid: LibGFX.Physics.PhysicsBehavior.OnUpdate*
+  commentId: Overload:LibGFX.Physics.PhysicsBehavior.OnUpdate
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  name: OnUpdate
+  nameWithType: PhysicsBehavior.OnUpdate
+  fullName: LibGFX.Physics.PhysicsBehavior.OnUpdate
+- uid: LibGFX.Core.IGameBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  commentId: M:LibGFX.Core.IGameBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  parent: LibGFX.Core.IGameBehavior
+  isExternal: true
+  href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  name: OnUpdate(BaseScene, float)
+  nameWithType: IGameBehavior.OnUpdate(BaseScene, float)
+  fullName: LibGFX.Core.IGameBehavior.OnUpdate(LibGFX.Core.BaseScene, float)
+  nameWithType.vb: IGameBehavior.OnUpdate(BaseScene, Single)
+  fullName.vb: LibGFX.Core.IGameBehavior.OnUpdate(LibGFX.Core.BaseScene, Single)
+  name.vb: OnUpdate(BaseScene, Single)
+  spec.csharp:
+  - uid: LibGFX.Core.IGameBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+    name: OnUpdate
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGameBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+    name: OnUpdate
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Physics.PhysicsBehavior.SetElement*
+  commentId: Overload:LibGFX.Physics.PhysicsBehavior.SetElement
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_SetElement_LibGFX_Core_GameElement_
+  name: SetElement
+  nameWithType: PhysicsBehavior.SetElement
+  fullName: LibGFX.Physics.PhysicsBehavior.SetElement
+- uid: LibGFX.Core.IGameBehavior.SetElement(LibGFX.Core.GameElement)
+  commentId: M:LibGFX.Core.IGameBehavior.SetElement(LibGFX.Core.GameElement)
+  parent: LibGFX.Core.IGameBehavior
+  href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_SetElement_LibGFX_Core_GameElement_
+  name: SetElement(GameElement)
+  nameWithType: IGameBehavior.SetElement(GameElement)
+  fullName: LibGFX.Core.IGameBehavior.SetElement(LibGFX.Core.GameElement)
+  spec.csharp:
+  - uid: LibGFX.Core.IGameBehavior.SetElement(LibGFX.Core.GameElement)
+    name: SetElement
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_SetElement_LibGFX_Core_GameElement_
+  - name: (
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGameBehavior.SetElement(LibGFX.Core.GameElement)
+    name: SetElement
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_SetElement_LibGFX_Core_GameElement_
+  - name: (
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: )
+- uid: LibGFX.Physics.PhysicsBehavior.GetPhysicsObject*
+  commentId: Overload:LibGFX.Physics.PhysicsBehavior.GetPhysicsObject
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_GetPhysicsObject
+  name: GetPhysicsObject
+  nameWithType: PhysicsBehavior.GetPhysicsObject
+  fullName: LibGFX.Physics.PhysicsBehavior.GetPhysicsObject
+- uid: LibGFX.Physics.PhysicsBehavior.OnCollide*
+  commentId: Overload:LibGFX.Physics.PhysicsBehavior.OnCollide
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnCollide_LibGFX_Physics_Collision_
+  name: OnCollide
+  nameWithType: PhysicsBehavior.OnCollide
+  fullName: LibGFX.Physics.PhysicsBehavior.OnCollide
+- uid: LibGFX.Core.IGameBehavior.OnCollide(LibGFX.Physics.Collision)
+  commentId: M:LibGFX.Core.IGameBehavior.OnCollide(LibGFX.Physics.Collision)
+  parent: LibGFX.Core.IGameBehavior
+  href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnCollide_LibGFX_Physics_Collision_
+  name: OnCollide(Collision)
+  nameWithType: IGameBehavior.OnCollide(Collision)
+  fullName: LibGFX.Core.IGameBehavior.OnCollide(LibGFX.Physics.Collision)
+  spec.csharp:
+  - uid: LibGFX.Core.IGameBehavior.OnCollide(LibGFX.Physics.Collision)
+    name: OnCollide
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnCollide_LibGFX_Physics_Collision_
+  - name: (
+  - uid: LibGFX.Physics.Collision
+    name: Collision
+    href: LibGFX.Physics.Collision.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGameBehavior.OnCollide(LibGFX.Physics.Collision)
+    name: OnCollide
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnCollide_LibGFX_Physics_Collision_
+  - name: (
+  - uid: LibGFX.Physics.Collision
+    name: Collision
+    href: LibGFX.Physics.Collision.html
+  - name: )
+- uid: LibGFX.Physics.Collision
+  commentId: T:LibGFX.Physics.Collision
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.Collision.html
+  name: Collision
+  nameWithType: Collision
+  fullName: LibGFX.Physics.Collision

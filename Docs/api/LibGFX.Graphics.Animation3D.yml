@@ -1,0 +1,122 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Animation3D
+  commentId: N:LibGFX.Graphics.Animation3D
+  id: LibGFX.Graphics.Animation3D
+  children:
+  - LibGFX.Graphics.Animation3D.Animation3D
+  - LibGFX.Graphics.Animation3D.AnimationChannel
+  - LibGFX.Graphics.Animation3D.Animator
+  - LibGFX.Graphics.Animation3D.Bone
+  - LibGFX.Graphics.Animation3D.IAnimationCallback
+  - LibGFX.Graphics.Animation3D.KeyPosition
+  - LibGFX.Graphics.Animation3D.KeyRotation
+  - LibGFX.Graphics.Animation3D.KeyScale
+  - LibGFX.Graphics.Animation3D.SceneNodeData
+  - LibGFX.Graphics.Animation3D.Skeleton
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Graphics.Animation3D
+  nameWithType: LibGFX.Graphics.Animation3D
+  fullName: LibGFX.Graphics.Animation3D
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Graphics.Animation3D.SceneNodeData
+  commentId: T:LibGFX.Graphics.Animation3D.SceneNodeData
+  parent: LibGFX.Graphics.Animation3D
+  href: LibGFX.Graphics.Animation3D.SceneNodeData.html
+  name: SceneNodeData
+  nameWithType: SceneNodeData
+  fullName: LibGFX.Graphics.Animation3D.SceneNodeData
+- uid: LibGFX.Graphics.Animation3D.Animation3D
+  commentId: T:LibGFX.Graphics.Animation3D.Animation3D
+  parent: LibGFX.Graphics.Animation3D
+  href: LibGFX.Graphics.Animation3D.Animation3D.html
+  name: Animation3D
+  nameWithType: Animation3D
+  fullName: LibGFX.Graphics.Animation3D.Animation3D
+- uid: LibGFX.Graphics.Animation3D.KeyPosition
+  commentId: T:LibGFX.Graphics.Animation3D.KeyPosition
+  href: LibGFX.Graphics.Animation3D.KeyPosition.html
+  name: KeyPosition
+  nameWithType: KeyPosition
+  fullName: LibGFX.Graphics.Animation3D.KeyPosition
+- uid: LibGFX.Graphics.Animation3D.KeyRotation
+  commentId: T:LibGFX.Graphics.Animation3D.KeyRotation
+  href: LibGFX.Graphics.Animation3D.KeyRotation.html
+  name: KeyRotation
+  nameWithType: KeyRotation
+  fullName: LibGFX.Graphics.Animation3D.KeyRotation
+- uid: LibGFX.Graphics.Animation3D.KeyScale
+  commentId: T:LibGFX.Graphics.Animation3D.KeyScale
+  href: LibGFX.Graphics.Animation3D.KeyScale.html
+  name: KeyScale
+  nameWithType: KeyScale
+  fullName: LibGFX.Graphics.Animation3D.KeyScale
+- uid: LibGFX.Graphics.Animation3D.AnimationChannel
+  commentId: T:LibGFX.Graphics.Animation3D.AnimationChannel
+  parent: LibGFX.Graphics.Animation3D
+  href: LibGFX.Graphics.Animation3D.AnimationChannel.html
+  name: AnimationChannel
+  nameWithType: AnimationChannel
+  fullName: LibGFX.Graphics.Animation3D.AnimationChannel
+- uid: LibGFX.Graphics.Animation3D.Animator
+  commentId: T:LibGFX.Graphics.Animation3D.Animator
+  parent: LibGFX.Graphics.Animation3D
+  href: LibGFX.Graphics.Animation3D.Animator.html
+  name: Animator
+  nameWithType: Animator
+  fullName: LibGFX.Graphics.Animation3D.Animator
+- uid: LibGFX.Graphics.Animation3D.Bone
+  commentId: T:LibGFX.Graphics.Animation3D.Bone
+  parent: LibGFX.Graphics.Animation3D
+  href: LibGFX.Graphics.Animation3D.Bone.html
+  name: Bone
+  nameWithType: Bone
+  fullName: LibGFX.Graphics.Animation3D.Bone
+- uid: LibGFX.Graphics.Animation3D.IAnimationCallback
+  commentId: T:LibGFX.Graphics.Animation3D.IAnimationCallback
+  href: LibGFX.Graphics.Animation3D.IAnimationCallback.html
+  name: IAnimationCallback
+  nameWithType: IAnimationCallback
+  fullName: LibGFX.Graphics.Animation3D.IAnimationCallback
+- uid: LibGFX.Graphics.Animation3D.Skeleton
+  commentId: T:LibGFX.Graphics.Animation3D.Skeleton
+  parent: LibGFX.Graphics.Animation3D
+  href: LibGFX.Graphics.Animation3D.Skeleton.html
+  name: Skeleton
+  nameWithType: Skeleton
+  fullName: LibGFX.Graphics.Animation3D.Skeleton
+- uid: LibGFX.Graphics.Animation3D
+  commentId: N:LibGFX.Graphics.Animation3D
+  href: LibGFX.html
+  name: LibGFX.Graphics.Animation3D
+  nameWithType: LibGFX.Graphics.Animation3D
+  fullName: LibGFX.Graphics.Animation3D
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Animation3D
+    name: Animation3D
+    href: LibGFX.Graphics.Animation3D.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Animation3D
+    name: Animation3D
+    href: LibGFX.Graphics.Animation3D.html

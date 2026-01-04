@@ -1,0 +1,172 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Primitives.IPrimitive`1
+  commentId: T:LibGFX.Graphics.Primitives.IPrimitive`1
+  id: IPrimitive`1
+  parent: LibGFX.Graphics.Primitives
+  children:
+  - LibGFX.Graphics.Primitives.IPrimitive`1.GetMesh(LibGFX.Graphics.Materials.IMaterial)
+  langs:
+  - csharp
+  - vb
+  name: IPrimitive<TSelf>
+  nameWithType: IPrimitive<TSelf>
+  fullName: LibGFX.Graphics.Primitives.IPrimitive<TSelf>
+  type: Interface
+  source:
+    remote:
+      path: LibGFX/Graphics/Primitives/IPrimitive.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IPrimitive
+    path: ../LibGFX/Graphics/Primitives/IPrimitive.cs
+    startLine: 16
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Primitives
+  syntax:
+    content: 'public interface IPrimitive<TSelf> where TSelf : IPrimitive<TSelf>'
+    typeParameters:
+    - id: TSelf
+    content.vb: Public Interface IPrimitive(Of TSelf As IPrimitive(Of TSelf))
+  nameWithType.vb: IPrimitive(Of TSelf)
+  fullName.vb: LibGFX.Graphics.Primitives.IPrimitive(Of TSelf)
+  name.vb: IPrimitive(Of TSelf)
+- uid: LibGFX.Graphics.Primitives.IPrimitive`1.GetMesh(LibGFX.Graphics.Materials.IMaterial)
+  commentId: M:LibGFX.Graphics.Primitives.IPrimitive`1.GetMesh(LibGFX.Graphics.Materials.IMaterial)
+  id: GetMesh(LibGFX.Graphics.Materials.IMaterial)
+  parent: LibGFX.Graphics.Primitives.IPrimitive`1
+  langs:
+  - csharp
+  - vb
+  name: GetMesh(IMaterial)
+  nameWithType: IPrimitive<TSelf>.GetMesh(IMaterial)
+  fullName: LibGFX.Graphics.Primitives.IPrimitive<TSelf>.GetMesh(LibGFX.Graphics.Materials.IMaterial)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Primitives/IPrimitive.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetMesh
+    path: ../LibGFX/Graphics/Primitives/IPrimitive.cs
+    startLine: 18
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Primitives
+  syntax:
+    content: public static abstract Mesh GetMesh(IMaterial material = null)
+    parameters:
+    - id: material
+      type: LibGFX.Graphics.Materials.IMaterial
+    return:
+      type: LibGFX.Graphics.Mesh
+    content.vb: Public Shared MustInherit Function GetMesh(material As IMaterial = Nothing) As Mesh
+  overload: LibGFX.Graphics.Primitives.IPrimitive`1.GetMesh*
+  nameWithType.vb: IPrimitive(Of TSelf).GetMesh(IMaterial)
+  fullName.vb: LibGFX.Graphics.Primitives.IPrimitive(Of TSelf).GetMesh(LibGFX.Graphics.Materials.IMaterial)
+references:
+- uid: LibGFX.Graphics.Primitives
+  commentId: N:LibGFX.Graphics.Primitives
+  href: LibGFX.html
+  name: LibGFX.Graphics.Primitives
+  nameWithType: LibGFX.Graphics.Primitives
+  fullName: LibGFX.Graphics.Primitives
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Primitives
+    name: Primitives
+    href: LibGFX.Graphics.Primitives.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Primitives
+    name: Primitives
+    href: LibGFX.Graphics.Primitives.html
+- uid: LibGFX.Graphics.Primitives.IPrimitive`1.GetMesh*
+  commentId: Overload:LibGFX.Graphics.Primitives.IPrimitive`1.GetMesh
+  href: LibGFX.Graphics.Primitives.IPrimitive-1.html#LibGFX_Graphics_Primitives_IPrimitive_1_GetMesh_LibGFX_Graphics_Materials_IMaterial_
+  name: GetMesh
+  nameWithType: IPrimitive<TSelf>.GetMesh
+  fullName: LibGFX.Graphics.Primitives.IPrimitive<TSelf>.GetMesh
+  nameWithType.vb: IPrimitive(Of TSelf).GetMesh
+  fullName.vb: LibGFX.Graphics.Primitives.IPrimitive(Of TSelf).GetMesh
+- uid: LibGFX.Graphics.Materials.IMaterial
+  commentId: T:LibGFX.Graphics.Materials.IMaterial
+  parent: LibGFX.Graphics.Materials
+  href: LibGFX.Graphics.Materials.IMaterial.html
+  name: IMaterial
+  nameWithType: IMaterial
+  fullName: LibGFX.Graphics.Materials.IMaterial
+- uid: LibGFX.Graphics.Mesh
+  commentId: T:LibGFX.Graphics.Mesh
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Mesh.html
+  name: Mesh
+  nameWithType: Mesh
+  fullName: LibGFX.Graphics.Mesh
+- uid: LibGFX.Graphics.Materials
+  commentId: N:LibGFX.Graphics.Materials
+  href: LibGFX.html
+  name: LibGFX.Graphics.Materials
+  nameWithType: LibGFX.Graphics.Materials
+  fullName: LibGFX.Graphics.Materials
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Materials
+    name: Materials
+    href: LibGFX.Graphics.Materials.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Materials
+    name: Materials
+    href: LibGFX.Graphics.Materials.html
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html

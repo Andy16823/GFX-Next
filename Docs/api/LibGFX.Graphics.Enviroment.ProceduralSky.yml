@@ -1,0 +1,1826 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky
+  commentId: T:LibGFX.Graphics.Enviroment.ProceduralSky
+  id: ProceduralSky
+  parent: LibGFX.Graphics.Enviroment
+  children:
+  - LibGFX.Graphics.Enviroment.ProceduralSky.#ctor
+  - LibGFX.Graphics.Enviroment.ProceduralSky.CloudColor
+  - LibGFX.Graphics.Enviroment.ProceduralSky.Coverage
+  - LibGFX.Graphics.Enviroment.ProceduralSky.CoverageFactor
+  - LibGFX.Graphics.Enviroment.ProceduralSky.CoverageTexture
+  - LibGFX.Graphics.Enviroment.ProceduralSky.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  - LibGFX.Graphics.Enviroment.ProceduralSky.Dispose(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.Enviroment.ProceduralSky.FreeCPUResources
+  - LibGFX.Graphics.Enviroment.ProceduralSky.Init(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.Enviroment.ProceduralSky.IsInitialized
+  - LibGFX.Graphics.Enviroment.ProceduralSky.Render(LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport)
+  - LibGFX.Graphics.Enviroment.ProceduralSky.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  - LibGFX.Graphics.Enviroment.ProceduralSky.SkyBottomColor
+  - LibGFX.Graphics.Enviroment.ProceduralSky.SkyTopColor
+  - LibGFX.Graphics.Enviroment.ProceduralSky.SkylineOffset
+  - LibGFX.Graphics.Enviroment.ProceduralSky.SkylineScale
+  - LibGFX.Graphics.Enviroment.ProceduralSky.SunColor
+  - LibGFX.Graphics.Enviroment.ProceduralSky.SunDirection
+  - LibGFX.Graphics.Enviroment.ProceduralSky.SunIntensity
+  - LibGFX.Graphics.Enviroment.ProceduralSky.SunSize
+  - LibGFX.Graphics.Enviroment.ProceduralSky.Transform
+  langs:
+  - csharp
+  - vb
+  name: ProceduralSky
+  nameWithType: ProceduralSky
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ProceduralSky
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 16
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: Represents a procedural sky
+  example: []
+  syntax:
+    content: 'public class ProceduralSky : IEnviroment, IGraphicsResource, ISerialization'
+    content.vb: Public Class ProceduralSky Implements IEnviroment, IGraphicsResource, ISerialization
+  inheritance:
+  - System.Object
+  implements:
+  - LibGFX.Graphics.Enviroment.IEnviroment
+  - LibGFX.Core.IGraphicsResource
+  - LibGFX.Core.ISerialization
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.Transform
+  commentId: P:LibGFX.Graphics.Enviroment.ProceduralSky.Transform
+  id: Transform
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: Transform
+  nameWithType: ProceduralSky.Transform
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.Transform
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Transform
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 21
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: The transform of the sky
+  example: []
+  syntax:
+    content: public Transform Transform { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Math.Transform
+    content.vb: Public Property Transform As Transform
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.Transform*
+  implements:
+  - LibGFX.Graphics.Enviroment.IEnviroment.Transform
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.SkyTopColor
+  commentId: P:LibGFX.Graphics.Enviroment.ProceduralSky.SkyTopColor
+  id: SkyTopColor
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: SkyTopColor
+  nameWithType: ProceduralSky.SkyTopColor
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.SkyTopColor
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SkyTopColor
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 26
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: The top color of the sky
+  example: []
+  syntax:
+    content: public Vector3 SkyTopColor { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Property SkyTopColor As Vector3
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.SkyTopColor*
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.SkyBottomColor
+  commentId: P:LibGFX.Graphics.Enviroment.ProceduralSky.SkyBottomColor
+  id: SkyBottomColor
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: SkyBottomColor
+  nameWithType: ProceduralSky.SkyBottomColor
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.SkyBottomColor
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SkyBottomColor
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 31
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: The bottom color of the sky
+  example: []
+  syntax:
+    content: public Vector3 SkyBottomColor { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Property SkyBottomColor As Vector3
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.SkyBottomColor*
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.SunDirection
+  commentId: P:LibGFX.Graphics.Enviroment.ProceduralSky.SunDirection
+  id: SunDirection
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: SunDirection
+  nameWithType: ProceduralSky.SunDirection
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.SunDirection
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SunDirection
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 36
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: The direction of the sun
+  example: []
+  syntax:
+    content: public Vector3 SunDirection { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Property SunDirection As Vector3
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.SunDirection*
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.SunColor
+  commentId: P:LibGFX.Graphics.Enviroment.ProceduralSky.SunColor
+  id: SunColor
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: SunColor
+  nameWithType: ProceduralSky.SunColor
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.SunColor
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SunColor
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 41
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: The color of the sun
+  example: []
+  syntax:
+    content: public Vector3 SunColor { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Property SunColor As Vector3
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.SunColor*
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.SunSize
+  commentId: P:LibGFX.Graphics.Enviroment.ProceduralSky.SunSize
+  id: SunSize
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: SunSize
+  nameWithType: ProceduralSky.SunSize
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.SunSize
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SunSize
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 46
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: The size of the sun
+  example: []
+  syntax:
+    content: public float SunSize { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property SunSize As Single
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.SunSize*
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.SunIntensity
+  commentId: P:LibGFX.Graphics.Enviroment.ProceduralSky.SunIntensity
+  id: SunIntensity
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: SunIntensity
+  nameWithType: ProceduralSky.SunIntensity
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.SunIntensity
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SunIntensity
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 51
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: The intensity of the sun
+  example: []
+  syntax:
+    content: public float SunIntensity { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property SunIntensity As Single
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.SunIntensity*
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.SkylineOffset
+  commentId: P:LibGFX.Graphics.Enviroment.ProceduralSky.SkylineOffset
+  id: SkylineOffset
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: SkylineOffset
+  nameWithType: ProceduralSky.SkylineOffset
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.SkylineOffset
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SkylineOffset
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 56
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: The offset of the skyline
+  example: []
+  syntax:
+    content: public float SkylineOffset { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property SkylineOffset As Single
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.SkylineOffset*
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.SkylineScale
+  commentId: P:LibGFX.Graphics.Enviroment.ProceduralSky.SkylineScale
+  id: SkylineScale
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: SkylineScale
+  nameWithType: ProceduralSky.SkylineScale
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.SkylineScale
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SkylineScale
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 61
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: The scale of the skyline
+  example: []
+  syntax:
+    content: public float SkylineScale { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property SkylineScale As Single
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.SkylineScale*
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.Coverage
+  commentId: P:LibGFX.Graphics.Enviroment.ProceduralSky.Coverage
+  id: Coverage
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: Coverage
+  nameWithType: ProceduralSky.Coverage
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.Coverage
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Coverage
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 66
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: The coverage of the clouds
+  example: []
+  syntax:
+    content: public bool Coverage { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Coverage As Boolean
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.Coverage*
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.CoverageTexture
+  commentId: P:LibGFX.Graphics.Enviroment.ProceduralSky.CoverageTexture
+  id: CoverageTexture
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: CoverageTexture
+  nameWithType: ProceduralSky.CoverageTexture
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.CoverageTexture
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CoverageTexture
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 71
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: The texture used for the cloud coverage
+  example: []
+  syntax:
+    content: public Texture CoverageTexture { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.Texture
+    content.vb: Public Property CoverageTexture As Texture
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.CoverageTexture*
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.CloudColor
+  commentId: P:LibGFX.Graphics.Enviroment.ProceduralSky.CloudColor
+  id: CloudColor
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: CloudColor
+  nameWithType: ProceduralSky.CloudColor
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.CloudColor
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CloudColor
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 76
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: The color of the clouds
+  example: []
+  syntax:
+    content: public Vector3 CloudColor { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Property CloudColor As Vector3
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.CloudColor*
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.CoverageFactor
+  commentId: P:LibGFX.Graphics.Enviroment.ProceduralSky.CoverageFactor
+  id: CoverageFactor
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: CoverageFactor
+  nameWithType: ProceduralSky.CoverageFactor
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.CoverageFactor
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CoverageFactor
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 81
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: The coverage factor for the clouds
+  example: []
+  syntax:
+    content: public float CoverageFactor { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property CoverageFactor As Single
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.CoverageFactor*
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.IsInitialized
+  commentId: P:LibGFX.Graphics.Enviroment.ProceduralSky.IsInitialized
+  id: IsInitialized
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: IsInitialized
+  nameWithType: ProceduralSky.IsInitialized
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.IsInitialized
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IsInitialized
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 83
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: Gets a value indicating whether the object has been initialized and is ready for use.
+  example: []
+  syntax:
+    content: public bool IsInitialized { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsInitialized As Boolean
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.IsInitialized*
+  implements:
+  - LibGFX.Core.IGraphicsResource.IsInitialized
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.#ctor
+  commentId: M:LibGFX.Graphics.Enviroment.ProceduralSky.#ctor
+  id: '#ctor'
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: ProceduralSky()
+  nameWithType: ProceduralSky.ProceduralSky()
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.ProceduralSky()
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 88
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: Creates a new instance of the ProceduralSky class
+  example: []
+  syntax:
+    content: public ProceduralSky()
+    content.vb: Public Sub New()
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.#ctor*
+  nameWithType.vb: ProceduralSky.New()
+  fullName.vb: LibGFX.Graphics.Enviroment.ProceduralSky.New()
+  name.vb: New()
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Enviroment.ProceduralSky.Dispose(LibGFX.Graphics.IRenderDevice)
+  id: Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: Dispose(IRenderDevice)
+  nameWithType: ProceduralSky.Dispose(IRenderDevice)
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.Dispose(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 98
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: Disposes the procedural sky
+  example: []
+  syntax:
+    content: public void Dispose(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Sub Dispose(renderer As IRenderDevice)
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.Dispose*
+  implements:
+  - LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.Init(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Enviroment.ProceduralSky.Init(LibGFX.Graphics.IRenderDevice)
+  id: Init(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: Init(IRenderDevice)
+  nameWithType: ProceduralSky.Init(IRenderDevice)
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.Init(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Init
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 108
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: Initializes the procedural sky
+  example: []
+  syntax:
+    content: public void Init(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Sub Init(renderer As IRenderDevice)
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.Init*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: ''
+  implements:
+  - LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.Render(LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport)
+  commentId: M:LibGFX.Graphics.Enviroment.ProceduralSky.Render(LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport)
+  id: Render(LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport)
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: Render(IRenderDevice, Camera, Viewport)
+  nameWithType: ProceduralSky.Render(IRenderDevice, Camera, Viewport)
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.Render(LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera, LibGFX.Graphics.Viewport)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Render
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 119
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: Renders the procedural sky
+  example: []
+  syntax:
+    content: public void Render(IRenderDevice renderer, Camera camera, Viewport viewport)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    - id: camera
+      type: LibGFX.Graphics.Camera
+      description: ''
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    content.vb: Public Sub Render(renderer As IRenderDevice, camera As Camera, viewport As Viewport)
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.Render*
+  implements:
+  - LibGFX.Graphics.Enviroment.IEnviroment.Render(LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport)
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Graphics.Enviroment.ProceduralSky.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  id: Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: ProceduralSky.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Serialize
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 158
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: Serializes the current object to a JSON representation suitable for storage or transmission.
+  example: []
+  syntax:
+    content: public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
+    parameters:
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+    - id: serializationContext
+      type: LibGFX.Core.SerializationContext
+      description: >-
+        The context that provides serialization settings and state information used during the serialization
+            process.
+    - id: callback
+      type: System.Action{Newtonsoft.Json.JsonWriter}
+    content.vb: Public Sub Serialize(writer As JsonWriter, serializationContext As SerializationContext, callback As Action(Of JsonWriter) = Nothing)
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.Serialize*
+  implements:
+  - LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  nameWithType.vb: ProceduralSky.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Graphics.Enviroment.ProceduralSky.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Graphics.Enviroment.ProceduralSky.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  id: Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: ProceduralSky.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Deserialize
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 209
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: Populates the object's properties from the specified JSON data using the provided serialization context.
+  remarks: >-
+    This method expects the JSON object to contain all necessary fields for successful
+        deserialization. Missing or invalid fields may result in incomplete or incorrect object state.
+  example: []
+  syntax:
+    content: public void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
+    parameters:
+    - id: obj
+      type: Newtonsoft.Json.Linq.JObject
+    - id: serializationContext
+      type: LibGFX.Core.SerializationContext
+      description: >-
+        The <xref href="LibGFX.Core.SerializationContext" data-throw-if-not-resolved="false"></xref> to use during deserialization. Provides context or settings that may
+            influence how the data is interpreted.
+    - id: callback
+      type: System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+    content.vb: Public Sub Deserialize(obj As JObject, serializationContext As SerializationContext, callback As Func(Of JObject, Boolean) = Nothing)
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.Deserialize*
+  implements:
+  - LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  nameWithType.vb: ProceduralSky.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Graphics.Enviroment.ProceduralSky.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.FreeCPUResources
+  commentId: M:LibGFX.Graphics.Enviroment.ProceduralSky.FreeCPUResources
+  id: FreeCPUResources
+  parent: LibGFX.Graphics.Enviroment.ProceduralSky
+  langs:
+  - csharp
+  - vb
+  name: FreeCPUResources()
+  nameWithType: ProceduralSky.FreeCPUResources()
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.FreeCPUResources()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/ProceduralSky.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FreeCPUResources
+    path: ../LibGFX/Graphics/Enviroment/ProceduralSky.cs
+    startLine: 233
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  summary: Releases any CPU resources that are currently allocated by the component.
+  remarks: >-
+    Call this method when the component no longer needs to perform CPU-intensive
+        operations to allow the system to reclaim resources. After calling this method, the component may not be
+        able to perform certain operations until resources are reallocated.
+  example: []
+  syntax:
+    content: public void FreeCPUResources()
+    content.vb: Public Sub FreeCPUResources()
+  overload: LibGFX.Graphics.Enviroment.ProceduralSky.FreeCPUResources*
+  implements:
+  - LibGFX.Core.IGraphicsResource.FreeCPUResources
+references:
+- uid: LibGFX.Graphics.Enviroment
+  commentId: N:LibGFX.Graphics.Enviroment
+  href: LibGFX.html
+  name: LibGFX.Graphics.Enviroment
+  nameWithType: LibGFX.Graphics.Enviroment
+  fullName: LibGFX.Graphics.Enviroment
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Enviroment
+    name: Enviroment
+    href: LibGFX.Graphics.Enviroment.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Enviroment
+    name: Enviroment
+    href: LibGFX.Graphics.Enviroment.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Graphics.Enviroment.IEnviroment
+  commentId: T:LibGFX.Graphics.Enviroment.IEnviroment
+  parent: LibGFX.Graphics.Enviroment
+  href: LibGFX.Graphics.Enviroment.IEnviroment.html
+  name: IEnviroment
+  nameWithType: IEnviroment
+  fullName: LibGFX.Graphics.Enviroment.IEnviroment
+- uid: LibGFX.Core.IGraphicsResource
+  commentId: T:LibGFX.Core.IGraphicsResource
+  parent: LibGFX.Core
+  href: LibGFX.Core.IGraphicsResource.html
+  name: IGraphicsResource
+  nameWithType: IGraphicsResource
+  fullName: LibGFX.Core.IGraphicsResource
+- uid: LibGFX.Core.ISerialization
+  commentId: T:LibGFX.Core.ISerialization
+  parent: LibGFX.Core
+  href: LibGFX.Core.ISerialization.html
+  name: ISerialization
+  nameWithType: ISerialization
+  fullName: LibGFX.Core.ISerialization
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.Transform*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.Transform
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_Transform
+  name: Transform
+  nameWithType: ProceduralSky.Transform
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.Transform
+- uid: LibGFX.Graphics.Enviroment.IEnviroment.Transform
+  commentId: P:LibGFX.Graphics.Enviroment.IEnviroment.Transform
+  parent: LibGFX.Graphics.Enviroment.IEnviroment
+  href: LibGFX.Graphics.Enviroment.IEnviroment.html#LibGFX_Graphics_Enviroment_IEnviroment_Transform
+  name: Transform
+  nameWithType: IEnviroment.Transform
+  fullName: LibGFX.Graphics.Enviroment.IEnviroment.Transform
+- uid: LibGFX.Math.Transform
+  commentId: T:LibGFX.Math.Transform
+  parent: LibGFX.Math
+  href: LibGFX.Math.Transform.html
+  name: Transform
+  nameWithType: Transform
+  fullName: LibGFX.Math.Transform
+- uid: LibGFX.Math
+  commentId: N:LibGFX.Math
+  href: LibGFX.html
+  name: LibGFX.Math
+  nameWithType: LibGFX.Math
+  fullName: LibGFX.Math
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.SkyTopColor*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.SkyTopColor
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_SkyTopColor
+  name: SkyTopColor
+  nameWithType: ProceduralSky.SkyTopColor
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.SkyTopColor
+- uid: OpenTK.Mathematics.Vector3
+  commentId: T:OpenTK.Mathematics.Vector3
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  name: Vector3
+  nameWithType: Vector3
+  fullName: OpenTK.Mathematics.Vector3
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.SkyBottomColor*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.SkyBottomColor
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_SkyBottomColor
+  name: SkyBottomColor
+  nameWithType: ProceduralSky.SkyBottomColor
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.SkyBottomColor
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.SunDirection*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.SunDirection
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_SunDirection
+  name: SunDirection
+  nameWithType: ProceduralSky.SunDirection
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.SunDirection
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.SunColor*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.SunColor
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_SunColor
+  name: SunColor
+  nameWithType: ProceduralSky.SunColor
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.SunColor
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.SunSize*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.SunSize
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_SunSize
+  name: SunSize
+  nameWithType: ProceduralSky.SunSize
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.SunSize
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.SunIntensity*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.SunIntensity
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_SunIntensity
+  name: SunIntensity
+  nameWithType: ProceduralSky.SunIntensity
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.SunIntensity
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.SkylineOffset*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.SkylineOffset
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_SkylineOffset
+  name: SkylineOffset
+  nameWithType: ProceduralSky.SkylineOffset
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.SkylineOffset
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.SkylineScale*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.SkylineScale
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_SkylineScale
+  name: SkylineScale
+  nameWithType: ProceduralSky.SkylineScale
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.SkylineScale
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.Coverage*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.Coverage
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_Coverage
+  name: Coverage
+  nameWithType: ProceduralSky.Coverage
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.Coverage
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.CoverageTexture*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.CoverageTexture
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_CoverageTexture
+  name: CoverageTexture
+  nameWithType: ProceduralSky.CoverageTexture
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.CoverageTexture
+- uid: LibGFX.Graphics.Texture
+  commentId: T:LibGFX.Graphics.Texture
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Texture.html
+  name: Texture
+  nameWithType: Texture
+  fullName: LibGFX.Graphics.Texture
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.CloudColor*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.CloudColor
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_CloudColor
+  name: CloudColor
+  nameWithType: ProceduralSky.CloudColor
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.CloudColor
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.CoverageFactor*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.CoverageFactor
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_CoverageFactor
+  name: CoverageFactor
+  nameWithType: ProceduralSky.CoverageFactor
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.CoverageFactor
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.IsInitialized*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.IsInitialized
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_IsInitialized
+  name: IsInitialized
+  nameWithType: ProceduralSky.IsInitialized
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.IsInitialized
+- uid: LibGFX.Core.IGraphicsResource.IsInitialized
+  commentId: P:LibGFX.Core.IGraphicsResource.IsInitialized
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_IsInitialized
+  name: IsInitialized
+  nameWithType: IGraphicsResource.IsInitialized
+  fullName: LibGFX.Core.IGraphicsResource.IsInitialized
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.#ctor*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.#ctor
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky__ctor
+  name: ProceduralSky
+  nameWithType: ProceduralSky.ProceduralSky
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.ProceduralSky
+  nameWithType.vb: ProceduralSky.New
+  fullName.vb: LibGFX.Graphics.Enviroment.ProceduralSky.New
+  name.vb: New
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.Dispose*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.Dispose
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose
+  nameWithType: ProceduralSky.Dispose
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.Dispose
+- uid: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose(IRenderDevice)
+  nameWithType: IGraphicsResource.Dispose(IRenderDevice)
+  fullName: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: System.Exception
+  commentId: T:System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.Init*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.Init
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_Init_LibGFX_Graphics_IRenderDevice_
+  name: Init
+  nameWithType: ProceduralSky.Init
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.Init
+- uid: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Init_LibGFX_Graphics_IRenderDevice_
+  name: Init(IRenderDevice)
+  nameWithType: IGraphicsResource.Init(IRenderDevice)
+  fullName: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.Render*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.Render
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_Render_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_LibGFX_Graphics_Viewport_
+  name: Render
+  nameWithType: ProceduralSky.Render
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.Render
+- uid: LibGFX.Graphics.Enviroment.IEnviroment.Render(LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport)
+  commentId: M:LibGFX.Graphics.Enviroment.IEnviroment.Render(LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport)
+  parent: LibGFX.Graphics.Enviroment.IEnviroment
+  href: LibGFX.Graphics.Enviroment.IEnviroment.html#LibGFX_Graphics_Enviroment_IEnviroment_Render_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_LibGFX_Graphics_Viewport_
+  name: Render(IRenderDevice, Camera, Viewport)
+  nameWithType: IEnviroment.Render(IRenderDevice, Camera, Viewport)
+  fullName: LibGFX.Graphics.Enviroment.IEnviroment.Render(LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera, LibGFX.Graphics.Viewport)
+  spec.csharp:
+  - uid: LibGFX.Graphics.Enviroment.IEnviroment.Render(LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport)
+    name: Render
+    href: LibGFX.Graphics.Enviroment.IEnviroment.html#LibGFX_Graphics_Enviroment_IEnviroment_Render_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_LibGFX_Graphics_Viewport_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    href: LibGFX.Graphics.Camera.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Enviroment.IEnviroment.Render(LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport)
+    name: Render
+    href: LibGFX.Graphics.Enviroment.IEnviroment.html#LibGFX_Graphics_Enviroment_IEnviroment_Render_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_LibGFX_Graphics_Viewport_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    href: LibGFX.Graphics.Camera.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: )
+- uid: LibGFX.Graphics.Camera
+  commentId: T:LibGFX.Graphics.Camera
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Camera.html
+  name: Camera
+  nameWithType: Camera
+  fullName: LibGFX.Graphics.Camera
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: Newtonsoft.Json.Linq.JObject
+  commentId: T:Newtonsoft.Json.Linq.JObject
+  parent: Newtonsoft.Json.Linq
+  isExternal: true
+  name: JObject
+  nameWithType: JObject
+  fullName: Newtonsoft.Json.Linq.JObject
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.Serialize*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.Serialize
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize
+  nameWithType: ProceduralSky.Serialize
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.Serialize
+- uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: ISerialization.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  nameWithType.vb: ISerialization.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+  - name: )
+- uid: Newtonsoft.Json.JsonWriter
+  commentId: T:Newtonsoft.Json.JsonWriter
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonWriter
+  nameWithType: JsonWriter
+  fullName: Newtonsoft.Json.JsonWriter
+- uid: LibGFX.Core.SerializationContext
+  commentId: T:LibGFX.Core.SerializationContext
+  parent: LibGFX.Core
+  href: LibGFX.Core.SerializationContext.html
+  name: SerializationContext
+  nameWithType: SerializationContext
+  fullName: LibGFX.Core.SerializationContext
+- uid: System.Action{Newtonsoft.Json.JsonWriter}
+  commentId: T:System.Action{Newtonsoft.Json.JsonWriter}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<JsonWriter>
+  nameWithType: Action<JsonWriter>
+  fullName: System.Action<Newtonsoft.Json.JsonWriter>
+  nameWithType.vb: Action(Of JsonWriter)
+  fullName.vb: System.Action(Of Newtonsoft.Json.JsonWriter)
+  name.vb: Action(Of JsonWriter)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+- uid: Newtonsoft.Json.Linq
+  commentId: N:Newtonsoft.Json.Linq
+  isExternal: true
+  name: Newtonsoft.Json.Linq
+  nameWithType: Newtonsoft.Json.Linq
+  fullName: Newtonsoft.Json.Linq
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.Deserialize*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.Deserialize
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize
+  nameWithType: ProceduralSky.Deserialize
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.Deserialize
+- uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: ISerialization.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  nameWithType.vb: ISerialization.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+  commentId: T:System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<JObject, bool>
+  nameWithType: Func<JObject, bool>
+  fullName: System.Func<Newtonsoft.Json.Linq.JObject, bool>
+  nameWithType.vb: Func(Of JObject, Boolean)
+  fullName.vb: System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean)
+  name.vb: Func(Of JObject, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky.FreeCPUResources*
+  commentId: Overload:LibGFX.Graphics.Enviroment.ProceduralSky.FreeCPUResources
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html#LibGFX_Graphics_Enviroment_ProceduralSky_FreeCPUResources
+  name: FreeCPUResources
+  nameWithType: ProceduralSky.FreeCPUResources
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky.FreeCPUResources
+- uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+  commentId: M:LibGFX.Core.IGraphicsResource.FreeCPUResources
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  name: FreeCPUResources()
+  nameWithType: IGraphicsResource.FreeCPUResources()
+  fullName: LibGFX.Core.IGraphicsResource.FreeCPUResources()
+  spec.csharp:
+  - uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+    name: FreeCPUResources
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+    name: FreeCPUResources
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  - name: (
+  - name: )

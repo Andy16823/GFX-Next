@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Physics.Behaviors
+  commentId: N:LibGFX.Physics.Behaviors
+  id: LibGFX.Physics.Behaviors
+  children:
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Physics.Behaviors
+  nameWithType: LibGFX.Physics.Behaviors
+  fullName: LibGFX.Physics.Behaviors
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  commentId: T:LibGFX.Physics.Behaviors.RigidBodyBehavior
+  parent: LibGFX.Physics.Behaviors
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html
+  name: RigidBodyBehavior
+  nameWithType: RigidBodyBehavior
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior
+- uid: LibGFX.Physics.Behaviors
+  commentId: N:LibGFX.Physics.Behaviors
+  href: LibGFX.html
+  name: LibGFX.Physics.Behaviors
+  nameWithType: LibGFX.Physics.Behaviors
+  fullName: LibGFX.Physics.Behaviors
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  - name: .
+  - uid: LibGFX.Physics.Behaviors
+    name: Behaviors
+    href: LibGFX.Physics.Behaviors.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  - name: .
+  - uid: LibGFX.Physics.Behaviors
+    name: Behaviors
+    href: LibGFX.Physics.Behaviors.html

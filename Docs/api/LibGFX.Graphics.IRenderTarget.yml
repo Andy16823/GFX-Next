@@ -1,0 +1,165 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.IRenderTarget
+  commentId: T:LibGFX.Graphics.IRenderTarget
+  id: IRenderTarget
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.IRenderTarget.FramebufferId
+  langs:
+  - csharp
+  - vb
+  name: IRenderTarget
+  nameWithType: IRenderTarget
+  fullName: LibGFX.Graphics.IRenderTarget
+  type: Interface
+  source:
+    remote:
+      path: LibGFX/Graphics/IRenderTarget.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IRenderTarget
+    path: ../LibGFX/Graphics/IRenderTarget.cs
+    startLine: 12
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Interface for render targets such as framebuffers and the default framebuffer (screen).
+  example: []
+  syntax:
+    content: 'public interface IRenderTarget : IRendererResource'
+    content.vb: Public Interface IRenderTarget Inherits IRendererResource
+  inheritedMembers:
+  - LibGFX.Core.IRendererResource.Dispose(LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.IRenderTarget.FramebufferId
+  commentId: P:LibGFX.Graphics.IRenderTarget.FramebufferId
+  id: FramebufferId
+  parent: LibGFX.Graphics.IRenderTarget
+  langs:
+  - csharp
+  - vb
+  name: FramebufferId
+  nameWithType: IRenderTarget.FramebufferId
+  fullName: LibGFX.Graphics.IRenderTarget.FramebufferId
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/IRenderTarget.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FramebufferId
+    path: ../LibGFX/Graphics/IRenderTarget.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: The unique identifier for the render target.
+  example: []
+  syntax:
+    content: int FramebufferId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Property FramebufferId As Integer
+  overload: LibGFX.Graphics.IRenderTarget.FramebufferId*
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Core.IRendererResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IRendererResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IRendererResource
+  href: LibGFX.Core.IRendererResource.html#LibGFX_Core_IRendererResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose(IRenderDevice)
+  nameWithType: IRendererResource.Dispose(IRenderDevice)
+  fullName: LibGFX.Core.IRendererResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IRendererResource.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Core.IRendererResource.html#LibGFX_Core_IRendererResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IRendererResource.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Core.IRendererResource.html#LibGFX_Core_IRendererResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Core.IRendererResource
+  commentId: T:LibGFX.Core.IRendererResource
+  parent: LibGFX.Core
+  href: LibGFX.Core.IRendererResource.html
+  name: IRendererResource
+  nameWithType: IRendererResource
+  fullName: LibGFX.Core.IRendererResource
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Graphics.IRenderTarget.FramebufferId*
+  commentId: Overload:LibGFX.Graphics.IRenderTarget.FramebufferId
+  href: LibGFX.Graphics.IRenderTarget.html#LibGFX_Graphics_IRenderTarget_FramebufferId
+  name: FramebufferId
+  nameWithType: IRenderTarget.FramebufferId
+  fullName: LibGFX.Graphics.IRenderTarget.FramebufferId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

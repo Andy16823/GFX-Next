@@ -1,0 +1,666 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Physics.ComputeRaycast
+  commentId: T:LibGFX.Physics.ComputeRaycast
+  id: ComputeRaycast
+  parent: LibGFX.Physics
+  children:
+  - LibGFX.Physics.ComputeRaycast.#ctor
+  - LibGFX.Physics.ComputeRaycast.Dispose(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Physics.ComputeRaycast.Init(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
+  - LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)
+  langs:
+  - csharp
+  - vb
+  name: ComputeRaycast
+  nameWithType: ComputeRaycast
+  fullName: LibGFX.Physics.ComputeRaycast
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Physics/ComputeRaycast.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ComputeRaycast
+    path: ../LibGFX/Physics/ComputeRaycast.cs
+    startLine: 43
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: >-
+    Provides functionality to perform GPU-accelerated raycasting operations against mesh geometry using compute
+
+    shaders.
+  remarks: >-
+    Use this class to initialize compute-based raycasting with a specific render device and to
+        perform intersection tests between rays and meshes. The class manages the necessary GPU resources and compute
+        shader setup for efficient raycast queries. For one-off or stateless raycasts, the static method can be used
+        without instantiating the class.
+  example: []
+  syntax:
+    content: public class ComputeRaycast
+    content.vb: Public Class ComputeRaycast
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Physics.ComputeRaycast.#ctor
+  commentId: M:LibGFX.Physics.ComputeRaycast.#ctor
+  id: '#ctor'
+  parent: LibGFX.Physics.ComputeRaycast
+  langs:
+  - csharp
+  - vb
+  name: ComputeRaycast()
+  nameWithType: ComputeRaycast.ComputeRaycast()
+  fullName: LibGFX.Physics.ComputeRaycast.ComputeRaycast()
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Physics/ComputeRaycast.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Physics/ComputeRaycast.cs
+    startLine: 52
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Creates a new instance of the ComputeRaycast class, initializing the internal raytest compute shader.
+  example: []
+  syntax:
+    content: public ComputeRaycast()
+    content.vb: Public Sub New()
+  overload: LibGFX.Physics.ComputeRaycast.#ctor*
+  nameWithType.vb: ComputeRaycast.New()
+  fullName.vb: LibGFX.Physics.ComputeRaycast.New()
+  name.vb: New()
+- uid: LibGFX.Physics.ComputeRaycast.Init(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.ComputeRaycast.Init(LibGFX.Graphics.IRenderDevice)
+  id: Init(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.ComputeRaycast
+  langs:
+  - csharp
+  - vb
+  name: Init(IRenderDevice)
+  nameWithType: ComputeRaycast.Init(IRenderDevice)
+  fullName: LibGFX.Physics.ComputeRaycast.Init(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/ComputeRaycast.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Init
+    path: ../LibGFX/Physics/ComputeRaycast.cs
+    startLine: 61
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Initializes the ComputeRaycast with the specified render device, setting up necessary GPU resources.
+  example: []
+  syntax:
+    content: public void Init(IRenderDevice renderDevice)
+    parameters:
+    - id: renderDevice
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Sub Init(renderDevice As IRenderDevice)
+  overload: LibGFX.Physics.ComputeRaycast.Init*
+- uid: LibGFX.Physics.ComputeRaycast.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.ComputeRaycast.Dispose(LibGFX.Graphics.IRenderDevice)
+  id: Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.ComputeRaycast
+  langs:
+  - csharp
+  - vb
+  name: Dispose(IRenderDevice)
+  nameWithType: ComputeRaycast.Dispose(IRenderDevice)
+  fullName: LibGFX.Physics.ComputeRaycast.Dispose(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/ComputeRaycast.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/Physics/ComputeRaycast.cs
+    startLine: 79
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Releases all resources used by the ComputeRaycast instance and associated rendering resources.
+  remarks: >-
+    Call this method when the ComputeRaycast instance is no longer needed to free GPU and
+        shader resources. After calling Dispose, the instance should not be used.
+  example: []
+  syntax:
+    content: public void Dispose(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: The render device used to release GPU buffers and related resources. Cannot be null.
+    content.vb: Public Sub Dispose(renderer As IRenderDevice)
+  overload: LibGFX.Physics.ComputeRaycast.Dispose*
+- uid: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
+  commentId: M:LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
+  id: PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
+  parent: LibGFX.Physics.ComputeRaycast
+  langs:
+  - csharp
+  - vb
+  name: PerformRaycast(MeshRay, Transform, Mesh)
+  nameWithType: ComputeRaycast.PerformRaycast(MeshRay, Transform, Mesh)
+  fullName: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay, LibGFX.Math.Transform, LibGFX.Graphics.Mesh)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/ComputeRaycast.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PerformRaycast
+    path: ../LibGFX/Physics/ComputeRaycast.cs
+    startLine: 103
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: >-
+    Performs a raycast against the specified mesh using a compute shader and returns the result of the
+
+    intersection, if any.
+  remarks: >-
+    This method uses GPU compute shaders to perform the raycast operation, which can
+        efficiently handle complex meshes. The mesh's local transform is combined with the provided transform before
+        testing. The result includes the hit position, normal, and triangle index if an intersection
+        occurs.
+  example: []
+  syntax:
+    content: public ComputeHitResult PerformRaycast(MeshRay ray, Transform transform, Mesh mesh)
+    parameters:
+    - id: ray
+      type: LibGFX.Physics.MeshRay
+      description: The ray, in world space, to test for intersection with the mesh.
+    - id: transform
+      type: LibGFX.Math.Transform
+      description: >-
+        The transformation to apply to the mesh before performing the raycast. Typically represents the mesh's world
+            transform.
+    - id: mesh
+      type: LibGFX.Graphics.Mesh
+      description: The mesh to test for intersection with the ray.
+    return:
+      type: LibGFX.Physics.ComputeHitResult
+      description: >-
+        A ComputeHitResult structure containing information about the intersection. If no intersection is found, the
+            TriangleIndex property of the result is set to -1.
+    content.vb: Public Function PerformRaycast(ray As MeshRay, transform As Transform, mesh As Mesh) As ComputeHitResult
+  overload: LibGFX.Physics.ComputeRaycast.PerformRaycast*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the raycast system has not been initialized with a render device.
+- uid: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)
+  commentId: M:LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)
+  id: PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)
+  parent: LibGFX.Physics.ComputeRaycast
+  langs:
+  - csharp
+  - vb
+  name: PerformRaycast(MeshRay, Transform, Mesh, IRenderDevice, ComputeShader)
+  nameWithType: ComputeRaycast.PerformRaycast(MeshRay, Transform, Mesh, IRenderDevice, ComputeShader)
+  fullName: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay, LibGFX.Math.Transform, LibGFX.Graphics.Mesh, LibGFX.Graphics.IRenderDevice, LibGFX.Compute.ComputeShader)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/ComputeRaycast.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PerformRaycast
+    path: ../LibGFX/Physics/ComputeRaycast.cs
+    startLine: 153
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: >-
+    Performs a raycast against the specified mesh using a compute shader and returns the result of the
+
+    intersection, if any.
+  remarks: >-
+    This method uses GPU compute shaders to efficiently test for ray-mesh intersections.
+        The mesh's local transform is combined with the provided world transform before the raycast. The caller is
+        responsible for ensuring that the mesh and shader are compatible and properly initialized.
+  example: []
+  syntax:
+    content: public static ComputeHitResult PerformRaycast(MeshRay ray, Transform transform, Mesh mesh, IRenderDevice renderer, ComputeShader shader)
+    parameters:
+    - id: ray
+      type: LibGFX.Physics.MeshRay
+      description: The ray, in world space, to test for intersection with the mesh.
+    - id: transform
+      type: LibGFX.Math.Transform
+      description: The world transform to apply to the mesh before performing the raycast.
+    - id: mesh
+      type: LibGFX.Graphics.Mesh
+      description: The mesh to test for intersection with the ray.
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: The render device used to manage GPU resources and dispatch the compute shader.
+    - id: shader
+      type: LibGFX.Compute.ComputeShader
+      description: The compute shader used to perform the ray-mesh intersection test.
+    return:
+      type: LibGFX.Physics.ComputeHitResult
+      description: >-
+        A ComputeHitResult structure containing information about the intersection. If no intersection is found, the
+            TriangleIndex field will be -1.
+    content.vb: Public Shared Function PerformRaycast(ray As MeshRay, transform As Transform, mesh As Mesh, renderer As IRenderDevice, shader As ComputeShader) As ComputeHitResult
+  overload: LibGFX.Physics.ComputeRaycast.PerformRaycast*
+references:
+- uid: LibGFX.Physics
+  commentId: N:LibGFX.Physics
+  href: LibGFX.html
+  name: LibGFX.Physics
+  nameWithType: LibGFX.Physics
+  fullName: LibGFX.Physics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Physics.ComputeRaycast.#ctor*
+  commentId: Overload:LibGFX.Physics.ComputeRaycast.#ctor
+  href: LibGFX.Physics.ComputeRaycast.html#LibGFX_Physics_ComputeRaycast__ctor
+  name: ComputeRaycast
+  nameWithType: ComputeRaycast.ComputeRaycast
+  fullName: LibGFX.Physics.ComputeRaycast.ComputeRaycast
+  nameWithType.vb: ComputeRaycast.New
+  fullName.vb: LibGFX.Physics.ComputeRaycast.New
+  name.vb: New
+- uid: LibGFX.Physics.ComputeRaycast.Init*
+  commentId: Overload:LibGFX.Physics.ComputeRaycast.Init
+  href: LibGFX.Physics.ComputeRaycast.html#LibGFX_Physics_ComputeRaycast_Init_LibGFX_Graphics_IRenderDevice_
+  name: Init
+  nameWithType: ComputeRaycast.Init
+  fullName: LibGFX.Physics.ComputeRaycast.Init
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Physics.ComputeRaycast.Dispose*
+  commentId: Overload:LibGFX.Physics.ComputeRaycast.Dispose
+  href: LibGFX.Physics.ComputeRaycast.html#LibGFX_Physics_ComputeRaycast_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose
+  nameWithType: ComputeRaycast.Dispose
+  fullName: LibGFX.Physics.ComputeRaycast.Dispose
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: LibGFX.Physics.ComputeRaycast.PerformRaycast*
+  commentId: Overload:LibGFX.Physics.ComputeRaycast.PerformRaycast
+  href: LibGFX.Physics.ComputeRaycast.html#LibGFX_Physics_ComputeRaycast_PerformRaycast_LibGFX_Physics_MeshRay_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_
+  name: PerformRaycast
+  nameWithType: ComputeRaycast.PerformRaycast
+  fullName: LibGFX.Physics.ComputeRaycast.PerformRaycast
+- uid: LibGFX.Physics.MeshRay
+  commentId: T:LibGFX.Physics.MeshRay
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.MeshRay.html
+  name: MeshRay
+  nameWithType: MeshRay
+  fullName: LibGFX.Physics.MeshRay
+- uid: LibGFX.Math.Transform
+  commentId: T:LibGFX.Math.Transform
+  parent: LibGFX.Math
+  href: LibGFX.Math.Transform.html
+  name: Transform
+  nameWithType: Transform
+  fullName: LibGFX.Math.Transform
+- uid: LibGFX.Graphics.Mesh
+  commentId: T:LibGFX.Graphics.Mesh
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Mesh.html
+  name: Mesh
+  nameWithType: Mesh
+  fullName: LibGFX.Graphics.Mesh
+- uid: LibGFX.Physics.ComputeHitResult
+  commentId: T:LibGFX.Physics.ComputeHitResult
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.ComputeHitResult.html
+  name: ComputeHitResult
+  nameWithType: ComputeHitResult
+  fullName: LibGFX.Physics.ComputeHitResult
+- uid: LibGFX.Math
+  commentId: N:LibGFX.Math
+  href: LibGFX.html
+  name: LibGFX.Math
+  nameWithType: LibGFX.Math
+  fullName: LibGFX.Math
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+- uid: LibGFX.Compute.ComputeShader
+  commentId: T:LibGFX.Compute.ComputeShader
+  parent: LibGFX.Compute
+  href: LibGFX.Compute.ComputeShader.html
+  name: ComputeShader
+  nameWithType: ComputeShader
+  fullName: LibGFX.Compute.ComputeShader
+- uid: LibGFX.Compute
+  commentId: N:LibGFX.Compute
+  href: LibGFX.html
+  name: LibGFX.Compute
+  nameWithType: LibGFX.Compute
+  fullName: LibGFX.Compute
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Compute
+    name: Compute
+    href: LibGFX.Compute.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Compute
+    name: Compute
+    href: LibGFX.Compute.html

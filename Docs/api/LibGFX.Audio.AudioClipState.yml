@@ -1,0 +1,168 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Audio.AudioClipState
+  commentId: T:LibGFX.Audio.AudioClipState
+  id: AudioClipState
+  parent: LibGFX.Audio
+  children:
+  - LibGFX.Audio.AudioClipState.Disposed
+  - LibGFX.Audio.AudioClipState.Initialized
+  - LibGFX.Audio.AudioClipState.Loaded
+  - LibGFX.Audio.AudioClipState.None
+  langs:
+  - csharp
+  - vb
+  name: AudioClipState
+  nameWithType: AudioClipState
+  fullName: LibGFX.Audio.AudioClipState
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Audio/AudioClip.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AudioClipState
+    path: ../LibGFX/Audio/AudioClip.cs
+    startLine: 14
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Represents the state of the audio clip
+  example: []
+  syntax:
+    content: public enum AudioClipState
+    content.vb: Public Enum AudioClipState
+- uid: LibGFX.Audio.AudioClipState.None
+  commentId: F:LibGFX.Audio.AudioClipState.None
+  id: None
+  parent: LibGFX.Audio.AudioClipState
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: AudioClipState.None
+  fullName: LibGFX.Audio.AudioClipState.None
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Audio/AudioClip.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: None
+    path: ../LibGFX/Audio/AudioClip.cs
+    startLine: 16
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  syntax:
+    content: None = 0
+    return:
+      type: LibGFX.Audio.AudioClipState
+- uid: LibGFX.Audio.AudioClipState.Loaded
+  commentId: F:LibGFX.Audio.AudioClipState.Loaded
+  id: Loaded
+  parent: LibGFX.Audio.AudioClipState
+  langs:
+  - csharp
+  - vb
+  name: Loaded
+  nameWithType: AudioClipState.Loaded
+  fullName: LibGFX.Audio.AudioClipState.Loaded
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Audio/AudioClip.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Loaded
+    path: ../LibGFX/Audio/AudioClip.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  syntax:
+    content: Loaded = 1
+    return:
+      type: LibGFX.Audio.AudioClipState
+- uid: LibGFX.Audio.AudioClipState.Initialized
+  commentId: F:LibGFX.Audio.AudioClipState.Initialized
+  id: Initialized
+  parent: LibGFX.Audio.AudioClipState
+  langs:
+  - csharp
+  - vb
+  name: Initialized
+  nameWithType: AudioClipState.Initialized
+  fullName: LibGFX.Audio.AudioClipState.Initialized
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Audio/AudioClip.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Initialized
+    path: ../LibGFX/Audio/AudioClip.cs
+    startLine: 18
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  syntax:
+    content: Initialized = 2
+    return:
+      type: LibGFX.Audio.AudioClipState
+- uid: LibGFX.Audio.AudioClipState.Disposed
+  commentId: F:LibGFX.Audio.AudioClipState.Disposed
+  id: Disposed
+  parent: LibGFX.Audio.AudioClipState
+  langs:
+  - csharp
+  - vb
+  name: Disposed
+  nameWithType: AudioClipState.Disposed
+  fullName: LibGFX.Audio.AudioClipState.Disposed
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Audio/AudioClip.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Disposed
+    path: ../LibGFX/Audio/AudioClip.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  syntax:
+    content: Disposed = 3
+    return:
+      type: LibGFX.Audio.AudioClipState
+references:
+- uid: LibGFX.Audio
+  commentId: N:LibGFX.Audio
+  href: LibGFX.html
+  name: LibGFX.Audio
+  nameWithType: LibGFX.Audio
+  fullName: LibGFX.Audio
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Audio
+    name: Audio
+    href: LibGFX.Audio.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Audio
+    name: Audio
+    href: LibGFX.Audio.html
+- uid: LibGFX.Audio.AudioClipState
+  commentId: T:LibGFX.Audio.AudioClipState
+  parent: LibGFX.Audio
+  href: LibGFX.Audio.AudioClipState.html
+  name: AudioClipState
+  nameWithType: AudioClipState
+  fullName: LibGFX.Audio.AudioClipState

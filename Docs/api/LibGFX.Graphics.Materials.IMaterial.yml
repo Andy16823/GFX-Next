@@ -1,0 +1,584 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Materials.IMaterial
+  commentId: T:LibGFX.Graphics.Materials.IMaterial
+  id: IMaterial
+  parent: LibGFX.Graphics.Materials
+  children:
+  - LibGFX.Graphics.Materials.IMaterial.Disable(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.Materials.IMaterial.IsTransparent
+  - LibGFX.Graphics.Materials.IMaterial.LoadMaterial(Assimp.Material,System.String)
+  - LibGFX.Graphics.Materials.IMaterial.Use(LibGFX.Graphics.IRenderDevice)
+  langs:
+  - csharp
+  - vb
+  name: IMaterial
+  nameWithType: IMaterial
+  fullName: LibGFX.Graphics.Materials.IMaterial
+  type: Interface
+  source:
+    remote:
+      path: LibGFX/Graphics/Materials/IMaterial.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IMaterial
+    path: ../LibGFX/Graphics/Materials/IMaterial.cs
+    startLine: 18
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Materials
+  summary: >-
+    Defines the contract for a material used in rendering operations, including identification, configuration, and
+
+    lifecycle management.
+  remarks: >-
+    Implementations of this interface represent materials that can be initialized, used, and
+        disposed of with a rendering device. The interface also provides a static method for loading a material from an
+        external source. Implementers should ensure thread safety if materials are accessed concurrently.
+  example: []
+  syntax:
+    content: 'public interface IMaterial : IGraphicsResource, IIdentifier, ISerialization'
+    content.vb: Public Interface IMaterial Inherits IGraphicsResource, IIdentifier, ISerialization
+  inheritedMembers:
+  - LibGFX.Core.IGraphicsResource.IsInitialized
+  - LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Core.IGraphicsResource.FreeCPUResources
+  - LibGFX.Core.IIdentifier.Name
+  - LibGFX.Core.IIdentifier.ID
+  - LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  - LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+- uid: LibGFX.Graphics.Materials.IMaterial.IsTransparent
+  commentId: P:LibGFX.Graphics.Materials.IMaterial.IsTransparent
+  id: IsTransparent
+  parent: LibGFX.Graphics.Materials.IMaterial
+  langs:
+  - csharp
+  - vb
+  name: IsTransparent
+  nameWithType: IMaterial.IsTransparent
+  fullName: LibGFX.Graphics.Materials.IMaterial.IsTransparent
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Materials/IMaterial.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IsTransparent
+    path: ../LibGFX/Graphics/Materials/IMaterial.cs
+    startLine: 20
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Materials
+  syntax:
+    content: bool IsTransparent { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsTransparent As Boolean
+  overload: LibGFX.Graphics.Materials.IMaterial.IsTransparent*
+- uid: LibGFX.Graphics.Materials.IMaterial.Use(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Materials.IMaterial.Use(LibGFX.Graphics.IRenderDevice)
+  id: Use(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Materials.IMaterial
+  langs:
+  - csharp
+  - vb
+  name: Use(IRenderDevice)
+  nameWithType: IMaterial.Use(IRenderDevice)
+  fullName: LibGFX.Graphics.Materials.IMaterial.Use(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Materials/IMaterial.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Use
+    path: ../LibGFX/Graphics/Materials/IMaterial.cs
+    startLine: 26
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Materials
+  summary: Configures the current instance to use the specified render device for rendering operations.
+  example: []
+  syntax:
+    content: void Use(IRenderDevice renderDevice)
+    parameters:
+    - id: renderDevice
+      type: LibGFX.Graphics.IRenderDevice
+      description: The render device to be used. Cannot be null.
+    content.vb: Sub Use(renderDevice As IRenderDevice)
+  overload: LibGFX.Graphics.Materials.IMaterial.Use*
+- uid: LibGFX.Graphics.Materials.IMaterial.Disable(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Materials.IMaterial.Disable(LibGFX.Graphics.IRenderDevice)
+  id: Disable(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Materials.IMaterial
+  langs:
+  - csharp
+  - vb
+  name: Disable(IRenderDevice)
+  nameWithType: IMaterial.Disable(IRenderDevice)
+  fullName: LibGFX.Graphics.Materials.IMaterial.Disable(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Materials/IMaterial.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Disable
+    path: ../LibGFX/Graphics/Materials/IMaterial.cs
+    startLine: 32
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Materials
+  summary: Disables the Material after rendering operations are complete.
+  example: []
+  syntax:
+    content: void Disable(IRenderDevice renderDevice)
+    parameters:
+    - id: renderDevice
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Sub Disable(renderDevice As IRenderDevice)
+  overload: LibGFX.Graphics.Materials.IMaterial.Disable*
+- uid: LibGFX.Graphics.Materials.IMaterial.LoadMaterial(Assimp.Material,System.String)
+  commentId: M:LibGFX.Graphics.Materials.IMaterial.LoadMaterial(Assimp.Material,System.String)
+  id: LoadMaterial(Assimp.Material,System.String)
+  parent: LibGFX.Graphics.Materials.IMaterial
+  langs:
+  - csharp
+  - vb
+  name: LoadMaterial(Material, string)
+  nameWithType: IMaterial.LoadMaterial(Material, string)
+  fullName: LibGFX.Graphics.Materials.IMaterial.LoadMaterial(Assimp.Material, string)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Materials/IMaterial.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LoadMaterial
+    path: ../LibGFX/Graphics/Materials/IMaterial.cs
+    startLine: 45
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Materials
+  summary: Creates an IMaterial instance from the specified Assimp material and associated resource directory.
+  remarks: >-
+    Use this method to convert materials imported via Assimp into the application's
+        material representation. The directory parameter should point to the location of any textures or external
+        resources referenced by the material.
+  example: []
+  syntax:
+    content: void LoadMaterial(Material asmat, string directory)
+    parameters:
+    - id: asmat
+      type: Assimp.Material
+      description: The Assimp.Material object containing material properties to be loaded.
+    - id: directory
+      type: System.String
+      description: >-
+        The directory path used to resolve any external resources referenced by the material. Cannot be null or
+            empty.
+    content.vb: Sub LoadMaterial(asmat As Material, directory As String)
+  overload: LibGFX.Graphics.Materials.IMaterial.LoadMaterial*
+  nameWithType.vb: IMaterial.LoadMaterial(Material, String)
+  fullName.vb: LibGFX.Graphics.Materials.IMaterial.LoadMaterial(Assimp.Material, String)
+  name.vb: LoadMaterial(Material, String)
+references:
+- uid: LibGFX.Graphics.Materials
+  commentId: N:LibGFX.Graphics.Materials
+  href: LibGFX.html
+  name: LibGFX.Graphics.Materials
+  nameWithType: LibGFX.Graphics.Materials
+  fullName: LibGFX.Graphics.Materials
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Materials
+    name: Materials
+    href: LibGFX.Graphics.Materials.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Materials
+    name: Materials
+    href: LibGFX.Graphics.Materials.html
+- uid: LibGFX.Core.IGraphicsResource.IsInitialized
+  commentId: P:LibGFX.Core.IGraphicsResource.IsInitialized
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_IsInitialized
+  name: IsInitialized
+  nameWithType: IGraphicsResource.IsInitialized
+  fullName: LibGFX.Core.IGraphicsResource.IsInitialized
+- uid: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Init_LibGFX_Graphics_IRenderDevice_
+  name: Init(IRenderDevice)
+  nameWithType: IGraphicsResource.Init(IRenderDevice)
+  fullName: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose(IRenderDevice)
+  nameWithType: IGraphicsResource.Dispose(IRenderDevice)
+  fullName: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+  commentId: M:LibGFX.Core.IGraphicsResource.FreeCPUResources
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  name: FreeCPUResources()
+  nameWithType: IGraphicsResource.FreeCPUResources()
+  fullName: LibGFX.Core.IGraphicsResource.FreeCPUResources()
+  spec.csharp:
+  - uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+    name: FreeCPUResources
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+    name: FreeCPUResources
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  - name: (
+  - name: )
+- uid: LibGFX.Core.IIdentifier.Name
+  commentId: P:LibGFX.Core.IIdentifier.Name
+  parent: LibGFX.Core.IIdentifier
+  href: LibGFX.Core.IIdentifier.html#LibGFX_Core_IIdentifier_Name
+  name: Name
+  nameWithType: IIdentifier.Name
+  fullName: LibGFX.Core.IIdentifier.Name
+- uid: LibGFX.Core.IIdentifier.ID
+  commentId: P:LibGFX.Core.IIdentifier.ID
+  parent: LibGFX.Core.IIdentifier
+  href: LibGFX.Core.IIdentifier.html#LibGFX_Core_IIdentifier_ID
+  name: ID
+  nameWithType: IIdentifier.ID
+  fullName: LibGFX.Core.IIdentifier.ID
+- uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: ISerialization.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  nameWithType.vb: ISerialization.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+  - name: )
+- uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: ISerialization.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  nameWithType.vb: ISerialization.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: LibGFX.Core.IGraphicsResource
+  commentId: T:LibGFX.Core.IGraphicsResource
+  parent: LibGFX.Core
+  href: LibGFX.Core.IGraphicsResource.html
+  name: IGraphicsResource
+  nameWithType: IGraphicsResource
+  fullName: LibGFX.Core.IGraphicsResource
+- uid: LibGFX.Core.IIdentifier
+  commentId: T:LibGFX.Core.IIdentifier
+  parent: LibGFX.Core
+  href: LibGFX.Core.IIdentifier.html
+  name: IIdentifier
+  nameWithType: IIdentifier
+  fullName: LibGFX.Core.IIdentifier
+- uid: LibGFX.Core.ISerialization
+  commentId: T:LibGFX.Core.ISerialization
+  parent: LibGFX.Core
+  href: LibGFX.Core.ISerialization.html
+  name: ISerialization
+  nameWithType: ISerialization
+  fullName: LibGFX.Core.ISerialization
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Graphics.Materials.IMaterial.IsTransparent*
+  commentId: Overload:LibGFX.Graphics.Materials.IMaterial.IsTransparent
+  href: LibGFX.Graphics.Materials.IMaterial.html#LibGFX_Graphics_Materials_IMaterial_IsTransparent
+  name: IsTransparent
+  nameWithType: IMaterial.IsTransparent
+  fullName: LibGFX.Graphics.Materials.IMaterial.IsTransparent
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Graphics.Materials.IMaterial.Use*
+  commentId: Overload:LibGFX.Graphics.Materials.IMaterial.Use
+  href: LibGFX.Graphics.Materials.IMaterial.html#LibGFX_Graphics_Materials_IMaterial_Use_LibGFX_Graphics_IRenderDevice_
+  name: Use
+  nameWithType: IMaterial.Use
+  fullName: LibGFX.Graphics.Materials.IMaterial.Use
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.Materials.IMaterial.Disable*
+  commentId: Overload:LibGFX.Graphics.Materials.IMaterial.Disable
+  href: LibGFX.Graphics.Materials.IMaterial.html#LibGFX_Graphics_Materials_IMaterial_Disable_LibGFX_Graphics_IRenderDevice_
+  name: Disable
+  nameWithType: IMaterial.Disable
+  fullName: LibGFX.Graphics.Materials.IMaterial.Disable
+- uid: LibGFX.Graphics.Materials.IMaterial.LoadMaterial*
+  commentId: Overload:LibGFX.Graphics.Materials.IMaterial.LoadMaterial
+  href: LibGFX.Graphics.Materials.IMaterial.html#LibGFX_Graphics_Materials_IMaterial_LoadMaterial_Assimp_Material_System_String_
+  name: LoadMaterial
+  nameWithType: IMaterial.LoadMaterial
+  fullName: LibGFX.Graphics.Materials.IMaterial.LoadMaterial
+- uid: Assimp.Material
+  commentId: T:Assimp.Material
+  parent: Assimp
+  isExternal: true
+  name: Material
+  nameWithType: Material
+  fullName: Assimp.Material
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Assimp
+  commentId: N:Assimp
+  isExternal: true
+  name: Assimp
+  nameWithType: Assimp
+  fullName: Assimp

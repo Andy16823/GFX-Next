@@ -1,0 +1,1332 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Assets.AssetManager
+  commentId: T:LibGFX.Assets.AssetManager
+  id: AssetManager
+  parent: LibGFX.Assets
+  children:
+  - LibGFX.Assets.AssetManager.Add``1(System.String,``0)
+  - LibGFX.Assets.AssetManager.Add``1(``0)
+  - LibGFX.Assets.AssetManager.AssemblyPath
+  - LibGFX.Assets.AssetManager.ClearAssets
+  - LibGFX.Assets.AssetManager.DisposeAssets(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Assets.AssetManager.Exists``1(System.String)
+  - LibGFX.Assets.AssetManager.ForeachAsset``1(System.Action{``0})
+  - LibGFX.Assets.AssetManager.FreeCPUResources
+  - LibGFX.Assets.AssetManager.FreeCPUResources``1
+  - LibGFX.Assets.AssetManager.GetAllAssets``1(System.Boolean)
+  - LibGFX.Assets.AssetManager.GetAssetCount``1
+  - LibGFX.Assets.AssetManager.Get``1(System.String)
+  - LibGFX.Assets.AssetManager.InitializeAssets(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Assets.AssetManager.Load``1(System.String,System.Object)
+  - LibGFX.Assets.AssetManager.RegisterLoader``1(LibGFX.Assets.Loaders.IAssetLoader)
+  - LibGFX.Assets.AssetManager.UnloadAsset(System.String)
+  langs:
+  - csharp
+  - vb
+  name: AssetManager
+  nameWithType: AssetManager
+  fullName: LibGFX.Assets.AssetManager
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AssetManager
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 15
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: AssetManager is responsible for loading and managing assets in the application.
+  example: []
+  syntax:
+    content: public class AssetManager
+    content.vb: Public Class AssetManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Assets.AssetManager.AssemblyPath
+  commentId: P:LibGFX.Assets.AssetManager.AssemblyPath
+  id: AssemblyPath
+  parent: LibGFX.Assets.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: AssemblyPath
+  nameWithType: AssetManager.AssemblyPath
+  fullName: LibGFX.Assets.AssetManager.AssemblyPath
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AssemblyPath
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 20
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Assembly path of the executing assembly.
+  example: []
+  syntax:
+    content: public string AssemblyPath { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property AssemblyPath As String
+  overload: LibGFX.Assets.AssetManager.AssemblyPath*
+- uid: LibGFX.Assets.AssetManager.Load``1(System.String,System.Object)
+  commentId: M:LibGFX.Assets.AssetManager.Load``1(System.String,System.Object)
+  id: Load``1(System.String,System.Object)
+  parent: LibGFX.Assets.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: Load<T>(string, object?)
+  nameWithType: AssetManager.Load<T>(string, object?)
+  fullName: LibGFX.Assets.AssetManager.Load<T>(string, object?)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Load
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 32
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Loads an asset from the specified path.
+  example: []
+  syntax:
+    content: 'public T Load<T>(string path, object? loadingArgs = null) where T : class'
+    parameters:
+    - id: path
+      type: System.String
+      description: ''
+    - id: loadingArgs
+      type: System.Object
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: '{T}'
+      description: ''
+    content.vb: Public Function Load(Of T As Class)(path As String, loadingArgs As Object = Nothing) As T
+  overload: LibGFX.Assets.AssetManager.Load*
+  nameWithType.vb: AssetManager.Load(Of T)(String, Object)
+  fullName.vb: LibGFX.Assets.AssetManager.Load(Of T)(String, Object)
+  name.vb: Load(Of T)(String, Object)
+- uid: LibGFX.Assets.AssetManager.GetAssetCount``1
+  commentId: M:LibGFX.Assets.AssetManager.GetAssetCount``1
+  id: GetAssetCount``1
+  parent: LibGFX.Assets.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: GetAssetCount<T>()
+  nameWithType: AssetManager.GetAssetCount<T>()
+  fullName: LibGFX.Assets.AssetManager.GetAssetCount<T>()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetAssetCount
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 54
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Gets the asset count for a specific asset type.
+  example: []
+  syntax:
+    content: 'public int GetAssetCount<T>() where T : class'
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Function GetAssetCount(Of T As Class)() As Integer
+  overload: LibGFX.Assets.AssetManager.GetAssetCount*
+  nameWithType.vb: AssetManager.GetAssetCount(Of T)()
+  fullName.vb: LibGFX.Assets.AssetManager.GetAssetCount(Of T)()
+  name.vb: GetAssetCount(Of T)()
+- uid: LibGFX.Assets.AssetManager.RegisterLoader``1(LibGFX.Assets.Loaders.IAssetLoader)
+  commentId: M:LibGFX.Assets.AssetManager.RegisterLoader``1(LibGFX.Assets.Loaders.IAssetLoader)
+  id: RegisterLoader``1(LibGFX.Assets.Loaders.IAssetLoader)
+  parent: LibGFX.Assets.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: RegisterLoader<T>(IAssetLoader)
+  nameWithType: AssetManager.RegisterLoader<T>(IAssetLoader)
+  fullName: LibGFX.Assets.AssetManager.RegisterLoader<T>(LibGFX.Assets.Loaders.IAssetLoader)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RegisterLoader
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 66
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Registers a loader for a specific asset type.
+  example: []
+  syntax:
+    content: 'public void RegisterLoader<T>(IAssetLoader loader) where T : class'
+    parameters:
+    - id: loader
+      type: LibGFX.Assets.Loaders.IAssetLoader
+      description: ''
+    typeParameters:
+    - id: T
+      description: ''
+    content.vb: Public Sub RegisterLoader(Of T As Class)(loader As IAssetLoader)
+  overload: LibGFX.Assets.AssetManager.RegisterLoader*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: ''
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: ''
+  nameWithType.vb: AssetManager.RegisterLoader(Of T)(IAssetLoader)
+  fullName.vb: LibGFX.Assets.AssetManager.RegisterLoader(Of T)(LibGFX.Assets.Loaders.IAssetLoader)
+  name.vb: RegisterLoader(Of T)(IAssetLoader)
+- uid: LibGFX.Assets.AssetManager.Add``1(System.String,``0)
+  commentId: M:LibGFX.Assets.AssetManager.Add``1(System.String,``0)
+  id: Add``1(System.String,``0)
+  parent: LibGFX.Assets.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: Add<T>(string, T)
+  nameWithType: AssetManager.Add<T>(string, T)
+  fullName: LibGFX.Assets.AssetManager.Add<T>(string, T)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Add
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 90
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Adds an asset to the asset manager.
+  example: []
+  syntax:
+    content: 'public T Add<T>(string name, T asset) where T : class'
+    parameters:
+    - id: name
+      type: System.String
+      description: ''
+    - id: asset
+      type: '{T}'
+      description: ''
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: '{T}'
+    content.vb: Public Function Add(Of T As Class)(name As String, asset As T) As T
+  overload: LibGFX.Assets.AssetManager.Add*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: ''
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: ''
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: ''
+  nameWithType.vb: AssetManager.Add(Of T)(String, T)
+  fullName.vb: LibGFX.Assets.AssetManager.Add(Of T)(String, T)
+  name.vb: Add(Of T)(String, T)
+- uid: LibGFX.Assets.AssetManager.Add``1(``0)
+  commentId: M:LibGFX.Assets.AssetManager.Add``1(``0)
+  id: Add``1(``0)
+  parent: LibGFX.Assets.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: Add<T>(T)
+  nameWithType: AssetManager.Add<T>(T)
+  fullName: LibGFX.Assets.AssetManager.Add<T>(T)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Add
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 117
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Adds the specified asset to the collection if an asset with the same name does not already exist.
+  example: []
+  syntax:
+    content: 'public T Add<T>(T asset) where T : class, IIdentifier'
+    parameters:
+    - id: asset
+      type: '{T}'
+      description: The asset to add to the collection. Cannot be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+    typeParameters:
+    - id: T
+      description: The type of asset to add. Must implement <xref href="LibGFX.Core.IIdentifier" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: '{T}'
+      description: The added asset of type <code class="typeparamref">T</code>.
+    content.vb: Public Function Add(Of T As {Class, IIdentifier})(asset As T) As T
+  overload: LibGFX.Assets.AssetManager.Add*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown if <code class="paramref">asset</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if an asset with the same name already exists in the collection.
+  nameWithType.vb: AssetManager.Add(Of T)(T)
+  fullName.vb: LibGFX.Assets.AssetManager.Add(Of T)(T)
+  name.vb: Add(Of T)(T)
+- uid: LibGFX.Assets.AssetManager.Get``1(System.String)
+  commentId: M:LibGFX.Assets.AssetManager.Get``1(System.String)
+  id: Get``1(System.String)
+  parent: LibGFX.Assets.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: Get<T>(string)
+  nameWithType: AssetManager.Get<T>(string)
+  fullName: LibGFX.Assets.AssetManager.Get<T>(string)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Get
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 169
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Retrieves an asset of the specified type and name from the asset collection.
+  remarks: >-
+    If multiple assets exist with the same name but different types, only the asset
+        matching the specified type is returned. The method returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the asset does not
+        exist or is not of the requested type.
+  example: []
+  syntax:
+    content: 'public T? Get<T>(string name) where T : class'
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the asset to retrieve. The name is case-sensitive.
+    typeParameters:
+    - id: T
+      description: The type of asset to retrieve. Must be a reference type.
+    return:
+      type: '{T}'
+      description: >-
+        The asset of type <code class="typeparamref">T</code> with the specified name, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no matching
+            asset is found.
+    content.vb: Public Function [Get](Of T As Class)(name As String) As T
+  overload: LibGFX.Assets.AssetManager.Get*
+  nameWithType.vb: AssetManager.Get(Of T)(String)
+  fullName.vb: LibGFX.Assets.AssetManager.Get(Of T)(String)
+  name.vb: Get(Of T)(String)
+- uid: LibGFX.Assets.AssetManager.GetAllAssets``1(System.Boolean)
+  commentId: M:LibGFX.Assets.AssetManager.GetAllAssets``1(System.Boolean)
+  id: GetAllAssets``1(System.Boolean)
+  parent: LibGFX.Assets.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: GetAllAssets<T>(bool)
+  nameWithType: AssetManager.GetAllAssets<T>(bool)
+  fullName: LibGFX.Assets.AssetManager.GetAllAssets<T>(bool)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetAllAssets
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 184
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Get all assets of a specific type from the asset manager.
+  example: []
+  syntax:
+    content: 'public IEnumerable<T> GetAllAssets<T>(bool assignables = true) where T : class'
+    parameters:
+    - id: assignables
+      type: System.Boolean
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: ''
+    content.vb: Public Function GetAllAssets(Of T As Class)(assignables As Boolean = True) As IEnumerable(Of T)
+  overload: LibGFX.Assets.AssetManager.GetAllAssets*
+  nameWithType.vb: AssetManager.GetAllAssets(Of T)(Boolean)
+  fullName.vb: LibGFX.Assets.AssetManager.GetAllAssets(Of T)(Boolean)
+  name.vb: GetAllAssets(Of T)(Boolean)
+- uid: LibGFX.Assets.AssetManager.ForeachAsset``1(System.Action{``0})
+  commentId: M:LibGFX.Assets.AssetManager.ForeachAsset``1(System.Action{``0})
+  id: ForeachAsset``1(System.Action{``0})
+  parent: LibGFX.Assets.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: ForeachAsset<T>(Action<T>)
+  nameWithType: AssetManager.ForeachAsset<T>(Action<T>)
+  fullName: LibGFX.Assets.AssetManager.ForeachAsset<T>(System.Action<T>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ForeachAsset
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 209
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Executes an action for each asset of a specific type in the asset manager.
+  example: []
+  syntax:
+    content: 'public void ForeachAsset<T>(Action<T> action) where T : class'
+    parameters:
+    - id: action
+      type: System.Action{{T}}
+      description: ''
+    typeParameters:
+    - id: T
+      description: ''
+    content.vb: Public Sub ForeachAsset(Of T As Class)(action As Action(Of T))
+  overload: LibGFX.Assets.AssetManager.ForeachAsset*
+  nameWithType.vb: AssetManager.ForeachAsset(Of T)(Action(Of T))
+  fullName.vb: LibGFX.Assets.AssetManager.ForeachAsset(Of T)(System.Action(Of T))
+  name.vb: ForeachAsset(Of T)(Action(Of T))
+- uid: LibGFX.Assets.AssetManager.UnloadAsset(System.String)
+  commentId: M:LibGFX.Assets.AssetManager.UnloadAsset(System.String)
+  id: UnloadAsset(System.String)
+  parent: LibGFX.Assets.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: UnloadAsset(string)
+  nameWithType: AssetManager.UnloadAsset(string)
+  fullName: LibGFX.Assets.AssetManager.UnloadAsset(string)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: UnloadAsset
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 225
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Unloads an asset from the asset manager.
+  example: []
+  syntax:
+    content: public void UnloadAsset(string path)
+    parameters:
+    - id: path
+      type: System.String
+      description: ''
+    content.vb: Public Sub UnloadAsset(path As String)
+  overload: LibGFX.Assets.AssetManager.UnloadAsset*
+  nameWithType.vb: AssetManager.UnloadAsset(String)
+  fullName.vb: LibGFX.Assets.AssetManager.UnloadAsset(String)
+  name.vb: UnloadAsset(String)
+- uid: LibGFX.Assets.AssetManager.Exists``1(System.String)
+  commentId: M:LibGFX.Assets.AssetManager.Exists``1(System.String)
+  id: Exists``1(System.String)
+  parent: LibGFX.Assets.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: Exists<T>(string)
+  nameWithType: AssetManager.Exists<T>(string)
+  fullName: LibGFX.Assets.AssetManager.Exists<T>(string)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Exists
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 261
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Determines whether an asset of the specified type and name exists in the collection.
+  example: []
+  syntax:
+    content: 'public bool Exists<T>(string name) where T : class'
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the asset to locate. The comparison is case-sensitive.
+    typeParameters:
+    - id: T
+      description: The type of the asset to check for. Must be a reference type.
+    return:
+      type: System.Boolean
+      description: true if an asset of type T with the specified name exists; otherwise, false.
+    content.vb: Public Function Exists(Of T As Class)(name As String) As Boolean
+  overload: LibGFX.Assets.AssetManager.Exists*
+  nameWithType.vb: AssetManager.Exists(Of T)(String)
+  fullName.vb: LibGFX.Assets.AssetManager.Exists(Of T)(String)
+  name.vb: Exists(Of T)(String)
+- uid: LibGFX.Assets.AssetManager.InitializeAssets(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Assets.AssetManager.InitializeAssets(LibGFX.Graphics.IRenderDevice)
+  id: InitializeAssets(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Assets.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: InitializeAssets(IRenderDevice)
+  nameWithType: AssetManager.InitializeAssets(IRenderDevice)
+  fullName: LibGFX.Assets.AssetManager.InitializeAssets(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: InitializeAssets
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 272
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Initializes all assets that implement the IRenderResource interface using the specified render device.
+  remarks: >-
+    Only assets that implement IRenderResource are initialized. Other assets are
+        ignored.
+  example: []
+  syntax:
+    content: public void InitializeAssets(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: The render device to use for initializing render resources. Cannot be null.
+    content.vb: Public Sub InitializeAssets(renderer As IRenderDevice)
+  overload: LibGFX.Assets.AssetManager.InitializeAssets*
+- uid: LibGFX.Assets.AssetManager.FreeCPUResources
+  commentId: M:LibGFX.Assets.AssetManager.FreeCPUResources
+  id: FreeCPUResources
+  parent: LibGFX.Assets.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: FreeCPUResources()
+  nameWithType: AssetManager.FreeCPUResources()
+  fullName: LibGFX.Assets.AssetManager.FreeCPUResources()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FreeCPUResources
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 290
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Frees the CPU resources associated with the managed assets.
+  example: []
+  syntax:
+    content: public void FreeCPUResources()
+    content.vb: Public Sub FreeCPUResources()
+  overload: LibGFX.Assets.AssetManager.FreeCPUResources*
+- uid: LibGFX.Assets.AssetManager.FreeCPUResources``1
+  commentId: M:LibGFX.Assets.AssetManager.FreeCPUResources``1
+  id: FreeCPUResources``1
+  parent: LibGFX.Assets.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: FreeCPUResources<T>()
+  nameWithType: AssetManager.FreeCPUResources<T>()
+  fullName: LibGFX.Assets.AssetManager.FreeCPUResources<T>()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FreeCPUResources
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 312
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Releases CPU-side resources for all assets of the specified type that implement IGraphicsResource.
+  remarks: >-
+    This method iterates through all managed assets and calls FreeCPUResources on those
+        that are both of type T and implement IGraphicsResource. Assets that do not meet these criteria are
+        skipped.
+  example: []
+  syntax:
+    content: 'public void FreeCPUResources<T>() where T : IRendererResource'
+    typeParameters:
+    - id: T
+      description: The type of asset for which to free CPU resources. Must implement IRendererResource.
+    content.vb: Public Sub FreeCPUResources(Of T As IRendererResource)()
+  overload: LibGFX.Assets.AssetManager.FreeCPUResources*
+  nameWithType.vb: AssetManager.FreeCPUResources(Of T)()
+  fullName.vb: LibGFX.Assets.AssetManager.FreeCPUResources(Of T)()
+  name.vb: FreeCPUResources(Of T)()
+- uid: LibGFX.Assets.AssetManager.DisposeAssets(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Assets.AssetManager.DisposeAssets(LibGFX.Graphics.IRenderDevice)
+  id: DisposeAssets(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Assets.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: DisposeAssets(IRenderDevice)
+  nameWithType: AssetManager.DisposeAssets(IRenderDevice)
+  fullName: LibGFX.Assets.AssetManager.DisposeAssets(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DisposeAssets
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 333
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Releases all graphics resources associated with the managed assets using the specified rendering device.
+  remarks: >-
+    Only assets that implement the IGraphicsResource interface are disposed. Assets that
+        do not implement this interface are ignored.
+  example: []
+  syntax:
+    content: public void DisposeAssets(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: The rendering device to use when disposing of graphics resources. Cannot be null.
+    content.vb: Public Sub DisposeAssets(renderer As IRenderDevice)
+  overload: LibGFX.Assets.AssetManager.DisposeAssets*
+- uid: LibGFX.Assets.AssetManager.ClearAssets
+  commentId: M:LibGFX.Assets.AssetManager.ClearAssets
+  id: ClearAssets
+  parent: LibGFX.Assets.AssetManager
+  langs:
+  - csharp
+  - vb
+  name: ClearAssets()
+  nameWithType: AssetManager.ClearAssets()
+  fullName: LibGFX.Assets.AssetManager.ClearAssets()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/AssetManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ClearAssets
+    path: ../LibGFX/Assets/AssetManager.cs
+    startLine: 351
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets
+  summary: Removes all assets from the collection.
+  example: []
+  syntax:
+    content: public void ClearAssets()
+    content.vb: Public Sub ClearAssets()
+  overload: LibGFX.Assets.AssetManager.ClearAssets*
+references:
+- uid: LibGFX.Assets
+  commentId: N:LibGFX.Assets
+  href: LibGFX.html
+  name: LibGFX.Assets
+  nameWithType: LibGFX.Assets
+  fullName: LibGFX.Assets
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Assets.AssetManager.AssemblyPath*
+  commentId: Overload:LibGFX.Assets.AssetManager.AssemblyPath
+  href: LibGFX.Assets.AssetManager.html#LibGFX_Assets_AssetManager_AssemblyPath
+  name: AssemblyPath
+  nameWithType: AssetManager.AssemblyPath
+  fullName: LibGFX.Assets.AssetManager.AssemblyPath
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: LibGFX.Assets.AssetManager.Load*
+  commentId: Overload:LibGFX.Assets.AssetManager.Load
+  href: LibGFX.Assets.AssetManager.html#LibGFX_Assets_AssetManager_Load__1_System_String_System_Object_
+  name: Load
+  nameWithType: AssetManager.Load
+  fullName: LibGFX.Assets.AssetManager.Load
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: LibGFX.Assets.AssetManager.GetAssetCount*
+  commentId: Overload:LibGFX.Assets.AssetManager.GetAssetCount
+  href: LibGFX.Assets.AssetManager.html#LibGFX_Assets_AssetManager_GetAssetCount__1
+  name: GetAssetCount
+  nameWithType: AssetManager.GetAssetCount
+  fullName: LibGFX.Assets.AssetManager.GetAssetCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: LibGFX.Assets.AssetManager.RegisterLoader*
+  commentId: Overload:LibGFX.Assets.AssetManager.RegisterLoader
+  href: LibGFX.Assets.AssetManager.html#LibGFX_Assets_AssetManager_RegisterLoader__1_LibGFX_Assets_Loaders_IAssetLoader_
+  name: RegisterLoader
+  nameWithType: AssetManager.RegisterLoader
+  fullName: LibGFX.Assets.AssetManager.RegisterLoader
+- uid: LibGFX.Assets.Loaders.IAssetLoader
+  commentId: T:LibGFX.Assets.Loaders.IAssetLoader
+  parent: LibGFX.Assets.Loaders
+  href: LibGFX.Assets.Loaders.IAssetLoader.html
+  name: IAssetLoader
+  nameWithType: IAssetLoader
+  fullName: LibGFX.Assets.Loaders.IAssetLoader
+- uid: LibGFX.Assets.Loaders
+  commentId: N:LibGFX.Assets.Loaders
+  href: LibGFX.html
+  name: LibGFX.Assets.Loaders
+  nameWithType: LibGFX.Assets.Loaders
+  fullName: LibGFX.Assets.Loaders
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+  - name: .
+  - uid: LibGFX.Assets.Loaders
+    name: Loaders
+    href: LibGFX.Assets.Loaders.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+  - name: .
+  - uid: LibGFX.Assets.Loaders
+    name: Loaders
+    href: LibGFX.Assets.Loaders.html
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: LibGFX.Assets.AssetManager.Add*
+  commentId: Overload:LibGFX.Assets.AssetManager.Add
+  href: LibGFX.Assets.AssetManager.html#LibGFX_Assets_AssetManager_Add__1_System_String___0_
+  name: Add
+  nameWithType: AssetManager.Add
+  fullName: LibGFX.Assets.AssetManager.Add
+- uid: LibGFX.Core.IIdentifier
+  commentId: T:LibGFX.Core.IIdentifier
+  parent: LibGFX.Core
+  href: LibGFX.Core.IIdentifier.html
+  name: IIdentifier
+  nameWithType: IIdentifier
+  fullName: LibGFX.Core.IIdentifier
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Assets.AssetManager.Get*
+  commentId: Overload:LibGFX.Assets.AssetManager.Get
+  href: LibGFX.Assets.AssetManager.html#LibGFX_Assets_AssetManager_Get__1_System_String_
+  name: Get
+  nameWithType: AssetManager.Get
+  fullName: LibGFX.Assets.AssetManager.Get
+- uid: LibGFX.Assets.AssetManager.GetAllAssets*
+  commentId: Overload:LibGFX.Assets.AssetManager.GetAllAssets
+  href: LibGFX.Assets.AssetManager.html#LibGFX_Assets_AssetManager_GetAllAssets__1_System_Boolean_
+  name: GetAllAssets
+  nameWithType: AssetManager.GetAllAssets
+  fullName: LibGFX.Assets.AssetManager.GetAllAssets
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Collections.Generic.IEnumerable{{T}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: LibGFX.Assets.AssetManager.ForeachAsset*
+  commentId: Overload:LibGFX.Assets.AssetManager.ForeachAsset
+  href: LibGFX.Assets.AssetManager.html#LibGFX_Assets_AssetManager_ForeachAsset__1_System_Action___0__
+  name: ForeachAsset
+  nameWithType: AssetManager.ForeachAsset
+  fullName: LibGFX.Assets.AssetManager.ForeachAsset
+- uid: System.Action{{T}}
+  commentId: T:System.Action{``0}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: LibGFX.Assets.AssetManager.UnloadAsset*
+  commentId: Overload:LibGFX.Assets.AssetManager.UnloadAsset
+  href: LibGFX.Assets.AssetManager.html#LibGFX_Assets_AssetManager_UnloadAsset_System_String_
+  name: UnloadAsset
+  nameWithType: AssetManager.UnloadAsset
+  fullName: LibGFX.Assets.AssetManager.UnloadAsset
+- uid: LibGFX.Assets.AssetManager.Exists*
+  commentId: Overload:LibGFX.Assets.AssetManager.Exists
+  href: LibGFX.Assets.AssetManager.html#LibGFX_Assets_AssetManager_Exists__1_System_String_
+  name: Exists
+  nameWithType: AssetManager.Exists
+  fullName: LibGFX.Assets.AssetManager.Exists
+- uid: LibGFX.Assets.AssetManager.InitializeAssets*
+  commentId: Overload:LibGFX.Assets.AssetManager.InitializeAssets
+  href: LibGFX.Assets.AssetManager.html#LibGFX_Assets_AssetManager_InitializeAssets_LibGFX_Graphics_IRenderDevice_
+  name: InitializeAssets
+  nameWithType: AssetManager.InitializeAssets
+  fullName: LibGFX.Assets.AssetManager.InitializeAssets
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Assets.AssetManager.FreeCPUResources*
+  commentId: Overload:LibGFX.Assets.AssetManager.FreeCPUResources
+  href: LibGFX.Assets.AssetManager.html#LibGFX_Assets_AssetManager_FreeCPUResources
+  name: FreeCPUResources
+  nameWithType: AssetManager.FreeCPUResources
+  fullName: LibGFX.Assets.AssetManager.FreeCPUResources
+- uid: LibGFX.Assets.AssetManager.DisposeAssets*
+  commentId: Overload:LibGFX.Assets.AssetManager.DisposeAssets
+  href: LibGFX.Assets.AssetManager.html#LibGFX_Assets_AssetManager_DisposeAssets_LibGFX_Graphics_IRenderDevice_
+  name: DisposeAssets
+  nameWithType: AssetManager.DisposeAssets
+  fullName: LibGFX.Assets.AssetManager.DisposeAssets
+- uid: LibGFX.Assets.AssetManager.ClearAssets*
+  commentId: Overload:LibGFX.Assets.AssetManager.ClearAssets
+  href: LibGFX.Assets.AssetManager.html#LibGFX_Assets_AssetManager_ClearAssets
+  name: ClearAssets
+  nameWithType: AssetManager.ClearAssets
+  fullName: LibGFX.Assets.AssetManager.ClearAssets

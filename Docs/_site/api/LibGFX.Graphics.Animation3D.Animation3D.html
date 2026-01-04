@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Animation3D | LibGFX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Animation3D | LibGFX ">
+      
+      <meta name="description" content="Represents an animation associated with a 3D model.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Graphics_Animation3D_Animation3D.md&amp;value=---%0Auid%3A%20LibGFX.Graphics.Animation3D.Animation3D%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="LibGFX">
+            LibGFX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LibGFX.Graphics.Animation3D.Animation3D">
+
+
+
+  <h1 id="LibGFX_Graphics_Animation3D_Animation3D" data-uid="LibGFX.Graphics.Animation3D.Animation3D" class="text-break">
+Class Animation3D  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Animation3D/Animation3D.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LibGFX.html">LibGFX</a>.<a class="xref" href="LibGFX.Graphics.html">Graphics</a>.<a class="xref" href="LibGFX.Graphics.Animation3D.html">Animation3D</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LibGFX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents an animation associated with a 3D model.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Animation3D</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Animation3D</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LibGFX_Graphics_Animation3D_Animation3D__ctor_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.#ctor*"></a>
+
+  <h3 id="LibGFX_Graphics_Animation3D_Animation3D__ctor" data-uid="LibGFX.Graphics.Animation3D.Animation3D.#ctor">
+  Animation3D()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Animation3D/Animation3D.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Animation3D class.
+Used for deserialization purposes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Animation3D()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Animation3D_Animation3D__ctor_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.#ctor*"></a>
+
+  <h3 id="LibGFX_Graphics_Animation3D_Animation3D__ctor_Assimp_Scene_System_Int32_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.#ctor(Assimp.Scene,System.Int32)">
+  Animation3D(Scene, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Animation3D/Animation3D.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Animation class without a model reference.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Animation3D(Scene scene, int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <span class="xref">Scene</span></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Animation3D_Animation3D__ctor_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.#ctor*"></a>
+
+  <h3 id="LibGFX_Graphics_Animation3D_Animation3D__ctor_Assimp_Scene_System_Int32_LibGFX_Graphics_Animation3D_Skeleton_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.#ctor(Assimp.Scene,System.Int32,LibGFX.Graphics.Animation3D.Skeleton)">
+  Animation3D(Scene, int, Skeleton)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Animation3D/Animation3D.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Animation class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Animation3D(Scene scene, int index, Skeleton skeleton)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <span class="xref">Scene</span></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>skeleton</code> <a class="xref" href="LibGFX.Graphics.Animation3D.Skeleton.html">Skeleton</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LibGFX_Graphics_Animation3D_Animation3D_BoneInfoMap_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.BoneInfoMap*"></a>
+
+  <h3 id="LibGFX_Graphics_Animation3D_Animation3D_BoneInfoMap" data-uid="LibGFX.Graphics.Animation3D.Animation3D.BoneInfoMap">
+  BoneInfoMap
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Animation3D/Animation3D.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Mapping of bone names to bone information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, BoneInfo&gt; BoneInfoMap { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="LibGFX.Graphics.BoneInfo.html">BoneInfo</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Animation3D_Animation3D_Bones_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.Bones*"></a>
+
+  <h3 id="LibGFX_Graphics_Animation3D_Animation3D_Bones" data-uid="LibGFX.Graphics.Animation3D.Animation3D.Bones">
+  Bones
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Animation3D/Animation3D.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List of bones affected by the animation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Bone&gt; Bones { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="LibGFX.Graphics.Animation3D.Bone.html">Bone</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Animation3D_Animation3D_Duration_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.Duration*"></a>
+
+  <h3 id="LibGFX_Graphics_Animation3D_Animation3D_Duration" data-uid="LibGFX.Graphics.Animation3D.Animation3D.Duration">
+  Duration
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Animation3D/Animation3D.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Duration of the animation in ticks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Duration { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Animation3D_Animation3D_Name_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.Name*"></a>
+
+  <h3 id="LibGFX_Graphics_Animation3D_Animation3D_Name" data-uid="LibGFX.Graphics.Animation3D.Animation3D.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Animation3D/Animation3D.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Name of the animation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Animation3D_Animation3D_RootNode_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.RootNode*"></a>
+
+  <h3 id="LibGFX_Graphics_Animation3D_Animation3D_RootNode" data-uid="LibGFX.Graphics.Animation3D.Animation3D.RootNode">
+  RootNode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Animation3D/Animation3D.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Root node of the animation's scene hierarchy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SceneNodeData RootNode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Animation3D.SceneNodeData.html">SceneNodeData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Animation3D_Animation3D_TicksPerSecond_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.TicksPerSecond*"></a>
+
+  <h3 id="LibGFX_Graphics_Animation3D_Animation3D_TicksPerSecond" data-uid="LibGFX.Graphics.Animation3D.Animation3D.TicksPerSecond">
+  TicksPerSecond
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Animation3D/Animation3D.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Number of ticks per second for the animation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float TicksPerSecond { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LibGFX_Graphics_Animation3D_Animation3D_AnimationLength_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.AnimationLength*"></a>
+
+  <h3 id="LibGFX_Graphics_Animation3D_Animation3D_AnimationLength" data-uid="LibGFX.Graphics.Animation3D.Animation3D.AnimationLength">
+  AnimationLength()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Animation3D/Animation3D.cs/#L220"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the keyframe length of the animation based on the maximum number of position, rotation, and scaling keyframes among all bones.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int AnimationLength()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The maximum number of keyframes (positions, rotations, or scalings) among all bones; if no bones are present, returns -1.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Graphics_Animation3D_Animation3D_AnimationLength_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method iterates through all bones to determine the maximum keyframe length.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Graphics_Animation3D_Animation3D_FindBone_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.FindBone*"></a>
+
+  <h3 id="LibGFX_Graphics_Animation3D_Animation3D_FindBone_System_String_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.FindBone(System.String)">
+  FindBone(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Animation3D/Animation3D.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds a bone with the specified name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Bone FindBone(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Animation3D.Bone.html">Bone</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Animation3D_Animation3D_GetKeyFrameIndex_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.GetKeyFrameIndex*"></a>
+
+  <h3 id="LibGFX_Graphics_Animation3D_Animation3D_GetKeyFrameIndex_System_Single_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.GetKeyFrameIndex(System.Single)">
+  GetKeyFrameIndex(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Animation3D/Animation3D.cs/#L241"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the keyframe index based on the specified animation time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetKeyFrameIndex(float animationTime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>animationTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Animation3D_Animation3D_LoadAnimationChannel_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.LoadAnimationChannel*"></a>
+
+  <h3 id="LibGFX_Graphics_Animation3D_Animation3D_LoadAnimationChannel_Assimp_Animation_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.LoadAnimationChannel(Assimp.Animation)">
+  LoadAnimationChannel(Animation)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Animation3D/Animation3D.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void LoadAnimationChannel(Animation animation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>animation</code> <span class="xref">Animation</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Animation3D_Animation3D_ReadBones_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.ReadBones*"></a>
+
+  <h3 id="LibGFX_Graphics_Animation3D_Animation3D_ReadBones_LibGFX_Graphics_Animation3D_Skeleton_" data-uid="LibGFX.Graphics.Animation3D.Animation3D.ReadBones(LibGFX.Graphics.Animation3D.Skeleton)">
+  ReadBones(Skeleton)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Animation3D/Animation3D.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads bones from the provided skeleton and associates them with the animation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReadBones(Skeleton skeleton)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>skeleton</code> <a class="xref" href="LibGFX.Graphics.Animation3D.Skeleton.html">Skeleton</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Animation3D/Animation3D.cs/#L32" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

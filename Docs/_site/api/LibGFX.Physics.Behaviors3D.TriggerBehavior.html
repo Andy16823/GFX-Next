@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TriggerBehavior | LibGFX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TriggerBehavior | LibGFX ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Physics_Behaviors3D_TriggerBehavior.md&amp;value=---%0Auid%3A%20LibGFX.Physics.Behaviors3D.TriggerBehavior%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="LibGFX">
+            LibGFX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior">
+
+
+
+  <h1 id="LibGFX_Physics_Behaviors3D_TriggerBehavior" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior" class="text-break">
+Class TriggerBehavior  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LibGFX.html">LibGFX</a>.<a class="xref" href="LibGFX.Physics.html">Physics</a>.<a class="xref" href="LibGFX.Physics.Behaviors3D.html">Behaviors3D</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LibGFX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TriggerBehavior : PhysicsBehavior, IGameBehavior</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="LibGFX.Physics.PhysicsBehavior.html">PhysicsBehavior</a></div>
+      <div><span class="xref">TriggerBehavior</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LibGFX.Core.IGameBehavior.html">IGameBehavior</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="LibGFX.Physics.Behaviors3D.BoxTrigger.html">BoxTrigger</a></div>
+      <div><a class="xref" href="LibGFX.Physics.Behaviors3D.CapsuleTrigger.html">CapsuleTrigger</a></div>
+      <div><a class="xref" href="LibGFX.Physics.Behaviors3D.SphereTrigger.html">SphereTrigger</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_PhysicsHandler">PhysicsBehavior.PhysicsHandler</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_">PhysicsBehavior.OnShadowPass(BaseScene, Viewport, IRenderDevice)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior__ctor_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.#ctor*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior__ctor_LibGFX_Physics_PhysicsHandler_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.#ctor(LibGFX.Physics.PhysicsHandler)">
+  TriggerBehavior(PhysicsHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 3D collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TriggerBehavior(PhysicsHandler physicsHandler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>physicsHandler</code> <a class="xref" href="LibGFX.Physics.PhysicsHandler.html">PhysicsHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_Offset_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.Offset*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_Offset" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.Offset">
+  Offset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The offset of the collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Offset { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_Parent_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.Parent*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_Parent" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.Parent">
+  Parent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The parent game element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameElement Parent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_Trigger_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.Trigger*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_Trigger" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.Trigger">
+  Trigger
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The collider object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GhostObject Trigger { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">GhostObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_GetElement_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.GetElement*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_GetElement" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.GetElement">
+  GetElement()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the GameElement associated with this collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override GameElement GetElement()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_GetLocation_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.GetLocation*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_GetLocation" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.GetLocation">
+  GetLocation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the location of the collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 GetLocation()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_GetPhysicsObject_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.GetPhysicsObject*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_GetPhysicsObject" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.GetPhysicsObject">
+  GetPhysicsObject()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the physics object associated with this collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object GetPhysicsObject()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_GetRotation_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.GetRotation*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_GetRotation" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.GetRotation">
+  GetRotation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the rotation of the collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion GetRotation()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Data/Quaternion.cs">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_OnCollide_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.OnCollide*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_OnCollide_LibGFX_Physics_Collision_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.OnCollide(LibGFX.Physics.Collision)">
+  OnCollide(Collision)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Handles the collision event (unused)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnCollide(Collision collision)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collision</code> <a class="xref" href="LibGFX.Physics.Collision.html">Collision</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_OnDispose_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.OnDispose*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)">
+  OnDispose(BaseScene, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes the collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnDispose(BaseScene scene, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_OnInit_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.OnInit*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)">
+  OnInit(BaseScene, Viewport, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the collider (unused)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnInit(BaseScene scene, Viewport viewport, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_OnRender_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.OnRender*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)">
+  OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders the collider (unused)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnRender(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+    <dt><code>camera</code> <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_OnUpdate_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.OnUpdate*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)">
+  OnUpdate(BaseScene, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L185"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnUpdate(BaseScene scene, float dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a></dt>
+    <dd></dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_RemoveCollider_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.RemoveCollider*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_RemoveCollider" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.RemoveCollider">
+  RemoveCollider()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the collider from the physics handler</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void RemoveCollider()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_Rotate_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.Rotate*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_Rotate_OpenTK_Mathematics_Quaternion_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.Rotate(OpenTK.Mathematics.Quaternion)">
+  Rotate(Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rotates the collider by the given quaternion</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Rotate(Quaternion rotation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rotation</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Data/Quaternion.cs">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_Rotate_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.Rotate*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_Rotate_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.Rotate(OpenTK.Mathematics.Vector3)">
+  Rotate(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rotates the collider by the given value</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Rotate(Vector3 rotation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rotation</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_SetElement_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.SetElement*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_SetElement_LibGFX_Core_GameElement_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.SetElement(LibGFX.Core.GameElement)">
+  SetElement(GameElement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the game element associated with this collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void SetElement(GameElement gameElement)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gameElement</code> <a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_Sync_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.Sync*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_Sync" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.Sync">
+  Sync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Syncs the trigger with the parent game element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Sync()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_TriggerBehavior_Translate_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.Translate*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_TriggerBehavior_Translate_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Physics.Behaviors3D.TriggerBehavior.Translate(OpenTK.Mathematics.Vector3)">
+  Translate(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Translates the collider by the given value</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Translate(Vector3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/TriggerBehavior.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

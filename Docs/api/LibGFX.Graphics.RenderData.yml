@@ -1,0 +1,426 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderData
+  commentId: T:LibGFX.Graphics.RenderData
+  id: RenderData
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderData.IndexBuffer
+  - LibGFX.Graphics.RenderData.IndexCount
+  - LibGFX.Graphics.RenderData.PositionBuffer
+  - LibGFX.Graphics.RenderData.VertexArray
+  - LibGFX.Graphics.RenderData.VertexBuffer
+  langs:
+  - csharp
+  - vb
+  name: RenderData
+  nameWithType: RenderData
+  fullName: LibGFX.Graphics.RenderData
+  type: Struct
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderData.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderData
+    path: ../LibGFX/Graphics/RenderData.cs
+    startLine: 8
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public struct RenderData
+    content.vb: Public Structure RenderData
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: LibGFX.Graphics.RenderData.VertexArray
+  commentId: F:LibGFX.Graphics.RenderData.VertexArray
+  id: VertexArray
+  parent: LibGFX.Graphics.RenderData
+  langs:
+  - csharp
+  - vb
+  name: VertexArray
+  nameWithType: RenderData.VertexArray
+  fullName: LibGFX.Graphics.RenderData.VertexArray
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderData.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: VertexArray
+    path: ../LibGFX/Graphics/RenderData.cs
+    startLine: 10
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public int VertexArray
+    return:
+      type: System.Int32
+    content.vb: Public VertexArray As Integer
+- uid: LibGFX.Graphics.RenderData.PositionBuffer
+  commentId: F:LibGFX.Graphics.RenderData.PositionBuffer
+  id: PositionBuffer
+  parent: LibGFX.Graphics.RenderData
+  langs:
+  - csharp
+  - vb
+  name: PositionBuffer
+  nameWithType: RenderData.PositionBuffer
+  fullName: LibGFX.Graphics.RenderData.PositionBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderData.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PositionBuffer
+    path: ../LibGFX/Graphics/RenderData.cs
+    startLine: 11
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public int PositionBuffer
+    return:
+      type: System.Int32
+    content.vb: Public PositionBuffer As Integer
+- uid: LibGFX.Graphics.RenderData.VertexBuffer
+  commentId: F:LibGFX.Graphics.RenderData.VertexBuffer
+  id: VertexBuffer
+  parent: LibGFX.Graphics.RenderData
+  langs:
+  - csharp
+  - vb
+  name: VertexBuffer
+  nameWithType: RenderData.VertexBuffer
+  fullName: LibGFX.Graphics.RenderData.VertexBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderData.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: VertexBuffer
+    path: ../LibGFX/Graphics/RenderData.cs
+    startLine: 12
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public int VertexBuffer
+    return:
+      type: System.Int32
+    content.vb: Public VertexBuffer As Integer
+- uid: LibGFX.Graphics.RenderData.IndexBuffer
+  commentId: F:LibGFX.Graphics.RenderData.IndexBuffer
+  id: IndexBuffer
+  parent: LibGFX.Graphics.RenderData
+  langs:
+  - csharp
+  - vb
+  name: IndexBuffer
+  nameWithType: RenderData.IndexBuffer
+  fullName: LibGFX.Graphics.RenderData.IndexBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderData.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IndexBuffer
+    path: ../LibGFX/Graphics/RenderData.cs
+    startLine: 13
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public int IndexBuffer
+    return:
+      type: System.Int32
+    content.vb: Public IndexBuffer As Integer
+- uid: LibGFX.Graphics.RenderData.IndexCount
+  commentId: F:LibGFX.Graphics.RenderData.IndexCount
+  id: IndexCount
+  parent: LibGFX.Graphics.RenderData
+  langs:
+  - csharp
+  - vb
+  name: IndexCount
+  nameWithType: RenderData.IndexCount
+  fullName: LibGFX.Graphics.RenderData.IndexCount
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderData.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IndexCount
+    path: ../LibGFX/Graphics/RenderData.cs
+    startLine: 14
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public int IndexCount
+    return:
+      type: System.Int32
+    content.vb: Public IndexCount As Integer
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

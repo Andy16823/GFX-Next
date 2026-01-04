@@ -1,0 +1,112 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Physics.ElementIndex
+  commentId: T:LibGFX.Physics.ElementIndex
+  id: ElementIndex
+  parent: LibGFX.Physics
+  children:
+  - LibGFX.Physics.ElementIndex.A
+  - LibGFX.Physics.ElementIndex.B
+  langs:
+  - csharp
+  - vb
+  name: ElementIndex
+  nameWithType: ElementIndex
+  fullName: LibGFX.Physics.ElementIndex
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Physics/Collision.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ElementIndex
+    path: ../LibGFX/Physics/Collision.cs
+    startLine: 10
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  syntax:
+    content: public enum ElementIndex
+    content.vb: Public Enum ElementIndex
+- uid: LibGFX.Physics.ElementIndex.A
+  commentId: F:LibGFX.Physics.ElementIndex.A
+  id: A
+  parent: LibGFX.Physics.ElementIndex
+  langs:
+  - csharp
+  - vb
+  name: A
+  nameWithType: ElementIndex.A
+  fullName: LibGFX.Physics.ElementIndex.A
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/Collision.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: A
+    path: ../LibGFX/Physics/Collision.cs
+    startLine: 12
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  syntax:
+    content: A = 0
+    return:
+      type: LibGFX.Physics.ElementIndex
+- uid: LibGFX.Physics.ElementIndex.B
+  commentId: F:LibGFX.Physics.ElementIndex.B
+  id: B
+  parent: LibGFX.Physics.ElementIndex
+  langs:
+  - csharp
+  - vb
+  name: B
+  nameWithType: ElementIndex.B
+  fullName: LibGFX.Physics.ElementIndex.B
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/Collision.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: B
+    path: ../LibGFX/Physics/Collision.cs
+    startLine: 13
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  syntax:
+    content: B = 1
+    return:
+      type: LibGFX.Physics.ElementIndex
+references:
+- uid: LibGFX.Physics
+  commentId: N:LibGFX.Physics
+  href: LibGFX.html
+  name: LibGFX.Physics
+  nameWithType: LibGFX.Physics
+  fullName: LibGFX.Physics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+- uid: LibGFX.Physics.ElementIndex
+  commentId: T:LibGFX.Physics.ElementIndex
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.ElementIndex.html
+  name: ElementIndex
+  nameWithType: ElementIndex
+  fullName: LibGFX.Physics.ElementIndex

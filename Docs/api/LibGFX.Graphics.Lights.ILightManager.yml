@@ -1,0 +1,970 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Lights.ILightManager
+  commentId: T:LibGFX.Graphics.Lights.ILightManager
+  id: ILightManager
+  parent: LibGFX.Graphics.Lights
+  children:
+  - LibGFX.Graphics.Lights.ILightManager.BindLights(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  - LibGFX.Graphics.Lights.ILightManager.ClearLights
+  - LibGFX.Graphics.Lights.ILightManager.ContainsLight(LibGFX.Graphics.Lights.Light)
+  - LibGFX.Graphics.Lights.ILightManager.CullLights(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  - LibGFX.Graphics.Lights.ILightManager.Dispose(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.Lights.ILightManager.DisposeLights(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.Lights.ILightManager.ForEachLight(System.Action{LibGFX.Graphics.Lights.Light})
+  - LibGFX.Graphics.Lights.ILightManager.ForEachLight``1(System.Action{``0})
+  - LibGFX.Graphics.Lights.ILightManager.GetLightCount``1
+  - LibGFX.Graphics.Lights.ILightManager.GetLight``1
+  - LibGFX.Graphics.Lights.ILightManager.Init(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.Lights.ILightManager.SetLightSpaceMatrix(OpenTK.Mathematics.Matrix4)
+  langs:
+  - csharp
+  - vb
+  name: ILightManager
+  nameWithType: ILightManager
+  fullName: LibGFX.Graphics.Lights.ILightManager
+  type: Interface
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/ILightManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ILightManager
+    path: ../LibGFX/Graphics/Lights/ILightManager.cs
+    startLine: 13
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Interface for managing lights in a scene.
+  example: []
+  syntax:
+    content: 'public interface ILightManager : ISerialization, IGraphicsResource'
+    content.vb: Public Interface ILightManager Inherits ISerialization, IGraphicsResource
+  inheritedMembers:
+  - LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  - LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  - LibGFX.Core.IGraphicsResource.IsInitialized
+  - LibGFX.Core.IGraphicsResource.FreeCPUResources
+- uid: LibGFX.Graphics.Lights.ILightManager.Init(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Lights.ILightManager.Init(LibGFX.Graphics.IRenderDevice)
+  id: Init(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Lights.ILightManager
+  langs:
+  - csharp
+  - vb
+  name: Init(IRenderDevice)
+  nameWithType: ILightManager.Init(IRenderDevice)
+  fullName: LibGFX.Graphics.Lights.ILightManager.Init(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/ILightManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Init
+    path: ../LibGFX/Graphics/Lights/ILightManager.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Initializes the light manager with the given render device.
+  example: []
+  syntax:
+    content: void Init(IRenderDevice renderDevice)
+    parameters:
+    - id: renderDevice
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Sub Init(renderDevice As IRenderDevice)
+  overload: LibGFX.Graphics.Lights.ILightManager.Init*
+- uid: LibGFX.Graphics.Lights.ILightManager.CullLights(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  commentId: M:LibGFX.Graphics.Lights.ILightManager.CullLights(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  id: CullLights(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  parent: LibGFX.Graphics.Lights.ILightManager
+  langs:
+  - csharp
+  - vb
+  name: CullLights(Viewport, IRenderDevice, Camera)
+  nameWithType: ILightManager.CullLights(Viewport, IRenderDevice, Camera)
+  fullName: LibGFX.Graphics.Lights.ILightManager.CullLights(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/ILightManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CullLights
+    path: ../LibGFX/Graphics/Lights/ILightManager.cs
+    startLine: 27
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Culls the lights based on the camera's view and the viewport.
+  example: []
+  syntax:
+    content: void CullLights(Viewport viewport, IRenderDevice renderer, Camera camera)
+    parameters:
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    - id: camera
+      type: LibGFX.Graphics.Camera
+      description: ''
+    content.vb: Sub CullLights(viewport As Viewport, renderer As IRenderDevice, camera As Camera)
+  overload: LibGFX.Graphics.Lights.ILightManager.CullLights*
+- uid: LibGFX.Graphics.Lights.ILightManager.BindLights(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  commentId: M:LibGFX.Graphics.Lights.ILightManager.BindLights(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  id: BindLights(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  parent: LibGFX.Graphics.Lights.ILightManager
+  langs:
+  - csharp
+  - vb
+  name: BindLights(Viewport, IRenderDevice, Camera)
+  nameWithType: ILightManager.BindLights(Viewport, IRenderDevice, Camera)
+  fullName: LibGFX.Graphics.Lights.ILightManager.BindLights(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/ILightManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BindLights
+    path: ../LibGFX/Graphics/Lights/ILightManager.cs
+    startLine: 35
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Binds the lights to the shader program for rendering.
+  example: []
+  syntax:
+    content: void BindLights(Viewport viewport, IRenderDevice renderer, Camera camera)
+    parameters:
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    - id: camera
+      type: LibGFX.Graphics.Camera
+      description: ''
+    content.vb: Sub BindLights(viewport As Viewport, renderer As IRenderDevice, camera As Camera)
+  overload: LibGFX.Graphics.Lights.ILightManager.BindLights*
+- uid: LibGFX.Graphics.Lights.ILightManager.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Lights.ILightManager.Dispose(LibGFX.Graphics.IRenderDevice)
+  id: Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Lights.ILightManager
+  langs:
+  - csharp
+  - vb
+  name: Dispose(IRenderDevice)
+  nameWithType: ILightManager.Dispose(IRenderDevice)
+  fullName: LibGFX.Graphics.Lights.ILightManager.Dispose(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/ILightManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/Graphics/Lights/ILightManager.cs
+    startLine: 41
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Disposes of the light manager and releases any resources.
+  example: []
+  syntax:
+    content: void Dispose(IRenderDevice renderDevice)
+    parameters:
+    - id: renderDevice
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Sub Dispose(renderDevice As IRenderDevice)
+  overload: LibGFX.Graphics.Lights.ILightManager.Dispose*
+- uid: LibGFX.Graphics.Lights.ILightManager.GetLightCount``1
+  commentId: M:LibGFX.Graphics.Lights.ILightManager.GetLightCount``1
+  id: GetLightCount``1
+  parent: LibGFX.Graphics.Lights.ILightManager
+  langs:
+  - csharp
+  - vb
+  name: GetLightCount<T>()
+  nameWithType: ILightManager.GetLightCount<T>()
+  fullName: LibGFX.Graphics.Lights.ILightManager.GetLightCount<T>()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/ILightManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetLightCount
+    path: ../LibGFX/Graphics/Lights/ILightManager.cs
+    startLine: 48
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Gets the ligt count of the specified type.
+  example: []
+  syntax:
+    content: 'int GetLightCount<T>() where T : Light'
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Function GetLightCount(Of T As Light)() As Integer
+  overload: LibGFX.Graphics.Lights.ILightManager.GetLightCount*
+  nameWithType.vb: ILightManager.GetLightCount(Of T)()
+  fullName.vb: LibGFX.Graphics.Lights.ILightManager.GetLightCount(Of T)()
+  name.vb: GetLightCount(Of T)()
+- uid: LibGFX.Graphics.Lights.ILightManager.GetLight``1
+  commentId: M:LibGFX.Graphics.Lights.ILightManager.GetLight``1
+  id: GetLight``1
+  parent: LibGFX.Graphics.Lights.ILightManager
+  langs:
+  - csharp
+  - vb
+  name: GetLight<T>()
+  nameWithType: ILightManager.GetLight<T>()
+  fullName: LibGFX.Graphics.Lights.ILightManager.GetLight<T>()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/ILightManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetLight
+    path: ../LibGFX/Graphics/Lights/ILightManager.cs
+    startLine: 55
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Gets the total light count across all types.
+  example: []
+  syntax:
+    content: 'T GetLight<T>() where T : Light'
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: '{T}'
+      description: ''
+    content.vb: Function GetLight(Of T As Light)() As T
+  overload: LibGFX.Graphics.Lights.ILightManager.GetLight*
+  nameWithType.vb: ILightManager.GetLight(Of T)()
+  fullName.vb: LibGFX.Graphics.Lights.ILightManager.GetLight(Of T)()
+  name.vb: GetLight(Of T)()
+- uid: LibGFX.Graphics.Lights.ILightManager.ForEachLight``1(System.Action{``0})
+  commentId: M:LibGFX.Graphics.Lights.ILightManager.ForEachLight``1(System.Action{``0})
+  id: ForEachLight``1(System.Action{``0})
+  parent: LibGFX.Graphics.Lights.ILightManager
+  langs:
+  - csharp
+  - vb
+  name: ForEachLight<T>(Action<T>)
+  nameWithType: ILightManager.ForEachLight<T>(Action<T>)
+  fullName: LibGFX.Graphics.Lights.ILightManager.ForEachLight<T>(System.Action<T>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/ILightManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ForEachLight
+    path: ../LibGFX/Graphics/Lights/ILightManager.cs
+    startLine: 62
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Performs an action on each light of the specified type in the scene.
+  example: []
+  syntax:
+    content: 'void ForEachLight<T>(Action<T> action) where T : Light'
+    parameters:
+    - id: action
+      type: System.Action{{T}}
+      description: ''
+    typeParameters:
+    - id: T
+      description: ''
+    content.vb: Sub ForEachLight(Of T As Light)(action As Action(Of T))
+  overload: LibGFX.Graphics.Lights.ILightManager.ForEachLight*
+  nameWithType.vb: ILightManager.ForEachLight(Of T)(Action(Of T))
+  fullName.vb: LibGFX.Graphics.Lights.ILightManager.ForEachLight(Of T)(System.Action(Of T))
+  name.vb: ForEachLight(Of T)(Action(Of T))
+- uid: LibGFX.Graphics.Lights.ILightManager.ForEachLight(System.Action{LibGFX.Graphics.Lights.Light})
+  commentId: M:LibGFX.Graphics.Lights.ILightManager.ForEachLight(System.Action{LibGFX.Graphics.Lights.Light})
+  id: ForEachLight(System.Action{LibGFX.Graphics.Lights.Light})
+  parent: LibGFX.Graphics.Lights.ILightManager
+  langs:
+  - csharp
+  - vb
+  name: ForEachLight(Action<Light>)
+  nameWithType: ILightManager.ForEachLight(Action<Light>)
+  fullName: LibGFX.Graphics.Lights.ILightManager.ForEachLight(System.Action<LibGFX.Graphics.Lights.Light>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/ILightManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ForEachLight
+    path: ../LibGFX/Graphics/Lights/ILightManager.cs
+    startLine: 68
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Performs an action on each light in the scene, regardless of type.
+  example: []
+  syntax:
+    content: void ForEachLight(Action<Light> action)
+    parameters:
+    - id: action
+      type: System.Action{LibGFX.Graphics.Lights.Light}
+      description: ''
+    content.vb: Sub ForEachLight(action As Action(Of Light))
+  overload: LibGFX.Graphics.Lights.ILightManager.ForEachLight*
+  nameWithType.vb: ILightManager.ForEachLight(Action(Of Light))
+  fullName.vb: LibGFX.Graphics.Lights.ILightManager.ForEachLight(System.Action(Of LibGFX.Graphics.Lights.Light))
+  name.vb: ForEachLight(Action(Of Light))
+- uid: LibGFX.Graphics.Lights.ILightManager.SetLightSpaceMatrix(OpenTK.Mathematics.Matrix4)
+  commentId: M:LibGFX.Graphics.Lights.ILightManager.SetLightSpaceMatrix(OpenTK.Mathematics.Matrix4)
+  id: SetLightSpaceMatrix(OpenTK.Mathematics.Matrix4)
+  parent: LibGFX.Graphics.Lights.ILightManager
+  langs:
+  - csharp
+  - vb
+  name: SetLightSpaceMatrix(Matrix4)
+  nameWithType: ILightManager.SetLightSpaceMatrix(Matrix4)
+  fullName: LibGFX.Graphics.Lights.ILightManager.SetLightSpaceMatrix(OpenTK.Mathematics.Matrix4)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/ILightManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetLightSpaceMatrix
+    path: ../LibGFX/Graphics/Lights/ILightManager.cs
+    startLine: 74
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Sets the light view matrix for the light manager, which is used to transform the light's perspective in the scene.
+  example: []
+  syntax:
+    content: void SetLightSpaceMatrix(Matrix4 lightViewMatrix)
+    parameters:
+    - id: lightViewMatrix
+      type: OpenTK.Mathematics.Matrix4
+      description: ''
+    content.vb: Sub SetLightSpaceMatrix(lightViewMatrix As Matrix4)
+  overload: LibGFX.Graphics.Lights.ILightManager.SetLightSpaceMatrix*
+- uid: LibGFX.Graphics.Lights.ILightManager.DisposeLights(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Lights.ILightManager.DisposeLights(LibGFX.Graphics.IRenderDevice)
+  id: DisposeLights(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Lights.ILightManager
+  langs:
+  - csharp
+  - vb
+  name: DisposeLights(IRenderDevice)
+  nameWithType: ILightManager.DisposeLights(IRenderDevice)
+  fullName: LibGFX.Graphics.Lights.ILightManager.DisposeLights(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/ILightManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DisposeLights
+    path: ../LibGFX/Graphics/Lights/ILightManager.cs
+    startLine: 80
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Releases all light resources associated with the specified render device.
+  example: []
+  syntax:
+    content: void DisposeLights(IRenderDevice renderDevice)
+    parameters:
+    - id: renderDevice
+      type: LibGFX.Graphics.IRenderDevice
+      description: The render device whose light resources will be disposed. Cannot be null.
+    content.vb: Sub DisposeLights(renderDevice As IRenderDevice)
+  overload: LibGFX.Graphics.Lights.ILightManager.DisposeLights*
+- uid: LibGFX.Graphics.Lights.ILightManager.ContainsLight(LibGFX.Graphics.Lights.Light)
+  commentId: M:LibGFX.Graphics.Lights.ILightManager.ContainsLight(LibGFX.Graphics.Lights.Light)
+  id: ContainsLight(LibGFX.Graphics.Lights.Light)
+  parent: LibGFX.Graphics.Lights.ILightManager
+  langs:
+  - csharp
+  - vb
+  name: ContainsLight(Light)
+  nameWithType: ILightManager.ContainsLight(Light)
+  fullName: LibGFX.Graphics.Lights.ILightManager.ContainsLight(LibGFX.Graphics.Lights.Light)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/ILightManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ContainsLight
+    path: ../LibGFX/Graphics/Lights/ILightManager.cs
+    startLine: 87
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Determines whether the specified light is contained within the collection.
+  example: []
+  syntax:
+    content: bool ContainsLight(Light light)
+    parameters:
+    - id: light
+      type: LibGFX.Graphics.Lights.Light
+      description: The light to locate in the collection. Cannot be null.
+    return:
+      type: System.Boolean
+      description: true if the specified light is found in the collection; otherwise, false.
+    content.vb: Function ContainsLight(light As Light) As Boolean
+  overload: LibGFX.Graphics.Lights.ILightManager.ContainsLight*
+- uid: LibGFX.Graphics.Lights.ILightManager.ClearLights
+  commentId: M:LibGFX.Graphics.Lights.ILightManager.ClearLights
+  id: ClearLights
+  parent: LibGFX.Graphics.Lights.ILightManager
+  langs:
+  - csharp
+  - vb
+  name: ClearLights()
+  nameWithType: ILightManager.ClearLights()
+  fullName: LibGFX.Graphics.Lights.ILightManager.ClearLights()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/ILightManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ClearLights
+    path: ../LibGFX/Graphics/Lights/ILightManager.cs
+    startLine: 94
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Removes all lights from the collection.
+  remarks: >-
+    Call this method to reset the collection to an empty state. After calling this
+        method, no lights will remain until new ones are added.
+  example: []
+  syntax:
+    content: void ClearLights()
+    content.vb: Sub ClearLights()
+  overload: LibGFX.Graphics.Lights.ILightManager.ClearLights*
+references:
+- uid: LibGFX.Graphics.Lights
+  commentId: N:LibGFX.Graphics.Lights
+  href: LibGFX.html
+  name: LibGFX.Graphics.Lights
+  nameWithType: LibGFX.Graphics.Lights
+  fullName: LibGFX.Graphics.Lights
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Lights
+    name: Lights
+    href: LibGFX.Graphics.Lights.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Lights
+    name: Lights
+    href: LibGFX.Graphics.Lights.html
+- uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: ISerialization.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  nameWithType.vb: ISerialization.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+  - name: )
+- uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: ISerialization.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  nameWithType.vb: ISerialization.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: LibGFX.Core.IGraphicsResource.IsInitialized
+  commentId: P:LibGFX.Core.IGraphicsResource.IsInitialized
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_IsInitialized
+  name: IsInitialized
+  nameWithType: IGraphicsResource.IsInitialized
+  fullName: LibGFX.Core.IGraphicsResource.IsInitialized
+- uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+  commentId: M:LibGFX.Core.IGraphicsResource.FreeCPUResources
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  name: FreeCPUResources()
+  nameWithType: IGraphicsResource.FreeCPUResources()
+  fullName: LibGFX.Core.IGraphicsResource.FreeCPUResources()
+  spec.csharp:
+  - uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+    name: FreeCPUResources
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+    name: FreeCPUResources
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  - name: (
+  - name: )
+- uid: LibGFX.Core.ISerialization
+  commentId: T:LibGFX.Core.ISerialization
+  parent: LibGFX.Core
+  href: LibGFX.Core.ISerialization.html
+  name: ISerialization
+  nameWithType: ISerialization
+  fullName: LibGFX.Core.ISerialization
+- uid: LibGFX.Core.IGraphicsResource
+  commentId: T:LibGFX.Core.IGraphicsResource
+  parent: LibGFX.Core
+  href: LibGFX.Core.IGraphicsResource.html
+  name: IGraphicsResource
+  nameWithType: IGraphicsResource
+  fullName: LibGFX.Core.IGraphicsResource
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Graphics.Lights.ILightManager.Init*
+  commentId: Overload:LibGFX.Graphics.Lights.ILightManager.Init
+  href: LibGFX.Graphics.Lights.ILightManager.html#LibGFX_Graphics_Lights_ILightManager_Init_LibGFX_Graphics_IRenderDevice_
+  name: Init
+  nameWithType: ILightManager.Init
+  fullName: LibGFX.Graphics.Lights.ILightManager.Init
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.Lights.ILightManager.CullLights*
+  commentId: Overload:LibGFX.Graphics.Lights.ILightManager.CullLights
+  href: LibGFX.Graphics.Lights.ILightManager.html#LibGFX_Graphics_Lights_ILightManager_CullLights_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  name: CullLights
+  nameWithType: ILightManager.CullLights
+  fullName: LibGFX.Graphics.Lights.ILightManager.CullLights
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.Graphics.Camera
+  commentId: T:LibGFX.Graphics.Camera
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Camera.html
+  name: Camera
+  nameWithType: Camera
+  fullName: LibGFX.Graphics.Camera
+- uid: LibGFX.Graphics.Lights.ILightManager.BindLights*
+  commentId: Overload:LibGFX.Graphics.Lights.ILightManager.BindLights
+  href: LibGFX.Graphics.Lights.ILightManager.html#LibGFX_Graphics_Lights_ILightManager_BindLights_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  name: BindLights
+  nameWithType: ILightManager.BindLights
+  fullName: LibGFX.Graphics.Lights.ILightManager.BindLights
+- uid: LibGFX.Graphics.Lights.ILightManager.Dispose*
+  commentId: Overload:LibGFX.Graphics.Lights.ILightManager.Dispose
+  href: LibGFX.Graphics.Lights.ILightManager.html#LibGFX_Graphics_Lights_ILightManager_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose
+  nameWithType: ILightManager.Dispose
+  fullName: LibGFX.Graphics.Lights.ILightManager.Dispose
+- uid: LibGFX.Graphics.Lights.ILightManager.GetLightCount*
+  commentId: Overload:LibGFX.Graphics.Lights.ILightManager.GetLightCount
+  href: LibGFX.Graphics.Lights.ILightManager.html#LibGFX_Graphics_Lights_ILightManager_GetLightCount__1
+  name: GetLightCount
+  nameWithType: ILightManager.GetLightCount
+  fullName: LibGFX.Graphics.Lights.ILightManager.GetLightCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Graphics.Lights.ILightManager.GetLight*
+  commentId: Overload:LibGFX.Graphics.Lights.ILightManager.GetLight
+  href: LibGFX.Graphics.Lights.ILightManager.html#LibGFX_Graphics_Lights_ILightManager_GetLight__1
+  name: GetLight
+  nameWithType: ILightManager.GetLight
+  fullName: LibGFX.Graphics.Lights.ILightManager.GetLight
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: LibGFX.Graphics.Lights.ILightManager.ForEachLight*
+  commentId: Overload:LibGFX.Graphics.Lights.ILightManager.ForEachLight
+  href: LibGFX.Graphics.Lights.ILightManager.html#LibGFX_Graphics_Lights_ILightManager_ForEachLight__1_System_Action___0__
+  name: ForEachLight
+  nameWithType: ILightManager.ForEachLight
+  fullName: LibGFX.Graphics.Lights.ILightManager.ForEachLight
+- uid: System.Action{{T}}
+  commentId: T:System.Action{``0}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Action{LibGFX.Graphics.Lights.Light}
+  commentId: T:System.Action{LibGFX.Graphics.Lights.Light}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<Light>
+  nameWithType: Action<Light>
+  fullName: System.Action<LibGFX.Graphics.Lights.Light>
+  nameWithType.vb: Action(Of Light)
+  fullName.vb: System.Action(Of LibGFX.Graphics.Lights.Light)
+  name.vb: Action(Of Light)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: LibGFX.Graphics.Lights.Light
+    name: Light
+    href: LibGFX.Graphics.Lights.Light.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LibGFX.Graphics.Lights.Light
+    name: Light
+    href: LibGFX.Graphics.Lights.Light.html
+  - name: )
+- uid: LibGFX.Graphics.Lights.ILightManager.SetLightSpaceMatrix*
+  commentId: Overload:LibGFX.Graphics.Lights.ILightManager.SetLightSpaceMatrix
+  href: LibGFX.Graphics.Lights.ILightManager.html#LibGFX_Graphics_Lights_ILightManager_SetLightSpaceMatrix_OpenTK_Mathematics_Matrix4_
+  name: SetLightSpaceMatrix
+  nameWithType: ILightManager.SetLightSpaceMatrix
+  fullName: LibGFX.Graphics.Lights.ILightManager.SetLightSpaceMatrix
+- uid: OpenTK.Mathematics.Matrix4
+  commentId: T:OpenTK.Mathematics.Matrix4
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Matrix/Matrix4.cs
+  name: Matrix4
+  nameWithType: Matrix4
+  fullName: OpenTK.Mathematics.Matrix4
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Graphics.Lights.ILightManager.DisposeLights*
+  commentId: Overload:LibGFX.Graphics.Lights.ILightManager.DisposeLights
+  href: LibGFX.Graphics.Lights.ILightManager.html#LibGFX_Graphics_Lights_ILightManager_DisposeLights_LibGFX_Graphics_IRenderDevice_
+  name: DisposeLights
+  nameWithType: ILightManager.DisposeLights
+  fullName: LibGFX.Graphics.Lights.ILightManager.DisposeLights
+- uid: LibGFX.Graphics.Lights.ILightManager.ContainsLight*
+  commentId: Overload:LibGFX.Graphics.Lights.ILightManager.ContainsLight
+  href: LibGFX.Graphics.Lights.ILightManager.html#LibGFX_Graphics_Lights_ILightManager_ContainsLight_LibGFX_Graphics_Lights_Light_
+  name: ContainsLight
+  nameWithType: ILightManager.ContainsLight
+  fullName: LibGFX.Graphics.Lights.ILightManager.ContainsLight
+- uid: LibGFX.Graphics.Lights.Light
+  commentId: T:LibGFX.Graphics.Lights.Light
+  parent: LibGFX.Graphics.Lights
+  href: LibGFX.Graphics.Lights.Light.html
+  name: Light
+  nameWithType: Light
+  fullName: LibGFX.Graphics.Lights.Light
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Graphics.Lights.ILightManager.ClearLights*
+  commentId: Overload:LibGFX.Graphics.Lights.ILightManager.ClearLights
+  href: LibGFX.Graphics.Lights.ILightManager.html#LibGFX_Graphics_Lights_ILightManager_ClearLights
+  name: ClearLights
+  nameWithType: ILightManager.ClearLights
+  fullName: LibGFX.Graphics.Lights.ILightManager.ClearLights

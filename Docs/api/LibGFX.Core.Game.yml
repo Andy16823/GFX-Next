@@ -1,0 +1,1067 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Core.Game
+  commentId: T:LibGFX.Core.Game
+  id: Game
+  parent: LibGFX.Core
+  children:
+  - LibGFX.Core.Game.#ctor
+  - LibGFX.Core.Game.AssetManager
+  - LibGFX.Core.Game.Dispose
+  - LibGFX.Core.Game.FreeCPUResources
+  - LibGFX.Core.Game.Initialize(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Core.Game.LoadContent(LibGFX.Assets.AssetManager)
+  - LibGFX.Core.Game.OnFrameEnd
+  - LibGFX.Core.Game.OnStart
+  - LibGFX.Core.Game.Render
+  - LibGFX.Core.Game.RenderDevice
+  - LibGFX.Core.Game.Run(LibGFX.Graphics.IRenderDevice,System.Int32,System.Int32,System.String,System.Boolean,LibGFX.Core.Window.WindowState)
+  - LibGFX.Core.Game.Services
+  - LibGFX.Core.Game.TargetFrameRate
+  - LibGFX.Core.Game.Update(System.Single)
+  - LibGFX.Core.Game.Viewport
+  - LibGFX.Core.Game.Window
+  langs:
+  - csharp
+  - vb
+  name: Game
+  nameWithType: Game
+  fullName: LibGFX.Core.Game
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Game
+    path: ../LibGFX/Core/Game.cs
+    startLine: 26
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Base class for creating a game application.
+  example: []
+  syntax:
+    content: public abstract class Game
+    content.vb: Public MustInherit Class Game
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Core.Game.Window
+  commentId: P:LibGFX.Core.Game.Window
+  id: Window
+  parent: LibGFX.Core.Game
+  langs:
+  - csharp
+  - vb
+  name: Window
+  nameWithType: Game.Window
+  fullName: LibGFX.Core.Game.Window
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Window
+    path: ../LibGFX/Core/Game.cs
+    startLine: 31
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: The main application window.
+  example: []
+  syntax:
+    content: public Window Window { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Core.Window
+    content.vb: Public Property Window As Window
+  overload: LibGFX.Core.Game.Window*
+- uid: LibGFX.Core.Game.Services
+  commentId: P:LibGFX.Core.Game.Services
+  id: Services
+  parent: LibGFX.Core.Game
+  langs:
+  - csharp
+  - vb
+  name: Services
+  nameWithType: Game.Services
+  fullName: LibGFX.Core.Game.Services
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Services
+    path: ../LibGFX/Core/Game.cs
+    startLine: 36
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: The service container for managing services.
+  example: []
+  syntax:
+    content: public ServiceContainer Services { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Core.ServiceContainer
+    content.vb: Public Property Services As ServiceContainer
+  overload: LibGFX.Core.Game.Services*
+- uid: LibGFX.Core.Game.AssetManager
+  commentId: P:LibGFX.Core.Game.AssetManager
+  id: AssetManager
+  parent: LibGFX.Core.Game
+  langs:
+  - csharp
+  - vb
+  name: AssetManager
+  nameWithType: Game.AssetManager
+  fullName: LibGFX.Core.Game.AssetManager
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AssetManager
+    path: ../LibGFX/Core/Game.cs
+    startLine: 41
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: The asset manager for managing assets.
+  example: []
+  syntax:
+    content: public AssetManager AssetManager { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Assets.AssetManager
+    content.vb: Public Property AssetManager As AssetManager
+  overload: LibGFX.Core.Game.AssetManager*
+- uid: LibGFX.Core.Game.RenderDevice
+  commentId: P:LibGFX.Core.Game.RenderDevice
+  id: RenderDevice
+  parent: LibGFX.Core.Game
+  langs:
+  - csharp
+  - vb
+  name: RenderDevice
+  nameWithType: Game.RenderDevice
+  fullName: LibGFX.Core.Game.RenderDevice
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderDevice
+    path: ../LibGFX/Core/Game.cs
+    startLine: 46
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: The render device for rendering graphics.
+  example: []
+  syntax:
+    content: public IRenderDevice RenderDevice { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Public Property RenderDevice As IRenderDevice
+  overload: LibGFX.Core.Game.RenderDevice*
+- uid: LibGFX.Core.Game.Viewport
+  commentId: P:LibGFX.Core.Game.Viewport
+  id: Viewport
+  parent: LibGFX.Core.Game
+  langs:
+  - csharp
+  - vb
+  name: Viewport
+  nameWithType: Game.Viewport
+  fullName: LibGFX.Core.Game.Viewport
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Viewport
+    path: ../LibGFX/Core/Game.cs
+    startLine: 51
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: The viewport defining the rendering area.
+  example: []
+  syntax:
+    content: public Viewport Viewport { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.Viewport
+    content.vb: Public Property Viewport As Viewport
+  overload: LibGFX.Core.Game.Viewport*
+- uid: LibGFX.Core.Game.TargetFrameRate
+  commentId: P:LibGFX.Core.Game.TargetFrameRate
+  id: TargetFrameRate
+  parent: LibGFX.Core.Game
+  langs:
+  - csharp
+  - vb
+  name: TargetFrameRate
+  nameWithType: Game.TargetFrameRate
+  fullName: LibGFX.Core.Game.TargetFrameRate
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TargetFrameRate
+    path: ../LibGFX/Core/Game.cs
+    startLine: 56
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: The target frame rate for the game.
+  example: []
+  syntax:
+    content: public int TargetFrameRate { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TargetFrameRate As Integer
+  overload: LibGFX.Core.Game.TargetFrameRate*
+- uid: LibGFX.Core.Game.FreeCPUResources
+  commentId: P:LibGFX.Core.Game.FreeCPUResources
+  id: FreeCPUResources
+  parent: LibGFX.Core.Game
+  langs:
+  - csharp
+  - vb
+  name: FreeCPUResources
+  nameWithType: Game.FreeCPUResources
+  fullName: LibGFX.Core.Game.FreeCPUResources
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FreeCPUResources
+    path: ../LibGFX/Core/Game.cs
+    startLine: 61
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Determines whether CPU resources should be freed after loading assets.
+  example: []
+  syntax:
+    content: public bool FreeCPUResources { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property FreeCPUResources As Boolean
+  overload: LibGFX.Core.Game.FreeCPUResources*
+- uid: LibGFX.Core.Game.#ctor
+  commentId: M:LibGFX.Core.Game.#ctor
+  id: '#ctor'
+  parent: LibGFX.Core.Game
+  langs:
+  - csharp
+  - vb
+  name: Game()
+  nameWithType: Game.Game()
+  fullName: LibGFX.Core.Game.Game()
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Core/Game.cs
+    startLine: 66
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Initializes a new instance of the Game class.
+  example: []
+  syntax:
+    content: protected Game()
+    content.vb: Protected Sub New()
+  overload: LibGFX.Core.Game.#ctor*
+  nameWithType.vb: Game.New()
+  fullName.vb: LibGFX.Core.Game.New()
+  name.vb: New()
+- uid: LibGFX.Core.Game.Run(LibGFX.Graphics.IRenderDevice,System.Int32,System.Int32,System.String,System.Boolean,LibGFX.Core.Window.WindowState)
+  commentId: M:LibGFX.Core.Game.Run(LibGFX.Graphics.IRenderDevice,System.Int32,System.Int32,System.String,System.Boolean,LibGFX.Core.Window.WindowState)
+  id: Run(LibGFX.Graphics.IRenderDevice,System.Int32,System.Int32,System.String,System.Boolean,LibGFX.Core.Window.WindowState)
+  parent: LibGFX.Core.Game
+  langs:
+  - csharp
+  - vb
+  name: Run(IRenderDevice, int, int, string, bool, WindowState)
+  nameWithType: Game.Run(IRenderDevice, int, int, string, bool, Window.WindowState)
+  fullName: LibGFX.Core.Game.Run(LibGFX.Graphics.IRenderDevice, int, int, string, bool, LibGFX.Core.Window.WindowState)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Run
+    path: ../LibGFX/Core/Game.cs
+    startLine: 80
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Runs the game application with the specified parameters.
+  example: []
+  syntax:
+    content: public void Run(IRenderDevice renderDevice, int width = 800, int height = 600, string title = "LibGFX Application", bool useVsync = true, Window.WindowState windowState = WindowState.Normal)
+    parameters:
+    - id: renderDevice
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    - id: width
+      type: System.Int32
+      description: ''
+    - id: height
+      type: System.Int32
+      description: ''
+    - id: title
+      type: System.String
+      description: ''
+    - id: useVsync
+      type: System.Boolean
+    - id: windowState
+      type: LibGFX.Core.Window.WindowState
+      description: ''
+    content.vb: Public Sub Run(renderDevice As IRenderDevice, width As Integer = 800, height As Integer = 600, title As String = "LibGFX Application", useVsync As Boolean = True, windowState As Window.WindowState = WindowState.Normal)
+  overload: LibGFX.Core.Game.Run*
+  nameWithType.vb: Game.Run(IRenderDevice, Integer, Integer, String, Boolean, Window.WindowState)
+  fullName.vb: LibGFX.Core.Game.Run(LibGFX.Graphics.IRenderDevice, Integer, Integer, String, Boolean, LibGFX.Core.Window.WindowState)
+  name.vb: Run(IRenderDevice, Integer, Integer, String, Boolean, WindowState)
+- uid: LibGFX.Core.Game.LoadContent(LibGFX.Assets.AssetManager)
+  commentId: M:LibGFX.Core.Game.LoadContent(LibGFX.Assets.AssetManager)
+  id: LoadContent(LibGFX.Assets.AssetManager)
+  parent: LibGFX.Core.Game
+  langs:
+  - csharp
+  - vb
+  name: LoadContent(AssetManager)
+  nameWithType: Game.LoadContent(AssetManager)
+  fullName: LibGFX.Core.Game.LoadContent(LibGFX.Assets.AssetManager)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LoadContent
+    path: ../LibGFX/Core/Game.cs
+    startLine: 160
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Loads game content and assets.
+  example: []
+  syntax:
+    content: public abstract void LoadContent(AssetManager assets)
+    parameters:
+    - id: assets
+      type: LibGFX.Assets.AssetManager
+    content.vb: Public MustOverride Sub LoadContent(assets As AssetManager)
+  overload: LibGFX.Core.Game.LoadContent*
+- uid: LibGFX.Core.Game.Initialize(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.Game.Initialize(LibGFX.Graphics.IRenderDevice)
+  id: Initialize(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.Game
+  langs:
+  - csharp
+  - vb
+  name: Initialize(IRenderDevice)
+  nameWithType: Game.Initialize(IRenderDevice)
+  fullName: LibGFX.Core.Game.Initialize(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Initialize
+    path: ../LibGFX/Core/Game.cs
+    startLine: 165
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Initializes game elements and state.
+  example: []
+  syntax:
+    content: public abstract void Initialize(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Public MustOverride Sub Initialize(renderer As IRenderDevice)
+  overload: LibGFX.Core.Game.Initialize*
+- uid: LibGFX.Core.Game.OnStart
+  commentId: M:LibGFX.Core.Game.OnStart
+  id: OnStart
+  parent: LibGFX.Core.Game
+  langs:
+  - csharp
+  - vb
+  name: OnStart()
+  nameWithType: Game.OnStart()
+  fullName: LibGFX.Core.Game.OnStart()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnStart
+    path: ../LibGFX/Core/Game.cs
+    startLine: 170
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called when the game starts.
+  example: []
+  syntax:
+    content: public abstract void OnStart()
+    content.vb: Public MustOverride Sub OnStart()
+  overload: LibGFX.Core.Game.OnStart*
+- uid: LibGFX.Core.Game.Update(System.Single)
+  commentId: M:LibGFX.Core.Game.Update(System.Single)
+  id: Update(System.Single)
+  parent: LibGFX.Core.Game
+  langs:
+  - csharp
+  - vb
+  name: Update(float)
+  nameWithType: Game.Update(float)
+  fullName: LibGFX.Core.Game.Update(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Update
+    path: ../LibGFX/Core/Game.cs
+    startLine: 175
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Updates the game state based on the elapsed time since the last frame.
+  example: []
+  syntax:
+    content: public abstract void Update(float deltaTime)
+    parameters:
+    - id: deltaTime
+      type: System.Single
+      description: ''
+    content.vb: Public MustOverride Sub Update(deltaTime As Single)
+  overload: LibGFX.Core.Game.Update*
+  nameWithType.vb: Game.Update(Single)
+  fullName.vb: LibGFX.Core.Game.Update(Single)
+  name.vb: Update(Single)
+- uid: LibGFX.Core.Game.Render
+  commentId: M:LibGFX.Core.Game.Render
+  id: Render
+  parent: LibGFX.Core.Game
+  langs:
+  - csharp
+  - vb
+  name: Render()
+  nameWithType: Game.Render()
+  fullName: LibGFX.Core.Game.Render()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Render
+    path: ../LibGFX/Core/Game.cs
+    startLine: 180
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Renders the current frame.
+  example: []
+  syntax:
+    content: public abstract void Render()
+    content.vb: Public MustOverride Sub Render()
+  overload: LibGFX.Core.Game.Render*
+- uid: LibGFX.Core.Game.OnFrameEnd
+  commentId: M:LibGFX.Core.Game.OnFrameEnd
+  id: OnFrameEnd
+  parent: LibGFX.Core.Game
+  langs:
+  - csharp
+  - vb
+  name: OnFrameEnd()
+  nameWithType: Game.OnFrameEnd()
+  fullName: LibGFX.Core.Game.OnFrameEnd()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnFrameEnd
+    path: ../LibGFX/Core/Game.cs
+    startLine: 185
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called at the end of each frame for any necessary cleanup or state updates.
+  example: []
+  syntax:
+    content: public abstract void OnFrameEnd()
+    content.vb: Public MustOverride Sub OnFrameEnd()
+  overload: LibGFX.Core.Game.OnFrameEnd*
+- uid: LibGFX.Core.Game.Dispose
+  commentId: M:LibGFX.Core.Game.Dispose
+  id: Dispose
+  parent: LibGFX.Core.Game
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: Game.Dispose()
+  fullName: LibGFX.Core.Game.Dispose()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Game.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/Core/Game.cs
+    startLine: 190
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Disposes of game resources and performs cleanup.
+  example: []
+  syntax:
+    content: public abstract void Dispose()
+    content.vb: Public MustOverride Sub Dispose()
+  overload: LibGFX.Core.Game.Dispose*
+references:
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core.Game.Window*
+  commentId: Overload:LibGFX.Core.Game.Window
+  href: LibGFX.Core.Game.html#LibGFX_Core_Game_Window
+  name: Window
+  nameWithType: Game.Window
+  fullName: LibGFX.Core.Game.Window
+- uid: LibGFX.Core.Window
+  commentId: T:LibGFX.Core.Window
+  parent: LibGFX.Core
+  href: LibGFX.Core.Window.html
+  name: Window
+  nameWithType: Window
+  fullName: LibGFX.Core.Window
+- uid: LibGFX.Core.Game.Services*
+  commentId: Overload:LibGFX.Core.Game.Services
+  href: LibGFX.Core.Game.html#LibGFX_Core_Game_Services
+  name: Services
+  nameWithType: Game.Services
+  fullName: LibGFX.Core.Game.Services
+- uid: LibGFX.Core.ServiceContainer
+  commentId: T:LibGFX.Core.ServiceContainer
+  parent: LibGFX.Core
+  href: LibGFX.Core.ServiceContainer.html
+  name: ServiceContainer
+  nameWithType: ServiceContainer
+  fullName: LibGFX.Core.ServiceContainer
+- uid: LibGFX.Core.Game.AssetManager*
+  commentId: Overload:LibGFX.Core.Game.AssetManager
+  href: LibGFX.Core.Game.html#LibGFX_Core_Game_AssetManager
+  name: AssetManager
+  nameWithType: Game.AssetManager
+  fullName: LibGFX.Core.Game.AssetManager
+- uid: LibGFX.Assets.AssetManager
+  commentId: T:LibGFX.Assets.AssetManager
+  parent: LibGFX.Assets
+  href: LibGFX.Assets.AssetManager.html
+  name: AssetManager
+  nameWithType: AssetManager
+  fullName: LibGFX.Assets.AssetManager
+- uid: LibGFX.Assets
+  commentId: N:LibGFX.Assets
+  href: LibGFX.html
+  name: LibGFX.Assets
+  nameWithType: LibGFX.Assets
+  fullName: LibGFX.Assets
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+- uid: LibGFX.Core.Game.RenderDevice*
+  commentId: Overload:LibGFX.Core.Game.RenderDevice
+  href: LibGFX.Core.Game.html#LibGFX_Core_Game_RenderDevice
+  name: RenderDevice
+  nameWithType: Game.RenderDevice
+  fullName: LibGFX.Core.Game.RenderDevice
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Core.Game.Viewport*
+  commentId: Overload:LibGFX.Core.Game.Viewport
+  href: LibGFX.Core.Game.html#LibGFX_Core_Game_Viewport
+  name: Viewport
+  nameWithType: Game.Viewport
+  fullName: LibGFX.Core.Game.Viewport
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.Core.Game.TargetFrameRate*
+  commentId: Overload:LibGFX.Core.Game.TargetFrameRate
+  href: LibGFX.Core.Game.html#LibGFX_Core_Game_TargetFrameRate
+  name: TargetFrameRate
+  nameWithType: Game.TargetFrameRate
+  fullName: LibGFX.Core.Game.TargetFrameRate
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LibGFX.Core.Game.FreeCPUResources*
+  commentId: Overload:LibGFX.Core.Game.FreeCPUResources
+  href: LibGFX.Core.Game.html#LibGFX_Core_Game_FreeCPUResources
+  name: FreeCPUResources
+  nameWithType: Game.FreeCPUResources
+  fullName: LibGFX.Core.Game.FreeCPUResources
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Core.Game.#ctor*
+  commentId: Overload:LibGFX.Core.Game.#ctor
+  href: LibGFX.Core.Game.html#LibGFX_Core_Game__ctor
+  name: Game
+  nameWithType: Game.Game
+  fullName: LibGFX.Core.Game.Game
+  nameWithType.vb: Game.New
+  fullName.vb: LibGFX.Core.Game.New
+  name.vb: New
+- uid: LibGFX.Core.Game.Run*
+  commentId: Overload:LibGFX.Core.Game.Run
+  href: LibGFX.Core.Game.html#LibGFX_Core_Game_Run_LibGFX_Graphics_IRenderDevice_System_Int32_System_Int32_System_String_System_Boolean_LibGFX_Core_Window_WindowState_
+  name: Run
+  nameWithType: Game.Run
+  fullName: LibGFX.Core.Game.Run
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: LibGFX.Core.Window.WindowState
+  commentId: T:LibGFX.Core.Window.WindowState
+  parent: LibGFX.Core
+  href: LibGFX.Core.Window.html
+  name: Window.WindowState
+  nameWithType: Window.WindowState
+  fullName: LibGFX.Core.Window.WindowState
+  spec.csharp:
+  - uid: LibGFX.Core.Window
+    name: Window
+    href: LibGFX.Core.Window.html
+  - name: .
+  - uid: LibGFX.Core.Window.WindowState
+    name: WindowState
+    href: LibGFX.Core.Window.WindowState.html
+  spec.vb:
+  - uid: LibGFX.Core.Window
+    name: Window
+    href: LibGFX.Core.Window.html
+  - name: .
+  - uid: LibGFX.Core.Window.WindowState
+    name: WindowState
+    href: LibGFX.Core.Window.WindowState.html
+- uid: LibGFX.Core.Game.LoadContent*
+  commentId: Overload:LibGFX.Core.Game.LoadContent
+  href: LibGFX.Core.Game.html#LibGFX_Core_Game_LoadContent_LibGFX_Assets_AssetManager_
+  name: LoadContent
+  nameWithType: Game.LoadContent
+  fullName: LibGFX.Core.Game.LoadContent
+- uid: LibGFX.Core.Game.Initialize*
+  commentId: Overload:LibGFX.Core.Game.Initialize
+  href: LibGFX.Core.Game.html#LibGFX_Core_Game_Initialize_LibGFX_Graphics_IRenderDevice_
+  name: Initialize
+  nameWithType: Game.Initialize
+  fullName: LibGFX.Core.Game.Initialize
+- uid: LibGFX.Core.Game.OnStart*
+  commentId: Overload:LibGFX.Core.Game.OnStart
+  href: LibGFX.Core.Game.html#LibGFX_Core_Game_OnStart
+  name: OnStart
+  nameWithType: Game.OnStart
+  fullName: LibGFX.Core.Game.OnStart
+- uid: LibGFX.Core.Game.Update*
+  commentId: Overload:LibGFX.Core.Game.Update
+  href: LibGFX.Core.Game.html#LibGFX_Core_Game_Update_System_Single_
+  name: Update
+  nameWithType: Game.Update
+  fullName: LibGFX.Core.Game.Update
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Core.Game.Render*
+  commentId: Overload:LibGFX.Core.Game.Render
+  href: LibGFX.Core.Game.html#LibGFX_Core_Game_Render
+  name: Render
+  nameWithType: Game.Render
+  fullName: LibGFX.Core.Game.Render
+- uid: LibGFX.Core.Game.OnFrameEnd*
+  commentId: Overload:LibGFX.Core.Game.OnFrameEnd
+  href: LibGFX.Core.Game.html#LibGFX_Core_Game_OnFrameEnd
+  name: OnFrameEnd
+  nameWithType: Game.OnFrameEnd
+  fullName: LibGFX.Core.Game.OnFrameEnd
+- uid: LibGFX.Core.Game.Dispose*
+  commentId: Overload:LibGFX.Core.Game.Dispose
+  href: LibGFX.Core.Game.html#LibGFX_Core_Game_Dispose
+  name: Dispose
+  nameWithType: Game.Dispose
+  fullName: LibGFX.Core.Game.Dispose

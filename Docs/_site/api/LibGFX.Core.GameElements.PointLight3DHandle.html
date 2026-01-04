@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PointLight3DHandle | LibGFX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PointLight3DHandle | LibGFX ">
+      
+      <meta name="description" content="Represents a handle for a 3D point light within a game scene, providing management and synchronization of the light&#39;s position with its associated transform.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Core_GameElements_PointLight3DHandle.md&amp;value=---%0Auid%3A%20LibGFX.Core.GameElements.PointLight3DHandle%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="LibGFX">
+            LibGFX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LibGFX.Core.GameElements.PointLight3DHandle">
+
+
+
+  <h1 id="LibGFX_Core_GameElements_PointLight3DHandle" data-uid="LibGFX.Core.GameElements.PointLight3DHandle" class="text-break">
+Class PointLight3DHandle  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/PointLight3DHandle.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LibGFX.html">LibGFX</a>.<a class="xref" href="LibGFX.Core.html">Core</a>.<a class="xref" href="LibGFX.Core.GameElements.html">GameElements</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LibGFX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a handle for a 3D point light within a game scene, providing management and synchronization of the
+light's position with its associated transform.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class PointLight3DHandle : GameElement, IIdentifier, IPropertyTable, ISerialization</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a></div>
+      <div><span class="xref">PointLight3DHandle</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LibGFX.Core.IIdentifier.html">IIdentifier</a></div>
+      <div><a class="xref" href="LibGFX.Core.IPropertyTable.html">IPropertyTable</a></div>
+      <div><a class="xref" href="LibGFX.Core.ISerialization.html">ISerialization</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Name">GameElement.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Transform">GameElement.Transform</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Visible">GameElement.Visible</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Enabled">GameElement.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_CastShadows">GameElement.CastShadows</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_ID">GameElement.ID</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Parent">GameElement.Parent</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Behaviors">GameElement.Behaviors</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Tags">GameElement.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AABB">GameElement.AABB</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_WorldAABB">GameElement.WorldAABB</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Children">GameElement.Children</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Properties">GameElement.Properties</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddChild_LibGFX_Core_GameElement_">GameElement.AddChild(GameElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Render_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_">GameElement.Render(BaseScene, Viewport, IRenderDevice, Camera)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_RenderShadow_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_">GameElement.RenderShadow(BaseScene, Viewport, IRenderDevice)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Update_LibGFX_Core_BaseScene_System_Single_">GameElement.Update(BaseScene, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Collide_LibGFX_Physics_Collision_">GameElement.Collide(Collision)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddBehavior__1___0_">GameElement.AddBehavior&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetBehavior__1">GameElement.GetBehavior&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddTag_System_String_">GameElement.AddTag(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_RemoveTag_System_String_">GameElement.RemoveTag(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_HasTag_System_String_">GameElement.HasTag(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetMeshes">GameElement.GetMeshes()</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetWorldAABB">GameElement.GetWorldAABB()</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetWorldTransform">GameElement.GetWorldTransform()</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChild__1">GameElement.FindChild&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChildren__1">GameElement.FindChildren&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChild__1_System_String_">GameElement.FindChild&lt;T&gt;(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChildren__1_System_String_">GameElement.FindChildren&lt;T&gt;(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="LibGFX_Core_GameElements_PointLight3DHandle_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Use this class to control a point light's placement and lifecycle in a 3D environment. The
+light's position is automatically updated when the transform changes. Dispose of the handle when the light is no
+longer needed to release resources and detach event handlers.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LibGFX_Core_GameElements_PointLight3DHandle__ctor_" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.#ctor*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_PointLight3DHandle__ctor" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.#ctor">
+  PointLight3DHandle()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/PointLight3DHandle.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the PointLight3DHandle class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PointLight3DHandle()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_PointLight3DHandle__ctor_" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.#ctor*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_PointLight3DHandle__ctor_System_String_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector4_System_Single_System_Single_" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.#ctor(System.String,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector4,System.Single,System.Single)">
+  PointLight3DHandle(string, Vector3, Vector4, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/PointLight3DHandle.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the PointLight3DHandle class with the specified name, position, color, range,
+and intensity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PointLight3DHandle(string name, Vector3 position, Vector4 color, float range = 10, float intesity = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unique name used to identify the point light instance.</p>
+</dd>
+    <dt><code>position</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd><p>The position of the point light in 3D space.</p>
+</dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd><p>The color of the point light, including its alpha component.</p>
+</dd>
+    <dt><code>range</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The effective range of the point light, in world units. Must be greater than zero.</p>
+</dd>
+    <dt><code>intesity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The intensity of the point light. Must be a non-negative value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_GameElements_PointLight3DHandle__ctor_System_String_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector4_System_Single_System_Single__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If no transform is assigned, a new Transform is created and initialized with the
+specified position. The transform's Changed event is automatically subscribed to for internal
+updates.
+This class adds the point light to the scene and manages its lifecycle, including disposal of resources</p>
+</div>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LibGFX_Core_GameElements_PointLight3DHandle_HasTransparency_" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.HasTransparency*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_PointLight3DHandle_HasTransparency" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.HasTransparency">
+  HasTransparency
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/PointLight3DHandle.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the image contains any transparent pixels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool HasTransparency { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_PointLight3DHandle_LightSource_" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.LightSource*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_PointLight3DHandle_LightSource" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.LightSource">
+  LightSource
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/PointLight3DHandle.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the point light source used for 3D scene illumination.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PointLight3D LightSource { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Lights.PointLight3D.html">PointLight3D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_GameElements_PointLight3DHandle_LightSource_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Changing this property affects how objects in the scene are lit and how shadows are
+rendered. The light source position and intensity determine the appearance of lighting effects.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LibGFX_Core_GameElements_PointLight3DHandle_ComputeAABB_" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.ComputeAABB*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_PointLight3DHandle_ComputeAABB" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.ComputeAABB">
+  ComputeAABB()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/PointLight3DHandle.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates and updates the axis-aligned bounding box (AABB) for the current light source based on its
+position and range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ComputeAABB()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_GameElements_PointLight3DHandle_ComputeAABB_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method sets the AABB property to encompass the area affected by the light
+source. Call this method after modifying the light source's position or range to ensure the bounding box
+remains accurate.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Core_GameElements_PointLight3DHandle_Deserialize_" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.Deserialize*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_PointLight3DHandle_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})">
+  Deserialize(JObject, SerializationContext, Func&lt;JObject, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/PointLight3DHandle.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deserializes the object from a JSON representation, restoring its state including the associated light source.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Deserialize(JObject obj, SerializationContext serializationContext, Func&lt;JObject, bool&gt; callback = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+    <dt><code>serializationContext</code> <a class="xref" href="LibGFX.Core.SerializationContext.html">SerializationContext</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">JObject</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="LibGFX_Core_GameElements_PointLight3DHandle_Dispose_" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.Dispose*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_PointLight3DHandle_Dispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.Dispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)">
+  Dispose(BaseScene, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/PointLight3DHandle.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Releases resources used by the object and detaches event handlers associated with the specified scene and
+render device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Dispose(BaseScene scene, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a></dt>
+    <dd><p>The scene context for which resources should be released.</p>
+</dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd><p>The render device associated with the scene that is used for resource management.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_PointLight3DHandle_Init_" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.Init*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_PointLight3DHandle_Init_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.Init(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)">
+  Init(BaseScene, Viewport, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/PointLight3DHandle.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the game element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_PointLight3DHandle_Serialize_" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.Serialize*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_PointLight3DHandle_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__" data-uid="LibGFX.Core.GameElements.PointLight3DHandle.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})">
+  Serialize(JsonWriter, SerializationContext, Action&lt;JsonWriter&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/PointLight3DHandle.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serializes the current object to a JSON representation, including type and light source information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action&lt;JsonWriter&gt; callback = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
+    <dd></dd>
+    <dt><code>serializationContext</code> <a class="xref" href="LibGFX.Core.SerializationContext.html">SerializationContext</a></dt>
+    <dd><p>The context that provides settings and state for the serialization process.</p>
+</dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">JsonWriter</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/PointLight3DHandle.cs/#L25" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

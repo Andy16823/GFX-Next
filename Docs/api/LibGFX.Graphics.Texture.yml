@@ -1,0 +1,2100 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Texture
+  commentId: T:LibGFX.Graphics.Texture
+  id: Texture
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.Texture.#ctor
+  - LibGFX.Graphics.Texture.#ctor(System.Int32,System.Int32,OpenTK.Mathematics.Vector4i)
+  - LibGFX.Graphics.Texture.#ctor(System.Int32,System.Int32,System.Byte[])
+  - LibGFX.Graphics.Texture.#ctor(System.String)
+  - LibGFX.Graphics.Texture.Copy
+  - LibGFX.Graphics.Texture.DefaultUVScale
+  - LibGFX.Graphics.Texture.DefaultUVTransform
+  - LibGFX.Graphics.Texture.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  - LibGFX.Graphics.Texture.Dispose(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.Texture.FreeCPUResources
+  - LibGFX.Graphics.Texture.GetSafeUVTransform(System.Single,System.Single,System.Single,System.Single)
+  - LibGFX.Graphics.Texture.GetSubImage(LibGFX.Math.Rect)
+  - LibGFX.Graphics.Texture.GetSubImage(System.Single,System.Single,System.Single,System.Single)
+  - LibGFX.Graphics.Texture.HasAlpha
+  - LibGFX.Graphics.Texture.Height
+  - LibGFX.Graphics.Texture.ID
+  - LibGFX.Graphics.Texture.Init(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.Texture.IsInitialized
+  - LibGFX.Graphics.Texture.MirrorUVTransform(OpenTK.Mathematics.Vector4,LibGFX.Graphics.TextureMirrorMode)
+  - LibGFX.Graphics.Texture.Name
+  - LibGFX.Graphics.Texture.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  - LibGFX.Graphics.Texture.TextureData
+  - LibGFX.Graphics.Texture.TextureId
+  - LibGFX.Graphics.Texture.TextureParameters
+  - LibGFX.Graphics.Texture.ToBitmap
+  - LibGFX.Graphics.Texture.Width
+  langs:
+  - csharp
+  - vb
+  name: Texture
+  nameWithType: Texture
+  fullName: LibGFX.Graphics.Texture
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Texture
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 36
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Represents a texture that can be used in rendering.
+  example: []
+  syntax:
+    content: 'public class Texture : IGraphicsResource, ISerialization, IIdentifier'
+    content.vb: Public Class Texture Implements IGraphicsResource, ISerialization, IIdentifier
+  inheritance:
+  - System.Object
+  implements:
+  - LibGFX.Core.IGraphicsResource
+  - LibGFX.Core.ISerialization
+  - LibGFX.Core.IIdentifier
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Graphics.Texture.Name
+  commentId: P:LibGFX.Graphics.Texture.Name
+  id: Name
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Texture.Name
+  fullName: LibGFX.Graphics.Texture.Name
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Name
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 41
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: ''
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: LibGFX.Graphics.Texture.Name*
+  implements:
+  - LibGFX.Core.IIdentifier.Name
+- uid: LibGFX.Graphics.Texture.ID
+  commentId: P:LibGFX.Graphics.Texture.ID
+  id: ID
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: Texture.ID
+  fullName: LibGFX.Graphics.Texture.ID
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ID
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 46
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Gets the unique identifier for this instance.
+  example: []
+  syntax:
+    content: public Guid ID { get; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property ID As Guid
+  overload: LibGFX.Graphics.Texture.ID*
+  implements:
+  - LibGFX.Core.IIdentifier.ID
+- uid: LibGFX.Graphics.Texture.TextureId
+  commentId: P:LibGFX.Graphics.Texture.TextureId
+  id: TextureId
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: TextureId
+  nameWithType: Texture.TextureId
+  fullName: LibGFX.Graphics.Texture.TextureId
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureId
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 51
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: The unique identifier for the texture.
+  example: []
+  syntax:
+    content: public int TextureId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TextureId As Integer
+  overload: LibGFX.Graphics.Texture.TextureId*
+- uid: LibGFX.Graphics.Texture.TextureData
+  commentId: P:LibGFX.Graphics.Texture.TextureData
+  id: TextureData
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: TextureData
+  nameWithType: Texture.TextureData
+  fullName: LibGFX.Graphics.Texture.TextureData
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureData
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 56
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: The raw texture data in RGBA format.
+  example: []
+  syntax:
+    content: public byte[]? TextureData { get; set; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: Public Property TextureData As Byte()
+  overload: LibGFX.Graphics.Texture.TextureData*
+- uid: LibGFX.Graphics.Texture.Width
+  commentId: P:LibGFX.Graphics.Texture.Width
+  id: Width
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: Width
+  nameWithType: Texture.Width
+  fullName: LibGFX.Graphics.Texture.Width
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Width
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 61
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: The width of the texture in pixels.
+  example: []
+  syntax:
+    content: public int Width { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Width As Integer
+  overload: LibGFX.Graphics.Texture.Width*
+- uid: LibGFX.Graphics.Texture.Height
+  commentId: P:LibGFX.Graphics.Texture.Height
+  id: Height
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: Height
+  nameWithType: Texture.Height
+  fullName: LibGFX.Graphics.Texture.Height
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Height
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 66
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: The height of the texture in pixels.
+  example: []
+  syntax:
+    content: public int Height { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Height As Integer
+  overload: LibGFX.Graphics.Texture.Height*
+- uid: LibGFX.Graphics.Texture.IsInitialized
+  commentId: P:LibGFX.Graphics.Texture.IsInitialized
+  id: IsInitialized
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: IsInitialized
+  nameWithType: Texture.IsInitialized
+  fullName: LibGFX.Graphics.Texture.IsInitialized
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IsInitialized
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 71
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Gets a value indicating whether the object has been initialized.
+  example: []
+  syntax:
+    content: public bool IsInitialized { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsInitialized As Boolean
+  overload: LibGFX.Graphics.Texture.IsInitialized*
+  implements:
+  - LibGFX.Core.IGraphicsResource.IsInitialized
+- uid: LibGFX.Graphics.Texture.HasAlpha
+  commentId: P:LibGFX.Graphics.Texture.HasAlpha
+  id: HasAlpha
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: HasAlpha
+  nameWithType: Texture.HasAlpha
+  fullName: LibGFX.Graphics.Texture.HasAlpha
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: HasAlpha
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 76
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Gets or sets a value indicating whether the image contains an alpha (transparency) channel.
+  example: []
+  syntax:
+    content: public bool HasAlpha { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property HasAlpha As Boolean
+  overload: LibGFX.Graphics.Texture.HasAlpha*
+- uid: LibGFX.Graphics.Texture.DefaultUVTransform
+  commentId: F:LibGFX.Graphics.Texture.DefaultUVTransform
+  id: DefaultUVTransform
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: DefaultUVTransform
+  nameWithType: Texture.DefaultUVTransform
+  fullName: LibGFX.Graphics.Texture.DefaultUVTransform
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DefaultUVTransform
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 82
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: >-
+    The default UV transform for a texture.
+
+    Scale: (1.0, 1.0), Offset: (0.0, 0.0)
+  example: []
+  syntax:
+    content: public static readonly Vector4 DefaultUVTransform
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly DefaultUVTransform As Vector4
+- uid: LibGFX.Graphics.Texture.DefaultUVScale
+  commentId: F:LibGFX.Graphics.Texture.DefaultUVScale
+  id: DefaultUVScale
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: DefaultUVScale
+  nameWithType: Texture.DefaultUVScale
+  fullName: LibGFX.Graphics.Texture.DefaultUVScale
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DefaultUVScale
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 88
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: >-
+    The default UV scale for a texture.
+
+    Value: (1.0, 1.0)
+  example: []
+  syntax:
+    content: public static readonly Vector2 DefaultUVScale
+    return:
+      type: OpenTK.Mathematics.Vector2
+    content.vb: Public Shared ReadOnly DefaultUVScale As Vector2
+- uid: LibGFX.Graphics.Texture.TextureParameters
+  commentId: P:LibGFX.Graphics.Texture.TextureParameters
+  id: TextureParameters
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: TextureParameters
+  nameWithType: Texture.TextureParameters
+  fullName: LibGFX.Graphics.Texture.TextureParameters
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureParameters
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 94
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: >-
+    Gets or sets the parameters used to configure texture sampling and filtering.
+
+    Must be set before initializing the texture with a render device.
+  example: []
+  syntax:
+    content: public TextureParameters TextureParameters { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.TextureParameters
+    content.vb: Public Property TextureParameters As TextureParameters
+  overload: LibGFX.Graphics.Texture.TextureParameters*
+- uid: LibGFX.Graphics.Texture.#ctor
+  commentId: M:LibGFX.Graphics.Texture.#ctor
+  id: '#ctor'
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: Texture()
+  nameWithType: Texture.Texture()
+  fullName: LibGFX.Graphics.Texture.Texture()
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 102
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Initializes a new instance of the <xref href="LibGFX.Graphics.Texture" data-throw-if-not-resolved="false"></xref> class with default values.
+  example: []
+  syntax:
+    content: public Texture()
+    content.vb: Public Sub New()
+  overload: LibGFX.Graphics.Texture.#ctor*
+  nameWithType.vb: Texture.New()
+  fullName.vb: LibGFX.Graphics.Texture.New()
+  name.vb: New()
+- uid: LibGFX.Graphics.Texture.#ctor(System.Int32,System.Int32,OpenTK.Mathematics.Vector4i)
+  commentId: M:LibGFX.Graphics.Texture.#ctor(System.Int32,System.Int32,OpenTK.Mathematics.Vector4i)
+  id: '#ctor(System.Int32,System.Int32,OpenTK.Mathematics.Vector4i)'
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: Texture(int, int, Vector4i)
+  nameWithType: Texture.Texture(int, int, Vector4i)
+  fullName: LibGFX.Graphics.Texture.Texture(int, int, OpenTK.Mathematics.Vector4i)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 116
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Initializes a new instance of the <xref href="LibGFX.Graphics.Texture" data-throw-if-not-resolved="false"></xref> class with specified width, height, and solid color.
+  example: []
+  syntax:
+    content: public Texture(int widt, int height, Vector4i color)
+    parameters:
+    - id: widt
+      type: System.Int32
+      description: ''
+    - id: height
+      type: System.Int32
+      description: ''
+    - id: color
+      type: OpenTK.Mathematics.Vector4i
+      description: ''
+    content.vb: Public Sub New(widt As Integer, height As Integer, color As Vector4i)
+  overload: LibGFX.Graphics.Texture.#ctor*
+  nameWithType.vb: Texture.New(Integer, Integer, Vector4i)
+  fullName.vb: LibGFX.Graphics.Texture.New(Integer, Integer, OpenTK.Mathematics.Vector4i)
+  name.vb: New(Integer, Integer, Vector4i)
+- uid: LibGFX.Graphics.Texture.#ctor(System.Int32,System.Int32,System.Byte[])
+  commentId: M:LibGFX.Graphics.Texture.#ctor(System.Int32,System.Int32,System.Byte[])
+  id: '#ctor(System.Int32,System.Int32,System.Byte[])'
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: Texture(int, int, byte[])
+  nameWithType: Texture.Texture(int, int, byte[])
+  fullName: LibGFX.Graphics.Texture.Texture(int, int, byte[])
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 131
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Initializes a new instance of the <xref href="LibGFX.Graphics.Texture" data-throw-if-not-resolved="false"></xref> class with specified width, height, and raw pixel data in RGBA format.
+  example: []
+  syntax:
+    content: public Texture(int width, int height, byte[] pixeldata)
+    parameters:
+    - id: width
+      type: System.Int32
+      description: ''
+    - id: height
+      type: System.Int32
+      description: ''
+    - id: pixeldata
+      type: System.Byte[]
+      description: ''
+    content.vb: Public Sub New(width As Integer, height As Integer, pixeldata As Byte())
+  overload: LibGFX.Graphics.Texture.#ctor*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: ''
+  nameWithType.vb: Texture.New(Integer, Integer, Byte())
+  fullName.vb: LibGFX.Graphics.Texture.New(Integer, Integer, Byte())
+  name.vb: New(Integer, Integer, Byte())
+- uid: LibGFX.Graphics.Texture.#ctor(System.String)
+  commentId: M:LibGFX.Graphics.Texture.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: Texture(string)
+  nameWithType: Texture.Texture(string)
+  fullName: LibGFX.Graphics.Texture.Texture(string)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 146
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Initializes a new instance of the <xref href="LibGFX.Graphics.Texture" data-throw-if-not-resolved="false"></xref> class by loading texture data from a file path.
+  example: []
+  syntax:
+    content: public Texture(string path)
+    parameters:
+    - id: path
+      type: System.String
+      description: ''
+    content.vb: Public Sub New(path As String)
+  overload: LibGFX.Graphics.Texture.#ctor*
+  nameWithType.vb: Texture.New(String)
+  fullName.vb: LibGFX.Graphics.Texture.New(String)
+  name.vb: New(String)
+- uid: LibGFX.Graphics.Texture.GetSubImage(LibGFX.Math.Rect)
+  commentId: M:LibGFX.Graphics.Texture.GetSubImage(LibGFX.Math.Rect)
+  id: GetSubImage(LibGFX.Math.Rect)
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: GetSubImage(Rect)
+  nameWithType: Texture.GetSubImage(Rect)
+  fullName: LibGFX.Graphics.Texture.GetSubImage(LibGFX.Math.Rect)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetSubImage
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 166
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Get the UV transform for a given area of the texture.
+  example: []
+  syntax:
+    content: public Vector4 GetSubImage(Rect area)
+    parameters:
+    - id: area
+      type: LibGFX.Math.Rect
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector4
+      description: ''
+    content.vb: Public Function GetSubImage(area As Rect) As Vector4
+  overload: LibGFX.Graphics.Texture.GetSubImage*
+- uid: LibGFX.Graphics.Texture.GetSubImage(System.Single,System.Single,System.Single,System.Single)
+  commentId: M:LibGFX.Graphics.Texture.GetSubImage(System.Single,System.Single,System.Single,System.Single)
+  id: GetSubImage(System.Single,System.Single,System.Single,System.Single)
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: GetSubImage(float, float, float, float)
+  nameWithType: Texture.GetSubImage(float, float, float, float)
+  fullName: LibGFX.Graphics.Texture.GetSubImage(float, float, float, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetSubImage
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 179
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Gets the sub-image UV transforms for a specified area of the texture.
+  example: []
+  syntax:
+    content: public Vector4 GetSubImage(float x, float y, float width, float height)
+    parameters:
+    - id: x
+      type: System.Single
+      description: ''
+    - id: y
+      type: System.Single
+      description: ''
+    - id: width
+      type: System.Single
+      description: ''
+    - id: height
+      type: System.Single
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector4
+      description: ''
+    content.vb: Public Function GetSubImage(x As Single, y As Single, width As Single, height As Single) As Vector4
+  overload: LibGFX.Graphics.Texture.GetSubImage*
+  nameWithType.vb: Texture.GetSubImage(Single, Single, Single, Single)
+  fullName.vb: LibGFX.Graphics.Texture.GetSubImage(Single, Single, Single, Single)
+  name.vb: GetSubImage(Single, Single, Single, Single)
+- uid: LibGFX.Graphics.Texture.GetSafeUVTransform(System.Single,System.Single,System.Single,System.Single)
+  commentId: M:LibGFX.Graphics.Texture.GetSafeUVTransform(System.Single,System.Single,System.Single,System.Single)
+  id: GetSafeUVTransform(System.Single,System.Single,System.Single,System.Single)
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: GetSafeUVTransform(float, float, float, float)
+  nameWithType: Texture.GetSafeUVTransform(float, float, float, float)
+  fullName: LibGFX.Graphics.Texture.GetSafeUVTransform(float, float, float, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetSafeUVTransform
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 198
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: >-
+    Get a safe UV transform for a given area of the texture, avoiding edge artifacts.
+
+    Used for tilemaps and similar scenarios where you want to avoid sampling the edges of the texture.
+  example: []
+  syntax:
+    content: public Vector4 GetSafeUVTransform(float x, float y, float width, float height)
+    parameters:
+    - id: x
+      type: System.Single
+      description: ''
+    - id: y
+      type: System.Single
+      description: ''
+    - id: width
+      type: System.Single
+      description: ''
+    - id: height
+      type: System.Single
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector4
+      description: ''
+    content.vb: Public Function GetSafeUVTransform(x As Single, y As Single, width As Single, height As Single) As Vector4
+  overload: LibGFX.Graphics.Texture.GetSafeUVTransform*
+  nameWithType.vb: Texture.GetSafeUVTransform(Single, Single, Single, Single)
+  fullName.vb: LibGFX.Graphics.Texture.GetSafeUVTransform(Single, Single, Single, Single)
+  name.vb: GetSafeUVTransform(Single, Single, Single, Single)
+- uid: LibGFX.Graphics.Texture.MirrorUVTransform(OpenTK.Mathematics.Vector4,LibGFX.Graphics.TextureMirrorMode)
+  commentId: M:LibGFX.Graphics.Texture.MirrorUVTransform(OpenTK.Mathematics.Vector4,LibGFX.Graphics.TextureMirrorMode)
+  id: MirrorUVTransform(OpenTK.Mathematics.Vector4,LibGFX.Graphics.TextureMirrorMode)
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: MirrorUVTransform(Vector4, TextureMirrorMode)
+  nameWithType: Texture.MirrorUVTransform(Vector4, TextureMirrorMode)
+  fullName: LibGFX.Graphics.Texture.MirrorUVTransform(OpenTK.Mathematics.Vector4, LibGFX.Graphics.TextureMirrorMode)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MirrorUVTransform
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 218
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Mirror the UV transform based on the specified mirror mode.
+  example: []
+  syntax:
+    content: public static Vector4 MirrorUVTransform(Vector4 uvTransform, TextureMirrorMode mode)
+    parameters:
+    - id: uvTransform
+      type: OpenTK.Mathematics.Vector4
+      description: ''
+    - id: mode
+      type: LibGFX.Graphics.TextureMirrorMode
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector4
+      description: ''
+    content.vb: Public Shared Function MirrorUVTransform(uvTransform As Vector4, mode As TextureMirrorMode) As Vector4
+  overload: LibGFX.Graphics.Texture.MirrorUVTransform*
+- uid: LibGFX.Graphics.Texture.ToBitmap
+  commentId: M:LibGFX.Graphics.Texture.ToBitmap
+  id: ToBitmap
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: ToBitmap()
+  nameWithType: Texture.ToBitmap()
+  fullName: LibGFX.Graphics.Texture.ToBitmap()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ToBitmap
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 245
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Convert the texture data to a Bitmap.
+  example: []
+  syntax:
+    content: public Bitmap ToBitmap()
+    return:
+      type: System.Drawing.Bitmap
+      description: ''
+    content.vb: Public Function ToBitmap() As Bitmap
+  overload: LibGFX.Graphics.Texture.ToBitmap*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: ''
+- uid: LibGFX.Graphics.Texture.Copy
+  commentId: M:LibGFX.Graphics.Texture.Copy
+  id: Copy
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: Copy()
+  nameWithType: Texture.Copy()
+  fullName: LibGFX.Graphics.Texture.Copy()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Copy
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 287
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Creates a copy of the texture.
+  example: []
+  syntax:
+    content: public Texture Copy()
+    return:
+      type: LibGFX.Graphics.Texture
+      description: ''
+    content.vb: Public Function Copy() As Texture
+  overload: LibGFX.Graphics.Texture.Copy*
+- uid: LibGFX.Graphics.Texture.Init(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Texture.Init(LibGFX.Graphics.IRenderDevice)
+  id: Init(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: Init(IRenderDevice)
+  nameWithType: Texture.Init(IRenderDevice)
+  fullName: LibGFX.Graphics.Texture.Init(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Init
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 309
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Initializes the texture with the specified render device.
+  example: []
+  syntax:
+    content: public void Init(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Sub Init(renderer As IRenderDevice)
+  overload: LibGFX.Graphics.Texture.Init*
+  implements:
+  - LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.Texture.FreeCPUResources
+  commentId: M:LibGFX.Graphics.Texture.FreeCPUResources
+  id: FreeCPUResources
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: FreeCPUResources()
+  nameWithType: Texture.FreeCPUResources()
+  fullName: LibGFX.Graphics.Texture.FreeCPUResources()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FreeCPUResources
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 319
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Frees the CPU resources used by the texture.
+  example: []
+  syntax:
+    content: public void FreeCPUResources()
+    content.vb: Public Sub FreeCPUResources()
+  overload: LibGFX.Graphics.Texture.FreeCPUResources*
+  implements:
+  - LibGFX.Core.IGraphicsResource.FreeCPUResources
+- uid: LibGFX.Graphics.Texture.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Texture.Dispose(LibGFX.Graphics.IRenderDevice)
+  id: Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: Dispose(IRenderDevice)
+  nameWithType: Texture.Dispose(IRenderDevice)
+  fullName: LibGFX.Graphics.Texture.Dispose(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 332
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Frees resources used by the texture within the gpu.
+  example: []
+  syntax:
+    content: public void Dispose(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Sub Dispose(renderer As IRenderDevice)
+  overload: LibGFX.Graphics.Texture.Dispose*
+  implements:
+  - LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.Texture.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Graphics.Texture.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  id: Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: Texture.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Graphics.Texture.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Serialize
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 377
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Serializes the texture to JSON.
+  example: []
+  syntax:
+    content: public void Serialize(JsonWriter writer, SerializationContext context, Action<JsonWriter> callback = null)
+    parameters:
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+      description: ''
+    - id: context
+      type: LibGFX.Core.SerializationContext
+      description: ''
+    - id: callback
+      type: System.Action{Newtonsoft.Json.JsonWriter}
+      description: ''
+    content.vb: Public Sub Serialize(writer As JsonWriter, context As SerializationContext, callback As Action(Of JsonWriter) = Nothing)
+  overload: LibGFX.Graphics.Texture.Serialize*
+  implements:
+  - LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  nameWithType.vb: Texture.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Graphics.Texture.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+- uid: LibGFX.Graphics.Texture.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Graphics.Texture.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  id: Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Graphics.Texture
+  langs:
+  - csharp
+  - vb
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: Texture.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Graphics.Texture.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Deserialize
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 421
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Constructs the texture from JSON data.
+  example: []
+  syntax:
+    content: public void Deserialize(JObject obj, SerializationContext context, Func<JObject, bool> callback = null)
+    parameters:
+    - id: obj
+      type: Newtonsoft.Json.Linq.JObject
+    - id: context
+      type: LibGFX.Core.SerializationContext
+      description: ''
+    - id: callback
+      type: System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+      description: ''
+    content.vb: Public Sub Deserialize(obj As JObject, context As SerializationContext, callback As Func(Of JObject, Boolean) = Nothing)
+  overload: LibGFX.Graphics.Texture.Deserialize*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: ''
+  - type: Newtonsoft.Json.JsonException
+    commentId: T:Newtonsoft.Json.JsonException
+    description: ''
+  implements:
+  - LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  nameWithType.vb: Texture.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Graphics.Texture.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Core.IGraphicsResource
+  commentId: T:LibGFX.Core.IGraphicsResource
+  parent: LibGFX.Core
+  href: LibGFX.Core.IGraphicsResource.html
+  name: IGraphicsResource
+  nameWithType: IGraphicsResource
+  fullName: LibGFX.Core.IGraphicsResource
+- uid: LibGFX.Core.ISerialization
+  commentId: T:LibGFX.Core.ISerialization
+  parent: LibGFX.Core
+  href: LibGFX.Core.ISerialization.html
+  name: ISerialization
+  nameWithType: ISerialization
+  fullName: LibGFX.Core.ISerialization
+- uid: LibGFX.Core.IIdentifier
+  commentId: T:LibGFX.Core.IIdentifier
+  parent: LibGFX.Core
+  href: LibGFX.Core.IIdentifier.html
+  name: IIdentifier
+  nameWithType: IIdentifier
+  fullName: LibGFX.Core.IIdentifier
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Graphics.Texture.Name*
+  commentId: Overload:LibGFX.Graphics.Texture.Name
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_Name
+  name: Name
+  nameWithType: Texture.Name
+  fullName: LibGFX.Graphics.Texture.Name
+- uid: LibGFX.Core.IIdentifier.Name
+  commentId: P:LibGFX.Core.IIdentifier.Name
+  parent: LibGFX.Core.IIdentifier
+  href: LibGFX.Core.IIdentifier.html#LibGFX_Core_IIdentifier_Name
+  name: Name
+  nameWithType: IIdentifier.Name
+  fullName: LibGFX.Core.IIdentifier.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: LibGFX.Graphics.Texture.ID*
+  commentId: Overload:LibGFX.Graphics.Texture.ID
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_ID
+  name: ID
+  nameWithType: Texture.ID
+  fullName: LibGFX.Graphics.Texture.ID
+- uid: LibGFX.Core.IIdentifier.ID
+  commentId: P:LibGFX.Core.IIdentifier.ID
+  parent: LibGFX.Core.IIdentifier
+  href: LibGFX.Core.IIdentifier.html#LibGFX_Core_IIdentifier_ID
+  name: ID
+  nameWithType: IIdentifier.ID
+  fullName: LibGFX.Core.IIdentifier.ID
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: LibGFX.Graphics.Texture.TextureId*
+  commentId: Overload:LibGFX.Graphics.Texture.TextureId
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_TextureId
+  name: TextureId
+  nameWithType: Texture.TextureId
+  fullName: LibGFX.Graphics.Texture.TextureId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LibGFX.Graphics.Texture.TextureData*
+  commentId: Overload:LibGFX.Graphics.Texture.TextureData
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_TextureData
+  name: TextureData
+  nameWithType: Texture.TextureData
+  fullName: LibGFX.Graphics.Texture.TextureData
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Texture.Width*
+  commentId: Overload:LibGFX.Graphics.Texture.Width
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_Width
+  name: Width
+  nameWithType: Texture.Width
+  fullName: LibGFX.Graphics.Texture.Width
+- uid: LibGFX.Graphics.Texture.Height*
+  commentId: Overload:LibGFX.Graphics.Texture.Height
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_Height
+  name: Height
+  nameWithType: Texture.Height
+  fullName: LibGFX.Graphics.Texture.Height
+- uid: LibGFX.Graphics.Texture.IsInitialized*
+  commentId: Overload:LibGFX.Graphics.Texture.IsInitialized
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_IsInitialized
+  name: IsInitialized
+  nameWithType: Texture.IsInitialized
+  fullName: LibGFX.Graphics.Texture.IsInitialized
+- uid: LibGFX.Core.IGraphicsResource.IsInitialized
+  commentId: P:LibGFX.Core.IGraphicsResource.IsInitialized
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_IsInitialized
+  name: IsInitialized
+  nameWithType: IGraphicsResource.IsInitialized
+  fullName: LibGFX.Core.IGraphicsResource.IsInitialized
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Graphics.Texture.HasAlpha*
+  commentId: Overload:LibGFX.Graphics.Texture.HasAlpha
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_HasAlpha
+  name: HasAlpha
+  nameWithType: Texture.HasAlpha
+  fullName: LibGFX.Graphics.Texture.HasAlpha
+- uid: OpenTK.Mathematics.Vector4
+  commentId: T:OpenTK.Mathematics.Vector4
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs
+  name: Vector4
+  nameWithType: Vector4
+  fullName: OpenTK.Mathematics.Vector4
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: LibGFX.Graphics.Texture.TextureParameters*
+  commentId: Overload:LibGFX.Graphics.Texture.TextureParameters
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_TextureParameters
+  name: TextureParameters
+  nameWithType: Texture.TextureParameters
+  fullName: LibGFX.Graphics.Texture.TextureParameters
+- uid: LibGFX.Graphics.TextureParameters
+  commentId: T:LibGFX.Graphics.TextureParameters
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.TextureParameters.html
+  name: TextureParameters
+  nameWithType: TextureParameters
+  fullName: LibGFX.Graphics.TextureParameters
+- uid: LibGFX.Graphics.Texture
+  commentId: T:LibGFX.Graphics.Texture
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Texture.html
+  name: Texture
+  nameWithType: Texture
+  fullName: LibGFX.Graphics.Texture
+- uid: LibGFX.Graphics.Texture.#ctor*
+  commentId: Overload:LibGFX.Graphics.Texture.#ctor
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture__ctor
+  name: Texture
+  nameWithType: Texture.Texture
+  fullName: LibGFX.Graphics.Texture.Texture
+  nameWithType.vb: Texture.New
+  fullName.vb: LibGFX.Graphics.Texture.New
+  name.vb: New
+- uid: OpenTK.Mathematics.Vector4i
+  commentId: T:OpenTK.Mathematics.Vector4i
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4i.cs
+  name: Vector4i
+  nameWithType: Vector4i
+  fullName: OpenTK.Mathematics.Vector4i
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: LibGFX.Graphics.Texture.GetSubImage*
+  commentId: Overload:LibGFX.Graphics.Texture.GetSubImage
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_GetSubImage_LibGFX_Math_Rect_
+  name: GetSubImage
+  nameWithType: Texture.GetSubImage
+  fullName: LibGFX.Graphics.Texture.GetSubImage
+- uid: LibGFX.Math.Rect
+  commentId: T:LibGFX.Math.Rect
+  parent: LibGFX.Math
+  href: LibGFX.Math.Rect.html
+  name: Rect
+  nameWithType: Rect
+  fullName: LibGFX.Math.Rect
+- uid: LibGFX.Math
+  commentId: N:LibGFX.Math
+  href: LibGFX.html
+  name: LibGFX.Math
+  nameWithType: LibGFX.Math
+  fullName: LibGFX.Math
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Graphics.Texture.GetSafeUVTransform*
+  commentId: Overload:LibGFX.Graphics.Texture.GetSafeUVTransform
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_GetSafeUVTransform_System_Single_System_Single_System_Single_System_Single_
+  name: GetSafeUVTransform
+  nameWithType: Texture.GetSafeUVTransform
+  fullName: LibGFX.Graphics.Texture.GetSafeUVTransform
+- uid: LibGFX.Graphics.Texture.MirrorUVTransform*
+  commentId: Overload:LibGFX.Graphics.Texture.MirrorUVTransform
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_MirrorUVTransform_OpenTK_Mathematics_Vector4_LibGFX_Graphics_TextureMirrorMode_
+  name: MirrorUVTransform
+  nameWithType: Texture.MirrorUVTransform
+  fullName: LibGFX.Graphics.Texture.MirrorUVTransform
+- uid: LibGFX.Graphics.TextureMirrorMode
+  commentId: T:LibGFX.Graphics.TextureMirrorMode
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.TextureMirrorMode.html
+  name: TextureMirrorMode
+  nameWithType: TextureMirrorMode
+  fullName: LibGFX.Graphics.TextureMirrorMode
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: LibGFX.Graphics.Texture.ToBitmap*
+  commentId: Overload:LibGFX.Graphics.Texture.ToBitmap
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_ToBitmap
+  name: ToBitmap
+  nameWithType: Texture.ToBitmap
+  fullName: LibGFX.Graphics.Texture.ToBitmap
+- uid: System.Drawing.Bitmap
+  commentId: T:System.Drawing.Bitmap
+  parent: System.Drawing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.drawing.bitmap
+  name: Bitmap
+  nameWithType: Bitmap
+  fullName: System.Drawing.Bitmap
+- uid: System.Drawing
+  commentId: N:System.Drawing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Drawing
+  nameWithType: System.Drawing
+  fullName: System.Drawing
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Drawing
+    name: Drawing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.drawing
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Drawing
+    name: Drawing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.drawing
+- uid: LibGFX.Graphics.Texture.Copy*
+  commentId: Overload:LibGFX.Graphics.Texture.Copy
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_Copy
+  name: Copy
+  nameWithType: Texture.Copy
+  fullName: LibGFX.Graphics.Texture.Copy
+- uid: LibGFX.Graphics.Texture.Init*
+  commentId: Overload:LibGFX.Graphics.Texture.Init
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_Init_LibGFX_Graphics_IRenderDevice_
+  name: Init
+  nameWithType: Texture.Init
+  fullName: LibGFX.Graphics.Texture.Init
+- uid: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Init_LibGFX_Graphics_IRenderDevice_
+  name: Init(IRenderDevice)
+  nameWithType: IGraphicsResource.Init(IRenderDevice)
+  fullName: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.Graphics.Texture.FreeCPUResources*
+  commentId: Overload:LibGFX.Graphics.Texture.FreeCPUResources
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_FreeCPUResources
+  name: FreeCPUResources
+  nameWithType: Texture.FreeCPUResources
+  fullName: LibGFX.Graphics.Texture.FreeCPUResources
+- uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+  commentId: M:LibGFX.Core.IGraphicsResource.FreeCPUResources
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  name: FreeCPUResources()
+  nameWithType: IGraphicsResource.FreeCPUResources()
+  fullName: LibGFX.Core.IGraphicsResource.FreeCPUResources()
+  spec.csharp:
+  - uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+    name: FreeCPUResources
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+    name: FreeCPUResources
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Texture.Dispose*
+  commentId: Overload:LibGFX.Graphics.Texture.Dispose
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose
+  nameWithType: Texture.Dispose
+  fullName: LibGFX.Graphics.Texture.Dispose
+- uid: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose(IRenderDevice)
+  nameWithType: IGraphicsResource.Dispose(IRenderDevice)
+  fullName: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.Texture.Serialize*
+  commentId: Overload:LibGFX.Graphics.Texture.Serialize
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize
+  nameWithType: Texture.Serialize
+  fullName: LibGFX.Graphics.Texture.Serialize
+- uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: ISerialization.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  nameWithType.vb: ISerialization.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+  - name: )
+- uid: Newtonsoft.Json.JsonWriter
+  commentId: T:Newtonsoft.Json.JsonWriter
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonWriter
+  nameWithType: JsonWriter
+  fullName: Newtonsoft.Json.JsonWriter
+- uid: LibGFX.Core.SerializationContext
+  commentId: T:LibGFX.Core.SerializationContext
+  parent: LibGFX.Core
+  href: LibGFX.Core.SerializationContext.html
+  name: SerializationContext
+  nameWithType: SerializationContext
+  fullName: LibGFX.Core.SerializationContext
+- uid: System.Action{Newtonsoft.Json.JsonWriter}
+  commentId: T:System.Action{Newtonsoft.Json.JsonWriter}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<JsonWriter>
+  nameWithType: Action<JsonWriter>
+  fullName: System.Action<Newtonsoft.Json.JsonWriter>
+  nameWithType.vb: Action(Of JsonWriter)
+  fullName.vb: System.Action(Of Newtonsoft.Json.JsonWriter)
+  name.vb: Action(Of JsonWriter)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Newtonsoft.Json.JsonException
+  commentId: T:Newtonsoft.Json.JsonException
+  isExternal: true
+  name: JsonException
+  nameWithType: JsonException
+  fullName: Newtonsoft.Json.JsonException
+- uid: LibGFX.Graphics.Texture.Deserialize*
+  commentId: Overload:LibGFX.Graphics.Texture.Deserialize
+  href: LibGFX.Graphics.Texture.html#LibGFX_Graphics_Texture_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize
+  nameWithType: Texture.Deserialize
+  fullName: LibGFX.Graphics.Texture.Deserialize
+- uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: ISerialization.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  nameWithType.vb: ISerialization.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: Newtonsoft.Json.Linq.JObject
+  commentId: T:Newtonsoft.Json.Linq.JObject
+  parent: Newtonsoft.Json.Linq
+  isExternal: true
+  name: JObject
+  nameWithType: JObject
+  fullName: Newtonsoft.Json.Linq.JObject
+- uid: System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+  commentId: T:System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<JObject, bool>
+  nameWithType: Func<JObject, bool>
+  fullName: System.Func<Newtonsoft.Json.Linq.JObject, bool>
+  nameWithType.vb: Func(Of JObject, Boolean)
+  fullName.vb: System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean)
+  name.vb: Func(Of JObject, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Newtonsoft.Json.Linq
+  commentId: N:Newtonsoft.Json.Linq
+  isExternal: true
+  name: Newtonsoft.Json.Linq
+  nameWithType: Newtonsoft.Json.Linq
+  fullName: Newtonsoft.Json.Linq
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )

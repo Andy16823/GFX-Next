@@ -1,0 +1,194 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.ClearFlags
+  commentId: T:LibGFX.Graphics.RenderFlags.ClearFlags
+  id: RenderFlags.ClearFlags
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.ClearFlags.Color
+  - LibGFX.Graphics.RenderFlags.ClearFlags.Depth
+  - LibGFX.Graphics.RenderFlags.ClearFlags.None
+  - LibGFX.Graphics.RenderFlags.ClearFlags.Stencil
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.ClearFlags
+  nameWithType: RenderFlags.ClearFlags
+  fullName: LibGFX.Graphics.RenderFlags.ClearFlags
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ClearFlags
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 16
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Flags to specify which buffers to clear before rendering.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum RenderFlags.ClearFlags
+    content.vb: >-
+      <Flags>
+
+      Public Enum RenderFlags.ClearFlags
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: LibGFX.Graphics.RenderFlags.ClearFlags.None
+  commentId: F:LibGFX.Graphics.RenderFlags.ClearFlags.None
+  id: None
+  parent: LibGFX.Graphics.RenderFlags.ClearFlags
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: RenderFlags.ClearFlags.None
+  fullName: LibGFX.Graphics.RenderFlags.ClearFlags.None
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: None
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: None = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.ClearFlags
+- uid: LibGFX.Graphics.RenderFlags.ClearFlags.Color
+  commentId: F:LibGFX.Graphics.RenderFlags.ClearFlags.Color
+  id: Color
+  parent: LibGFX.Graphics.RenderFlags.ClearFlags
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: RenderFlags.ClearFlags.Color
+  fullName: LibGFX.Graphics.RenderFlags.ClearFlags.Color
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 20
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.ClearFlags
+- uid: LibGFX.Graphics.RenderFlags.ClearFlags.Depth
+  commentId: F:LibGFX.Graphics.RenderFlags.ClearFlags.Depth
+  id: Depth
+  parent: LibGFX.Graphics.RenderFlags.ClearFlags
+  langs:
+  - csharp
+  - vb
+  name: Depth
+  nameWithType: RenderFlags.ClearFlags.Depth
+  fullName: LibGFX.Graphics.RenderFlags.ClearFlags.Depth
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Depth
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 21
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Depth = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.ClearFlags
+- uid: LibGFX.Graphics.RenderFlags.ClearFlags.Stencil
+  commentId: F:LibGFX.Graphics.RenderFlags.ClearFlags.Stencil
+  id: Stencil
+  parent: LibGFX.Graphics.RenderFlags.ClearFlags
+  langs:
+  - csharp
+  - vb
+  name: Stencil
+  nameWithType: RenderFlags.ClearFlags.Stencil
+  fullName: LibGFX.Graphics.RenderFlags.ClearFlags.Stencil
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Stencil
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 22
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Stencil = 4
+    return:
+      type: LibGFX.Graphics.RenderFlags.ClearFlags
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.ClearFlags
+  commentId: T:LibGFX.Graphics.RenderFlags.ClearFlags
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.ClearFlags
+  nameWithType: RenderFlags.ClearFlags
+  fullName: LibGFX.Graphics.RenderFlags.ClearFlags
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.ClearFlags
+    name: ClearFlags
+    href: LibGFX.Graphics.RenderFlags.ClearFlags.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.ClearFlags
+    name: ClearFlags
+    href: LibGFX.Graphics.RenderFlags.ClearFlags.html

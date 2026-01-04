@@ -1,0 +1,125 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Core.GameElements
+  commentId: N:LibGFX.Core.GameElements
+  id: LibGFX.Core.GameElements
+  children:
+  - LibGFX.Core.GameElements.AnimatedModel
+  - LibGFX.Core.GameElements.AudioEmitter
+  - LibGFX.Core.GameElements.Empty
+  - LibGFX.Core.GameElements.InstanceHandle
+  - LibGFX.Core.GameElements.MeshInstancer
+  - LibGFX.Core.GameElements.PBRTestEntity
+  - LibGFX.Core.GameElements.PointLight3DHandle
+  - LibGFX.Core.GameElements.Primitive
+  - LibGFX.Core.GameElements.Sprite
+  - LibGFX.Core.GameElements.SpriteInstancer
+  - LibGFX.Core.GameElements.StaticModel
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Core.GameElements
+  nameWithType: LibGFX.Core.GameElements
+  fullName: LibGFX.Core.GameElements
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Core.GameElements.AnimatedModel
+  commentId: T:LibGFX.Core.GameElements.AnimatedModel
+  href: LibGFX.Core.GameElements.AnimatedModel.html
+  name: AnimatedModel
+  nameWithType: AnimatedModel
+  fullName: LibGFX.Core.GameElements.AnimatedModel
+- uid: LibGFX.Core.GameElements.AudioEmitter
+  commentId: T:LibGFX.Core.GameElements.AudioEmitter
+  href: LibGFX.Core.GameElements.AudioEmitter.html
+  name: AudioEmitter
+  nameWithType: AudioEmitter
+  fullName: LibGFX.Core.GameElements.AudioEmitter
+- uid: LibGFX.Core.GameElements.Empty
+  commentId: T:LibGFX.Core.GameElements.Empty
+  href: LibGFX.Core.GameElements.Empty.html
+  name: Empty
+  nameWithType: Empty
+  fullName: LibGFX.Core.GameElements.Empty
+- uid: LibGFX.Core.GameElements.InstanceHandle
+  commentId: T:LibGFX.Core.GameElements.InstanceHandle
+  parent: LibGFX.Core.GameElements
+  href: LibGFX.Core.GameElements.InstanceHandle.html
+  name: InstanceHandle
+  nameWithType: InstanceHandle
+  fullName: LibGFX.Core.GameElements.InstanceHandle
+- uid: LibGFX.Core.GameElements.MeshInstancer
+  commentId: T:LibGFX.Core.GameElements.MeshInstancer
+  href: LibGFX.Core.GameElements.MeshInstancer.html
+  name: MeshInstancer
+  nameWithType: MeshInstancer
+  fullName: LibGFX.Core.GameElements.MeshInstancer
+- uid: LibGFX.Core.GameElements.PBRTestEntity
+  commentId: T:LibGFX.Core.GameElements.PBRTestEntity
+  href: LibGFX.Core.GameElements.PBRTestEntity.html
+  name: PBRTestEntity
+  nameWithType: PBRTestEntity
+  fullName: LibGFX.Core.GameElements.PBRTestEntity
+- uid: LibGFX.Core.GameElements.PointLight3DHandle
+  commentId: T:LibGFX.Core.GameElements.PointLight3DHandle
+  href: LibGFX.Core.GameElements.PointLight3DHandle.html
+  name: PointLight3DHandle
+  nameWithType: PointLight3DHandle
+  fullName: LibGFX.Core.GameElements.PointLight3DHandle
+- uid: LibGFX.Core.GameElements.Primitive
+  commentId: T:LibGFX.Core.GameElements.Primitive
+  parent: LibGFX.Core.GameElements
+  href: LibGFX.Core.GameElements.Primitive.html
+  name: Primitive
+  nameWithType: Primitive
+  fullName: LibGFX.Core.GameElements.Primitive
+- uid: LibGFX.Core.GameElements.Sprite
+  commentId: T:LibGFX.Core.GameElements.Sprite
+  href: LibGFX.Core.GameElements.Sprite.html
+  name: Sprite
+  nameWithType: Sprite
+  fullName: LibGFX.Core.GameElements.Sprite
+- uid: LibGFX.Core.GameElements.SpriteInstancer
+  commentId: T:LibGFX.Core.GameElements.SpriteInstancer
+  href: LibGFX.Core.GameElements.SpriteInstancer.html
+  name: SpriteInstancer
+  nameWithType: SpriteInstancer
+  fullName: LibGFX.Core.GameElements.SpriteInstancer
+- uid: LibGFX.Core.GameElements.StaticModel
+  commentId: T:LibGFX.Core.GameElements.StaticModel
+  href: LibGFX.Core.GameElements.StaticModel.html
+  name: StaticModel
+  nameWithType: StaticModel
+  fullName: LibGFX.Core.GameElements.StaticModel
+- uid: LibGFX.Core.GameElements
+  commentId: N:LibGFX.Core.GameElements
+  href: LibGFX.html
+  name: LibGFX.Core.GameElements
+  nameWithType: LibGFX.Core.GameElements
+  fullName: LibGFX.Core.GameElements
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  - name: .
+  - uid: LibGFX.Core.GameElements
+    name: GameElements
+    href: LibGFX.Core.GameElements.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  - name: .
+  - uid: LibGFX.Core.GameElements
+    name: GameElements
+    href: LibGFX.Core.GameElements.html

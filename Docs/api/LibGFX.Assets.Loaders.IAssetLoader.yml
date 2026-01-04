@@ -1,0 +1,150 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Assets.Loaders.IAssetLoader
+  commentId: T:LibGFX.Assets.Loaders.IAssetLoader
+  id: IAssetLoader
+  parent: LibGFX.Assets.Loaders
+  children:
+  - LibGFX.Assets.Loaders.IAssetLoader.Load``1(System.String,System.Object)
+  langs:
+  - csharp
+  - vb
+  name: IAssetLoader
+  nameWithType: IAssetLoader
+  fullName: LibGFX.Assets.Loaders.IAssetLoader
+  type: Interface
+  source:
+    remote:
+      path: LibGFX/Assets/Loaders/IAssetLoader.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IAssetLoader
+    path: ../LibGFX/Assets/Loaders/IAssetLoader.cs
+    startLine: 11
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets.Loaders
+  summary: Interface for loading assets.
+  example: []
+  syntax:
+    content: public interface IAssetLoader
+    content.vb: Public Interface IAssetLoader
+- uid: LibGFX.Assets.Loaders.IAssetLoader.Load``1(System.String,System.Object)
+  commentId: M:LibGFX.Assets.Loaders.IAssetLoader.Load``1(System.String,System.Object)
+  id: Load``1(System.String,System.Object)
+  parent: LibGFX.Assets.Loaders.IAssetLoader
+  langs:
+  - csharp
+  - vb
+  name: Load<T>(string, object?)
+  nameWithType: IAssetLoader.Load<T>(string, object?)
+  fullName: LibGFX.Assets.Loaders.IAssetLoader.Load<T>(string, object?)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/Loaders/IAssetLoader.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Load
+    path: ../LibGFX/Assets/Loaders/IAssetLoader.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets.Loaders
+  summary: Loads an asset from the specified path.
+  example: []
+  syntax:
+    content: 'T Load<T>(string path, object? loadingArgs = null) where T : class'
+    parameters:
+    - id: path
+      type: System.String
+      description: ''
+    - id: loadingArgs
+      type: System.Object
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: '{T}'
+      description: ''
+    content.vb: Function Load(Of T As Class)(path As String, loadingArgs As Object = Nothing) As T
+  overload: LibGFX.Assets.Loaders.IAssetLoader.Load*
+  nameWithType.vb: IAssetLoader.Load(Of T)(String, Object)
+  fullName.vb: LibGFX.Assets.Loaders.IAssetLoader.Load(Of T)(String, Object)
+  name.vb: Load(Of T)(String, Object)
+references:
+- uid: LibGFX.Assets.Loaders
+  commentId: N:LibGFX.Assets.Loaders
+  href: LibGFX.html
+  name: LibGFX.Assets.Loaders
+  nameWithType: LibGFX.Assets.Loaders
+  fullName: LibGFX.Assets.Loaders
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+  - name: .
+  - uid: LibGFX.Assets.Loaders
+    name: Loaders
+    href: LibGFX.Assets.Loaders.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+  - name: .
+  - uid: LibGFX.Assets.Loaders
+    name: Loaders
+    href: LibGFX.Assets.Loaders.html
+- uid: LibGFX.Assets.Loaders.IAssetLoader.Load*
+  commentId: Overload:LibGFX.Assets.Loaders.IAssetLoader.Load
+  href: LibGFX.Assets.Loaders.IAssetLoader.html#LibGFX_Assets_Loaders_IAssetLoader_Load__1_System_String_System_Object_
+  name: Load
+  nameWithType: IAssetLoader.Load
+  fullName: LibGFX.Assets.Loaders.IAssetLoader.Load
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T

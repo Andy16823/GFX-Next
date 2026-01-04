@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ProceduralSky | LibGFX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ProceduralSky | LibGFX ">
+      
+      <meta name="description" content="Represents a procedural sky">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Graphics_Enviroment_ProceduralSky.md&amp;value=---%0Auid%3A%20LibGFX.Graphics.Enviroment.ProceduralSky%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="LibGFX">
+            LibGFX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LibGFX.Graphics.Enviroment.ProceduralSky">
+
+
+
+  <h1 id="LibGFX_Graphics_Enviroment_ProceduralSky" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky" class="text-break">
+Class ProceduralSky  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LibGFX.html">LibGFX</a>.<a class="xref" href="LibGFX.Graphics.html">Graphics</a>.<a class="xref" href="LibGFX.Graphics.Enviroment.html">Enviroment</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LibGFX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a procedural sky</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ProceduralSky : IEnviroment, IGraphicsResource, ISerialization</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ProceduralSky</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LibGFX.Graphics.Enviroment.IEnviroment.html">IEnviroment</a></div>
+      <div><a class="xref" href="LibGFX.Core.IGraphicsResource.html">IGraphicsResource</a></div>
+      <div><a class="xref" href="LibGFX.Core.ISerialization.html">ISerialization</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky__ctor_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.#ctor*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky__ctor" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.#ctor">
+  ProceduralSky()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of the ProceduralSky class</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProceduralSky()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_CloudColor_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.CloudColor*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_CloudColor" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.CloudColor">
+  CloudColor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The color of the clouds</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 CloudColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_Coverage_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.Coverage*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_Coverage" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.Coverage">
+  Coverage
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The coverage of the clouds</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Coverage { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_CoverageFactor_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.CoverageFactor*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_CoverageFactor" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.CoverageFactor">
+  CoverageFactor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The coverage factor for the clouds</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float CoverageFactor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_CoverageTexture_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.CoverageTexture*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_CoverageTexture" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.CoverageTexture">
+  CoverageTexture
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The texture used for the cloud coverage</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Texture CoverageTexture { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Texture.html">Texture</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_IsInitialized_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.IsInitialized*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_IsInitialized" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.IsInitialized">
+  IsInitialized
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the object has been initialized and is ready for use.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsInitialized { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_SkyBottomColor_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.SkyBottomColor*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_SkyBottomColor" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.SkyBottomColor">
+  SkyBottomColor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The bottom color of the sky</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 SkyBottomColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_SkyTopColor_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.SkyTopColor*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_SkyTopColor" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.SkyTopColor">
+  SkyTopColor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The top color of the sky</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 SkyTopColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_SkylineOffset_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.SkylineOffset*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_SkylineOffset" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.SkylineOffset">
+  SkylineOffset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The offset of the skyline</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SkylineOffset { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_SkylineScale_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.SkylineScale*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_SkylineScale" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.SkylineScale">
+  SkylineScale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The scale of the skyline</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SkylineScale { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_SunColor_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.SunColor*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_SunColor" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.SunColor">
+  SunColor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The color of the sun</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 SunColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_SunDirection_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.SunDirection*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_SunDirection" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.SunDirection">
+  SunDirection
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The direction of the sun</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 SunDirection { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_SunIntensity_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.SunIntensity*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_SunIntensity" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.SunIntensity">
+  SunIntensity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The intensity of the sun</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SunIntensity { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_SunSize_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.SunSize*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_SunSize" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.SunSize">
+  SunSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The size of the sun</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float SunSize { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_Transform_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.Transform*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_Transform" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.Transform">
+  Transform
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The transform of the sky</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Transform Transform { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_Deserialize_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.Deserialize*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})">
+  Deserialize(JObject, SerializationContext, Func&lt;JObject, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L210"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Populates the object's properties from the specified JSON data using the provided serialization context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Deserialize(JObject obj, SerializationContext serializationContext, Func&lt;JObject, bool&gt; callback = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+    <dt><code>serializationContext</code> <a class="xref" href="LibGFX.Core.SerializationContext.html">SerializationContext</a></dt>
+    <dd><p>The <a class="xref" href="LibGFX.Core.SerializationContext.html">SerializationContext</a> to use during deserialization. Provides context or settings that may
+influence how the data is interpreted.</p>
+</dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">JObject</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Graphics_Enviroment_ProceduralSky_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method expects the JSON object to contain all necessary fields for successful
+deserialization. Missing or invalid fields may result in incomplete or incorrect object state.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_Dispose_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.Dispose*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_Dispose_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.Dispose(LibGFX.Graphics.IRenderDevice)">
+  Dispose(IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes the procedural sky</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose(IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_FreeCPUResources_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.FreeCPUResources*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_FreeCPUResources" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.FreeCPUResources">
+  FreeCPUResources()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L234"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Releases any CPU resources that are currently allocated by the component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void FreeCPUResources()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Graphics_Enviroment_ProceduralSky_FreeCPUResources_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Call this method when the component no longer needs to perform CPU-intensive
+operations to allow the system to reclaim resources. After calling this method, the component may not be
+able to perform certain operations until resources are reallocated.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_Init_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.Init*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_Init_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.Init(LibGFX.Graphics.IRenderDevice)">
+  Init(IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the procedural sky</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Init(IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_Render_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.Render*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_Render_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_LibGFX_Graphics_Viewport_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.Render(LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport)">
+  Render(IRenderDevice, Camera, Viewport)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders the procedural sky</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Render(IRenderDevice renderer, Camera camera, Viewport viewport)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+    <dt><code>camera</code> <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Enviroment_ProceduralSky_Serialize_" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.Serialize*"></a>
+
+  <h3 id="LibGFX_Graphics_Enviroment_ProceduralSky_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__" data-uid="LibGFX.Graphics.Enviroment.ProceduralSky.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})">
+  Serialize(JsonWriter, SerializationContext, Action&lt;JsonWriter&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serializes the current object to a JSON representation suitable for storage or transmission.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action&lt;JsonWriter&gt; callback = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
+    <dd></dd>
+    <dt><code>serializationContext</code> <a class="xref" href="LibGFX.Core.SerializationContext.html">SerializationContext</a></dt>
+    <dd><p>The context that provides serialization settings and state information used during the serialization
+process.</p>
+</dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">JsonWriter</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Enviroment/ProceduralSky.cs/#L17" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

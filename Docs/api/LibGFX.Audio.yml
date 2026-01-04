@@ -1,0 +1,93 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Audio
+  commentId: N:LibGFX.Audio
+  id: LibGFX.Audio
+  children:
+  - LibGFX.Audio.AudioClip
+  - LibGFX.Audio.AudioClipState
+  - LibGFX.Audio.AudioSource
+  - LibGFX.Audio.AudioSourceState
+  - LibGFX.Audio.IAudioDevice
+  - LibGFX.Audio.OpenALDevice
+  - LibGFX.Audio.PlayMode
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Audio
+  nameWithType: LibGFX.Audio
+  fullName: LibGFX.Audio
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Audio.AudioClipState
+  commentId: T:LibGFX.Audio.AudioClipState
+  parent: LibGFX.Audio
+  href: LibGFX.Audio.AudioClipState.html
+  name: AudioClipState
+  nameWithType: AudioClipState
+  fullName: LibGFX.Audio.AudioClipState
+- uid: LibGFX.Audio.AudioClip
+  commentId: T:LibGFX.Audio.AudioClip
+  parent: LibGFX.Audio
+  href: LibGFX.Audio.AudioClip.html
+  name: AudioClip
+  nameWithType: AudioClip
+  fullName: LibGFX.Audio.AudioClip
+- uid: LibGFX.Audio.AudioSourceState
+  commentId: T:LibGFX.Audio.AudioSourceState
+  parent: LibGFX.Audio
+  href: LibGFX.Audio.AudioSourceState.html
+  name: AudioSourceState
+  nameWithType: AudioSourceState
+  fullName: LibGFX.Audio.AudioSourceState
+- uid: LibGFX.Audio.PlayMode
+  commentId: T:LibGFX.Audio.PlayMode
+  parent: LibGFX.Audio
+  href: LibGFX.Audio.PlayMode.html
+  name: PlayMode
+  nameWithType: PlayMode
+  fullName: LibGFX.Audio.PlayMode
+- uid: LibGFX.Audio.AudioSource
+  commentId: T:LibGFX.Audio.AudioSource
+  parent: LibGFX.Audio
+  href: LibGFX.Audio.AudioSource.html
+  name: AudioSource
+  nameWithType: AudioSource
+  fullName: LibGFX.Audio.AudioSource
+- uid: LibGFX.Audio.IAudioDevice
+  commentId: T:LibGFX.Audio.IAudioDevice
+  parent: LibGFX.Audio
+  href: LibGFX.Audio.IAudioDevice.html
+  name: IAudioDevice
+  nameWithType: IAudioDevice
+  fullName: LibGFX.Audio.IAudioDevice
+- uid: LibGFX.Audio.OpenALDevice
+  commentId: T:LibGFX.Audio.OpenALDevice
+  href: LibGFX.Audio.OpenALDevice.html
+  name: OpenALDevice
+  nameWithType: OpenALDevice
+  fullName: LibGFX.Audio.OpenALDevice
+- uid: LibGFX.Audio
+  commentId: N:LibGFX.Audio
+  href: LibGFX.html
+  name: LibGFX.Audio
+  nameWithType: LibGFX.Audio
+  fullName: LibGFX.Audio
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Audio
+    name: Audio
+    href: LibGFX.Audio.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Audio
+    name: Audio
+    href: LibGFX.Audio.html

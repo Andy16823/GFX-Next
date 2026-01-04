@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Enviroment
+  commentId: N:LibGFX.Graphics.Enviroment
+  id: LibGFX.Graphics.Enviroment
+  children:
+  - LibGFX.Graphics.Enviroment.IEnviroment
+  - LibGFX.Graphics.Enviroment.ProceduralSky
+  - LibGFX.Graphics.Enviroment.Skybox
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Graphics.Enviroment
+  nameWithType: LibGFX.Graphics.Enviroment
+  fullName: LibGFX.Graphics.Enviroment
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Graphics.Enviroment.IEnviroment
+  commentId: T:LibGFX.Graphics.Enviroment.IEnviroment
+  parent: LibGFX.Graphics.Enviroment
+  href: LibGFX.Graphics.Enviroment.IEnviroment.html
+  name: IEnviroment
+  nameWithType: IEnviroment
+  fullName: LibGFX.Graphics.Enviroment.IEnviroment
+- uid: LibGFX.Graphics.Enviroment.ProceduralSky
+  commentId: T:LibGFX.Graphics.Enviroment.ProceduralSky
+  href: LibGFX.Graphics.Enviroment.ProceduralSky.html
+  name: ProceduralSky
+  nameWithType: ProceduralSky
+  fullName: LibGFX.Graphics.Enviroment.ProceduralSky
+- uid: LibGFX.Graphics.Enviroment.Skybox
+  commentId: T:LibGFX.Graphics.Enviroment.Skybox
+  href: LibGFX.Graphics.Enviroment.Skybox.html
+  name: Skybox
+  nameWithType: Skybox
+  fullName: LibGFX.Graphics.Enviroment.Skybox
+- uid: LibGFX.Graphics.Enviroment
+  commentId: N:LibGFX.Graphics.Enviroment
+  href: LibGFX.html
+  name: LibGFX.Graphics.Enviroment
+  nameWithType: LibGFX.Graphics.Enviroment
+  fullName: LibGFX.Graphics.Enviroment
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Enviroment
+    name: Enviroment
+    href: LibGFX.Graphics.Enviroment.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Enviroment
+    name: Enviroment
+    href: LibGFX.Graphics.Enviroment.html

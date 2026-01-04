@@ -1,0 +1,78 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Materials
+  commentId: N:LibGFX.Graphics.Materials
+  id: LibGFX.Graphics.Materials
+  children:
+  - LibGFX.Graphics.Materials.IMaterial
+  - LibGFX.Graphics.Materials.PBRMaterial
+  - LibGFX.Graphics.Materials.SGMaterial
+  - LibGFX.Graphics.Materials.SpriteMaterial
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Graphics.Materials
+  nameWithType: LibGFX.Graphics.Materials
+  fullName: LibGFX.Graphics.Materials
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Graphics.Materials.IMaterial
+  commentId: T:LibGFX.Graphics.Materials.IMaterial
+  parent: LibGFX.Graphics.Materials
+  href: LibGFX.Graphics.Materials.IMaterial.html
+  name: IMaterial
+  nameWithType: IMaterial
+  fullName: LibGFX.Graphics.Materials.IMaterial
+- uid: LibGFX.Graphics.Materials.PBRMaterial
+  commentId: T:LibGFX.Graphics.Materials.PBRMaterial
+  parent: LibGFX.Graphics.Materials
+  href: LibGFX.Graphics.Materials.PBRMaterial.html
+  name: PBRMaterial
+  nameWithType: PBRMaterial
+  fullName: LibGFX.Graphics.Materials.PBRMaterial
+- uid: LibGFX.Graphics.Materials.SGMaterial
+  commentId: T:LibGFX.Graphics.Materials.SGMaterial
+  parent: LibGFX.Graphics.Materials
+  href: LibGFX.Graphics.Materials.SGMaterial.html
+  name: SGMaterial
+  nameWithType: SGMaterial
+  fullName: LibGFX.Graphics.Materials.SGMaterial
+- uid: LibGFX.Graphics.Materials.SpriteMaterial
+  commentId: T:LibGFX.Graphics.Materials.SpriteMaterial
+  parent: LibGFX.Graphics.Materials
+  href: LibGFX.Graphics.Materials.SpriteMaterial.html
+  name: SpriteMaterial
+  nameWithType: SpriteMaterial
+  fullName: LibGFX.Graphics.Materials.SpriteMaterial
+- uid: LibGFX.Graphics.Materials
+  commentId: N:LibGFX.Graphics.Materials
+  href: LibGFX.html
+  name: LibGFX.Graphics.Materials
+  nameWithType: LibGFX.Graphics.Materials
+  fullName: LibGFX.Graphics.Materials
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Materials
+    name: Materials
+    href: LibGFX.Graphics.Materials.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Materials
+    name: Materials
+    href: LibGFX.Graphics.Materials.html

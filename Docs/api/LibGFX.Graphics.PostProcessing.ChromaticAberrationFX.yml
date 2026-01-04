@@ -1,0 +1,1280 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  commentId: T:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  id: ChromaticAberrationFX
+  parent: LibGFX.Graphics.PostProcessing
+  children:
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Diagonal
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Direction
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Extreme
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Horizontal
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Intensity
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.RadialAmount
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.RenderTarget
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Standard
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Strong
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Subtle
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Update(System.Single)
+  - LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Vertical
+  langs:
+  - csharp
+  - vb
+  name: ChromaticAberrationFX
+  nameWithType: ChromaticAberrationFX
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ChromaticAberrationFX
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Applies a chromatic aberration post-processing effect to a rendered scene, simulating color channel separation
+
+    for visual distortion or stylistic purposes.
+  remarks: >-
+    Use this class to add chromatic aberration to a post-processing stack in a rendering
+        pipeline. The effect can be customized using the Intensity, RadialAmount, and Direction properties, or by
+        selecting from several built-in presets for common use cases. ChromaticAberrationFX is typically used to enhance
+        realism, create glitch effects, or emphasize dramatic moments in games and visual applications. This class is
+        not thread-safe and should be used on the rendering thread.
+  example: []
+  syntax:
+    content: 'public class ChromaticAberrationFX : IPostProcessFilter'
+    content.vb: Public Class ChromaticAberrationFX Implements IPostProcessFilter
+  inheritance:
+  - System.Object
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.RenderTarget
+  commentId: P:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.RenderTarget
+  id: RenderTarget
+  parent: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  langs:
+  - csharp
+  - vb
+  name: RenderTarget
+  nameWithType: ChromaticAberrationFX.RenderTarget
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.RenderTarget
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderTarget
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 27
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Gets the underlying render target used for drawing operations.
+  remarks: >-
+    Use this property to access the current RenderTarget2D instance for advanced
+        rendering scenarios, such as custom post-processing or direct manipulation of the render target. The
+        returned object should not be disposed by the caller.
+  example: []
+  syntax:
+    content: public RenderTarget2D RenderTarget { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.RenderTarget2D
+    content.vb: Public Property RenderTarget As RenderTarget2D
+  overload: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.RenderTarget*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Intensity
+  commentId: P:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Intensity
+  id: Intensity
+  parent: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  langs:
+  - csharp
+  - vb
+  name: Intensity
+  nameWithType: ChromaticAberrationFX.Intensity
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Intensity
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Intensity
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 32
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Gets or sets the intensity value for the effect.
+  example: []
+  syntax:
+    content: public float Intensity { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Intensity As Single
+  overload: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Intensity*
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.RadialAmount
+  commentId: P:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.RadialAmount
+  id: RadialAmount
+  parent: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  langs:
+  - csharp
+  - vb
+  name: RadialAmount
+  nameWithType: ChromaticAberrationFX.RadialAmount
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.RadialAmount
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RadialAmount
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 40
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Gets or sets the proportion of the full radial effect to apply.
+  remarks: >-
+    A value of 1.0 applies the effect fully, while lower values reduce the effect
+        proportionally. Values less than 0 may produce undefined results depending on the effect
+        implementation.
+  example: []
+  syntax:
+    content: public float RadialAmount { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property RadialAmount As Single
+  overload: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.RadialAmount*
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Direction
+  commentId: P:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Direction
+  id: Direction
+  parent: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  langs:
+  - csharp
+  - vb
+  name: Direction
+  nameWithType: ChromaticAberrationFX.Direction
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Direction
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Direction
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 45
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Gets or sets the normalized direction vector.
+  example: []
+  syntax:
+    content: public Vector2 Direction { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector2
+    content.vb: Public Property Direction As Vector2
+  overload: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Direction*
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  commentId: M:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  id: Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  parent: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  langs:
+  - csharp
+  - vb
+  name: Apply(PostProcessStack, IRenderDevice, int)
+  nameWithType: ChromaticAberrationFX.Apply(PostProcessStack, IRenderDevice, int)
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Apply
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 49
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Apply(PostProcessStack stack, IRenderDevice renderer, int sourceTexture)
+    parameters:
+    - id: stack
+      type: LibGFX.Graphics.PostProcessing.PostProcessStack
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    - id: sourceTexture
+      type: System.Int32
+    content.vb: Public Sub Apply(stack As PostProcessStack, renderer As IRenderDevice, sourceTexture As Integer)
+  overload: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Apply*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  nameWithType.vb: ChromaticAberrationFX.Apply(PostProcessStack, IRenderDevice, Integer)
+  fullName.vb: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, Integer)
+  name.vb: Apply(PostProcessStack, IRenderDevice, Integer)
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  langs:
+  - csharp
+  - vb
+  name: Init(PostProcessStack, Viewport, IRenderDevice)
+  nameWithType: ChromaticAberrationFX.Init(PostProcessStack, Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Init
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 62
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: stack
+      type: LibGFX.Graphics.PostProcessing.PostProcessStack
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Public Sub Init(stack As PostProcessStack, viewport As Viewport, renderer As IRenderDevice)
+  overload: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Init*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  id: Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  langs:
+  - csharp
+  - vb
+  name: Dispose(PostProcessStack, IRenderDevice)
+  nameWithType: ChromaticAberrationFX.Dispose(PostProcessStack, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 69
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Dispose(PostProcessStack stack, IRenderDevice renderer)
+    parameters:
+    - id: stack
+      type: LibGFX.Graphics.PostProcessing.PostProcessStack
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Public Sub Dispose(stack As PostProcessStack, renderer As IRenderDevice)
+  overload: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Dispose*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  langs:
+  - csharp
+  - vb
+  name: Resize(Viewport, IRenderDevice)
+  nameWithType: ChromaticAberrationFX.Resize(Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Resize(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Resize
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 75
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Resize(Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Public Sub Resize(viewport As Viewport, renderer As IRenderDevice)
+  overload: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Resize*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Update(System.Single)
+  commentId: M:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Update(System.Single)
+  id: Update(System.Single)
+  parent: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  langs:
+  - csharp
+  - vb
+  name: Update(float)
+  nameWithType: ChromaticAberrationFX.Update(float)
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Update(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Update
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 80
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Update(float deltaTime)
+    parameters:
+    - id: deltaTime
+      type: System.Single
+    content.vb: Public Sub Update(deltaTime As Single)
+  overload: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Update*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+  nameWithType.vb: ChromaticAberrationFX.Update(Single)
+  fullName.vb: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Update(Single)
+  name.vb: Update(Single)
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Subtle
+  commentId: P:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Subtle
+  id: Subtle
+  parent: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  langs:
+  - csharp
+  - vb
+  name: Subtle
+  nameWithType: ChromaticAberrationFX.Subtle
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Subtle
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Subtle
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 90
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Subtle radial aberration (always-on, realistic)
+  example: []
+  syntax:
+    content: public static ChromaticAberrationFX Subtle { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+    content.vb: Public Shared ReadOnly Property Subtle As ChromaticAberrationFX
+  overload: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Subtle*
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Standard
+  commentId: P:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Standard
+  id: Standard
+  parent: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  langs:
+  - csharp
+  - vb
+  name: Standard
+  nameWithType: ChromaticAberrationFX.Standard
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Standard
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Standard
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 99
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Standard radial aberration (noticeable but not distracting)
+  example: []
+  syntax:
+    content: public static ChromaticAberrationFX Standard { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+    content.vb: Public Shared ReadOnly Property Standard As ChromaticAberrationFX
+  overload: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Standard*
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Strong
+  commentId: P:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Strong
+  id: Strong
+  parent: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  langs:
+  - csharp
+  - vb
+  name: Strong
+  nameWithType: ChromaticAberrationFX.Strong
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Strong
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Strong
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 108
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Strong radial aberration (for dramatic effect)
+  example: []
+  syntax:
+    content: public static ChromaticAberrationFX Strong { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+    content.vb: Public Shared ReadOnly Property Strong As ChromaticAberrationFX
+  overload: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Strong*
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Extreme
+  commentId: P:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Extreme
+  id: Extreme
+  parent: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  langs:
+  - csharp
+  - vb
+  name: Extreme
+  nameWithType: ChromaticAberrationFX.Extreme
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Extreme
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Extreme
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 117
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Extreme aberration (for special effects like explosions)
+  example: []
+  syntax:
+    content: public static ChromaticAberrationFX Extreme { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+    content.vb: Public Shared ReadOnly Property Extreme As ChromaticAberrationFX
+  overload: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Extreme*
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Horizontal
+  commentId: P:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Horizontal
+  id: Horizontal
+  parent: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  langs:
+  - csharp
+  - vb
+  name: Horizontal
+  nameWithType: ChromaticAberrationFX.Horizontal
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Horizontal
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Horizontal
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 126
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Horizontal split (VHS-like)
+  example: []
+  syntax:
+    content: public static ChromaticAberrationFX Horizontal { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+    content.vb: Public Shared ReadOnly Property Horizontal As ChromaticAberrationFX
+  overload: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Horizontal*
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Vertical
+  commentId: P:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Vertical
+  id: Vertical
+  parent: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  langs:
+  - csharp
+  - vb
+  name: Vertical
+  nameWithType: ChromaticAberrationFX.Vertical
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Vertical
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Vertical
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 136
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Vertical split (glitch effect)
+  example: []
+  syntax:
+    content: public static ChromaticAberrationFX Vertical { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+    content.vb: Public Shared ReadOnly Property Vertical As ChromaticAberrationFX
+  overload: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Vertical*
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Diagonal
+  commentId: P:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Diagonal
+  id: Diagonal
+  parent: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  langs:
+  - csharp
+  - vb
+  name: Diagonal
+  nameWithType: ChromaticAberrationFX.Diagonal
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Diagonal
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Diagonal
+    path: ../LibGFX/Graphics/PostProcessing/ChromaticAberrationFX.cs
+    startLine: 146
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Diagonal split (impact effect)
+  example: []
+  syntax:
+    content: public static ChromaticAberrationFX Diagonal { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+    content.vb: Public Shared ReadOnly Property Diagonal As ChromaticAberrationFX
+  overload: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Diagonal*
+references:
+- uid: LibGFX.Graphics.PostProcessing
+  commentId: N:LibGFX.Graphics.PostProcessing
+  href: LibGFX.html
+  name: LibGFX.Graphics.PostProcessing
+  nameWithType: LibGFX.Graphics.PostProcessing
+  fullName: LibGFX.Graphics.PostProcessing
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.PostProcessing
+    name: PostProcessing
+    href: LibGFX.Graphics.PostProcessing.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.PostProcessing
+    name: PostProcessing
+    href: LibGFX.Graphics.PostProcessing.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  commentId: T:LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html
+  name: IPostProcessFilter
+  nameWithType: IPostProcessFilter
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.RenderTarget*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.RenderTarget
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html#LibGFX_Graphics_PostProcessing_ChromaticAberrationFX_RenderTarget
+  name: RenderTarget
+  nameWithType: ChromaticAberrationFX.RenderTarget
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.RenderTarget
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+  commentId: P:LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_RenderTarget
+  name: RenderTarget
+  nameWithType: IPostProcessFilter.RenderTarget
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+- uid: LibGFX.Graphics.RenderTarget2D
+  commentId: T:LibGFX.Graphics.RenderTarget2D
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderTarget2D.html
+  name: RenderTarget2D
+  nameWithType: RenderTarget2D
+  fullName: LibGFX.Graphics.RenderTarget2D
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Intensity*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Intensity
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html#LibGFX_Graphics_PostProcessing_ChromaticAberrationFX_Intensity
+  name: Intensity
+  nameWithType: ChromaticAberrationFX.Intensity
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Intensity
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.RadialAmount*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.RadialAmount
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html#LibGFX_Graphics_PostProcessing_ChromaticAberrationFX_RadialAmount
+  name: RadialAmount
+  nameWithType: ChromaticAberrationFX.RadialAmount
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.RadialAmount
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Direction*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Direction
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html#LibGFX_Graphics_PostProcessing_ChromaticAberrationFX_Direction
+  name: Direction
+  nameWithType: ChromaticAberrationFX.Direction
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Direction
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Apply*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Apply
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html#LibGFX_Graphics_PostProcessing_ChromaticAberrationFX_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  name: Apply
+  nameWithType: ChromaticAberrationFX.Apply
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Apply
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  isExternal: true
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  name: Apply(PostProcessStack, IRenderDevice, int)
+  nameWithType: IPostProcessFilter.Apply(PostProcessStack, IRenderDevice, int)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, int)
+  nameWithType.vb: IPostProcessFilter.Apply(PostProcessStack, IRenderDevice, Integer)
+  fullName.vb: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, Integer)
+  name.vb: Apply(PostProcessStack, IRenderDevice, Integer)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+    name: Apply
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+    name: Apply
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+  commentId: T:LibGFX.Graphics.PostProcessing.PostProcessStack
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  name: PostProcessStack
+  nameWithType: PostProcessStack
+  fullName: LibGFX.Graphics.PostProcessing.PostProcessStack
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Init*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Init
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html#LibGFX_Graphics_PostProcessing_ChromaticAberrationFX_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Init
+  nameWithType: ChromaticAberrationFX.Init
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Init
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Init(PostProcessStack, Viewport, IRenderDevice)
+  nameWithType: IPostProcessFilter.Init(PostProcessStack, Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Dispose*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Dispose
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html#LibGFX_Graphics_PostProcessing_ChromaticAberrationFX_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  name: Dispose
+  nameWithType: ChromaticAberrationFX.Dispose
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Dispose
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  name: Dispose(PostProcessStack, IRenderDevice)
+  nameWithType: IPostProcessFilter.Dispose(PostProcessStack, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Resize*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Resize
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html#LibGFX_Graphics_PostProcessing_ChromaticAberrationFX_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Resize
+  nameWithType: ChromaticAberrationFX.Resize
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Resize
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Resize(Viewport, IRenderDevice)
+  nameWithType: IPostProcessFilter.Resize(Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Resize
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Resize
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Update*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Update
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html#LibGFX_Graphics_PostProcessing_ChromaticAberrationFX_Update_System_Single_
+  name: Update
+  nameWithType: ChromaticAberrationFX.Update
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Update
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  isExternal: true
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Update_System_Single_
+  name: Update(float)
+  nameWithType: IPostProcessFilter.Update(float)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(float)
+  nameWithType.vb: IPostProcessFilter.Update(Single)
+  fullName.vb: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(Single)
+  name.vb: Update(Single)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+    name: Update
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Update_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+    name: Update
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Update_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Subtle*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Subtle
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html#LibGFX_Graphics_PostProcessing_ChromaticAberrationFX_Subtle
+  name: Subtle
+  nameWithType: ChromaticAberrationFX.Subtle
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Subtle
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  commentId: T:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html
+  name: ChromaticAberrationFX
+  nameWithType: ChromaticAberrationFX
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Standard*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Standard
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html#LibGFX_Graphics_PostProcessing_ChromaticAberrationFX_Standard
+  name: Standard
+  nameWithType: ChromaticAberrationFX.Standard
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Standard
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Strong*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Strong
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html#LibGFX_Graphics_PostProcessing_ChromaticAberrationFX_Strong
+  name: Strong
+  nameWithType: ChromaticAberrationFX.Strong
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Strong
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Extreme*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Extreme
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html#LibGFX_Graphics_PostProcessing_ChromaticAberrationFX_Extreme
+  name: Extreme
+  nameWithType: ChromaticAberrationFX.Extreme
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Extreme
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Horizontal*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Horizontal
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html#LibGFX_Graphics_PostProcessing_ChromaticAberrationFX_Horizontal
+  name: Horizontal
+  nameWithType: ChromaticAberrationFX.Horizontal
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Horizontal
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Vertical*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Vertical
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html#LibGFX_Graphics_PostProcessing_ChromaticAberrationFX_Vertical
+  name: Vertical
+  nameWithType: ChromaticAberrationFX.Vertical
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Vertical
+- uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Diagonal*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Diagonal
+  href: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.html#LibGFX_Graphics_PostProcessing_ChromaticAberrationFX_Diagonal
+  name: Diagonal
+  nameWithType: ChromaticAberrationFX.Diagonal
+  fullName: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX.Diagonal

@@ -1,0 +1,46 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Compute
+  commentId: N:LibGFX.Compute
+  id: LibGFX.Compute
+  children:
+  - LibGFX.Compute.ComputeShader
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Compute
+  nameWithType: LibGFX.Compute
+  fullName: LibGFX.Compute
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Compute.ComputeShader
+  commentId: T:LibGFX.Compute.ComputeShader
+  parent: LibGFX.Compute
+  href: LibGFX.Compute.ComputeShader.html
+  name: ComputeShader
+  nameWithType: ComputeShader
+  fullName: LibGFX.Compute.ComputeShader
+- uid: LibGFX.Compute
+  commentId: N:LibGFX.Compute
+  href: LibGFX.html
+  name: LibGFX.Compute
+  nameWithType: LibGFX.Compute
+  fullName: LibGFX.Compute
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Compute
+    name: Compute
+    href: LibGFX.Compute.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Compute
+    name: Compute
+    href: LibGFX.Compute.html

@@ -23,3 +23,5 @@ C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Release\net8.0\LibGFX.dll
 C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Release\net8.0\refint\LibGFX.dll
 C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Release\net8.0\LibGFX.pdb
 C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Release\net8.0\ref\LibGFX.dll
+C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\bin\Release\net8.0\LibGFX.xml
+C:\Users\andy1\Documents\GitHub\GFX-Next\LibGFX\obj\Release\net8.0\LibGFX.xml

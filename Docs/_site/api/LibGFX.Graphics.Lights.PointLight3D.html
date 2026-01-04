@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PointLight3D | LibGFX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PointLight3D | LibGFX ">
+      
+      <meta name="description" content="Represents a point light in the scene.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Graphics_Lights_PointLight3D.md&amp;value=---%0Auid%3A%20LibGFX.Graphics.Lights.PointLight3D%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="LibGFX">
+            LibGFX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LibGFX.Graphics.Lights.PointLight3D">
+
+
+
+  <h1 id="LibGFX_Graphics_Lights_PointLight3D" data-uid="LibGFX.Graphics.Lights.PointLight3D" class="text-break">
+Class PointLight3D  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LibGFX.html">LibGFX</a>.<a class="xref" href="LibGFX.Graphics.html">Graphics</a>.<a class="xref" href="LibGFX.Graphics.Lights.html">Lights</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LibGFX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a point light in the scene.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class PointLight3D : Light, IIdentifier, ISerialization</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="LibGFX.Graphics.Lights.Light.html">Light</a></div>
+      <div><span class="xref">PointLight3D</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LibGFX.Core.IIdentifier.html">IIdentifier</a></div>
+      <div><a class="xref" href="LibGFX.Core.ISerialization.html">ISerialization</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Name">Light.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_ID">Light.ID</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Color">Light.Color</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_Position">Light.Position</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_ShadowMap">Light.ShadowMap</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Graphics.Lights.Light.html#LibGFX_Graphics_Lights_Light_ShadowMapSize">Light.ShadowMapSize</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D__ctor_" data-uid="LibGFX.Graphics.Lights.PointLight3D.#ctor*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D__ctor" data-uid="LibGFX.Graphics.Lights.PointLight3D.#ctor">
+  PointLight3D()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the PointLight3D class with default property values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PointLight3D()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D__ctor_" data-uid="LibGFX.Graphics.Lights.PointLight3D.#ctor*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D__ctor_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector4_System_Single_System_Single_" data-uid="LibGFX.Graphics.Lights.PointLight3D.#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector4,System.Single,System.Single)">
+  PointLight3D(Vector3, Vector4, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of the <a class="xref" href="LibGFX.Graphics.Lights.PointLight3D.html">PointLight3D</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PointLight3D(Vector3 position, Vector4 color, float range = 10, float intesity = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+    <dt><code>range</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>intesity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D_Ambient_" data-uid="LibGFX.Graphics.Lights.PointLight3D.Ambient*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D_Ambient" data-uid="LibGFX.Graphics.Lights.PointLight3D.Ambient">
+  Ambient
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The ambient color of the light.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector4 Ambient { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D_Constant_" data-uid="LibGFX.Graphics.Lights.PointLight3D.Constant*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D_Constant" data-uid="LibGFX.Graphics.Lights.PointLight3D.Constant">
+  Constant
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The constant of the light. It get calculated based on the range and intensity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Constant { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D_HasShadowMap_" data-uid="LibGFX.Graphics.Lights.PointLight3D.HasShadowMap*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D_HasShadowMap" data-uid="LibGFX.Graphics.Lights.PointLight3D.HasShadowMap">
+  HasShadowMap
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if the light has a shadow map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool HasShadowMap { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D_Intensity_" data-uid="LibGFX.Graphics.Lights.PointLight3D.Intensity*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D_Intensity" data-uid="LibGFX.Graphics.Lights.PointLight3D.Intensity">
+  Intensity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The intensity of the light.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override float Intensity { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D_Linear_" data-uid="LibGFX.Graphics.Lights.PointLight3D.Linear*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D_Linear" data-uid="LibGFX.Graphics.Lights.PointLight3D.Linear">
+  Linear
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The linear attenuation of the light. It get calculated based on the range and intensity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Linear { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D_Quadratic_" data-uid="LibGFX.Graphics.Lights.PointLight3D.Quadratic*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D_Quadratic" data-uid="LibGFX.Graphics.Lights.PointLight3D.Quadratic">
+  Quadratic
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The quadratic attenuation of the light. It get calculated based on the range and intensity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Quadratic { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D_Range_" data-uid="LibGFX.Graphics.Lights.PointLight3D.Range*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D_Range" data-uid="LibGFX.Graphics.Lights.PointLight3D.Range">
+  Range
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The range of the light.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Range { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D_Specular_" data-uid="LibGFX.Graphics.Lights.PointLight3D.Specular*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D_Specular" data-uid="LibGFX.Graphics.Lights.PointLight3D.Specular">
+  Specular
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The specular color of the light.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector4 Specular { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D_CalculateLightIntensitiy_" data-uid="LibGFX.Graphics.Lights.PointLight3D.CalculateLightIntensitiy*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D_CalculateLightIntensitiy" data-uid="LibGFX.Graphics.Lights.PointLight3D.CalculateLightIntensitiy">
+  CalculateLightIntensitiy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the attenuation coefficients for the light based on a given range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CalculateLightIntensitiy()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D_Deserialize_" data-uid="LibGFX.Graphics.Lights.PointLight3D.Deserialize*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__" data-uid="LibGFX.Graphics.Lights.PointLight3D.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})">
+  Deserialize(JObject, SerializationContext, Func&lt;JObject, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Populates the object's properties from the specified JSON object using the provided serialization context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Deserialize(JObject obj, SerializationContext serializationContext, Func&lt;JObject, bool&gt; callback = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+    <dt><code>serializationContext</code> <a class="xref" href="LibGFX.Core.SerializationContext.html">SerializationContext</a></dt>
+    <dd><p>The context to use during deserialization, providing additional information or services required for the
+process.</p>
+</dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">JObject</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D_Dispose_" data-uid="LibGFX.Graphics.Lights.PointLight3D.Dispose*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D_Dispose_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Graphics.Lights.PointLight3D.Dispose(LibGFX.Graphics.IRenderDevice)">
+  Dispose(IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Releases all resources used by the object and performs any necessary cleanup using the specified render
+device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Dispose(IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd><p>The render device to use for releasing graphics resources associated with this object. Cannot be null.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D_GetAABB_" data-uid="LibGFX.Graphics.Lights.PointLight3D.GetAABB*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D_GetAABB_System_Single_" data-uid="LibGFX.Graphics.Lights.PointLight3D.GetAABB(System.Single)">
+  GetAABB(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the axis-aligned bounding box (AABB) of the light based on its range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (Vector3 min, Vector3 max) GetAABB(float minThreshold = 0.01)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minThreshold</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-opentk.mathematics.vector3,opentk.mathematics.vector3-.min">min</a>, <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-opentk.mathematics.vector3,opentk.mathematics.vector3-.max">max</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D_Init_" data-uid="LibGFX.Graphics.Lights.PointLight3D.Init*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D_Init_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Graphics.Lights.PointLight3D.Init(LibGFX.Graphics.IRenderDevice)">
+  Init(IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the object using the specified render device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Init(IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd><p>The render device to use for initialization. Cannot be null.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D_Serialize_" data-uid="LibGFX.Graphics.Lights.PointLight3D.Serialize*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__" data-uid="LibGFX.Graphics.Lights.PointLight3D.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})">
+  Serialize(JsonWriter, SerializationContext, Action&lt;JsonWriter&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serializes the current light object to a JSON representation suitable for storage or transmission.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action&lt;JsonWriter&gt; callback = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
+    <dd></dd>
+    <dt><code>serializationContext</code> <a class="xref" href="LibGFX.Core.SerializationContext.html">SerializationContext</a></dt>
+    <dd><p>The context that provides information and services required for the serialization process.</p>
+</dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">JsonWriter</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Graphics_Lights_PointLight3D_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The returned JSON object includes all relevant properties needed to reconstruct the
+light's state. The format is intended for interoperability with systems that consume or persist light
+definitions in JSON.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_PointLight3D_ToStruct_" data-uid="LibGFX.Graphics.Lights.PointLight3D.ToStruct*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_PointLight3D_ToStruct" data-uid="LibGFX.Graphics.Lights.PointLight3D.ToStruct">
+  ToStruct()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts the light data to a structure for use in the shader.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PointLight3DData ToStruct()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Lights.PointLight3DData.html">PointLight3DData</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/PointLight3D.cs/#L32" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

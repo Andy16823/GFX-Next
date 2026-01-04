@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class GrayscaleFX | LibGFX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GrayscaleFX | LibGFX ">
+      
+      <meta name="description" content="Grayscale Post-Processing Effekt">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Graphics_PostProcessing_GrayscaleFX.md&amp;value=---%0Auid%3A%20LibGFX.Graphics.PostProcessing.GrayscaleFX%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="LibGFX">
+            LibGFX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX">
+
+
+
+  <h1 id="LibGFX_Graphics_PostProcessing_GrayscaleFX" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX" class="text-break">
+Class GrayscaleFX  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LibGFX.html">LibGFX</a>.<a class="xref" href="LibGFX.Graphics.html">Graphics</a>.<a class="xref" href="LibGFX.Graphics.PostProcessing.html">PostProcessing</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LibGFX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Grayscale Post-Processing Effekt</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class GrayscaleFX : IPostProcessFilter</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">GrayscaleFX</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LibGFX.Graphics.PostProcessing.IPostProcessFilter.html">IPostProcessFilter</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX__ctor_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.#ctor*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX__ctor" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.#ctor">
+  GrayscaleFX()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GrayscaleFX()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX__ctor_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.#ctor*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX__ctor_System_Single_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.#ctor(System.Single)">
+  GrayscaleFX(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GrayscaleFX(float intensity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>intensity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Cinematic_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Cinematic*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Cinematic" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Cinematic">
+  Cinematic
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Muted cinematic (light desaturation)
+Subtle, professional look</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GrayscaleFX Cinematic { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.GrayscaleFX.html">GrayscaleFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Death_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Death*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Death" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Death">
+  Death
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Death/game over (full grayscale)
+Player death state</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GrayscaleFX Death { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.GrayscaleFX.html">GrayscaleFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Documentary_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Documentary*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Documentary" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Documentary">
+  Documentary
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Documentary style (strong desaturation)
+Journalistic, realistic</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GrayscaleFX Documentary { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.GrayscaleFX.html">GrayscaleFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Dramatic_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Dramatic*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Dramatic" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Dramatic">
+  Dramatic
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L185"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dramatic focus (strong desaturation)
+Slow motion, important moments</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GrayscaleFX Dramatic { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.GrayscaleFX.html">GrayscaleFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Flashback_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Flashback*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Flashback" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Flashback">
+  Flashback
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Flashback (medium desaturation)
+Memory, past events</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GrayscaleFX Flashback { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.GrayscaleFX.html">GrayscaleFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Full_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Full*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Full" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Full">
+  Full
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Full grayscale (complete black and white)
+Pure monochrome, no color</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GrayscaleFX Full { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.GrayscaleFX.html">GrayscaleFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Horror_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Horror*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Horror" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Horror">
+  Horror
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Horror/creepy (strong desaturation)
+Unsettling atmosphere</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GrayscaleFX Horror { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.GrayscaleFX.html">GrayscaleFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Intensity_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Intensity*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Intensity" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Intensity">
+  Intensity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the intensity value for the effect.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Intensity { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Light_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Light*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Light" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Light">
+  Light
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Light desaturation (visible but not dominant)
+Washed out, faded look</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GrayscaleFX Light { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.GrayscaleFX.html">GrayscaleFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Medium_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Medium*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Medium" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Medium">
+  Medium
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Medium desaturation (balanced mix)
+Bleached, atmospheric</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GrayscaleFX Medium { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.GrayscaleFX.html">GrayscaleFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Noir_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Noir*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Noir" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Noir">
+  Noir
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GrayscaleFX Noir { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.GrayscaleFX.html">GrayscaleFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_RenderTarget_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.RenderTarget*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_RenderTarget" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.RenderTarget">
+  RenderTarget
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the render target used for drawing operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderTarget2D RenderTarget { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.RenderTarget2D.html">RenderTarget2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Strong_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Strong*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Strong" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Strong">
+  Strong
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GrayscaleFX Strong { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.GrayscaleFX.html">GrayscaleFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Subtle_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Subtle*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Subtle" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Subtle">
+  Subtle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GrayscaleFX Subtle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.GrayscaleFX.html">GrayscaleFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Surveillance_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Surveillance*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Surveillance" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Surveillance">
+  Surveillance
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Surveillance/CCTV (full grayscale)
+Security camera footage</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GrayscaleFX Surveillance { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.PostProcessing.GrayscaleFX.html">GrayscaleFX</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Apply_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Apply*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)">
+  Apply(PostProcessStack, IRenderDevice, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Apply(PostProcessStack stack, IRenderDevice renderer, int sourceTexture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stack</code> <a class="xref" href="LibGFX.Graphics.PostProcessing.PostProcessStack.html">PostProcessStack</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+    <dt><code>sourceTexture</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Dispose_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Dispose*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)">
+  Dispose(PostProcessStack, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose(PostProcessStack stack, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stack</code> <a class="xref" href="LibGFX.Graphics.PostProcessing.PostProcessStack.html">PostProcessStack</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Init_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Init*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)">
+  Init(PostProcessStack, Viewport, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>stack</code> <a class="xref" href="LibGFX.Graphics.PostProcessing.PostProcessStack.html">PostProcessStack</a></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Resize_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Resize*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)">
+  Resize(Viewport, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Resize(Viewport viewport, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Update_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Update*"></a>
+
+  <h3 id="LibGFX_Graphics_PostProcessing_GrayscaleFX_Update_System_Single_" data-uid="LibGFX.Graphics.PostProcessing.GrayscaleFX.Update(System.Single)">
+  Update(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update(float deltaTime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>deltaTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/PostProcessing/GrayscaleFX.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

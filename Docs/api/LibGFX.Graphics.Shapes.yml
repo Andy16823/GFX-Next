@@ -1,0 +1,103 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Shapes
+  commentId: N:LibGFX.Graphics.Shapes
+  id: LibGFX.Graphics.Shapes
+  children:
+  - LibGFX.Graphics.Shapes.CubeShape
+  - LibGFX.Graphics.Shapes.CubeWireShape
+  - LibGFX.Graphics.Shapes.FramebufferShape
+  - LibGFX.Graphics.Shapes.LineShape
+  - LibGFX.Graphics.Shapes.PlaneShape
+  - LibGFX.Graphics.Shapes.RectShape
+  - LibGFX.Graphics.Shapes.Shape
+  - LibGFX.Graphics.Shapes.SpriteShape
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Graphics.Shapes
+  nameWithType: LibGFX.Graphics.Shapes
+  fullName: LibGFX.Graphics.Shapes
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Graphics.Shapes.CubeShape
+  commentId: T:LibGFX.Graphics.Shapes.CubeShape
+  href: LibGFX.Graphics.Shapes.CubeShape.html
+  name: CubeShape
+  nameWithType: CubeShape
+  fullName: LibGFX.Graphics.Shapes.CubeShape
+- uid: LibGFX.Graphics.Shapes.CubeWireShape
+  commentId: T:LibGFX.Graphics.Shapes.CubeWireShape
+  href: LibGFX.Graphics.Shapes.CubeWireShape.html
+  name: CubeWireShape
+  nameWithType: CubeWireShape
+  fullName: LibGFX.Graphics.Shapes.CubeWireShape
+- uid: LibGFX.Graphics.Shapes.FramebufferShape
+  commentId: T:LibGFX.Graphics.Shapes.FramebufferShape
+  href: LibGFX.Graphics.Shapes.FramebufferShape.html
+  name: FramebufferShape
+  nameWithType: FramebufferShape
+  fullName: LibGFX.Graphics.Shapes.FramebufferShape
+- uid: LibGFX.Graphics.Shapes.LineShape
+  commentId: T:LibGFX.Graphics.Shapes.LineShape
+  href: LibGFX.Graphics.Shapes.LineShape.html
+  name: LineShape
+  nameWithType: LineShape
+  fullName: LibGFX.Graphics.Shapes.LineShape
+- uid: LibGFX.Graphics.Shapes.PlaneShape
+  commentId: T:LibGFX.Graphics.Shapes.PlaneShape
+  href: LibGFX.Graphics.Shapes.PlaneShape.html
+  name: PlaneShape
+  nameWithType: PlaneShape
+  fullName: LibGFX.Graphics.Shapes.PlaneShape
+- uid: LibGFX.Graphics.Shapes.RectShape
+  commentId: T:LibGFX.Graphics.Shapes.RectShape
+  href: LibGFX.Graphics.Shapes.RectShape.html
+  name: RectShape
+  nameWithType: RectShape
+  fullName: LibGFX.Graphics.Shapes.RectShape
+- uid: LibGFX.Graphics.Shapes.Shape
+  commentId: T:LibGFX.Graphics.Shapes.Shape
+  parent: LibGFX.Graphics.Shapes
+  href: LibGFX.Graphics.Shapes.Shape.html
+  name: Shape
+  nameWithType: Shape
+  fullName: LibGFX.Graphics.Shapes.Shape
+- uid: LibGFX.Graphics.Shapes.SpriteShape
+  commentId: T:LibGFX.Graphics.Shapes.SpriteShape
+  href: LibGFX.Graphics.Shapes.SpriteShape.html
+  name: SpriteShape
+  nameWithType: SpriteShape
+  fullName: LibGFX.Graphics.Shapes.SpriteShape
+- uid: LibGFX.Graphics.Shapes
+  commentId: N:LibGFX.Graphics.Shapes
+  href: LibGFX.html
+  name: LibGFX.Graphics.Shapes
+  nameWithType: LibGFX.Graphics.Shapes
+  fullName: LibGFX.Graphics.Shapes
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Shapes
+    name: Shapes
+    href: LibGFX.Graphics.Shapes.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Shapes
+    name: Shapes
+    href: LibGFX.Graphics.Shapes.html

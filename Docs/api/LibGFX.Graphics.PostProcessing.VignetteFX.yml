@@ -1,0 +1,1605 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX
+  commentId: T:LibGFX.Graphics.PostProcessing.VignetteFX
+  id: VignetteFX
+  parent: LibGFX.Graphics.PostProcessing
+  children:
+  - LibGFX.Graphics.PostProcessing.VignetteFX.#ctor
+  - LibGFX.Graphics.PostProcessing.VignetteFX.#ctor(System.Single,System.Single,OpenTK.Mathematics.Vector3)
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Cinematic
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Cold
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Hard
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Horror
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Intensity
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Mystical
+  - LibGFX.Graphics.PostProcessing.VignetteFX.RedDamage
+  - LibGFX.Graphics.PostProcessing.VignetteFX.RenderTarget
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Scope
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Smoothness
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Soft
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Standard
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Strong
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Subtle
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Toxic
+  - LibGFX.Graphics.PostProcessing.VignetteFX.Update(System.Single)
+  - LibGFX.Graphics.PostProcessing.VignetteFX.VeryStrong
+  - LibGFX.Graphics.PostProcessing.VignetteFX.VignetteColor
+  - LibGFX.Graphics.PostProcessing.VignetteFX.WhiteFade
+  langs:
+  - csharp
+  - vb
+  name: VignetteFX
+  nameWithType: VignetteFX
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: VignetteFX
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 13
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Vignette Post-Processing Effekt
+  example: []
+  syntax:
+    content: 'public class VignetteFX : IPostProcessFilter'
+    content.vb: Public Class VignetteFX Implements IPostProcessFilter
+  inheritance:
+  - System.Object
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.RenderTarget
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.RenderTarget
+  id: RenderTarget
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: RenderTarget
+  nameWithType: VignetteFX.RenderTarget
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.RenderTarget
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderTarget
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 18
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: The internal render target used to store the result of this effect.
+  example: []
+  syntax:
+    content: public RenderTarget2D RenderTarget { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.RenderTarget2D
+    content.vb: Public Property RenderTarget As RenderTarget2D
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.RenderTarget*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Intensity
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.Intensity
+  id: Intensity
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Intensity
+  nameWithType: VignetteFX.Intensity
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Intensity
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Intensity
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 23
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: The intensity of the vignette effect (0 = no effect, 1 = full effect).
+  example: []
+  syntax:
+    content: public float Intensity { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Intensity As Single
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Intensity*
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Smoothness
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.Smoothness
+  id: Smoothness
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Smoothness
+  nameWithType: VignetteFX.Smoothness
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Smoothness
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Smoothness
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 28
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Gets or sets the smoothness factor used in rendering or calculations.
+  example: []
+  syntax:
+    content: public float Smoothness { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Smoothness As Single
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Smoothness*
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.VignetteColor
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.VignetteColor
+  id: VignetteColor
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: VignetteColor
+  nameWithType: VignetteFX.VignetteColor
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.VignetteColor
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: VignetteColor
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 33
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Gets or sets the color applied to the vignette effect as an RGB vector.
+  example: []
+  syntax:
+    content: public Vector3 VignetteColor { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Property VignetteColor As Vector3
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.VignetteColor*
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.#ctor
+  commentId: M:LibGFX.Graphics.PostProcessing.VignetteFX.#ctor
+  id: '#ctor'
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: VignetteFX()
+  nameWithType: VignetteFX.VignetteFX()
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.VignetteFX()
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 38
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  syntax:
+    content: public VignetteFX()
+    content.vb: Public Sub New()
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.#ctor*
+  nameWithType.vb: VignetteFX.New()
+  fullName.vb: LibGFX.Graphics.PostProcessing.VignetteFX.New()
+  name.vb: New()
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.#ctor(System.Single,System.Single,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Graphics.PostProcessing.VignetteFX.#ctor(System.Single,System.Single,OpenTK.Mathematics.Vector3)
+  id: '#ctor(System.Single,System.Single,OpenTK.Mathematics.Vector3)'
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: VignetteFX(float, float, Vector3)
+  nameWithType: VignetteFX.VignetteFX(float, float, Vector3)
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.VignetteFX(float, float, OpenTK.Mathematics.Vector3)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 43
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  syntax:
+    content: public VignetteFX(float intensity, float smoothness, Vector3 vignetteColor)
+    parameters:
+    - id: intensity
+      type: System.Single
+    - id: smoothness
+      type: System.Single
+    - id: vignetteColor
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Sub New(intensity As Single, smoothness As Single, vignetteColor As Vector3)
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.#ctor*
+  nameWithType.vb: VignetteFX.New(Single, Single, Vector3)
+  fullName.vb: LibGFX.Graphics.PostProcessing.VignetteFX.New(Single, Single, OpenTK.Mathematics.Vector3)
+  name.vb: New(Single, Single, Vector3)
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  commentId: M:LibGFX.Graphics.PostProcessing.VignetteFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  id: Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Apply(PostProcessStack, IRenderDevice, int)
+  nameWithType: VignetteFX.Apply(PostProcessStack, IRenderDevice, int)
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Apply
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 51
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Apply(PostProcessStack stack, IRenderDevice renderer, int sourceTexture)
+    parameters:
+    - id: stack
+      type: LibGFX.Graphics.PostProcessing.PostProcessStack
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    - id: sourceTexture
+      type: System.Int32
+    content.vb: Public Sub Apply(stack As PostProcessStack, renderer As IRenderDevice, sourceTexture As Integer)
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Apply*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  nameWithType.vb: VignetteFX.Apply(PostProcessStack, IRenderDevice, Integer)
+  fullName.vb: LibGFX.Graphics.PostProcessing.VignetteFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, Integer)
+  name.vb: Apply(PostProcessStack, IRenderDevice, Integer)
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.VignetteFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  id: Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Dispose(PostProcessStack, IRenderDevice)
+  nameWithType: VignetteFX.Dispose(PostProcessStack, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 64
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Dispose(PostProcessStack stack, IRenderDevice renderer)
+    parameters:
+    - id: stack
+      type: LibGFX.Graphics.PostProcessing.PostProcessStack
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Public Sub Dispose(stack As PostProcessStack, renderer As IRenderDevice)
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Dispose*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.VignetteFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Init(PostProcessStack, Viewport, IRenderDevice)
+  nameWithType: VignetteFX.Init(PostProcessStack, Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Init
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 70
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: stack
+      type: LibGFX.Graphics.PostProcessing.PostProcessStack
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Public Sub Init(stack As PostProcessStack, viewport As Viewport, renderer As IRenderDevice)
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Init*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.VignetteFX.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Resize(Viewport, IRenderDevice)
+  nameWithType: VignetteFX.Resize(Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Resize(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Resize
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 76
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Resize(Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Public Sub Resize(viewport As Viewport, renderer As IRenderDevice)
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Resize*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Update(System.Single)
+  commentId: M:LibGFX.Graphics.PostProcessing.VignetteFX.Update(System.Single)
+  id: Update(System.Single)
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Update(float)
+  nameWithType: VignetteFX.Update(float)
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Update(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Update
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 81
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Update(float deltaTime)
+    parameters:
+    - id: deltaTime
+      type: System.Single
+    content.vb: Public Sub Update(deltaTime As Single)
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Update*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+  nameWithType.vb: VignetteFX.Update(Single)
+  fullName.vb: LibGFX.Graphics.PostProcessing.VignetteFX.Update(Single)
+  name.vb: Update(Single)
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Subtle
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.Subtle
+  id: Subtle
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Subtle
+  nameWithType: VignetteFX.Subtle
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Subtle
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Subtle
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 91
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Subtle vignette (barely noticeable, always-on)
+  example: []
+  syntax:
+    content: public static VignetteFX Subtle { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.VignetteFX
+    content.vb: Public Shared ReadOnly Property Subtle As VignetteFX
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Subtle*
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Standard
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.Standard
+  id: Standard
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Standard
+  nameWithType: VignetteFX.Standard
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Standard
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Standard
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 101
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Standard vignette (balanced, general use)
+  example: []
+  syntax:
+    content: public static VignetteFX Standard { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.VignetteFX
+    content.vb: Public Shared ReadOnly Property Standard As VignetteFX
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Standard*
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Strong
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.Strong
+  id: Strong
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Strong
+  nameWithType: VignetteFX.Strong
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Strong
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Strong
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 111
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Strong vignette (noticeable focus effect)
+  example: []
+  syntax:
+    content: public static VignetteFX Strong { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.VignetteFX
+    content.vb: Public Shared ReadOnly Property Strong As VignetteFX
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Strong*
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.VeryStrong
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.VeryStrong
+  id: VeryStrong
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: VeryStrong
+  nameWithType: VignetteFX.VeryStrong
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.VeryStrong
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: VeryStrong
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 121
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Very strong vignette (dramatic, dark edges)
+  example: []
+  syntax:
+    content: public static VignetteFX VeryStrong { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.VignetteFX
+    content.vb: Public Shared ReadOnly Property VeryStrong As VignetteFX
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.VeryStrong*
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Soft
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.Soft
+  id: Soft
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Soft
+  nameWithType: VignetteFX.Soft
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Soft
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Soft
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 131
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Soft vignette (very smooth transition)
+  example: []
+  syntax:
+    content: public static VignetteFX Soft { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.VignetteFX
+    content.vb: Public Shared ReadOnly Property Soft As VignetteFX
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Soft*
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Hard
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.Hard
+  id: Hard
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Hard
+  nameWithType: VignetteFX.Hard
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Hard
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Hard
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 141
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Hard vignette (sharp edge, tunnel vision)
+  example: []
+  syntax:
+    content: public static VignetteFX Hard { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.VignetteFX
+    content.vb: Public Shared ReadOnly Property Hard As VignetteFX
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Hard*
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Cinematic
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.Cinematic
+  id: Cinematic
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Cinematic
+  nameWithType: VignetteFX.Cinematic
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Cinematic
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Cinematic
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 151
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Cinematic vignette (film-like, subtle)
+  example: []
+  syntax:
+    content: public static VignetteFX Cinematic { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.VignetteFX
+    content.vb: Public Shared ReadOnly Property Cinematic As VignetteFX
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Cinematic*
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Horror
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.Horror
+  id: Horror
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Horror
+  nameWithType: VignetteFX.Horror
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Horror
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Horror
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 161
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Horror vignette (very dark, oppressive)
+  example: []
+  syntax:
+    content: public static VignetteFX Horror { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.VignetteFX
+    content.vb: Public Shared ReadOnly Property Horror As VignetteFX
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Horror*
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Scope
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.Scope
+  id: Scope
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Scope
+  nameWithType: VignetteFX.Scope
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Scope
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Scope
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 171
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Scope vignette (sniper scope, circular mask)
+  example: []
+  syntax:
+    content: public static VignetteFX Scope { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.VignetteFX
+    content.vb: Public Shared ReadOnly Property Scope As VignetteFX
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Scope*
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.RedDamage
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.RedDamage
+  id: RedDamage
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: RedDamage
+  nameWithType: VignetteFX.RedDamage
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.RedDamage
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RedDamage
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 181
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Red vignette (damage/low health indicator)
+  example: []
+  syntax:
+    content: public static VignetteFX RedDamage { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.VignetteFX
+    content.vb: Public Shared ReadOnly Property RedDamage As VignetteFX
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.RedDamage*
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Cold
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.Cold
+  id: Cold
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Cold
+  nameWithType: VignetteFX.Cold
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Cold
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Cold
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 191
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Blue vignette (cold/frost effect)
+  example: []
+  syntax:
+    content: public static VignetteFX Cold { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.VignetteFX
+    content.vb: Public Shared ReadOnly Property Cold As VignetteFX
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Cold*
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Toxic
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.Toxic
+  id: Toxic
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Toxic
+  nameWithType: VignetteFX.Toxic
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Toxic
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Toxic
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 201
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Green vignette (poison/toxic effect)
+  example: []
+  syntax:
+    content: public static VignetteFX Toxic { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.VignetteFX
+    content.vb: Public Shared ReadOnly Property Toxic As VignetteFX
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Toxic*
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Mystical
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.Mystical
+  id: Mystical
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: Mystical
+  nameWithType: VignetteFX.Mystical
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Mystical
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Mystical
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 211
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Purple vignette (magic/mystical effect)
+  example: []
+  syntax:
+    content: public static VignetteFX Mystical { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.VignetteFX
+    content.vb: Public Shared ReadOnly Property Mystical As VignetteFX
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.Mystical*
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.WhiteFade
+  commentId: P:LibGFX.Graphics.PostProcessing.VignetteFX.WhiteFade
+  id: WhiteFade
+  parent: LibGFX.Graphics.PostProcessing.VignetteFX
+  langs:
+  - csharp
+  - vb
+  name: WhiteFade
+  nameWithType: VignetteFX.WhiteFade
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.WhiteFade
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/VignetteFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: WhiteFade
+    path: ../LibGFX/Graphics/PostProcessing/VignetteFX.cs
+    startLine: 221
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: White vignette (fade to white, overexposure)
+  example: []
+  syntax:
+    content: public static VignetteFX WhiteFade { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.VignetteFX
+    content.vb: Public Shared ReadOnly Property WhiteFade As VignetteFX
+  overload: LibGFX.Graphics.PostProcessing.VignetteFX.WhiteFade*
+references:
+- uid: LibGFX.Graphics.PostProcessing
+  commentId: N:LibGFX.Graphics.PostProcessing
+  href: LibGFX.html
+  name: LibGFX.Graphics.PostProcessing
+  nameWithType: LibGFX.Graphics.PostProcessing
+  fullName: LibGFX.Graphics.PostProcessing
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.PostProcessing
+    name: PostProcessing
+    href: LibGFX.Graphics.PostProcessing.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.PostProcessing
+    name: PostProcessing
+    href: LibGFX.Graphics.PostProcessing.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  commentId: T:LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html
+  name: IPostProcessFilter
+  nameWithType: IPostProcessFilter
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.RenderTarget*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.RenderTarget
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_RenderTarget
+  name: RenderTarget
+  nameWithType: VignetteFX.RenderTarget
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.RenderTarget
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+  commentId: P:LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_RenderTarget
+  name: RenderTarget
+  nameWithType: IPostProcessFilter.RenderTarget
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+- uid: LibGFX.Graphics.RenderTarget2D
+  commentId: T:LibGFX.Graphics.RenderTarget2D
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderTarget2D.html
+  name: RenderTarget2D
+  nameWithType: RenderTarget2D
+  fullName: LibGFX.Graphics.RenderTarget2D
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Intensity*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Intensity
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Intensity
+  name: Intensity
+  nameWithType: VignetteFX.Intensity
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Intensity
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Smoothness*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Smoothness
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Smoothness
+  name: Smoothness
+  nameWithType: VignetteFX.Smoothness
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Smoothness
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.VignetteColor*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.VignetteColor
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_VignetteColor
+  name: VignetteColor
+  nameWithType: VignetteFX.VignetteColor
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.VignetteColor
+- uid: OpenTK.Mathematics.Vector3
+  commentId: T:OpenTK.Mathematics.Vector3
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  name: Vector3
+  nameWithType: Vector3
+  fullName: OpenTK.Mathematics.Vector3
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.#ctor*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.#ctor
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX__ctor
+  name: VignetteFX
+  nameWithType: VignetteFX.VignetteFX
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.VignetteFX
+  nameWithType.vb: VignetteFX.New
+  fullName.vb: LibGFX.Graphics.PostProcessing.VignetteFX.New
+  name.vb: New
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Apply*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Apply
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  name: Apply
+  nameWithType: VignetteFX.Apply
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Apply
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  isExternal: true
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  name: Apply(PostProcessStack, IRenderDevice, int)
+  nameWithType: IPostProcessFilter.Apply(PostProcessStack, IRenderDevice, int)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, int)
+  nameWithType.vb: IPostProcessFilter.Apply(PostProcessStack, IRenderDevice, Integer)
+  fullName.vb: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, Integer)
+  name.vb: Apply(PostProcessStack, IRenderDevice, Integer)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+    name: Apply
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+    name: Apply
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+  commentId: T:LibGFX.Graphics.PostProcessing.PostProcessStack
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  name: PostProcessStack
+  nameWithType: PostProcessStack
+  fullName: LibGFX.Graphics.PostProcessing.PostProcessStack
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Dispose*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Dispose
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  name: Dispose
+  nameWithType: VignetteFX.Dispose
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Dispose
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  name: Dispose(PostProcessStack, IRenderDevice)
+  nameWithType: IPostProcessFilter.Dispose(PostProcessStack, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Init*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Init
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Init
+  nameWithType: VignetteFX.Init
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Init
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Init(PostProcessStack, Viewport, IRenderDevice)
+  nameWithType: IPostProcessFilter.Init(PostProcessStack, Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Resize*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Resize
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Resize
+  nameWithType: VignetteFX.Resize
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Resize
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Resize(Viewport, IRenderDevice)
+  nameWithType: IPostProcessFilter.Resize(Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Resize
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Resize
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Update*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Update
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Update_System_Single_
+  name: Update
+  nameWithType: VignetteFX.Update
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Update
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  isExternal: true
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Update_System_Single_
+  name: Update(float)
+  nameWithType: IPostProcessFilter.Update(float)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(float)
+  nameWithType.vb: IPostProcessFilter.Update(Single)
+  fullName.vb: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(Single)
+  name.vb: Update(Single)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+    name: Update
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Update_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+    name: Update
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Update_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Subtle*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Subtle
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Subtle
+  name: Subtle
+  nameWithType: VignetteFX.Subtle
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Subtle
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX
+  commentId: T:LibGFX.Graphics.PostProcessing.VignetteFX
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html
+  name: VignetteFX
+  nameWithType: VignetteFX
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Standard*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Standard
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Standard
+  name: Standard
+  nameWithType: VignetteFX.Standard
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Standard
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Strong*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Strong
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Strong
+  name: Strong
+  nameWithType: VignetteFX.Strong
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Strong
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.VeryStrong*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.VeryStrong
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_VeryStrong
+  name: VeryStrong
+  nameWithType: VignetteFX.VeryStrong
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.VeryStrong
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Soft*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Soft
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Soft
+  name: Soft
+  nameWithType: VignetteFX.Soft
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Soft
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Hard*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Hard
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Hard
+  name: Hard
+  nameWithType: VignetteFX.Hard
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Hard
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Cinematic*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Cinematic
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Cinematic
+  name: Cinematic
+  nameWithType: VignetteFX.Cinematic
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Cinematic
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Horror*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Horror
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Horror
+  name: Horror
+  nameWithType: VignetteFX.Horror
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Horror
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Scope*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Scope
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Scope
+  name: Scope
+  nameWithType: VignetteFX.Scope
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Scope
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.RedDamage*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.RedDamage
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_RedDamage
+  name: RedDamage
+  nameWithType: VignetteFX.RedDamage
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.RedDamage
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Cold*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Cold
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Cold
+  name: Cold
+  nameWithType: VignetteFX.Cold
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Cold
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Toxic*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Toxic
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Toxic
+  name: Toxic
+  nameWithType: VignetteFX.Toxic
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Toxic
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.Mystical*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.Mystical
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_Mystical
+  name: Mystical
+  nameWithType: VignetteFX.Mystical
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.Mystical
+- uid: LibGFX.Graphics.PostProcessing.VignetteFX.WhiteFade*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.VignetteFX.WhiteFade
+  href: LibGFX.Graphics.PostProcessing.VignetteFX.html#LibGFX_Graphics_PostProcessing_VignetteFX_WhiteFade
+  name: WhiteFade
+  nameWithType: VignetteFX.WhiteFade
+  fullName: LibGFX.Graphics.PostProcessing.VignetteFX.WhiteFade

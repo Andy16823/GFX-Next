@@ -1,0 +1,976 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Lights.Light2DChunk
+  commentId: T:LibGFX.Graphics.Lights.Light2DChunk
+  id: Light2DChunk
+  parent: LibGFX.Graphics.Lights
+  children:
+  - LibGFX.Graphics.Lights.Light2DChunk.#ctor
+  - LibGFX.Graphics.Lights.Light2DChunk.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  - LibGFX.Graphics.Lights.Light2DChunk.Lights
+  - LibGFX.Graphics.Lights.Light2DChunk.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  langs:
+  - csharp
+  - vb
+  name: Light2DChunk
+  nameWithType: Light2DChunk
+  fullName: LibGFX.Graphics.Lights.Light2DChunk
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/Light2DManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Light2DChunk
+    path: ../LibGFX/Graphics/Lights/Light2DManager.cs
+    startLine: 18
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Represents an chunk of lights in the scene.
+  example: []
+  syntax:
+    content: 'public class Light2DChunk : ISerialization'
+    content.vb: Public Class Light2DChunk Implements ISerialization
+  inheritance:
+  - System.Object
+  implements:
+  - LibGFX.Core.ISerialization
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Graphics.Lights.Light2DChunk.Lights
+  commentId: P:LibGFX.Graphics.Lights.Light2DChunk.Lights
+  id: Lights
+  parent: LibGFX.Graphics.Lights.Light2DChunk
+  langs:
+  - csharp
+  - vb
+  name: Lights
+  nameWithType: Light2DChunk.Lights
+  fullName: LibGFX.Graphics.Lights.Light2DChunk.Lights
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/Light2DManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Lights
+    path: ../LibGFX/Graphics/Lights/Light2DManager.cs
+    startLine: 23
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Gets or sets the collection of 2D point lights used in the scene.
+  example: []
+  syntax:
+    content: public List<PointLight2D> Lights { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{LibGFX.Graphics.Lights.PointLight2D}
+    content.vb: Public Property Lights As List(Of PointLight2D)
+  overload: LibGFX.Graphics.Lights.Light2DChunk.Lights*
+- uid: LibGFX.Graphics.Lights.Light2DChunk.#ctor
+  commentId: M:LibGFX.Graphics.Lights.Light2DChunk.#ctor
+  id: '#ctor'
+  parent: LibGFX.Graphics.Lights.Light2DChunk
+  langs:
+  - csharp
+  - vb
+  name: Light2DChunk()
+  nameWithType: Light2DChunk.Light2DChunk()
+  fullName: LibGFX.Graphics.Lights.Light2DChunk.Light2DChunk()
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/Light2DManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/Lights/Light2DManager.cs
+    startLine: 30
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Initializes a new instance of the Light2DChunk class.
+  remarks: >-
+    This constructor creates an empty collection of PointLight2D objects, ready to be
+        populated after instantiation.
+  example: []
+  syntax:
+    content: public Light2DChunk()
+    content.vb: Public Sub New()
+  overload: LibGFX.Graphics.Lights.Light2DChunk.#ctor*
+  nameWithType.vb: Light2DChunk.New()
+  fullName.vb: LibGFX.Graphics.Lights.Light2DChunk.New()
+  name.vb: New()
+- uid: LibGFX.Graphics.Lights.Light2DChunk.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Graphics.Lights.Light2DChunk.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  id: Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Graphics.Lights.Light2DChunk
+  langs:
+  - csharp
+  - vb
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: Light2DChunk.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Graphics.Lights.Light2DChunk.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/Light2DManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Serialize
+    path: ../LibGFX/Graphics/Lights/Light2DManager.cs
+    startLine: 42
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: Serializes the current object and its child lights into a JSON representation.
+  example: []
+  syntax:
+    content: public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
+    parameters:
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+    - id: serializationContext
+      type: LibGFX.Core.SerializationContext
+      description: >-
+        The context to use during serialization, which may provide settings or state required for the serialization
+            process.
+    - id: callback
+      type: System.Action{Newtonsoft.Json.JsonWriter}
+    content.vb: Public Sub Serialize(writer As JsonWriter, serializationContext As SerializationContext, callback As Action(Of JsonWriter) = Nothing)
+  overload: LibGFX.Graphics.Lights.Light2DChunk.Serialize*
+  implements:
+  - LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  nameWithType.vb: Light2DChunk.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Graphics.Lights.Light2DChunk.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+- uid: LibGFX.Graphics.Lights.Light2DChunk.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Graphics.Lights.Light2DChunk.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  id: Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Graphics.Lights.Light2DChunk
+  langs:
+  - csharp
+  - vb
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: Light2DChunk.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Graphics.Lights.Light2DChunk.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Lights/Light2DManager.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Deserialize
+    path: ../LibGFX/Graphics/Lights/Light2DManager.cs
+    startLine: 68
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Lights
+  summary: >-
+    Populates the collection of point lights from the specified JSON object using the provided serialization
+
+    context.
+  remarks: >-
+    This method clears the existing collection of point lights before adding the
+        deserialized lights from the JSON object. Any existing lights will be removed.
+  example: []
+  syntax:
+    content: public void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
+    parameters:
+    - id: obj
+      type: Newtonsoft.Json.Linq.JObject
+    - id: serializationContext
+      type: LibGFX.Core.SerializationContext
+      description: >-
+        The <xref href="LibGFX.Core.SerializationContext" data-throw-if-not-resolved="false"></xref> to use during deserialization. Provides context or settings required
+            for the operation.
+    - id: callback
+      type: System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+    content.vb: Public Sub Deserialize(obj As JObject, serializationContext As SerializationContext, callback As Func(Of JObject, Boolean) = Nothing)
+  overload: LibGFX.Graphics.Lights.Light2DChunk.Deserialize*
+  implements:
+  - LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  nameWithType.vb: Light2DChunk.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Graphics.Lights.Light2DChunk.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+references:
+- uid: LibGFX.Graphics.Lights
+  commentId: N:LibGFX.Graphics.Lights
+  href: LibGFX.html
+  name: LibGFX.Graphics.Lights
+  nameWithType: LibGFX.Graphics.Lights
+  fullName: LibGFX.Graphics.Lights
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Lights
+    name: Lights
+    href: LibGFX.Graphics.Lights.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Lights
+    name: Lights
+    href: LibGFX.Graphics.Lights.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Core.ISerialization
+  commentId: T:LibGFX.Core.ISerialization
+  parent: LibGFX.Core
+  href: LibGFX.Core.ISerialization.html
+  name: ISerialization
+  nameWithType: ISerialization
+  fullName: LibGFX.Core.ISerialization
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Graphics.Lights.Light2DChunk.Lights*
+  commentId: Overload:LibGFX.Graphics.Lights.Light2DChunk.Lights
+  href: LibGFX.Graphics.Lights.Light2DChunk.html#LibGFX_Graphics_Lights_Light2DChunk_Lights
+  name: Lights
+  nameWithType: Light2DChunk.Lights
+  fullName: LibGFX.Graphics.Lights.Light2DChunk.Lights
+- uid: System.Collections.Generic.List{LibGFX.Graphics.Lights.PointLight2D}
+  commentId: T:System.Collections.Generic.List{LibGFX.Graphics.Lights.PointLight2D}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<PointLight2D>
+  nameWithType: List<PointLight2D>
+  fullName: System.Collections.Generic.List<LibGFX.Graphics.Lights.PointLight2D>
+  nameWithType.vb: List(Of PointLight2D)
+  fullName.vb: System.Collections.Generic.List(Of LibGFX.Graphics.Lights.PointLight2D)
+  name.vb: List(Of PointLight2D)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: LibGFX.Graphics.Lights.PointLight2D
+    name: PointLight2D
+    href: LibGFX.Graphics.Lights.PointLight2D.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LibGFX.Graphics.Lights.PointLight2D
+    name: PointLight2D
+    href: LibGFX.Graphics.Lights.PointLight2D.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: LibGFX.Graphics.Lights.Light2DChunk.#ctor*
+  commentId: Overload:LibGFX.Graphics.Lights.Light2DChunk.#ctor
+  href: LibGFX.Graphics.Lights.Light2DChunk.html#LibGFX_Graphics_Lights_Light2DChunk__ctor
+  name: Light2DChunk
+  nameWithType: Light2DChunk.Light2DChunk
+  fullName: LibGFX.Graphics.Lights.Light2DChunk.Light2DChunk
+  nameWithType.vb: Light2DChunk.New
+  fullName.vb: LibGFX.Graphics.Lights.Light2DChunk.New
+  name.vb: New
+- uid: Newtonsoft.Json.Linq.JObject
+  commentId: T:Newtonsoft.Json.Linq.JObject
+  parent: Newtonsoft.Json.Linq
+  isExternal: true
+  name: JObject
+  nameWithType: JObject
+  fullName: Newtonsoft.Json.Linq.JObject
+- uid: LibGFX.Graphics.Lights.Light2DChunk.Serialize*
+  commentId: Overload:LibGFX.Graphics.Lights.Light2DChunk.Serialize
+  href: LibGFX.Graphics.Lights.Light2DChunk.html#LibGFX_Graphics_Lights_Light2DChunk_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize
+  nameWithType: Light2DChunk.Serialize
+  fullName: LibGFX.Graphics.Lights.Light2DChunk.Serialize
+- uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: ISerialization.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  nameWithType.vb: ISerialization.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+  - name: )
+- uid: Newtonsoft.Json.JsonWriter
+  commentId: T:Newtonsoft.Json.JsonWriter
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonWriter
+  nameWithType: JsonWriter
+  fullName: Newtonsoft.Json.JsonWriter
+- uid: LibGFX.Core.SerializationContext
+  commentId: T:LibGFX.Core.SerializationContext
+  parent: LibGFX.Core
+  href: LibGFX.Core.SerializationContext.html
+  name: SerializationContext
+  nameWithType: SerializationContext
+  fullName: LibGFX.Core.SerializationContext
+- uid: System.Action{Newtonsoft.Json.JsonWriter}
+  commentId: T:System.Action{Newtonsoft.Json.JsonWriter}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<JsonWriter>
+  nameWithType: Action<JsonWriter>
+  fullName: System.Action<Newtonsoft.Json.JsonWriter>
+  nameWithType.vb: Action(Of JsonWriter)
+  fullName.vb: System.Action(Of Newtonsoft.Json.JsonWriter)
+  name.vb: Action(Of JsonWriter)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+- uid: Newtonsoft.Json.Linq
+  commentId: N:Newtonsoft.Json.Linq
+  isExternal: true
+  name: Newtonsoft.Json.Linq
+  nameWithType: Newtonsoft.Json.Linq
+  fullName: Newtonsoft.Json.Linq
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: LibGFX.Graphics.Lights.Light2DChunk.Deserialize*
+  commentId: Overload:LibGFX.Graphics.Lights.Light2DChunk.Deserialize
+  href: LibGFX.Graphics.Lights.Light2DChunk.html#LibGFX_Graphics_Lights_Light2DChunk_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize
+  nameWithType: Light2DChunk.Deserialize
+  fullName: LibGFX.Graphics.Lights.Light2DChunk.Deserialize
+- uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: ISerialization.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  nameWithType.vb: ISerialization.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+  commentId: T:System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<JObject, bool>
+  nameWithType: Func<JObject, bool>
+  fullName: System.Func<Newtonsoft.Json.Linq.JObject, bool>
+  nameWithType.vb: Func(Of JObject, Boolean)
+  fullName.vb: System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean)
+  name.vb: Func(Of JObject, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )

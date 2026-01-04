@@ -1,0 +1,464 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Enviroment.IEnviroment
+  commentId: T:LibGFX.Graphics.Enviroment.IEnviroment
+  id: IEnviroment
+  parent: LibGFX.Graphics.Enviroment
+  children:
+  - LibGFX.Graphics.Enviroment.IEnviroment.Render(LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport)
+  - LibGFX.Graphics.Enviroment.IEnviroment.Transform
+  langs:
+  - csharp
+  - vb
+  name: IEnviroment
+  nameWithType: IEnviroment
+  fullName: LibGFX.Graphics.Enviroment.IEnviroment
+  type: Interface
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/IEnviroment.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IEnviroment
+    path: ../LibGFX/Graphics/Enviroment/IEnviroment.cs
+    startLine: 11
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  syntax:
+    content: 'public interface IEnviroment : IGraphicsResource, ISerialization'
+    content.vb: Public Interface IEnviroment Inherits IGraphicsResource, ISerialization
+  inheritedMembers:
+  - LibGFX.Core.IGraphicsResource.IsInitialized
+  - LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Core.IGraphicsResource.FreeCPUResources
+  - LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  - LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+- uid: LibGFX.Graphics.Enviroment.IEnviroment.Transform
+  commentId: P:LibGFX.Graphics.Enviroment.IEnviroment.Transform
+  id: Transform
+  parent: LibGFX.Graphics.Enviroment.IEnviroment
+  langs:
+  - csharp
+  - vb
+  name: Transform
+  nameWithType: IEnviroment.Transform
+  fullName: LibGFX.Graphics.Enviroment.IEnviroment.Transform
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/IEnviroment.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Transform
+    path: ../LibGFX/Graphics/Enviroment/IEnviroment.cs
+    startLine: 13
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  syntax:
+    content: Transform Transform { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Math.Transform
+    content.vb: Property Transform As Transform
+  overload: LibGFX.Graphics.Enviroment.IEnviroment.Transform*
+- uid: LibGFX.Graphics.Enviroment.IEnviroment.Render(LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport)
+  commentId: M:LibGFX.Graphics.Enviroment.IEnviroment.Render(LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport)
+  id: Render(LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport)
+  parent: LibGFX.Graphics.Enviroment.IEnviroment
+  langs:
+  - csharp
+  - vb
+  name: Render(IRenderDevice, Camera, Viewport)
+  nameWithType: IEnviroment.Render(IRenderDevice, Camera, Viewport)
+  fullName: LibGFX.Graphics.Enviroment.IEnviroment.Render(LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera, LibGFX.Graphics.Viewport)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Enviroment/IEnviroment.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Render
+    path: ../LibGFX/Graphics/Enviroment/IEnviroment.cs
+    startLine: 14
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Enviroment
+  syntax:
+    content: void Render(IRenderDevice renderer, Camera camera, Viewport viewport)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    - id: camera
+      type: LibGFX.Graphics.Camera
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+    content.vb: Sub Render(renderer As IRenderDevice, camera As Camera, viewport As Viewport)
+  overload: LibGFX.Graphics.Enviroment.IEnviroment.Render*
+references:
+- uid: LibGFX.Graphics.Enviroment
+  commentId: N:LibGFX.Graphics.Enviroment
+  href: LibGFX.html
+  name: LibGFX.Graphics.Enviroment
+  nameWithType: LibGFX.Graphics.Enviroment
+  fullName: LibGFX.Graphics.Enviroment
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Enviroment
+    name: Enviroment
+    href: LibGFX.Graphics.Enviroment.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Enviroment
+    name: Enviroment
+    href: LibGFX.Graphics.Enviroment.html
+- uid: LibGFX.Core.IGraphicsResource.IsInitialized
+  commentId: P:LibGFX.Core.IGraphicsResource.IsInitialized
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_IsInitialized
+  name: IsInitialized
+  nameWithType: IGraphicsResource.IsInitialized
+  fullName: LibGFX.Core.IGraphicsResource.IsInitialized
+- uid: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Init_LibGFX_Graphics_IRenderDevice_
+  name: Init(IRenderDevice)
+  nameWithType: IGraphicsResource.Init(IRenderDevice)
+  fullName: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose(IRenderDevice)
+  nameWithType: IGraphicsResource.Dispose(IRenderDevice)
+  fullName: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+  commentId: M:LibGFX.Core.IGraphicsResource.FreeCPUResources
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  name: FreeCPUResources()
+  nameWithType: IGraphicsResource.FreeCPUResources()
+  fullName: LibGFX.Core.IGraphicsResource.FreeCPUResources()
+  spec.csharp:
+  - uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+    name: FreeCPUResources
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+    name: FreeCPUResources
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  - name: (
+  - name: )
+- uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: ISerialization.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  nameWithType.vb: ISerialization.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+  - name: )
+- uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: ISerialization.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  nameWithType.vb: ISerialization.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: LibGFX.Core.IGraphicsResource
+  commentId: T:LibGFX.Core.IGraphicsResource
+  parent: LibGFX.Core
+  href: LibGFX.Core.IGraphicsResource.html
+  name: IGraphicsResource
+  nameWithType: IGraphicsResource
+  fullName: LibGFX.Core.IGraphicsResource
+- uid: LibGFX.Core.ISerialization
+  commentId: T:LibGFX.Core.ISerialization
+  parent: LibGFX.Core
+  href: LibGFX.Core.ISerialization.html
+  name: ISerialization
+  nameWithType: ISerialization
+  fullName: LibGFX.Core.ISerialization
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Graphics.Enviroment.IEnviroment.Transform*
+  commentId: Overload:LibGFX.Graphics.Enviroment.IEnviroment.Transform
+  href: LibGFX.Graphics.Enviroment.IEnviroment.html#LibGFX_Graphics_Enviroment_IEnviroment_Transform
+  name: Transform
+  nameWithType: IEnviroment.Transform
+  fullName: LibGFX.Graphics.Enviroment.IEnviroment.Transform
+- uid: LibGFX.Math.Transform
+  commentId: T:LibGFX.Math.Transform
+  parent: LibGFX.Math
+  href: LibGFX.Math.Transform.html
+  name: Transform
+  nameWithType: Transform
+  fullName: LibGFX.Math.Transform
+- uid: LibGFX.Math
+  commentId: N:LibGFX.Math
+  href: LibGFX.html
+  name: LibGFX.Math
+  nameWithType: LibGFX.Math
+  fullName: LibGFX.Math
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+- uid: LibGFX.Graphics.Enviroment.IEnviroment.Render*
+  commentId: Overload:LibGFX.Graphics.Enviroment.IEnviroment.Render
+  href: LibGFX.Graphics.Enviroment.IEnviroment.html#LibGFX_Graphics_Enviroment_IEnviroment_Render_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_LibGFX_Graphics_Viewport_
+  name: Render
+  nameWithType: IEnviroment.Render
+  fullName: LibGFX.Graphics.Enviroment.IEnviroment.Render
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.Graphics.Camera
+  commentId: T:LibGFX.Graphics.Camera
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Camera.html
+  name: Camera
+  nameWithType: Camera
+  fullName: LibGFX.Graphics.Camera
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html

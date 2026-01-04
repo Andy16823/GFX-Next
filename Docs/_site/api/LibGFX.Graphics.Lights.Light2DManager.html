@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Light2DManager | LibGFX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Light2DManager | LibGFX ">
+      
+      <meta name="description" content="Manages 2D lights in the scene.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Graphics_Lights_Light2DManager.md&amp;value=---%0Auid%3A%20LibGFX.Graphics.Lights.Light2DManager%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="LibGFX">
+            LibGFX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LibGFX.Graphics.Lights.Light2DManager">
+
+
+
+  <h1 id="LibGFX_Graphics_Lights_Light2DManager" data-uid="LibGFX.Graphics.Lights.Light2DManager" class="text-break">
+Class Light2DManager  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LibGFX.html">LibGFX</a>.<a class="xref" href="LibGFX.Graphics.html">Graphics</a>.<a class="xref" href="LibGFX.Graphics.Lights.html">Lights</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LibGFX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Manages 2D lights in the scene.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Light2DManager : ILightManager, ISerialization, IGraphicsResource</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Light2DManager</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LibGFX.Graphics.Lights.ILightManager.html">ILightManager</a></div>
+      <div><a class="xref" href="LibGFX.Core.ISerialization.html">ISerialization</a></div>
+      <div><a class="xref" href="LibGFX.Core.IGraphicsResource.html">IGraphicsResource</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager__ctor_" data-uid="LibGFX.Graphics.Lights.Light2DManager.#ctor*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager__ctor" data-uid="LibGFX.Graphics.Lights.Light2DManager.#ctor">
+  Light2DManager()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="LibGFX.Graphics.Lights.Light2DManager.html">Light2DManager</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Light2DManager()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_ChunkSize_" data-uid="LibGFX.Graphics.Lights.Light2DManager.ChunkSize*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_ChunkSize" data-uid="LibGFX.Graphics.Lights.Light2DManager.ChunkSize">
+  ChunkSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the size, in characters, of each chunk used during processing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float ChunkSize { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="LibGFX_Graphics_Lights_Light2DManager_ChunkSize_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Adjust this value to control the maximum number of characters included in a single
+chunk. Larger chunk sizes may improve performance but can increase memory usage.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_Chunks_" data-uid="LibGFX.Graphics.Lights.Light2DManager.Chunks*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_Chunks" data-uid="LibGFX.Graphics.Lights.Light2DManager.Chunks">
+  Chunks
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The dictionary of light chunks, where the key is a tuple of chunk coordinates (x, y).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;(int, int), Light2DChunk&gt; Chunks { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>), <a class="xref" href="LibGFX.Graphics.Lights.Light2DChunk.html">Light2DChunk</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_DirectionalLight_" data-uid="LibGFX.Graphics.Lights.Light2DManager.DirectionalLight*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_DirectionalLight" data-uid="LibGFX.Graphics.Lights.Light2DManager.DirectionalLight">
+  DirectionalLight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The directional light in the scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DirectionalLight2D DirectionalLight { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Lights.DirectionalLight2D.html">DirectionalLight2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_IsInitialized_" data-uid="LibGFX.Graphics.Lights.Light2DManager.IsInitialized*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_IsInitialized" data-uid="LibGFX.Graphics.Lights.Light2DManager.IsInitialized">
+  IsInitialized
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the object has been initialized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsInitialized { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_LightSSBO_" data-uid="LibGFX.Graphics.Lights.Light2DManager.LightSSBO*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_LightSSBO" data-uid="LibGFX.Graphics.Lights.Light2DManager.LightSSBO">
+  LightSSBO
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The shader storage buffer object (SSBO) for the lights.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int LightSSBO { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_AddPointLight_" data-uid="LibGFX.Graphics.Lights.Light2DManager.AddPointLight*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_AddPointLight_LibGFX_Graphics_Lights_PointLight2D_" data-uid="LibGFX.Graphics.Lights.Light2DManager.AddPointLight(LibGFX.Graphics.Lights.PointLight2D)">
+  AddPointLight(PointLight2D)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a directional light to the scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddPointLight(PointLight2D light)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>light</code> <a class="xref" href="LibGFX.Graphics.Lights.PointLight2D.html">PointLight2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_BindLights_" data-uid="LibGFX.Graphics.Lights.Light2DManager.BindLights*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_BindLights_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_" data-uid="LibGFX.Graphics.Lights.Light2DManager.BindLights(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)">
+  BindLights(Viewport, IRenderDevice, Camera)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L247"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Binds the lights to the shader program for rendering.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BindLights(Viewport viewport, IRenderDevice renderer, Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+    <dt><code>camera</code> <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_ClearLights_" data-uid="LibGFX.Graphics.Lights.Light2DManager.ClearLights*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_ClearLights" data-uid="LibGFX.Graphics.Lights.Light2DManager.ClearLights">
+  ClearLights()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L399"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all lights from the scene, including the directional light and any additional light sources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearLights()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Graphics_Lights_Light2DManager_ClearLights_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>After calling this method, the scene will contain no active lights. Use this method
+to reset the lighting configuration before adding new lights or reconfiguring the scene's
+illumination.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_ContainsLight_" data-uid="LibGFX.Graphics.Lights.Light2DManager.ContainsLight*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_ContainsLight_LibGFX_Graphics_Lights_Light_" data-uid="LibGFX.Graphics.Lights.Light2DManager.ContainsLight(LibGFX.Graphics.Lights.Light)">
+  ContainsLight(Light)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L413"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether the specified light is contained within this collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ContainsLight(Light light)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>light</code> <a class="xref" href="LibGFX.Graphics.Lights.Light.html">Light</a></dt>
+    <dd><p>The light to locate in the collection. Can be a directional or point light.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if the specified light is present in the collection; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Graphics_Lights_Light2DManager_ContainsLight_LibGFX_Graphics_Lights_Light__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method checks for both directional and point lights. For directional lights, it
+compares with the collection's directional light. For point lights, it searches all chunks in the
+collection.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_CullChunkLights_" data-uid="LibGFX.Graphics.Lights.Light2DManager.CullChunkLights*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_CullChunkLights_LibGFX_Graphics_Camera_System_Single_" data-uid="LibGFX.Graphics.Lights.Light2DManager.CullChunkLights(LibGFX.Graphics.Camera,System.Single)">
+  CullChunkLights(Camera, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the lights in the nearby chunks based on the given coordinates and chunk size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Point2DLightData&gt; CullChunkLights(Camera camera, float chunkSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a></dt>
+    <dd></dd>
+    <dt><code>chunkSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="LibGFX.Graphics.Lights.Point2DLightData.html">Point2DLightData</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_CullLights_" data-uid="LibGFX.Graphics.Lights.Light2DManager.CullLights*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_CullLights_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_" data-uid="LibGFX.Graphics.Lights.Light2DManager.CullLights(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)">
+  CullLights(Viewport, IRenderDevice, Camera)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L235"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Culls the lights based on the camera's view and the viewport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CullLights(Viewport viewport, IRenderDevice renderer, Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+    <dt><code>camera</code> <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_Deserialize_" data-uid="LibGFX.Graphics.Lights.Light2DManager.Deserialize*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__" data-uid="LibGFX.Graphics.Lights.Light2DManager.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})">
+  Deserialize(JObject, SerializationContext, Func&lt;JObject, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L466"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Populates the current object with values from the specified JSON object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Deserialize(JObject obj, SerializationContext serializationContext, Func&lt;JObject, bool&gt; callback = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+    <dt><code>serializationContext</code> <a class="xref" href="LibGFX.Core.SerializationContext.html">SerializationContext</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">JObject</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_Dispose_" data-uid="LibGFX.Graphics.Lights.Light2DManager.Dispose*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_Dispose_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Graphics.Lights.Light2DManager.Dispose(LibGFX.Graphics.IRenderDevice)">
+  Dispose(IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L263"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes of the light manager and releases any resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose(IRenderDevice renderDevice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderDevice</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_DisposeLights_" data-uid="LibGFX.Graphics.Lights.Light2DManager.DisposeLights*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_DisposeLights_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Graphics.Lights.Light2DManager.DisposeLights(LibGFX.Graphics.IRenderDevice)">
+  DisposeLights(IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L376"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Releases all light resources associated with the current instance using the specified render device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DisposeLights(IRenderDevice renderDevice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderDevice</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd><p>The render device to use when disposing of light resources. Cannot be null.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Graphics_Lights_Light2DManager_DisposeLights_LibGFX_Graphics_IRenderDevice__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Call this method to ensure that all light resources are properly released before
+disposing of the parent object or when lights are no longer needed. After calling this method, the
+collection of lights will be cleared.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_FindNearbyChunks_" data-uid="LibGFX.Graphics.Lights.Light2DManager.FindNearbyChunks*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_FindNearbyChunks_System_Single_System_Single_System_Single_" data-uid="LibGFX.Graphics.Lights.Light2DManager.FindNearbyChunks(System.Single,System.Single,System.Single)">
+  FindNearbyChunks(float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds nearby chunks based on the given coordinates and chunk size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;(int, int)&gt; FindNearbyChunks(float x, float y, float chunkSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>chunkSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>)&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_ForEachLight_" data-uid="LibGFX.Graphics.Lights.Light2DManager.ForEachLight*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_ForEachLight_System_Action_LibGFX_Graphics_Lights_Light__" data-uid="LibGFX.Graphics.Lights.Light2DManager.ForEachLight(System.Action{LibGFX.Graphics.Lights.Light})">
+  ForEachLight(Action&lt;Light&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L354"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an action on each light in the scene, regardless of type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ForEachLight(Action&lt;Light&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="LibGFX.Graphics.Lights.Light.html">Light</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_ForEachLight_" data-uid="LibGFX.Graphics.Lights.Light2DManager.ForEachLight*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_ForEachLight__1_System_Action___0__" data-uid="LibGFX.Graphics.Lights.Light2DManager.ForEachLight``1(System.Action{``0})">
+  ForEachLight&lt;T&gt;(Action&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L328"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs an action on each light of the specified type in the scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ForEachLight&lt;T&gt;(Action&lt;T&gt; action) where T : Light</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_FreeCPUResources_" data-uid="LibGFX.Graphics.Lights.Light2DManager.FreeCPUResources*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_FreeCPUResources" data-uid="LibGFX.Graphics.Lights.Light2DManager.FreeCPUResources">
+  FreeCPUResources()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Frees any CPU resources used by the light manager.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void FreeCPUResources()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_GetChunk_" data-uid="LibGFX.Graphics.Lights.Light2DManager.GetChunk*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_GetChunk_System_Single_System_Single_System_Single_" data-uid="LibGFX.Graphics.Lights.Light2DManager.GetChunk(System.Single,System.Single,System.Single)">
+  GetChunk(float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L289"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the chunk coordinates based on the given x and y coordinates and chunk size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public (int, int) GetChunk(float x, float y, float chunkSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>chunkSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.srcfactor">srcFactor</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.dstfactor">dstFactor</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_GetLightCount_" data-uid="LibGFX.Graphics.Lights.Light2DManager.GetLightCount*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_GetLightCount__1" data-uid="LibGFX.Graphics.Lights.Light2DManager.GetLightCount``1">
+  GetLightCount&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L277"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the light count of the specified type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetLightCount&lt;T&gt;() where T : Light</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_GetLight_" data-uid="LibGFX.Graphics.Lights.Light2DManager.GetLight*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_GetLight__1" data-uid="LibGFX.Graphics.Lights.Light2DManager.GetLight``1">
+  GetLight&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L302"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the total light count across all types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T GetLight&lt;T&gt;() where T : Light</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_Init_" data-uid="LibGFX.Graphics.Lights.Light2DManager.Init*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_Init_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Graphics.Lights.Light2DManager.Init(LibGFX.Graphics.IRenderDevice)">
+  Init(IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the light manager with the given render device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Init(IRenderDevice renderDevice)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderDevice</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_RemovePointLight_" data-uid="LibGFX.Graphics.Lights.Light2DManager.RemovePointLight*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_RemovePointLight_LibGFX_Graphics_Lights_PointLight2D_" data-uid="LibGFX.Graphics.Lights.Light2DManager.RemovePointLight(LibGFX.Graphics.Lights.PointLight2D)">
+  RemovePointLight(PointLight2D)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a point light from the scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemovePointLight(PointLight2D light)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>light</code> <a class="xref" href="LibGFX.Graphics.Lights.PointLight2D.html">PointLight2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_Serialize_" data-uid="LibGFX.Graphics.Lights.Light2DManager.Serialize*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__" data-uid="LibGFX.Graphics.Lights.Light2DManager.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})">
+  Serialize(JsonWriter, SerializationContext, Action&lt;JsonWriter&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L434"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serializes the current object to a new JSON object representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action&lt;JsonWriter&gt; callback = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
+    <dd></dd>
+    <dt><code>serializationContext</code> <a class="xref" href="LibGFX.Core.SerializationContext.html">SerializationContext</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">JsonWriter</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_Lights_Light2DManager_SetLightSpaceMatrix_" data-uid="LibGFX.Graphics.Lights.Light2DManager.SetLightSpaceMatrix*"></a>
+
+  <h3 id="LibGFX_Graphics_Lights_Light2DManager_SetLightSpaceMatrix_OpenTK_Mathematics_Matrix4_" data-uid="LibGFX.Graphics.Lights.Light2DManager.SetLightSpaceMatrix(OpenTK.Mathematics.Matrix4)">
+  SetLightSpaceMatrix(Matrix4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L317"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the light view matrix for the light manager, which is used to transform the light's perspective in the scene.
+Note: This method is not implemented for 2D lights as they do not have a light space matrix like 3D lights.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLightSpaceMatrix(Matrix4 lightViewMatrix)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lightViewMatrix</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Matrix/Matrix4.cs">Matrix4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notimplementedexception">NotImplementedException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/Lights/Light2DManager.cs/#L85" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

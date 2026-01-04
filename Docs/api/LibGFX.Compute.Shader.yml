@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Compute.Shader
+  commentId: N:LibGFX.Compute.Shader
+  id: LibGFX.Compute.Shader
+  children:
+  - LibGFX.Compute.Shader.RaytestShader
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Compute.Shader
+  nameWithType: LibGFX.Compute.Shader
+  fullName: LibGFX.Compute.Shader
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Compute.Shader.RaytestShader
+  commentId: T:LibGFX.Compute.Shader.RaytestShader
+  href: LibGFX.Compute.Shader.RaytestShader.html
+  name: RaytestShader
+  nameWithType: RaytestShader
+  fullName: LibGFX.Compute.Shader.RaytestShader

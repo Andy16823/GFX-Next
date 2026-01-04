@@ -1,0 +1,139 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Physics.Behaviors3D
+  commentId: N:LibGFX.Physics.Behaviors3D
+  id: LibGFX.Physics.Behaviors3D
+  children:
+  - LibGFX.Physics.Behaviors3D.BoxCollider
+  - LibGFX.Physics.Behaviors3D.BoxRigidBody
+  - LibGFX.Physics.Behaviors3D.BoxTrigger
+  - LibGFX.Physics.Behaviors3D.CapsuleCollider
+  - LibGFX.Physics.Behaviors3D.CapsuleRigidBody
+  - LibGFX.Physics.Behaviors3D.CapsuleTrigger
+  - LibGFX.Physics.Behaviors3D.CollisionBehavior
+  - LibGFX.Physics.Behaviors3D.ConvexHullCollider
+  - LibGFX.Physics.Behaviors3D.MeshCollider
+  - LibGFX.Physics.Behaviors3D.SphereCollider
+  - LibGFX.Physics.Behaviors3D.SphereRigidBody
+  - LibGFX.Physics.Behaviors3D.SphereTrigger
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Physics.Behaviors3D
+  nameWithType: LibGFX.Physics.Behaviors3D
+  fullName: LibGFX.Physics.Behaviors3D
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Physics.Behaviors3D.BoxCollider
+  commentId: T:LibGFX.Physics.Behaviors3D.BoxCollider
+  href: LibGFX.Physics.Behaviors3D.BoxCollider.html
+  name: BoxCollider
+  nameWithType: BoxCollider
+  fullName: LibGFX.Physics.Behaviors3D.BoxCollider
+- uid: LibGFX.Physics.Behaviors3D.BoxRigidBody
+  commentId: T:LibGFX.Physics.Behaviors3D.BoxRigidBody
+  href: LibGFX.Physics.Behaviors3D.BoxRigidBody.html
+  name: BoxRigidBody
+  nameWithType: BoxRigidBody
+  fullName: LibGFX.Physics.Behaviors3D.BoxRigidBody
+- uid: LibGFX.Physics.Behaviors3D.BoxTrigger
+  commentId: T:LibGFX.Physics.Behaviors3D.BoxTrigger
+  href: LibGFX.Physics.Behaviors3D.BoxTrigger.html
+  name: BoxTrigger
+  nameWithType: BoxTrigger
+  fullName: LibGFX.Physics.Behaviors3D.BoxTrigger
+- uid: LibGFX.Physics.Behaviors3D.CapsuleCollider
+  commentId: T:LibGFX.Physics.Behaviors3D.CapsuleCollider
+  href: LibGFX.Physics.Behaviors3D.CapsuleCollider.html
+  name: CapsuleCollider
+  nameWithType: CapsuleCollider
+  fullName: LibGFX.Physics.Behaviors3D.CapsuleCollider
+- uid: LibGFX.Physics.Behaviors3D.CapsuleRigidBody
+  commentId: T:LibGFX.Physics.Behaviors3D.CapsuleRigidBody
+  href: LibGFX.Physics.Behaviors3D.CapsuleRigidBody.html
+  name: CapsuleRigidBody
+  nameWithType: CapsuleRigidBody
+  fullName: LibGFX.Physics.Behaviors3D.CapsuleRigidBody
+- uid: LibGFX.Physics.Behaviors3D.CapsuleTrigger
+  commentId: T:LibGFX.Physics.Behaviors3D.CapsuleTrigger
+  href: LibGFX.Physics.Behaviors3D.CapsuleTrigger.html
+  name: CapsuleTrigger
+  nameWithType: CapsuleTrigger
+  fullName: LibGFX.Physics.Behaviors3D.CapsuleTrigger
+- uid: LibGFX.Physics.Behaviors3D.CollisionBehavior
+  commentId: T:LibGFX.Physics.Behaviors3D.CollisionBehavior
+  parent: LibGFX.Physics.Behaviors3D
+  href: LibGFX.Physics.Behaviors3D.CollisionBehavior.html
+  name: CollisionBehavior
+  nameWithType: CollisionBehavior
+  fullName: LibGFX.Physics.Behaviors3D.CollisionBehavior
+- uid: LibGFX.Physics.Behaviors3D.ConvexHullCollider
+  commentId: T:LibGFX.Physics.Behaviors3D.ConvexHullCollider
+  href: LibGFX.Physics.Behaviors3D.ConvexHullCollider.html
+  name: ConvexHullCollider
+  nameWithType: ConvexHullCollider
+  fullName: LibGFX.Physics.Behaviors3D.ConvexHullCollider
+- uid: LibGFX.Physics.Behaviors3D.MeshCollider
+  commentId: T:LibGFX.Physics.Behaviors3D.MeshCollider
+  href: LibGFX.Physics.Behaviors3D.MeshCollider.html
+  name: MeshCollider
+  nameWithType: MeshCollider
+  fullName: LibGFX.Physics.Behaviors3D.MeshCollider
+- uid: LibGFX.Physics.Behaviors3D.SphereCollider
+  commentId: T:LibGFX.Physics.Behaviors3D.SphereCollider
+  href: LibGFX.Physics.Behaviors3D.SphereCollider.html
+  name: SphereCollider
+  nameWithType: SphereCollider
+  fullName: LibGFX.Physics.Behaviors3D.SphereCollider
+- uid: LibGFX.Physics.Behaviors3D.SphereRigidBody
+  commentId: T:LibGFX.Physics.Behaviors3D.SphereRigidBody
+  href: LibGFX.Physics.Behaviors3D.SphereRigidBody.html
+  name: SphereRigidBody
+  nameWithType: SphereRigidBody
+  fullName: LibGFX.Physics.Behaviors3D.SphereRigidBody
+- uid: LibGFX.Physics.Behaviors3D.SphereTrigger
+  commentId: T:LibGFX.Physics.Behaviors3D.SphereTrigger
+  href: LibGFX.Physics.Behaviors3D.SphereTrigger.html
+  name: SphereTrigger
+  nameWithType: SphereTrigger
+  fullName: LibGFX.Physics.Behaviors3D.SphereTrigger
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  commentId: T:LibGFX.Physics.Behaviors3D.TriggerBehavior
+  parent: LibGFX.Physics.Behaviors3D
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html
+  name: TriggerBehavior
+  nameWithType: TriggerBehavior
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior
+- uid: LibGFX.Physics.Behaviors3D
+  commentId: N:LibGFX.Physics.Behaviors3D
+  href: LibGFX.html
+  name: LibGFX.Physics.Behaviors3D
+  nameWithType: LibGFX.Physics.Behaviors3D
+  fullName: LibGFX.Physics.Behaviors3D
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  - name: .
+  - uid: LibGFX.Physics.Behaviors3D
+    name: Behaviors3D
+    href: LibGFX.Physics.Behaviors3D.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  - name: .
+  - uid: LibGFX.Physics.Behaviors3D
+    name: Behaviors3D
+    href: LibGFX.Physics.Behaviors3D.html

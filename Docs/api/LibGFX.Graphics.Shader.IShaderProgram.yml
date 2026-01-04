@@ -1,0 +1,117 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Shader.IShaderProgram
+  commentId: T:LibGFX.Graphics.Shader.IShaderProgram
+  id: IShaderProgram
+  parent: LibGFX.Graphics.Shader
+  children:
+  - LibGFX.Graphics.Shader.IShaderProgram.ProgramID
+  langs:
+  - csharp
+  - vb
+  name: IShaderProgram
+  nameWithType: IShaderProgram
+  fullName: LibGFX.Graphics.Shader.IShaderProgram
+  type: Interface
+  source:
+    remote:
+      path: LibGFX/Graphics/Shader/IShaderProgram.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IShaderProgram
+    path: ../LibGFX/Graphics/Shader/IShaderProgram.cs
+    startLine: 11
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Shader
+  summary: Basic interface for shader programs.
+  example: []
+  syntax:
+    content: public interface IShaderProgram
+    content.vb: Public Interface IShaderProgram
+- uid: LibGFX.Graphics.Shader.IShaderProgram.ProgramID
+  commentId: P:LibGFX.Graphics.Shader.IShaderProgram.ProgramID
+  id: ProgramID
+  parent: LibGFX.Graphics.Shader.IShaderProgram
+  langs:
+  - csharp
+  - vb
+  name: ProgramID
+  nameWithType: IShaderProgram.ProgramID
+  fullName: LibGFX.Graphics.Shader.IShaderProgram.ProgramID
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Shader/IShaderProgram.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ProgramID
+    path: ../LibGFX/Graphics/Shader/IShaderProgram.cs
+    startLine: 16
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Shader
+  summary: The ID of the shader program.
+  example: []
+  syntax:
+    content: int ProgramID { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Property ProgramID As Integer
+  overload: LibGFX.Graphics.Shader.IShaderProgram.ProgramID*
+references:
+- uid: LibGFX.Graphics.Shader
+  commentId: N:LibGFX.Graphics.Shader
+  href: LibGFX.html
+  name: LibGFX.Graphics.Shader
+  nameWithType: LibGFX.Graphics.Shader
+  fullName: LibGFX.Graphics.Shader
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Shader
+    name: Shader
+    href: LibGFX.Graphics.Shader.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Shader
+    name: Shader
+    href: LibGFX.Graphics.Shader.html
+- uid: LibGFX.Graphics.Shader.IShaderProgram.ProgramID*
+  commentId: Overload:LibGFX.Graphics.Shader.IShaderProgram.ProgramID
+  href: LibGFX.Graphics.Shader.IShaderProgram.html#LibGFX_Graphics_Shader_IShaderProgram_ProgramID
+  name: ProgramID
+  nameWithType: IShaderProgram.ProgramID
+  fullName: LibGFX.Graphics.Shader.IShaderProgram.ProgramID
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

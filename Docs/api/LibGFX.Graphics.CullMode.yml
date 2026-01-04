@@ -1,0 +1,166 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.CullMode
+  commentId: T:LibGFX.Graphics.CullMode
+  id: CullMode
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.CullMode.Back
+  - LibGFX.Graphics.CullMode.Front
+  - LibGFX.Graphics.CullMode.FrontAndBack
+  - LibGFX.Graphics.CullMode.None
+  langs:
+  - csharp
+  - vb
+  name: CullMode
+  nameWithType: CullMode
+  fullName: LibGFX.Graphics.CullMode
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/IRenderDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CullMode
+    path: ../LibGFX/Graphics/IRenderDevice.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public enum CullMode
+    content.vb: Public Enum CullMode
+- uid: LibGFX.Graphics.CullMode.Front
+  commentId: F:LibGFX.Graphics.CullMode.Front
+  id: Front
+  parent: LibGFX.Graphics.CullMode
+  langs:
+  - csharp
+  - vb
+  name: Front
+  nameWithType: CullMode.Front
+  fullName: LibGFX.Graphics.CullMode.Front
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/IRenderDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Front
+    path: ../LibGFX/Graphics/IRenderDevice.cs
+    startLine: 21
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Front = 0
+    return:
+      type: LibGFX.Graphics.CullMode
+- uid: LibGFX.Graphics.CullMode.Back
+  commentId: F:LibGFX.Graphics.CullMode.Back
+  id: Back
+  parent: LibGFX.Graphics.CullMode
+  langs:
+  - csharp
+  - vb
+  name: Back
+  nameWithType: CullMode.Back
+  fullName: LibGFX.Graphics.CullMode.Back
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/IRenderDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Back
+    path: ../LibGFX/Graphics/IRenderDevice.cs
+    startLine: 22
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Back = 1
+    return:
+      type: LibGFX.Graphics.CullMode
+- uid: LibGFX.Graphics.CullMode.None
+  commentId: F:LibGFX.Graphics.CullMode.None
+  id: None
+  parent: LibGFX.Graphics.CullMode
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: CullMode.None
+  fullName: LibGFX.Graphics.CullMode.None
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/IRenderDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: None
+    path: ../LibGFX/Graphics/IRenderDevice.cs
+    startLine: 23
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: None = 2
+    return:
+      type: LibGFX.Graphics.CullMode
+- uid: LibGFX.Graphics.CullMode.FrontAndBack
+  commentId: F:LibGFX.Graphics.CullMode.FrontAndBack
+  id: FrontAndBack
+  parent: LibGFX.Graphics.CullMode
+  langs:
+  - csharp
+  - vb
+  name: FrontAndBack
+  nameWithType: CullMode.FrontAndBack
+  fullName: LibGFX.Graphics.CullMode.FrontAndBack
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/IRenderDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FrontAndBack
+    path: ../LibGFX/Graphics/IRenderDevice.cs
+    startLine: 24
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: FrontAndBack = 3
+    return:
+      type: LibGFX.Graphics.CullMode
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.CullMode
+  commentId: T:LibGFX.Graphics.CullMode
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.CullMode.html
+  name: CullMode
+  nameWithType: CullMode
+  fullName: LibGFX.Graphics.CullMode

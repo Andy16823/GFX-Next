@@ -1,0 +1,74 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.UI.ControlEventHandler
+  commentId: T:LibGFX.UI.ControlEventHandler
+  id: ControlEventHandler
+  parent: LibGFX.UI
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ControlEventHandler
+  nameWithType: ControlEventHandler
+  fullName: LibGFX.UI.ControlEventHandler
+  type: Delegate
+  source:
+    remote:
+      path: LibGFX/UI/Control.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ControlEventHandler
+    path: ../LibGFX/UI/Control.cs
+    startLine: 43
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: Delegate for control events.
+  example: []
+  syntax:
+    content: public delegate void ControlEventHandler(Control control, ControlEventArgs e)
+    parameters:
+    - id: control
+      type: LibGFX.UI.Control
+      description: ''
+    - id: e
+      type: LibGFX.UI.ControlEventArgs
+      description: ''
+    content.vb: Public Delegate Sub ControlEventHandler(control As Control, e As ControlEventArgs)
+references:
+- uid: LibGFX.UI
+  commentId: N:LibGFX.UI
+  href: LibGFX.html
+  name: LibGFX.UI
+  nameWithType: LibGFX.UI
+  fullName: LibGFX.UI
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.UI
+    name: UI
+    href: LibGFX.UI.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.UI
+    name: UI
+    href: LibGFX.UI.html
+- uid: LibGFX.UI.Control
+  commentId: T:LibGFX.UI.Control
+  parent: LibGFX.UI
+  href: LibGFX.UI.Control.html
+  name: Control
+  nameWithType: Control
+  fullName: LibGFX.UI.Control
+- uid: LibGFX.UI.ControlEventArgs
+  commentId: T:LibGFX.UI.ControlEventArgs
+  parent: LibGFX.UI
+  href: LibGFX.UI.ControlEventArgs.html
+  name: ControlEventArgs
+  nameWithType: ControlEventArgs
+  fullName: LibGFX.UI.ControlEventArgs

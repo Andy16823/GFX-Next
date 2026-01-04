@@ -1,0 +1,157 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXFramebufferTarget
+  id: RenderFlags.GFXFramebufferTarget
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.DrawFramebuffer
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.Framebuffer
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.ReadFramebuffer
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.GFXFramebufferTarget
+  nameWithType: RenderFlags.GFXFramebufferTarget
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GFXFramebufferTarget
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 217
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Framebuffer targets used to specify which framebuffer to bind for rendering operations.
+  example: []
+  syntax:
+    content: public enum RenderFlags.GFXFramebufferTarget
+    content.vb: Public Enum RenderFlags.GFXFramebufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.Framebuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.Framebuffer
+  id: Framebuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget
+  langs:
+  - csharp
+  - vb
+  name: Framebuffer
+  nameWithType: RenderFlags.GFXFramebufferTarget.Framebuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.Framebuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Framebuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 219
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Framebuffer = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.ReadFramebuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.ReadFramebuffer
+  id: ReadFramebuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget
+  langs:
+  - csharp
+  - vb
+  name: ReadFramebuffer
+  nameWithType: RenderFlags.GFXFramebufferTarget.ReadFramebuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.ReadFramebuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ReadFramebuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 220
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: ReadFramebuffer = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.DrawFramebuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.DrawFramebuffer
+  id: DrawFramebuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget
+  langs:
+  - csharp
+  - vb
+  name: DrawFramebuffer
+  nameWithType: RenderFlags.GFXFramebufferTarget.DrawFramebuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.DrawFramebuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DrawFramebuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 221
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: DrawFramebuffer = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXFramebufferTarget
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.GFXFramebufferTarget
+  nameWithType: RenderFlags.GFXFramebufferTarget
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget
+    name: GFXFramebufferTarget
+    href: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget
+    name: GFXFramebufferTarget
+    href: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget.html

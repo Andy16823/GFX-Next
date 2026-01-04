@@ -1,0 +1,1069 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderTargetDescriptor
+  commentId: T:LibGFX.Graphics.RenderTargetDescriptor
+  id: RenderTargetDescriptor
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderTargetDescriptor.AttachmentPoint
+  - LibGFX.Graphics.RenderTargetDescriptor.Border
+  - LibGFX.Graphics.RenderTargetDescriptor.BorderColor
+  - LibGFX.Graphics.RenderTargetDescriptor.Default(System.Int32,System.Int32,System.Int32)
+  - LibGFX.Graphics.RenderTargetDescriptor.DepthOnly(System.Int32,System.Int32)
+  - LibGFX.Graphics.RenderTargetDescriptor.DrawBufferMode
+  - LibGFX.Graphics.RenderTargetDescriptor.FilterMode
+  - LibGFX.Graphics.RenderTargetDescriptor.Format
+  - LibGFX.Graphics.RenderTargetDescriptor.Height
+  - LibGFX.Graphics.RenderTargetDescriptor.IsDepthTexture
+  - LibGFX.Graphics.RenderTargetDescriptor.Layout
+  - LibGFX.Graphics.RenderTargetDescriptor.ReadBufferMode
+  - LibGFX.Graphics.RenderTargetDescriptor.Samples
+  - LibGFX.Graphics.RenderTargetDescriptor.Type
+  - LibGFX.Graphics.RenderTargetDescriptor.UseDepth
+  - LibGFX.Graphics.RenderTargetDescriptor.UseStencil
+  - LibGFX.Graphics.RenderTargetDescriptor.Width
+  - LibGFX.Graphics.RenderTargetDescriptor.WrapS
+  - LibGFX.Graphics.RenderTargetDescriptor.WrapT
+  langs:
+  - csharp
+  - vb
+  name: RenderTargetDescriptor
+  nameWithType: RenderTargetDescriptor
+  fullName: LibGFX.Graphics.RenderTargetDescriptor
+  type: Struct
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderTargetDescriptor
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 12
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Represents a descriptor for a render target, including its dimensions, format, and other properties.
+  example: []
+  syntax:
+    content: public struct RenderTargetDescriptor
+    content.vb: Public Structure RenderTargetDescriptor
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: LibGFX.Graphics.RenderTargetDescriptor.Width
+  commentId: F:LibGFX.Graphics.RenderTargetDescriptor.Width
+  id: Width
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Width
+  nameWithType: RenderTargetDescriptor.Width
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.Width
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Width
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 14
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public int Width
+    return:
+      type: System.Int32
+    content.vb: Public Width As Integer
+- uid: LibGFX.Graphics.RenderTargetDescriptor.Height
+  commentId: F:LibGFX.Graphics.RenderTargetDescriptor.Height
+  id: Height
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Height
+  nameWithType: RenderTargetDescriptor.Height
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.Height
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Height
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 15
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public int Height
+    return:
+      type: System.Int32
+    content.vb: Public Height As Integer
+- uid: LibGFX.Graphics.RenderTargetDescriptor.Border
+  commentId: F:LibGFX.Graphics.RenderTargetDescriptor.Border
+  id: Border
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Border
+  nameWithType: RenderTargetDescriptor.Border
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.Border
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Border
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 16
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public int Border
+    return:
+      type: System.Int32
+    content.vb: Public Border As Integer
+- uid: LibGFX.Graphics.RenderTargetDescriptor.BorderColor
+  commentId: F:LibGFX.Graphics.RenderTargetDescriptor.BorderColor
+  id: BorderColor
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: BorderColor
+  nameWithType: RenderTargetDescriptor.BorderColor
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.BorderColor
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BorderColor
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public Vector4 BorderColor
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public BorderColor As Vector4
+- uid: LibGFX.Graphics.RenderTargetDescriptor.Format
+  commentId: F:LibGFX.Graphics.RenderTargetDescriptor.Format
+  id: Format
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Format
+  nameWithType: RenderTargetDescriptor.Format
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.Format
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Format
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public RenderFlags.ColorFormatHint Format
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+    content.vb: Public Format As RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderTargetDescriptor.Layout
+  commentId: F:LibGFX.Graphics.RenderTargetDescriptor.Layout
+  id: Layout
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Layout
+  nameWithType: RenderTargetDescriptor.Layout
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.Layout
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Layout
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 20
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public RenderFlags.ColorFormatLayout Layout
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+    content.vb: Public Layout As RenderFlags.ColorFormatLayout
+- uid: LibGFX.Graphics.RenderTargetDescriptor.Type
+  commentId: F:LibGFX.Graphics.RenderTargetDescriptor.Type
+  id: Type
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: RenderTargetDescriptor.Type
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.Type
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Type
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 21
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public RenderFlags.ColorFormatType Type
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatType
+    content.vb: Public Type As RenderFlags.ColorFormatType
+- uid: LibGFX.Graphics.RenderTargetDescriptor.AttachmentPoint
+  commentId: F:LibGFX.Graphics.RenderTargetDescriptor.AttachmentPoint
+  id: AttachmentPoint
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: AttachmentPoint
+  nameWithType: RenderTargetDescriptor.AttachmentPoint
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.AttachmentPoint
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AttachmentPoint
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 22
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public RenderFlags.GFXFramebufferAttachment AttachmentPoint
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+    content.vb: Public AttachmentPoint As RenderFlags.GFXFramebufferAttachment
+- uid: LibGFX.Graphics.RenderTargetDescriptor.UseDepth
+  commentId: F:LibGFX.Graphics.RenderTargetDescriptor.UseDepth
+  id: UseDepth
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: UseDepth
+  nameWithType: RenderTargetDescriptor.UseDepth
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.UseDepth
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: UseDepth
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 24
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public bool UseDepth
+    return:
+      type: System.Boolean
+    content.vb: Public UseDepth As Boolean
+- uid: LibGFX.Graphics.RenderTargetDescriptor.UseStencil
+  commentId: F:LibGFX.Graphics.RenderTargetDescriptor.UseStencil
+  id: UseStencil
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: UseStencil
+  nameWithType: RenderTargetDescriptor.UseStencil
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.UseStencil
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: UseStencil
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 25
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public bool UseStencil
+    return:
+      type: System.Boolean
+    content.vb: Public UseStencil As Boolean
+- uid: LibGFX.Graphics.RenderTargetDescriptor.Samples
+  commentId: F:LibGFX.Graphics.RenderTargetDescriptor.Samples
+  id: Samples
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Samples
+  nameWithType: RenderTargetDescriptor.Samples
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.Samples
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Samples
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 27
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public int Samples
+    return:
+      type: System.Int32
+    content.vb: Public Samples As Integer
+- uid: LibGFX.Graphics.RenderTargetDescriptor.FilterMode
+  commentId: F:LibGFX.Graphics.RenderTargetDescriptor.FilterMode
+  id: FilterMode
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: FilterMode
+  nameWithType: RenderTargetDescriptor.FilterMode
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.FilterMode
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FilterMode
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 28
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public RenderFlags.TextureFilterMode FilterMode
+    return:
+      type: LibGFX.Graphics.RenderFlags.TextureFilterMode
+    content.vb: Public FilterMode As RenderFlags.TextureFilterMode
+- uid: LibGFX.Graphics.RenderTargetDescriptor.WrapS
+  commentId: F:LibGFX.Graphics.RenderTargetDescriptor.WrapS
+  id: WrapS
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: WrapS
+  nameWithType: RenderTargetDescriptor.WrapS
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.WrapS
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: WrapS
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 29
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public RenderFlags.TextureWrapMode WrapS
+    return:
+      type: LibGFX.Graphics.RenderFlags.TextureWrapMode
+    content.vb: Public WrapS As RenderFlags.TextureWrapMode
+- uid: LibGFX.Graphics.RenderTargetDescriptor.WrapT
+  commentId: F:LibGFX.Graphics.RenderTargetDescriptor.WrapT
+  id: WrapT
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: WrapT
+  nameWithType: RenderTargetDescriptor.WrapT
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.WrapT
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: WrapT
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 30
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public RenderFlags.TextureWrapMode WrapT
+    return:
+      type: LibGFX.Graphics.RenderFlags.TextureWrapMode
+    content.vb: Public WrapT As RenderFlags.TextureWrapMode
+- uid: LibGFX.Graphics.RenderTargetDescriptor.DrawBufferMode
+  commentId: F:LibGFX.Graphics.RenderTargetDescriptor.DrawBufferMode
+  id: DrawBufferMode
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: DrawBufferMode
+  nameWithType: RenderTargetDescriptor.DrawBufferMode
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.DrawBufferMode
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DrawBufferMode
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 31
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public RenderFlags.RenderBufferMode DrawBufferMode
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+    content.vb: Public DrawBufferMode As RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderTargetDescriptor.ReadBufferMode
+  commentId: F:LibGFX.Graphics.RenderTargetDescriptor.ReadBufferMode
+  id: ReadBufferMode
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: ReadBufferMode
+  nameWithType: RenderTargetDescriptor.ReadBufferMode
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.ReadBufferMode
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ReadBufferMode
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 32
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public RenderFlags.RenderBufferMode ReadBufferMode
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+    content.vb: Public ReadBufferMode As RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderTargetDescriptor.IsDepthTexture
+  commentId: P:LibGFX.Graphics.RenderTargetDescriptor.IsDepthTexture
+  id: IsDepthTexture
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: IsDepthTexture
+  nameWithType: RenderTargetDescriptor.IsDepthTexture
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.IsDepthTexture
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IsDepthTexture
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 34
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public bool IsDepthTexture { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsDepthTexture As Boolean
+  overload: LibGFX.Graphics.RenderTargetDescriptor.IsDepthTexture*
+- uid: LibGFX.Graphics.RenderTargetDescriptor.Default(System.Int32,System.Int32,System.Int32)
+  commentId: M:LibGFX.Graphics.RenderTargetDescriptor.Default(System.Int32,System.Int32,System.Int32)
+  id: Default(System.Int32,System.Int32,System.Int32)
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Default(int, int, int)
+  nameWithType: RenderTargetDescriptor.Default(int, int, int)
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.Default(int, int, int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Default
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 36
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static RenderTargetDescriptor Default(int width, int height, int samples = 0)
+    parameters:
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    - id: samples
+      type: System.Int32
+    return:
+      type: LibGFX.Graphics.RenderTargetDescriptor
+    content.vb: Public Shared Function [Default](width As Integer, height As Integer, samples As Integer = 0) As RenderTargetDescriptor
+  overload: LibGFX.Graphics.RenderTargetDescriptor.Default*
+  nameWithType.vb: RenderTargetDescriptor.Default(Integer, Integer, Integer)
+  fullName.vb: LibGFX.Graphics.RenderTargetDescriptor.Default(Integer, Integer, Integer)
+  name.vb: Default(Integer, Integer, Integer)
+- uid: LibGFX.Graphics.RenderTargetDescriptor.DepthOnly(System.Int32,System.Int32)
+  commentId: M:LibGFX.Graphics.RenderTargetDescriptor.DepthOnly(System.Int32,System.Int32)
+  id: DepthOnly(System.Int32,System.Int32)
+  parent: LibGFX.Graphics.RenderTargetDescriptor
+  langs:
+  - csharp
+  - vb
+  name: DepthOnly(int, int)
+  nameWithType: RenderTargetDescriptor.DepthOnly(int, int)
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.DepthOnly(int, int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderTargetDescriptor.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DepthOnly
+    path: ../LibGFX/Graphics/RenderTargetDescriptor.cs
+    startLine: 56
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static RenderTargetDescriptor DepthOnly(int width, int height)
+    parameters:
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    return:
+      type: LibGFX.Graphics.RenderTargetDescriptor
+    content.vb: Public Shared Function DepthOnly(width As Integer, height As Integer) As RenderTargetDescriptor
+  overload: LibGFX.Graphics.RenderTargetDescriptor.DepthOnly*
+  nameWithType.vb: RenderTargetDescriptor.DepthOnly(Integer, Integer)
+  fullName.vb: LibGFX.Graphics.RenderTargetDescriptor.DepthOnly(Integer, Integer)
+  name.vb: DepthOnly(Integer, Integer)
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: OpenTK.Mathematics.Vector4
+  commentId: T:OpenTK.Mathematics.Vector4
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs
+  name: Vector4
+  nameWithType: Vector4
+  fullName: OpenTK.Mathematics.Vector4
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  commentId: T:LibGFX.Graphics.RenderFlags.ColorFormatHint
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.ColorFormatHint
+  nameWithType: RenderFlags.ColorFormatHint
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.ColorFormatHint
+    name: ColorFormatHint
+    href: LibGFX.Graphics.RenderFlags.ColorFormatHint.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.ColorFormatHint
+    name: ColorFormatHint
+    href: LibGFX.Graphics.RenderFlags.ColorFormatHint.html
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+  commentId: T:LibGFX.Graphics.RenderFlags.ColorFormatLayout
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.ColorFormatLayout
+  nameWithType: RenderFlags.ColorFormatLayout
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+    name: ColorFormatLayout
+    href: LibGFX.Graphics.RenderFlags.ColorFormatLayout.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+    name: ColorFormatLayout
+    href: LibGFX.Graphics.RenderFlags.ColorFormatLayout.html
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatType
+  commentId: T:LibGFX.Graphics.RenderFlags.ColorFormatType
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.ColorFormatType
+  nameWithType: RenderFlags.ColorFormatType
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatType
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.ColorFormatType
+    name: ColorFormatType
+    href: LibGFX.Graphics.RenderFlags.ColorFormatType.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.ColorFormatType
+    name: ColorFormatType
+    href: LibGFX.Graphics.RenderFlags.ColorFormatType.html
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.GFXFramebufferAttachment
+  nameWithType: RenderFlags.GFXFramebufferAttachment
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+    name: GFXFramebufferAttachment
+    href: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+    name: GFXFramebufferAttachment
+    href: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.html
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Graphics.RenderFlags.TextureFilterMode
+  commentId: T:LibGFX.Graphics.RenderFlags.TextureFilterMode
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.TextureFilterMode
+  nameWithType: RenderFlags.TextureFilterMode
+  fullName: LibGFX.Graphics.RenderFlags.TextureFilterMode
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.TextureFilterMode
+    name: TextureFilterMode
+    href: LibGFX.Graphics.RenderFlags.TextureFilterMode.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.TextureFilterMode
+    name: TextureFilterMode
+    href: LibGFX.Graphics.RenderFlags.TextureFilterMode.html
+- uid: LibGFX.Graphics.RenderFlags.TextureWrapMode
+  commentId: T:LibGFX.Graphics.RenderFlags.TextureWrapMode
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.TextureWrapMode
+  nameWithType: RenderFlags.TextureWrapMode
+  fullName: LibGFX.Graphics.RenderFlags.TextureWrapMode
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.TextureWrapMode
+    name: TextureWrapMode
+    href: LibGFX.Graphics.RenderFlags.TextureWrapMode.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.TextureWrapMode
+    name: TextureWrapMode
+    href: LibGFX.Graphics.RenderFlags.TextureWrapMode.html
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  commentId: T:LibGFX.Graphics.RenderFlags.RenderBufferMode
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.RenderBufferMode
+  nameWithType: RenderFlags.RenderBufferMode
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.RenderBufferMode
+    name: RenderBufferMode
+    href: LibGFX.Graphics.RenderFlags.RenderBufferMode.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.RenderBufferMode
+    name: RenderBufferMode
+    href: LibGFX.Graphics.RenderFlags.RenderBufferMode.html
+- uid: LibGFX.Graphics.RenderTargetDescriptor.IsDepthTexture*
+  commentId: Overload:LibGFX.Graphics.RenderTargetDescriptor.IsDepthTexture
+  href: LibGFX.Graphics.RenderTargetDescriptor.html#LibGFX_Graphics_RenderTargetDescriptor_IsDepthTexture
+  name: IsDepthTexture
+  nameWithType: RenderTargetDescriptor.IsDepthTexture
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.IsDepthTexture
+- uid: LibGFX.Graphics.RenderTargetDescriptor.Default*
+  commentId: Overload:LibGFX.Graphics.RenderTargetDescriptor.Default
+  href: LibGFX.Graphics.RenderTargetDescriptor.html#LibGFX_Graphics_RenderTargetDescriptor_Default_System_Int32_System_Int32_System_Int32_
+  name: Default
+  nameWithType: RenderTargetDescriptor.Default
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.Default
+- uid: LibGFX.Graphics.RenderTargetDescriptor
+  commentId: T:LibGFX.Graphics.RenderTargetDescriptor
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderTargetDescriptor.html
+  name: RenderTargetDescriptor
+  nameWithType: RenderTargetDescriptor
+  fullName: LibGFX.Graphics.RenderTargetDescriptor
+- uid: LibGFX.Graphics.RenderTargetDescriptor.DepthOnly*
+  commentId: Overload:LibGFX.Graphics.RenderTargetDescriptor.DepthOnly
+  href: LibGFX.Graphics.RenderTargetDescriptor.html#LibGFX_Graphics_RenderTargetDescriptor_DepthOnly_System_Int32_System_Int32_
+  name: DepthOnly
+  nameWithType: RenderTargetDescriptor.DepthOnly
+  fullName: LibGFX.Graphics.RenderTargetDescriptor.DepthOnly

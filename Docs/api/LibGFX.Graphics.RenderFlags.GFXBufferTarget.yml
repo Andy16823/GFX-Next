@@ -1,0 +1,452 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  id: RenderFlags.GFXBufferTarget
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.GFXBufferTarget.ArrayBuffer
+  - LibGFX.Graphics.RenderFlags.GFXBufferTarget.AtomicCounterBuffer
+  - LibGFX.Graphics.RenderFlags.GFXBufferTarget.CopyReadBuffer
+  - LibGFX.Graphics.RenderFlags.GFXBufferTarget.CopyWriteBuffer
+  - LibGFX.Graphics.RenderFlags.GFXBufferTarget.DispatchIndirectBuffer
+  - LibGFX.Graphics.RenderFlags.GFXBufferTarget.DrawIndirectBuffer
+  - LibGFX.Graphics.RenderFlags.GFXBufferTarget.ElementArrayBuffer
+  - LibGFX.Graphics.RenderFlags.GFXBufferTarget.PixelPackBuffer
+  - LibGFX.Graphics.RenderFlags.GFXBufferTarget.PixelUnpackBuffer
+  - LibGFX.Graphics.RenderFlags.GFXBufferTarget.QueryBuffer
+  - LibGFX.Graphics.RenderFlags.GFXBufferTarget.ShaderStorageBuffer
+  - LibGFX.Graphics.RenderFlags.GFXBufferTarget.TextureBuffer
+  - LibGFX.Graphics.RenderFlags.GFXBufferTarget.TransformFeedbackBuffer
+  - LibGFX.Graphics.RenderFlags.GFXBufferTarget.UniformBuffer
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.GFXBufferTarget
+  nameWithType: RenderFlags.GFXBufferTarget
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GFXBufferTarget
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 321
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public enum RenderFlags.GFXBufferTarget
+    content.vb: Public Enum RenderFlags.GFXBufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget.ArrayBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferTarget.ArrayBuffer
+  id: ArrayBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  langs:
+  - csharp
+  - vb
+  name: ArrayBuffer
+  nameWithType: RenderFlags.GFXBufferTarget.ArrayBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferTarget.ArrayBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ArrayBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 323
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: ArrayBuffer = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget.AtomicCounterBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferTarget.AtomicCounterBuffer
+  id: AtomicCounterBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  langs:
+  - csharp
+  - vb
+  name: AtomicCounterBuffer
+  nameWithType: RenderFlags.GFXBufferTarget.AtomicCounterBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferTarget.AtomicCounterBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AtomicCounterBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 324
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: AtomicCounterBuffer = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget.CopyReadBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferTarget.CopyReadBuffer
+  id: CopyReadBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  langs:
+  - csharp
+  - vb
+  name: CopyReadBuffer
+  nameWithType: RenderFlags.GFXBufferTarget.CopyReadBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferTarget.CopyReadBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CopyReadBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 325
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: CopyReadBuffer = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget.CopyWriteBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferTarget.CopyWriteBuffer
+  id: CopyWriteBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  langs:
+  - csharp
+  - vb
+  name: CopyWriteBuffer
+  nameWithType: RenderFlags.GFXBufferTarget.CopyWriteBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferTarget.CopyWriteBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CopyWriteBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 326
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: CopyWriteBuffer = 3
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget.DispatchIndirectBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferTarget.DispatchIndirectBuffer
+  id: DispatchIndirectBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  langs:
+  - csharp
+  - vb
+  name: DispatchIndirectBuffer
+  nameWithType: RenderFlags.GFXBufferTarget.DispatchIndirectBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferTarget.DispatchIndirectBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DispatchIndirectBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 327
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: DispatchIndirectBuffer = 4
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget.DrawIndirectBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferTarget.DrawIndirectBuffer
+  id: DrawIndirectBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  langs:
+  - csharp
+  - vb
+  name: DrawIndirectBuffer
+  nameWithType: RenderFlags.GFXBufferTarget.DrawIndirectBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferTarget.DrawIndirectBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DrawIndirectBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 328
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: DrawIndirectBuffer = 5
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget.ElementArrayBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferTarget.ElementArrayBuffer
+  id: ElementArrayBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  langs:
+  - csharp
+  - vb
+  name: ElementArrayBuffer
+  nameWithType: RenderFlags.GFXBufferTarget.ElementArrayBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferTarget.ElementArrayBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ElementArrayBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 329
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: ElementArrayBuffer = 6
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget.PixelPackBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferTarget.PixelPackBuffer
+  id: PixelPackBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  langs:
+  - csharp
+  - vb
+  name: PixelPackBuffer
+  nameWithType: RenderFlags.GFXBufferTarget.PixelPackBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferTarget.PixelPackBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PixelPackBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 330
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: PixelPackBuffer = 7
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget.PixelUnpackBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferTarget.PixelUnpackBuffer
+  id: PixelUnpackBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  langs:
+  - csharp
+  - vb
+  name: PixelUnpackBuffer
+  nameWithType: RenderFlags.GFXBufferTarget.PixelUnpackBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferTarget.PixelUnpackBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PixelUnpackBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 331
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: PixelUnpackBuffer = 8
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget.QueryBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferTarget.QueryBuffer
+  id: QueryBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  langs:
+  - csharp
+  - vb
+  name: QueryBuffer
+  nameWithType: RenderFlags.GFXBufferTarget.QueryBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferTarget.QueryBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: QueryBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 332
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: QueryBuffer = 9
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget.ShaderStorageBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferTarget.ShaderStorageBuffer
+  id: ShaderStorageBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  langs:
+  - csharp
+  - vb
+  name: ShaderStorageBuffer
+  nameWithType: RenderFlags.GFXBufferTarget.ShaderStorageBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferTarget.ShaderStorageBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ShaderStorageBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 333
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: ShaderStorageBuffer = 10
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget.TextureBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferTarget.TextureBuffer
+  id: TextureBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  langs:
+  - csharp
+  - vb
+  name: TextureBuffer
+  nameWithType: RenderFlags.GFXBufferTarget.TextureBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferTarget.TextureBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 334
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TextureBuffer = 11
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget.TransformFeedbackBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferTarget.TransformFeedbackBuffer
+  id: TransformFeedbackBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  langs:
+  - csharp
+  - vb
+  name: TransformFeedbackBuffer
+  nameWithType: RenderFlags.GFXBufferTarget.TransformFeedbackBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferTarget.TransformFeedbackBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TransformFeedbackBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 335
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TransformFeedbackBuffer = 12
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget.UniformBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXBufferTarget.UniformBuffer
+  id: UniformBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  langs:
+  - csharp
+  - vb
+  name: UniformBuffer
+  nameWithType: RenderFlags.GFXBufferTarget.UniformBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferTarget.UniformBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: UniformBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 336
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: UniformBuffer = 13
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.GFXBufferTarget
+  nameWithType: RenderFlags.GFXBufferTarget
+  fullName: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+    name: GFXBufferTarget
+    href: LibGFX.Graphics.RenderFlags.GFXBufferTarget.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+    name: GFXBufferTarget
+    href: LibGFX.Graphics.RenderFlags.GFXBufferTarget.html

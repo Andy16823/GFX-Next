@@ -1,0 +1,471 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Vertex
+  commentId: T:LibGFX.Graphics.Vertex
+  id: Vertex
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.Vertex.BoneIDs
+  - LibGFX.Graphics.Vertex.BoneWeights
+  - LibGFX.Graphics.Vertex.Normal
+  - LibGFX.Graphics.Vertex.Tangent
+  - LibGFX.Graphics.Vertex.TexCoord
+  langs:
+  - csharp
+  - vb
+  name: Vertex
+  nameWithType: Vertex
+  fullName: LibGFX.Graphics.Vertex
+  type: Struct
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Vertex
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Represents a vertex for the rendering pipeline
+  example: []
+  syntax:
+    content: public struct Vertex
+    content.vb: Public Structure Vertex
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: LibGFX.Graphics.Vertex.TexCoord
+  commentId: F:LibGFX.Graphics.Vertex.TexCoord
+  id: TexCoord
+  parent: LibGFX.Graphics.Vertex
+  langs:
+  - csharp
+  - vb
+  name: TexCoord
+  nameWithType: Vertex.TexCoord
+  fullName: LibGFX.Graphics.Vertex.TexCoord
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TexCoord
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 21
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public Vector2 TexCoord
+    return:
+      type: OpenTK.Mathematics.Vector2
+    content.vb: Public TexCoord As Vector2
+- uid: LibGFX.Graphics.Vertex.Normal
+  commentId: F:LibGFX.Graphics.Vertex.Normal
+  id: Normal
+  parent: LibGFX.Graphics.Vertex
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: Vertex.Normal
+  fullName: LibGFX.Graphics.Vertex.Normal
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Normal
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 22
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public Vector3 Normal
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Normal As Vector3
+- uid: LibGFX.Graphics.Vertex.Tangent
+  commentId: F:LibGFX.Graphics.Vertex.Tangent
+  id: Tangent
+  parent: LibGFX.Graphics.Vertex
+  langs:
+  - csharp
+  - vb
+  name: Tangent
+  nameWithType: Vertex.Tangent
+  fullName: LibGFX.Graphics.Vertex.Tangent
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Tangent
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 23
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public Vector4 Tangent
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Tangent As Vector4
+- uid: LibGFX.Graphics.Vertex.BoneIDs
+  commentId: F:LibGFX.Graphics.Vertex.BoneIDs
+  id: BoneIDs
+  parent: LibGFX.Graphics.Vertex
+  langs:
+  - csharp
+  - vb
+  name: BoneIDs
+  nameWithType: Vertex.BoneIDs
+  fullName: LibGFX.Graphics.Vertex.BoneIDs
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BoneIDs
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 24
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public Vector4i BoneIDs
+    return:
+      type: OpenTK.Mathematics.Vector4i
+    content.vb: Public BoneIDs As Vector4i
+- uid: LibGFX.Graphics.Vertex.BoneWeights
+  commentId: F:LibGFX.Graphics.Vertex.BoneWeights
+  id: BoneWeights
+  parent: LibGFX.Graphics.Vertex
+  langs:
+  - csharp
+  - vb
+  name: BoneWeights
+  nameWithType: Vertex.BoneWeights
+  fullName: LibGFX.Graphics.Vertex.BoneWeights
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BoneWeights
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 25
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public Vector4 BoneWeights
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public BoneWeights As Vector4
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: OpenTK.Mathematics.Vector3
+  commentId: T:OpenTK.Mathematics.Vector3
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  name: Vector3
+  nameWithType: Vector3
+  fullName: OpenTK.Mathematics.Vector3
+- uid: OpenTK.Mathematics.Vector4
+  commentId: T:OpenTK.Mathematics.Vector4
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs
+  name: Vector4
+  nameWithType: Vector4
+  fullName: OpenTK.Mathematics.Vector4
+- uid: OpenTK.Mathematics.Vector4i
+  commentId: T:OpenTK.Mathematics.Vector4i
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4i.cs
+  name: Vector4i
+  nameWithType: Vector4i
+  fullName: OpenTK.Mathematics.Vector4i

@@ -1,0 +1,184 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.TextureWrapMode
+  commentId: T:LibGFX.Graphics.RenderFlags.TextureWrapMode
+  id: RenderFlags.TextureWrapMode
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.TextureWrapMode.ClampToBorder
+  - LibGFX.Graphics.RenderFlags.TextureWrapMode.ClampToEdge
+  - LibGFX.Graphics.RenderFlags.TextureWrapMode.MirroredRepeat
+  - LibGFX.Graphics.RenderFlags.TextureWrapMode.Repeat
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.TextureWrapMode
+  nameWithType: RenderFlags.TextureWrapMode
+  fullName: LibGFX.Graphics.RenderFlags.TextureWrapMode
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureWrapMode
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 55
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Texture wrapping modes used to determine how textures are sampled outside their normal range.
+  example: []
+  syntax:
+    content: public enum RenderFlags.TextureWrapMode
+    content.vb: Public Enum RenderFlags.TextureWrapMode
+- uid: LibGFX.Graphics.RenderFlags.TextureWrapMode.ClampToEdge
+  commentId: F:LibGFX.Graphics.RenderFlags.TextureWrapMode.ClampToEdge
+  id: ClampToEdge
+  parent: LibGFX.Graphics.RenderFlags.TextureWrapMode
+  langs:
+  - csharp
+  - vb
+  name: ClampToEdge
+  nameWithType: RenderFlags.TextureWrapMode.ClampToEdge
+  fullName: LibGFX.Graphics.RenderFlags.TextureWrapMode.ClampToEdge
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ClampToEdge
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 57
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: ClampToEdge = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.TextureWrapMode
+- uid: LibGFX.Graphics.RenderFlags.TextureWrapMode.Repeat
+  commentId: F:LibGFX.Graphics.RenderFlags.TextureWrapMode.Repeat
+  id: Repeat
+  parent: LibGFX.Graphics.RenderFlags.TextureWrapMode
+  langs:
+  - csharp
+  - vb
+  name: Repeat
+  nameWithType: RenderFlags.TextureWrapMode.Repeat
+  fullName: LibGFX.Graphics.RenderFlags.TextureWrapMode.Repeat
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Repeat
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 58
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Repeat = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.TextureWrapMode
+- uid: LibGFX.Graphics.RenderFlags.TextureWrapMode.MirroredRepeat
+  commentId: F:LibGFX.Graphics.RenderFlags.TextureWrapMode.MirroredRepeat
+  id: MirroredRepeat
+  parent: LibGFX.Graphics.RenderFlags.TextureWrapMode
+  langs:
+  - csharp
+  - vb
+  name: MirroredRepeat
+  nameWithType: RenderFlags.TextureWrapMode.MirroredRepeat
+  fullName: LibGFX.Graphics.RenderFlags.TextureWrapMode.MirroredRepeat
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MirroredRepeat
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 59
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: MirroredRepeat = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.TextureWrapMode
+- uid: LibGFX.Graphics.RenderFlags.TextureWrapMode.ClampToBorder
+  commentId: F:LibGFX.Graphics.RenderFlags.TextureWrapMode.ClampToBorder
+  id: ClampToBorder
+  parent: LibGFX.Graphics.RenderFlags.TextureWrapMode
+  langs:
+  - csharp
+  - vb
+  name: ClampToBorder
+  nameWithType: RenderFlags.TextureWrapMode.ClampToBorder
+  fullName: LibGFX.Graphics.RenderFlags.TextureWrapMode.ClampToBorder
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ClampToBorder
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 60
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: ClampToBorder = 3
+    return:
+      type: LibGFX.Graphics.RenderFlags.TextureWrapMode
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.TextureWrapMode
+  commentId: T:LibGFX.Graphics.RenderFlags.TextureWrapMode
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.TextureWrapMode
+  nameWithType: RenderFlags.TextureWrapMode
+  fullName: LibGFX.Graphics.RenderFlags.TextureWrapMode
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.TextureWrapMode
+    name: TextureWrapMode
+    href: LibGFX.Graphics.RenderFlags.TextureWrapMode.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.TextureWrapMode
+    name: TextureWrapMode
+    href: LibGFX.Graphics.RenderFlags.TextureWrapMode.html

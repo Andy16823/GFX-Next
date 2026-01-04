@@ -1,0 +1,371 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  id: RenderFlags.GFXTextureTarget
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture1D
+  - LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture1DArray
+  - LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture2D
+  - LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture2DArray
+  - LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture2DMultisample
+  - LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture2DMultisampleArray
+  - LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture3D
+  - LibGFX.Graphics.RenderFlags.GFXTextureTarget.TextureBuffer
+  - LibGFX.Graphics.RenderFlags.GFXTextureTarget.TextureCubeMap
+  - LibGFX.Graphics.RenderFlags.GFXTextureTarget.TextureCubeMapArray
+  - LibGFX.Graphics.RenderFlags.GFXTextureTarget.TextureRectangle
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.GFXTextureTarget
+  nameWithType: RenderFlags.GFXTextureTarget
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GFXTextureTarget
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 224
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public enum RenderFlags.GFXTextureTarget
+    content.vb: Public Enum RenderFlags.GFXTextureTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture1D
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture1D
+  id: Texture1D
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  langs:
+  - csharp
+  - vb
+  name: Texture1D
+  nameWithType: RenderFlags.GFXTextureTarget.Texture1D
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture1D
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Texture1D
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 226
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Texture1D = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture2D
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture2D
+  id: Texture2D
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  langs:
+  - csharp
+  - vb
+  name: Texture2D
+  nameWithType: RenderFlags.GFXTextureTarget.Texture2D
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture2D
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Texture2D
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 227
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Texture2D = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture3D
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture3D
+  id: Texture3D
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  langs:
+  - csharp
+  - vb
+  name: Texture3D
+  nameWithType: RenderFlags.GFXTextureTarget.Texture3D
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture3D
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Texture3D
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 228
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Texture3D = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureTarget.TextureCubeMap
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureTarget.TextureCubeMap
+  id: TextureCubeMap
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  langs:
+  - csharp
+  - vb
+  name: TextureCubeMap
+  nameWithType: RenderFlags.GFXTextureTarget.TextureCubeMap
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureTarget.TextureCubeMap
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureCubeMap
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 229
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TextureCubeMap = 3
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture1DArray
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture1DArray
+  id: Texture1DArray
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  langs:
+  - csharp
+  - vb
+  name: Texture1DArray
+  nameWithType: RenderFlags.GFXTextureTarget.Texture1DArray
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture1DArray
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Texture1DArray
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 230
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Texture1DArray = 4
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture2DArray
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture2DArray
+  id: Texture2DArray
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  langs:
+  - csharp
+  - vb
+  name: Texture2DArray
+  nameWithType: RenderFlags.GFXTextureTarget.Texture2DArray
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture2DArray
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Texture2DArray
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 231
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Texture2DArray = 5
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureTarget.TextureRectangle
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureTarget.TextureRectangle
+  id: TextureRectangle
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  langs:
+  - csharp
+  - vb
+  name: TextureRectangle
+  nameWithType: RenderFlags.GFXTextureTarget.TextureRectangle
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureTarget.TextureRectangle
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureRectangle
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 232
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TextureRectangle = 6
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureTarget.TextureCubeMapArray
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureTarget.TextureCubeMapArray
+  id: TextureCubeMapArray
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  langs:
+  - csharp
+  - vb
+  name: TextureCubeMapArray
+  nameWithType: RenderFlags.GFXTextureTarget.TextureCubeMapArray
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureTarget.TextureCubeMapArray
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureCubeMapArray
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 233
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TextureCubeMapArray = 7
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureTarget.TextureBuffer
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureTarget.TextureBuffer
+  id: TextureBuffer
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  langs:
+  - csharp
+  - vb
+  name: TextureBuffer
+  nameWithType: RenderFlags.GFXTextureTarget.TextureBuffer
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureTarget.TextureBuffer
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureBuffer
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 234
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TextureBuffer = 8
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture2DMultisample
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture2DMultisample
+  id: Texture2DMultisample
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  langs:
+  - csharp
+  - vb
+  name: Texture2DMultisample
+  nameWithType: RenderFlags.GFXTextureTarget.Texture2DMultisample
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture2DMultisample
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Texture2DMultisample
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 235
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Texture2DMultisample = 9
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture2DMultisampleArray
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture2DMultisampleArray
+  id: Texture2DMultisampleArray
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  langs:
+  - csharp
+  - vb
+  name: Texture2DMultisampleArray
+  nameWithType: RenderFlags.GFXTextureTarget.Texture2DMultisampleArray
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureTarget.Texture2DMultisampleArray
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Texture2DMultisampleArray
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 236
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Texture2DMultisampleArray = 10
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.GFXTextureTarget
+  nameWithType: RenderFlags.GFXTextureTarget
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+    name: GFXTextureTarget
+    href: LibGFX.Graphics.RenderFlags.GFXTextureTarget.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+    name: GFXTextureTarget
+    href: LibGFX.Graphics.RenderFlags.GFXTextureTarget.html

@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Utils | LibGFX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Utils | LibGFX ">
+      
+      <meta name="description" content="Utility class for various helper functions">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Core_Utils.md&amp;value=---%0Auid%3A%20LibGFX.Core.Utils%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="LibGFX">
+            LibGFX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LibGFX.Core.Utils">
+
+
+
+  <h1 id="LibGFX_Core_Utils" data-uid="LibGFX.Core.Utils" class="text-break">
+Class Utils  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LibGFX.html">LibGFX</a>.<a class="xref" href="LibGFX.Core.html">Core</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LibGFX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Utility class for various helper functions</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Utils</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Utils</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LibGFX_Core_Utils_ApplyScale_" data-uid="LibGFX.Core.Utils.ApplyScale*"></a>
+
+  <h3 id="LibGFX_Core_Utils_ApplyScale_System_Numerics_Matrix4x4_System_Numerics_Vector3_" data-uid="LibGFX.Core.Utils.ApplyScale(System.Numerics.Matrix4x4,System.Numerics.Vector3)">
+  ApplyScale(Matrix4x4, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies a scale to the given transform matrix for the phyiscs.
+You should not use this method outside of compound shapes. On single shapes, the scale is applied directly to the shape.
+This funtion is used to apply the correct non uniform scale to the transform matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix4x4 ApplyScale(Matrix4x4 transform, Vector3 scale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transform</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.matrix4x4">Matrix4x4</a></dt>
+    <dd></dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.matrix4x4">Matrix4x4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_ByteBGRAToBitmap_" data-uid="LibGFX.Core.Utils.ByteBGRAToBitmap*"></a>
+
+  <h3 id="LibGFX_Core_Utils_ByteBGRAToBitmap_System_Byte___System_Int32_System_Int32_" data-uid="LibGFX.Core.Utils.ByteBGRAToBitmap(System.Byte[],System.Int32,System.Int32)">
+  ByteBGRAToBitmap(byte[], int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new Bitmap from a byte array containing pixel data in BGRA format with 32 bits per pixel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Bitmap ByteBGRAToBitmap(byte[] pixels, int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pixels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>An array of bytes representing the pixel data in BGRA order. The array length must be at least width ×
+height × 4.</p>
+</dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The width, in pixels, of the resulting bitmap. Must be greater than 0.</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The height, in pixels, of the resulting bitmap. Must be greater than 0.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.bitmap">Bitmap</a></dt>
+    <dd><p>A Bitmap object containing the image represented by the specified BGRA pixel data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Utils_ByteBGRAToBitmap_System_Byte___System_Int32_System_Int32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The resulting bitmap is vertically flipped to match the coordinate origin used by
+OpenGL, where the origin is at the bottom-left corner. The input pixel data must be in row-major order, with
+each pixel represented by four bytes (blue, green, red, alpha).</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Core_Utils_CalculatePitch_" data-uid="LibGFX.Core.Utils.CalculatePitch*"></a>
+
+  <h3 id="LibGFX_Core_Utils_CalculatePitch_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Core.Utils.CalculatePitch(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+  CalculatePitch(Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the pitch angle from point1 to point2.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float CalculatePitch(Vector3 point1, Vector3 point2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point1</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd><p>The starting point.</p>
+</dd>
+    <dt><code>point2</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd><p>The target point.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The pitch angle in degrees.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_CalculateYaw_" data-uid="LibGFX.Core.Utils.CalculateYaw*"></a>
+
+  <h3 id="LibGFX_Core_Utils_CalculateYaw_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Core.Utils.CalculateYaw(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+  CalculateYaw(Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float CalculateYaw(Vector3 point1, Vector3 point2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>point1</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>point2</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_CreateDefaultAssetManager_" data-uid="LibGFX.Core.Utils.CreateDefaultAssetManager*"></a>
+
+  <h3 id="LibGFX_Core_Utils_CreateDefaultAssetManager" data-uid="LibGFX.Core.Utils.CreateDefaultAssetManager">
+  CreateDefaultAssetManager()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new instance of the default asset manager configured with loaders for common asset types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AssetManager CreateDefaultAssetManager()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Assets.AssetManager.html">AssetManager</a></dt>
+    <dd><p>An <a class="xref" href="LibGFX.Assets.AssetManager.html">AssetManager</a> instance pre-registered with loaders for textures, audio clips, materials,
+cubemaps, sprite materials, skinned mesh models, and static mesh models.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Utils_CreateDefaultAssetManager_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Use this method to obtain an asset manager that is ready to load standard asset types
+without additional configuration. Custom loaders can be registered with the returned manager if
+needed.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Core_Utils_CreateEmptyNormalMap_" data-uid="LibGFX.Core.Utils.CreateEmptyNormalMap*"></a>
+
+  <h3 id="LibGFX_Core_Utils_CreateEmptyNormalMap_System_Int32_System_Int32_" data-uid="LibGFX.Core.Utils.CreateEmptyNormalMap(System.Int32,System.Int32)">
+  CreateEmptyNormalMap(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an empty normal map with the given width and height.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Bitmap CreateEmptyNormalMap(int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.drawing.bitmap">Bitmap</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_CreateImageData_" data-uid="LibGFX.Core.Utils.CreateImageData*"></a>
+
+  <h3 id="LibGFX_Core_Utils_CreateImageData_System_Int32_System_Int32_OpenTK_Mathematics_Vector4i_" data-uid="LibGFX.Core.Utils.CreateImageData(System.Int32,System.Int32,OpenTK.Mathematics.Vector4i)">
+  CreateImageData(int, int, Vector4i)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates image data (byte array) filled with the given color in RGBA format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] CreateImageData(int width, int height, Vector4i color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4i.cs">Vector4i</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_DeserializeAABB_" data-uid="LibGFX.Core.Utils.DeserializeAABB*"></a>
+
+  <h3 id="LibGFX_Core_Utils_DeserializeAABB_Newtonsoft_Json_Linq_JObject_" data-uid="LibGFX.Core.Utils.DeserializeAABB(Newtonsoft.Json.Linq.JObject)">
+  DeserializeAABB(JObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L587"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AABB DeserializeAABB(JObject value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Math.AABB.html">AABB</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_DeserializeGameElement_" data-uid="LibGFX.Core.Utils.DeserializeGameElement*"></a>
+
+  <h3 id="LibGFX_Core_Utils_DeserializeGameElement_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_" data-uid="LibGFX.Core.Utils.DeserializeGameElement(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext)">
+  DeserializeGameElement(JObject, SerializationContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L595"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static GameElement DeserializeGameElement(JObject obj, SerializationContext serializationContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+    <dt><code>serializationContext</code> <a class="xref" href="LibGFX.Core.SerializationContext.html">SerializationContext</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_DeserializeMatrix4_" data-uid="LibGFX.Core.Utils.DeserializeMatrix4*"></a>
+
+  <h3 id="LibGFX_Core_Utils_DeserializeMatrix4_Newtonsoft_Json_Linq_JObject_" data-uid="LibGFX.Core.Utils.DeserializeMatrix4(Newtonsoft.Json.Linq.JObject)">
+  DeserializeMatrix4(JObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L565"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix4 DeserializeMatrix4(JObject reader)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reader</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Matrix/Matrix4.cs">Matrix4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_DeserializeQuat_" data-uid="LibGFX.Core.Utils.DeserializeQuat*"></a>
+
+  <h3 id="LibGFX_Core_Utils_DeserializeQuat_Newtonsoft_Json_Linq_JObject_" data-uid="LibGFX.Core.Utils.DeserializeQuat(Newtonsoft.Json.Linq.JObject)">
+  DeserializeQuat(JObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L507"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion DeserializeQuat(JObject value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Data/Quaternion.cs">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_DeserializeVec2_" data-uid="LibGFX.Core.Utils.DeserializeVec2*"></a>
+
+  <h3 id="LibGFX_Core_Utils_DeserializeVec2_Newtonsoft_Json_Linq_JObject_" data-uid="LibGFX.Core.Utils.DeserializeVec2(Newtonsoft.Json.Linq.JObject)">
+  DeserializeVec2(JObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L535"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2 DeserializeVec2(JObject value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_DeserializeVec2i_" data-uid="LibGFX.Core.Utils.DeserializeVec2i*"></a>
+
+  <h3 id="LibGFX_Core_Utils_DeserializeVec2i_Newtonsoft_Json_Linq_JObject_" data-uid="LibGFX.Core.Utils.DeserializeVec2i(Newtonsoft.Json.Linq.JObject)">
+  DeserializeVec2i(JObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L543"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector2i DeserializeVec2i(JObject value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2i.cs">Vector2i</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_DeserializeVec3_" data-uid="LibGFX.Core.Utils.DeserializeVec3*"></a>
+
+  <h3 id="LibGFX_Core_Utils_DeserializeVec3_Newtonsoft_Json_Linq_JObject_" data-uid="LibGFX.Core.Utils.DeserializeVec3(Newtonsoft.Json.Linq.JObject)">
+  DeserializeVec3(JObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L517"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 DeserializeVec3(JObject value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_DeserializeVec3i_" data-uid="LibGFX.Core.Utils.DeserializeVec3i*"></a>
+
+  <h3 id="LibGFX_Core_Utils_DeserializeVec3i_Newtonsoft_Json_Linq_JObject_" data-uid="LibGFX.Core.Utils.DeserializeVec3i(Newtonsoft.Json.Linq.JObject)">
+  DeserializeVec3i(JObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L526"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3i DeserializeVec3i(JObject value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3i.cs">Vector3i</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_DeserializeVec4_" data-uid="LibGFX.Core.Utils.DeserializeVec4*"></a>
+
+  <h3 id="LibGFX_Core_Utils_DeserializeVec4_Newtonsoft_Json_Linq_JObject_" data-uid="LibGFX.Core.Utils.DeserializeVec4(Newtonsoft.Json.Linq.JObject)">
+  DeserializeVec4(JObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L487"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector4 DeserializeVec4(JObject value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_DeserializeVec4i_" data-uid="LibGFX.Core.Utils.DeserializeVec4i*"></a>
+
+  <h3 id="LibGFX_Core_Utils_DeserializeVec4i_Newtonsoft_Json_Linq_JObject_" data-uid="LibGFX.Core.Utils.DeserializeVec4i(Newtonsoft.Json.Linq.JObject)">
+  DeserializeVec4i(JObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L497"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector4i DeserializeVec4i(JObject value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4i.cs">Vector4i</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_DeserializeVertex_" data-uid="LibGFX.Core.Utils.DeserializeVertex*"></a>
+
+  <h3 id="LibGFX_Core_Utils_DeserializeVertex_Newtonsoft_Json_Linq_JObject_" data-uid="LibGFX.Core.Utils.DeserializeVertex(Newtonsoft.Json.Linq.JObject)">
+  DeserializeVertex(JObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L641"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deserializes a vertex from the specified JSON object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vertex DeserializeVertex(JObject value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">JObject</span></dt>
+    <dd><p>A <span class="xref">Newtonsoft.Json.Linq.JObject</span> containing the serialized vertex data. Must not be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> and must
+include the required fields.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Vertex.html">Vertex</a></dt>
+    <dd><p>A <a class="xref" href="LibGFX.Graphics.Vertex.html">Vertex</a> instance populated with data from the JSON object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Utils_DeserializeVertex_Newtonsoft_Json_Linq_JObject__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The JSON object is expected to contain the fields &quot;TexCoord&quot;, &quot;Normal&quot;, &quot;Tangent&quot;,
+&quot;BoneIDs&quot;, and &quot;BoneWeights&quot; as nested objects. Missing or incorrectly typed fields may result in
+exceptions.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Core_Utils_FindNodeByNameRecursive_" data-uid="LibGFX.Core.Utils.FindNodeByNameRecursive*"></a>
+
+  <h3 id="LibGFX_Core_Utils_FindNodeByNameRecursive_LibGFX_Graphics_Animation3D_SceneNodeData_System_String_LibGFX_Graphics_Animation3D_SceneNodeData__" data-uid="LibGFX.Core.Utils.FindNodeByNameRecursive(LibGFX.Graphics.Animation3D.SceneNodeData,System.String,LibGFX.Graphics.Animation3D.SceneNodeData@)">
+  FindNodeByNameRecursive(SceneNodeData, string, out SceneNodeData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L331"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Recursively searches the scene graph starting from the specified node for a node with the given name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool FindNodeByNameRecursive(SceneNodeData currentNode, string name, out SceneNodeData foundNode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>currentNode</code> <a class="xref" href="LibGFX.Graphics.Animation3D.SceneNodeData.html">SceneNodeData</a></dt>
+    <dd><p>The node from which to begin the search. This node and its descendants will be examined.</p>
+</dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the node to search for. The comparison is case-sensitive.</p>
+</dd>
+    <dt><code>foundNode</code> <a class="xref" href="LibGFX.Graphics.Animation3D.SceneNodeData.html">SceneNodeData</a></dt>
+    <dd><p>When this method returns, contains the first node with the specified name if found; otherwise, a default
+value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if a node with the specified name is found; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Utils_FindNodeByNameRecursive_LibGFX_Graphics_Animation3D_SceneNodeData_System_String_LibGFX_Graphics_Animation3D_SceneNodeData___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The search is performed in a depth-first manner. Only the first matching node
+encountered will be returned in foundNode.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Core_Utils_GetBestDepthStencilFormat_" data-uid="LibGFX.Core.Utils.GetBestDepthStencilFormat*"></a>
+
+  <h3 id="LibGFX_Core_Utils_GetBestDepthStencilFormat_System_Boolean_System_Boolean_" data-uid="LibGFX.Core.Utils.GetBestDepthStencilFormat(System.Boolean,System.Boolean)">
+  GetBestDepthStencilFormat(bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L309"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Selects the most appropriate depth and/or stencil renderbuffer storage format based on the specified
+requirements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RenderFlags.GFXRenderbufferStorage GetBestDepthStencilFormat(bool depth, bool stencil)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true to request a format that supports depth buffering; otherwise, false.</p>
+</dd>
+    <dt><code>stencil</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true to request a format that supports stencil buffering; otherwise, false.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.RenderFlags.html">RenderFlags</a>.<a class="xref" href="LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.html">GFXRenderbufferStorage</a></dt>
+    <dd><p>A GFXRenderbufferStorage value representing the best matching format for the requested depth and stencil
+support.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if both depth and stencil are false, as at least one must be requested.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LibGFX_Core_Utils_GetBtTransform_" data-uid="LibGFX.Core.Utils.GetBtTransform*"></a>
+
+  <h3 id="LibGFX_Core_Utils_GetBtTransform_LibGFX_Core_GameElement_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Core.Utils.GetBtTransform(LibGFX.Core.GameElement,OpenTK.Mathematics.Vector3)">
+  GetBtTransform(GameElement, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the bullet transform matrix for the given element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix4x4 GetBtTransform(GameElement element, Vector3 offsetLocation = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a></dt>
+    <dd></dd>
+    <dt><code>offsetLocation</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.matrix4x4">Matrix4x4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_GetBtTransform_" data-uid="LibGFX.Core.Utils.GetBtTransform*"></a>
+
+  <h3 id="LibGFX_Core_Utils_GetBtTransform_System_Numerics_Vector3_System_Numerics_Quaternion_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Core.Utils.GetBtTransform(System.Numerics.Vector3,System.Numerics.Quaternion,OpenTK.Mathematics.Vector3)">
+  GetBtTransform(Vector3, Quaternion, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the bullet transform matrix for the given location and rotation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix4x4 GetBtTransform(Vector3 location, Quaternion rotation, Vector3 offsetLocation = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector3">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.quaternion">Quaternion</a></dt>
+    <dd></dd>
+    <dt><code>offsetLocation</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.matrix4x4">Matrix4x4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_GetCurrentTimeMillis_" data-uid="LibGFX.Core.Utils.GetCurrentTimeMillis*"></a>
+
+  <h3 id="LibGFX_Core_Utils_GetCurrentTimeMillis" data-uid="LibGFX.Core.Utils.GetCurrentTimeMillis">
+  GetCurrentTimeMillis()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L268"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the current time in milliseconds since the Unix epoch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static long GetCurrentTimeMillis()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_GetUVTransformFromTilemap_" data-uid="LibGFX.Core.Utils.GetUVTransformFromTilemap*"></a>
+
+  <h3 id="LibGFX_Core_Utils_GetUVTransformFromTilemap_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="LibGFX.Core.Utils.GetUVTransformFromTilemap(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+  GetUVTransformFromTilemap(int, int, int, int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector4 GetUVTransformFromTilemap(int width, int height, int cellWidth, int cellHeight, int tileX, int tileY)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cellWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cellHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>tileX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>tileY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_LoadTextureIfExists_" data-uid="LibGFX.Core.Utils.LoadTextureIfExists*"></a>
+
+  <h3 id="LibGFX_Core_Utils_LoadTextureIfExists_Newtonsoft_Json_Linq_JObject_System_String_System_String_" data-uid="LibGFX.Core.Utils.LoadTextureIfExists(Newtonsoft.Json.Linq.JObject,System.String,System.String)">
+  LoadTextureIfExists(JObject, string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L207"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Texture LoadTextureIfExists(JObject jsonObject, string propertyName, string basePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jsonObject</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>basePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Texture.html">Texture</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_LocalToWorldPositon_" data-uid="LibGFX.Core.Utils.LocalToWorldPositon*"></a>
+
+  <h3 id="LibGFX_Core_Utils_LocalToWorldPositon_LibGFX_Math_Transform_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Core.Utils.LocalToWorldPositon(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)">
+  LocalToWorldPositon(Transform, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L279"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a local position to a world position using the given transform.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 LocalToWorldPositon(Transform transform, Vector3 localPosition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
+    <dd></dd>
+    <dt><code>localPosition</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_LookAt_" data-uid="LibGFX.Core.Utils.LookAt*"></a>
+
+  <h3 id="LibGFX_Core_Utils_LookAt_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Core.Utils.LookAt(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+  LookAt(Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L195"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion LookAt(Vector3 campos, Vector3 targetpos)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>campos</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>targetpos</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Data/Quaternion.cs">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_ParseFloat_" data-uid="LibGFX.Core.Utils.ParseFloat*"></a>
+
+  <h3 id="LibGFX_Core_Utils_ParseFloat_System_String_" data-uid="LibGFX.Core.Utils.ParseFloat(System.String)">
+  ParseFloat(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L349"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float ParseFloat(string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_ReadFloat_" data-uid="LibGFX.Core.Utils.ReadFloat*"></a>
+
+  <h3 id="LibGFX_Core_Utils_ReadFloat_Newtonsoft_Json_JsonReader_" data-uid="LibGFX.Core.Utils.ReadFloat(Newtonsoft.Json.JsonReader)">
+  ReadFloat(JsonReader)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L378"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float ReadFloat(JsonReader reader)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>reader</code> <span class="xref">JsonReader</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_SerializeAABB_" data-uid="LibGFX.Core.Utils.SerializeAABB*"></a>
+
+  <h3 id="LibGFX_Core_Utils_SerializeAABB_LibGFX_Math_AABB_Newtonsoft_Json_JsonWriter_" data-uid="LibGFX.Core.Utils.SerializeAABB(LibGFX.Math.AABB,Newtonsoft.Json.JsonWriter)">
+  SerializeAABB(AABB, JsonWriter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L577"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SerializeAABB(AABB aabb, JsonWriter writer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>aabb</code> <a class="xref" href="LibGFX.Math.AABB.html">AABB</a></dt>
+    <dd></dd>
+    <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_SerializeMatrix4_" data-uid="LibGFX.Core.Utils.SerializeMatrix4*"></a>
+
+  <h3 id="LibGFX_Core_Utils_SerializeMatrix4_OpenTK_Mathematics_Matrix4_Newtonsoft_Json_JsonWriter_" data-uid="LibGFX.Core.Utils.SerializeMatrix4(OpenTK.Mathematics.Matrix4,Newtonsoft.Json.JsonWriter)">
+  SerializeMatrix4(Matrix4, JsonWriter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L551"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SerializeMatrix4(Matrix4 mat, JsonWriter writer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mat</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Matrix/Matrix4.cs">Matrix4</a></dt>
+    <dd></dd>
+    <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_SerializeQuat_" data-uid="LibGFX.Core.Utils.SerializeQuat*"></a>
+
+  <h3 id="LibGFX_Core_Utils_SerializeQuat_OpenTK_Mathematics_Quaternion_Newtonsoft_Json_JsonWriter_" data-uid="LibGFX.Core.Utils.SerializeQuat(OpenTK.Mathematics.Quaternion,Newtonsoft.Json.JsonWriter)">
+  SerializeQuat(Quaternion, JsonWriter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L473"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SerializeQuat(Quaternion quat, JsonWriter writer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>quat</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Data/Quaternion.cs">Quaternion</a></dt>
+    <dd></dd>
+    <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_SerializeVec2_" data-uid="LibGFX.Core.Utils.SerializeVec2*"></a>
+
+  <h3 id="LibGFX_Core_Utils_SerializeVec2_OpenTK_Mathematics_Vector2_Newtonsoft_Json_JsonWriter_" data-uid="LibGFX.Core.Utils.SerializeVec2(OpenTK.Mathematics.Vector2,Newtonsoft.Json.JsonWriter)">
+  SerializeVec2(Vector2, JsonWriter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L401"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SerializeVec2(Vector2 vec, JsonWriter writer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vec</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs">Vector2</a></dt>
+    <dd></dd>
+    <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_SerializeVec2i_" data-uid="LibGFX.Core.Utils.SerializeVec2i*"></a>
+
+  <h3 id="LibGFX_Core_Utils_SerializeVec2i_OpenTK_Mathematics_Vector2i_Newtonsoft_Json_JsonWriter_" data-uid="LibGFX.Core.Utils.SerializeVec2i(OpenTK.Mathematics.Vector2i,Newtonsoft.Json.JsonWriter)">
+  SerializeVec2i(Vector2i, JsonWriter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L411"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SerializeVec2i(Vector2i vec, JsonWriter writer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vec</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2i.cs">Vector2i</a></dt>
+    <dd></dd>
+    <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_SerializeVec3_" data-uid="LibGFX.Core.Utils.SerializeVec3*"></a>
+
+  <h3 id="LibGFX_Core_Utils_SerializeVec3_OpenTK_Mathematics_Vector3_Newtonsoft_Json_JsonWriter_" data-uid="LibGFX.Core.Utils.SerializeVec3(OpenTK.Mathematics.Vector3,Newtonsoft.Json.JsonWriter)">
+  SerializeVec3(Vector3, JsonWriter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L421"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SerializeVec3(Vector3 vec, JsonWriter writer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vec</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_SerializeVec3i_" data-uid="LibGFX.Core.Utils.SerializeVec3i*"></a>
+
+  <h3 id="LibGFX_Core_Utils_SerializeVec3i_OpenTK_Mathematics_Vector3i_Newtonsoft_Json_JsonWriter_" data-uid="LibGFX.Core.Utils.SerializeVec3i(OpenTK.Mathematics.Vector3i,Newtonsoft.Json.JsonWriter)">
+  SerializeVec3i(Vector3i, JsonWriter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L433"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SerializeVec3i(Vector3i vec, JsonWriter writer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vec</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3i.cs">Vector3i</a></dt>
+    <dd></dd>
+    <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_SerializeVec4_" data-uid="LibGFX.Core.Utils.SerializeVec4*"></a>
+
+  <h3 id="LibGFX_Core_Utils_SerializeVec4_OpenTK_Mathematics_Vector4_Newtonsoft_Json_JsonWriter_" data-uid="LibGFX.Core.Utils.SerializeVec4(OpenTK.Mathematics.Vector4,Newtonsoft.Json.JsonWriter)">
+  SerializeVec4(Vector4, JsonWriter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L445"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SerializeVec4(Vector4 vec, JsonWriter writer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vec</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+    <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_SerializeVec4i_" data-uid="LibGFX.Core.Utils.SerializeVec4i*"></a>
+
+  <h3 id="LibGFX_Core_Utils_SerializeVec4i_OpenTK_Mathematics_Vector4i_Newtonsoft_Json_JsonWriter_" data-uid="LibGFX.Core.Utils.SerializeVec4i(OpenTK.Mathematics.Vector4i,Newtonsoft.Json.JsonWriter)">
+  SerializeVec4i(Vector4i, JsonWriter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L459"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SerializeVec4i(Vector4i vec, JsonWriter writer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vec</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4i.cs">Vector4i</a></dt>
+    <dd></dd>
+    <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_SerializeVertex_" data-uid="LibGFX.Core.Utils.SerializeVertex*"></a>
+
+  <h3 id="LibGFX_Core_Utils_SerializeVertex_LibGFX_Graphics_Vertex_Newtonsoft_Json_JsonWriter_" data-uid="LibGFX.Core.Utils.SerializeVertex(LibGFX.Graphics.Vertex,Newtonsoft.Json.JsonWriter)">
+  SerializeVertex(Vertex, JsonWriter)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L616"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serializes the specified vertex to JSON using the provided writer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SerializeVertex(Vertex vertex, JsonWriter writer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vertex</code> <a class="xref" href="LibGFX.Graphics.Vertex.html">Vertex</a></dt>
+    <dd><p>The vertex to serialize. Must not be null.</p>
+</dd>
+    <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
+    <dd><p>The JsonWriter instance used to write the serialized JSON output. Must not be null.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_ToRadians_" data-uid="LibGFX.Core.Utils.ToRadians*"></a>
+
+  <h3 id="LibGFX_Core_Utils_ToRadians_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Core.Utils.ToRadians(OpenTK.Mathematics.Vector3)">
+  ToRadians(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a Vector3 to radians.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 ToRadians(Vector3 input)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>input</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Utils_WorldToLocalPosition_" data-uid="LibGFX.Core.Utils.WorldToLocalPosition*"></a>
+
+  <h3 id="LibGFX_Core_Utils_WorldToLocalPosition_LibGFX_Math_Transform_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Core.Utils.WorldToLocalPosition(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)">
+  WorldToLocalPosition(Transform, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L292"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a world position to a local position using the given transform.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 WorldToLocalPosition(Transform transform, Vector3 worldPosition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
+    <dd></dd>
+    <dt><code>worldPosition</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Utils.cs/#L31" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

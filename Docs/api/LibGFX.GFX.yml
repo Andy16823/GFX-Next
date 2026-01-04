@@ -1,0 +1,692 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.GFX
+  commentId: T:LibGFX.GFX
+  id: GFX
+  parent: LibGFX
+  children:
+  - LibGFX.GFX.CreateWindow(System.String,LibGFX.Graphics.Viewport,LibGFX.Core.Window.WindowState)
+  - LibGFX.GFX.Dispose
+  - LibGFX.GFX.GetDeltaTime
+  - LibGFX.GFX.GetWindow
+  - LibGFX.GFX.Instance
+  - LibGFX.GFX.Services
+  - LibGFX.GFX.SetTime(System.Single)
+  langs:
+  - csharp
+  - vb
+  name: GFX
+  nameWithType: GFX
+  fullName: LibGFX.GFX
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Gfx.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GFX
+    path: ../LibGFX/Gfx.cs
+    startLine: 18
+  assemblies:
+  - LibGFX
+  namespace: LibGFX
+  summary: Singleton class for managing graphics resources and window creation.
+  example: []
+  syntax:
+    content: public class GFX
+    content.vb: Public Class GFX
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.GFX.Services
+  commentId: P:LibGFX.GFX.Services
+  id: Services
+  parent: LibGFX.GFX
+  langs:
+  - csharp
+  - vb
+  name: Services
+  nameWithType: GFX.Services
+  fullName: LibGFX.GFX.Services
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Gfx.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Services
+    path: ../LibGFX/Gfx.cs
+    startLine: 23
+  assemblies:
+  - LibGFX
+  namespace: LibGFX
+  summary: The service container for managing services.
+  example: []
+  syntax:
+    content: public ServiceContainer Services { get; }
+    parameters: []
+    return:
+      type: LibGFX.Core.ServiceContainer
+    content.vb: Public ReadOnly Property Services As ServiceContainer
+  overload: LibGFX.GFX.Services*
+- uid: LibGFX.GFX.Instance
+  commentId: P:LibGFX.GFX.Instance
+  id: Instance
+  parent: LibGFX.GFX
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: GFX.Instance
+  fullName: LibGFX.GFX.Instance
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Gfx.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Instance
+    path: ../LibGFX/Gfx.cs
+    startLine: 41
+  assemblies:
+  - LibGFX
+  namespace: LibGFX
+  summary: Singleton instance of the GFX class.
+  example: []
+  syntax:
+    content: public static GFX Instance { get; }
+    parameters: []
+    return:
+      type: LibGFX.GFX
+    content.vb: Public Shared ReadOnly Property Instance As GFX
+  overload: LibGFX.GFX.Instance*
+- uid: LibGFX.GFX.CreateWindow(System.String,LibGFX.Graphics.Viewport,LibGFX.Core.Window.WindowState)
+  commentId: M:LibGFX.GFX.CreateWindow(System.String,LibGFX.Graphics.Viewport,LibGFX.Core.Window.WindowState)
+  id: CreateWindow(System.String,LibGFX.Graphics.Viewport,LibGFX.Core.Window.WindowState)
+  parent: LibGFX.GFX
+  langs:
+  - csharp
+  - vb
+  name: CreateWindow(string, Viewport, WindowState)
+  nameWithType: GFX.CreateWindow(string, Viewport, Window.WindowState)
+  fullName: LibGFX.GFX.CreateWindow(string, LibGFX.Graphics.Viewport, LibGFX.Core.Window.WindowState)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Gfx.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CreateWindow
+    path: ../LibGFX/Gfx.cs
+    startLine: 63
+  assemblies:
+  - LibGFX
+  namespace: LibGFX
+  summary: Creates a new window with the specified title, viewport, and window state.
+  example: []
+  syntax:
+    content: public Window CreateWindow(string title, Viewport viewport, Window.WindowState windowState)
+    parameters:
+    - id: title
+      type: System.String
+      description: ''
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: windowState
+      type: LibGFX.Core.Window.WindowState
+      description: ''
+    return:
+      type: LibGFX.Core.Window
+      description: ''
+    content.vb: Public Function CreateWindow(title As String, viewport As Viewport, windowState As Window.WindowState) As Window
+  overload: LibGFX.GFX.CreateWindow*
+  nameWithType.vb: GFX.CreateWindow(String, Viewport, Window.WindowState)
+  fullName.vb: LibGFX.GFX.CreateWindow(String, LibGFX.Graphics.Viewport, LibGFX.Core.Window.WindowState)
+  name.vb: CreateWindow(String, Viewport, WindowState)
+- uid: LibGFX.GFX.GetWindow
+  commentId: M:LibGFX.GFX.GetWindow
+  id: GetWindow
+  parent: LibGFX.GFX
+  langs:
+  - csharp
+  - vb
+  name: GetWindow()
+  nameWithType: GFX.GetWindow()
+  fullName: LibGFX.GFX.GetWindow()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Gfx.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetWindow
+    path: ../LibGFX/Gfx.cs
+    startLine: 77
+  assemblies:
+  - LibGFX
+  namespace: LibGFX
+  summary: Gets the current window.
+  example: []
+  syntax:
+    content: public Window GetWindow()
+    return:
+      type: LibGFX.Core.Window
+      description: ''
+    content.vb: Public Function GetWindow() As Window
+  overload: LibGFX.GFX.GetWindow*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: ''
+- uid: LibGFX.GFX.Dispose
+  commentId: M:LibGFX.GFX.Dispose
+  id: Dispose
+  parent: LibGFX.GFX
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: GFX.Dispose()
+  fullName: LibGFX.GFX.Dispose()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Gfx.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/Gfx.cs
+    startLine: 85
+  assemblies:
+  - LibGFX
+  namespace: LibGFX
+  summary: Disposes the GFX instance and clears all assets.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: LibGFX.GFX.Dispose*
+- uid: LibGFX.GFX.GetDeltaTime
+  commentId: M:LibGFX.GFX.GetDeltaTime
+  id: GetDeltaTime
+  parent: LibGFX.GFX
+  langs:
+  - csharp
+  - vb
+  name: GetDeltaTime()
+  nameWithType: GFX.GetDeltaTime()
+  fullName: LibGFX.GFX.GetDeltaTime()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Gfx.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetDeltaTime
+    path: ../LibGFX/Gfx.cs
+    startLine: 94
+  assemblies:
+  - LibGFX
+  namespace: LibGFX
+  summary: Gets the delta time since the last frame in seconds.
+  example: []
+  syntax:
+    content: public float GetDeltaTime()
+    return:
+      type: System.Single
+      description: ''
+    content.vb: Public Function GetDeltaTime() As Single
+  overload: LibGFX.GFX.GetDeltaTime*
+- uid: LibGFX.GFX.SetTime(System.Single)
+  commentId: M:LibGFX.GFX.SetTime(System.Single)
+  id: SetTime(System.Single)
+  parent: LibGFX.GFX
+  langs:
+  - csharp
+  - vb
+  name: SetTime(float)
+  nameWithType: GFX.SetTime(float)
+  fullName: LibGFX.GFX.SetTime(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Gfx.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetTime
+    path: ../LibGFX/Gfx.cs
+    startLine: 103
+  assemblies:
+  - LibGFX
+  namespace: LibGFX
+  summary: Sets the current time in seconds.
+  example: []
+  syntax:
+    content: public void SetTime(float time)
+    parameters:
+    - id: time
+      type: System.Single
+      description: ''
+    content.vb: Public Sub SetTime(time As Single)
+  overload: LibGFX.GFX.SetTime*
+  nameWithType.vb: GFX.SetTime(Single)
+  fullName.vb: LibGFX.GFX.SetTime(Single)
+  name.vb: SetTime(Single)
+references:
+- uid: LibGFX
+  commentId: N:LibGFX
+  href: LibGFX.html
+  name: LibGFX
+  nameWithType: LibGFX
+  fullName: LibGFX
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.GFX.Services*
+  commentId: Overload:LibGFX.GFX.Services
+  href: LibGFX.GFX.html#LibGFX_GFX_Services
+  name: Services
+  nameWithType: GFX.Services
+  fullName: LibGFX.GFX.Services
+- uid: LibGFX.Core.ServiceContainer
+  commentId: T:LibGFX.Core.ServiceContainer
+  parent: LibGFX.Core
+  href: LibGFX.Core.ServiceContainer.html
+  name: ServiceContainer
+  nameWithType: ServiceContainer
+  fullName: LibGFX.Core.ServiceContainer
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.GFX.Instance*
+  commentId: Overload:LibGFX.GFX.Instance
+  href: LibGFX.GFX.html#LibGFX_GFX_Instance
+  name: Instance
+  nameWithType: GFX.Instance
+  fullName: LibGFX.GFX.Instance
+- uid: LibGFX.GFX
+  commentId: T:LibGFX.GFX
+  parent: LibGFX
+  href: LibGFX.GFX.html
+  name: GFX
+  nameWithType: GFX
+  fullName: LibGFX.GFX
+- uid: LibGFX.GFX.CreateWindow*
+  commentId: Overload:LibGFX.GFX.CreateWindow
+  href: LibGFX.GFX.html#LibGFX_GFX_CreateWindow_System_String_LibGFX_Graphics_Viewport_LibGFX_Core_Window_WindowState_
+  name: CreateWindow
+  nameWithType: GFX.CreateWindow
+  fullName: LibGFX.GFX.CreateWindow
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.Core.Window.WindowState
+  commentId: T:LibGFX.Core.Window.WindowState
+  parent: LibGFX.Core
+  href: LibGFX.Core.Window.html
+  name: Window.WindowState
+  nameWithType: Window.WindowState
+  fullName: LibGFX.Core.Window.WindowState
+  spec.csharp:
+  - uid: LibGFX.Core.Window
+    name: Window
+    href: LibGFX.Core.Window.html
+  - name: .
+  - uid: LibGFX.Core.Window.WindowState
+    name: WindowState
+    href: LibGFX.Core.Window.WindowState.html
+  spec.vb:
+  - uid: LibGFX.Core.Window
+    name: Window
+    href: LibGFX.Core.Window.html
+  - name: .
+  - uid: LibGFX.Core.Window.WindowState
+    name: WindowState
+    href: LibGFX.Core.Window.WindowState.html
+- uid: LibGFX.Core.Window
+  commentId: T:LibGFX.Core.Window
+  parent: LibGFX.Core
+  href: LibGFX.Core.Window.html
+  name: Window
+  nameWithType: Window
+  fullName: LibGFX.Core.Window
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: LibGFX.GFX.GetWindow*
+  commentId: Overload:LibGFX.GFX.GetWindow
+  href: LibGFX.GFX.html#LibGFX_GFX_GetWindow
+  name: GetWindow
+  nameWithType: GFX.GetWindow
+  fullName: LibGFX.GFX.GetWindow
+- uid: LibGFX.GFX.Dispose*
+  commentId: Overload:LibGFX.GFX.Dispose
+  href: LibGFX.GFX.html#LibGFX_GFX_Dispose
+  name: Dispose
+  nameWithType: GFX.Dispose
+  fullName: LibGFX.GFX.Dispose
+- uid: LibGFX.GFX.GetDeltaTime*
+  commentId: Overload:LibGFX.GFX.GetDeltaTime
+  href: LibGFX.GFX.html#LibGFX_GFX_GetDeltaTime
+  name: GetDeltaTime
+  nameWithType: GFX.GetDeltaTime
+  fullName: LibGFX.GFX.GetDeltaTime
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.GFX.SetTime*
+  commentId: Overload:LibGFX.GFX.SetTime
+  href: LibGFX.GFX.html#LibGFX_GFX_SetTime_System_Single_
+  name: SetTime
+  nameWithType: GFX.SetTime
+  fullName: LibGFX.GFX.SetTime

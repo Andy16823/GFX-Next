@@ -1,0 +1,114 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Audio.PlayMode
+  commentId: T:LibGFX.Audio.PlayMode
+  id: PlayMode
+  parent: LibGFX.Audio
+  children:
+  - LibGFX.Audio.PlayMode.Loop
+  - LibGFX.Audio.PlayMode.Once
+  langs:
+  - csharp
+  - vb
+  name: PlayMode
+  nameWithType: PlayMode
+  fullName: LibGFX.Audio.PlayMode
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PlayMode
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 30
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Represents the play mode of the audio source
+  example: []
+  syntax:
+    content: public enum PlayMode
+    content.vb: Public Enum PlayMode
+- uid: LibGFX.Audio.PlayMode.Once
+  commentId: F:LibGFX.Audio.PlayMode.Once
+  id: Once
+  parent: LibGFX.Audio.PlayMode
+  langs:
+  - csharp
+  - vb
+  name: Once
+  nameWithType: PlayMode.Once
+  fullName: LibGFX.Audio.PlayMode.Once
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Once
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 32
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  syntax:
+    content: Once = 0
+    return:
+      type: LibGFX.Audio.PlayMode
+- uid: LibGFX.Audio.PlayMode.Loop
+  commentId: F:LibGFX.Audio.PlayMode.Loop
+  id: Loop
+  parent: LibGFX.Audio.PlayMode
+  langs:
+  - csharp
+  - vb
+  name: Loop
+  nameWithType: PlayMode.Loop
+  fullName: LibGFX.Audio.PlayMode.Loop
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Loop
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 33
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  syntax:
+    content: Loop = 1
+    return:
+      type: LibGFX.Audio.PlayMode
+references:
+- uid: LibGFX.Audio
+  commentId: N:LibGFX.Audio
+  href: LibGFX.html
+  name: LibGFX.Audio
+  nameWithType: LibGFX.Audio
+  fullName: LibGFX.Audio
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Audio
+    name: Audio
+    href: LibGFX.Audio.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Audio
+    name: Audio
+    href: LibGFX.Audio.html
+- uid: LibGFX.Audio.PlayMode
+  commentId: T:LibGFX.Audio.PlayMode
+  parent: LibGFX.Audio
+  href: LibGFX.Audio.PlayMode.html
+  name: PlayMode
+  nameWithType: PlayMode
+  fullName: LibGFX.Audio.PlayMode

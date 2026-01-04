@@ -1,0 +1,1111 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Animation3D.Animation3D
+  commentId: T:LibGFX.Graphics.Animation3D.Animation3D
+  id: Animation3D
+  parent: LibGFX.Graphics.Animation3D
+  children:
+  - LibGFX.Graphics.Animation3D.Animation3D.#ctor
+  - LibGFX.Graphics.Animation3D.Animation3D.#ctor(Assimp.Scene,System.Int32)
+  - LibGFX.Graphics.Animation3D.Animation3D.#ctor(Assimp.Scene,System.Int32,LibGFX.Graphics.Animation3D.Skeleton)
+  - LibGFX.Graphics.Animation3D.Animation3D.AnimationLength
+  - LibGFX.Graphics.Animation3D.Animation3D.BoneInfoMap
+  - LibGFX.Graphics.Animation3D.Animation3D.Bones
+  - LibGFX.Graphics.Animation3D.Animation3D.Duration
+  - LibGFX.Graphics.Animation3D.Animation3D.FindBone(System.String)
+  - LibGFX.Graphics.Animation3D.Animation3D.GetKeyFrameIndex(System.Single)
+  - LibGFX.Graphics.Animation3D.Animation3D.LoadAnimationChannel(Assimp.Animation)
+  - LibGFX.Graphics.Animation3D.Animation3D.Name
+  - LibGFX.Graphics.Animation3D.Animation3D.ReadBones(LibGFX.Graphics.Animation3D.Skeleton)
+  - LibGFX.Graphics.Animation3D.Animation3D.RootNode
+  - LibGFX.Graphics.Animation3D.Animation3D.TicksPerSecond
+  langs:
+  - csharp
+  - vb
+  name: Animation3D
+  nameWithType: Animation3D
+  fullName: LibGFX.Graphics.Animation3D.Animation3D
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation3D/Animation3D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Animation3D
+    path: ../LibGFX/Graphics/Animation3D/Animation3D.cs
+    startLine: 31
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation3D
+  summary: Represents an animation associated with a 3D model.
+  example: []
+  syntax:
+    content: public class Animation3D
+    content.vb: Public Class Animation3D
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Graphics.Animation3D.Animation3D.Name
+  commentId: P:LibGFX.Graphics.Animation3D.Animation3D.Name
+  id: Name
+  parent: LibGFX.Graphics.Animation3D.Animation3D
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Animation3D.Name
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.Name
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation3D/Animation3D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Name
+    path: ../LibGFX/Graphics/Animation3D/Animation3D.cs
+    startLine: 36
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation3D
+  summary: Name of the animation.
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: LibGFX.Graphics.Animation3D.Animation3D.Name*
+- uid: LibGFX.Graphics.Animation3D.Animation3D.Duration
+  commentId: P:LibGFX.Graphics.Animation3D.Animation3D.Duration
+  id: Duration
+  parent: LibGFX.Graphics.Animation3D.Animation3D
+  langs:
+  - csharp
+  - vb
+  name: Duration
+  nameWithType: Animation3D.Duration
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.Duration
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation3D/Animation3D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Duration
+    path: ../LibGFX/Graphics/Animation3D/Animation3D.cs
+    startLine: 41
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation3D
+  summary: Duration of the animation in ticks.
+  example: []
+  syntax:
+    content: public float Duration { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Duration As Single
+  overload: LibGFX.Graphics.Animation3D.Animation3D.Duration*
+- uid: LibGFX.Graphics.Animation3D.Animation3D.TicksPerSecond
+  commentId: P:LibGFX.Graphics.Animation3D.Animation3D.TicksPerSecond
+  id: TicksPerSecond
+  parent: LibGFX.Graphics.Animation3D.Animation3D
+  langs:
+  - csharp
+  - vb
+  name: TicksPerSecond
+  nameWithType: Animation3D.TicksPerSecond
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.TicksPerSecond
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation3D/Animation3D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TicksPerSecond
+    path: ../LibGFX/Graphics/Animation3D/Animation3D.cs
+    startLine: 46
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation3D
+  summary: Number of ticks per second for the animation.
+  example: []
+  syntax:
+    content: public float TicksPerSecond { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property TicksPerSecond As Single
+  overload: LibGFX.Graphics.Animation3D.Animation3D.TicksPerSecond*
+- uid: LibGFX.Graphics.Animation3D.Animation3D.Bones
+  commentId: P:LibGFX.Graphics.Animation3D.Animation3D.Bones
+  id: Bones
+  parent: LibGFX.Graphics.Animation3D.Animation3D
+  langs:
+  - csharp
+  - vb
+  name: Bones
+  nameWithType: Animation3D.Bones
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.Bones
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation3D/Animation3D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Bones
+    path: ../LibGFX/Graphics/Animation3D/Animation3D.cs
+    startLine: 51
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation3D
+  summary: List of bones affected by the animation.
+  example: []
+  syntax:
+    content: public List<Bone> Bones { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{LibGFX.Graphics.Animation3D.Bone}
+    content.vb: Public Property Bones As List(Of Bone)
+  overload: LibGFX.Graphics.Animation3D.Animation3D.Bones*
+- uid: LibGFX.Graphics.Animation3D.Animation3D.RootNode
+  commentId: P:LibGFX.Graphics.Animation3D.Animation3D.RootNode
+  id: RootNode
+  parent: LibGFX.Graphics.Animation3D.Animation3D
+  langs:
+  - csharp
+  - vb
+  name: RootNode
+  nameWithType: Animation3D.RootNode
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.RootNode
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation3D/Animation3D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RootNode
+    path: ../LibGFX/Graphics/Animation3D/Animation3D.cs
+    startLine: 56
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation3D
+  summary: Root node of the animation's scene hierarchy.
+  example: []
+  syntax:
+    content: public SceneNodeData RootNode { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.Animation3D.SceneNodeData
+    content.vb: Public Property RootNode As SceneNodeData
+  overload: LibGFX.Graphics.Animation3D.Animation3D.RootNode*
+- uid: LibGFX.Graphics.Animation3D.Animation3D.BoneInfoMap
+  commentId: P:LibGFX.Graphics.Animation3D.Animation3D.BoneInfoMap
+  id: BoneInfoMap
+  parent: LibGFX.Graphics.Animation3D.Animation3D
+  langs:
+  - csharp
+  - vb
+  name: BoneInfoMap
+  nameWithType: Animation3D.BoneInfoMap
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.BoneInfoMap
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation3D/Animation3D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BoneInfoMap
+    path: ../LibGFX/Graphics/Animation3D/Animation3D.cs
+    startLine: 61
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation3D
+  summary: Mapping of bone names to bone information.
+  example: []
+  syntax:
+    content: public Dictionary<string, BoneInfo> BoneInfoMap { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,LibGFX.Graphics.BoneInfo}
+    content.vb: Public Property BoneInfoMap As Dictionary(Of String, BoneInfo)
+  overload: LibGFX.Graphics.Animation3D.Animation3D.BoneInfoMap*
+- uid: LibGFX.Graphics.Animation3D.Animation3D.#ctor
+  commentId: M:LibGFX.Graphics.Animation3D.Animation3D.#ctor
+  id: '#ctor'
+  parent: LibGFX.Graphics.Animation3D.Animation3D
+  langs:
+  - csharp
+  - vb
+  name: Animation3D()
+  nameWithType: Animation3D.Animation3D()
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.Animation3D()
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation3D/Animation3D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/Animation3D/Animation3D.cs
+    startLine: 72
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation3D
+  summary: >-
+    Initializes a new instance of the Animation3D class.
+
+    Used for deserialization purposes.
+  example: []
+  syntax:
+    content: public Animation3D()
+    content.vb: Public Sub New()
+  overload: LibGFX.Graphics.Animation3D.Animation3D.#ctor*
+  nameWithType.vb: Animation3D.New()
+  fullName.vb: LibGFX.Graphics.Animation3D.Animation3D.New()
+  name.vb: New()
+- uid: LibGFX.Graphics.Animation3D.Animation3D.#ctor(Assimp.Scene,System.Int32,LibGFX.Graphics.Animation3D.Skeleton)
+  commentId: M:LibGFX.Graphics.Animation3D.Animation3D.#ctor(Assimp.Scene,System.Int32,LibGFX.Graphics.Animation3D.Skeleton)
+  id: '#ctor(Assimp.Scene,System.Int32,LibGFX.Graphics.Animation3D.Skeleton)'
+  parent: LibGFX.Graphics.Animation3D.Animation3D
+  langs:
+  - csharp
+  - vb
+  name: Animation3D(Scene, int, Skeleton)
+  nameWithType: Animation3D.Animation3D(Scene, int, Skeleton)
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.Animation3D(Assimp.Scene, int, LibGFX.Graphics.Animation3D.Skeleton)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation3D/Animation3D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/Animation3D/Animation3D.cs
+    startLine: 80
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation3D
+  summary: Initializes a new instance of the Animation class.
+  example: []
+  syntax:
+    content: public Animation3D(Scene scene, int index, Skeleton skeleton)
+    parameters:
+    - id: scene
+      type: Assimp.Scene
+    - id: index
+      type: System.Int32
+    - id: skeleton
+      type: LibGFX.Graphics.Animation3D.Skeleton
+    content.vb: Public Sub New(scene As Scene, index As Integer, skeleton As Skeleton)
+  overload: LibGFX.Graphics.Animation3D.Animation3D.#ctor*
+  nameWithType.vb: Animation3D.New(Scene, Integer, Skeleton)
+  fullName.vb: LibGFX.Graphics.Animation3D.Animation3D.New(Assimp.Scene, Integer, LibGFX.Graphics.Animation3D.Skeleton)
+  name.vb: New(Scene, Integer, Skeleton)
+- uid: LibGFX.Graphics.Animation3D.Animation3D.#ctor(Assimp.Scene,System.Int32)
+  commentId: M:LibGFX.Graphics.Animation3D.Animation3D.#ctor(Assimp.Scene,System.Int32)
+  id: '#ctor(Assimp.Scene,System.Int32)'
+  parent: LibGFX.Graphics.Animation3D.Animation3D
+  langs:
+  - csharp
+  - vb
+  name: Animation3D(Scene, int)
+  nameWithType: Animation3D.Animation3D(Scene, int)
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.Animation3D(Assimp.Scene, int)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation3D/Animation3D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/Animation3D/Animation3D.cs
+    startLine: 99
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation3D
+  summary: Initializes a new instance of the Animation class without a model reference.
+  example: []
+  syntax:
+    content: public Animation3D(Scene scene, int index)
+    parameters:
+    - id: scene
+      type: Assimp.Scene
+      description: ''
+    - id: index
+      type: System.Int32
+      description: ''
+    content.vb: Public Sub New(scene As Scene, index As Integer)
+  overload: LibGFX.Graphics.Animation3D.Animation3D.#ctor*
+  nameWithType.vb: Animation3D.New(Scene, Integer)
+  fullName.vb: LibGFX.Graphics.Animation3D.Animation3D.New(Assimp.Scene, Integer)
+  name.vb: New(Scene, Integer)
+- uid: LibGFX.Graphics.Animation3D.Animation3D.LoadAnimationChannel(Assimp.Animation)
+  commentId: M:LibGFX.Graphics.Animation3D.Animation3D.LoadAnimationChannel(Assimp.Animation)
+  id: LoadAnimationChannel(Assimp.Animation)
+  parent: LibGFX.Graphics.Animation3D.Animation3D
+  langs:
+  - csharp
+  - vb
+  name: LoadAnimationChannel(Animation)
+  nameWithType: Animation3D.LoadAnimationChannel(Animation)
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.LoadAnimationChannel(Assimp.Animation)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation3D/Animation3D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LoadAnimationChannel
+    path: ../LibGFX/Graphics/Animation3D/Animation3D.cs
+    startLine: 131
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation3D
+  syntax:
+    content: public void LoadAnimationChannel(Animation animation)
+    parameters:
+    - id: animation
+      type: Assimp.Animation
+    content.vb: Public Sub LoadAnimationChannel(animation As Animation)
+  overload: LibGFX.Graphics.Animation3D.Animation3D.LoadAnimationChannel*
+- uid: LibGFX.Graphics.Animation3D.Animation3D.ReadBones(LibGFX.Graphics.Animation3D.Skeleton)
+  commentId: M:LibGFX.Graphics.Animation3D.Animation3D.ReadBones(LibGFX.Graphics.Animation3D.Skeleton)
+  id: ReadBones(LibGFX.Graphics.Animation3D.Skeleton)
+  parent: LibGFX.Graphics.Animation3D.Animation3D
+  langs:
+  - csharp
+  - vb
+  name: ReadBones(Skeleton)
+  nameWithType: Animation3D.ReadBones(Skeleton)
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.ReadBones(LibGFX.Graphics.Animation3D.Skeleton)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation3D/Animation3D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ReadBones
+    path: ../LibGFX/Graphics/Animation3D/Animation3D.cs
+    startLine: 179
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation3D
+  summary: Reads bones from the provided skeleton and associates them with the animation.
+  example: []
+  syntax:
+    content: public void ReadBones(Skeleton skeleton)
+    parameters:
+    - id: skeleton
+      type: LibGFX.Graphics.Animation3D.Skeleton
+      description: ''
+    content.vb: Public Sub ReadBones(skeleton As Skeleton)
+  overload: LibGFX.Graphics.Animation3D.Animation3D.ReadBones*
+- uid: LibGFX.Graphics.Animation3D.Animation3D.FindBone(System.String)
+  commentId: M:LibGFX.Graphics.Animation3D.Animation3D.FindBone(System.String)
+  id: FindBone(System.String)
+  parent: LibGFX.Graphics.Animation3D.Animation3D
+  langs:
+  - csharp
+  - vb
+  name: FindBone(string)
+  nameWithType: Animation3D.FindBone(string)
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.FindBone(string)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation3D/Animation3D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FindBone
+    path: ../LibGFX/Graphics/Animation3D/Animation3D.cs
+    startLine: 200
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation3D
+  summary: Finds a bone with the specified name.
+  example: []
+  syntax:
+    content: public Bone FindBone(string name)
+    parameters:
+    - id: name
+      type: System.String
+    return:
+      type: LibGFX.Graphics.Animation3D.Bone
+    content.vb: Public Function FindBone(name As String) As Bone
+  overload: LibGFX.Graphics.Animation3D.Animation3D.FindBone*
+  nameWithType.vb: Animation3D.FindBone(String)
+  fullName.vb: LibGFX.Graphics.Animation3D.Animation3D.FindBone(String)
+  name.vb: FindBone(String)
+- uid: LibGFX.Graphics.Animation3D.Animation3D.AnimationLength
+  commentId: M:LibGFX.Graphics.Animation3D.Animation3D.AnimationLength
+  id: AnimationLength
+  parent: LibGFX.Graphics.Animation3D.Animation3D
+  langs:
+  - csharp
+  - vb
+  name: AnimationLength()
+  nameWithType: Animation3D.AnimationLength()
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.AnimationLength()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation3D/Animation3D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AnimationLength
+    path: ../LibGFX/Graphics/Animation3D/Animation3D.cs
+    startLine: 219
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation3D
+  summary: Calculates the keyframe length of the animation based on the maximum number of position, rotation, and scaling keyframes among all bones.
+  remarks: This method iterates through all bones to determine the maximum keyframe length.
+  example: []
+  syntax:
+    content: public int AnimationLength()
+    return:
+      type: System.Int32
+      description: The maximum number of keyframes (positions, rotations, or scalings) among all bones; if no bones are present, returns -1.
+    content.vb: Public Function AnimationLength() As Integer
+  overload: LibGFX.Graphics.Animation3D.Animation3D.AnimationLength*
+- uid: LibGFX.Graphics.Animation3D.Animation3D.GetKeyFrameIndex(System.Single)
+  commentId: M:LibGFX.Graphics.Animation3D.Animation3D.GetKeyFrameIndex(System.Single)
+  id: GetKeyFrameIndex(System.Single)
+  parent: LibGFX.Graphics.Animation3D.Animation3D
+  langs:
+  - csharp
+  - vb
+  name: GetKeyFrameIndex(float)
+  nameWithType: Animation3D.GetKeyFrameIndex(float)
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.GetKeyFrameIndex(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation3D/Animation3D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetKeyFrameIndex
+    path: ../LibGFX/Graphics/Animation3D/Animation3D.cs
+    startLine: 240
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation3D
+  summary: Calculates the keyframe index based on the specified animation time.
+  example: []
+  syntax:
+    content: public int GetKeyFrameIndex(float animationTime)
+    parameters:
+    - id: animationTime
+      type: System.Single
+      description: ''
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Function GetKeyFrameIndex(animationTime As Single) As Integer
+  overload: LibGFX.Graphics.Animation3D.Animation3D.GetKeyFrameIndex*
+  nameWithType.vb: Animation3D.GetKeyFrameIndex(Single)
+  fullName.vb: LibGFX.Graphics.Animation3D.Animation3D.GetKeyFrameIndex(Single)
+  name.vb: GetKeyFrameIndex(Single)
+references:
+- uid: LibGFX.Graphics.Animation3D
+  commentId: N:LibGFX.Graphics.Animation3D
+  href: LibGFX.html
+  name: LibGFX.Graphics.Animation3D
+  nameWithType: LibGFX.Graphics.Animation3D
+  fullName: LibGFX.Graphics.Animation3D
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Animation3D
+    name: Animation3D
+    href: LibGFX.Graphics.Animation3D.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Animation3D
+    name: Animation3D
+    href: LibGFX.Graphics.Animation3D.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Graphics.Animation3D.Animation3D.Name*
+  commentId: Overload:LibGFX.Graphics.Animation3D.Animation3D.Name
+  href: LibGFX.Graphics.Animation3D.Animation3D.html#LibGFX_Graphics_Animation3D_Animation3D_Name
+  name: Name
+  nameWithType: Animation3D.Name
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: LibGFX.Graphics.Animation3D.Animation3D.Duration*
+  commentId: Overload:LibGFX.Graphics.Animation3D.Animation3D.Duration
+  href: LibGFX.Graphics.Animation3D.Animation3D.html#LibGFX_Graphics_Animation3D_Animation3D_Duration
+  name: Duration
+  nameWithType: Animation3D.Duration
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.Duration
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Graphics.Animation3D.Animation3D.TicksPerSecond*
+  commentId: Overload:LibGFX.Graphics.Animation3D.Animation3D.TicksPerSecond
+  href: LibGFX.Graphics.Animation3D.Animation3D.html#LibGFX_Graphics_Animation3D_Animation3D_TicksPerSecond
+  name: TicksPerSecond
+  nameWithType: Animation3D.TicksPerSecond
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.TicksPerSecond
+- uid: LibGFX.Graphics.Animation3D.Animation3D.Bones*
+  commentId: Overload:LibGFX.Graphics.Animation3D.Animation3D.Bones
+  href: LibGFX.Graphics.Animation3D.Animation3D.html#LibGFX_Graphics_Animation3D_Animation3D_Bones
+  name: Bones
+  nameWithType: Animation3D.Bones
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.Bones
+- uid: System.Collections.Generic.List{LibGFX.Graphics.Animation3D.Bone}
+  commentId: T:System.Collections.Generic.List{LibGFX.Graphics.Animation3D.Bone}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Bone>
+  nameWithType: List<Bone>
+  fullName: System.Collections.Generic.List<LibGFX.Graphics.Animation3D.Bone>
+  nameWithType.vb: List(Of Bone)
+  fullName.vb: System.Collections.Generic.List(Of LibGFX.Graphics.Animation3D.Bone)
+  name.vb: List(Of Bone)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: LibGFX.Graphics.Animation3D.Bone
+    name: Bone
+    href: LibGFX.Graphics.Animation3D.Bone.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LibGFX.Graphics.Animation3D.Bone
+    name: Bone
+    href: LibGFX.Graphics.Animation3D.Bone.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: LibGFX.Graphics.Animation3D.Animation3D.RootNode*
+  commentId: Overload:LibGFX.Graphics.Animation3D.Animation3D.RootNode
+  href: LibGFX.Graphics.Animation3D.Animation3D.html#LibGFX_Graphics_Animation3D_Animation3D_RootNode
+  name: RootNode
+  nameWithType: Animation3D.RootNode
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.RootNode
+- uid: LibGFX.Graphics.Animation3D.SceneNodeData
+  commentId: T:LibGFX.Graphics.Animation3D.SceneNodeData
+  parent: LibGFX.Graphics.Animation3D
+  href: LibGFX.Graphics.Animation3D.SceneNodeData.html
+  name: SceneNodeData
+  nameWithType: SceneNodeData
+  fullName: LibGFX.Graphics.Animation3D.SceneNodeData
+- uid: LibGFX.Graphics.Animation3D.Animation3D.BoneInfoMap*
+  commentId: Overload:LibGFX.Graphics.Animation3D.Animation3D.BoneInfoMap
+  href: LibGFX.Graphics.Animation3D.Animation3D.html#LibGFX_Graphics_Animation3D_Animation3D_BoneInfoMap
+  name: BoneInfoMap
+  nameWithType: Animation3D.BoneInfoMap
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.BoneInfoMap
+- uid: System.Collections.Generic.Dictionary{System.String,LibGFX.Graphics.BoneInfo}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,LibGFX.Graphics.BoneInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, BoneInfo>
+  nameWithType: Dictionary<string, BoneInfo>
+  fullName: System.Collections.Generic.Dictionary<string, LibGFX.Graphics.BoneInfo>
+  nameWithType.vb: Dictionary(Of String, BoneInfo)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, LibGFX.Graphics.BoneInfo)
+  name.vb: Dictionary(Of String, BoneInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.BoneInfo
+    name: BoneInfo
+    href: LibGFX.Graphics.BoneInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.BoneInfo
+    name: BoneInfo
+    href: LibGFX.Graphics.BoneInfo.html
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: LibGFX.Graphics.Animation3D.Animation3D.#ctor*
+  commentId: Overload:LibGFX.Graphics.Animation3D.Animation3D.#ctor
+  href: LibGFX.Graphics.Animation3D.Animation3D.html#LibGFX_Graphics_Animation3D_Animation3D__ctor
+  name: Animation3D
+  nameWithType: Animation3D.Animation3D
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.Animation3D
+  nameWithType.vb: Animation3D.New
+  fullName.vb: LibGFX.Graphics.Animation3D.Animation3D.New
+  name.vb: New
+- uid: Assimp.Scene
+  commentId: T:Assimp.Scene
+  parent: Assimp
+  isExternal: true
+  name: Scene
+  nameWithType: Scene
+  fullName: Assimp.Scene
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LibGFX.Graphics.Animation3D.Skeleton
+  commentId: T:LibGFX.Graphics.Animation3D.Skeleton
+  parent: LibGFX.Graphics.Animation3D
+  href: LibGFX.Graphics.Animation3D.Skeleton.html
+  name: Skeleton
+  nameWithType: Skeleton
+  fullName: LibGFX.Graphics.Animation3D.Skeleton
+- uid: Assimp
+  commentId: N:Assimp
+  isExternal: true
+  name: Assimp
+  nameWithType: Assimp
+  fullName: Assimp
+- uid: LibGFX.Graphics.Animation3D.Animation3D.LoadAnimationChannel*
+  commentId: Overload:LibGFX.Graphics.Animation3D.Animation3D.LoadAnimationChannel
+  href: LibGFX.Graphics.Animation3D.Animation3D.html#LibGFX_Graphics_Animation3D_Animation3D_LoadAnimationChannel_Assimp_Animation_
+  name: LoadAnimationChannel
+  nameWithType: Animation3D.LoadAnimationChannel
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.LoadAnimationChannel
+- uid: Assimp.Animation
+  commentId: T:Assimp.Animation
+  parent: Assimp
+  isExternal: true
+  name: Animation
+  nameWithType: Animation
+  fullName: Assimp.Animation
+- uid: LibGFX.Graphics.Animation3D.Animation3D.ReadBones*
+  commentId: Overload:LibGFX.Graphics.Animation3D.Animation3D.ReadBones
+  href: LibGFX.Graphics.Animation3D.Animation3D.html#LibGFX_Graphics_Animation3D_Animation3D_ReadBones_LibGFX_Graphics_Animation3D_Skeleton_
+  name: ReadBones
+  nameWithType: Animation3D.ReadBones
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.ReadBones
+- uid: LibGFX.Graphics.Animation3D.Animation3D.FindBone*
+  commentId: Overload:LibGFX.Graphics.Animation3D.Animation3D.FindBone
+  href: LibGFX.Graphics.Animation3D.Animation3D.html#LibGFX_Graphics_Animation3D_Animation3D_FindBone_System_String_
+  name: FindBone
+  nameWithType: Animation3D.FindBone
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.FindBone
+- uid: LibGFX.Graphics.Animation3D.Bone
+  commentId: T:LibGFX.Graphics.Animation3D.Bone
+  parent: LibGFX.Graphics.Animation3D
+  href: LibGFX.Graphics.Animation3D.Bone.html
+  name: Bone
+  nameWithType: Bone
+  fullName: LibGFX.Graphics.Animation3D.Bone
+- uid: LibGFX.Graphics.Animation3D.Animation3D.AnimationLength*
+  commentId: Overload:LibGFX.Graphics.Animation3D.Animation3D.AnimationLength
+  href: LibGFX.Graphics.Animation3D.Animation3D.html#LibGFX_Graphics_Animation3D_Animation3D_AnimationLength
+  name: AnimationLength
+  nameWithType: Animation3D.AnimationLength
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.AnimationLength
+- uid: LibGFX.Graphics.Animation3D.Animation3D.GetKeyFrameIndex*
+  commentId: Overload:LibGFX.Graphics.Animation3D.Animation3D.GetKeyFrameIndex
+  href: LibGFX.Graphics.Animation3D.Animation3D.html#LibGFX_Graphics_Animation3D_Animation3D_GetKeyFrameIndex_System_Single_
+  name: GetKeyFrameIndex
+  nameWithType: Animation3D.GetKeyFrameIndex
+  fullName: LibGFX.Graphics.Animation3D.Animation3D.GetKeyFrameIndex

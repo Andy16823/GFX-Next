@@ -1,0 +1,1022 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Physics.PhysicsHandler2D
+  commentId: T:LibGFX.Physics.PhysicsHandler2D
+  id: PhysicsHandler2D
+  parent: LibGFX.Physics
+  children:
+  - LibGFX.Physics.PhysicsHandler2D.#ctor(OpenTK.Mathematics.Vector2)
+  - LibGFX.Physics.PhysicsHandler2D.DebugDraw(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Physics.PhysicsHandler2D.GetDebugDrawer
+  - LibGFX.Physics.PhysicsHandler2D.HasDebugDrawer
+  - LibGFX.Physics.PhysicsHandler2D.ManageElement(LibGFX.Physics.PhysicsBehavior,System.Int32,System.Int32)
+  - LibGFX.Physics.PhysicsHandler2D.PhysicsWorld
+  - LibGFX.Physics.PhysicsHandler2D.Process(LibGFX.Core.BaseScene)
+  - LibGFX.Physics.PhysicsHandler2D.RemoveElement(LibGFX.Physics.PhysicsBehavior)
+  - LibGFX.Physics.PhysicsHandler2D.SetDebugDrawer(LibGFX.Physics.DebugDrawer)
+  langs:
+  - csharp
+  - vb
+  name: PhysicsHandler2D
+  nameWithType: PhysicsHandler2D
+  fullName: LibGFX.Physics.PhysicsHandler2D
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsHandler2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PhysicsHandler2D
+    path: ../LibGFX/Physics/PhysicsHandler2D.cs
+    startLine: 15
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Represents a physics handler for 2D physics
+  example: []
+  syntax:
+    content: 'public class PhysicsHandler2D : PhysicsHandler'
+    content.vb: Public Class PhysicsHandler2D Inherits PhysicsHandler
+  inheritance:
+  - System.Object
+  - LibGFX.Physics.PhysicsHandler
+  inheritedMembers:
+  - LibGFX.Physics.PhysicsHandler.DebugPhysics
+  - LibGFX.Physics.PhysicsHandler.FixedTimeStep
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Physics.PhysicsHandler2D.PhysicsWorld
+  commentId: P:LibGFX.Physics.PhysicsHandler2D.PhysicsWorld
+  id: PhysicsWorld
+  parent: LibGFX.Physics.PhysicsHandler2D
+  langs:
+  - csharp
+  - vb
+  name: PhysicsWorld
+  nameWithType: PhysicsHandler2D.PhysicsWorld
+  fullName: LibGFX.Physics.PhysicsHandler2D.PhysicsWorld
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsHandler2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PhysicsWorld
+    path: ../LibGFX/Physics/PhysicsHandler2D.cs
+    startLine: 20
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: The physics world
+  example: []
+  syntax:
+    content: public DiscreteDynamicsWorld PhysicsWorld { get; set; }
+    parameters: []
+    return:
+      type: BulletSharp.DiscreteDynamicsWorld
+    content.vb: Public Property PhysicsWorld As DiscreteDynamicsWorld
+  overload: LibGFX.Physics.PhysicsHandler2D.PhysicsWorld*
+- uid: LibGFX.Physics.PhysicsHandler2D.#ctor(OpenTK.Mathematics.Vector2)
+  commentId: M:LibGFX.Physics.PhysicsHandler2D.#ctor(OpenTK.Mathematics.Vector2)
+  id: '#ctor(OpenTK.Mathematics.Vector2)'
+  parent: LibGFX.Physics.PhysicsHandler2D
+  langs:
+  - csharp
+  - vb
+  name: PhysicsHandler2D(Vector2)
+  nameWithType: PhysicsHandler2D.PhysicsHandler2D(Vector2)
+  fullName: LibGFX.Physics.PhysicsHandler2D.PhysicsHandler2D(OpenTK.Mathematics.Vector2)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsHandler2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Physics/PhysicsHandler2D.cs
+    startLine: 26
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Creates a new physics handler
+  example: []
+  syntax:
+    content: public PhysicsHandler2D(Vector2 gravity)
+    parameters:
+    - id: gravity
+      type: OpenTK.Mathematics.Vector2
+      description: ''
+    content.vb: Public Sub New(gravity As Vector2)
+  overload: LibGFX.Physics.PhysicsHandler2D.#ctor*
+  nameWithType.vb: PhysicsHandler2D.New(Vector2)
+  fullName.vb: LibGFX.Physics.PhysicsHandler2D.New(OpenTK.Mathematics.Vector2)
+  name.vb: New(Vector2)
+- uid: LibGFX.Physics.PhysicsHandler2D.ManageElement(LibGFX.Physics.PhysicsBehavior,System.Int32,System.Int32)
+  commentId: M:LibGFX.Physics.PhysicsHandler2D.ManageElement(LibGFX.Physics.PhysicsBehavior,System.Int32,System.Int32)
+  id: ManageElement(LibGFX.Physics.PhysicsBehavior,System.Int32,System.Int32)
+  parent: LibGFX.Physics.PhysicsHandler2D
+  langs:
+  - csharp
+  - vb
+  name: ManageElement(PhysicsBehavior, int, int)
+  nameWithType: PhysicsHandler2D.ManageElement(PhysicsBehavior, int, int)
+  fullName: LibGFX.Physics.PhysicsHandler2D.ManageElement(LibGFX.Physics.PhysicsBehavior, int, int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsHandler2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ManageElement
+    path: ../LibGFX/Physics/PhysicsHandler2D.cs
+    startLine: 41
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Adds a physics behavior to the physics world
+  example: []
+  syntax:
+    content: public override void ManageElement(PhysicsBehavior physicsBehavior, int collisionGroup = -1, int collisionMask = -1)
+    parameters:
+    - id: physicsBehavior
+      type: LibGFX.Physics.PhysicsBehavior
+      description: ''
+    - id: collisionGroup
+      type: System.Int32
+      description: ''
+    - id: collisionMask
+      type: System.Int32
+      description: ''
+    content.vb: Public Overrides Sub ManageElement(physicsBehavior As PhysicsBehavior, collisionGroup As Integer = -1, collisionMask As Integer = -1)
+  overridden: LibGFX.Physics.PhysicsHandler.ManageElement(LibGFX.Physics.PhysicsBehavior,System.Int32,System.Int32)
+  overload: LibGFX.Physics.PhysicsHandler2D.ManageElement*
+  nameWithType.vb: PhysicsHandler2D.ManageElement(PhysicsBehavior, Integer, Integer)
+  fullName.vb: LibGFX.Physics.PhysicsHandler2D.ManageElement(LibGFX.Physics.PhysicsBehavior, Integer, Integer)
+  name.vb: ManageElement(PhysicsBehavior, Integer, Integer)
+- uid: LibGFX.Physics.PhysicsHandler2D.Process(LibGFX.Core.BaseScene)
+  commentId: M:LibGFX.Physics.PhysicsHandler2D.Process(LibGFX.Core.BaseScene)
+  id: Process(LibGFX.Core.BaseScene)
+  parent: LibGFX.Physics.PhysicsHandler2D
+  langs:
+  - csharp
+  - vb
+  name: Process(BaseScene)
+  nameWithType: PhysicsHandler2D.Process(BaseScene)
+  fullName: LibGFX.Physics.PhysicsHandler2D.Process(LibGFX.Core.BaseScene)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsHandler2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Process
+    path: ../LibGFX/Physics/PhysicsHandler2D.cs
+    startLine: 50
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Processes the physics world
+  example: []
+  syntax:
+    content: public override void Process(BaseScene scene)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    content.vb: Public Overrides Sub Process(scene As BaseScene)
+  overridden: LibGFX.Physics.PhysicsHandler.Process(LibGFX.Core.BaseScene)
+  overload: LibGFX.Physics.PhysicsHandler2D.Process*
+- uid: LibGFX.Physics.PhysicsHandler2D.RemoveElement(LibGFX.Physics.PhysicsBehavior)
+  commentId: M:LibGFX.Physics.PhysicsHandler2D.RemoveElement(LibGFX.Physics.PhysicsBehavior)
+  id: RemoveElement(LibGFX.Physics.PhysicsBehavior)
+  parent: LibGFX.Physics.PhysicsHandler2D
+  langs:
+  - csharp
+  - vb
+  name: RemoveElement(PhysicsBehavior)
+  nameWithType: PhysicsHandler2D.RemoveElement(PhysicsBehavior)
+  fullName: LibGFX.Physics.PhysicsHandler2D.RemoveElement(LibGFX.Physics.PhysicsBehavior)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsHandler2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RemoveElement
+    path: ../LibGFX/Physics/PhysicsHandler2D.cs
+    startLine: 104
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Removes a physics behavior from the physics world
+  example: []
+  syntax:
+    content: public override void RemoveElement(PhysicsBehavior physicsBehavior)
+    parameters:
+    - id: physicsBehavior
+      type: LibGFX.Physics.PhysicsBehavior
+      description: ''
+    content.vb: Public Overrides Sub RemoveElement(physicsBehavior As PhysicsBehavior)
+  overridden: LibGFX.Physics.PhysicsHandler.RemoveElement(LibGFX.Physics.PhysicsBehavior)
+  overload: LibGFX.Physics.PhysicsHandler2D.RemoveElement*
+- uid: LibGFX.Physics.PhysicsHandler2D.HasDebugDrawer
+  commentId: M:LibGFX.Physics.PhysicsHandler2D.HasDebugDrawer
+  id: HasDebugDrawer
+  parent: LibGFX.Physics.PhysicsHandler2D
+  langs:
+  - csharp
+  - vb
+  name: HasDebugDrawer()
+  nameWithType: PhysicsHandler2D.HasDebugDrawer()
+  fullName: LibGFX.Physics.PhysicsHandler2D.HasDebugDrawer()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsHandler2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: HasDebugDrawer
+    path: ../LibGFX/Physics/PhysicsHandler2D.cs
+    startLine: 113
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Determines if the physics handler has a debug drawer
+  example: []
+  syntax:
+    content: public override bool HasDebugDrawer()
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Overrides Function HasDebugDrawer() As Boolean
+  overridden: LibGFX.Physics.PhysicsHandler.HasDebugDrawer
+  overload: LibGFX.Physics.PhysicsHandler2D.HasDebugDrawer*
+- uid: LibGFX.Physics.PhysicsHandler2D.DebugDraw(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.PhysicsHandler2D.DebugDraw(LibGFX.Graphics.IRenderDevice)
+  id: DebugDraw(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.PhysicsHandler2D
+  langs:
+  - csharp
+  - vb
+  name: DebugDraw(IRenderDevice)
+  nameWithType: PhysicsHandler2D.DebugDraw(IRenderDevice)
+  fullName: LibGFX.Physics.PhysicsHandler2D.DebugDraw(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsHandler2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DebugDraw
+    path: ../LibGFX/Physics/PhysicsHandler2D.cs
+    startLine: 126
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Debug draws the physics handler
+  example: []
+  syntax:
+    content: public override void DebugDraw(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Overrides Sub DebugDraw(renderer As IRenderDevice)
+  overridden: LibGFX.Physics.PhysicsHandler.DebugDraw(LibGFX.Graphics.IRenderDevice)
+  overload: LibGFX.Physics.PhysicsHandler2D.DebugDraw*
+- uid: LibGFX.Physics.PhysicsHandler2D.GetDebugDrawer
+  commentId: M:LibGFX.Physics.PhysicsHandler2D.GetDebugDrawer
+  id: GetDebugDrawer
+  parent: LibGFX.Physics.PhysicsHandler2D
+  langs:
+  - csharp
+  - vb
+  name: GetDebugDrawer()
+  nameWithType: PhysicsHandler2D.GetDebugDrawer()
+  fullName: LibGFX.Physics.PhysicsHandler2D.GetDebugDrawer()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsHandler2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetDebugDrawer
+    path: ../LibGFX/Physics/PhysicsHandler2D.cs
+    startLine: 135
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Gets the debug drawer
+  example: []
+  syntax:
+    content: public override DebugDrawer GetDebugDrawer()
+    return:
+      type: LibGFX.Physics.DebugDrawer
+      description: ''
+    content.vb: Public Overrides Function GetDebugDrawer() As DebugDrawer
+  overridden: LibGFX.Physics.PhysicsHandler.GetDebugDrawer
+  overload: LibGFX.Physics.PhysicsHandler2D.GetDebugDrawer*
+- uid: LibGFX.Physics.PhysicsHandler2D.SetDebugDrawer(LibGFX.Physics.DebugDrawer)
+  commentId: M:LibGFX.Physics.PhysicsHandler2D.SetDebugDrawer(LibGFX.Physics.DebugDrawer)
+  id: SetDebugDrawer(LibGFX.Physics.DebugDrawer)
+  parent: LibGFX.Physics.PhysicsHandler2D
+  langs:
+  - csharp
+  - vb
+  name: SetDebugDrawer(DebugDrawer)
+  nameWithType: PhysicsHandler2D.SetDebugDrawer(DebugDrawer)
+  fullName: LibGFX.Physics.PhysicsHandler2D.SetDebugDrawer(LibGFX.Physics.DebugDrawer)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsHandler2D.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetDebugDrawer
+    path: ../LibGFX/Physics/PhysicsHandler2D.cs
+    startLine: 144
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Sets the debug drawer
+  example: []
+  syntax:
+    content: public override void SetDebugDrawer(DebugDrawer debugDrawer)
+    parameters:
+    - id: debugDrawer
+      type: LibGFX.Physics.DebugDrawer
+      description: ''
+    content.vb: Public Overrides Sub SetDebugDrawer(debugDrawer As DebugDrawer)
+  overridden: LibGFX.Physics.PhysicsHandler.SetDebugDrawer(LibGFX.Physics.DebugDrawer)
+  overload: LibGFX.Physics.PhysicsHandler2D.SetDebugDrawer*
+references:
+- uid: LibGFX.Physics
+  commentId: N:LibGFX.Physics
+  href: LibGFX.html
+  name: LibGFX.Physics
+  nameWithType: LibGFX.Physics
+  fullName: LibGFX.Physics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Physics.PhysicsHandler
+  commentId: T:LibGFX.Physics.PhysicsHandler
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.PhysicsHandler.html
+  name: PhysicsHandler
+  nameWithType: PhysicsHandler
+  fullName: LibGFX.Physics.PhysicsHandler
+- uid: LibGFX.Physics.PhysicsHandler.DebugPhysics
+  commentId: P:LibGFX.Physics.PhysicsHandler.DebugPhysics
+  parent: LibGFX.Physics.PhysicsHandler
+  href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_DebugPhysics
+  name: DebugPhysics
+  nameWithType: PhysicsHandler.DebugPhysics
+  fullName: LibGFX.Physics.PhysicsHandler.DebugPhysics
+- uid: LibGFX.Physics.PhysicsHandler.FixedTimeStep
+  commentId: P:LibGFX.Physics.PhysicsHandler.FixedTimeStep
+  parent: LibGFX.Physics.PhysicsHandler
+  href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_FixedTimeStep
+  name: FixedTimeStep
+  nameWithType: PhysicsHandler.FixedTimeStep
+  fullName: LibGFX.Physics.PhysicsHandler.FixedTimeStep
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Physics.PhysicsHandler2D.PhysicsWorld*
+  commentId: Overload:LibGFX.Physics.PhysicsHandler2D.PhysicsWorld
+  href: LibGFX.Physics.PhysicsHandler2D.html#LibGFX_Physics_PhysicsHandler2D_PhysicsWorld
+  name: PhysicsWorld
+  nameWithType: PhysicsHandler2D.PhysicsWorld
+  fullName: LibGFX.Physics.PhysicsHandler2D.PhysicsWorld
+- uid: BulletSharp.DiscreteDynamicsWorld
+  commentId: T:BulletSharp.DiscreteDynamicsWorld
+  parent: BulletSharp
+  isExternal: true
+  name: DiscreteDynamicsWorld
+  nameWithType: DiscreteDynamicsWorld
+  fullName: BulletSharp.DiscreteDynamicsWorld
+- uid: BulletSharp
+  commentId: N:BulletSharp
+  isExternal: true
+  name: BulletSharp
+  nameWithType: BulletSharp
+  fullName: BulletSharp
+- uid: LibGFX.Physics.PhysicsHandler2D.#ctor*
+  commentId: Overload:LibGFX.Physics.PhysicsHandler2D.#ctor
+  href: LibGFX.Physics.PhysicsHandler2D.html#LibGFX_Physics_PhysicsHandler2D__ctor_OpenTK_Mathematics_Vector2_
+  name: PhysicsHandler2D
+  nameWithType: PhysicsHandler2D.PhysicsHandler2D
+  fullName: LibGFX.Physics.PhysicsHandler2D.PhysicsHandler2D
+  nameWithType.vb: PhysicsHandler2D.New
+  fullName.vb: LibGFX.Physics.PhysicsHandler2D.New
+  name.vb: New
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Physics.PhysicsHandler.ManageElement(LibGFX.Physics.PhysicsBehavior,System.Int32,System.Int32)
+  commentId: M:LibGFX.Physics.PhysicsHandler.ManageElement(LibGFX.Physics.PhysicsBehavior,System.Int32,System.Int32)
+  parent: LibGFX.Physics.PhysicsHandler
+  isExternal: true
+  href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_ManageElement_LibGFX_Physics_PhysicsBehavior_System_Int32_System_Int32_
+  name: ManageElement(PhysicsBehavior, int, int)
+  nameWithType: PhysicsHandler.ManageElement(PhysicsBehavior, int, int)
+  fullName: LibGFX.Physics.PhysicsHandler.ManageElement(LibGFX.Physics.PhysicsBehavior, int, int)
+  nameWithType.vb: PhysicsHandler.ManageElement(PhysicsBehavior, Integer, Integer)
+  fullName.vb: LibGFX.Physics.PhysicsHandler.ManageElement(LibGFX.Physics.PhysicsBehavior, Integer, Integer)
+  name.vb: ManageElement(PhysicsBehavior, Integer, Integer)
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsHandler.ManageElement(LibGFX.Physics.PhysicsBehavior,System.Int32,System.Int32)
+    name: ManageElement
+    href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_ManageElement_LibGFX_Physics_PhysicsBehavior_System_Int32_System_Int32_
+  - name: (
+  - uid: LibGFX.Physics.PhysicsBehavior
+    name: PhysicsBehavior
+    href: LibGFX.Physics.PhysicsBehavior.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsHandler.ManageElement(LibGFX.Physics.PhysicsBehavior,System.Int32,System.Int32)
+    name: ManageElement
+    href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_ManageElement_LibGFX_Physics_PhysicsBehavior_System_Int32_System_Int32_
+  - name: (
+  - uid: LibGFX.Physics.PhysicsBehavior
+    name: PhysicsBehavior
+    href: LibGFX.Physics.PhysicsBehavior.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: LibGFX.Physics.PhysicsHandler2D.ManageElement*
+  commentId: Overload:LibGFX.Physics.PhysicsHandler2D.ManageElement
+  href: LibGFX.Physics.PhysicsHandler2D.html#LibGFX_Physics_PhysicsHandler2D_ManageElement_LibGFX_Physics_PhysicsBehavior_System_Int32_System_Int32_
+  name: ManageElement
+  nameWithType: PhysicsHandler2D.ManageElement
+  fullName: LibGFX.Physics.PhysicsHandler2D.ManageElement
+- uid: LibGFX.Physics.PhysicsBehavior
+  commentId: T:LibGFX.Physics.PhysicsBehavior
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.PhysicsBehavior.html
+  name: PhysicsBehavior
+  nameWithType: PhysicsBehavior
+  fullName: LibGFX.Physics.PhysicsBehavior
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LibGFX.Physics.PhysicsHandler.Process(LibGFX.Core.BaseScene)
+  commentId: M:LibGFX.Physics.PhysicsHandler.Process(LibGFX.Core.BaseScene)
+  parent: LibGFX.Physics.PhysicsHandler
+  href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_Process_LibGFX_Core_BaseScene_
+  name: Process(BaseScene)
+  nameWithType: PhysicsHandler.Process(BaseScene)
+  fullName: LibGFX.Physics.PhysicsHandler.Process(LibGFX.Core.BaseScene)
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsHandler.Process(LibGFX.Core.BaseScene)
+    name: Process
+    href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_Process_LibGFX_Core_BaseScene_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsHandler.Process(LibGFX.Core.BaseScene)
+    name: Process
+    href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_Process_LibGFX_Core_BaseScene_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: )
+- uid: LibGFX.Physics.PhysicsHandler2D.Process*
+  commentId: Overload:LibGFX.Physics.PhysicsHandler2D.Process
+  href: LibGFX.Physics.PhysicsHandler2D.html#LibGFX_Physics_PhysicsHandler2D_Process_LibGFX_Core_BaseScene_
+  name: Process
+  nameWithType: PhysicsHandler2D.Process
+  fullName: LibGFX.Physics.PhysicsHandler2D.Process
+- uid: LibGFX.Core.BaseScene
+  commentId: T:LibGFX.Core.BaseScene
+  parent: LibGFX.Core
+  href: LibGFX.Core.BaseScene.html
+  name: BaseScene
+  nameWithType: BaseScene
+  fullName: LibGFX.Core.BaseScene
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Physics.PhysicsHandler.RemoveElement(LibGFX.Physics.PhysicsBehavior)
+  commentId: M:LibGFX.Physics.PhysicsHandler.RemoveElement(LibGFX.Physics.PhysicsBehavior)
+  parent: LibGFX.Physics.PhysicsHandler
+  href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_RemoveElement_LibGFX_Physics_PhysicsBehavior_
+  name: RemoveElement(PhysicsBehavior)
+  nameWithType: PhysicsHandler.RemoveElement(PhysicsBehavior)
+  fullName: LibGFX.Physics.PhysicsHandler.RemoveElement(LibGFX.Physics.PhysicsBehavior)
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsHandler.RemoveElement(LibGFX.Physics.PhysicsBehavior)
+    name: RemoveElement
+    href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_RemoveElement_LibGFX_Physics_PhysicsBehavior_
+  - name: (
+  - uid: LibGFX.Physics.PhysicsBehavior
+    name: PhysicsBehavior
+    href: LibGFX.Physics.PhysicsBehavior.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsHandler.RemoveElement(LibGFX.Physics.PhysicsBehavior)
+    name: RemoveElement
+    href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_RemoveElement_LibGFX_Physics_PhysicsBehavior_
+  - name: (
+  - uid: LibGFX.Physics.PhysicsBehavior
+    name: PhysicsBehavior
+    href: LibGFX.Physics.PhysicsBehavior.html
+  - name: )
+- uid: LibGFX.Physics.PhysicsHandler2D.RemoveElement*
+  commentId: Overload:LibGFX.Physics.PhysicsHandler2D.RemoveElement
+  href: LibGFX.Physics.PhysicsHandler2D.html#LibGFX_Physics_PhysicsHandler2D_RemoveElement_LibGFX_Physics_PhysicsBehavior_
+  name: RemoveElement
+  nameWithType: PhysicsHandler2D.RemoveElement
+  fullName: LibGFX.Physics.PhysicsHandler2D.RemoveElement
+- uid: LibGFX.Physics.PhysicsHandler.HasDebugDrawer
+  commentId: M:LibGFX.Physics.PhysicsHandler.HasDebugDrawer
+  parent: LibGFX.Physics.PhysicsHandler
+  href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_HasDebugDrawer
+  name: HasDebugDrawer()
+  nameWithType: PhysicsHandler.HasDebugDrawer()
+  fullName: LibGFX.Physics.PhysicsHandler.HasDebugDrawer()
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsHandler.HasDebugDrawer
+    name: HasDebugDrawer
+    href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_HasDebugDrawer
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsHandler.HasDebugDrawer
+    name: HasDebugDrawer
+    href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_HasDebugDrawer
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.PhysicsHandler2D.HasDebugDrawer*
+  commentId: Overload:LibGFX.Physics.PhysicsHandler2D.HasDebugDrawer
+  href: LibGFX.Physics.PhysicsHandler2D.html#LibGFX_Physics_PhysicsHandler2D_HasDebugDrawer
+  name: HasDebugDrawer
+  nameWithType: PhysicsHandler2D.HasDebugDrawer
+  fullName: LibGFX.Physics.PhysicsHandler2D.HasDebugDrawer
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Physics.PhysicsHandler.DebugDraw(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.PhysicsHandler.DebugDraw(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.PhysicsHandler
+  href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_DebugDraw_LibGFX_Graphics_IRenderDevice_
+  name: DebugDraw(IRenderDevice)
+  nameWithType: PhysicsHandler.DebugDraw(IRenderDevice)
+  fullName: LibGFX.Physics.PhysicsHandler.DebugDraw(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsHandler.DebugDraw(LibGFX.Graphics.IRenderDevice)
+    name: DebugDraw
+    href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_DebugDraw_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsHandler.DebugDraw(LibGFX.Graphics.IRenderDevice)
+    name: DebugDraw
+    href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_DebugDraw_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Physics.PhysicsHandler2D.DebugDraw*
+  commentId: Overload:LibGFX.Physics.PhysicsHandler2D.DebugDraw
+  href: LibGFX.Physics.PhysicsHandler2D.html#LibGFX_Physics_PhysicsHandler2D_DebugDraw_LibGFX_Graphics_IRenderDevice_
+  name: DebugDraw
+  nameWithType: PhysicsHandler2D.DebugDraw
+  fullName: LibGFX.Physics.PhysicsHandler2D.DebugDraw
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Physics.PhysicsHandler.GetDebugDrawer
+  commentId: M:LibGFX.Physics.PhysicsHandler.GetDebugDrawer
+  parent: LibGFX.Physics.PhysicsHandler
+  href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_GetDebugDrawer
+  name: GetDebugDrawer()
+  nameWithType: PhysicsHandler.GetDebugDrawer()
+  fullName: LibGFX.Physics.PhysicsHandler.GetDebugDrawer()
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsHandler.GetDebugDrawer
+    name: GetDebugDrawer
+    href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_GetDebugDrawer
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsHandler.GetDebugDrawer
+    name: GetDebugDrawer
+    href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_GetDebugDrawer
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.PhysicsHandler2D.GetDebugDrawer*
+  commentId: Overload:LibGFX.Physics.PhysicsHandler2D.GetDebugDrawer
+  href: LibGFX.Physics.PhysicsHandler2D.html#LibGFX_Physics_PhysicsHandler2D_GetDebugDrawer
+  name: GetDebugDrawer
+  nameWithType: PhysicsHandler2D.GetDebugDrawer
+  fullName: LibGFX.Physics.PhysicsHandler2D.GetDebugDrawer
+- uid: LibGFX.Physics.DebugDrawer
+  commentId: T:LibGFX.Physics.DebugDrawer
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.DebugDrawer.html
+  name: DebugDrawer
+  nameWithType: DebugDrawer
+  fullName: LibGFX.Physics.DebugDrawer
+- uid: LibGFX.Physics.PhysicsHandler.SetDebugDrawer(LibGFX.Physics.DebugDrawer)
+  commentId: M:LibGFX.Physics.PhysicsHandler.SetDebugDrawer(LibGFX.Physics.DebugDrawer)
+  parent: LibGFX.Physics.PhysicsHandler
+  href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_SetDebugDrawer_LibGFX_Physics_DebugDrawer_
+  name: SetDebugDrawer(DebugDrawer)
+  nameWithType: PhysicsHandler.SetDebugDrawer(DebugDrawer)
+  fullName: LibGFX.Physics.PhysicsHandler.SetDebugDrawer(LibGFX.Physics.DebugDrawer)
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsHandler.SetDebugDrawer(LibGFX.Physics.DebugDrawer)
+    name: SetDebugDrawer
+    href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_SetDebugDrawer_LibGFX_Physics_DebugDrawer_
+  - name: (
+  - uid: LibGFX.Physics.DebugDrawer
+    name: DebugDrawer
+    href: LibGFX.Physics.DebugDrawer.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsHandler.SetDebugDrawer(LibGFX.Physics.DebugDrawer)
+    name: SetDebugDrawer
+    href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_SetDebugDrawer_LibGFX_Physics_DebugDrawer_
+  - name: (
+  - uid: LibGFX.Physics.DebugDrawer
+    name: DebugDrawer
+    href: LibGFX.Physics.DebugDrawer.html
+  - name: )
+- uid: LibGFX.Physics.PhysicsHandler2D.SetDebugDrawer*
+  commentId: Overload:LibGFX.Physics.PhysicsHandler2D.SetDebugDrawer
+  href: LibGFX.Physics.PhysicsHandler2D.html#LibGFX_Physics_PhysicsHandler2D_SetDebugDrawer_LibGFX_Physics_DebugDrawer_
+  name: SetDebugDrawer
+  nameWithType: PhysicsHandler2D.SetDebugDrawer
+  fullName: LibGFX.Physics.PhysicsHandler2D.SetDebugDrawer

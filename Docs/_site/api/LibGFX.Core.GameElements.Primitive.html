@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Primitive | LibGFX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Primitive | LibGFX ">
+      
+      <meta name="description" content="TODO REWORK! Represents a primitive game element that can be rendered with a material and shader.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Core_GameElements_Primitive.md&amp;value=---%0Auid%3A%20LibGFX.Core.GameElements.Primitive%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="LibGFX">
+            LibGFX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LibGFX.Core.GameElements.Primitive">
+
+
+
+  <h1 id="LibGFX_Core_GameElements_Primitive" data-uid="LibGFX.Core.GameElements.Primitive" class="text-break">
+Class Primitive  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LibGFX.html">LibGFX</a>.<a class="xref" href="LibGFX.Core.html">Core</a>.<a class="xref" href="LibGFX.Core.GameElements.html">GameElements</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LibGFX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>TODO REWORK!
+Represents a primitive game element that can be rendered with a material and shader.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Primitive : GameElement, IIdentifier, IPropertyTable, ISerialization</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a></div>
+      <div><span class="xref">Primitive</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LibGFX.Core.IIdentifier.html">IIdentifier</a></div>
+      <div><a class="xref" href="LibGFX.Core.IPropertyTable.html">IPropertyTable</a></div>
+      <div><a class="xref" href="LibGFX.Core.ISerialization.html">ISerialization</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Name">GameElement.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Transform">GameElement.Transform</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Visible">GameElement.Visible</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Enabled">GameElement.Enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_CastShadows">GameElement.CastShadows</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_ID">GameElement.ID</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Parent">GameElement.Parent</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Behaviors">GameElement.Behaviors</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Tags">GameElement.Tags</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AABB">GameElement.AABB</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_WorldAABB">GameElement.WorldAABB</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Children">GameElement.Children</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Properties">GameElement.Properties</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddChild_LibGFX_Core_GameElement_">GameElement.AddChild(GameElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Update_LibGFX_Core_BaseScene_System_Single_">GameElement.Update(BaseScene, float)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Collide_LibGFX_Physics_Collision_">GameElement.Collide(Collision)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddBehavior__1___0_">GameElement.AddBehavior&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetBehavior__1">GameElement.GetBehavior&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddTag_System_String_">GameElement.AddTag(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_RemoveTag_System_String_">GameElement.RemoveTag(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_HasTag_System_String_">GameElement.HasTag(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetWorldAABB">GameElement.GetWorldAABB()</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetWorldTransform">GameElement.GetWorldTransform()</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChild__1">GameElement.FindChild&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChildren__1">GameElement.FindChildren&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChild__1_System_String_">GameElement.FindChild&lt;T&gt;(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChildren__1_System_String_">GameElement.FindChildren&lt;T&gt;(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LibGFX_Core_GameElements_Primitive__ctor_" data-uid="LibGFX.Core.GameElements.Primitive.#ctor*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_Primitive__ctor" data-uid="LibGFX.Core.GameElements.Primitive.#ctor">
+  Primitive()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Primitive class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Primitive()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_Primitive__ctor_" data-uid="LibGFX.Core.GameElements.Primitive.#ctor*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_Primitive__ctor_System_String_LibGFX_Graphics_Mesh_" data-uid="LibGFX.Core.GameElements.Primitive.#ctor(System.String,LibGFX.Graphics.Mesh)">
+  Primitive(string, Mesh)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Primitive class with the specified name and mesh.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Primitive(string name, Mesh mesh)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name to assign to the primitive. Cannot be null or empty.</p>
+</dd>
+    <dt><code>mesh</code> <a class="xref" href="LibGFX.Graphics.Mesh.html">Mesh</a></dt>
+    <dd><p>The mesh that defines the geometry of the primitive. Cannot be null.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_Primitive__ctor_" data-uid="LibGFX.Core.GameElements.Primitive.#ctor*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_Primitive__ctor_System_String_LibGFX_Graphics_Mesh_LibGFX_Graphics_Materials_IMaterial_" data-uid="LibGFX.Core.GameElements.Primitive.#ctor(System.String,LibGFX.Graphics.Mesh,LibGFX.Graphics.Materials.IMaterial)">
+  Primitive(string, Mesh, IMaterial)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Primitive class with the specified name, mesh, and material.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Primitive(string name, Mesh mesh, IMaterial material)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name to assign to the primitive. Cannot be null or empty.</p>
+</dd>
+    <dt><code>mesh</code> <a class="xref" href="LibGFX.Graphics.Mesh.html">Mesh</a></dt>
+    <dd><p>The mesh that defines the geometry of the primitive. Cannot be null.</p>
+</dd>
+    <dt><code>material</code> <a class="xref" href="LibGFX.Graphics.Materials.IMaterial.html">IMaterial</a></dt>
+    <dd><p>The material to apply to the primitive. Cannot be null.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_GameElements_Primitive__ctor_System_String_LibGFX_Graphics_Mesh_LibGFX_Graphics_Materials_IMaterial__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This constructor uses an material override. The mesh material wont get replaced.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LibGFX_Core_GameElements_Primitive_HasTransparency_" data-uid="LibGFX.Core.GameElements.Primitive.HasTransparency*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_Primitive_HasTransparency" data-uid="LibGFX.Core.GameElements.Primitive.HasTransparency">
+  HasTransparency
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a value indicating whether the mesh's material includes transparency.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool HasTransparency { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_Primitive_MaterialOverride_" data-uid="LibGFX.Core.GameElements.Primitive.MaterialOverride*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_Primitive_MaterialOverride" data-uid="LibGFX.Core.GameElements.Primitive.MaterialOverride">
+  MaterialOverride
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Override to get or set the material associated with this primitive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMaterial MaterialOverride { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Materials.IMaterial.html">IMaterial</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_Primitive_Mesh_" data-uid="LibGFX.Core.GameElements.Primitive.Mesh*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_Primitive_Mesh" data-uid="LibGFX.Core.GameElements.Primitive.Mesh">
+  Mesh
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the mesh geometry associated with this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Mesh Mesh { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Mesh.html">Mesh</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_Primitive_Shader_" data-uid="LibGFX.Core.GameElements.Primitive.Shader*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_Primitive_Shader" data-uid="LibGFX.Core.GameElements.Primitive.Shader">
+  Shader
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>the shader program used for rendering the primitive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RenderShader Shader { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Shader.RenderShader.html">RenderShader</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LibGFX_Core_GameElements_Primitive_ComputeAABB_" data-uid="LibGFX.Core.GameElements.Primitive.ComputeAABB*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_Primitive_ComputeAABB" data-uid="LibGFX.Core.GameElements.Primitive.ComputeAABB">
+  ComputeAABB()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes the axis-aligned bounding box (AABB) for the primitive based on its mesh vertices.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ComputeAABB()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_Primitive_CreatePrimitive_" data-uid="LibGFX.Core.GameElements.Primitive.CreatePrimitive*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_Primitive_CreatePrimitive_System_String_LibGFX_Graphics_Materials_IMaterial_LibGFX_Assets_AssetManager_LibGFX_Graphics_Primitives_PrimitiveType_" data-uid="LibGFX.Core.GameElements.Primitive.CreatePrimitive(System.String,LibGFX.Graphics.Materials.IMaterial,LibGFX.Assets.AssetManager,LibGFX.Graphics.Primitives.PrimitiveType)">
+  CreatePrimitive(string, IMaterial, AssetManager, PrimitiveType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a primitive game element with the specified name, material, asset manager, and primitive type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Primitive CreatePrimitive(string name, IMaterial material, AssetManager assets, PrimitiveType type = PrimitiveType.Cube)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the primitive.</p>
+</dd>
+    <dt><code>material</code> <a class="xref" href="LibGFX.Graphics.Materials.IMaterial.html">IMaterial</a></dt>
+    <dd><p>The material to be used for the primitive.</p>
+</dd>
+    <dt><code>assets</code> <a class="xref" href="LibGFX.Assets.AssetManager.html">AssetManager</a></dt>
+    <dd><p>The asset manager to manage the primitive's assets.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="LibGFX.Graphics.Primitives.PrimitiveType.html">PrimitiveType</a></dt>
+    <dd><p>The type of the primitive.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Core.GameElements.Primitive.html">Primitive</a></dt>
+    <dd><p>A new instance of the Primitive class.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_Primitive_Deserialize_" data-uid="LibGFX.Core.GameElements.Primitive.Deserialize*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_Primitive_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__" data-uid="LibGFX.Core.GameElements.Primitive.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})">
+  Deserialize(JObject, SerializationContext, Func&lt;JObject, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L208"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deserializes the primitive from JSON format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Deserialize(JObject obj, SerializationContext serializationContext, Func&lt;JObject, bool&gt; callback = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+    <dt><code>serializationContext</code> <a class="xref" href="LibGFX.Core.SerializationContext.html">SerializationContext</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">JObject</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_Primitive_Dispose_" data-uid="LibGFX.Core.GameElements.Primitive.Dispose*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_Primitive_Dispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Core.GameElements.Primitive.Dispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)">
+  Dispose(BaseScene, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes the primitive and the mesh resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Dispose(BaseScene scene, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_Primitive_GetMeshes_" data-uid="LibGFX.Core.GameElements.Primitive.GetMeshes*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_Primitive_GetMeshes" data-uid="LibGFX.Core.GameElements.Primitive.GetMeshes">
+  GetMeshes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the meshes and materials associated with the primitive.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Mesh[]? GetMeshes()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Mesh.html">Mesh</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_Primitive_Init_" data-uid="LibGFX.Core.GameElements.Primitive.Init*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_Primitive_Init_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Core.GameElements.Primitive.Init(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)">
+  Init(BaseScene, Viewport, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the primitive with the specified scene, viewport, and renderer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_Primitive_Render_" data-uid="LibGFX.Core.GameElements.Primitive.Render*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_Primitive_Render_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_" data-uid="LibGFX.Core.GameElements.Primitive.Render(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)">
+  Render(BaseScene, Viewport, IRenderDevice, Camera)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders the primitive with the specified scene, viewport, renderer, and camera.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+    <dt><code>camera</code> <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_Primitive_RenderShadow_" data-uid="LibGFX.Core.GameElements.Primitive.RenderShadow*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_Primitive_RenderShadow_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Core.GameElements.Primitive.RenderShadow(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)">
+  RenderShadow(BaseScene, Viewport, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Render the primitive for shadow mapping purposes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_GameElements_Primitive_Serialize_" data-uid="LibGFX.Core.GameElements.Primitive.Serialize*"></a>
+
+  <h3 id="LibGFX_Core_GameElements_Primitive_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__" data-uid="LibGFX.Core.GameElements.Primitive.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})">
+  Serialize(JsonWriter, SerializationContext, Action&lt;JsonWriter&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serializes the primitive to JSON format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action&lt;JsonWriter&gt; callback = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
+    <dd></dd>
+    <dt><code>serializationContext</code> <a class="xref" href="LibGFX.Core.SerializationContext.html">SerializationContext</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">JsonWriter</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/GameElements/Primitive.cs/#L25" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

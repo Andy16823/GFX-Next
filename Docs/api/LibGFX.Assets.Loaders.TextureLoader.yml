@@ -1,0 +1,439 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Assets.Loaders.TextureLoader
+  commentId: T:LibGFX.Assets.Loaders.TextureLoader
+  id: TextureLoader
+  parent: LibGFX.Assets.Loaders
+  children:
+  - LibGFX.Assets.Loaders.TextureLoader.Load``1(System.String,System.Object)
+  langs:
+  - csharp
+  - vb
+  name: TextureLoader
+  nameWithType: TextureLoader
+  fullName: LibGFX.Assets.Loaders.TextureLoader
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Assets/Loaders/TextureLoader.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureLoader
+    path: ../LibGFX/Assets/Loaders/TextureLoader.cs
+    startLine: 10
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets.Loaders
+  syntax:
+    content: 'public class TextureLoader : IAssetLoader'
+    content.vb: Public Class TextureLoader Implements IAssetLoader
+  inheritance:
+  - System.Object
+  implements:
+  - LibGFX.Assets.Loaders.IAssetLoader
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Assets.Loaders.TextureLoader.Load``1(System.String,System.Object)
+  commentId: M:LibGFX.Assets.Loaders.TextureLoader.Load``1(System.String,System.Object)
+  id: Load``1(System.String,System.Object)
+  parent: LibGFX.Assets.Loaders.TextureLoader
+  langs:
+  - csharp
+  - vb
+  name: Load<T>(string, object?)
+  nameWithType: TextureLoader.Load<T>(string, object?)
+  fullName: LibGFX.Assets.Loaders.TextureLoader.Load<T>(string, object?)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Assets/Loaders/TextureLoader.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Load
+    path: ../LibGFX/Assets/Loaders/TextureLoader.cs
+    startLine: 12
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Assets.Loaders
+  summary: Loads an asset from the specified path.
+  example: []
+  syntax:
+    content: 'public T Load<T>(string path, object? loadingArgs = null) where T : class'
+    parameters:
+    - id: path
+      type: System.String
+      description: ''
+    - id: loadingArgs
+      type: System.Object
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: '{T}'
+      description: ''
+    content.vb: Public Function Load(Of T As Class)(path As String, loadingArgs As Object = Nothing) As T
+  overload: LibGFX.Assets.Loaders.TextureLoader.Load*
+  implements:
+  - LibGFX.Assets.Loaders.IAssetLoader.Load``1(System.String,System.Object)
+  nameWithType.vb: TextureLoader.Load(Of T)(String, Object)
+  fullName.vb: LibGFX.Assets.Loaders.TextureLoader.Load(Of T)(String, Object)
+  name.vb: Load(Of T)(String, Object)
+references:
+- uid: LibGFX.Assets.Loaders
+  commentId: N:LibGFX.Assets.Loaders
+  href: LibGFX.html
+  name: LibGFX.Assets.Loaders
+  nameWithType: LibGFX.Assets.Loaders
+  fullName: LibGFX.Assets.Loaders
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+  - name: .
+  - uid: LibGFX.Assets.Loaders
+    name: Loaders
+    href: LibGFX.Assets.Loaders.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+  - name: .
+  - uid: LibGFX.Assets.Loaders
+    name: Loaders
+    href: LibGFX.Assets.Loaders.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Assets.Loaders.IAssetLoader
+  commentId: T:LibGFX.Assets.Loaders.IAssetLoader
+  parent: LibGFX.Assets.Loaders
+  href: LibGFX.Assets.Loaders.IAssetLoader.html
+  name: IAssetLoader
+  nameWithType: IAssetLoader
+  fullName: LibGFX.Assets.Loaders.IAssetLoader
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Assets.Loaders.TextureLoader.Load*
+  commentId: Overload:LibGFX.Assets.Loaders.TextureLoader.Load
+  href: LibGFX.Assets.Loaders.TextureLoader.html#LibGFX_Assets_Loaders_TextureLoader_Load__1_System_String_System_Object_
+  name: Load
+  nameWithType: TextureLoader.Load
+  fullName: LibGFX.Assets.Loaders.TextureLoader.Load
+- uid: LibGFX.Assets.Loaders.IAssetLoader.Load``1(System.String,System.Object)
+  commentId: M:LibGFX.Assets.Loaders.IAssetLoader.Load``1(System.String,System.Object)
+  parent: LibGFX.Assets.Loaders.IAssetLoader
+  isExternal: true
+  href: LibGFX.Assets.Loaders.IAssetLoader.html#LibGFX_Assets_Loaders_IAssetLoader_Load__1_System_String_System_Object_
+  name: Load<T>(string, object)
+  nameWithType: IAssetLoader.Load<T>(string, object)
+  fullName: LibGFX.Assets.Loaders.IAssetLoader.Load<T>(string, object)
+  nameWithType.vb: IAssetLoader.Load(Of T)(String, Object)
+  fullName.vb: LibGFX.Assets.Loaders.IAssetLoader.Load(Of T)(String, Object)
+  name.vb: Load(Of T)(String, Object)
+  spec.csharp:
+  - uid: LibGFX.Assets.Loaders.IAssetLoader.Load``1(System.String,System.Object)
+    name: Load
+    href: LibGFX.Assets.Loaders.IAssetLoader.html#LibGFX_Assets_Loaders_IAssetLoader_Load__1_System_String_System_Object_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Assets.Loaders.IAssetLoader.Load``1(System.String,System.Object)
+    name: Load
+    href: LibGFX.Assets.Loaders.IAssetLoader.html#LibGFX_Assets_Loaders_IAssetLoader_Load__1_System_String_System_Object_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T

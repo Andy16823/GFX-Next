@@ -1,0 +1,1281 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.PerspectiveCamera
+  commentId: T:LibGFX.Graphics.PerspectiveCamera
+  id: PerspectiveCamera
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.PerspectiveCamera.#ctor
+  - LibGFX.Graphics.PerspectiveCamera.#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector2)
+  - LibGFX.Graphics.PerspectiveCamera.ComputeAABB
+  - LibGFX.Graphics.PerspectiveCamera.ExtractFrustumPlanes(OpenTK.Mathematics.Matrix4)
+  - LibGFX.Graphics.PerspectiveCamera.Fov
+  - LibGFX.Graphics.PerspectiveCamera.GetCameraFront
+  - LibGFX.Graphics.PerspectiveCamera.GetProjectionMatrix(LibGFX.Graphics.Viewport)
+  - LibGFX.Graphics.PerspectiveCamera.GetViewMatrix
+  - LibGFX.Graphics.PerspectiveCamera.IntersectsFrustum(LibGFX.Math.Plane[],OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - LibGFX.Graphics.PerspectiveCamera.IsAABBInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - LibGFX.Graphics.PerspectiveCamera.IsPointInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3)
+  - LibGFX.Graphics.PerspectiveCamera.LookAt(OpenTK.Mathematics.Vector3)
+  - LibGFX.Graphics.PerspectiveCamera.ScreenToWorldPosition3D(LibGFX.Graphics.PerspectiveCamera,LibGFX.Graphics.Viewport,System.Single,System.Single)
+  - LibGFX.Graphics.PerspectiveCamera.WorldToScreen(LibGFX.Graphics.PerspectiveCamera,OpenTK.Mathematics.Vector3,LibGFX.Graphics.Viewport)
+  langs:
+  - csharp
+  - vb
+  name: PerspectiveCamera
+  nameWithType: PerspectiveCamera
+  fullName: LibGFX.Graphics.PerspectiveCamera
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Graphics/PerspectiveCamera.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PerspectiveCamera
+    path: ../LibGFX/Graphics/PerspectiveCamera.cs
+    startLine: 14
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Represents a perspective camera
+  example: []
+  syntax:
+    content: 'public class PerspectiveCamera : Camera'
+    content.vb: Public Class PerspectiveCamera Inherits Camera
+  inheritance:
+  - System.Object
+  - LibGFX.Graphics.Camera
+  inheritedMembers:
+  - LibGFX.Graphics.Camera.Current
+  - LibGFX.Graphics.Camera.Near
+  - LibGFX.Graphics.Camera.Far
+  - LibGFX.Graphics.Camera.Resolution
+  - LibGFX.Graphics.Camera.AABB
+  - LibGFX.Graphics.Camera.Transform
+  - LibGFX.Graphics.Camera.GetAspectRatio
+  - LibGFX.Graphics.Camera.SetAsCurrent
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Graphics.PerspectiveCamera.Fov
+  commentId: P:LibGFX.Graphics.PerspectiveCamera.Fov
+  id: Fov
+  parent: LibGFX.Graphics.PerspectiveCamera
+  langs:
+  - csharp
+  - vb
+  name: Fov
+  nameWithType: PerspectiveCamera.Fov
+  fullName: LibGFX.Graphics.PerspectiveCamera.Fov
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PerspectiveCamera.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Fov
+    path: ../LibGFX/Graphics/PerspectiveCamera.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: The field of view of the camera
+  example: []
+  syntax:
+    content: public float Fov { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Fov As Single
+  overload: LibGFX.Graphics.PerspectiveCamera.Fov*
+- uid: LibGFX.Graphics.PerspectiveCamera.#ctor
+  commentId: M:LibGFX.Graphics.PerspectiveCamera.#ctor
+  id: '#ctor'
+  parent: LibGFX.Graphics.PerspectiveCamera
+  langs:
+  - csharp
+  - vb
+  name: PerspectiveCamera()
+  nameWithType: PerspectiveCamera.PerspectiveCamera()
+  fullName: LibGFX.Graphics.PerspectiveCamera.PerspectiveCamera()
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/PerspectiveCamera.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/PerspectiveCamera.cs
+    startLine: 24
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Creates a new perspective camera
+  example: []
+  syntax:
+    content: public PerspectiveCamera()
+    content.vb: Public Sub New()
+  overload: LibGFX.Graphics.PerspectiveCamera.#ctor*
+  nameWithType.vb: PerspectiveCamera.New()
+  fullName.vb: LibGFX.Graphics.PerspectiveCamera.New()
+  name.vb: New()
+- uid: LibGFX.Graphics.PerspectiveCamera.#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector2)
+  commentId: M:LibGFX.Graphics.PerspectiveCamera.#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector2)
+  id: '#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector2)'
+  parent: LibGFX.Graphics.PerspectiveCamera
+  langs:
+  - csharp
+  - vb
+  name: PerspectiveCamera(Vector3, Vector2)
+  nameWithType: PerspectiveCamera.PerspectiveCamera(Vector3, Vector2)
+  fullName: LibGFX.Graphics.PerspectiveCamera.PerspectiveCamera(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector2)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/PerspectiveCamera.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/PerspectiveCamera.cs
+    startLine: 35
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Creates a new perspective camera
+  example: []
+  syntax:
+    content: public PerspectiveCamera(Vector3 position, Vector2 resolution)
+    parameters:
+    - id: position
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    - id: resolution
+      type: OpenTK.Mathematics.Vector2
+    content.vb: Public Sub New(position As Vector3, resolution As Vector2)
+  overload: LibGFX.Graphics.PerspectiveCamera.#ctor*
+  nameWithType.vb: PerspectiveCamera.New(Vector3, Vector2)
+  fullName.vb: LibGFX.Graphics.PerspectiveCamera.New(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector2)
+  name.vb: New(Vector3, Vector2)
+- uid: LibGFX.Graphics.PerspectiveCamera.GetProjectionMatrix(LibGFX.Graphics.Viewport)
+  commentId: M:LibGFX.Graphics.PerspectiveCamera.GetProjectionMatrix(LibGFX.Graphics.Viewport)
+  id: GetProjectionMatrix(LibGFX.Graphics.Viewport)
+  parent: LibGFX.Graphics.PerspectiveCamera
+  langs:
+  - csharp
+  - vb
+  name: GetProjectionMatrix(Viewport)
+  nameWithType: PerspectiveCamera.GetProjectionMatrix(Viewport)
+  fullName: LibGFX.Graphics.PerspectiveCamera.GetProjectionMatrix(LibGFX.Graphics.Viewport)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PerspectiveCamera.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetProjectionMatrix
+    path: ../LibGFX/Graphics/PerspectiveCamera.cs
+    startLine: 48
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Gets the projection matrix of the camera
+  example: []
+  syntax:
+    content: public override Matrix4 GetProjectionMatrix(Viewport viewport)
+    parameters:
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Matrix4
+      description: ''
+    content.vb: Public Overrides Function GetProjectionMatrix(viewport As Viewport) As Matrix4
+  overridden: LibGFX.Graphics.Camera.GetProjectionMatrix(LibGFX.Graphics.Viewport)
+  overload: LibGFX.Graphics.PerspectiveCamera.GetProjectionMatrix*
+- uid: LibGFX.Graphics.PerspectiveCamera.GetViewMatrix
+  commentId: M:LibGFX.Graphics.PerspectiveCamera.GetViewMatrix
+  id: GetViewMatrix
+  parent: LibGFX.Graphics.PerspectiveCamera
+  langs:
+  - csharp
+  - vb
+  name: GetViewMatrix()
+  nameWithType: PerspectiveCamera.GetViewMatrix()
+  fullName: LibGFX.Graphics.PerspectiveCamera.GetViewMatrix()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PerspectiveCamera.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetViewMatrix
+    path: ../LibGFX/Graphics/PerspectiveCamera.cs
+    startLine: 60
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Gets the view matrix of the camera
+  example: []
+  syntax:
+    content: public override Matrix4 GetViewMatrix()
+    return:
+      type: OpenTK.Mathematics.Matrix4
+      description: ''
+    content.vb: Public Overrides Function GetViewMatrix() As Matrix4
+  overridden: LibGFX.Graphics.Camera.GetViewMatrix
+  overload: LibGFX.Graphics.PerspectiveCamera.GetViewMatrix*
+- uid: LibGFX.Graphics.PerspectiveCamera.GetCameraFront
+  commentId: M:LibGFX.Graphics.PerspectiveCamera.GetCameraFront
+  id: GetCameraFront
+  parent: LibGFX.Graphics.PerspectiveCamera
+  langs:
+  - csharp
+  - vb
+  name: GetCameraFront()
+  nameWithType: PerspectiveCamera.GetCameraFront()
+  fullName: LibGFX.Graphics.PerspectiveCamera.GetCameraFront()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PerspectiveCamera.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetCameraFront
+    path: ../LibGFX/Graphics/PerspectiveCamera.cs
+    startLine: 72
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Gets the front of the camera
+  example: []
+  syntax:
+    content: public Vector3 GetCameraFront()
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Function GetCameraFront() As Vector3
+  overload: LibGFX.Graphics.PerspectiveCamera.GetCameraFront*
+- uid: LibGFX.Graphics.PerspectiveCamera.ScreenToWorldPosition3D(LibGFX.Graphics.PerspectiveCamera,LibGFX.Graphics.Viewport,System.Single,System.Single)
+  commentId: M:LibGFX.Graphics.PerspectiveCamera.ScreenToWorldPosition3D(LibGFX.Graphics.PerspectiveCamera,LibGFX.Graphics.Viewport,System.Single,System.Single)
+  id: ScreenToWorldPosition3D(LibGFX.Graphics.PerspectiveCamera,LibGFX.Graphics.Viewport,System.Single,System.Single)
+  parent: LibGFX.Graphics.PerspectiveCamera
+  langs:
+  - csharp
+  - vb
+  name: ScreenToWorldPosition3D(PerspectiveCamera, Viewport, float, float)
+  nameWithType: PerspectiveCamera.ScreenToWorldPosition3D(PerspectiveCamera, Viewport, float, float)
+  fullName: LibGFX.Graphics.PerspectiveCamera.ScreenToWorldPosition3D(LibGFX.Graphics.PerspectiveCamera, LibGFX.Graphics.Viewport, float, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PerspectiveCamera.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ScreenToWorldPosition3D
+    path: ../LibGFX/Graphics/PerspectiveCamera.cs
+    startLine: 85
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Converts a screen position to a world position
+  example: []
+  syntax:
+    content: public static Vector3 ScreenToWorldPosition3D(PerspectiveCamera camera, Viewport viewport, float sX, float sY)
+    parameters:
+    - id: camera
+      type: LibGFX.Graphics.PerspectiveCamera
+      description: ''
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: sX
+      type: System.Single
+      description: ''
+    - id: sY
+      type: System.Single
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Shared Function ScreenToWorldPosition3D(camera As PerspectiveCamera, viewport As Viewport, sX As Single, sY As Single) As Vector3
+  overload: LibGFX.Graphics.PerspectiveCamera.ScreenToWorldPosition3D*
+  nameWithType.vb: PerspectiveCamera.ScreenToWorldPosition3D(PerspectiveCamera, Viewport, Single, Single)
+  fullName.vb: LibGFX.Graphics.PerspectiveCamera.ScreenToWorldPosition3D(LibGFX.Graphics.PerspectiveCamera, LibGFX.Graphics.Viewport, Single, Single)
+  name.vb: ScreenToWorldPosition3D(PerspectiveCamera, Viewport, Single, Single)
+- uid: LibGFX.Graphics.PerspectiveCamera.LookAt(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Graphics.PerspectiveCamera.LookAt(OpenTK.Mathematics.Vector3)
+  id: LookAt(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Graphics.PerspectiveCamera
+  langs:
+  - csharp
+  - vb
+  name: LookAt(Vector3)
+  nameWithType: PerspectiveCamera.LookAt(Vector3)
+  fullName: LibGFX.Graphics.PerspectiveCamera.LookAt(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PerspectiveCamera.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LookAt
+    path: ../LibGFX/Graphics/PerspectiveCamera.cs
+    startLine: 106
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Looks at the target position
+  example: []
+  syntax:
+    content: public override void LookAt(Vector3 target)
+    parameters:
+    - id: target
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Overrides Sub LookAt(target As Vector3)
+  overridden: LibGFX.Graphics.Camera.LookAt(OpenTK.Mathematics.Vector3)
+  overload: LibGFX.Graphics.PerspectiveCamera.LookAt*
+- uid: LibGFX.Graphics.PerspectiveCamera.IsPointInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Graphics.PerspectiveCamera.IsPointInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3)
+  id: IsPointInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Graphics.PerspectiveCamera
+  langs:
+  - csharp
+  - vb
+  name: IsPointInFrustum(Viewport, Vector3)
+  nameWithType: PerspectiveCamera.IsPointInFrustum(Viewport, Vector3)
+  fullName: LibGFX.Graphics.PerspectiveCamera.IsPointInFrustum(LibGFX.Graphics.Viewport, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PerspectiveCamera.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IsPointInFrustum
+    path: ../LibGFX/Graphics/PerspectiveCamera.cs
+    startLine: 117
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Checks if a point is in the frustum of the camera
+  example: []
+  syntax:
+    content: public override bool IsPointInFrustum(Viewport viewport, Vector3 point)
+    parameters:
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: point
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Overrides Function IsPointInFrustum(viewport As Viewport, point As Vector3) As Boolean
+  overridden: LibGFX.Graphics.Camera.IsPointInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3)
+  overload: LibGFX.Graphics.PerspectiveCamera.IsPointInFrustum*
+- uid: LibGFX.Graphics.PerspectiveCamera.IsAABBInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Graphics.PerspectiveCamera.IsAABBInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  id: IsAABBInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Graphics.PerspectiveCamera
+  langs:
+  - csharp
+  - vb
+  name: IsAABBInFrustum(Viewport, Vector3, Vector3)
+  nameWithType: PerspectiveCamera.IsAABBInFrustum(Viewport, Vector3, Vector3)
+  fullName: LibGFX.Graphics.PerspectiveCamera.IsAABBInFrustum(LibGFX.Graphics.Viewport, OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PerspectiveCamera.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IsAABBInFrustum
+    path: ../LibGFX/Graphics/PerspectiveCamera.cs
+    startLine: 145
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Checks if a axis-aligned bounding box (AABB) is in the frustum of the camera
+  example: []
+  syntax:
+    content: public override bool IsAABBInFrustum(Viewport viewport, Vector3 min, Vector3 max)
+    parameters:
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: min
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    - id: max
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Overrides Function IsAABBInFrustum(viewport As Viewport, min As Vector3, max As Vector3) As Boolean
+  overridden: LibGFX.Graphics.Camera.IsAABBInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  overload: LibGFX.Graphics.PerspectiveCamera.IsAABBInFrustum*
+- uid: LibGFX.Graphics.PerspectiveCamera.ExtractFrustumPlanes(OpenTK.Mathematics.Matrix4)
+  commentId: M:LibGFX.Graphics.PerspectiveCamera.ExtractFrustumPlanes(OpenTK.Mathematics.Matrix4)
+  id: ExtractFrustumPlanes(OpenTK.Mathematics.Matrix4)
+  parent: LibGFX.Graphics.PerspectiveCamera
+  langs:
+  - csharp
+  - vb
+  name: ExtractFrustumPlanes(Matrix4)
+  nameWithType: PerspectiveCamera.ExtractFrustumPlanes(Matrix4)
+  fullName: LibGFX.Graphics.PerspectiveCamera.ExtractFrustumPlanes(OpenTK.Mathematics.Matrix4)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PerspectiveCamera.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ExtractFrustumPlanes
+    path: ../LibGFX/Graphics/PerspectiveCamera.cs
+    startLine: 161
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Extracts the frustum planes from the view-projection matrix
+  example: []
+  syntax:
+    content: public static Plane[] ExtractFrustumPlanes(Matrix4 vp)
+    parameters:
+    - id: vp
+      type: OpenTK.Mathematics.Matrix4
+      description: ''
+    return:
+      type: LibGFX.Math.Plane[]
+      description: ''
+    content.vb: Public Shared Function ExtractFrustumPlanes(vp As Matrix4) As Plane()
+  overload: LibGFX.Graphics.PerspectiveCamera.ExtractFrustumPlanes*
+- uid: LibGFX.Graphics.PerspectiveCamera.IntersectsFrustum(LibGFX.Math.Plane[],OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Graphics.PerspectiveCamera.IntersectsFrustum(LibGFX.Math.Plane[],OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  id: IntersectsFrustum(LibGFX.Math.Plane[],OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Graphics.PerspectiveCamera
+  langs:
+  - csharp
+  - vb
+  name: IntersectsFrustum(Plane[], Vector3, Vector3)
+  nameWithType: PerspectiveCamera.IntersectsFrustum(Plane[], Vector3, Vector3)
+  fullName: LibGFX.Graphics.PerspectiveCamera.IntersectsFrustum(LibGFX.Math.Plane[], OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PerspectiveCamera.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IntersectsFrustum
+    path: ../LibGFX/Graphics/PerspectiveCamera.cs
+    startLine: 231
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Checks if a bounding box intersects with the frustum defined by the planes
+  example: []
+  syntax:
+    content: public static bool IntersectsFrustum(Plane[] planes, Vector3 min, Vector3 max)
+    parameters:
+    - id: planes
+      type: LibGFX.Math.Plane[]
+      description: ''
+    - id: min
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    - id: max
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Shared Function IntersectsFrustum(planes As Plane(), min As Vector3, max As Vector3) As Boolean
+  overload: LibGFX.Graphics.PerspectiveCamera.IntersectsFrustum*
+  nameWithType.vb: PerspectiveCamera.IntersectsFrustum(Plane(), Vector3, Vector3)
+  fullName.vb: LibGFX.Graphics.PerspectiveCamera.IntersectsFrustum(LibGFX.Math.Plane(), OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  name.vb: IntersectsFrustum(Plane(), Vector3, Vector3)
+- uid: LibGFX.Graphics.PerspectiveCamera.ComputeAABB
+  commentId: M:LibGFX.Graphics.PerspectiveCamera.ComputeAABB
+  id: ComputeAABB
+  parent: LibGFX.Graphics.PerspectiveCamera
+  langs:
+  - csharp
+  - vb
+  name: ComputeAABB()
+  nameWithType: PerspectiveCamera.ComputeAABB()
+  fullName: LibGFX.Graphics.PerspectiveCamera.ComputeAABB()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PerspectiveCamera.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ComputeAABB
+    path: ../LibGFX/Graphics/PerspectiveCamera.cs
+    startLine: 253
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Computes the axis-aligned bounding box (AABB) of the camera
+  example: []
+  syntax:
+    content: public override void ComputeAABB()
+    content.vb: Public Overrides Sub ComputeAABB()
+  overridden: LibGFX.Graphics.Camera.ComputeAABB
+  overload: LibGFX.Graphics.PerspectiveCamera.ComputeAABB*
+- uid: LibGFX.Graphics.PerspectiveCamera.WorldToScreen(LibGFX.Graphics.PerspectiveCamera,OpenTK.Mathematics.Vector3,LibGFX.Graphics.Viewport)
+  commentId: M:LibGFX.Graphics.PerspectiveCamera.WorldToScreen(LibGFX.Graphics.PerspectiveCamera,OpenTK.Mathematics.Vector3,LibGFX.Graphics.Viewport)
+  id: WorldToScreen(LibGFX.Graphics.PerspectiveCamera,OpenTK.Mathematics.Vector3,LibGFX.Graphics.Viewport)
+  parent: LibGFX.Graphics.PerspectiveCamera
+  langs:
+  - csharp
+  - vb
+  name: WorldToScreen(PerspectiveCamera, Vector3, Viewport)
+  nameWithType: PerspectiveCamera.WorldToScreen(PerspectiveCamera, Vector3, Viewport)
+  fullName: LibGFX.Graphics.PerspectiveCamera.WorldToScreen(LibGFX.Graphics.PerspectiveCamera, OpenTK.Mathematics.Vector3, LibGFX.Graphics.Viewport)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PerspectiveCamera.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: WorldToScreen
+    path: ../LibGFX/Graphics/PerspectiveCamera.cs
+    startLine: 277
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Projects a world position to screen coordinates
+  example: []
+  syntax:
+    content: public static Vector3 WorldToScreen(PerspectiveCamera camera, Vector3 worldPos, Viewport viewport)
+    parameters:
+    - id: camera
+      type: LibGFX.Graphics.PerspectiveCamera
+      description: ''
+    - id: worldPos
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Shared Function WorldToScreen(camera As PerspectiveCamera, worldPos As Vector3, viewport As Viewport) As Vector3
+  overload: LibGFX.Graphics.PerspectiveCamera.WorldToScreen*
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Graphics.Camera
+  commentId: T:LibGFX.Graphics.Camera
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Camera.html
+  name: Camera
+  nameWithType: Camera
+  fullName: LibGFX.Graphics.Camera
+- uid: LibGFX.Graphics.Camera.Current
+  commentId: P:LibGFX.Graphics.Camera.Current
+  parent: LibGFX.Graphics.Camera
+  href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_Current
+  name: Current
+  nameWithType: Camera.Current
+  fullName: LibGFX.Graphics.Camera.Current
+- uid: LibGFX.Graphics.Camera.Near
+  commentId: P:LibGFX.Graphics.Camera.Near
+  parent: LibGFX.Graphics.Camera
+  href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_Near
+  name: Near
+  nameWithType: Camera.Near
+  fullName: LibGFX.Graphics.Camera.Near
+- uid: LibGFX.Graphics.Camera.Far
+  commentId: P:LibGFX.Graphics.Camera.Far
+  parent: LibGFX.Graphics.Camera
+  href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_Far
+  name: Far
+  nameWithType: Camera.Far
+  fullName: LibGFX.Graphics.Camera.Far
+- uid: LibGFX.Graphics.Camera.Resolution
+  commentId: P:LibGFX.Graphics.Camera.Resolution
+  parent: LibGFX.Graphics.Camera
+  href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_Resolution
+  name: Resolution
+  nameWithType: Camera.Resolution
+  fullName: LibGFX.Graphics.Camera.Resolution
+- uid: LibGFX.Graphics.Camera.AABB
+  commentId: P:LibGFX.Graphics.Camera.AABB
+  parent: LibGFX.Graphics.Camera
+  href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_AABB
+  name: AABB
+  nameWithType: Camera.AABB
+  fullName: LibGFX.Graphics.Camera.AABB
+- uid: LibGFX.Graphics.Camera.Transform
+  commentId: P:LibGFX.Graphics.Camera.Transform
+  parent: LibGFX.Graphics.Camera
+  href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_Transform
+  name: Transform
+  nameWithType: Camera.Transform
+  fullName: LibGFX.Graphics.Camera.Transform
+- uid: LibGFX.Graphics.Camera.GetAspectRatio
+  commentId: M:LibGFX.Graphics.Camera.GetAspectRatio
+  parent: LibGFX.Graphics.Camera
+  href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_GetAspectRatio
+  name: GetAspectRatio()
+  nameWithType: Camera.GetAspectRatio()
+  fullName: LibGFX.Graphics.Camera.GetAspectRatio()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Camera.GetAspectRatio
+    name: GetAspectRatio
+    href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_GetAspectRatio
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Camera.GetAspectRatio
+    name: GetAspectRatio
+    href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_GetAspectRatio
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Camera.SetAsCurrent
+  commentId: M:LibGFX.Graphics.Camera.SetAsCurrent
+  parent: LibGFX.Graphics.Camera
+  href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_SetAsCurrent
+  name: SetAsCurrent()
+  nameWithType: Camera.SetAsCurrent()
+  fullName: LibGFX.Graphics.Camera.SetAsCurrent()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Camera.SetAsCurrent
+    name: SetAsCurrent
+    href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_SetAsCurrent
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Camera.SetAsCurrent
+    name: SetAsCurrent
+    href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_SetAsCurrent
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Graphics.PerspectiveCamera.Fov*
+  commentId: Overload:LibGFX.Graphics.PerspectiveCamera.Fov
+  href: LibGFX.Graphics.PerspectiveCamera.html#LibGFX_Graphics_PerspectiveCamera_Fov
+  name: Fov
+  nameWithType: PerspectiveCamera.Fov
+  fullName: LibGFX.Graphics.PerspectiveCamera.Fov
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Graphics.PerspectiveCamera.#ctor*
+  commentId: Overload:LibGFX.Graphics.PerspectiveCamera.#ctor
+  href: LibGFX.Graphics.PerspectiveCamera.html#LibGFX_Graphics_PerspectiveCamera__ctor
+  name: PerspectiveCamera
+  nameWithType: PerspectiveCamera.PerspectiveCamera
+  fullName: LibGFX.Graphics.PerspectiveCamera.PerspectiveCamera
+  nameWithType.vb: PerspectiveCamera.New
+  fullName.vb: LibGFX.Graphics.PerspectiveCamera.New
+  name.vb: New
+- uid: OpenTK.Mathematics.Vector3
+  commentId: T:OpenTK.Mathematics.Vector3
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  name: Vector3
+  nameWithType: Vector3
+  fullName: OpenTK.Mathematics.Vector3
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Graphics.Camera.GetProjectionMatrix(LibGFX.Graphics.Viewport)
+  commentId: M:LibGFX.Graphics.Camera.GetProjectionMatrix(LibGFX.Graphics.Viewport)
+  parent: LibGFX.Graphics.Camera
+  href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_GetProjectionMatrix_LibGFX_Graphics_Viewport_
+  name: GetProjectionMatrix(Viewport)
+  nameWithType: Camera.GetProjectionMatrix(Viewport)
+  fullName: LibGFX.Graphics.Camera.GetProjectionMatrix(LibGFX.Graphics.Viewport)
+  spec.csharp:
+  - uid: LibGFX.Graphics.Camera.GetProjectionMatrix(LibGFX.Graphics.Viewport)
+    name: GetProjectionMatrix
+    href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_GetProjectionMatrix_LibGFX_Graphics_Viewport_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Camera.GetProjectionMatrix(LibGFX.Graphics.Viewport)
+    name: GetProjectionMatrix
+    href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_GetProjectionMatrix_LibGFX_Graphics_Viewport_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: )
+- uid: LibGFX.Graphics.PerspectiveCamera.GetProjectionMatrix*
+  commentId: Overload:LibGFX.Graphics.PerspectiveCamera.GetProjectionMatrix
+  href: LibGFX.Graphics.PerspectiveCamera.html#LibGFX_Graphics_PerspectiveCamera_GetProjectionMatrix_LibGFX_Graphics_Viewport_
+  name: GetProjectionMatrix
+  nameWithType: PerspectiveCamera.GetProjectionMatrix
+  fullName: LibGFX.Graphics.PerspectiveCamera.GetProjectionMatrix
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: OpenTK.Mathematics.Matrix4
+  commentId: T:OpenTK.Mathematics.Matrix4
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Matrix/Matrix4.cs
+  name: Matrix4
+  nameWithType: Matrix4
+  fullName: OpenTK.Mathematics.Matrix4
+- uid: LibGFX.Graphics.Camera.GetViewMatrix
+  commentId: M:LibGFX.Graphics.Camera.GetViewMatrix
+  parent: LibGFX.Graphics.Camera
+  href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_GetViewMatrix
+  name: GetViewMatrix()
+  nameWithType: Camera.GetViewMatrix()
+  fullName: LibGFX.Graphics.Camera.GetViewMatrix()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Camera.GetViewMatrix
+    name: GetViewMatrix
+    href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_GetViewMatrix
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Camera.GetViewMatrix
+    name: GetViewMatrix
+    href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_GetViewMatrix
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.PerspectiveCamera.GetViewMatrix*
+  commentId: Overload:LibGFX.Graphics.PerspectiveCamera.GetViewMatrix
+  href: LibGFX.Graphics.PerspectiveCamera.html#LibGFX_Graphics_PerspectiveCamera_GetViewMatrix
+  name: GetViewMatrix
+  nameWithType: PerspectiveCamera.GetViewMatrix
+  fullName: LibGFX.Graphics.PerspectiveCamera.GetViewMatrix
+- uid: LibGFX.Graphics.PerspectiveCamera.GetCameraFront*
+  commentId: Overload:LibGFX.Graphics.PerspectiveCamera.GetCameraFront
+  href: LibGFX.Graphics.PerspectiveCamera.html#LibGFX_Graphics_PerspectiveCamera_GetCameraFront
+  name: GetCameraFront
+  nameWithType: PerspectiveCamera.GetCameraFront
+  fullName: LibGFX.Graphics.PerspectiveCamera.GetCameraFront
+- uid: LibGFX.Graphics.PerspectiveCamera.ScreenToWorldPosition3D*
+  commentId: Overload:LibGFX.Graphics.PerspectiveCamera.ScreenToWorldPosition3D
+  href: LibGFX.Graphics.PerspectiveCamera.html#LibGFX_Graphics_PerspectiveCamera_ScreenToWorldPosition3D_LibGFX_Graphics_PerspectiveCamera_LibGFX_Graphics_Viewport_System_Single_System_Single_
+  name: ScreenToWorldPosition3D
+  nameWithType: PerspectiveCamera.ScreenToWorldPosition3D
+  fullName: LibGFX.Graphics.PerspectiveCamera.ScreenToWorldPosition3D
+- uid: LibGFX.Graphics.PerspectiveCamera
+  commentId: T:LibGFX.Graphics.PerspectiveCamera
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.PerspectiveCamera.html
+  name: PerspectiveCamera
+  nameWithType: PerspectiveCamera
+  fullName: LibGFX.Graphics.PerspectiveCamera
+- uid: LibGFX.Graphics.Camera.LookAt(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Graphics.Camera.LookAt(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Graphics.Camera
+  isExternal: true
+  href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_LookAt_OpenTK_Mathematics_Vector3_
+  name: LookAt(Vector3)
+  nameWithType: Camera.LookAt(Vector3)
+  fullName: LibGFX.Graphics.Camera.LookAt(OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Graphics.Camera.LookAt(OpenTK.Mathematics.Vector3)
+    name: LookAt
+    href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_LookAt_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Camera.LookAt(OpenTK.Mathematics.Vector3)
+    name: LookAt
+    href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_LookAt_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Graphics.PerspectiveCamera.LookAt*
+  commentId: Overload:LibGFX.Graphics.PerspectiveCamera.LookAt
+  href: LibGFX.Graphics.PerspectiveCamera.html#LibGFX_Graphics_PerspectiveCamera_LookAt_OpenTK_Mathematics_Vector3_
+  name: LookAt
+  nameWithType: PerspectiveCamera.LookAt
+  fullName: LibGFX.Graphics.PerspectiveCamera.LookAt
+- uid: LibGFX.Graphics.Camera.IsPointInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Graphics.Camera.IsPointInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Graphics.Camera
+  isExternal: true
+  href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_IsPointInFrustum_LibGFX_Graphics_Viewport_OpenTK_Mathematics_Vector3_
+  name: IsPointInFrustum(Viewport, Vector3)
+  nameWithType: Camera.IsPointInFrustum(Viewport, Vector3)
+  fullName: LibGFX.Graphics.Camera.IsPointInFrustum(LibGFX.Graphics.Viewport, OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Graphics.Camera.IsPointInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3)
+    name: IsPointInFrustum
+    href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_IsPointInFrustum_LibGFX_Graphics_Viewport_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Camera.IsPointInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3)
+    name: IsPointInFrustum
+    href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_IsPointInFrustum_LibGFX_Graphics_Viewport_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Graphics.PerspectiveCamera.IsPointInFrustum*
+  commentId: Overload:LibGFX.Graphics.PerspectiveCamera.IsPointInFrustum
+  href: LibGFX.Graphics.PerspectiveCamera.html#LibGFX_Graphics_PerspectiveCamera_IsPointInFrustum_LibGFX_Graphics_Viewport_OpenTK_Mathematics_Vector3_
+  name: IsPointInFrustum
+  nameWithType: PerspectiveCamera.IsPointInFrustum
+  fullName: LibGFX.Graphics.PerspectiveCamera.IsPointInFrustum
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Graphics.Camera.IsAABBInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Graphics.Camera.IsAABBInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Graphics.Camera
+  isExternal: true
+  href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_IsAABBInFrustum_LibGFX_Graphics_Viewport_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  name: IsAABBInFrustum(Viewport, Vector3, Vector3)
+  nameWithType: Camera.IsAABBInFrustum(Viewport, Vector3, Vector3)
+  fullName: LibGFX.Graphics.Camera.IsAABBInFrustum(LibGFX.Graphics.Viewport, OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Graphics.Camera.IsAABBInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+    name: IsAABBInFrustum
+    href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_IsAABBInFrustum_LibGFX_Graphics_Viewport_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Camera.IsAABBInFrustum(LibGFX.Graphics.Viewport,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+    name: IsAABBInFrustum
+    href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_IsAABBInFrustum_LibGFX_Graphics_Viewport_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Graphics.PerspectiveCamera.IsAABBInFrustum*
+  commentId: Overload:LibGFX.Graphics.PerspectiveCamera.IsAABBInFrustum
+  href: LibGFX.Graphics.PerspectiveCamera.html#LibGFX_Graphics_PerspectiveCamera_IsAABBInFrustum_LibGFX_Graphics_Viewport_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  name: IsAABBInFrustum
+  nameWithType: PerspectiveCamera.IsAABBInFrustum
+  fullName: LibGFX.Graphics.PerspectiveCamera.IsAABBInFrustum
+- uid: LibGFX.Graphics.PerspectiveCamera.ExtractFrustumPlanes*
+  commentId: Overload:LibGFX.Graphics.PerspectiveCamera.ExtractFrustumPlanes
+  href: LibGFX.Graphics.PerspectiveCamera.html#LibGFX_Graphics_PerspectiveCamera_ExtractFrustumPlanes_OpenTK_Mathematics_Matrix4_
+  name: ExtractFrustumPlanes
+  nameWithType: PerspectiveCamera.ExtractFrustumPlanes
+  fullName: LibGFX.Graphics.PerspectiveCamera.ExtractFrustumPlanes
+- uid: LibGFX.Math.Plane[]
+  isExternal: true
+  href: LibGFX.Math.Plane.html
+  name: Plane[]
+  nameWithType: Plane[]
+  fullName: LibGFX.Math.Plane[]
+  nameWithType.vb: Plane()
+  fullName.vb: LibGFX.Math.Plane()
+  name.vb: Plane()
+  spec.csharp:
+  - uid: LibGFX.Math.Plane
+    name: Plane
+    href: LibGFX.Math.Plane.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: LibGFX.Math.Plane
+    name: Plane
+    href: LibGFX.Math.Plane.html
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.PerspectiveCamera.IntersectsFrustum*
+  commentId: Overload:LibGFX.Graphics.PerspectiveCamera.IntersectsFrustum
+  href: LibGFX.Graphics.PerspectiveCamera.html#LibGFX_Graphics_PerspectiveCamera_IntersectsFrustum_LibGFX_Math_Plane___OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  name: IntersectsFrustum
+  nameWithType: PerspectiveCamera.IntersectsFrustum
+  fullName: LibGFX.Graphics.PerspectiveCamera.IntersectsFrustum
+- uid: LibGFX.Graphics.Camera.ComputeAABB
+  commentId: M:LibGFX.Graphics.Camera.ComputeAABB
+  parent: LibGFX.Graphics.Camera
+  href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_ComputeAABB
+  name: ComputeAABB()
+  nameWithType: Camera.ComputeAABB()
+  fullName: LibGFX.Graphics.Camera.ComputeAABB()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Camera.ComputeAABB
+    name: ComputeAABB
+    href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_ComputeAABB
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Camera.ComputeAABB
+    name: ComputeAABB
+    href: LibGFX.Graphics.Camera.html#LibGFX_Graphics_Camera_ComputeAABB
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.PerspectiveCamera.ComputeAABB*
+  commentId: Overload:LibGFX.Graphics.PerspectiveCamera.ComputeAABB
+  href: LibGFX.Graphics.PerspectiveCamera.html#LibGFX_Graphics_PerspectiveCamera_ComputeAABB
+  name: ComputeAABB
+  nameWithType: PerspectiveCamera.ComputeAABB
+  fullName: LibGFX.Graphics.PerspectiveCamera.ComputeAABB
+- uid: LibGFX.Graphics.PerspectiveCamera.WorldToScreen*
+  commentId: Overload:LibGFX.Graphics.PerspectiveCamera.WorldToScreen
+  href: LibGFX.Graphics.PerspectiveCamera.html#LibGFX_Graphics_PerspectiveCamera_WorldToScreen_LibGFX_Graphics_PerspectiveCamera_OpenTK_Mathematics_Vector3_LibGFX_Graphics_Viewport_
+  name: WorldToScreen
+  nameWithType: PerspectiveCamera.WorldToScreen
+  fullName: LibGFX.Graphics.PerspectiveCamera.WorldToScreen

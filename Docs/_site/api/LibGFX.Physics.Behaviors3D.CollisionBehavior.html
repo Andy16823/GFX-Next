@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class CollisionBehavior | LibGFX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class CollisionBehavior | LibGFX ">
+      
+      <meta name="description" content="Represents a 3D collider base behavior">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Physics_Behaviors3D_CollisionBehavior.md&amp;value=---%0Auid%3A%20LibGFX.Physics.Behaviors3D.CollisionBehavior%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="LibGFX">
+            LibGFX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior">
+
+
+
+  <h1 id="LibGFX_Physics_Behaviors3D_CollisionBehavior" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior" class="text-break">
+Class CollisionBehavior  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LibGFX.html">LibGFX</a>.<a class="xref" href="LibGFX.Physics.html">Physics</a>.<a class="xref" href="LibGFX.Physics.Behaviors3D.html">Behaviors3D</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LibGFX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a 3D collider base behavior</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CollisionBehavior : PhysicsBehavior, IGameBehavior</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="LibGFX.Physics.PhysicsBehavior.html">PhysicsBehavior</a></div>
+      <div><span class="xref">CollisionBehavior</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LibGFX.Core.IGameBehavior.html">IGameBehavior</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="LibGFX.Physics.Behaviors3D.BoxCollider.html">BoxCollider</a></div>
+      <div><a class="xref" href="LibGFX.Physics.Behaviors3D.CapsuleCollider.html">CapsuleCollider</a></div>
+      <div><a class="xref" href="LibGFX.Physics.Behaviors3D.ConvexHullCollider.html">ConvexHullCollider</a></div>
+      <div><a class="xref" href="LibGFX.Physics.Behaviors3D.MeshCollider.html">MeshCollider</a></div>
+      <div><a class="xref" href="LibGFX.Physics.Behaviors3D.SphereCollider.html">SphereCollider</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_PhysicsHandler">PhysicsBehavior.PhysicsHandler</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_">PhysicsBehavior.OnShadowPass(BaseScene, Viewport, IRenderDevice)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior__ctor_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.#ctor*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior__ctor_LibGFX_Physics_PhysicsHandler_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.#ctor(LibGFX.Physics.PhysicsHandler)">
+  CollisionBehavior(PhysicsHandler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 3D collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CollisionBehavior(PhysicsHandler physicsHandler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>physicsHandler</code> <a class="xref" href="LibGFX.Physics.PhysicsHandler.html">PhysicsHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_Collider_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.Collider*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_Collider" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.Collider">
+  Collider
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The collider object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CollisionObject Collider { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">CollisionObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_Offset_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.Offset*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_Offset" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.Offset">
+  Offset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The offset of the collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Offset { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_Parent_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.Parent*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_Parent" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.Parent">
+  Parent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The parent game element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameElement Parent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_GetElement_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.GetElement*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_GetElement" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.GetElement">
+  GetElement()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the GameElement associated with this collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override GameElement GetElement()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_GetLocation_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.GetLocation*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_GetLocation" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.GetLocation">
+  GetLocation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the location of the collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 GetLocation()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_GetPhysicsObject_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.GetPhysicsObject*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_GetPhysicsObject" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.GetPhysicsObject">
+  GetPhysicsObject()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the physics object associated with this collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object GetPhysicsObject()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_GetRotation_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.GetRotation*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_GetRotation" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.GetRotation">
+  GetRotation()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the rotation of the collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion GetRotation()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Data/Quaternion.cs">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_OnCollide_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.OnCollide*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_OnCollide_LibGFX_Physics_Collision_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.OnCollide(LibGFX.Physics.Collision)">
+  OnCollide(Collision)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Handles the collision event (unused)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnCollide(Collision collision)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>collision</code> <a class="xref" href="LibGFX.Physics.Collision.html">Collision</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_OnDispose_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.OnDispose*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)">
+  OnDispose(BaseScene, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes the collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnDispose(BaseScene scene, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_OnInit_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.OnInit*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)">
+  OnInit(BaseScene, Viewport, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the collider (unused)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnInit(BaseScene scene, Viewport viewport, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_OnRender_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.OnRender*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)">
+  OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders the collider (unused)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnRender(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+    <dt><code>camera</code> <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_OnUpdate_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.OnUpdate*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)">
+  OnUpdate(BaseScene, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L188"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnUpdate(BaseScene scene, float dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a></dt>
+    <dd></dd>
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_RemoveCollider_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.RemoveCollider*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_RemoveCollider" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.RemoveCollider">
+  RemoveCollider()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the collider from the physics handler</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void RemoveCollider()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_Rotate_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.Rotate*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_Rotate_OpenTK_Mathematics_Quaternion_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.Rotate(OpenTK.Mathematics.Quaternion)">
+  Rotate(Quaternion)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rotates the collider by the given quaternion</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Rotate(Quaternion rotation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rotation</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Data/Quaternion.cs">Quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_Rotate_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.Rotate*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_Rotate_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.Rotate(OpenTK.Mathematics.Vector3)">
+  Rotate(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rotates the collider by the given value</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Rotate(Vector3 rotation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rotation</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_SetElement_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.SetElement*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_SetElement_LibGFX_Core_GameElement_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.SetElement(LibGFX.Core.GameElement)">
+  SetElement(GameElement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the game element associated with this collider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void SetElement(GameElement gameElement)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>gameElement</code> <a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_Sync_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.Sync*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_Sync" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.Sync">
+  Sync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Syncs the collider with the parent game element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Sync()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Physics_Behaviors3D_CollisionBehavior_Translate_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.Translate*"></a>
+
+  <h3 id="LibGFX_Physics_Behaviors3D_CollisionBehavior_Translate_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Physics.Behaviors3D.CollisionBehavior.Translate(OpenTK.Mathematics.Vector3)">
+  Translate(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Translates the collider by the given value</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Translate(Vector3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Behaviors3D/CollisionBehavior.cs/#L17" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

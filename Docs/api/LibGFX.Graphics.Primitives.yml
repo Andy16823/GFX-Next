@@ -1,0 +1,101 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Primitives
+  commentId: N:LibGFX.Graphics.Primitives
+  id: LibGFX.Graphics.Primitives
+  children:
+  - LibGFX.Graphics.Primitives.Cube
+  - LibGFX.Graphics.Primitives.IPrimitive`1
+  - LibGFX.Graphics.Primitives.PrimitiveType
+  - LibGFX.Graphics.Primitives.Quad
+  - LibGFX.Graphics.Primitives.Sphere
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Graphics.Primitives
+  nameWithType: LibGFX.Graphics.Primitives
+  fullName: LibGFX.Graphics.Primitives
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Graphics.Primitives.Cube
+  commentId: T:LibGFX.Graphics.Primitives.Cube
+  href: LibGFX.Graphics.Primitives.Cube.html
+  name: Cube
+  nameWithType: Cube
+  fullName: LibGFX.Graphics.Primitives.Cube
+- uid: LibGFX.Graphics.Primitives.PrimitiveType
+  commentId: T:LibGFX.Graphics.Primitives.PrimitiveType
+  parent: LibGFX.Graphics.Primitives
+  href: LibGFX.Graphics.Primitives.PrimitiveType.html
+  name: PrimitiveType
+  nameWithType: PrimitiveType
+  fullName: LibGFX.Graphics.Primitives.PrimitiveType
+- uid: LibGFX.Graphics.Primitives.IPrimitive`1
+  commentId: T:LibGFX.Graphics.Primitives.IPrimitive`1
+  href: LibGFX.Graphics.Primitives.IPrimitive-1.html
+  name: IPrimitive<TSelf>
+  nameWithType: IPrimitive<TSelf>
+  fullName: LibGFX.Graphics.Primitives.IPrimitive<TSelf>
+  nameWithType.vb: IPrimitive(Of TSelf)
+  fullName.vb: LibGFX.Graphics.Primitives.IPrimitive(Of TSelf)
+  name.vb: IPrimitive(Of TSelf)
+  spec.csharp:
+  - uid: LibGFX.Graphics.Primitives.IPrimitive`1
+    name: IPrimitive
+    href: LibGFX.Graphics.Primitives.IPrimitive-1.html
+  - name: <
+  - name: TSelf
+  - name: '>'
+  spec.vb:
+  - uid: LibGFX.Graphics.Primitives.IPrimitive`1
+    name: IPrimitive
+    href: LibGFX.Graphics.Primitives.IPrimitive-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSelf
+  - name: )
+- uid: LibGFX.Graphics.Primitives.Quad
+  commentId: T:LibGFX.Graphics.Primitives.Quad
+  href: LibGFX.Graphics.Primitives.Quad.html
+  name: Quad
+  nameWithType: Quad
+  fullName: LibGFX.Graphics.Primitives.Quad
+- uid: LibGFX.Graphics.Primitives.Sphere
+  commentId: T:LibGFX.Graphics.Primitives.Sphere
+  href: LibGFX.Graphics.Primitives.Sphere.html
+  name: Sphere
+  nameWithType: Sphere
+  fullName: LibGFX.Graphics.Primitives.Sphere
+- uid: LibGFX.Graphics.Primitives
+  commentId: N:LibGFX.Graphics.Primitives
+  href: LibGFX.html
+  name: LibGFX.Graphics.Primitives
+  nameWithType: LibGFX.Graphics.Primitives
+  fullName: LibGFX.Graphics.Primitives
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Primitives
+    name: Primitives
+    href: LibGFX.Graphics.Primitives.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Primitives
+    name: Primitives
+    href: LibGFX.Graphics.Primitives.html

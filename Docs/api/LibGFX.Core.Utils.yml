@@ -1,0 +1,2539 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Core.Utils
+  commentId: T:LibGFX.Core.Utils
+  id: Utils
+  parent: LibGFX.Core
+  children:
+  - LibGFX.Core.Utils.ApplyScale(System.Numerics.Matrix4x4,System.Numerics.Vector3)
+  - LibGFX.Core.Utils.ByteBGRAToBitmap(System.Byte[],System.Int32,System.Int32)
+  - LibGFX.Core.Utils.CalculatePitch(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - LibGFX.Core.Utils.CalculateYaw(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - LibGFX.Core.Utils.CreateDefaultAssetManager
+  - LibGFX.Core.Utils.CreateEmptyNormalMap(System.Int32,System.Int32)
+  - LibGFX.Core.Utils.CreateImageData(System.Int32,System.Int32,OpenTK.Mathematics.Vector4i)
+  - LibGFX.Core.Utils.DeserializeAABB(Newtonsoft.Json.Linq.JObject)
+  - LibGFX.Core.Utils.DeserializeGameElement(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext)
+  - LibGFX.Core.Utils.DeserializeMatrix4(Newtonsoft.Json.Linq.JObject)
+  - LibGFX.Core.Utils.DeserializeQuat(Newtonsoft.Json.Linq.JObject)
+  - LibGFX.Core.Utils.DeserializeVec2(Newtonsoft.Json.Linq.JObject)
+  - LibGFX.Core.Utils.DeserializeVec2i(Newtonsoft.Json.Linq.JObject)
+  - LibGFX.Core.Utils.DeserializeVec3(Newtonsoft.Json.Linq.JObject)
+  - LibGFX.Core.Utils.DeserializeVec3i(Newtonsoft.Json.Linq.JObject)
+  - LibGFX.Core.Utils.DeserializeVec4(Newtonsoft.Json.Linq.JObject)
+  - LibGFX.Core.Utils.DeserializeVec4i(Newtonsoft.Json.Linq.JObject)
+  - LibGFX.Core.Utils.DeserializeVertex(Newtonsoft.Json.Linq.JObject)
+  - LibGFX.Core.Utils.FindNodeByNameRecursive(LibGFX.Graphics.Animation3D.SceneNodeData,System.String,LibGFX.Graphics.Animation3D.SceneNodeData@)
+  - LibGFX.Core.Utils.GetBestDepthStencilFormat(System.Boolean,System.Boolean)
+  - LibGFX.Core.Utils.GetBtTransform(LibGFX.Core.GameElement,OpenTK.Mathematics.Vector3)
+  - LibGFX.Core.Utils.GetBtTransform(System.Numerics.Vector3,System.Numerics.Quaternion,OpenTK.Mathematics.Vector3)
+  - LibGFX.Core.Utils.GetCurrentTimeMillis
+  - LibGFX.Core.Utils.GetUVTransformFromTilemap(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  - LibGFX.Core.Utils.LoadTextureIfExists(Newtonsoft.Json.Linq.JObject,System.String,System.String)
+  - LibGFX.Core.Utils.LocalToWorldPositon(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)
+  - LibGFX.Core.Utils.LookAt(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - LibGFX.Core.Utils.ParseFloat(System.String)
+  - LibGFX.Core.Utils.ReadFloat(Newtonsoft.Json.JsonReader)
+  - LibGFX.Core.Utils.SerializeAABB(LibGFX.Math.AABB,Newtonsoft.Json.JsonWriter)
+  - LibGFX.Core.Utils.SerializeMatrix4(OpenTK.Mathematics.Matrix4,Newtonsoft.Json.JsonWriter)
+  - LibGFX.Core.Utils.SerializeQuat(OpenTK.Mathematics.Quaternion,Newtonsoft.Json.JsonWriter)
+  - LibGFX.Core.Utils.SerializeVec2(OpenTK.Mathematics.Vector2,Newtonsoft.Json.JsonWriter)
+  - LibGFX.Core.Utils.SerializeVec2i(OpenTK.Mathematics.Vector2i,Newtonsoft.Json.JsonWriter)
+  - LibGFX.Core.Utils.SerializeVec3(OpenTK.Mathematics.Vector3,Newtonsoft.Json.JsonWriter)
+  - LibGFX.Core.Utils.SerializeVec3i(OpenTK.Mathematics.Vector3i,Newtonsoft.Json.JsonWriter)
+  - LibGFX.Core.Utils.SerializeVec4(OpenTK.Mathematics.Vector4,Newtonsoft.Json.JsonWriter)
+  - LibGFX.Core.Utils.SerializeVec4i(OpenTK.Mathematics.Vector4i,Newtonsoft.Json.JsonWriter)
+  - LibGFX.Core.Utils.SerializeVertex(LibGFX.Graphics.Vertex,Newtonsoft.Json.JsonWriter)
+  - LibGFX.Core.Utils.ToRadians(OpenTK.Mathematics.Vector3)
+  - LibGFX.Core.Utils.WorldToLocalPosition(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)
+  langs:
+  - csharp
+  - vb
+  name: Utils
+  nameWithType: Utils
+  fullName: LibGFX.Core.Utils
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Utils
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 30
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Utility class for various helper functions
+  example: []
+  syntax:
+    content: public class Utils
+    content.vb: Public Class Utils
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Core.Utils.CreateDefaultAssetManager
+  commentId: M:LibGFX.Core.Utils.CreateDefaultAssetManager
+  id: CreateDefaultAssetManager
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: CreateDefaultAssetManager()
+  nameWithType: Utils.CreateDefaultAssetManager()
+  fullName: LibGFX.Core.Utils.CreateDefaultAssetManager()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CreateDefaultAssetManager
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 40
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Creates a new instance of the default asset manager configured with loaders for common asset types.
+  remarks: >-
+    Use this method to obtain an asset manager that is ready to load standard asset types
+        without additional configuration. Custom loaders can be registered with the returned manager if
+        needed.
+  example: []
+  syntax:
+    content: public static AssetManager CreateDefaultAssetManager()
+    return:
+      type: LibGFX.Assets.AssetManager
+      description: >-
+        An <xref href="LibGFX.Assets.AssetManager" data-throw-if-not-resolved="false"></xref> instance pre-registered with loaders for textures, audio clips, materials,
+            cubemaps, sprite materials, skinned mesh models, and static mesh models.
+    content.vb: Public Shared Function CreateDefaultAssetManager() As AssetManager
+  overload: LibGFX.Core.Utils.CreateDefaultAssetManager*
+- uid: LibGFX.Core.Utils.CreateEmptyNormalMap(System.Int32,System.Int32)
+  commentId: M:LibGFX.Core.Utils.CreateEmptyNormalMap(System.Int32,System.Int32)
+  id: CreateEmptyNormalMap(System.Int32,System.Int32)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: CreateEmptyNormalMap(int, int)
+  nameWithType: Utils.CreateEmptyNormalMap(int, int)
+  fullName: LibGFX.Core.Utils.CreateEmptyNormalMap(int, int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CreateEmptyNormalMap
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 60
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Creates an empty normal map with the given width and height.
+  example: []
+  syntax:
+    content: public static Bitmap CreateEmptyNormalMap(int width, int height)
+    parameters:
+    - id: width
+      type: System.Int32
+      description: ''
+    - id: height
+      type: System.Int32
+      description: ''
+    return:
+      type: System.Drawing.Bitmap
+      description: ''
+    content.vb: Public Shared Function CreateEmptyNormalMap(width As Integer, height As Integer) As Bitmap
+  overload: LibGFX.Core.Utils.CreateEmptyNormalMap*
+  nameWithType.vb: Utils.CreateEmptyNormalMap(Integer, Integer)
+  fullName.vb: LibGFX.Core.Utils.CreateEmptyNormalMap(Integer, Integer)
+  name.vb: CreateEmptyNormalMap(Integer, Integer)
+- uid: LibGFX.Core.Utils.CreateImageData(System.Int32,System.Int32,OpenTK.Mathematics.Vector4i)
+  commentId: M:LibGFX.Core.Utils.CreateImageData(System.Int32,System.Int32,OpenTK.Mathematics.Vector4i)
+  id: CreateImageData(System.Int32,System.Int32,OpenTK.Mathematics.Vector4i)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: CreateImageData(int, int, Vector4i)
+  nameWithType: Utils.CreateImageData(int, int, Vector4i)
+  fullName: LibGFX.Core.Utils.CreateImageData(int, int, OpenTK.Mathematics.Vector4i)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CreateImageData
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 84
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Creates image data (byte array) filled with the given color in RGBA format.
+  example: []
+  syntax:
+    content: public static byte[] CreateImageData(int width, int height, Vector4i color)
+    parameters:
+    - id: width
+      type: System.Int32
+      description: ''
+    - id: height
+      type: System.Int32
+      description: ''
+    - id: color
+      type: OpenTK.Mathematics.Vector4i
+      description: ''
+    return:
+      type: System.Byte[]
+      description: ''
+    content.vb: Public Shared Function CreateImageData(width As Integer, height As Integer, color As Vector4i) As Byte()
+  overload: LibGFX.Core.Utils.CreateImageData*
+  nameWithType.vb: Utils.CreateImageData(Integer, Integer, Vector4i)
+  fullName.vb: LibGFX.Core.Utils.CreateImageData(Integer, Integer, OpenTK.Mathematics.Vector4i)
+  name.vb: CreateImageData(Integer, Integer, Vector4i)
+- uid: LibGFX.Core.Utils.GetBtTransform(LibGFX.Core.GameElement,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Core.Utils.GetBtTransform(LibGFX.Core.GameElement,OpenTK.Mathematics.Vector3)
+  id: GetBtTransform(LibGFX.Core.GameElement,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: GetBtTransform(GameElement, Vector3)
+  nameWithType: Utils.GetBtTransform(GameElement, Vector3)
+  fullName: LibGFX.Core.Utils.GetBtTransform(LibGFX.Core.GameElement, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetBtTransform
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 107
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Gets the bullet transform matrix for the given element.
+  example: []
+  syntax:
+    content: public static Matrix4x4 GetBtTransform(GameElement element, Vector3 offsetLocation = default)
+    parameters:
+    - id: element
+      type: LibGFX.Core.GameElement
+      description: ''
+    - id: offsetLocation
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    return:
+      type: System.Numerics.Matrix4x4
+      description: ''
+    content.vb: Public Shared Function GetBtTransform(element As GameElement, offsetLocation As Vector3 = Nothing) As Matrix4x4
+  overload: LibGFX.Core.Utils.GetBtTransform*
+- uid: LibGFX.Core.Utils.GetBtTransform(System.Numerics.Vector3,System.Numerics.Quaternion,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Core.Utils.GetBtTransform(System.Numerics.Vector3,System.Numerics.Quaternion,OpenTK.Mathematics.Vector3)
+  id: GetBtTransform(System.Numerics.Vector3,System.Numerics.Quaternion,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: GetBtTransform(Vector3, Quaternion, Vector3)
+  nameWithType: Utils.GetBtTransform(Vector3, Quaternion, Vector3)
+  fullName: LibGFX.Core.Utils.GetBtTransform(System.Numerics.Vector3, System.Numerics.Quaternion, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetBtTransform
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 125
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Gets the bullet transform matrix for the given location and rotation.
+  example: []
+  syntax:
+    content: public static Matrix4x4 GetBtTransform(Vector3 location, Quaternion rotation, Vector3 offsetLocation = default)
+    parameters:
+    - id: location
+      type: System.Numerics.Vector3
+      description: ''
+    - id: rotation
+      type: System.Numerics.Quaternion
+      description: ''
+    - id: offsetLocation
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    return:
+      type: System.Numerics.Matrix4x4
+      description: ''
+    content.vb: Public Shared Function GetBtTransform(location As Vector3, rotation As Quaternion, offsetLocation As Vector3 = Nothing) As Matrix4x4
+  overload: LibGFX.Core.Utils.GetBtTransform*
+- uid: LibGFX.Core.Utils.ApplyScale(System.Numerics.Matrix4x4,System.Numerics.Vector3)
+  commentId: M:LibGFX.Core.Utils.ApplyScale(System.Numerics.Matrix4x4,System.Numerics.Vector3)
+  id: ApplyScale(System.Numerics.Matrix4x4,System.Numerics.Vector3)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: ApplyScale(Matrix4x4, Vector3)
+  nameWithType: Utils.ApplyScale(Matrix4x4, Vector3)
+  fullName: LibGFX.Core.Utils.ApplyScale(System.Numerics.Matrix4x4, System.Numerics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ApplyScale
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 140
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: >-
+    Applies a scale to the given transform matrix for the phyiscs.
+
+    You should not use this method outside of compound shapes. On single shapes, the scale is applied directly to the shape.
+
+    This funtion is used to apply the correct non uniform scale to the transform matrix.
+  example: []
+  syntax:
+    content: public static Matrix4x4 ApplyScale(Matrix4x4 transform, Vector3 scale)
+    parameters:
+    - id: transform
+      type: System.Numerics.Matrix4x4
+      description: ''
+    - id: scale
+      type: System.Numerics.Vector3
+      description: ''
+    return:
+      type: System.Numerics.Matrix4x4
+      description: ''
+    content.vb: Public Shared Function ApplyScale(transform As Matrix4x4, scale As Vector3) As Matrix4x4
+  overload: LibGFX.Core.Utils.ApplyScale*
+- uid: LibGFX.Core.Utils.ToRadians(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Core.Utils.ToRadians(OpenTK.Mathematics.Vector3)
+  id: ToRadians(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: ToRadians(Vector3)
+  nameWithType: Utils.ToRadians(Vector3)
+  fullName: LibGFX.Core.Utils.ToRadians(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ToRadians
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 153
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Converts a Vector3 to radians.
+  example: []
+  syntax:
+    content: public static Vector3 ToRadians(Vector3 input)
+    parameters:
+    - id: input
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Shared Function ToRadians(input As Vector3) As Vector3
+  overload: LibGFX.Core.Utils.ToRadians*
+- uid: LibGFX.Core.Utils.CalculateYaw(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Core.Utils.CalculateYaw(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  id: CalculateYaw(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: CalculateYaw(Vector3, Vector3)
+  nameWithType: Utils.CalculateYaw(Vector3, Vector3)
+  fullName: LibGFX.Core.Utils.CalculateYaw(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CalculateYaw
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 158
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static float CalculateYaw(Vector3 point1, Vector3 point2)
+    parameters:
+    - id: point1
+      type: OpenTK.Mathematics.Vector3
+    - id: point2
+      type: OpenTK.Mathematics.Vector3
+    return:
+      type: System.Single
+    content.vb: Public Shared Function CalculateYaw(point1 As Vector3, point2 As Vector3) As Single
+  overload: LibGFX.Core.Utils.CalculateYaw*
+- uid: LibGFX.Core.Utils.CalculatePitch(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Core.Utils.CalculatePitch(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  id: CalculatePitch(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: CalculatePitch(Vector3, Vector3)
+  nameWithType: Utils.CalculatePitch(Vector3, Vector3)
+  fullName: LibGFX.Core.Utils.CalculatePitch(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CalculatePitch
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 179
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Calculates the pitch angle from point1 to point2.
+  example: []
+  syntax:
+    content: public static float CalculatePitch(Vector3 point1, Vector3 point2)
+    parameters:
+    - id: point1
+      type: OpenTK.Mathematics.Vector3
+      description: The starting point.
+    - id: point2
+      type: OpenTK.Mathematics.Vector3
+      description: The target point.
+    return:
+      type: System.Single
+      description: The pitch angle in degrees.
+    content.vb: Public Shared Function CalculatePitch(point1 As Vector3, point2 As Vector3) As Single
+  overload: LibGFX.Core.Utils.CalculatePitch*
+- uid: LibGFX.Core.Utils.LookAt(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Core.Utils.LookAt(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  id: LookAt(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: LookAt(Vector3, Vector3)
+  nameWithType: Utils.LookAt(Vector3, Vector3)
+  fullName: LibGFX.Core.Utils.LookAt(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LookAt
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 194
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static Quaternion LookAt(Vector3 campos, Vector3 targetpos)
+    parameters:
+    - id: campos
+      type: OpenTK.Mathematics.Vector3
+    - id: targetpos
+      type: OpenTK.Mathematics.Vector3
+    return:
+      type: OpenTK.Mathematics.Quaternion
+    content.vb: Public Shared Function LookAt(campos As Vector3, targetpos As Vector3) As Quaternion
+  overload: LibGFX.Core.Utils.LookAt*
+- uid: LibGFX.Core.Utils.LoadTextureIfExists(Newtonsoft.Json.Linq.JObject,System.String,System.String)
+  commentId: M:LibGFX.Core.Utils.LoadTextureIfExists(Newtonsoft.Json.Linq.JObject,System.String,System.String)
+  id: LoadTextureIfExists(Newtonsoft.Json.Linq.JObject,System.String,System.String)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: LoadTextureIfExists(JObject, string, string)
+  nameWithType: Utils.LoadTextureIfExists(JObject, string, string)
+  fullName: LibGFX.Core.Utils.LoadTextureIfExists(Newtonsoft.Json.Linq.JObject, string, string)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LoadTextureIfExists
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 206
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static Texture LoadTextureIfExists(JObject jsonObject, string propertyName, string basePath)
+    parameters:
+    - id: jsonObject
+      type: Newtonsoft.Json.Linq.JObject
+    - id: propertyName
+      type: System.String
+    - id: basePath
+      type: System.String
+    return:
+      type: LibGFX.Graphics.Texture
+    content.vb: Public Shared Function LoadTextureIfExists(jsonObject As JObject, propertyName As String, basePath As String) As Texture
+  overload: LibGFX.Core.Utils.LoadTextureIfExists*
+  nameWithType.vb: Utils.LoadTextureIfExists(JObject, String, String)
+  fullName.vb: LibGFX.Core.Utils.LoadTextureIfExists(Newtonsoft.Json.Linq.JObject, String, String)
+  name.vb: LoadTextureIfExists(JObject, String, String)
+- uid: LibGFX.Core.Utils.GetUVTransformFromTilemap(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:LibGFX.Core.Utils.GetUVTransformFromTilemap(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  id: GetUVTransformFromTilemap(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: GetUVTransformFromTilemap(int, int, int, int, int, int)
+  nameWithType: Utils.GetUVTransformFromTilemap(int, int, int, int, int, int)
+  fullName: LibGFX.Core.Utils.GetUVTransformFromTilemap(int, int, int, int, int, int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetUVTransformFromTilemap
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 216
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static Vector4 GetUVTransformFromTilemap(int width, int height, int cellWidth, int cellHeight, int tileX, int tileY)
+    parameters:
+    - id: width
+      type: System.Int32
+    - id: height
+      type: System.Int32
+    - id: cellWidth
+      type: System.Int32
+    - id: cellHeight
+      type: System.Int32
+    - id: tileX
+      type: System.Int32
+    - id: tileY
+      type: System.Int32
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared Function GetUVTransformFromTilemap(width As Integer, height As Integer, cellWidth As Integer, cellHeight As Integer, tileX As Integer, tileY As Integer) As Vector4
+  overload: LibGFX.Core.Utils.GetUVTransformFromTilemap*
+  nameWithType.vb: Utils.GetUVTransformFromTilemap(Integer, Integer, Integer, Integer, Integer, Integer)
+  fullName.vb: LibGFX.Core.Utils.GetUVTransformFromTilemap(Integer, Integer, Integer, Integer, Integer, Integer)
+  name.vb: GetUVTransformFromTilemap(Integer, Integer, Integer, Integer, Integer, Integer)
+- uid: LibGFX.Core.Utils.ByteBGRAToBitmap(System.Byte[],System.Int32,System.Int32)
+  commentId: M:LibGFX.Core.Utils.ByteBGRAToBitmap(System.Byte[],System.Int32,System.Int32)
+  id: ByteBGRAToBitmap(System.Byte[],System.Int32,System.Int32)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: ByteBGRAToBitmap(byte[], int, int)
+  nameWithType: Utils.ByteBGRAToBitmap(byte[], int, int)
+  fullName: LibGFX.Core.Utils.ByteBGRAToBitmap(byte[], int, int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ByteBGRAToBitmap
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 244
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Creates a new Bitmap from a byte array containing pixel data in BGRA format with 32 bits per pixel.
+  remarks: >-
+    The resulting bitmap is vertically flipped to match the coordinate origin used by
+        OpenGL, where the origin is at the bottom-left corner. The input pixel data must be in row-major order, with
+        each pixel represented by four bytes (blue, green, red, alpha).
+  example: []
+  syntax:
+    content: public static Bitmap ByteBGRAToBitmap(byte[] pixels, int width, int height)
+    parameters:
+    - id: pixels
+      type: System.Byte[]
+      description: >-
+        An array of bytes representing the pixel data in BGRA order. The array length must be at least width ×
+            height × 4.
+    - id: width
+      type: System.Int32
+      description: The width, in pixels, of the resulting bitmap. Must be greater than 0.
+    - id: height
+      type: System.Int32
+      description: The height, in pixels, of the resulting bitmap. Must be greater than 0.
+    return:
+      type: System.Drawing.Bitmap
+      description: A Bitmap object containing the image represented by the specified BGRA pixel data.
+    content.vb: Public Shared Function ByteBGRAToBitmap(pixels As Byte(), width As Integer, height As Integer) As Bitmap
+  overload: LibGFX.Core.Utils.ByteBGRAToBitmap*
+  nameWithType.vb: Utils.ByteBGRAToBitmap(Byte(), Integer, Integer)
+  fullName.vb: LibGFX.Core.Utils.ByteBGRAToBitmap(Byte(), Integer, Integer)
+  name.vb: ByteBGRAToBitmap(Byte(), Integer, Integer)
+- uid: LibGFX.Core.Utils.GetCurrentTimeMillis
+  commentId: M:LibGFX.Core.Utils.GetCurrentTimeMillis
+  id: GetCurrentTimeMillis
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: GetCurrentTimeMillis()
+  nameWithType: Utils.GetCurrentTimeMillis()
+  fullName: LibGFX.Core.Utils.GetCurrentTimeMillis()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetCurrentTimeMillis
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 267
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Gets the current time in milliseconds since the Unix epoch.
+  example: []
+  syntax:
+    content: public static long GetCurrentTimeMillis()
+    return:
+      type: System.Int64
+      description: ''
+    content.vb: Public Shared Function GetCurrentTimeMillis() As Long
+  overload: LibGFX.Core.Utils.GetCurrentTimeMillis*
+- uid: LibGFX.Core.Utils.LocalToWorldPositon(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Core.Utils.LocalToWorldPositon(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)
+  id: LocalToWorldPositon(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: LocalToWorldPositon(Transform, Vector3)
+  nameWithType: Utils.LocalToWorldPositon(Transform, Vector3)
+  fullName: LibGFX.Core.Utils.LocalToWorldPositon(LibGFX.Math.Transform, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LocalToWorldPositon
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 278
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Converts a local position to a world position using the given transform.
+  example: []
+  syntax:
+    content: public static Vector3 LocalToWorldPositon(Transform transform, Vector3 localPosition)
+    parameters:
+    - id: transform
+      type: LibGFX.Math.Transform
+      description: ''
+    - id: localPosition
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Shared Function LocalToWorldPositon(transform As Transform, localPosition As Vector3) As Vector3
+  overload: LibGFX.Core.Utils.LocalToWorldPositon*
+- uid: LibGFX.Core.Utils.WorldToLocalPosition(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Core.Utils.WorldToLocalPosition(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)
+  id: WorldToLocalPosition(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: WorldToLocalPosition(Transform, Vector3)
+  nameWithType: Utils.WorldToLocalPosition(Transform, Vector3)
+  fullName: LibGFX.Core.Utils.WorldToLocalPosition(LibGFX.Math.Transform, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: WorldToLocalPosition
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 291
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Converts a world position to a local position using the given transform.
+  example: []
+  syntax:
+    content: public static Vector3 WorldToLocalPosition(Transform transform, Vector3 worldPosition)
+    parameters:
+    - id: transform
+      type: LibGFX.Math.Transform
+      description: ''
+    - id: worldPosition
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Shared Function WorldToLocalPosition(transform As Transform, worldPosition As Vector3) As Vector3
+  overload: LibGFX.Core.Utils.WorldToLocalPosition*
+- uid: LibGFX.Core.Utils.GetBestDepthStencilFormat(System.Boolean,System.Boolean)
+  commentId: M:LibGFX.Core.Utils.GetBestDepthStencilFormat(System.Boolean,System.Boolean)
+  id: GetBestDepthStencilFormat(System.Boolean,System.Boolean)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: GetBestDepthStencilFormat(bool, bool)
+  nameWithType: Utils.GetBestDepthStencilFormat(bool, bool)
+  fullName: LibGFX.Core.Utils.GetBestDepthStencilFormat(bool, bool)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetBestDepthStencilFormat
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 308
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: >-
+    Selects the most appropriate depth and/or stencil renderbuffer storage format based on the specified
+
+    requirements.
+  example: []
+  syntax:
+    content: public static RenderFlags.GFXRenderbufferStorage GetBestDepthStencilFormat(bool depth, bool stencil)
+    parameters:
+    - id: depth
+      type: System.Boolean
+      description: true to request a format that supports depth buffering; otherwise, false.
+    - id: stencil
+      type: System.Boolean
+      description: true to request a format that supports stencil buffering; otherwise, false.
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+      description: >-
+        A GFXRenderbufferStorage value representing the best matching format for the requested depth and stencil
+            support.
+    content.vb: Public Shared Function GetBestDepthStencilFormat(depth As Boolean, stencil As Boolean) As RenderFlags.GFXRenderbufferStorage
+  overload: LibGFX.Core.Utils.GetBestDepthStencilFormat*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if both depth and stencil are false, as at least one must be requested.
+  nameWithType.vb: Utils.GetBestDepthStencilFormat(Boolean, Boolean)
+  fullName.vb: LibGFX.Core.Utils.GetBestDepthStencilFormat(Boolean, Boolean)
+  name.vb: GetBestDepthStencilFormat(Boolean, Boolean)
+- uid: LibGFX.Core.Utils.FindNodeByNameRecursive(LibGFX.Graphics.Animation3D.SceneNodeData,System.String,LibGFX.Graphics.Animation3D.SceneNodeData@)
+  commentId: M:LibGFX.Core.Utils.FindNodeByNameRecursive(LibGFX.Graphics.Animation3D.SceneNodeData,System.String,LibGFX.Graphics.Animation3D.SceneNodeData@)
+  id: FindNodeByNameRecursive(LibGFX.Graphics.Animation3D.SceneNodeData,System.String,LibGFX.Graphics.Animation3D.SceneNodeData@)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: FindNodeByNameRecursive(SceneNodeData, string, out SceneNodeData)
+  nameWithType: Utils.FindNodeByNameRecursive(SceneNodeData, string, out SceneNodeData)
+  fullName: LibGFX.Core.Utils.FindNodeByNameRecursive(LibGFX.Graphics.Animation3D.SceneNodeData, string, out LibGFX.Graphics.Animation3D.SceneNodeData)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FindNodeByNameRecursive
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 330
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Recursively searches the scene graph starting from the specified node for a node with the given name.
+  remarks: >-
+    The search is performed in a depth-first manner. Only the first matching node
+        encountered will be returned in foundNode.
+  example: []
+  syntax:
+    content: public static bool FindNodeByNameRecursive(SceneNodeData currentNode, string name, out SceneNodeData foundNode)
+    parameters:
+    - id: currentNode
+      type: LibGFX.Graphics.Animation3D.SceneNodeData
+      description: The node from which to begin the search. This node and its descendants will be examined.
+    - id: name
+      type: System.String
+      description: The name of the node to search for. The comparison is case-sensitive.
+    - id: foundNode
+      type: LibGFX.Graphics.Animation3D.SceneNodeData
+      description: >-
+        When this method returns, contains the first node with the specified name if found; otherwise, a default
+            value.
+    return:
+      type: System.Boolean
+      description: true if a node with the specified name is found; otherwise, false.
+    content.vb: Public Shared Function FindNodeByNameRecursive(currentNode As SceneNodeData, name As String, foundNode As SceneNodeData) As Boolean
+  overload: LibGFX.Core.Utils.FindNodeByNameRecursive*
+  nameWithType.vb: Utils.FindNodeByNameRecursive(SceneNodeData, String, SceneNodeData)
+  fullName.vb: LibGFX.Core.Utils.FindNodeByNameRecursive(LibGFX.Graphics.Animation3D.SceneNodeData, String, LibGFX.Graphics.Animation3D.SceneNodeData)
+  name.vb: FindNodeByNameRecursive(SceneNodeData, String, SceneNodeData)
+- uid: LibGFX.Core.Utils.ParseFloat(System.String)
+  commentId: M:LibGFX.Core.Utils.ParseFloat(System.String)
+  id: ParseFloat(System.String)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: ParseFloat(string)
+  nameWithType: Utils.ParseFloat(string)
+  fullName: LibGFX.Core.Utils.ParseFloat(string)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ParseFloat
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 348
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static float ParseFloat(string value)
+    parameters:
+    - id: value
+      type: System.String
+    return:
+      type: System.Single
+    content.vb: Public Shared Function ParseFloat(value As String) As Single
+  overload: LibGFX.Core.Utils.ParseFloat*
+  nameWithType.vb: Utils.ParseFloat(String)
+  fullName.vb: LibGFX.Core.Utils.ParseFloat(String)
+  name.vb: ParseFloat(String)
+- uid: LibGFX.Core.Utils.ReadFloat(Newtonsoft.Json.JsonReader)
+  commentId: M:LibGFX.Core.Utils.ReadFloat(Newtonsoft.Json.JsonReader)
+  id: ReadFloat(Newtonsoft.Json.JsonReader)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: ReadFloat(JsonReader)
+  nameWithType: Utils.ReadFloat(JsonReader)
+  fullName: LibGFX.Core.Utils.ReadFloat(Newtonsoft.Json.JsonReader)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ReadFloat
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 377
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static float ReadFloat(JsonReader reader)
+    parameters:
+    - id: reader
+      type: Newtonsoft.Json.JsonReader
+    return:
+      type: System.Single
+    content.vb: Public Shared Function ReadFloat(reader As JsonReader) As Single
+  overload: LibGFX.Core.Utils.ReadFloat*
+- uid: LibGFX.Core.Utils.SerializeVec2(OpenTK.Mathematics.Vector2,Newtonsoft.Json.JsonWriter)
+  commentId: M:LibGFX.Core.Utils.SerializeVec2(OpenTK.Mathematics.Vector2,Newtonsoft.Json.JsonWriter)
+  id: SerializeVec2(OpenTK.Mathematics.Vector2,Newtonsoft.Json.JsonWriter)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: SerializeVec2(Vector2, JsonWriter)
+  nameWithType: Utils.SerializeVec2(Vector2, JsonWriter)
+  fullName: LibGFX.Core.Utils.SerializeVec2(OpenTK.Mathematics.Vector2, Newtonsoft.Json.JsonWriter)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SerializeVec2
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 400
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static void SerializeVec2(Vector2 vec, JsonWriter writer)
+    parameters:
+    - id: vec
+      type: OpenTK.Mathematics.Vector2
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+    content.vb: Public Shared Sub SerializeVec2(vec As Vector2, writer As JsonWriter)
+  overload: LibGFX.Core.Utils.SerializeVec2*
+- uid: LibGFX.Core.Utils.SerializeVec2i(OpenTK.Mathematics.Vector2i,Newtonsoft.Json.JsonWriter)
+  commentId: M:LibGFX.Core.Utils.SerializeVec2i(OpenTK.Mathematics.Vector2i,Newtonsoft.Json.JsonWriter)
+  id: SerializeVec2i(OpenTK.Mathematics.Vector2i,Newtonsoft.Json.JsonWriter)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: SerializeVec2i(Vector2i, JsonWriter)
+  nameWithType: Utils.SerializeVec2i(Vector2i, JsonWriter)
+  fullName: LibGFX.Core.Utils.SerializeVec2i(OpenTK.Mathematics.Vector2i, Newtonsoft.Json.JsonWriter)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SerializeVec2i
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 410
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static void SerializeVec2i(Vector2i vec, JsonWriter writer)
+    parameters:
+    - id: vec
+      type: OpenTK.Mathematics.Vector2i
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+    content.vb: Public Shared Sub SerializeVec2i(vec As Vector2i, writer As JsonWriter)
+  overload: LibGFX.Core.Utils.SerializeVec2i*
+- uid: LibGFX.Core.Utils.SerializeVec3(OpenTK.Mathematics.Vector3,Newtonsoft.Json.JsonWriter)
+  commentId: M:LibGFX.Core.Utils.SerializeVec3(OpenTK.Mathematics.Vector3,Newtonsoft.Json.JsonWriter)
+  id: SerializeVec3(OpenTK.Mathematics.Vector3,Newtonsoft.Json.JsonWriter)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: SerializeVec3(Vector3, JsonWriter)
+  nameWithType: Utils.SerializeVec3(Vector3, JsonWriter)
+  fullName: LibGFX.Core.Utils.SerializeVec3(OpenTK.Mathematics.Vector3, Newtonsoft.Json.JsonWriter)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SerializeVec3
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 420
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static void SerializeVec3(Vector3 vec, JsonWriter writer)
+    parameters:
+    - id: vec
+      type: OpenTK.Mathematics.Vector3
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+    content.vb: Public Shared Sub SerializeVec3(vec As Vector3, writer As JsonWriter)
+  overload: LibGFX.Core.Utils.SerializeVec3*
+- uid: LibGFX.Core.Utils.SerializeVec3i(OpenTK.Mathematics.Vector3i,Newtonsoft.Json.JsonWriter)
+  commentId: M:LibGFX.Core.Utils.SerializeVec3i(OpenTK.Mathematics.Vector3i,Newtonsoft.Json.JsonWriter)
+  id: SerializeVec3i(OpenTK.Mathematics.Vector3i,Newtonsoft.Json.JsonWriter)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: SerializeVec3i(Vector3i, JsonWriter)
+  nameWithType: Utils.SerializeVec3i(Vector3i, JsonWriter)
+  fullName: LibGFX.Core.Utils.SerializeVec3i(OpenTK.Mathematics.Vector3i, Newtonsoft.Json.JsonWriter)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SerializeVec3i
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 432
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static void SerializeVec3i(Vector3i vec, JsonWriter writer)
+    parameters:
+    - id: vec
+      type: OpenTK.Mathematics.Vector3i
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+    content.vb: Public Shared Sub SerializeVec3i(vec As Vector3i, writer As JsonWriter)
+  overload: LibGFX.Core.Utils.SerializeVec3i*
+- uid: LibGFX.Core.Utils.SerializeVec4(OpenTK.Mathematics.Vector4,Newtonsoft.Json.JsonWriter)
+  commentId: M:LibGFX.Core.Utils.SerializeVec4(OpenTK.Mathematics.Vector4,Newtonsoft.Json.JsonWriter)
+  id: SerializeVec4(OpenTK.Mathematics.Vector4,Newtonsoft.Json.JsonWriter)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: SerializeVec4(Vector4, JsonWriter)
+  nameWithType: Utils.SerializeVec4(Vector4, JsonWriter)
+  fullName: LibGFX.Core.Utils.SerializeVec4(OpenTK.Mathematics.Vector4, Newtonsoft.Json.JsonWriter)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SerializeVec4
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 444
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static void SerializeVec4(Vector4 vec, JsonWriter writer)
+    parameters:
+    - id: vec
+      type: OpenTK.Mathematics.Vector4
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+    content.vb: Public Shared Sub SerializeVec4(vec As Vector4, writer As JsonWriter)
+  overload: LibGFX.Core.Utils.SerializeVec4*
+- uid: LibGFX.Core.Utils.SerializeVec4i(OpenTK.Mathematics.Vector4i,Newtonsoft.Json.JsonWriter)
+  commentId: M:LibGFX.Core.Utils.SerializeVec4i(OpenTK.Mathematics.Vector4i,Newtonsoft.Json.JsonWriter)
+  id: SerializeVec4i(OpenTK.Mathematics.Vector4i,Newtonsoft.Json.JsonWriter)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: SerializeVec4i(Vector4i, JsonWriter)
+  nameWithType: Utils.SerializeVec4i(Vector4i, JsonWriter)
+  fullName: LibGFX.Core.Utils.SerializeVec4i(OpenTK.Mathematics.Vector4i, Newtonsoft.Json.JsonWriter)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SerializeVec4i
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 458
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static void SerializeVec4i(Vector4i vec, JsonWriter writer)
+    parameters:
+    - id: vec
+      type: OpenTK.Mathematics.Vector4i
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+    content.vb: Public Shared Sub SerializeVec4i(vec As Vector4i, writer As JsonWriter)
+  overload: LibGFX.Core.Utils.SerializeVec4i*
+- uid: LibGFX.Core.Utils.SerializeQuat(OpenTK.Mathematics.Quaternion,Newtonsoft.Json.JsonWriter)
+  commentId: M:LibGFX.Core.Utils.SerializeQuat(OpenTK.Mathematics.Quaternion,Newtonsoft.Json.JsonWriter)
+  id: SerializeQuat(OpenTK.Mathematics.Quaternion,Newtonsoft.Json.JsonWriter)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: SerializeQuat(Quaternion, JsonWriter)
+  nameWithType: Utils.SerializeQuat(Quaternion, JsonWriter)
+  fullName: LibGFX.Core.Utils.SerializeQuat(OpenTK.Mathematics.Quaternion, Newtonsoft.Json.JsonWriter)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SerializeQuat
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 472
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static void SerializeQuat(Quaternion quat, JsonWriter writer)
+    parameters:
+    - id: quat
+      type: OpenTK.Mathematics.Quaternion
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+    content.vb: Public Shared Sub SerializeQuat(quat As Quaternion, writer As JsonWriter)
+  overload: LibGFX.Core.Utils.SerializeQuat*
+- uid: LibGFX.Core.Utils.DeserializeVec4(Newtonsoft.Json.Linq.JObject)
+  commentId: M:LibGFX.Core.Utils.DeserializeVec4(Newtonsoft.Json.Linq.JObject)
+  id: DeserializeVec4(Newtonsoft.Json.Linq.JObject)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: DeserializeVec4(JObject)
+  nameWithType: Utils.DeserializeVec4(JObject)
+  fullName: LibGFX.Core.Utils.DeserializeVec4(Newtonsoft.Json.Linq.JObject)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DeserializeVec4
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 486
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static Vector4 DeserializeVec4(JObject value)
+    parameters:
+    - id: value
+      type: Newtonsoft.Json.Linq.JObject
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared Function DeserializeVec4(value As JObject) As Vector4
+  overload: LibGFX.Core.Utils.DeserializeVec4*
+- uid: LibGFX.Core.Utils.DeserializeVec4i(Newtonsoft.Json.Linq.JObject)
+  commentId: M:LibGFX.Core.Utils.DeserializeVec4i(Newtonsoft.Json.Linq.JObject)
+  id: DeserializeVec4i(Newtonsoft.Json.Linq.JObject)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: DeserializeVec4i(JObject)
+  nameWithType: Utils.DeserializeVec4i(JObject)
+  fullName: LibGFX.Core.Utils.DeserializeVec4i(Newtonsoft.Json.Linq.JObject)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DeserializeVec4i
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 496
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static Vector4i DeserializeVec4i(JObject value)
+    parameters:
+    - id: value
+      type: Newtonsoft.Json.Linq.JObject
+    return:
+      type: OpenTK.Mathematics.Vector4i
+    content.vb: Public Shared Function DeserializeVec4i(value As JObject) As Vector4i
+  overload: LibGFX.Core.Utils.DeserializeVec4i*
+- uid: LibGFX.Core.Utils.DeserializeQuat(Newtonsoft.Json.Linq.JObject)
+  commentId: M:LibGFX.Core.Utils.DeserializeQuat(Newtonsoft.Json.Linq.JObject)
+  id: DeserializeQuat(Newtonsoft.Json.Linq.JObject)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: DeserializeQuat(JObject)
+  nameWithType: Utils.DeserializeQuat(JObject)
+  fullName: LibGFX.Core.Utils.DeserializeQuat(Newtonsoft.Json.Linq.JObject)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DeserializeQuat
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 506
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static Quaternion DeserializeQuat(JObject value)
+    parameters:
+    - id: value
+      type: Newtonsoft.Json.Linq.JObject
+    return:
+      type: OpenTK.Mathematics.Quaternion
+    content.vb: Public Shared Function DeserializeQuat(value As JObject) As Quaternion
+  overload: LibGFX.Core.Utils.DeserializeQuat*
+- uid: LibGFX.Core.Utils.DeserializeVec3(Newtonsoft.Json.Linq.JObject)
+  commentId: M:LibGFX.Core.Utils.DeserializeVec3(Newtonsoft.Json.Linq.JObject)
+  id: DeserializeVec3(Newtonsoft.Json.Linq.JObject)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: DeserializeVec3(JObject)
+  nameWithType: Utils.DeserializeVec3(JObject)
+  fullName: LibGFX.Core.Utils.DeserializeVec3(Newtonsoft.Json.Linq.JObject)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DeserializeVec3
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 516
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static Vector3 DeserializeVec3(JObject value)
+    parameters:
+    - id: value
+      type: Newtonsoft.Json.Linq.JObject
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Shared Function DeserializeVec3(value As JObject) As Vector3
+  overload: LibGFX.Core.Utils.DeserializeVec3*
+- uid: LibGFX.Core.Utils.DeserializeVec3i(Newtonsoft.Json.Linq.JObject)
+  commentId: M:LibGFX.Core.Utils.DeserializeVec3i(Newtonsoft.Json.Linq.JObject)
+  id: DeserializeVec3i(Newtonsoft.Json.Linq.JObject)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: DeserializeVec3i(JObject)
+  nameWithType: Utils.DeserializeVec3i(JObject)
+  fullName: LibGFX.Core.Utils.DeserializeVec3i(Newtonsoft.Json.Linq.JObject)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DeserializeVec3i
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 525
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static Vector3i DeserializeVec3i(JObject value)
+    parameters:
+    - id: value
+      type: Newtonsoft.Json.Linq.JObject
+    return:
+      type: OpenTK.Mathematics.Vector3i
+    content.vb: Public Shared Function DeserializeVec3i(value As JObject) As Vector3i
+  overload: LibGFX.Core.Utils.DeserializeVec3i*
+- uid: LibGFX.Core.Utils.DeserializeVec2(Newtonsoft.Json.Linq.JObject)
+  commentId: M:LibGFX.Core.Utils.DeserializeVec2(Newtonsoft.Json.Linq.JObject)
+  id: DeserializeVec2(Newtonsoft.Json.Linq.JObject)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: DeserializeVec2(JObject)
+  nameWithType: Utils.DeserializeVec2(JObject)
+  fullName: LibGFX.Core.Utils.DeserializeVec2(Newtonsoft.Json.Linq.JObject)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DeserializeVec2
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 534
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static Vector2 DeserializeVec2(JObject value)
+    parameters:
+    - id: value
+      type: Newtonsoft.Json.Linq.JObject
+    return:
+      type: OpenTK.Mathematics.Vector2
+    content.vb: Public Shared Function DeserializeVec2(value As JObject) As Vector2
+  overload: LibGFX.Core.Utils.DeserializeVec2*
+- uid: LibGFX.Core.Utils.DeserializeVec2i(Newtonsoft.Json.Linq.JObject)
+  commentId: M:LibGFX.Core.Utils.DeserializeVec2i(Newtonsoft.Json.Linq.JObject)
+  id: DeserializeVec2i(Newtonsoft.Json.Linq.JObject)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: DeserializeVec2i(JObject)
+  nameWithType: Utils.DeserializeVec2i(JObject)
+  fullName: LibGFX.Core.Utils.DeserializeVec2i(Newtonsoft.Json.Linq.JObject)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DeserializeVec2i
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 542
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static Vector2i DeserializeVec2i(JObject value)
+    parameters:
+    - id: value
+      type: Newtonsoft.Json.Linq.JObject
+    return:
+      type: OpenTK.Mathematics.Vector2i
+    content.vb: Public Shared Function DeserializeVec2i(value As JObject) As Vector2i
+  overload: LibGFX.Core.Utils.DeserializeVec2i*
+- uid: LibGFX.Core.Utils.SerializeMatrix4(OpenTK.Mathematics.Matrix4,Newtonsoft.Json.JsonWriter)
+  commentId: M:LibGFX.Core.Utils.SerializeMatrix4(OpenTK.Mathematics.Matrix4,Newtonsoft.Json.JsonWriter)
+  id: SerializeMatrix4(OpenTK.Mathematics.Matrix4,Newtonsoft.Json.JsonWriter)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: SerializeMatrix4(Matrix4, JsonWriter)
+  nameWithType: Utils.SerializeMatrix4(Matrix4, JsonWriter)
+  fullName: LibGFX.Core.Utils.SerializeMatrix4(OpenTK.Mathematics.Matrix4, Newtonsoft.Json.JsonWriter)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SerializeMatrix4
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 550
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static void SerializeMatrix4(Matrix4 mat, JsonWriter writer)
+    parameters:
+    - id: mat
+      type: OpenTK.Mathematics.Matrix4
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+    content.vb: Public Shared Sub SerializeMatrix4(mat As Matrix4, writer As JsonWriter)
+  overload: LibGFX.Core.Utils.SerializeMatrix4*
+- uid: LibGFX.Core.Utils.DeserializeMatrix4(Newtonsoft.Json.Linq.JObject)
+  commentId: M:LibGFX.Core.Utils.DeserializeMatrix4(Newtonsoft.Json.Linq.JObject)
+  id: DeserializeMatrix4(Newtonsoft.Json.Linq.JObject)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: DeserializeMatrix4(JObject)
+  nameWithType: Utils.DeserializeMatrix4(JObject)
+  fullName: LibGFX.Core.Utils.DeserializeMatrix4(Newtonsoft.Json.Linq.JObject)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DeserializeMatrix4
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 564
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static Matrix4 DeserializeMatrix4(JObject reader)
+    parameters:
+    - id: reader
+      type: Newtonsoft.Json.Linq.JObject
+    return:
+      type: OpenTK.Mathematics.Matrix4
+    content.vb: Public Shared Function DeserializeMatrix4(reader As JObject) As Matrix4
+  overload: LibGFX.Core.Utils.DeserializeMatrix4*
+- uid: LibGFX.Core.Utils.SerializeAABB(LibGFX.Math.AABB,Newtonsoft.Json.JsonWriter)
+  commentId: M:LibGFX.Core.Utils.SerializeAABB(LibGFX.Math.AABB,Newtonsoft.Json.JsonWriter)
+  id: SerializeAABB(LibGFX.Math.AABB,Newtonsoft.Json.JsonWriter)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: SerializeAABB(AABB, JsonWriter)
+  nameWithType: Utils.SerializeAABB(AABB, JsonWriter)
+  fullName: LibGFX.Core.Utils.SerializeAABB(LibGFX.Math.AABB, Newtonsoft.Json.JsonWriter)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SerializeAABB
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 576
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static void SerializeAABB(AABB aabb, JsonWriter writer)
+    parameters:
+    - id: aabb
+      type: LibGFX.Math.AABB
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+    content.vb: Public Shared Sub SerializeAABB(aabb As AABB, writer As JsonWriter)
+  overload: LibGFX.Core.Utils.SerializeAABB*
+- uid: LibGFX.Core.Utils.DeserializeAABB(Newtonsoft.Json.Linq.JObject)
+  commentId: M:LibGFX.Core.Utils.DeserializeAABB(Newtonsoft.Json.Linq.JObject)
+  id: DeserializeAABB(Newtonsoft.Json.Linq.JObject)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: DeserializeAABB(JObject)
+  nameWithType: Utils.DeserializeAABB(JObject)
+  fullName: LibGFX.Core.Utils.DeserializeAABB(Newtonsoft.Json.Linq.JObject)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DeserializeAABB
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 586
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static AABB DeserializeAABB(JObject value)
+    parameters:
+    - id: value
+      type: Newtonsoft.Json.Linq.JObject
+    return:
+      type: LibGFX.Math.AABB
+    content.vb: Public Shared Function DeserializeAABB(value As JObject) As AABB
+  overload: LibGFX.Core.Utils.DeserializeAABB*
+- uid: LibGFX.Core.Utils.DeserializeGameElement(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext)
+  commentId: M:LibGFX.Core.Utils.DeserializeGameElement(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext)
+  id: DeserializeGameElement(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: DeserializeGameElement(JObject, SerializationContext)
+  nameWithType: Utils.DeserializeGameElement(JObject, SerializationContext)
+  fullName: LibGFX.Core.Utils.DeserializeGameElement(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DeserializeGameElement
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 594
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public static GameElement DeserializeGameElement(JObject obj, SerializationContext serializationContext)
+    parameters:
+    - id: obj
+      type: Newtonsoft.Json.Linq.JObject
+    - id: serializationContext
+      type: LibGFX.Core.SerializationContext
+    return:
+      type: LibGFX.Core.GameElement
+    content.vb: Public Shared Function DeserializeGameElement(obj As JObject, serializationContext As SerializationContext) As GameElement
+  overload: LibGFX.Core.Utils.DeserializeGameElement*
+- uid: LibGFX.Core.Utils.SerializeVertex(LibGFX.Graphics.Vertex,Newtonsoft.Json.JsonWriter)
+  commentId: M:LibGFX.Core.Utils.SerializeVertex(LibGFX.Graphics.Vertex,Newtonsoft.Json.JsonWriter)
+  id: SerializeVertex(LibGFX.Graphics.Vertex,Newtonsoft.Json.JsonWriter)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: SerializeVertex(Vertex, JsonWriter)
+  nameWithType: Utils.SerializeVertex(Vertex, JsonWriter)
+  fullName: LibGFX.Core.Utils.SerializeVertex(LibGFX.Graphics.Vertex, Newtonsoft.Json.JsonWriter)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SerializeVertex
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 615
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Serializes the specified vertex to JSON using the provided writer.
+  example: []
+  syntax:
+    content: public static void SerializeVertex(Vertex vertex, JsonWriter writer)
+    parameters:
+    - id: vertex
+      type: LibGFX.Graphics.Vertex
+      description: The vertex to serialize. Must not be null.
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+      description: The JsonWriter instance used to write the serialized JSON output. Must not be null.
+    content.vb: Public Shared Sub SerializeVertex(vertex As Vertex, writer As JsonWriter)
+  overload: LibGFX.Core.Utils.SerializeVertex*
+- uid: LibGFX.Core.Utils.DeserializeVertex(Newtonsoft.Json.Linq.JObject)
+  commentId: M:LibGFX.Core.Utils.DeserializeVertex(Newtonsoft.Json.Linq.JObject)
+  id: DeserializeVertex(Newtonsoft.Json.Linq.JObject)
+  parent: LibGFX.Core.Utils
+  langs:
+  - csharp
+  - vb
+  name: DeserializeVertex(JObject)
+  nameWithType: Utils.DeserializeVertex(JObject)
+  fullName: LibGFX.Core.Utils.DeserializeVertex(Newtonsoft.Json.Linq.JObject)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Utils.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DeserializeVertex
+    path: ../LibGFX/Core/Utils.cs
+    startLine: 640
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Deserializes a vertex from the specified JSON object.
+  remarks: >-
+    The JSON object is expected to contain the fields "TexCoord", "Normal", "Tangent",
+        "BoneIDs", and "BoneWeights" as nested objects. Missing or incorrectly typed fields may result in
+        exceptions.
+  example: []
+  syntax:
+    content: public static Vertex DeserializeVertex(JObject value)
+    parameters:
+    - id: value
+      type: Newtonsoft.Json.Linq.JObject
+      description: >-
+        A <xref href="Newtonsoft.Json.Linq.JObject" data-throw-if-not-resolved="false"></xref> containing the serialized vertex data. Must not be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> and must
+            include the required fields.
+    return:
+      type: LibGFX.Graphics.Vertex
+      description: A <xref href="LibGFX.Graphics.Vertex" data-throw-if-not-resolved="false"></xref> instance populated with data from the JSON object.
+    content.vb: Public Shared Function DeserializeVertex(value As JObject) As Vertex
+  overload: LibGFX.Core.Utils.DeserializeVertex*
+references:
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Assets.AssetManager
+  commentId: T:LibGFX.Assets.AssetManager
+  parent: LibGFX.Assets
+  href: LibGFX.Assets.AssetManager.html
+  name: AssetManager
+  nameWithType: AssetManager
+  fullName: LibGFX.Assets.AssetManager
+- uid: LibGFX.Core.Utils.CreateDefaultAssetManager*
+  commentId: Overload:LibGFX.Core.Utils.CreateDefaultAssetManager
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_CreateDefaultAssetManager
+  name: CreateDefaultAssetManager
+  nameWithType: Utils.CreateDefaultAssetManager
+  fullName: LibGFX.Core.Utils.CreateDefaultAssetManager
+- uid: LibGFX.Assets
+  commentId: N:LibGFX.Assets
+  href: LibGFX.html
+  name: LibGFX.Assets
+  nameWithType: LibGFX.Assets
+  fullName: LibGFX.Assets
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+- uid: LibGFX.Core.Utils.CreateEmptyNormalMap*
+  commentId: Overload:LibGFX.Core.Utils.CreateEmptyNormalMap
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_CreateEmptyNormalMap_System_Int32_System_Int32_
+  name: CreateEmptyNormalMap
+  nameWithType: Utils.CreateEmptyNormalMap
+  fullName: LibGFX.Core.Utils.CreateEmptyNormalMap
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Drawing.Bitmap
+  commentId: T:System.Drawing.Bitmap
+  parent: System.Drawing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.drawing.bitmap
+  name: Bitmap
+  nameWithType: Bitmap
+  fullName: System.Drawing.Bitmap
+- uid: System.Drawing
+  commentId: N:System.Drawing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Drawing
+  nameWithType: System.Drawing
+  fullName: System.Drawing
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Drawing
+    name: Drawing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.drawing
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Drawing
+    name: Drawing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.drawing
+- uid: LibGFX.Core.Utils.CreateImageData*
+  commentId: Overload:LibGFX.Core.Utils.CreateImageData
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_CreateImageData_System_Int32_System_Int32_OpenTK_Mathematics_Vector4i_
+  name: CreateImageData
+  nameWithType: Utils.CreateImageData
+  fullName: LibGFX.Core.Utils.CreateImageData
+- uid: OpenTK.Mathematics.Vector4i
+  commentId: T:OpenTK.Mathematics.Vector4i
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4i.cs
+  name: Vector4i
+  nameWithType: Vector4i
+  fullName: OpenTK.Mathematics.Vector4i
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Core.Utils.GetBtTransform*
+  commentId: Overload:LibGFX.Core.Utils.GetBtTransform
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_GetBtTransform_LibGFX_Core_GameElement_OpenTK_Mathematics_Vector3_
+  name: GetBtTransform
+  nameWithType: Utils.GetBtTransform
+  fullName: LibGFX.Core.Utils.GetBtTransform
+- uid: LibGFX.Core.GameElement
+  commentId: T:LibGFX.Core.GameElement
+  parent: LibGFX.Core
+  href: LibGFX.Core.GameElement.html
+  name: GameElement
+  nameWithType: GameElement
+  fullName: LibGFX.Core.GameElement
+- uid: OpenTK.Mathematics.Vector3
+  commentId: T:OpenTK.Mathematics.Vector3
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  name: Vector3
+  nameWithType: Vector3
+  fullName: OpenTK.Mathematics.Vector3
+- uid: System.Numerics.Matrix4x4
+  commentId: T:System.Numerics.Matrix4x4
+  parent: System.Numerics
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.matrix4x4
+  name: Matrix4x4
+  nameWithType: Matrix4x4
+  fullName: System.Numerics.Matrix4x4
+- uid: System.Numerics
+  commentId: N:System.Numerics
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Numerics
+  nameWithType: System.Numerics
+  fullName: System.Numerics
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Numerics
+    name: Numerics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Numerics
+    name: Numerics
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.numerics
+- uid: System.Numerics.Vector3
+  commentId: T:System.Numerics.Vector3
+  parent: System.Numerics
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.vector3
+  name: Vector3
+  nameWithType: Vector3
+  fullName: System.Numerics.Vector3
+- uid: System.Numerics.Quaternion
+  commentId: T:System.Numerics.Quaternion
+  parent: System.Numerics
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.numerics.quaternion
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: System.Numerics.Quaternion
+- uid: LibGFX.Core.Utils.ApplyScale*
+  commentId: Overload:LibGFX.Core.Utils.ApplyScale
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_ApplyScale_System_Numerics_Matrix4x4_System_Numerics_Vector3_
+  name: ApplyScale
+  nameWithType: Utils.ApplyScale
+  fullName: LibGFX.Core.Utils.ApplyScale
+- uid: LibGFX.Core.Utils.ToRadians*
+  commentId: Overload:LibGFX.Core.Utils.ToRadians
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_ToRadians_OpenTK_Mathematics_Vector3_
+  name: ToRadians
+  nameWithType: Utils.ToRadians
+  fullName: LibGFX.Core.Utils.ToRadians
+- uid: LibGFX.Core.Utils.CalculateYaw*
+  commentId: Overload:LibGFX.Core.Utils.CalculateYaw
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_CalculateYaw_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  name: CalculateYaw
+  nameWithType: Utils.CalculateYaw
+  fullName: LibGFX.Core.Utils.CalculateYaw
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Core.Utils.CalculatePitch*
+  commentId: Overload:LibGFX.Core.Utils.CalculatePitch
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_CalculatePitch_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  name: CalculatePitch
+  nameWithType: Utils.CalculatePitch
+  fullName: LibGFX.Core.Utils.CalculatePitch
+- uid: LibGFX.Core.Utils.LookAt*
+  commentId: Overload:LibGFX.Core.Utils.LookAt
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_LookAt_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  name: LookAt
+  nameWithType: Utils.LookAt
+  fullName: LibGFX.Core.Utils.LookAt
+- uid: OpenTK.Mathematics.Quaternion
+  commentId: T:OpenTK.Mathematics.Quaternion
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Data/Quaternion.cs
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: OpenTK.Mathematics.Quaternion
+- uid: LibGFX.Core.Utils.LoadTextureIfExists*
+  commentId: Overload:LibGFX.Core.Utils.LoadTextureIfExists
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_LoadTextureIfExists_Newtonsoft_Json_Linq_JObject_System_String_System_String_
+  name: LoadTextureIfExists
+  nameWithType: Utils.LoadTextureIfExists
+  fullName: LibGFX.Core.Utils.LoadTextureIfExists
+- uid: Newtonsoft.Json.Linq.JObject
+  commentId: T:Newtonsoft.Json.Linq.JObject
+  parent: Newtonsoft.Json.Linq
+  isExternal: true
+  name: JObject
+  nameWithType: JObject
+  fullName: Newtonsoft.Json.Linq.JObject
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: LibGFX.Graphics.Texture
+  commentId: T:LibGFX.Graphics.Texture
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Texture.html
+  name: Texture
+  nameWithType: Texture
+  fullName: LibGFX.Graphics.Texture
+- uid: Newtonsoft.Json.Linq
+  commentId: N:Newtonsoft.Json.Linq
+  isExternal: true
+  name: Newtonsoft.Json.Linq
+  nameWithType: Newtonsoft.Json.Linq
+  fullName: Newtonsoft.Json.Linq
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Core.Utils.GetUVTransformFromTilemap*
+  commentId: Overload:LibGFX.Core.Utils.GetUVTransformFromTilemap
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_GetUVTransformFromTilemap_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_
+  name: GetUVTransformFromTilemap
+  nameWithType: Utils.GetUVTransformFromTilemap
+  fullName: LibGFX.Core.Utils.GetUVTransformFromTilemap
+- uid: OpenTK.Mathematics.Vector4
+  commentId: T:OpenTK.Mathematics.Vector4
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs
+  name: Vector4
+  nameWithType: Vector4
+  fullName: OpenTK.Mathematics.Vector4
+- uid: LibGFX.Core.Utils.ByteBGRAToBitmap*
+  commentId: Overload:LibGFX.Core.Utils.ByteBGRAToBitmap
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_ByteBGRAToBitmap_System_Byte___System_Int32_System_Int32_
+  name: ByteBGRAToBitmap
+  nameWithType: Utils.ByteBGRAToBitmap
+  fullName: LibGFX.Core.Utils.ByteBGRAToBitmap
+- uid: LibGFX.Core.Utils.GetCurrentTimeMillis*
+  commentId: Overload:LibGFX.Core.Utils.GetCurrentTimeMillis
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_GetCurrentTimeMillis
+  name: GetCurrentTimeMillis
+  nameWithType: Utils.GetCurrentTimeMillis
+  fullName: LibGFX.Core.Utils.GetCurrentTimeMillis
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: LibGFX.Core.Utils.LocalToWorldPositon*
+  commentId: Overload:LibGFX.Core.Utils.LocalToWorldPositon
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_LocalToWorldPositon_LibGFX_Math_Transform_OpenTK_Mathematics_Vector3_
+  name: LocalToWorldPositon
+  nameWithType: Utils.LocalToWorldPositon
+  fullName: LibGFX.Core.Utils.LocalToWorldPositon
+- uid: LibGFX.Math.Transform
+  commentId: T:LibGFX.Math.Transform
+  parent: LibGFX.Math
+  href: LibGFX.Math.Transform.html
+  name: Transform
+  nameWithType: Transform
+  fullName: LibGFX.Math.Transform
+- uid: LibGFX.Math
+  commentId: N:LibGFX.Math
+  href: LibGFX.html
+  name: LibGFX.Math
+  nameWithType: LibGFX.Math
+  fullName: LibGFX.Math
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+- uid: LibGFX.Core.Utils.WorldToLocalPosition*
+  commentId: Overload:LibGFX.Core.Utils.WorldToLocalPosition
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_WorldToLocalPosition_LibGFX_Math_Transform_OpenTK_Mathematics_Vector3_
+  name: WorldToLocalPosition
+  nameWithType: Utils.WorldToLocalPosition
+  fullName: LibGFX.Core.Utils.WorldToLocalPosition
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: LibGFX.Core.Utils.GetBestDepthStencilFormat*
+  commentId: Overload:LibGFX.Core.Utils.GetBestDepthStencilFormat
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_GetBestDepthStencilFormat_System_Boolean_System_Boolean_
+  name: GetBestDepthStencilFormat
+  nameWithType: Utils.GetBestDepthStencilFormat
+  fullName: LibGFX.Core.Utils.GetBestDepthStencilFormat
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.GFXRenderbufferStorage
+  nameWithType: RenderFlags.GFXRenderbufferStorage
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+    name: GFXRenderbufferStorage
+    href: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+    name: GFXRenderbufferStorage
+    href: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.html
+- uid: LibGFX.Core.Utils.FindNodeByNameRecursive*
+  commentId: Overload:LibGFX.Core.Utils.FindNodeByNameRecursive
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_FindNodeByNameRecursive_LibGFX_Graphics_Animation3D_SceneNodeData_System_String_LibGFX_Graphics_Animation3D_SceneNodeData__
+  name: FindNodeByNameRecursive
+  nameWithType: Utils.FindNodeByNameRecursive
+  fullName: LibGFX.Core.Utils.FindNodeByNameRecursive
+- uid: LibGFX.Graphics.Animation3D.SceneNodeData
+  commentId: T:LibGFX.Graphics.Animation3D.SceneNodeData
+  parent: LibGFX.Graphics.Animation3D
+  href: LibGFX.Graphics.Animation3D.SceneNodeData.html
+  name: SceneNodeData
+  nameWithType: SceneNodeData
+  fullName: LibGFX.Graphics.Animation3D.SceneNodeData
+- uid: LibGFX.Graphics.Animation3D
+  commentId: N:LibGFX.Graphics.Animation3D
+  href: LibGFX.html
+  name: LibGFX.Graphics.Animation3D
+  nameWithType: LibGFX.Graphics.Animation3D
+  fullName: LibGFX.Graphics.Animation3D
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Animation3D
+    name: Animation3D
+    href: LibGFX.Graphics.Animation3D.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Animation3D
+    name: Animation3D
+    href: LibGFX.Graphics.Animation3D.html
+- uid: LibGFX.Core.Utils.ParseFloat*
+  commentId: Overload:LibGFX.Core.Utils.ParseFloat
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_ParseFloat_System_String_
+  name: ParseFloat
+  nameWithType: Utils.ParseFloat
+  fullName: LibGFX.Core.Utils.ParseFloat
+- uid: LibGFX.Core.Utils.ReadFloat*
+  commentId: Overload:LibGFX.Core.Utils.ReadFloat
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_ReadFloat_Newtonsoft_Json_JsonReader_
+  name: ReadFloat
+  nameWithType: Utils.ReadFloat
+  fullName: LibGFX.Core.Utils.ReadFloat
+- uid: Newtonsoft.Json.JsonReader
+  commentId: T:Newtonsoft.Json.JsonReader
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonReader
+  nameWithType: JsonReader
+  fullName: Newtonsoft.Json.JsonReader
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: LibGFX.Core.Utils.SerializeVec2*
+  commentId: Overload:LibGFX.Core.Utils.SerializeVec2
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_SerializeVec2_OpenTK_Mathematics_Vector2_Newtonsoft_Json_JsonWriter_
+  name: SerializeVec2
+  nameWithType: Utils.SerializeVec2
+  fullName: LibGFX.Core.Utils.SerializeVec2
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: Newtonsoft.Json.JsonWriter
+  commentId: T:Newtonsoft.Json.JsonWriter
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonWriter
+  nameWithType: JsonWriter
+  fullName: Newtonsoft.Json.JsonWriter
+- uid: LibGFX.Core.Utils.SerializeVec2i*
+  commentId: Overload:LibGFX.Core.Utils.SerializeVec2i
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_SerializeVec2i_OpenTK_Mathematics_Vector2i_Newtonsoft_Json_JsonWriter_
+  name: SerializeVec2i
+  nameWithType: Utils.SerializeVec2i
+  fullName: LibGFX.Core.Utils.SerializeVec2i
+- uid: OpenTK.Mathematics.Vector2i
+  commentId: T:OpenTK.Mathematics.Vector2i
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2i.cs
+  name: Vector2i
+  nameWithType: Vector2i
+  fullName: OpenTK.Mathematics.Vector2i
+- uid: LibGFX.Core.Utils.SerializeVec3*
+  commentId: Overload:LibGFX.Core.Utils.SerializeVec3
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_SerializeVec3_OpenTK_Mathematics_Vector3_Newtonsoft_Json_JsonWriter_
+  name: SerializeVec3
+  nameWithType: Utils.SerializeVec3
+  fullName: LibGFX.Core.Utils.SerializeVec3
+- uid: LibGFX.Core.Utils.SerializeVec3i*
+  commentId: Overload:LibGFX.Core.Utils.SerializeVec3i
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_SerializeVec3i_OpenTK_Mathematics_Vector3i_Newtonsoft_Json_JsonWriter_
+  name: SerializeVec3i
+  nameWithType: Utils.SerializeVec3i
+  fullName: LibGFX.Core.Utils.SerializeVec3i
+- uid: OpenTK.Mathematics.Vector3i
+  commentId: T:OpenTK.Mathematics.Vector3i
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3i.cs
+  name: Vector3i
+  nameWithType: Vector3i
+  fullName: OpenTK.Mathematics.Vector3i
+- uid: LibGFX.Core.Utils.SerializeVec4*
+  commentId: Overload:LibGFX.Core.Utils.SerializeVec4
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_SerializeVec4_OpenTK_Mathematics_Vector4_Newtonsoft_Json_JsonWriter_
+  name: SerializeVec4
+  nameWithType: Utils.SerializeVec4
+  fullName: LibGFX.Core.Utils.SerializeVec4
+- uid: LibGFX.Core.Utils.SerializeVec4i*
+  commentId: Overload:LibGFX.Core.Utils.SerializeVec4i
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_SerializeVec4i_OpenTK_Mathematics_Vector4i_Newtonsoft_Json_JsonWriter_
+  name: SerializeVec4i
+  nameWithType: Utils.SerializeVec4i
+  fullName: LibGFX.Core.Utils.SerializeVec4i
+- uid: LibGFX.Core.Utils.SerializeQuat*
+  commentId: Overload:LibGFX.Core.Utils.SerializeQuat
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_SerializeQuat_OpenTK_Mathematics_Quaternion_Newtonsoft_Json_JsonWriter_
+  name: SerializeQuat
+  nameWithType: Utils.SerializeQuat
+  fullName: LibGFX.Core.Utils.SerializeQuat
+- uid: LibGFX.Core.Utils.DeserializeVec4*
+  commentId: Overload:LibGFX.Core.Utils.DeserializeVec4
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_DeserializeVec4_Newtonsoft_Json_Linq_JObject_
+  name: DeserializeVec4
+  nameWithType: Utils.DeserializeVec4
+  fullName: LibGFX.Core.Utils.DeserializeVec4
+- uid: LibGFX.Core.Utils.DeserializeVec4i*
+  commentId: Overload:LibGFX.Core.Utils.DeserializeVec4i
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_DeserializeVec4i_Newtonsoft_Json_Linq_JObject_
+  name: DeserializeVec4i
+  nameWithType: Utils.DeserializeVec4i
+  fullName: LibGFX.Core.Utils.DeserializeVec4i
+- uid: LibGFX.Core.Utils.DeserializeQuat*
+  commentId: Overload:LibGFX.Core.Utils.DeserializeQuat
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_DeserializeQuat_Newtonsoft_Json_Linq_JObject_
+  name: DeserializeQuat
+  nameWithType: Utils.DeserializeQuat
+  fullName: LibGFX.Core.Utils.DeserializeQuat
+- uid: LibGFX.Core.Utils.DeserializeVec3*
+  commentId: Overload:LibGFX.Core.Utils.DeserializeVec3
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_DeserializeVec3_Newtonsoft_Json_Linq_JObject_
+  name: DeserializeVec3
+  nameWithType: Utils.DeserializeVec3
+  fullName: LibGFX.Core.Utils.DeserializeVec3
+- uid: LibGFX.Core.Utils.DeserializeVec3i*
+  commentId: Overload:LibGFX.Core.Utils.DeserializeVec3i
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_DeserializeVec3i_Newtonsoft_Json_Linq_JObject_
+  name: DeserializeVec3i
+  nameWithType: Utils.DeserializeVec3i
+  fullName: LibGFX.Core.Utils.DeserializeVec3i
+- uid: LibGFX.Core.Utils.DeserializeVec2*
+  commentId: Overload:LibGFX.Core.Utils.DeserializeVec2
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_DeserializeVec2_Newtonsoft_Json_Linq_JObject_
+  name: DeserializeVec2
+  nameWithType: Utils.DeserializeVec2
+  fullName: LibGFX.Core.Utils.DeserializeVec2
+- uid: LibGFX.Core.Utils.DeserializeVec2i*
+  commentId: Overload:LibGFX.Core.Utils.DeserializeVec2i
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_DeserializeVec2i_Newtonsoft_Json_Linq_JObject_
+  name: DeserializeVec2i
+  nameWithType: Utils.DeserializeVec2i
+  fullName: LibGFX.Core.Utils.DeserializeVec2i
+- uid: LibGFX.Core.Utils.SerializeMatrix4*
+  commentId: Overload:LibGFX.Core.Utils.SerializeMatrix4
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_SerializeMatrix4_OpenTK_Mathematics_Matrix4_Newtonsoft_Json_JsonWriter_
+  name: SerializeMatrix4
+  nameWithType: Utils.SerializeMatrix4
+  fullName: LibGFX.Core.Utils.SerializeMatrix4
+- uid: OpenTK.Mathematics.Matrix4
+  commentId: T:OpenTK.Mathematics.Matrix4
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Matrix/Matrix4.cs
+  name: Matrix4
+  nameWithType: Matrix4
+  fullName: OpenTK.Mathematics.Matrix4
+- uid: LibGFX.Core.Utils.DeserializeMatrix4*
+  commentId: Overload:LibGFX.Core.Utils.DeserializeMatrix4
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_DeserializeMatrix4_Newtonsoft_Json_Linq_JObject_
+  name: DeserializeMatrix4
+  nameWithType: Utils.DeserializeMatrix4
+  fullName: LibGFX.Core.Utils.DeserializeMatrix4
+- uid: LibGFX.Core.Utils.SerializeAABB*
+  commentId: Overload:LibGFX.Core.Utils.SerializeAABB
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_SerializeAABB_LibGFX_Math_AABB_Newtonsoft_Json_JsonWriter_
+  name: SerializeAABB
+  nameWithType: Utils.SerializeAABB
+  fullName: LibGFX.Core.Utils.SerializeAABB
+- uid: LibGFX.Math.AABB
+  commentId: T:LibGFX.Math.AABB
+  parent: LibGFX.Math
+  href: LibGFX.Math.AABB.html
+  name: AABB
+  nameWithType: AABB
+  fullName: LibGFX.Math.AABB
+- uid: LibGFX.Core.Utils.DeserializeAABB*
+  commentId: Overload:LibGFX.Core.Utils.DeserializeAABB
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_DeserializeAABB_Newtonsoft_Json_Linq_JObject_
+  name: DeserializeAABB
+  nameWithType: Utils.DeserializeAABB
+  fullName: LibGFX.Core.Utils.DeserializeAABB
+- uid: LibGFX.Core.Utils.DeserializeGameElement*
+  commentId: Overload:LibGFX.Core.Utils.DeserializeGameElement
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_DeserializeGameElement_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_
+  name: DeserializeGameElement
+  nameWithType: Utils.DeserializeGameElement
+  fullName: LibGFX.Core.Utils.DeserializeGameElement
+- uid: LibGFX.Core.SerializationContext
+  commentId: T:LibGFX.Core.SerializationContext
+  parent: LibGFX.Core
+  href: LibGFX.Core.SerializationContext.html
+  name: SerializationContext
+  nameWithType: SerializationContext
+  fullName: LibGFX.Core.SerializationContext
+- uid: LibGFX.Core.Utils.SerializeVertex*
+  commentId: Overload:LibGFX.Core.Utils.SerializeVertex
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_SerializeVertex_LibGFX_Graphics_Vertex_Newtonsoft_Json_JsonWriter_
+  name: SerializeVertex
+  nameWithType: Utils.SerializeVertex
+  fullName: LibGFX.Core.Utils.SerializeVertex
+- uid: LibGFX.Graphics.Vertex
+  commentId: T:LibGFX.Graphics.Vertex
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Vertex.html
+  name: Vertex
+  nameWithType: Vertex
+  fullName: LibGFX.Graphics.Vertex
+- uid: LibGFX.Core.Utils.DeserializeVertex*
+  commentId: Overload:LibGFX.Core.Utils.DeserializeVertex
+  href: LibGFX.Core.Utils.html#LibGFX_Core_Utils_DeserializeVertex_Newtonsoft_Json_Linq_JObject_
+  name: DeserializeVertex
+  nameWithType: Utils.DeserializeVertex
+  fullName: LibGFX.Core.Utils.DeserializeVertex

@@ -1,0 +1,373 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  id: RenderFlags.GFXFramebufferAttachment
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color0
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color1
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color2
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color3
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color4
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color5
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color6
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color7
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Depth
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.DepthStencil
+  - LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Stencil
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.GFXFramebufferAttachment
+  nameWithType: RenderFlags.GFXFramebufferAttachment
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GFXFramebufferAttachment
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 122
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Attachment points for render targets, specifying where to attach textures or buffers.
+  example: []
+  syntax:
+    content: public enum RenderFlags.GFXFramebufferAttachment
+    content.vb: Public Enum RenderFlags.GFXFramebufferAttachment
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color0
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color0
+  id: Color0
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  langs:
+  - csharp
+  - vb
+  name: Color0
+  nameWithType: RenderFlags.GFXFramebufferAttachment.Color0
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color0
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color0
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 124
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color0 = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color1
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color1
+  id: Color1
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  langs:
+  - csharp
+  - vb
+  name: Color1
+  nameWithType: RenderFlags.GFXFramebufferAttachment.Color1
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color1
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color1
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 125
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color1 = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color2
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color2
+  id: Color2
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  langs:
+  - csharp
+  - vb
+  name: Color2
+  nameWithType: RenderFlags.GFXFramebufferAttachment.Color2
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color2
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color2
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 126
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color2 = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color3
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color3
+  id: Color3
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  langs:
+  - csharp
+  - vb
+  name: Color3
+  nameWithType: RenderFlags.GFXFramebufferAttachment.Color3
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color3
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color3
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 127
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color3 = 3
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color4
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color4
+  id: Color4
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  langs:
+  - csharp
+  - vb
+  name: Color4
+  nameWithType: RenderFlags.GFXFramebufferAttachment.Color4
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color4
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color4
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 128
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color4 = 4
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color5
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color5
+  id: Color5
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  langs:
+  - csharp
+  - vb
+  name: Color5
+  nameWithType: RenderFlags.GFXFramebufferAttachment.Color5
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color5
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color5
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 129
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color5 = 5
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color6
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color6
+  id: Color6
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  langs:
+  - csharp
+  - vb
+  name: Color6
+  nameWithType: RenderFlags.GFXFramebufferAttachment.Color6
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color6
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color6
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 130
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color6 = 6
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color7
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color7
+  id: Color7
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  langs:
+  - csharp
+  - vb
+  name: Color7
+  nameWithType: RenderFlags.GFXFramebufferAttachment.Color7
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Color7
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color7
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 131
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color7 = 7
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Depth
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Depth
+  id: Depth
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  langs:
+  - csharp
+  - vb
+  name: Depth
+  nameWithType: RenderFlags.GFXFramebufferAttachment.Depth
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Depth
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Depth
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 132
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Depth = 8
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.DepthStencil
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.DepthStencil
+  id: DepthStencil
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  langs:
+  - csharp
+  - vb
+  name: DepthStencil
+  nameWithType: RenderFlags.GFXFramebufferAttachment.DepthStencil
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.DepthStencil
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DepthStencil
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 133
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: DepthStencil = 9
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Stencil
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Stencil
+  id: Stencil
+  parent: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  langs:
+  - csharp
+  - vb
+  name: Stencil
+  nameWithType: RenderFlags.GFXFramebufferAttachment.Stencil
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.Stencil
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Stencil
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 134
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Stencil = 10
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.GFXFramebufferAttachment
+  nameWithType: RenderFlags.GFXFramebufferAttachment
+  fullName: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+    name: GFXFramebufferAttachment
+    href: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+    name: GFXFramebufferAttachment
+    href: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment.html

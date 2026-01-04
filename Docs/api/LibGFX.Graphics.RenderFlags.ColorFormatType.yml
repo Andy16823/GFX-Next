@@ -1,0 +1,238 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatType
+  commentId: T:LibGFX.Graphics.RenderFlags.ColorFormatType
+  id: RenderFlags.ColorFormatType
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.ColorFormatType.Float
+  - LibGFX.Graphics.RenderFlags.ColorFormatType.HalfFloat
+  - LibGFX.Graphics.RenderFlags.ColorFormatType.UnsignedByte
+  - LibGFX.Graphics.RenderFlags.ColorFormatType.UnsignedInt
+  - LibGFX.Graphics.RenderFlags.ColorFormatType.UnsignedInt24_8
+  - LibGFX.Graphics.RenderFlags.ColorFormatType.UnsignedShort
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.ColorFormatType
+  nameWithType: RenderFlags.ColorFormatType
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatType
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ColorFormatType
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 109
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Represents the type of color format used in textures and render targets.
+  example: []
+  syntax:
+    content: public enum RenderFlags.ColorFormatType
+    content.vb: Public Enum RenderFlags.ColorFormatType
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatType.UnsignedByte
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatType.UnsignedByte
+  id: UnsignedByte
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatType
+  langs:
+  - csharp
+  - vb
+  name: UnsignedByte
+  nameWithType: RenderFlags.ColorFormatType.UnsignedByte
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatType.UnsignedByte
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: UnsignedByte
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 111
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: UnsignedByte = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatType
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatType.Float
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatType.Float
+  id: Float
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatType
+  langs:
+  - csharp
+  - vb
+  name: Float
+  nameWithType: RenderFlags.ColorFormatType.Float
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatType.Float
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Float
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 112
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Float = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatType
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatType.HalfFloat
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatType.HalfFloat
+  id: HalfFloat
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatType
+  langs:
+  - csharp
+  - vb
+  name: HalfFloat
+  nameWithType: RenderFlags.ColorFormatType.HalfFloat
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatType.HalfFloat
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: HalfFloat
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 113
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: HalfFloat = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatType
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatType.UnsignedInt24_8
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatType.UnsignedInt24_8
+  id: UnsignedInt24_8
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatType
+  langs:
+  - csharp
+  - vb
+  name: UnsignedInt24_8
+  nameWithType: RenderFlags.ColorFormatType.UnsignedInt24_8
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatType.UnsignedInt24_8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: UnsignedInt24_8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 114
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: UnsignedInt24_8 = 3
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatType
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatType.UnsignedShort
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatType.UnsignedShort
+  id: UnsignedShort
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatType
+  langs:
+  - csharp
+  - vb
+  name: UnsignedShort
+  nameWithType: RenderFlags.ColorFormatType.UnsignedShort
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatType.UnsignedShort
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: UnsignedShort
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 115
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: UnsignedShort = 4
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatType
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatType.UnsignedInt
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatType.UnsignedInt
+  id: UnsignedInt
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatType
+  langs:
+  - csharp
+  - vb
+  name: UnsignedInt
+  nameWithType: RenderFlags.ColorFormatType.UnsignedInt
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatType.UnsignedInt
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: UnsignedInt
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 116
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: UnsignedInt = 5
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatType
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatType
+  commentId: T:LibGFX.Graphics.RenderFlags.ColorFormatType
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.ColorFormatType
+  nameWithType: RenderFlags.ColorFormatType
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatType
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.ColorFormatType
+    name: ColorFormatType
+    href: LibGFX.Graphics.RenderFlags.ColorFormatType.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.ColorFormatType
+    name: ColorFormatType
+    href: LibGFX.Graphics.RenderFlags.ColorFormatType.html

@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Assets
+  commentId: N:LibGFX.Assets
+  id: LibGFX.Assets
+  children:
+  - LibGFX.Assets.AssetManager
+  - LibGFX.Assets.IFileAsset
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Assets
+  nameWithType: LibGFX.Assets
+  fullName: LibGFX.Assets
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Assets.AssetManager
+  commentId: T:LibGFX.Assets.AssetManager
+  parent: LibGFX.Assets
+  href: LibGFX.Assets.AssetManager.html
+  name: AssetManager
+  nameWithType: AssetManager
+  fullName: LibGFX.Assets.AssetManager
+- uid: LibGFX.Assets.IFileAsset
+  commentId: T:LibGFX.Assets.IFileAsset
+  parent: LibGFX.Assets
+  href: LibGFX.Assets.IFileAsset.html
+  name: IFileAsset
+  nameWithType: IFileAsset
+  fullName: LibGFX.Assets.IFileAsset
+- uid: LibGFX.Assets
+  commentId: N:LibGFX.Assets
+  href: LibGFX.html
+  name: LibGFX.Assets
+  nameWithType: LibGFX.Assets
+  fullName: LibGFX.Assets
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html

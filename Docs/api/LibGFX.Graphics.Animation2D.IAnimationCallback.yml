@@ -1,0 +1,394 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Animation2D.IAnimationCallback
+  commentId: T:LibGFX.Graphics.Animation2D.IAnimationCallback
+  id: IAnimationCallback
+  parent: LibGFX.Graphics.Animation2D
+  children:
+  - LibGFX.Graphics.Animation2D.IAnimationCallback.Active
+  - LibGFX.Graphics.Animation2D.IAnimationCallback.Animation
+  - LibGFX.Graphics.Animation2D.IAnimationCallback.OnAnimationEnd(System.Int32)
+  - LibGFX.Graphics.Animation2D.IAnimationCallback.OnTriggered(System.Int32)
+  - LibGFX.Graphics.Animation2D.IAnimationCallback.TriggerFrames
+  langs:
+  - csharp
+  - vb
+  name: IAnimationCallback
+  nameWithType: IAnimationCallback
+  fullName: LibGFX.Graphics.Animation2D.IAnimationCallback
+  type: Interface
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/IAnimationCallback.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IAnimationCallback
+    path: ../LibGFX/Graphics/Animation2D/IAnimationCallback.cs
+    startLine: 11
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: Represents a callback interface for 2D animations.
+  example: []
+  syntax:
+    content: public interface IAnimationCallback
+    content.vb: Public Interface IAnimationCallback
+- uid: LibGFX.Graphics.Animation2D.IAnimationCallback.TriggerFrames
+  commentId: P:LibGFX.Graphics.Animation2D.IAnimationCallback.TriggerFrames
+  id: TriggerFrames
+  parent: LibGFX.Graphics.Animation2D.IAnimationCallback
+  langs:
+  - csharp
+  - vb
+  name: TriggerFrames
+  nameWithType: IAnimationCallback.TriggerFrames
+  fullName: LibGFX.Graphics.Animation2D.IAnimationCallback.TriggerFrames
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/IAnimationCallback.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TriggerFrames
+    path: ../LibGFX/Graphics/Animation2D/IAnimationCallback.cs
+    startLine: 16
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: Gets the list of trigger frames for the animation callback.
+  example: []
+  syntax:
+    content: IEnumerable<int> TriggerFrames { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: ReadOnly Property TriggerFrames As IEnumerable(Of Integer)
+  overload: LibGFX.Graphics.Animation2D.IAnimationCallback.TriggerFrames*
+- uid: LibGFX.Graphics.Animation2D.IAnimationCallback.Active
+  commentId: P:LibGFX.Graphics.Animation2D.IAnimationCallback.Active
+  id: Active
+  parent: LibGFX.Graphics.Animation2D.IAnimationCallback
+  langs:
+  - csharp
+  - vb
+  name: Active
+  nameWithType: IAnimationCallback.Active
+  fullName: LibGFX.Graphics.Animation2D.IAnimationCallback.Active
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/IAnimationCallback.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Active
+    path: ../LibGFX/Graphics/Animation2D/IAnimationCallback.cs
+    startLine: 21
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: Determines if the animation callback is active.
+  example: []
+  syntax:
+    content: bool Active { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Property Active As Boolean
+  overload: LibGFX.Graphics.Animation2D.IAnimationCallback.Active*
+- uid: LibGFX.Graphics.Animation2D.IAnimationCallback.Animation
+  commentId: P:LibGFX.Graphics.Animation2D.IAnimationCallback.Animation
+  id: Animation
+  parent: LibGFX.Graphics.Animation2D.IAnimationCallback
+  langs:
+  - csharp
+  - vb
+  name: Animation
+  nameWithType: IAnimationCallback.Animation
+  fullName: LibGFX.Graphics.Animation2D.IAnimationCallback.Animation
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/IAnimationCallback.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Animation
+    path: ../LibGFX/Graphics/Animation2D/IAnimationCallback.cs
+    startLine: 26
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: The animation associated with the callback.
+  example: []
+  syntax:
+    content: Animation2D Animation { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.Animation2D.Animation2D
+    content.vb: Property Animation As Animation2D
+  overload: LibGFX.Graphics.Animation2D.IAnimationCallback.Animation*
+- uid: LibGFX.Graphics.Animation2D.IAnimationCallback.OnTriggered(System.Int32)
+  commentId: M:LibGFX.Graphics.Animation2D.IAnimationCallback.OnTriggered(System.Int32)
+  id: OnTriggered(System.Int32)
+  parent: LibGFX.Graphics.Animation2D.IAnimationCallback
+  langs:
+  - csharp
+  - vb
+  name: OnTriggered(int)
+  nameWithType: IAnimationCallback.OnTriggered(int)
+  fullName: LibGFX.Graphics.Animation2D.IAnimationCallback.OnTriggered(int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/IAnimationCallback.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnTriggered
+    path: ../LibGFX/Graphics/Animation2D/IAnimationCallback.cs
+    startLine: 34
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: Called when the animation is triggered.
+  example: []
+  syntax:
+    content: void OnTriggered(int frame)
+    parameters:
+    - id: frame
+      type: System.Int32
+      description: ''
+    content.vb: Sub OnTriggered(frame As Integer)
+  overload: LibGFX.Graphics.Animation2D.IAnimationCallback.OnTriggered*
+  nameWithType.vb: IAnimationCallback.OnTriggered(Integer)
+  fullName.vb: LibGFX.Graphics.Animation2D.IAnimationCallback.OnTriggered(Integer)
+  name.vb: OnTriggered(Integer)
+- uid: LibGFX.Graphics.Animation2D.IAnimationCallback.OnAnimationEnd(System.Int32)
+  commentId: M:LibGFX.Graphics.Animation2D.IAnimationCallback.OnAnimationEnd(System.Int32)
+  id: OnAnimationEnd(System.Int32)
+  parent: LibGFX.Graphics.Animation2D.IAnimationCallback
+  langs:
+  - csharp
+  - vb
+  name: OnAnimationEnd(int)
+  nameWithType: IAnimationCallback.OnAnimationEnd(int)
+  fullName: LibGFX.Graphics.Animation2D.IAnimationCallback.OnAnimationEnd(int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Animation2D/IAnimationCallback.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnAnimationEnd
+    path: ../LibGFX/Graphics/Animation2D/IAnimationCallback.cs
+    startLine: 40
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Animation2D
+  summary: Called when the animation ends.
+  example: []
+  syntax:
+    content: void OnAnimationEnd(int frame)
+    parameters:
+    - id: frame
+      type: System.Int32
+    content.vb: Sub OnAnimationEnd(frame As Integer)
+  overload: LibGFX.Graphics.Animation2D.IAnimationCallback.OnAnimationEnd*
+  nameWithType.vb: IAnimationCallback.OnAnimationEnd(Integer)
+  fullName.vb: LibGFX.Graphics.Animation2D.IAnimationCallback.OnAnimationEnd(Integer)
+  name.vb: OnAnimationEnd(Integer)
+references:
+- uid: LibGFX.Graphics.Animation2D
+  commentId: N:LibGFX.Graphics.Animation2D
+  href: LibGFX.html
+  name: LibGFX.Graphics.Animation2D
+  nameWithType: LibGFX.Graphics.Animation2D
+  fullName: LibGFX.Graphics.Animation2D
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Animation2D
+    name: Animation2D
+    href: LibGFX.Graphics.Animation2D.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Animation2D
+    name: Animation2D
+    href: LibGFX.Graphics.Animation2D.html
+- uid: LibGFX.Graphics.Animation2D.IAnimationCallback.TriggerFrames*
+  commentId: Overload:LibGFX.Graphics.Animation2D.IAnimationCallback.TriggerFrames
+  href: LibGFX.Graphics.Animation2D.IAnimationCallback.html#LibGFX_Graphics_Animation2D_IAnimationCallback_TriggerFrames
+  name: TriggerFrames
+  nameWithType: IAnimationCallback.TriggerFrames
+  fullName: LibGFX.Graphics.Animation2D.IAnimationCallback.TriggerFrames
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<int>
+  nameWithType: IEnumerable<int>
+  fullName: System.Collections.Generic.IEnumerable<int>
+  nameWithType.vb: IEnumerable(Of Integer)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Integer)
+  name.vb: IEnumerable(Of Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: LibGFX.Graphics.Animation2D.IAnimationCallback.Active*
+  commentId: Overload:LibGFX.Graphics.Animation2D.IAnimationCallback.Active
+  href: LibGFX.Graphics.Animation2D.IAnimationCallback.html#LibGFX_Graphics_Animation2D_IAnimationCallback_Active
+  name: Active
+  nameWithType: IAnimationCallback.Active
+  fullName: LibGFX.Graphics.Animation2D.IAnimationCallback.Active
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Graphics.Animation2D.IAnimationCallback.Animation*
+  commentId: Overload:LibGFX.Graphics.Animation2D.IAnimationCallback.Animation
+  href: LibGFX.Graphics.Animation2D.IAnimationCallback.html#LibGFX_Graphics_Animation2D_IAnimationCallback_Animation
+  name: Animation
+  nameWithType: IAnimationCallback.Animation
+  fullName: LibGFX.Graphics.Animation2D.IAnimationCallback.Animation
+- uid: LibGFX.Graphics.Animation2D.Animation2D
+  commentId: T:LibGFX.Graphics.Animation2D.Animation2D
+  parent: LibGFX.Graphics.Animation2D
+  href: LibGFX.Graphics.Animation2D.Animation2D.html
+  name: Animation2D
+  nameWithType: Animation2D
+  fullName: LibGFX.Graphics.Animation2D.Animation2D
+- uid: LibGFX.Graphics.Animation2D.IAnimationCallback.OnTriggered*
+  commentId: Overload:LibGFX.Graphics.Animation2D.IAnimationCallback.OnTriggered
+  href: LibGFX.Graphics.Animation2D.IAnimationCallback.html#LibGFX_Graphics_Animation2D_IAnimationCallback_OnTriggered_System_Int32_
+  name: OnTriggered
+  nameWithType: IAnimationCallback.OnTriggered
+  fullName: LibGFX.Graphics.Animation2D.IAnimationCallback.OnTriggered
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LibGFX.Graphics.Animation2D.IAnimationCallback.OnAnimationEnd*
+  commentId: Overload:LibGFX.Graphics.Animation2D.IAnimationCallback.OnAnimationEnd
+  href: LibGFX.Graphics.Animation2D.IAnimationCallback.html#LibGFX_Graphics_Animation2D_IAnimationCallback_OnAnimationEnd_System_Int32_
+  name: OnAnimationEnd
+  nameWithType: IAnimationCallback.OnAnimationEnd
+  fullName: LibGFX.Graphics.Animation2D.IAnimationCallback.OnAnimationEnd

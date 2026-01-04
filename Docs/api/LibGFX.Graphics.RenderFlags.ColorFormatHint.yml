@@ -1,0 +1,697 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  commentId: T:LibGFX.Graphics.RenderFlags.ColorFormatHint
+  id: RenderFlags.ColorFormatHint
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth16
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth24
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth24Stencil8
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth32
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth32FStencil8
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.DepthStencil
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.R16F
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.R32F
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.R8
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.RG16F
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.RG32F
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.RG8
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB10A2
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB16F
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB32F
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB8
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA16F
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA32F
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA8
+  - LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA8UI
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.ColorFormatHint
+  nameWithType: RenderFlags.ColorFormatHint
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ColorFormatHint
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 66
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Hints for color formats used in textures and render targets.
+  example: []
+  syntax:
+    content: public enum RenderFlags.ColorFormatHint
+    content.vb: Public Enum RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.R8
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.R8
+  id: R8
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: R8
+  nameWithType: RenderFlags.ColorFormatHint.R8
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.R8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: R8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 68
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: R8 = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.RG8
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.RG8
+  id: RG8
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: RG8
+  nameWithType: RenderFlags.ColorFormatHint.RG8
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.RG8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RG8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 69
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RG8 = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB8
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB8
+  id: RGB8
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: RGB8
+  nameWithType: RenderFlags.ColorFormatHint.RGB8
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RGB8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 70
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RGB8 = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA8
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA8
+  id: RGBA8
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: RGBA8
+  nameWithType: RenderFlags.ColorFormatHint.RGBA8
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RGBA8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 71
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RGBA8 = 3
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.R16F
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.R16F
+  id: R16F
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: R16F
+  nameWithType: RenderFlags.ColorFormatHint.R16F
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.R16F
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: R16F
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 72
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: R16F = 4
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.RG16F
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.RG16F
+  id: RG16F
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: RG16F
+  nameWithType: RenderFlags.ColorFormatHint.RG16F
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.RG16F
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RG16F
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 73
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RG16F = 5
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB16F
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB16F
+  id: RGB16F
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: RGB16F
+  nameWithType: RenderFlags.ColorFormatHint.RGB16F
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB16F
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RGB16F
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 74
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RGB16F = 6
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA16F
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA16F
+  id: RGBA16F
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: RGBA16F
+  nameWithType: RenderFlags.ColorFormatHint.RGBA16F
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA16F
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RGBA16F
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 75
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RGBA16F = 7
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.R32F
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.R32F
+  id: R32F
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: R32F
+  nameWithType: RenderFlags.ColorFormatHint.R32F
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.R32F
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: R32F
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 76
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: R32F = 8
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.RG32F
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.RG32F
+  id: RG32F
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: RG32F
+  nameWithType: RenderFlags.ColorFormatHint.RG32F
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.RG32F
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RG32F
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 77
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RG32F = 9
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB32F
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB32F
+  id: RGB32F
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: RGB32F
+  nameWithType: RenderFlags.ColorFormatHint.RGB32F
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB32F
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RGB32F
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 78
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RGB32F = 10
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA32F
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA32F
+  id: RGBA32F
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: RGBA32F
+  nameWithType: RenderFlags.ColorFormatHint.RGBA32F
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA32F
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RGBA32F
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 79
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RGBA32F = 11
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA8UI
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA8UI
+  id: RGBA8UI
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: RGBA8UI
+  nameWithType: RenderFlags.ColorFormatHint.RGBA8UI
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA8UI
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RGBA8UI
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 80
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RGBA8UI = 12
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB10A2
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB10A2
+  id: RGB10A2
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: RGB10A2
+  nameWithType: RenderFlags.ColorFormatHint.RGB10A2
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB10A2
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RGB10A2
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 81
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RGB10A2 = 13
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth16
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth16
+  id: Depth16
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: Depth16
+  nameWithType: RenderFlags.ColorFormatHint.Depth16
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth16
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Depth16
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 82
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Depth16 = 14
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth24
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth24
+  id: Depth24
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: Depth24
+  nameWithType: RenderFlags.ColorFormatHint.Depth24
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth24
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Depth24
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 83
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Depth24 = 15
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth32
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth32
+  id: Depth32
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: Depth32
+  nameWithType: RenderFlags.ColorFormatHint.Depth32
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth32
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Depth32
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 84
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Depth32 = 16
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth24Stencil8
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth24Stencil8
+  id: Depth24Stencil8
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: Depth24Stencil8
+  nameWithType: RenderFlags.ColorFormatHint.Depth24Stencil8
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth24Stencil8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Depth24Stencil8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 85
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Depth24Stencil8 = 17
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth32FStencil8
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth32FStencil8
+  id: Depth32FStencil8
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: Depth32FStencil8
+  nameWithType: RenderFlags.ColorFormatHint.Depth32FStencil8
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth32FStencil8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Depth32FStencil8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 86
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Depth32FStencil8 = 18
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB
+  id: RGB
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: RGB
+  nameWithType: RenderFlags.ColorFormatHint.RGB
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGB
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RGB
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 87
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RGB = 19
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA
+  id: RGBA
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: RGBA
+  nameWithType: RenderFlags.ColorFormatHint.RGBA
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.RGBA
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RGBA
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 88
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RGBA = 20
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth
+  id: Depth
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: Depth
+  nameWithType: RenderFlags.ColorFormatHint.Depth
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.Depth
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Depth
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 89
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Depth = 21
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint.DepthStencil
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatHint.DepthStencil
+  id: DepthStencil
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  langs:
+  - csharp
+  - vb
+  name: DepthStencil
+  nameWithType: RenderFlags.ColorFormatHint.DepthStencil
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint.DepthStencil
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DepthStencil
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 90
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: DepthStencil = 22
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatHint
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  commentId: T:LibGFX.Graphics.RenderFlags.ColorFormatHint
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.ColorFormatHint
+  nameWithType: RenderFlags.ColorFormatHint
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatHint
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.ColorFormatHint
+    name: ColorFormatHint
+    href: LibGFX.Graphics.RenderFlags.ColorFormatHint.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.ColorFormatHint
+    name: ColorFormatHint
+    href: LibGFX.Graphics.RenderFlags.ColorFormatHint.html

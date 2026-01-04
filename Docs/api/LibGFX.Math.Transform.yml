@@ -1,0 +1,2710 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Math.Transform
+  commentId: T:LibGFX.Math.Transform
+  id: Transform
+  parent: LibGFX.Math
+  children:
+  - LibGFX.Math.Transform.#ctor
+  - LibGFX.Math.Transform.#ctor(OpenTK.Mathematics.Matrix4)
+  - LibGFX.Math.Transform.#ctor(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  - LibGFX.Math.Transform.#ctor(OpenTK.Mathematics.Vector2,System.Single,OpenTK.Mathematics.Vector2)
+  - LibGFX.Math.Transform.#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - LibGFX.Math.Transform.#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - LibGFX.Math.Transform.Attach(LibGFX.Math.Transform,LibGFX.Math.Transform)
+  - LibGFX.Math.Transform.Changed
+  - LibGFX.Math.Transform.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  - LibGFX.Math.Transform.Forward
+  - LibGFX.Math.Transform.GetEulerAngles
+  - LibGFX.Math.Transform.GetFront(System.Boolean)
+  - LibGFX.Math.Transform.GetMatrix
+  - LibGFX.Math.Transform.GetPitchAngle
+  - LibGFX.Math.Transform.GetPitchQuat
+  - LibGFX.Math.Transform.GetRight
+  - LibGFX.Math.Transform.GetRightFlat
+  - LibGFX.Math.Transform.GetRollAngle
+  - LibGFX.Math.Transform.GetRollQuat
+  - LibGFX.Math.Transform.GetUp
+  - LibGFX.Math.Transform.GetYawAngle
+  - LibGFX.Math.Transform.GetYawQuat
+  - LibGFX.Math.Transform.LocalToWorldPositon(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)
+  - LibGFX.Math.Transform.Matrix
+  - LibGFX.Math.Transform.Position
+  - LibGFX.Math.Transform.Right
+  - LibGFX.Math.Transform.Rotate(OpenTK.Mathematics.Vector2)
+  - LibGFX.Math.Transform.Rotate(OpenTK.Mathematics.Vector3)
+  - LibGFX.Math.Transform.Rotate(System.Single)
+  - LibGFX.Math.Transform.Rotate(System.Single,System.Single,System.Single)
+  - LibGFX.Math.Transform.Rotation
+  - LibGFX.Math.Transform.Scale
+  - LibGFX.Math.Transform.ScaleBy(OpenTK.Mathematics.Vector2)
+  - LibGFX.Math.Transform.ScaleBy(OpenTK.Mathematics.Vector3)
+  - LibGFX.Math.Transform.ScaleBy(System.Single,System.Single,System.Single)
+  - LibGFX.Math.Transform.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  - LibGFX.Math.Transform.SetPosition(OpenTK.Mathematics.Matrix4)
+  - LibGFX.Math.Transform.SetRotation(OpenTK.Mathematics.Vector2)
+  - LibGFX.Math.Transform.SetRotation(OpenTK.Mathematics.Vector3)
+  - LibGFX.Math.Transform.SetRotation(System.Single)
+  - LibGFX.Math.Transform.ToDegrees(OpenTK.Mathematics.Vector3)
+  - LibGFX.Math.Transform.ToRadians(OpenTK.Mathematics.Vector3)
+  - LibGFX.Math.Transform.Towards(OpenTK.Mathematics.Vector3)
+  - LibGFX.Math.Transform.TransformDirection(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3,System.Boolean)
+  - LibGFX.Math.Transform.Translate(OpenTK.Mathematics.Vector2)
+  - LibGFX.Math.Transform.Translate(OpenTK.Mathematics.Vector3)
+  - LibGFX.Math.Transform.Translate(System.Single,System.Single,System.Single)
+  - LibGFX.Math.Transform.Up
+  - LibGFX.Math.Transform.WorldToLocalPosition(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)
+  langs:
+  - csharp
+  - vb
+  name: Transform
+  nameWithType: Transform
+  fullName: LibGFX.Math.Transform
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Transform
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 16
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Represents a 3D transformation.
+  example: []
+  syntax:
+    content: 'public class Transform : ISerialization'
+    content.vb: Public Class Transform Implements ISerialization
+  inheritance:
+  - System.Object
+  implements:
+  - LibGFX.Core.ISerialization
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Math.Transform.Position
+  commentId: P:LibGFX.Math.Transform.Position
+  id: Position
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Position
+  nameWithType: Transform.Position
+  fullName: LibGFX.Math.Transform.Position
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Position
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 22
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: The position of the transformation.
+  example: []
+  syntax:
+    content: public Vector3 Position { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Property Position As Vector3
+  overload: LibGFX.Math.Transform.Position*
+- uid: LibGFX.Math.Transform.Rotation
+  commentId: P:LibGFX.Math.Transform.Rotation
+  id: Rotation
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Rotation
+  nameWithType: Transform.Rotation
+  fullName: LibGFX.Math.Transform.Rotation
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rotation
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 28
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: The rotation of the transformation.
+  example: []
+  syntax:
+    content: public Quaternion Rotation { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Quaternion
+    content.vb: Public Property Rotation As Quaternion
+  overload: LibGFX.Math.Transform.Rotation*
+- uid: LibGFX.Math.Transform.Scale
+  commentId: P:LibGFX.Math.Transform.Scale
+  id: Scale
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Scale
+  nameWithType: Transform.Scale
+  fullName: LibGFX.Math.Transform.Scale
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Scale
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 34
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: The scale of the transformation.
+  example: []
+  syntax:
+    content: public Vector3 Scale { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Property Scale As Vector3
+  overload: LibGFX.Math.Transform.Scale*
+- uid: LibGFX.Math.Transform.Changed
+  commentId: E:LibGFX.Math.Transform.Changed
+  id: Changed
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Changed
+  nameWithType: Transform.Changed
+  fullName: LibGFX.Math.Transform.Changed
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Changed
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 42
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Occurs when the transform has changed.
+  remarks: >-
+    Subscribe to this event to be notified whenever the associated transform is modified.
+        The event provides the updated transform as an argument to the event handler. Handlers are invoked in the
+        order in which they were added.
+  example: []
+  syntax:
+    content: public event Action<Transform> Changed
+    return:
+      type: System.Action{LibGFX.Math.Transform}
+    content.vb: Public Event Changed As Action(Of Transform)
+- uid: LibGFX.Math.Transform.Forward
+  commentId: P:LibGFX.Math.Transform.Forward
+  id: Forward
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Forward
+  nameWithType: Transform.Forward
+  fullName: LibGFX.Math.Transform.Forward
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Forward
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 47
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Gets the forward direction based on the current rotation.
+  example: []
+  syntax:
+    content: public Vector3 Forward { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public ReadOnly Property Forward As Vector3
+  overload: LibGFX.Math.Transform.Forward*
+- uid: LibGFX.Math.Transform.Right
+  commentId: P:LibGFX.Math.Transform.Right
+  id: Right
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Right
+  nameWithType: Transform.Right
+  fullName: LibGFX.Math.Transform.Right
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Right
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 52
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Gets the Right direction based on the current rotation.
+  example: []
+  syntax:
+    content: public Vector3 Right { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public ReadOnly Property Right As Vector3
+  overload: LibGFX.Math.Transform.Right*
+- uid: LibGFX.Math.Transform.Up
+  commentId: P:LibGFX.Math.Transform.Up
+  id: Up
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Up
+  nameWithType: Transform.Up
+  fullName: LibGFX.Math.Transform.Up
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Up
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 57
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Gets the Up direction based on the current rotation.
+  example: []
+  syntax:
+    content: public Vector3 Up { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public ReadOnly Property Up As Vector3
+  overload: LibGFX.Math.Transform.Up*
+- uid: LibGFX.Math.Transform.Matrix
+  commentId: P:LibGFX.Math.Transform.Matrix
+  id: Matrix
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Matrix
+  nameWithType: Transform.Matrix
+  fullName: LibGFX.Math.Transform.Matrix
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Matrix
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 62
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Gets the transformation matrix representing the position, rotation, and scale of the transform.
+  example: []
+  syntax:
+    content: public Matrix4 Matrix { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Matrix4
+    content.vb: Public ReadOnly Property Matrix As Matrix4
+  overload: LibGFX.Math.Transform.Matrix*
+- uid: LibGFX.Math.Transform.#ctor
+  commentId: M:LibGFX.Math.Transform.#ctor
+  id: '#ctor'
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Transform()
+  nameWithType: Transform.Transform()
+  fullName: LibGFX.Math.Transform.Transform()
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 67
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Creates a new instance of the Transform class.
+  example: []
+  syntax:
+    content: public Transform()
+    content.vb: Public Sub New()
+  overload: LibGFX.Math.Transform.#ctor*
+  nameWithType.vb: Transform.New()
+  fullName.vb: LibGFX.Math.Transform.New()
+  name.vb: New()
+- uid: LibGFX.Math.Transform.#ctor(OpenTK.Mathematics.Vector2,System.Single,OpenTK.Mathematics.Vector2)
+  commentId: M:LibGFX.Math.Transform.#ctor(OpenTK.Mathematics.Vector2,System.Single,OpenTK.Mathematics.Vector2)
+  id: '#ctor(OpenTK.Mathematics.Vector2,System.Single,OpenTK.Mathematics.Vector2)'
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector2, float, Vector2)
+  nameWithType: Transform.Transform(Vector2, float, Vector2)
+  fullName: LibGFX.Math.Transform.Transform(OpenTK.Mathematics.Vector2, float, OpenTK.Mathematics.Vector2)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 80
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Initializes a new instance of the <xref href="LibGFX.Math.Transform" data-throw-if-not-resolved="false"></xref> class with a 2D position, rotation around the Z-axis in degrees, and scale.
+  example: []
+  syntax:
+    content: public Transform(Vector2 position, float rotationZ, Vector2 scale)
+    parameters:
+    - id: position
+      type: OpenTK.Mathematics.Vector2
+      description: The 2D position.
+    - id: rotationZ
+      type: System.Single
+      description: The rotation around the Z-axis in degrees.
+    - id: scale
+      type: OpenTK.Mathematics.Vector2
+      description: The 2D scale.
+    content.vb: Public Sub New(position As Vector2, rotationZ As Single, scale As Vector2)
+  overload: LibGFX.Math.Transform.#ctor*
+  nameWithType.vb: Transform.New(Vector2, Single, Vector2)
+  fullName.vb: LibGFX.Math.Transform.New(OpenTK.Mathematics.Vector2, Single, OpenTK.Mathematics.Vector2)
+  name.vb: New(Vector2, Single, Vector2)
+- uid: LibGFX.Math.Transform.#ctor(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  commentId: M:LibGFX.Math.Transform.#ctor(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)
+  id: '#ctor(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2)'
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector2, Vector2)
+  nameWithType: Transform.Transform(Vector2, Vector2)
+  fullName: LibGFX.Math.Transform.Transform(OpenTK.Mathematics.Vector2, OpenTK.Mathematics.Vector2)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 92
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Initializes a new instance of the <xref href="LibGFX.Math.Transform" data-throw-if-not-resolved="false"></xref> class with a 2D position and scale.
+  example: []
+  syntax:
+    content: public Transform(Vector2 position, Vector2 scale)
+    parameters:
+    - id: position
+      type: OpenTK.Mathematics.Vector2
+      description: The 2D position.
+    - id: scale
+      type: OpenTK.Mathematics.Vector2
+      description: The 2D scale.
+    content.vb: Public Sub New(position As Vector2, scale As Vector2)
+  overload: LibGFX.Math.Transform.#ctor*
+  nameWithType.vb: Transform.New(Vector2, Vector2)
+  fullName.vb: LibGFX.Math.Transform.New(OpenTK.Mathematics.Vector2, OpenTK.Mathematics.Vector2)
+  name.vb: New(Vector2, Vector2)
+- uid: LibGFX.Math.Transform.#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Math.Transform.#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  id: '#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)'
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector3, Vector3, Vector3)
+  nameWithType: Transform.Transform(Vector3, Vector3, Vector3)
+  fullName: LibGFX.Math.Transform.Transform(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 103
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Initializes a new instance of the <xref href="LibGFX.Math.Transform" data-throw-if-not-resolved="false"></xref> class with position, rotation in degrees, and scale.
+  example: []
+  syntax:
+    content: public Transform(Vector3 position, Vector3 rotation, Vector3 scale)
+    parameters:
+    - id: position
+      type: OpenTK.Mathematics.Vector3
+      description: The 3D position.
+    - id: rotation
+      type: OpenTK.Mathematics.Vector3
+      description: The rotation in degrees.
+    - id: scale
+      type: OpenTK.Mathematics.Vector3
+      description: The 3D scale.
+    content.vb: Public Sub New(position As Vector3, rotation As Vector3, scale As Vector3)
+  overload: LibGFX.Math.Transform.#ctor*
+  nameWithType.vb: Transform.New(Vector3, Vector3, Vector3)
+  fullName.vb: LibGFX.Math.Transform.New(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  name.vb: New(Vector3, Vector3, Vector3)
+- uid: LibGFX.Math.Transform.#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Math.Transform.#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  id: '#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)'
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Transform(Vector3, Vector3)
+  nameWithType: Transform.Transform(Vector3, Vector3)
+  fullName: LibGFX.Math.Transform.Transform(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 115
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Initializes a new instance of the <xref href="LibGFX.Math.Transform" data-throw-if-not-resolved="false"></xref> class with position and scale.
+  example: []
+  syntax:
+    content: public Transform(Vector3 position, Vector3 scale)
+    parameters:
+    - id: position
+      type: OpenTK.Mathematics.Vector3
+      description: The 3D position.
+    - id: scale
+      type: OpenTK.Mathematics.Vector3
+      description: The 3D scale.
+    content.vb: Public Sub New(position As Vector3, scale As Vector3)
+  overload: LibGFX.Math.Transform.#ctor*
+  nameWithType.vb: Transform.New(Vector3, Vector3)
+  fullName.vb: LibGFX.Math.Transform.New(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  name.vb: New(Vector3, Vector3)
+- uid: LibGFX.Math.Transform.#ctor(OpenTK.Mathematics.Matrix4)
+  commentId: M:LibGFX.Math.Transform.#ctor(OpenTK.Mathematics.Matrix4)
+  id: '#ctor(OpenTK.Mathematics.Matrix4)'
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Transform(Matrix4)
+  nameWithType: Transform.Transform(Matrix4)
+  fullName: LibGFX.Math.Transform.Transform(OpenTK.Mathematics.Matrix4)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 124
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Initializes a new instance of the <xref href="LibGFX.Math.Transform" data-throw-if-not-resolved="false"></xref> class from a transformation matrix.
+  example: []
+  syntax:
+    content: public Transform(Matrix4 matrix)
+    parameters:
+    - id: matrix
+      type: OpenTK.Mathematics.Matrix4
+      description: ''
+    content.vb: Public Sub New(matrix As Matrix4)
+  overload: LibGFX.Math.Transform.#ctor*
+  nameWithType.vb: Transform.New(Matrix4)
+  fullName.vb: LibGFX.Math.Transform.New(OpenTK.Mathematics.Matrix4)
+  name.vb: New(Matrix4)
+- uid: LibGFX.Math.Transform.SetRotation(OpenTK.Mathematics.Vector2)
+  commentId: M:LibGFX.Math.Transform.SetRotation(OpenTK.Mathematics.Vector2)
+  id: SetRotation(OpenTK.Mathematics.Vector2)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: SetRotation(Vector2)
+  nameWithType: Transform.SetRotation(Vector2)
+  fullName: LibGFX.Math.Transform.SetRotation(OpenTK.Mathematics.Vector2)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetRotation
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 135
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Sets the rotation in degrees using a 2D vector.
+  example: []
+  syntax:
+    content: public void SetRotation(Vector2 rotation)
+    parameters:
+    - id: rotation
+      type: OpenTK.Mathematics.Vector2
+      description: The rotation vector in degrees.
+    content.vb: Public Sub SetRotation(rotation As Vector2)
+  overload: LibGFX.Math.Transform.SetRotation*
+- uid: LibGFX.Math.Transform.SetRotation(System.Single)
+  commentId: M:LibGFX.Math.Transform.SetRotation(System.Single)
+  id: SetRotation(System.Single)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: SetRotation(float)
+  nameWithType: Transform.SetRotation(float)
+  fullName: LibGFX.Math.Transform.SetRotation(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetRotation
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 144
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Sets the rotation in degrees using a single float value representing rotation around the Z-axis.
+  example: []
+  syntax:
+    content: public void SetRotation(float rotation)
+    parameters:
+    - id: rotation
+      type: System.Single
+      description: The rotation in degrees.
+    content.vb: Public Sub SetRotation(rotation As Single)
+  overload: LibGFX.Math.Transform.SetRotation*
+  nameWithType.vb: Transform.SetRotation(Single)
+  fullName.vb: LibGFX.Math.Transform.SetRotation(Single)
+  name.vb: SetRotation(Single)
+- uid: LibGFX.Math.Transform.SetRotation(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Math.Transform.SetRotation(OpenTK.Mathematics.Vector3)
+  id: SetRotation(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: SetRotation(Vector3)
+  nameWithType: Transform.SetRotation(Vector3)
+  fullName: LibGFX.Math.Transform.SetRotation(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetRotation
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 153
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Sets the rotation in degrees using a 3D vector.
+  example: []
+  syntax:
+    content: public void SetRotation(Vector3 rotation)
+    parameters:
+    - id: rotation
+      type: OpenTK.Mathematics.Vector3
+      description: The rotation vector in degrees.
+    content.vb: Public Sub SetRotation(rotation As Vector3)
+  overload: LibGFX.Math.Transform.SetRotation*
+- uid: LibGFX.Math.Transform.Rotate(OpenTK.Mathematics.Vector2)
+  commentId: M:LibGFX.Math.Transform.Rotate(OpenTK.Mathematics.Vector2)
+  id: Rotate(OpenTK.Mathematics.Vector2)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Rotate(Vector2)
+  nameWithType: Transform.Rotate(Vector2)
+  fullName: LibGFX.Math.Transform.Rotate(OpenTK.Mathematics.Vector2)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rotate
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 162
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Rotates by a specified 2D vector in degrees.
+  example: []
+  syntax:
+    content: public void Rotate(Vector2 rotation)
+    parameters:
+    - id: rotation
+      type: OpenTK.Mathematics.Vector2
+      description: The rotation vector in degrees.
+    content.vb: Public Sub Rotate(rotation As Vector2)
+  overload: LibGFX.Math.Transform.Rotate*
+- uid: LibGFX.Math.Transform.Rotate(System.Single)
+  commentId: M:LibGFX.Math.Transform.Rotate(System.Single)
+  id: Rotate(System.Single)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Rotate(float)
+  nameWithType: Transform.Rotate(float)
+  fullName: LibGFX.Math.Transform.Rotate(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rotate
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 171
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Rotates around all axis by the specified degrees.
+  example: []
+  syntax:
+    content: public void Rotate(float rotation)
+    parameters:
+    - id: rotation
+      type: System.Single
+      description: The rotation in degrees.
+    content.vb: Public Sub Rotate(rotation As Single)
+  overload: LibGFX.Math.Transform.Rotate*
+  nameWithType.vb: Transform.Rotate(Single)
+  fullName.vb: LibGFX.Math.Transform.Rotate(Single)
+  name.vb: Rotate(Single)
+- uid: LibGFX.Math.Transform.Rotate(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Math.Transform.Rotate(OpenTK.Mathematics.Vector3)
+  id: Rotate(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Rotate(Vector3)
+  nameWithType: Transform.Rotate(Vector3)
+  fullName: LibGFX.Math.Transform.Rotate(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rotate
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 180
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Rotates by a specified 3D vector in degrees.
+  example: []
+  syntax:
+    content: public void Rotate(Vector3 rotation)
+    parameters:
+    - id: rotation
+      type: OpenTK.Mathematics.Vector3
+      description: The rotation vector in degrees.
+    content.vb: Public Sub Rotate(rotation As Vector3)
+  overload: LibGFX.Math.Transform.Rotate*
+- uid: LibGFX.Math.Transform.Rotate(System.Single,System.Single,System.Single)
+  commentId: M:LibGFX.Math.Transform.Rotate(System.Single,System.Single,System.Single)
+  id: Rotate(System.Single,System.Single,System.Single)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Rotate(float, float, float)
+  nameWithType: Transform.Rotate(float, float, float)
+  fullName: LibGFX.Math.Transform.Rotate(float, float, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rotate
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 191
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Rotates by specified pitch, yaw, and roll values in degrees.
+  example: []
+  syntax:
+    content: public void Rotate(float pitch, float yaw, float roll)
+    parameters:
+    - id: pitch
+      type: System.Single
+      description: Rotation around the X-axis in degrees.
+    - id: yaw
+      type: System.Single
+      description: Rotation around the Y-axis in degrees.
+    - id: roll
+      type: System.Single
+      description: Rotation around the Z-axis in degrees.
+    content.vb: Public Sub Rotate(pitch As Single, yaw As Single, roll As Single)
+  overload: LibGFX.Math.Transform.Rotate*
+  nameWithType.vb: Transform.Rotate(Single, Single, Single)
+  fullName.vb: LibGFX.Math.Transform.Rotate(Single, Single, Single)
+  name.vb: Rotate(Single, Single, Single)
+- uid: LibGFX.Math.Transform.GetPitchAngle
+  commentId: M:LibGFX.Math.Transform.GetPitchAngle
+  id: GetPitchAngle
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: GetPitchAngle()
+  nameWithType: Transform.GetPitchAngle()
+  fullName: LibGFX.Math.Transform.GetPitchAngle()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetPitchAngle
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 200
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Gets the pitch angle in radians based on the current rotation.
+  example: []
+  syntax:
+    content: public float GetPitchAngle()
+    return:
+      type: System.Single
+      description: ''
+    content.vb: Public Function GetPitchAngle() As Single
+  overload: LibGFX.Math.Transform.GetPitchAngle*
+- uid: LibGFX.Math.Transform.GetPitchQuat
+  commentId: M:LibGFX.Math.Transform.GetPitchQuat
+  id: GetPitchQuat
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: GetPitchQuat()
+  nameWithType: Transform.GetPitchQuat()
+  fullName: LibGFX.Math.Transform.GetPitchQuat()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetPitchQuat
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 210
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Gets the pitch rotation as a quaternion.
+  example: []
+  syntax:
+    content: public Quaternion GetPitchQuat()
+    return:
+      type: OpenTK.Mathematics.Quaternion
+      description: ''
+    content.vb: Public Function GetPitchQuat() As Quaternion
+  overload: LibGFX.Math.Transform.GetPitchQuat*
+- uid: LibGFX.Math.Transform.GetYawAngle
+  commentId: M:LibGFX.Math.Transform.GetYawAngle
+  id: GetYawAngle
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: GetYawAngle()
+  nameWithType: Transform.GetYawAngle()
+  fullName: LibGFX.Math.Transform.GetYawAngle()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetYawAngle
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 220
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Gets the yaw angle in radians based on the current rotation.
+  example: []
+  syntax:
+    content: public float GetYawAngle()
+    return:
+      type: System.Single
+      description: ''
+    content.vb: Public Function GetYawAngle() As Single
+  overload: LibGFX.Math.Transform.GetYawAngle*
+- uid: LibGFX.Math.Transform.GetYawQuat
+  commentId: M:LibGFX.Math.Transform.GetYawQuat
+  id: GetYawQuat
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: GetYawQuat()
+  nameWithType: Transform.GetYawQuat()
+  fullName: LibGFX.Math.Transform.GetYawQuat()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetYawQuat
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 230
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Gets the yaw rotation as a quaternion.
+  example: []
+  syntax:
+    content: public Quaternion GetYawQuat()
+    return:
+      type: OpenTK.Mathematics.Quaternion
+      description: ''
+    content.vb: Public Function GetYawQuat() As Quaternion
+  overload: LibGFX.Math.Transform.GetYawQuat*
+- uid: LibGFX.Math.Transform.GetRollAngle
+  commentId: M:LibGFX.Math.Transform.GetRollAngle
+  id: GetRollAngle
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: GetRollAngle()
+  nameWithType: Transform.GetRollAngle()
+  fullName: LibGFX.Math.Transform.GetRollAngle()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetRollAngle
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 240
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Gets the roll angle in radians based on the current rotation.
+  example: []
+  syntax:
+    content: public float GetRollAngle()
+    return:
+      type: System.Single
+      description: ''
+    content.vb: Public Function GetRollAngle() As Single
+  overload: LibGFX.Math.Transform.GetRollAngle*
+- uid: LibGFX.Math.Transform.GetRollQuat
+  commentId: M:LibGFX.Math.Transform.GetRollQuat
+  id: GetRollQuat
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: GetRollQuat()
+  nameWithType: Transform.GetRollQuat()
+  fullName: LibGFX.Math.Transform.GetRollQuat()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetRollQuat
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 250
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Gets the roll rotation as a quaternion.
+  example: []
+  syntax:
+    content: public Quaternion GetRollQuat()
+    return:
+      type: OpenTK.Mathematics.Quaternion
+      description: ''
+    content.vb: Public Function GetRollQuat() As Quaternion
+  overload: LibGFX.Math.Transform.GetRollQuat*
+- uid: LibGFX.Math.Transform.Translate(OpenTK.Mathematics.Vector2)
+  commentId: M:LibGFX.Math.Transform.Translate(OpenTK.Mathematics.Vector2)
+  id: Translate(OpenTK.Mathematics.Vector2)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Translate(Vector2)
+  nameWithType: Transform.Translate(Vector2)
+  fullName: LibGFX.Math.Transform.Translate(OpenTK.Mathematics.Vector2)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Translate
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 260
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Translates by a 2D vector.
+  example: []
+  syntax:
+    content: public void Translate(Vector2 translation)
+    parameters:
+    - id: translation
+      type: OpenTK.Mathematics.Vector2
+      description: The translation vector.
+    content.vb: Public Sub Translate(translation As Vector2)
+  overload: LibGFX.Math.Transform.Translate*
+- uid: LibGFX.Math.Transform.Translate(System.Single,System.Single,System.Single)
+  commentId: M:LibGFX.Math.Transform.Translate(System.Single,System.Single,System.Single)
+  id: Translate(System.Single,System.Single,System.Single)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Translate(float, float, float)
+  nameWithType: Transform.Translate(float, float, float)
+  fullName: LibGFX.Math.Transform.Translate(float, float, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Translate
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 268
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Translates by specified X, Y, and Z values.
+  example: []
+  syntax:
+    content: public void Translate(float x, float y, float z)
+    parameters:
+    - id: x
+      type: System.Single
+    - id: y
+      type: System.Single
+    - id: z
+      type: System.Single
+    content.vb: Public Sub Translate(x As Single, y As Single, z As Single)
+  overload: LibGFX.Math.Transform.Translate*
+  nameWithType.vb: Transform.Translate(Single, Single, Single)
+  fullName.vb: LibGFX.Math.Transform.Translate(Single, Single, Single)
+  name.vb: Translate(Single, Single, Single)
+- uid: LibGFX.Math.Transform.Translate(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Math.Transform.Translate(OpenTK.Mathematics.Vector3)
+  id: Translate(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Translate(Vector3)
+  nameWithType: Transform.Translate(Vector3)
+  fullName: LibGFX.Math.Transform.Translate(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Translate
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 276
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Translates by a 3D vector.
+  example: []
+  syntax:
+    content: public void Translate(Vector3 translation)
+    parameters:
+    - id: translation
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Sub Translate(translation As Vector3)
+  overload: LibGFX.Math.Transform.Translate*
+- uid: LibGFX.Math.Transform.SetPosition(OpenTK.Mathematics.Matrix4)
+  commentId: M:LibGFX.Math.Transform.SetPosition(OpenTK.Mathematics.Matrix4)
+  id: SetPosition(OpenTK.Mathematics.Matrix4)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: SetPosition(Matrix4)
+  nameWithType: Transform.SetPosition(Matrix4)
+  fullName: LibGFX.Math.Transform.SetPosition(OpenTK.Mathematics.Matrix4)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetPosition
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 281
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  syntax:
+    content: public void SetPosition(Matrix4 matrix)
+    parameters:
+    - id: matrix
+      type: OpenTK.Mathematics.Matrix4
+    content.vb: Public Sub SetPosition(matrix As Matrix4)
+  overload: LibGFX.Math.Transform.SetPosition*
+- uid: LibGFX.Math.Transform.ScaleBy(OpenTK.Mathematics.Vector2)
+  commentId: M:LibGFX.Math.Transform.ScaleBy(OpenTK.Mathematics.Vector2)
+  id: ScaleBy(OpenTK.Mathematics.Vector2)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: ScaleBy(Vector2)
+  nameWithType: Transform.ScaleBy(Vector2)
+  fullName: LibGFX.Math.Transform.ScaleBy(OpenTK.Mathematics.Vector2)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ScaleBy
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 289
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Scales by a 2D vector.
+  example: []
+  syntax:
+    content: public void ScaleBy(Vector2 scale)
+    parameters:
+    - id: scale
+      type: OpenTK.Mathematics.Vector2
+    content.vb: Public Sub ScaleBy(scale As Vector2)
+  overload: LibGFX.Math.Transform.ScaleBy*
+- uid: LibGFX.Math.Transform.ScaleBy(System.Single,System.Single,System.Single)
+  commentId: M:LibGFX.Math.Transform.ScaleBy(System.Single,System.Single,System.Single)
+  id: ScaleBy(System.Single,System.Single,System.Single)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: ScaleBy(float, float, float)
+  nameWithType: Transform.ScaleBy(float, float, float)
+  fullName: LibGFX.Math.Transform.ScaleBy(float, float, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ScaleBy
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 297
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Scales by specified X, Y, and Z values.
+  example: []
+  syntax:
+    content: public void ScaleBy(float x, float y, float z)
+    parameters:
+    - id: x
+      type: System.Single
+    - id: y
+      type: System.Single
+    - id: z
+      type: System.Single
+    content.vb: Public Sub ScaleBy(x As Single, y As Single, z As Single)
+  overload: LibGFX.Math.Transform.ScaleBy*
+  nameWithType.vb: Transform.ScaleBy(Single, Single, Single)
+  fullName.vb: LibGFX.Math.Transform.ScaleBy(Single, Single, Single)
+  name.vb: ScaleBy(Single, Single, Single)
+- uid: LibGFX.Math.Transform.ScaleBy(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Math.Transform.ScaleBy(OpenTK.Mathematics.Vector3)
+  id: ScaleBy(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: ScaleBy(Vector3)
+  nameWithType: Transform.ScaleBy(Vector3)
+  fullName: LibGFX.Math.Transform.ScaleBy(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ScaleBy
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 305
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Scales by a 3D vector.
+  example: []
+  syntax:
+    content: public void ScaleBy(Vector3 scale)
+    parameters:
+    - id: scale
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Sub ScaleBy(scale As Vector3)
+  overload: LibGFX.Math.Transform.ScaleBy*
+- uid: LibGFX.Math.Transform.GetEulerAngles
+  commentId: M:LibGFX.Math.Transform.GetEulerAngles
+  id: GetEulerAngles
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: GetEulerAngles()
+  nameWithType: Transform.GetEulerAngles()
+  fullName: LibGFX.Math.Transform.GetEulerAngles()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetEulerAngles
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 313
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Gets the rotation in Euler angles (degrees).
+  example: []
+  syntax:
+    content: public Vector3 GetEulerAngles()
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Function GetEulerAngles() As Vector3
+  overload: LibGFX.Math.Transform.GetEulerAngles*
+- uid: LibGFX.Math.Transform.GetUp
+  commentId: M:LibGFX.Math.Transform.GetUp
+  id: GetUp
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: GetUp()
+  nameWithType: Transform.GetUp()
+  fullName: LibGFX.Math.Transform.GetUp()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetUp
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 321
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Gets the up direction based on the current rotation.
+  example: []
+  syntax:
+    content: public Vector3 GetUp()
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Function GetUp() As Vector3
+  overload: LibGFX.Math.Transform.GetUp*
+- uid: LibGFX.Math.Transform.GetFront(System.Boolean)
+  commentId: M:LibGFX.Math.Transform.GetFront(System.Boolean)
+  id: GetFront(System.Boolean)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: GetFront(bool)
+  nameWithType: Transform.GetFront(bool)
+  fullName: LibGFX.Math.Transform.GetFront(bool)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetFront
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 330
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: >-
+    Gets the forward direction based on the current rotation.
+
+    Inverted is used to get the opposite direction. Used for bullet physics.
+  example: []
+  syntax:
+    content: public Vector3 GetFront(bool inverted = false)
+    parameters:
+    - id: inverted
+      type: System.Boolean
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Function GetFront(inverted As Boolean = False) As Vector3
+  overload: LibGFX.Math.Transform.GetFront*
+  nameWithType.vb: Transform.GetFront(Boolean)
+  fullName.vb: LibGFX.Math.Transform.GetFront(Boolean)
+  name.vb: GetFront(Boolean)
+- uid: LibGFX.Math.Transform.GetRight
+  commentId: M:LibGFX.Math.Transform.GetRight
+  id: GetRight
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: GetRight()
+  nameWithType: Transform.GetRight()
+  fullName: LibGFX.Math.Transform.GetRight()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetRight
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 341
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Gets the right direction based on the current rotation.
+  example: []
+  syntax:
+    content: public Vector3 GetRight()
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Function GetRight() As Vector3
+  overload: LibGFX.Math.Transform.GetRight*
+- uid: LibGFX.Math.Transform.GetRightFlat
+  commentId: M:LibGFX.Math.Transform.GetRightFlat
+  id: GetRightFlat
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: GetRightFlat()
+  nameWithType: Transform.GetRightFlat()
+  fullName: LibGFX.Math.Transform.GetRightFlat()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetRightFlat
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 350
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Gets the right direction based on the current rotation, but flattens it to the XZ plane.
+  example: []
+  syntax:
+    content: public Vector3 GetRightFlat()
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Function GetRightFlat() As Vector3
+  overload: LibGFX.Math.Transform.GetRightFlat*
+- uid: LibGFX.Math.Transform.GetMatrix
+  commentId: M:LibGFX.Math.Transform.GetMatrix
+  id: GetMatrix
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: GetMatrix()
+  nameWithType: Transform.GetMatrix()
+  fullName: LibGFX.Math.Transform.GetMatrix()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetMatrix
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 360
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Gets the transformation matrix.
+  example: []
+  syntax:
+    content: public Matrix4 GetMatrix()
+    return:
+      type: OpenTK.Mathematics.Matrix4
+    content.vb: Public Function GetMatrix() As Matrix4
+  overload: LibGFX.Math.Transform.GetMatrix*
+- uid: LibGFX.Math.Transform.Towards(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Math.Transform.Towards(OpenTK.Mathematics.Vector3)
+  id: Towards(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Towards(Vector3)
+  nameWithType: Transform.Towards(Vector3)
+  fullName: LibGFX.Math.Transform.Towards(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Towards
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 375
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Rotates the transform to look at a specific target point.
+  example: []
+  syntax:
+    content: public void Towards(Vector3 target)
+    parameters:
+    - id: target
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Sub Towards(target As Vector3)
+  overload: LibGFX.Math.Transform.Towards*
+- uid: LibGFX.Math.Transform.TransformDirection(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3,System.Boolean)
+  commentId: M:LibGFX.Math.Transform.TransformDirection(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3,System.Boolean)
+  id: TransformDirection(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3,System.Boolean)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: TransformDirection(Transform, Vector3, bool)
+  nameWithType: Transform.TransformDirection(Transform, Vector3, bool)
+  fullName: LibGFX.Math.Transform.TransformDirection(LibGFX.Math.Transform, OpenTK.Mathematics.Vector3, bool)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TransformDirection
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 415
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Transforms a direction vector using the transform's rotation and scale.
+  example: []
+  syntax:
+    content: public static Vector3 TransformDirection(Transform transform, Vector3 direction, bool rotationSpaceOnly = true)
+    parameters:
+    - id: transform
+      type: LibGFX.Math.Transform
+      description: ''
+    - id: direction
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    - id: rotationSpaceOnly
+      type: System.Boolean
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Shared Function TransformDirection(transform As Transform, direction As Vector3, rotationSpaceOnly As Boolean = True) As Vector3
+  overload: LibGFX.Math.Transform.TransformDirection*
+  nameWithType.vb: Transform.TransformDirection(Transform, Vector3, Boolean)
+  fullName.vb: LibGFX.Math.Transform.TransformDirection(LibGFX.Math.Transform, OpenTK.Mathematics.Vector3, Boolean)
+  name.vb: TransformDirection(Transform, Vector3, Boolean)
+- uid: LibGFX.Math.Transform.LocalToWorldPositon(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Math.Transform.LocalToWorldPositon(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)
+  id: LocalToWorldPositon(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: LocalToWorldPositon(Transform, Vector3)
+  nameWithType: Transform.LocalToWorldPositon(Transform, Vector3)
+  fullName: LibGFX.Math.Transform.LocalToWorldPositon(LibGFX.Math.Transform, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LocalToWorldPositon
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 432
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Converts a local position to a world position using the transform's position, rotation, and scale.
+  example: []
+  syntax:
+    content: public static Vector3 LocalToWorldPositon(Transform transform, Vector3 localPosition)
+    parameters:
+    - id: transform
+      type: LibGFX.Math.Transform
+      description: ''
+    - id: localPosition
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Shared Function LocalToWorldPositon(transform As Transform, localPosition As Vector3) As Vector3
+  overload: LibGFX.Math.Transform.LocalToWorldPositon*
+- uid: LibGFX.Math.Transform.WorldToLocalPosition(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Math.Transform.WorldToLocalPosition(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)
+  id: WorldToLocalPosition(LibGFX.Math.Transform,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: WorldToLocalPosition(Transform, Vector3)
+  nameWithType: Transform.WorldToLocalPosition(Transform, Vector3)
+  fullName: LibGFX.Math.Transform.WorldToLocalPosition(LibGFX.Math.Transform, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: WorldToLocalPosition
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 443
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Converts a world position to a local position using the transform's position, rotation, and scale.
+  example: []
+  syntax:
+    content: public static Vector3 WorldToLocalPosition(Transform transform, Vector3 worldPosition)
+    parameters:
+    - id: transform
+      type: LibGFX.Math.Transform
+      description: ''
+    - id: worldPosition
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Shared Function WorldToLocalPosition(transform As Transform, worldPosition As Vector3) As Vector3
+  overload: LibGFX.Math.Transform.WorldToLocalPosition*
+- uid: LibGFX.Math.Transform.ToRadians(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Math.Transform.ToRadians(OpenTK.Mathematics.Vector3)
+  id: ToRadians(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: ToRadians(Vector3)
+  nameWithType: Transform.ToRadians(Vector3)
+  fullName: LibGFX.Math.Transform.ToRadians(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ToRadians
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 451
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Converts degrees to radians.
+  example: []
+  syntax:
+    content: public static Vector3 ToRadians(Vector3 input)
+    parameters:
+    - id: input
+      type: OpenTK.Mathematics.Vector3
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Shared Function ToRadians(input As Vector3) As Vector3
+  overload: LibGFX.Math.Transform.ToRadians*
+- uid: LibGFX.Math.Transform.ToDegrees(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Math.Transform.ToDegrees(OpenTK.Mathematics.Vector3)
+  id: ToDegrees(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: ToDegrees(Vector3)
+  nameWithType: Transform.ToDegrees(Vector3)
+  fullName: LibGFX.Math.Transform.ToDegrees(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ToDegrees
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 459
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Converts radians to degrees.
+  example: []
+  syntax:
+    content: public static Vector3 ToDegrees(Vector3 input)
+    parameters:
+    - id: input
+      type: OpenTK.Mathematics.Vector3
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Shared Function ToDegrees(input As Vector3) As Vector3
+  overload: LibGFX.Math.Transform.ToDegrees*
+- uid: LibGFX.Math.Transform.Attach(LibGFX.Math.Transform,LibGFX.Math.Transform)
+  commentId: M:LibGFX.Math.Transform.Attach(LibGFX.Math.Transform,LibGFX.Math.Transform)
+  id: Attach(LibGFX.Math.Transform,LibGFX.Math.Transform)
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Attach(Transform, Transform)
+  nameWithType: Transform.Attach(Transform, Transform)
+  fullName: LibGFX.Math.Transform.Attach(LibGFX.Math.Transform, LibGFX.Math.Transform)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Attach
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 470
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Attaches a child transform to a parent transform, returning the child's local transform relative to the parent.
+  example: []
+  syntax:
+    content: public static Transform Attach(Transform parent, Transform child)
+    parameters:
+    - id: parent
+      type: LibGFX.Math.Transform
+      description: ''
+    - id: child
+      type: LibGFX.Math.Transform
+      description: ''
+    return:
+      type: LibGFX.Math.Transform
+      description: ''
+    content.vb: Public Shared Function Attach(parent As Transform, child As Transform) As Transform
+  overload: LibGFX.Math.Transform.Attach*
+- uid: LibGFX.Math.Transform.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Math.Transform.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  id: Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: Transform.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Math.Transform.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Serialize
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 483
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Serializes the current object's position, rotation, and scale into a JSON representation.
+  example: []
+  syntax:
+    content: public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
+    parameters:
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+    - id: serializationContext
+      type: LibGFX.Core.SerializationContext
+      description: The context that provides information and settings required for the serialization process.
+    - id: callback
+      type: System.Action{Newtonsoft.Json.JsonWriter}
+    content.vb: Public Sub Serialize(writer As JsonWriter, serializationContext As SerializationContext, callback As Action(Of JsonWriter) = Nothing)
+  overload: LibGFX.Math.Transform.Serialize*
+  implements:
+  - LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  nameWithType.vb: Transform.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Math.Transform.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+- uid: LibGFX.Math.Transform.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Math.Transform.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  id: Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Math.Transform
+  langs:
+  - csharp
+  - vb
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: Transform.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Math.Transform.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Math/Transform.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Deserialize
+    path: ../LibGFX/Math/Transform.cs
+    startLine: 498
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Math
+  summary: Populates the current object with values from the specified JSON object.
+  example: []
+  syntax:
+    content: public void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
+    parameters:
+    - id: obj
+      type: Newtonsoft.Json.Linq.JObject
+    - id: serializationContext
+      type: LibGFX.Core.SerializationContext
+    - id: callback
+      type: System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+    content.vb: Public Sub Deserialize(obj As JObject, serializationContext As SerializationContext, callback As Func(Of JObject, Boolean) = Nothing)
+  overload: LibGFX.Math.Transform.Deserialize*
+  implements:
+  - LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  nameWithType.vb: Transform.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Math.Transform.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+references:
+- uid: LibGFX.Math
+  commentId: N:LibGFX.Math
+  href: LibGFX.html
+  name: LibGFX.Math
+  nameWithType: LibGFX.Math
+  fullName: LibGFX.Math
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Core.ISerialization
+  commentId: T:LibGFX.Core.ISerialization
+  parent: LibGFX.Core
+  href: LibGFX.Core.ISerialization.html
+  name: ISerialization
+  nameWithType: ISerialization
+  fullName: LibGFX.Core.ISerialization
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Math.Transform.Position*
+  commentId: Overload:LibGFX.Math.Transform.Position
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_Position
+  name: Position
+  nameWithType: Transform.Position
+  fullName: LibGFX.Math.Transform.Position
+- uid: OpenTK.Mathematics.Vector3
+  commentId: T:OpenTK.Mathematics.Vector3
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  name: Vector3
+  nameWithType: Vector3
+  fullName: OpenTK.Mathematics.Vector3
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Math.Transform.Rotation*
+  commentId: Overload:LibGFX.Math.Transform.Rotation
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_Rotation
+  name: Rotation
+  nameWithType: Transform.Rotation
+  fullName: LibGFX.Math.Transform.Rotation
+- uid: OpenTK.Mathematics.Quaternion
+  commentId: T:OpenTK.Mathematics.Quaternion
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Data/Quaternion.cs
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: OpenTK.Mathematics.Quaternion
+- uid: LibGFX.Math.Transform.Scale*
+  commentId: Overload:LibGFX.Math.Transform.Scale
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_Scale
+  name: Scale
+  nameWithType: Transform.Scale
+  fullName: LibGFX.Math.Transform.Scale
+- uid: System.Action{LibGFX.Math.Transform}
+  commentId: T:System.Action{LibGFX.Math.Transform}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<Transform>
+  nameWithType: Action<Transform>
+  fullName: System.Action<LibGFX.Math.Transform>
+  nameWithType.vb: Action(Of Transform)
+  fullName.vb: System.Action(Of LibGFX.Math.Transform)
+  name.vb: Action(Of Transform)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: LibGFX.Math.Transform
+    name: Transform
+    href: LibGFX.Math.Transform.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LibGFX.Math.Transform
+    name: Transform
+    href: LibGFX.Math.Transform.html
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: LibGFX.Math.Transform.Forward*
+  commentId: Overload:LibGFX.Math.Transform.Forward
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_Forward
+  name: Forward
+  nameWithType: Transform.Forward
+  fullName: LibGFX.Math.Transform.Forward
+- uid: LibGFX.Math.Transform.Right*
+  commentId: Overload:LibGFX.Math.Transform.Right
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_Right
+  name: Right
+  nameWithType: Transform.Right
+  fullName: LibGFX.Math.Transform.Right
+- uid: LibGFX.Math.Transform.Up*
+  commentId: Overload:LibGFX.Math.Transform.Up
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_Up
+  name: Up
+  nameWithType: Transform.Up
+  fullName: LibGFX.Math.Transform.Up
+- uid: LibGFX.Math.Transform.Matrix*
+  commentId: Overload:LibGFX.Math.Transform.Matrix
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_Matrix
+  name: Matrix
+  nameWithType: Transform.Matrix
+  fullName: LibGFX.Math.Transform.Matrix
+- uid: OpenTK.Mathematics.Matrix4
+  commentId: T:OpenTK.Mathematics.Matrix4
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Matrix/Matrix4.cs
+  name: Matrix4
+  nameWithType: Matrix4
+  fullName: OpenTK.Mathematics.Matrix4
+- uid: LibGFX.Math.Transform.#ctor*
+  commentId: Overload:LibGFX.Math.Transform.#ctor
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform__ctor
+  name: Transform
+  nameWithType: Transform.Transform
+  fullName: LibGFX.Math.Transform.Transform
+  nameWithType.vb: Transform.New
+  fullName.vb: LibGFX.Math.Transform.New
+  name.vb: New
+- uid: LibGFX.Math.Transform
+  commentId: T:LibGFX.Math.Transform
+  parent: LibGFX.Math
+  href: LibGFX.Math.Transform.html
+  name: Transform
+  nameWithType: Transform
+  fullName: LibGFX.Math.Transform
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Math.Transform.SetRotation*
+  commentId: Overload:LibGFX.Math.Transform.SetRotation
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_SetRotation_OpenTK_Mathematics_Vector2_
+  name: SetRotation
+  nameWithType: Transform.SetRotation
+  fullName: LibGFX.Math.Transform.SetRotation
+- uid: LibGFX.Math.Transform.Rotate*
+  commentId: Overload:LibGFX.Math.Transform.Rotate
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_Rotate_OpenTK_Mathematics_Vector2_
+  name: Rotate
+  nameWithType: Transform.Rotate
+  fullName: LibGFX.Math.Transform.Rotate
+- uid: LibGFX.Math.Transform.GetPitchAngle*
+  commentId: Overload:LibGFX.Math.Transform.GetPitchAngle
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_GetPitchAngle
+  name: GetPitchAngle
+  nameWithType: Transform.GetPitchAngle
+  fullName: LibGFX.Math.Transform.GetPitchAngle
+- uid: LibGFX.Math.Transform.GetPitchQuat*
+  commentId: Overload:LibGFX.Math.Transform.GetPitchQuat
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_GetPitchQuat
+  name: GetPitchQuat
+  nameWithType: Transform.GetPitchQuat
+  fullName: LibGFX.Math.Transform.GetPitchQuat
+- uid: LibGFX.Math.Transform.GetYawAngle*
+  commentId: Overload:LibGFX.Math.Transform.GetYawAngle
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_GetYawAngle
+  name: GetYawAngle
+  nameWithType: Transform.GetYawAngle
+  fullName: LibGFX.Math.Transform.GetYawAngle
+- uid: LibGFX.Math.Transform.GetYawQuat*
+  commentId: Overload:LibGFX.Math.Transform.GetYawQuat
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_GetYawQuat
+  name: GetYawQuat
+  nameWithType: Transform.GetYawQuat
+  fullName: LibGFX.Math.Transform.GetYawQuat
+- uid: LibGFX.Math.Transform.GetRollAngle*
+  commentId: Overload:LibGFX.Math.Transform.GetRollAngle
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_GetRollAngle
+  name: GetRollAngle
+  nameWithType: Transform.GetRollAngle
+  fullName: LibGFX.Math.Transform.GetRollAngle
+- uid: LibGFX.Math.Transform.GetRollQuat*
+  commentId: Overload:LibGFX.Math.Transform.GetRollQuat
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_GetRollQuat
+  name: GetRollQuat
+  nameWithType: Transform.GetRollQuat
+  fullName: LibGFX.Math.Transform.GetRollQuat
+- uid: LibGFX.Math.Transform.Translate*
+  commentId: Overload:LibGFX.Math.Transform.Translate
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_Translate_OpenTK_Mathematics_Vector2_
+  name: Translate
+  nameWithType: Transform.Translate
+  fullName: LibGFX.Math.Transform.Translate
+- uid: LibGFX.Math.Transform.SetPosition*
+  commentId: Overload:LibGFX.Math.Transform.SetPosition
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_SetPosition_OpenTK_Mathematics_Matrix4_
+  name: SetPosition
+  nameWithType: Transform.SetPosition
+  fullName: LibGFX.Math.Transform.SetPosition
+- uid: LibGFX.Math.Transform.ScaleBy*
+  commentId: Overload:LibGFX.Math.Transform.ScaleBy
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_ScaleBy_OpenTK_Mathematics_Vector2_
+  name: ScaleBy
+  nameWithType: Transform.ScaleBy
+  fullName: LibGFX.Math.Transform.ScaleBy
+- uid: LibGFX.Math.Transform.GetEulerAngles*
+  commentId: Overload:LibGFX.Math.Transform.GetEulerAngles
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_GetEulerAngles
+  name: GetEulerAngles
+  nameWithType: Transform.GetEulerAngles
+  fullName: LibGFX.Math.Transform.GetEulerAngles
+- uid: LibGFX.Math.Transform.GetUp*
+  commentId: Overload:LibGFX.Math.Transform.GetUp
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_GetUp
+  name: GetUp
+  nameWithType: Transform.GetUp
+  fullName: LibGFX.Math.Transform.GetUp
+- uid: LibGFX.Math.Transform.GetFront*
+  commentId: Overload:LibGFX.Math.Transform.GetFront
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_GetFront_System_Boolean_
+  name: GetFront
+  nameWithType: Transform.GetFront
+  fullName: LibGFX.Math.Transform.GetFront
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Math.Transform.GetRight*
+  commentId: Overload:LibGFX.Math.Transform.GetRight
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_GetRight
+  name: GetRight
+  nameWithType: Transform.GetRight
+  fullName: LibGFX.Math.Transform.GetRight
+- uid: LibGFX.Math.Transform.GetRightFlat*
+  commentId: Overload:LibGFX.Math.Transform.GetRightFlat
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_GetRightFlat
+  name: GetRightFlat
+  nameWithType: Transform.GetRightFlat
+  fullName: LibGFX.Math.Transform.GetRightFlat
+- uid: LibGFX.Math.Transform.GetMatrix*
+  commentId: Overload:LibGFX.Math.Transform.GetMatrix
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_GetMatrix
+  name: GetMatrix
+  nameWithType: Transform.GetMatrix
+  fullName: LibGFX.Math.Transform.GetMatrix
+- uid: LibGFX.Math.Transform.Towards*
+  commentId: Overload:LibGFX.Math.Transform.Towards
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_Towards_OpenTK_Mathematics_Vector3_
+  name: Towards
+  nameWithType: Transform.Towards
+  fullName: LibGFX.Math.Transform.Towards
+- uid: LibGFX.Math.Transform.TransformDirection*
+  commentId: Overload:LibGFX.Math.Transform.TransformDirection
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_TransformDirection_LibGFX_Math_Transform_OpenTK_Mathematics_Vector3_System_Boolean_
+  name: TransformDirection
+  nameWithType: Transform.TransformDirection
+  fullName: LibGFX.Math.Transform.TransformDirection
+- uid: LibGFX.Math.Transform.LocalToWorldPositon*
+  commentId: Overload:LibGFX.Math.Transform.LocalToWorldPositon
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_LocalToWorldPositon_LibGFX_Math_Transform_OpenTK_Mathematics_Vector3_
+  name: LocalToWorldPositon
+  nameWithType: Transform.LocalToWorldPositon
+  fullName: LibGFX.Math.Transform.LocalToWorldPositon
+- uid: LibGFX.Math.Transform.WorldToLocalPosition*
+  commentId: Overload:LibGFX.Math.Transform.WorldToLocalPosition
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_WorldToLocalPosition_LibGFX_Math_Transform_OpenTK_Mathematics_Vector3_
+  name: WorldToLocalPosition
+  nameWithType: Transform.WorldToLocalPosition
+  fullName: LibGFX.Math.Transform.WorldToLocalPosition
+- uid: LibGFX.Math.Transform.ToRadians*
+  commentId: Overload:LibGFX.Math.Transform.ToRadians
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_ToRadians_OpenTK_Mathematics_Vector3_
+  name: ToRadians
+  nameWithType: Transform.ToRadians
+  fullName: LibGFX.Math.Transform.ToRadians
+- uid: LibGFX.Math.Transform.ToDegrees*
+  commentId: Overload:LibGFX.Math.Transform.ToDegrees
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_ToDegrees_OpenTK_Mathematics_Vector3_
+  name: ToDegrees
+  nameWithType: Transform.ToDegrees
+  fullName: LibGFX.Math.Transform.ToDegrees
+- uid: LibGFX.Math.Transform.Attach*
+  commentId: Overload:LibGFX.Math.Transform.Attach
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_Attach_LibGFX_Math_Transform_LibGFX_Math_Transform_
+  name: Attach
+  nameWithType: Transform.Attach
+  fullName: LibGFX.Math.Transform.Attach
+- uid: Newtonsoft.Json.Linq.JObject
+  commentId: T:Newtonsoft.Json.Linq.JObject
+  parent: Newtonsoft.Json.Linq
+  isExternal: true
+  name: JObject
+  nameWithType: JObject
+  fullName: Newtonsoft.Json.Linq.JObject
+- uid: LibGFX.Math.Transform.Serialize*
+  commentId: Overload:LibGFX.Math.Transform.Serialize
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize
+  nameWithType: Transform.Serialize
+  fullName: LibGFX.Math.Transform.Serialize
+- uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: ISerialization.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  nameWithType.vb: ISerialization.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+  - name: )
+- uid: Newtonsoft.Json.JsonWriter
+  commentId: T:Newtonsoft.Json.JsonWriter
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonWriter
+  nameWithType: JsonWriter
+  fullName: Newtonsoft.Json.JsonWriter
+- uid: LibGFX.Core.SerializationContext
+  commentId: T:LibGFX.Core.SerializationContext
+  parent: LibGFX.Core
+  href: LibGFX.Core.SerializationContext.html
+  name: SerializationContext
+  nameWithType: SerializationContext
+  fullName: LibGFX.Core.SerializationContext
+- uid: System.Action{Newtonsoft.Json.JsonWriter}
+  commentId: T:System.Action{Newtonsoft.Json.JsonWriter}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<JsonWriter>
+  nameWithType: Action<JsonWriter>
+  fullName: System.Action<Newtonsoft.Json.JsonWriter>
+  nameWithType.vb: Action(Of JsonWriter)
+  fullName.vb: System.Action(Of Newtonsoft.Json.JsonWriter)
+  name.vb: Action(Of JsonWriter)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+- uid: Newtonsoft.Json.Linq
+  commentId: N:Newtonsoft.Json.Linq
+  isExternal: true
+  name: Newtonsoft.Json.Linq
+  nameWithType: Newtonsoft.Json.Linq
+  fullName: Newtonsoft.Json.Linq
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: LibGFX.Math.Transform.Deserialize*
+  commentId: Overload:LibGFX.Math.Transform.Deserialize
+  href: LibGFX.Math.Transform.html#LibGFX_Math_Transform_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize
+  nameWithType: Transform.Deserialize
+  fullName: LibGFX.Math.Transform.Deserialize
+- uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: ISerialization.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  nameWithType.vb: ISerialization.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+  commentId: T:System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<JObject, bool>
+  nameWithType: Func<JObject, bool>
+  fullName: System.Func<Newtonsoft.Json.Linq.JObject, bool>
+  nameWithType.vb: Func(Of JObject, Boolean)
+  fullName.vb: System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean)
+  name.vb: Func(Of JObject, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )

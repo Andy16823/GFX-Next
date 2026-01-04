@@ -1,0 +1,708 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Core.RenderStats
+  commentId: T:LibGFX.Core.RenderStats
+  id: RenderStats
+  parent: LibGFX.Core
+  children:
+  - LibGFX.Core.RenderStats.CurrentFrameTime
+  - LibGFX.Core.RenderStats.DeltaTime
+  - LibGFX.Core.RenderStats.DrawCalls
+  - LibGFX.Core.RenderStats.FPS
+  - LibGFX.Core.RenderStats.IncrementDrawCalls(System.Int32)
+  - LibGFX.Core.RenderStats.LastFrameTime
+  - LibGFX.Core.RenderStats.NewFrame
+  - LibGFX.Core.RenderStats.Reset
+  - LibGFX.Core.RenderStats.Start
+  - LibGFX.Core.RenderStats.ToString
+  langs:
+  - csharp
+  - vb
+  name: RenderStats
+  nameWithType: RenderStats
+  fullName: LibGFX.Core.RenderStats
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Core/RenderStats.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderStats
+    path: ../LibGFX/Core/RenderStats.cs
+    startLine: 11
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Class to hold render statistics
+  example: []
+  syntax:
+    content: public class RenderStats
+    content.vb: Public Class RenderStats
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: LibGFX.Core.RenderStats.CurrentFrameTime
+  commentId: P:LibGFX.Core.RenderStats.CurrentFrameTime
+  id: CurrentFrameTime
+  parent: LibGFX.Core.RenderStats
+  langs:
+  - csharp
+  - vb
+  name: CurrentFrameTime
+  nameWithType: RenderStats.CurrentFrameTime
+  fullName: LibGFX.Core.RenderStats.CurrentFrameTime
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/RenderStats.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CurrentFrameTime
+    path: ../LibGFX/Core/RenderStats.cs
+    startLine: 16
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Current frame time in milliseconds
+  example: []
+  syntax:
+    content: public long CurrentFrameTime { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property CurrentFrameTime As Long
+  overload: LibGFX.Core.RenderStats.CurrentFrameTime*
+- uid: LibGFX.Core.RenderStats.LastFrameTime
+  commentId: P:LibGFX.Core.RenderStats.LastFrameTime
+  id: LastFrameTime
+  parent: LibGFX.Core.RenderStats
+  langs:
+  - csharp
+  - vb
+  name: LastFrameTime
+  nameWithType: RenderStats.LastFrameTime
+  fullName: LibGFX.Core.RenderStats.LastFrameTime
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/RenderStats.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LastFrameTime
+    path: ../LibGFX/Core/RenderStats.cs
+    startLine: 21
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Last frame time in milliseconds
+  example: []
+  syntax:
+    content: public long LastFrameTime { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property LastFrameTime As Long
+  overload: LibGFX.Core.RenderStats.LastFrameTime*
+- uid: LibGFX.Core.RenderStats.DeltaTime
+  commentId: P:LibGFX.Core.RenderStats.DeltaTime
+  id: DeltaTime
+  parent: LibGFX.Core.RenderStats
+  langs:
+  - csharp
+  - vb
+  name: DeltaTime
+  nameWithType: RenderStats.DeltaTime
+  fullName: LibGFX.Core.RenderStats.DeltaTime
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/RenderStats.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DeltaTime
+    path: ../LibGFX/Core/RenderStats.cs
+    startLine: 26
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Delta time in milliseconds
+  example: []
+  syntax:
+    content: public long DeltaTime { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property DeltaTime As Long
+  overload: LibGFX.Core.RenderStats.DeltaTime*
+- uid: LibGFX.Core.RenderStats.FPS
+  commentId: P:LibGFX.Core.RenderStats.FPS
+  id: FPS
+  parent: LibGFX.Core.RenderStats
+  langs:
+  - csharp
+  - vb
+  name: FPS
+  nameWithType: RenderStats.FPS
+  fullName: LibGFX.Core.RenderStats.FPS
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/RenderStats.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FPS
+    path: ../LibGFX/Core/RenderStats.cs
+    startLine: 31
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: TotalFrames per second
+  example: []
+  syntax:
+    content: public int FPS { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property FPS As Integer
+  overload: LibGFX.Core.RenderStats.FPS*
+- uid: LibGFX.Core.RenderStats.DrawCalls
+  commentId: P:LibGFX.Core.RenderStats.DrawCalls
+  id: DrawCalls
+  parent: LibGFX.Core.RenderStats
+  langs:
+  - csharp
+  - vb
+  name: DrawCalls
+  nameWithType: RenderStats.DrawCalls
+  fullName: LibGFX.Core.RenderStats.DrawCalls
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/RenderStats.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DrawCalls
+    path: ../LibGFX/Core/RenderStats.cs
+    startLine: 36
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Total draw calls made during the current frame
+  example: []
+  syntax:
+    content: public int DrawCalls { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property DrawCalls As Integer
+  overload: LibGFX.Core.RenderStats.DrawCalls*
+- uid: LibGFX.Core.RenderStats.NewFrame
+  commentId: M:LibGFX.Core.RenderStats.NewFrame
+  id: NewFrame
+  parent: LibGFX.Core.RenderStats
+  langs:
+  - csharp
+  - vb
+  name: NewFrame()
+  nameWithType: RenderStats.NewFrame()
+  fullName: LibGFX.Core.RenderStats.NewFrame()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/RenderStats.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: NewFrame
+    path: ../LibGFX/Core/RenderStats.cs
+    startLine: 45
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: New frame method to be called at the beginning of each frame
+  example: []
+  syntax:
+    content: public void NewFrame()
+    content.vb: Public Sub NewFrame()
+  overload: LibGFX.Core.RenderStats.NewFrame*
+- uid: LibGFX.Core.RenderStats.Start
+  commentId: M:LibGFX.Core.RenderStats.Start
+  id: Start
+  parent: LibGFX.Core.RenderStats
+  langs:
+  - csharp
+  - vb
+  name: Start()
+  nameWithType: RenderStats.Start()
+  fullName: LibGFX.Core.RenderStats.Start()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/RenderStats.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Start
+    path: ../LibGFX/Core/RenderStats.cs
+    startLine: 60
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: OnStart method to initialize the render stats
+  example: []
+  syntax:
+    content: public void Start()
+    content.vb: Public Sub Start()
+  overload: LibGFX.Core.RenderStats.Start*
+- uid: LibGFX.Core.RenderStats.Reset
+  commentId: M:LibGFX.Core.RenderStats.Reset
+  id: Reset
+  parent: LibGFX.Core.RenderStats
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: RenderStats.Reset()
+  fullName: LibGFX.Core.RenderStats.Reset()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/RenderStats.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Reset
+    path: ../LibGFX/Core/RenderStats.cs
+    startLine: 72
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Reset method to reset the render stats
+  example: []
+  syntax:
+    content: public void Reset()
+    content.vb: Public Sub Reset()
+  overload: LibGFX.Core.RenderStats.Reset*
+- uid: LibGFX.Core.RenderStats.IncrementDrawCalls(System.Int32)
+  commentId: M:LibGFX.Core.RenderStats.IncrementDrawCalls(System.Int32)
+  id: IncrementDrawCalls(System.Int32)
+  parent: LibGFX.Core.RenderStats
+  langs:
+  - csharp
+  - vb
+  name: IncrementDrawCalls(int)
+  nameWithType: RenderStats.IncrementDrawCalls(int)
+  fullName: LibGFX.Core.RenderStats.IncrementDrawCalls(int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/RenderStats.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IncrementDrawCalls
+    path: ../LibGFX/Core/RenderStats.cs
+    startLine: 85
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Increment the draw calls count by the specified amount
+  example: []
+  syntax:
+    content: public void IncrementDrawCalls(int count = 1)
+    parameters:
+    - id: count
+      type: System.Int32
+      description: ''
+    content.vb: Public Sub IncrementDrawCalls(count As Integer = 1)
+  overload: LibGFX.Core.RenderStats.IncrementDrawCalls*
+  nameWithType.vb: RenderStats.IncrementDrawCalls(Integer)
+  fullName.vb: LibGFX.Core.RenderStats.IncrementDrawCalls(Integer)
+  name.vb: IncrementDrawCalls(Integer)
+- uid: LibGFX.Core.RenderStats.ToString
+  commentId: M:LibGFX.Core.RenderStats.ToString
+  id: ToString
+  parent: LibGFX.Core.RenderStats
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: RenderStats.ToString()
+  fullName: LibGFX.Core.RenderStats.ToString()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/RenderStats.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ToString
+    path: ../LibGFX/Core/RenderStats.cs
+    startLine: 94
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Override ToString method to display the render stats
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: LibGFX.Core.RenderStats.ToString*
+references:
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core.RenderStats.CurrentFrameTime*
+  commentId: Overload:LibGFX.Core.RenderStats.CurrentFrameTime
+  href: LibGFX.Core.RenderStats.html#LibGFX_Core_RenderStats_CurrentFrameTime
+  name: CurrentFrameTime
+  nameWithType: RenderStats.CurrentFrameTime
+  fullName: LibGFX.Core.RenderStats.CurrentFrameTime
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: LibGFX.Core.RenderStats.LastFrameTime*
+  commentId: Overload:LibGFX.Core.RenderStats.LastFrameTime
+  href: LibGFX.Core.RenderStats.html#LibGFX_Core_RenderStats_LastFrameTime
+  name: LastFrameTime
+  nameWithType: RenderStats.LastFrameTime
+  fullName: LibGFX.Core.RenderStats.LastFrameTime
+- uid: LibGFX.Core.RenderStats.DeltaTime*
+  commentId: Overload:LibGFX.Core.RenderStats.DeltaTime
+  href: LibGFX.Core.RenderStats.html#LibGFX_Core_RenderStats_DeltaTime
+  name: DeltaTime
+  nameWithType: RenderStats.DeltaTime
+  fullName: LibGFX.Core.RenderStats.DeltaTime
+- uid: LibGFX.Core.RenderStats.FPS*
+  commentId: Overload:LibGFX.Core.RenderStats.FPS
+  href: LibGFX.Core.RenderStats.html#LibGFX_Core_RenderStats_FPS
+  name: FPS
+  nameWithType: RenderStats.FPS
+  fullName: LibGFX.Core.RenderStats.FPS
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LibGFX.Core.RenderStats.DrawCalls*
+  commentId: Overload:LibGFX.Core.RenderStats.DrawCalls
+  href: LibGFX.Core.RenderStats.html#LibGFX_Core_RenderStats_DrawCalls
+  name: DrawCalls
+  nameWithType: RenderStats.DrawCalls
+  fullName: LibGFX.Core.RenderStats.DrawCalls
+- uid: LibGFX.Core.RenderStats.NewFrame*
+  commentId: Overload:LibGFX.Core.RenderStats.NewFrame
+  href: LibGFX.Core.RenderStats.html#LibGFX_Core_RenderStats_NewFrame
+  name: NewFrame
+  nameWithType: RenderStats.NewFrame
+  fullName: LibGFX.Core.RenderStats.NewFrame
+- uid: LibGFX.Core.RenderStats.Start*
+  commentId: Overload:LibGFX.Core.RenderStats.Start
+  href: LibGFX.Core.RenderStats.html#LibGFX_Core_RenderStats_Start
+  name: Start
+  nameWithType: RenderStats.Start
+  fullName: LibGFX.Core.RenderStats.Start
+- uid: LibGFX.Core.RenderStats.Reset*
+  commentId: Overload:LibGFX.Core.RenderStats.Reset
+  href: LibGFX.Core.RenderStats.html#LibGFX_Core_RenderStats_Reset
+  name: Reset
+  nameWithType: RenderStats.Reset
+  fullName: LibGFX.Core.RenderStats.Reset
+- uid: LibGFX.Core.RenderStats.IncrementDrawCalls*
+  commentId: Overload:LibGFX.Core.RenderStats.IncrementDrawCalls
+  href: LibGFX.Core.RenderStats.html#LibGFX_Core_RenderStats_IncrementDrawCalls_System_Int32_
+  name: IncrementDrawCalls
+  nameWithType: RenderStats.IncrementDrawCalls
+  fullName: LibGFX.Core.RenderStats.IncrementDrawCalls
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: LibGFX.Core.RenderStats.ToString*
+  commentId: Overload:LibGFX.Core.RenderStats.ToString
+  href: LibGFX.Core.RenderStats.html#LibGFX_Core_RenderStats_ToString
+  name: ToString
+  nameWithType: RenderStats.ToString
+  fullName: LibGFX.Core.RenderStats.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

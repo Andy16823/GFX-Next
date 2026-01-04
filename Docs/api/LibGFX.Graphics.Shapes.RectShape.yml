@@ -1,0 +1,1192 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Shapes.RectShape
+  commentId: T:LibGFX.Graphics.Shapes.RectShape
+  id: RectShape
+  parent: LibGFX.Graphics.Shapes
+  children:
+  - LibGFX.Graphics.Shapes.RectShape.GetIndexCount
+  - LibGFX.Graphics.Shapes.RectShape.GetIndices
+  - LibGFX.Graphics.Shapes.RectShape.GetNormals
+  - LibGFX.Graphics.Shapes.RectShape.GetShapeName
+  - LibGFX.Graphics.Shapes.RectShape.GetTangents
+  - LibGFX.Graphics.Shapes.RectShape.GetUVCoords
+  - LibGFX.Graphics.Shapes.RectShape.GetVertices
+  - LibGFX.Graphics.Shapes.RectShape.HasNormals
+  - LibGFX.Graphics.Shapes.RectShape.HasTangents
+  - LibGFX.Graphics.Shapes.RectShape.HasUvCoords
+  langs:
+  - csharp
+  - vb
+  name: RectShape
+  nameWithType: RectShape
+  fullName: LibGFX.Graphics.Shapes.RectShape
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Graphics/Shapes/RectShape.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RectShape
+    path: ../LibGFX/Graphics/Shapes/RectShape.cs
+    startLine: 8
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Shapes
+  syntax:
+    content: 'public class RectShape : Shape, IGraphicsResource'
+    content.vb: Public Class RectShape Inherits Shape Implements IGraphicsResource
+  inheritance:
+  - System.Object
+  - LibGFX.Graphics.Shapes.Shape
+  implements:
+  - LibGFX.Core.IGraphicsResource
+  inheritedMembers:
+  - LibGFX.Graphics.Shapes.Shape.VertexArray
+  - LibGFX.Graphics.Shapes.Shape.VertexBuffer
+  - LibGFX.Graphics.Shapes.Shape.TextureBuffer
+  - LibGFX.Graphics.Shapes.Shape.NormalBuffer
+  - LibGFX.Graphics.Shapes.Shape.IndexBuffer
+  - LibGFX.Graphics.Shapes.Shape.TangentBuffer
+  - LibGFX.Graphics.Shapes.Shape.IsInitialized
+  - LibGFX.Graphics.Shapes.Shape.DynamicVertices
+  - LibGFX.Graphics.Shapes.Shape.DynamicUVCoords
+  - LibGFX.Graphics.Shapes.Shape.DynamicNormals
+  - LibGFX.Graphics.Shapes.Shape.DynamicTangents
+  - LibGFX.Graphics.Shapes.Shape.Init(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.Shapes.Shape.Dispose(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.Shapes.Shape.FreeCPUResources
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Graphics.Shapes.RectShape.GetIndexCount
+  commentId: M:LibGFX.Graphics.Shapes.RectShape.GetIndexCount
+  id: GetIndexCount
+  parent: LibGFX.Graphics.Shapes.RectShape
+  langs:
+  - csharp
+  - vb
+  name: GetIndexCount()
+  nameWithType: RectShape.GetIndexCount()
+  fullName: LibGFX.Graphics.Shapes.RectShape.GetIndexCount()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Shapes/RectShape.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetIndexCount
+    path: ../LibGFX/Graphics/Shapes/RectShape.cs
+    startLine: 10
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Shapes
+  example: []
+  syntax:
+    content: public override int GetIndexCount()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetIndexCount() As Integer
+  overridden: LibGFX.Graphics.Shapes.Shape.GetIndexCount
+  overload: LibGFX.Graphics.Shapes.RectShape.GetIndexCount*
+- uid: LibGFX.Graphics.Shapes.RectShape.HasTangents
+  commentId: M:LibGFX.Graphics.Shapes.RectShape.HasTangents
+  id: HasTangents
+  parent: LibGFX.Graphics.Shapes.RectShape
+  langs:
+  - csharp
+  - vb
+  name: HasTangents()
+  nameWithType: RectShape.HasTangents()
+  fullName: LibGFX.Graphics.Shapes.RectShape.HasTangents()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Shapes/RectShape.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: HasTangents
+    path: ../LibGFX/Graphics/Shapes/RectShape.cs
+    startLine: 15
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Shapes
+  example: []
+  syntax:
+    content: public override bool HasTangents()
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function HasTangents() As Boolean
+  overridden: LibGFX.Graphics.Shapes.Shape.HasTangents
+  overload: LibGFX.Graphics.Shapes.RectShape.HasTangents*
+- uid: LibGFX.Graphics.Shapes.RectShape.HasUvCoords
+  commentId: M:LibGFX.Graphics.Shapes.RectShape.HasUvCoords
+  id: HasUvCoords
+  parent: LibGFX.Graphics.Shapes.RectShape
+  langs:
+  - csharp
+  - vb
+  name: HasUvCoords()
+  nameWithType: RectShape.HasUvCoords()
+  fullName: LibGFX.Graphics.Shapes.RectShape.HasUvCoords()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Shapes/RectShape.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: HasUvCoords
+    path: ../LibGFX/Graphics/Shapes/RectShape.cs
+    startLine: 20
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Shapes
+  example: []
+  syntax:
+    content: public override bool HasUvCoords()
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function HasUvCoords() As Boolean
+  overridden: LibGFX.Graphics.Shapes.Shape.HasUvCoords
+  overload: LibGFX.Graphics.Shapes.RectShape.HasUvCoords*
+- uid: LibGFX.Graphics.Shapes.RectShape.HasNormals
+  commentId: M:LibGFX.Graphics.Shapes.RectShape.HasNormals
+  id: HasNormals
+  parent: LibGFX.Graphics.Shapes.RectShape
+  langs:
+  - csharp
+  - vb
+  name: HasNormals()
+  nameWithType: RectShape.HasNormals()
+  fullName: LibGFX.Graphics.Shapes.RectShape.HasNormals()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Shapes/RectShape.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: HasNormals
+    path: ../LibGFX/Graphics/Shapes/RectShape.cs
+    startLine: 25
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Shapes
+  example: []
+  syntax:
+    content: public override bool HasNormals()
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function HasNormals() As Boolean
+  overridden: LibGFX.Graphics.Shapes.Shape.HasNormals
+  overload: LibGFX.Graphics.Shapes.RectShape.HasNormals*
+- uid: LibGFX.Graphics.Shapes.RectShape.GetShapeName
+  commentId: M:LibGFX.Graphics.Shapes.RectShape.GetShapeName
+  id: GetShapeName
+  parent: LibGFX.Graphics.Shapes.RectShape
+  langs:
+  - csharp
+  - vb
+  name: GetShapeName()
+  nameWithType: RectShape.GetShapeName()
+  fullName: LibGFX.Graphics.Shapes.RectShape.GetShapeName()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Shapes/RectShape.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetShapeName
+    path: ../LibGFX/Graphics/Shapes/RectShape.cs
+    startLine: 30
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Shapes
+  example: []
+  syntax:
+    content: public override string GetShapeName()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function GetShapeName() As String
+  overridden: LibGFX.Graphics.Shapes.Shape.GetShapeName
+  overload: LibGFX.Graphics.Shapes.RectShape.GetShapeName*
+- uid: LibGFX.Graphics.Shapes.RectShape.GetVertices
+  commentId: M:LibGFX.Graphics.Shapes.RectShape.GetVertices
+  id: GetVertices
+  parent: LibGFX.Graphics.Shapes.RectShape
+  langs:
+  - csharp
+  - vb
+  name: GetVertices()
+  nameWithType: RectShape.GetVertices()
+  fullName: LibGFX.Graphics.Shapes.RectShape.GetVertices()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Shapes/RectShape.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetVertices
+    path: ../LibGFX/Graphics/Shapes/RectShape.cs
+    startLine: 35
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Shapes
+  example: []
+  syntax:
+    content: public override float[] GetVertices()
+    return:
+      type: System.Single[]
+    content.vb: Public Overrides Function GetVertices() As Single()
+  overridden: LibGFX.Graphics.Shapes.Shape.GetVertices
+  overload: LibGFX.Graphics.Shapes.RectShape.GetVertices*
+- uid: LibGFX.Graphics.Shapes.RectShape.GetIndices
+  commentId: M:LibGFX.Graphics.Shapes.RectShape.GetIndices
+  id: GetIndices
+  parent: LibGFX.Graphics.Shapes.RectShape
+  langs:
+  - csharp
+  - vb
+  name: GetIndices()
+  nameWithType: RectShape.GetIndices()
+  fullName: LibGFX.Graphics.Shapes.RectShape.GetIndices()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Shapes/RectShape.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetIndices
+    path: ../LibGFX/Graphics/Shapes/RectShape.cs
+    startLine: 45
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Shapes
+  example: []
+  syntax:
+    content: public override uint[] GetIndices()
+    return:
+      type: System.UInt32[]
+    content.vb: Public Overrides Function GetIndices() As UInteger()
+  overridden: LibGFX.Graphics.Shapes.Shape.GetIndices
+  overload: LibGFX.Graphics.Shapes.RectShape.GetIndices*
+- uid: LibGFX.Graphics.Shapes.RectShape.GetNormals
+  commentId: M:LibGFX.Graphics.Shapes.RectShape.GetNormals
+  id: GetNormals
+  parent: LibGFX.Graphics.Shapes.RectShape
+  langs:
+  - csharp
+  - vb
+  name: GetNormals()
+  nameWithType: RectShape.GetNormals()
+  fullName: LibGFX.Graphics.Shapes.RectShape.GetNormals()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Shapes/RectShape.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetNormals
+    path: ../LibGFX/Graphics/Shapes/RectShape.cs
+    startLine: 53
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Shapes
+  example: []
+  syntax:
+    content: public override float[] GetNormals()
+    return:
+      type: System.Single[]
+    content.vb: Public Overrides Function GetNormals() As Single()
+  overridden: LibGFX.Graphics.Shapes.Shape.GetNormals
+  overload: LibGFX.Graphics.Shapes.RectShape.GetNormals*
+- uid: LibGFX.Graphics.Shapes.RectShape.GetTangents
+  commentId: M:LibGFX.Graphics.Shapes.RectShape.GetTangents
+  id: GetTangents
+  parent: LibGFX.Graphics.Shapes.RectShape
+  langs:
+  - csharp
+  - vb
+  name: GetTangents()
+  nameWithType: RectShape.GetTangents()
+  fullName: LibGFX.Graphics.Shapes.RectShape.GetTangents()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Shapes/RectShape.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetTangents
+    path: ../LibGFX/Graphics/Shapes/RectShape.cs
+    startLine: 58
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Shapes
+  example: []
+  syntax:
+    content: public override float[] GetTangents()
+    return:
+      type: System.Single[]
+    content.vb: Public Overrides Function GetTangents() As Single()
+  overridden: LibGFX.Graphics.Shapes.Shape.GetTangents
+  overload: LibGFX.Graphics.Shapes.RectShape.GetTangents*
+- uid: LibGFX.Graphics.Shapes.RectShape.GetUVCoords
+  commentId: M:LibGFX.Graphics.Shapes.RectShape.GetUVCoords
+  id: GetUVCoords
+  parent: LibGFX.Graphics.Shapes.RectShape
+  langs:
+  - csharp
+  - vb
+  name: GetUVCoords()
+  nameWithType: RectShape.GetUVCoords()
+  fullName: LibGFX.Graphics.Shapes.RectShape.GetUVCoords()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Shapes/RectShape.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetUVCoords
+    path: ../LibGFX/Graphics/Shapes/RectShape.cs
+    startLine: 63
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Shapes
+  example: []
+  syntax:
+    content: public override float[] GetUVCoords()
+    return:
+      type: System.Single[]
+    content.vb: Public Overrides Function GetUVCoords() As Single()
+  overridden: LibGFX.Graphics.Shapes.Shape.GetUVCoords
+  overload: LibGFX.Graphics.Shapes.RectShape.GetUVCoords*
+references:
+- uid: LibGFX.Graphics.Shapes
+  commentId: N:LibGFX.Graphics.Shapes
+  href: LibGFX.html
+  name: LibGFX.Graphics.Shapes
+  nameWithType: LibGFX.Graphics.Shapes
+  fullName: LibGFX.Graphics.Shapes
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Shapes
+    name: Shapes
+    href: LibGFX.Graphics.Shapes.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Shapes
+    name: Shapes
+    href: LibGFX.Graphics.Shapes.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Graphics.Shapes.Shape
+  commentId: T:LibGFX.Graphics.Shapes.Shape
+  parent: LibGFX.Graphics.Shapes
+  href: LibGFX.Graphics.Shapes.Shape.html
+  name: Shape
+  nameWithType: Shape
+  fullName: LibGFX.Graphics.Shapes.Shape
+- uid: LibGFX.Core.IGraphicsResource
+  commentId: T:LibGFX.Core.IGraphicsResource
+  parent: LibGFX.Core
+  href: LibGFX.Core.IGraphicsResource.html
+  name: IGraphicsResource
+  nameWithType: IGraphicsResource
+  fullName: LibGFX.Core.IGraphicsResource
+- uid: LibGFX.Graphics.Shapes.Shape.VertexArray
+  commentId: P:LibGFX.Graphics.Shapes.Shape.VertexArray
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_VertexArray
+  name: VertexArray
+  nameWithType: Shape.VertexArray
+  fullName: LibGFX.Graphics.Shapes.Shape.VertexArray
+- uid: LibGFX.Graphics.Shapes.Shape.VertexBuffer
+  commentId: P:LibGFX.Graphics.Shapes.Shape.VertexBuffer
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_VertexBuffer
+  name: VertexBuffer
+  nameWithType: Shape.VertexBuffer
+  fullName: LibGFX.Graphics.Shapes.Shape.VertexBuffer
+- uid: LibGFX.Graphics.Shapes.Shape.TextureBuffer
+  commentId: P:LibGFX.Graphics.Shapes.Shape.TextureBuffer
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_TextureBuffer
+  name: TextureBuffer
+  nameWithType: Shape.TextureBuffer
+  fullName: LibGFX.Graphics.Shapes.Shape.TextureBuffer
+- uid: LibGFX.Graphics.Shapes.Shape.NormalBuffer
+  commentId: P:LibGFX.Graphics.Shapes.Shape.NormalBuffer
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_NormalBuffer
+  name: NormalBuffer
+  nameWithType: Shape.NormalBuffer
+  fullName: LibGFX.Graphics.Shapes.Shape.NormalBuffer
+- uid: LibGFX.Graphics.Shapes.Shape.IndexBuffer
+  commentId: P:LibGFX.Graphics.Shapes.Shape.IndexBuffer
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_IndexBuffer
+  name: IndexBuffer
+  nameWithType: Shape.IndexBuffer
+  fullName: LibGFX.Graphics.Shapes.Shape.IndexBuffer
+- uid: LibGFX.Graphics.Shapes.Shape.TangentBuffer
+  commentId: P:LibGFX.Graphics.Shapes.Shape.TangentBuffer
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_TangentBuffer
+  name: TangentBuffer
+  nameWithType: Shape.TangentBuffer
+  fullName: LibGFX.Graphics.Shapes.Shape.TangentBuffer
+- uid: LibGFX.Graphics.Shapes.Shape.IsInitialized
+  commentId: P:LibGFX.Graphics.Shapes.Shape.IsInitialized
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_IsInitialized
+  name: IsInitialized
+  nameWithType: Shape.IsInitialized
+  fullName: LibGFX.Graphics.Shapes.Shape.IsInitialized
+- uid: LibGFX.Graphics.Shapes.Shape.DynamicVertices
+  commentId: M:LibGFX.Graphics.Shapes.Shape.DynamicVertices
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_DynamicVertices
+  name: DynamicVertices()
+  nameWithType: Shape.DynamicVertices()
+  fullName: LibGFX.Graphics.Shapes.Shape.DynamicVertices()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.DynamicVertices
+    name: DynamicVertices
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_DynamicVertices
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.DynamicVertices
+    name: DynamicVertices
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_DynamicVertices
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Shapes.Shape.DynamicUVCoords
+  commentId: M:LibGFX.Graphics.Shapes.Shape.DynamicUVCoords
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_DynamicUVCoords
+  name: DynamicUVCoords()
+  nameWithType: Shape.DynamicUVCoords()
+  fullName: LibGFX.Graphics.Shapes.Shape.DynamicUVCoords()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.DynamicUVCoords
+    name: DynamicUVCoords
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_DynamicUVCoords
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.DynamicUVCoords
+    name: DynamicUVCoords
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_DynamicUVCoords
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Shapes.Shape.DynamicNormals
+  commentId: M:LibGFX.Graphics.Shapes.Shape.DynamicNormals
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_DynamicNormals
+  name: DynamicNormals()
+  nameWithType: Shape.DynamicNormals()
+  fullName: LibGFX.Graphics.Shapes.Shape.DynamicNormals()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.DynamicNormals
+    name: DynamicNormals
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_DynamicNormals
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.DynamicNormals
+    name: DynamicNormals
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_DynamicNormals
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Shapes.Shape.DynamicTangents
+  commentId: M:LibGFX.Graphics.Shapes.Shape.DynamicTangents
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_DynamicTangents
+  name: DynamicTangents()
+  nameWithType: Shape.DynamicTangents()
+  fullName: LibGFX.Graphics.Shapes.Shape.DynamicTangents()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.DynamicTangents
+    name: DynamicTangents
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_DynamicTangents
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.DynamicTangents
+    name: DynamicTangents
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_DynamicTangents
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Shapes.Shape.Init(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Shapes.Shape.Init(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_Init_LibGFX_Graphics_IRenderDevice_
+  name: Init(IRenderDevice)
+  nameWithType: Shape.Init(IRenderDevice)
+  fullName: LibGFX.Graphics.Shapes.Shape.Init(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.Shapes.Shape.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Shapes.Shape.Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose(IRenderDevice)
+  nameWithType: Shape.Dispose(IRenderDevice)
+  fullName: LibGFX.Graphics.Shapes.Shape.Dispose(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.Shapes.Shape.FreeCPUResources
+  commentId: M:LibGFX.Graphics.Shapes.Shape.FreeCPUResources
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_FreeCPUResources
+  name: FreeCPUResources()
+  nameWithType: Shape.FreeCPUResources()
+  fullName: LibGFX.Graphics.Shapes.Shape.FreeCPUResources()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.FreeCPUResources
+    name: FreeCPUResources
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_FreeCPUResources
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.FreeCPUResources
+    name: FreeCPUResources
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_FreeCPUResources
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Graphics.Shapes.Shape.GetIndexCount
+  commentId: M:LibGFX.Graphics.Shapes.Shape.GetIndexCount
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetIndexCount
+  name: GetIndexCount()
+  nameWithType: Shape.GetIndexCount()
+  fullName: LibGFX.Graphics.Shapes.Shape.GetIndexCount()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.GetIndexCount
+    name: GetIndexCount
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetIndexCount
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.GetIndexCount
+    name: GetIndexCount
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetIndexCount
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Shapes.RectShape.GetIndexCount*
+  commentId: Overload:LibGFX.Graphics.Shapes.RectShape.GetIndexCount
+  href: LibGFX.Graphics.Shapes.RectShape.html#LibGFX_Graphics_Shapes_RectShape_GetIndexCount
+  name: GetIndexCount
+  nameWithType: RectShape.GetIndexCount
+  fullName: LibGFX.Graphics.Shapes.RectShape.GetIndexCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LibGFX.Graphics.Shapes.Shape.HasTangents
+  commentId: M:LibGFX.Graphics.Shapes.Shape.HasTangents
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_HasTangents
+  name: HasTangents()
+  nameWithType: Shape.HasTangents()
+  fullName: LibGFX.Graphics.Shapes.Shape.HasTangents()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.HasTangents
+    name: HasTangents
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_HasTangents
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.HasTangents
+    name: HasTangents
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_HasTangents
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Shapes.RectShape.HasTangents*
+  commentId: Overload:LibGFX.Graphics.Shapes.RectShape.HasTangents
+  href: LibGFX.Graphics.Shapes.RectShape.html#LibGFX_Graphics_Shapes_RectShape_HasTangents
+  name: HasTangents
+  nameWithType: RectShape.HasTangents
+  fullName: LibGFX.Graphics.Shapes.RectShape.HasTangents
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Graphics.Shapes.Shape.HasUvCoords
+  commentId: M:LibGFX.Graphics.Shapes.Shape.HasUvCoords
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_HasUvCoords
+  name: HasUvCoords()
+  nameWithType: Shape.HasUvCoords()
+  fullName: LibGFX.Graphics.Shapes.Shape.HasUvCoords()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.HasUvCoords
+    name: HasUvCoords
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_HasUvCoords
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.HasUvCoords
+    name: HasUvCoords
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_HasUvCoords
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Shapes.RectShape.HasUvCoords*
+  commentId: Overload:LibGFX.Graphics.Shapes.RectShape.HasUvCoords
+  href: LibGFX.Graphics.Shapes.RectShape.html#LibGFX_Graphics_Shapes_RectShape_HasUvCoords
+  name: HasUvCoords
+  nameWithType: RectShape.HasUvCoords
+  fullName: LibGFX.Graphics.Shapes.RectShape.HasUvCoords
+- uid: LibGFX.Graphics.Shapes.Shape.HasNormals
+  commentId: M:LibGFX.Graphics.Shapes.Shape.HasNormals
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_HasNormals
+  name: HasNormals()
+  nameWithType: Shape.HasNormals()
+  fullName: LibGFX.Graphics.Shapes.Shape.HasNormals()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.HasNormals
+    name: HasNormals
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_HasNormals
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.HasNormals
+    name: HasNormals
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_HasNormals
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Shapes.RectShape.HasNormals*
+  commentId: Overload:LibGFX.Graphics.Shapes.RectShape.HasNormals
+  href: LibGFX.Graphics.Shapes.RectShape.html#LibGFX_Graphics_Shapes_RectShape_HasNormals
+  name: HasNormals
+  nameWithType: RectShape.HasNormals
+  fullName: LibGFX.Graphics.Shapes.RectShape.HasNormals
+- uid: LibGFX.Graphics.Shapes.Shape.GetShapeName
+  commentId: M:LibGFX.Graphics.Shapes.Shape.GetShapeName
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetShapeName
+  name: GetShapeName()
+  nameWithType: Shape.GetShapeName()
+  fullName: LibGFX.Graphics.Shapes.Shape.GetShapeName()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.GetShapeName
+    name: GetShapeName
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetShapeName
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.GetShapeName
+    name: GetShapeName
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetShapeName
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Shapes.RectShape.GetShapeName*
+  commentId: Overload:LibGFX.Graphics.Shapes.RectShape.GetShapeName
+  href: LibGFX.Graphics.Shapes.RectShape.html#LibGFX_Graphics_Shapes_RectShape_GetShapeName
+  name: GetShapeName
+  nameWithType: RectShape.GetShapeName
+  fullName: LibGFX.Graphics.Shapes.RectShape.GetShapeName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: LibGFX.Graphics.Shapes.Shape.GetVertices
+  commentId: M:LibGFX.Graphics.Shapes.Shape.GetVertices
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetVertices
+  name: GetVertices()
+  nameWithType: Shape.GetVertices()
+  fullName: LibGFX.Graphics.Shapes.Shape.GetVertices()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.GetVertices
+    name: GetVertices
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetVertices
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.GetVertices
+    name: GetVertices
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetVertices
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Shapes.RectShape.GetVertices*
+  commentId: Overload:LibGFX.Graphics.Shapes.RectShape.GetVertices
+  href: LibGFX.Graphics.Shapes.RectShape.html#LibGFX_Graphics_Shapes_RectShape_GetVertices
+  name: GetVertices
+  nameWithType: RectShape.GetVertices
+  fullName: LibGFX.Graphics.Shapes.RectShape.GetVertices
+- uid: System.Single[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float[]
+  nameWithType: float[]
+  fullName: float[]
+  nameWithType.vb: Single()
+  fullName.vb: Single()
+  name.vb: Single()
+  spec.csharp:
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Shapes.Shape.GetIndices
+  commentId: M:LibGFX.Graphics.Shapes.Shape.GetIndices
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetIndices
+  name: GetIndices()
+  nameWithType: Shape.GetIndices()
+  fullName: LibGFX.Graphics.Shapes.Shape.GetIndices()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.GetIndices
+    name: GetIndices
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetIndices
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.GetIndices
+    name: GetIndices
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetIndices
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Shapes.RectShape.GetIndices*
+  commentId: Overload:LibGFX.Graphics.Shapes.RectShape.GetIndices
+  href: LibGFX.Graphics.Shapes.RectShape.html#LibGFX_Graphics_Shapes_RectShape_GetIndices
+  name: GetIndices
+  nameWithType: RectShape.GetIndices
+  fullName: LibGFX.Graphics.Shapes.RectShape.GetIndices
+- uid: System.UInt32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint[]
+  nameWithType: uint[]
+  fullName: uint[]
+  nameWithType.vb: UInteger()
+  fullName.vb: UInteger()
+  name.vb: UInteger()
+  spec.csharp:
+  - uid: System.UInt32
+    name: uint
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.UInt32
+    name: UInteger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.uint32
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Shapes.Shape.GetNormals
+  commentId: M:LibGFX.Graphics.Shapes.Shape.GetNormals
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetNormals
+  name: GetNormals()
+  nameWithType: Shape.GetNormals()
+  fullName: LibGFX.Graphics.Shapes.Shape.GetNormals()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.GetNormals
+    name: GetNormals
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetNormals
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.GetNormals
+    name: GetNormals
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetNormals
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Shapes.RectShape.GetNormals*
+  commentId: Overload:LibGFX.Graphics.Shapes.RectShape.GetNormals
+  href: LibGFX.Graphics.Shapes.RectShape.html#LibGFX_Graphics_Shapes_RectShape_GetNormals
+  name: GetNormals
+  nameWithType: RectShape.GetNormals
+  fullName: LibGFX.Graphics.Shapes.RectShape.GetNormals
+- uid: LibGFX.Graphics.Shapes.Shape.GetTangents
+  commentId: M:LibGFX.Graphics.Shapes.Shape.GetTangents
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetTangents
+  name: GetTangents()
+  nameWithType: Shape.GetTangents()
+  fullName: LibGFX.Graphics.Shapes.Shape.GetTangents()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.GetTangents
+    name: GetTangents
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetTangents
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.GetTangents
+    name: GetTangents
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetTangents
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Shapes.RectShape.GetTangents*
+  commentId: Overload:LibGFX.Graphics.Shapes.RectShape.GetTangents
+  href: LibGFX.Graphics.Shapes.RectShape.html#LibGFX_Graphics_Shapes_RectShape_GetTangents
+  name: GetTangents
+  nameWithType: RectShape.GetTangents
+  fullName: LibGFX.Graphics.Shapes.RectShape.GetTangents
+- uid: LibGFX.Graphics.Shapes.Shape.GetUVCoords
+  commentId: M:LibGFX.Graphics.Shapes.Shape.GetUVCoords
+  parent: LibGFX.Graphics.Shapes.Shape
+  href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetUVCoords
+  name: GetUVCoords()
+  nameWithType: Shape.GetUVCoords()
+  fullName: LibGFX.Graphics.Shapes.Shape.GetUVCoords()
+  spec.csharp:
+  - uid: LibGFX.Graphics.Shapes.Shape.GetUVCoords
+    name: GetUVCoords
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetUVCoords
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.Shapes.Shape.GetUVCoords
+    name: GetUVCoords
+    href: LibGFX.Graphics.Shapes.Shape.html#LibGFX_Graphics_Shapes_Shape_GetUVCoords
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Shapes.RectShape.GetUVCoords*
+  commentId: Overload:LibGFX.Graphics.Shapes.RectShape.GetUVCoords
+  href: LibGFX.Graphics.Shapes.RectShape.html#LibGFX_Graphics_Shapes_RectShape_GetUVCoords
+  name: GetUVCoords
+  nameWithType: RectShape.GetUVCoords
+  fullName: LibGFX.Graphics.Shapes.RectShape.GetUVCoords

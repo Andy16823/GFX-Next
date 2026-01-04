@@ -1,0 +1,398 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  id: RenderFlags.GFXTextureParameterName
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.GFXTextureParameterName.GenerateMipmap
+  - LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureBaseLevel
+  - LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureBorderColor
+  - LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureCompareFunc
+  - LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureCompareMode
+  - LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureLodBias
+  - LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureMagFilter
+  - LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureMaxLevel
+  - LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureMinFilter
+  - LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureWrapR
+  - LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureWrapS
+  - LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureWrapT
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.GFXTextureParameterName
+  nameWithType: RenderFlags.GFXTextureParameterName
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GFXTextureParameterName
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 25
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public enum RenderFlags.GFXTextureParameterName
+    content.vb: Public Enum RenderFlags.GFXTextureParameterName
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureMinFilter
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureMinFilter
+  id: TextureMinFilter
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  langs:
+  - csharp
+  - vb
+  name: TextureMinFilter
+  nameWithType: RenderFlags.GFXTextureParameterName.TextureMinFilter
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureMinFilter
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureMinFilter
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 27
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TextureMinFilter = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureMagFilter
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureMagFilter
+  id: TextureMagFilter
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  langs:
+  - csharp
+  - vb
+  name: TextureMagFilter
+  nameWithType: RenderFlags.GFXTextureParameterName.TextureMagFilter
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureMagFilter
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureMagFilter
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 28
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TextureMagFilter = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureWrapS
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureWrapS
+  id: TextureWrapS
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  langs:
+  - csharp
+  - vb
+  name: TextureWrapS
+  nameWithType: RenderFlags.GFXTextureParameterName.TextureWrapS
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureWrapS
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureWrapS
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 29
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TextureWrapS = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureWrapT
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureWrapT
+  id: TextureWrapT
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  langs:
+  - csharp
+  - vb
+  name: TextureWrapT
+  nameWithType: RenderFlags.GFXTextureParameterName.TextureWrapT
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureWrapT
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureWrapT
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 30
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TextureWrapT = 3
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureWrapR
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureWrapR
+  id: TextureWrapR
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  langs:
+  - csharp
+  - vb
+  name: TextureWrapR
+  nameWithType: RenderFlags.GFXTextureParameterName.TextureWrapR
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureWrapR
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureWrapR
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 31
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TextureWrapR = 4
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureBorderColor
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureBorderColor
+  id: TextureBorderColor
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  langs:
+  - csharp
+  - vb
+  name: TextureBorderColor
+  nameWithType: RenderFlags.GFXTextureParameterName.TextureBorderColor
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureBorderColor
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureBorderColor
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 32
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TextureBorderColor = 5
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureBaseLevel
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureBaseLevel
+  id: TextureBaseLevel
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  langs:
+  - csharp
+  - vb
+  name: TextureBaseLevel
+  nameWithType: RenderFlags.GFXTextureParameterName.TextureBaseLevel
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureBaseLevel
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureBaseLevel
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 33
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TextureBaseLevel = 6
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureMaxLevel
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureMaxLevel
+  id: TextureMaxLevel
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  langs:
+  - csharp
+  - vb
+  name: TextureMaxLevel
+  nameWithType: RenderFlags.GFXTextureParameterName.TextureMaxLevel
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureMaxLevel
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureMaxLevel
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 34
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TextureMaxLevel = 7
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureLodBias
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureLodBias
+  id: TextureLodBias
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  langs:
+  - csharp
+  - vb
+  name: TextureLodBias
+  nameWithType: RenderFlags.GFXTextureParameterName.TextureLodBias
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureLodBias
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureLodBias
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 35
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TextureLodBias = 8
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureCompareMode
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureCompareMode
+  id: TextureCompareMode
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  langs:
+  - csharp
+  - vb
+  name: TextureCompareMode
+  nameWithType: RenderFlags.GFXTextureParameterName.TextureCompareMode
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureCompareMode
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureCompareMode
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 36
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TextureCompareMode = 9
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureCompareFunc
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureCompareFunc
+  id: TextureCompareFunc
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  langs:
+  - csharp
+  - vb
+  name: TextureCompareFunc
+  nameWithType: RenderFlags.GFXTextureParameterName.TextureCompareFunc
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.TextureCompareFunc
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureCompareFunc
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 37
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TextureCompareFunc = 10
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.GenerateMipmap
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXTextureParameterName.GenerateMipmap
+  id: GenerateMipmap
+  parent: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  langs:
+  - csharp
+  - vb
+  name: GenerateMipmap
+  nameWithType: RenderFlags.GFXTextureParameterName.GenerateMipmap
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.GenerateMipmap
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GenerateMipmap
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 38
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: GenerateMipmap = 11
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.GFXTextureParameterName
+  nameWithType: RenderFlags.GFXTextureParameterName
+  fullName: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+    name: GFXTextureParameterName
+    href: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+    name: GFXTextureParameterName
+    href: LibGFX.Graphics.RenderFlags.GFXTextureParameterName.html

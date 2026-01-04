@@ -1,0 +1,276 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.UI.ControlEventType
+  commentId: T:LibGFX.UI.ControlEventType
+  id: ControlEventType
+  parent: LibGFX.UI
+  children:
+  - LibGFX.UI.ControlEventType.KeyDown
+  - LibGFX.UI.ControlEventType.KeyUp
+  - LibGFX.UI.ControlEventType.MouseDown
+  - LibGFX.UI.ControlEventType.MouseEnter
+  - LibGFX.UI.ControlEventType.MouseLeave
+  - LibGFX.UI.ControlEventType.MouseMove
+  - LibGFX.UI.ControlEventType.MouseUp
+  - LibGFX.UI.ControlEventType.MouseWheel
+  langs:
+  - csharp
+  - vb
+  name: ControlEventType
+  nameWithType: ControlEventType
+  fullName: LibGFX.UI.ControlEventType
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/UI/Control.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ControlEventType
+    path: ../LibGFX/UI/Control.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: Represents the different types of control events.
+  example: []
+  syntax:
+    content: public enum ControlEventType
+    content.vb: Public Enum ControlEventType
+- uid: LibGFX.UI.ControlEventType.MouseEnter
+  commentId: F:LibGFX.UI.ControlEventType.MouseEnter
+  id: MouseEnter
+  parent: LibGFX.UI.ControlEventType
+  langs:
+  - csharp
+  - vb
+  name: MouseEnter
+  nameWithType: ControlEventType.MouseEnter
+  fullName: LibGFX.UI.ControlEventType.MouseEnter
+  type: Field
+  source:
+    remote:
+      path: LibGFX/UI/Control.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MouseEnter
+    path: ../LibGFX/UI/Control.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  syntax:
+    content: MouseEnter = 0
+    return:
+      type: LibGFX.UI.ControlEventType
+- uid: LibGFX.UI.ControlEventType.MouseLeave
+  commentId: F:LibGFX.UI.ControlEventType.MouseLeave
+  id: MouseLeave
+  parent: LibGFX.UI.ControlEventType
+  langs:
+  - csharp
+  - vb
+  name: MouseLeave
+  nameWithType: ControlEventType.MouseLeave
+  fullName: LibGFX.UI.ControlEventType.MouseLeave
+  type: Field
+  source:
+    remote:
+      path: LibGFX/UI/Control.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MouseLeave
+    path: ../LibGFX/UI/Control.cs
+    startLine: 20
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  syntax:
+    content: MouseLeave = 1
+    return:
+      type: LibGFX.UI.ControlEventType
+- uid: LibGFX.UI.ControlEventType.MouseDown
+  commentId: F:LibGFX.UI.ControlEventType.MouseDown
+  id: MouseDown
+  parent: LibGFX.UI.ControlEventType
+  langs:
+  - csharp
+  - vb
+  name: MouseDown
+  nameWithType: ControlEventType.MouseDown
+  fullName: LibGFX.UI.ControlEventType.MouseDown
+  type: Field
+  source:
+    remote:
+      path: LibGFX/UI/Control.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MouseDown
+    path: ../LibGFX/UI/Control.cs
+    startLine: 21
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  syntax:
+    content: MouseDown = 2
+    return:
+      type: LibGFX.UI.ControlEventType
+- uid: LibGFX.UI.ControlEventType.MouseUp
+  commentId: F:LibGFX.UI.ControlEventType.MouseUp
+  id: MouseUp
+  parent: LibGFX.UI.ControlEventType
+  langs:
+  - csharp
+  - vb
+  name: MouseUp
+  nameWithType: ControlEventType.MouseUp
+  fullName: LibGFX.UI.ControlEventType.MouseUp
+  type: Field
+  source:
+    remote:
+      path: LibGFX/UI/Control.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MouseUp
+    path: ../LibGFX/UI/Control.cs
+    startLine: 22
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  syntax:
+    content: MouseUp = 3
+    return:
+      type: LibGFX.UI.ControlEventType
+- uid: LibGFX.UI.ControlEventType.MouseMove
+  commentId: F:LibGFX.UI.ControlEventType.MouseMove
+  id: MouseMove
+  parent: LibGFX.UI.ControlEventType
+  langs:
+  - csharp
+  - vb
+  name: MouseMove
+  nameWithType: ControlEventType.MouseMove
+  fullName: LibGFX.UI.ControlEventType.MouseMove
+  type: Field
+  source:
+    remote:
+      path: LibGFX/UI/Control.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MouseMove
+    path: ../LibGFX/UI/Control.cs
+    startLine: 23
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  syntax:
+    content: MouseMove = 4
+    return:
+      type: LibGFX.UI.ControlEventType
+- uid: LibGFX.UI.ControlEventType.MouseWheel
+  commentId: F:LibGFX.UI.ControlEventType.MouseWheel
+  id: MouseWheel
+  parent: LibGFX.UI.ControlEventType
+  langs:
+  - csharp
+  - vb
+  name: MouseWheel
+  nameWithType: ControlEventType.MouseWheel
+  fullName: LibGFX.UI.ControlEventType.MouseWheel
+  type: Field
+  source:
+    remote:
+      path: LibGFX/UI/Control.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MouseWheel
+    path: ../LibGFX/UI/Control.cs
+    startLine: 24
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  syntax:
+    content: MouseWheel = 5
+    return:
+      type: LibGFX.UI.ControlEventType
+- uid: LibGFX.UI.ControlEventType.KeyDown
+  commentId: F:LibGFX.UI.ControlEventType.KeyDown
+  id: KeyDown
+  parent: LibGFX.UI.ControlEventType
+  langs:
+  - csharp
+  - vb
+  name: KeyDown
+  nameWithType: ControlEventType.KeyDown
+  fullName: LibGFX.UI.ControlEventType.KeyDown
+  type: Field
+  source:
+    remote:
+      path: LibGFX/UI/Control.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: KeyDown
+    path: ../LibGFX/UI/Control.cs
+    startLine: 25
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  syntax:
+    content: KeyDown = 6
+    return:
+      type: LibGFX.UI.ControlEventType
+- uid: LibGFX.UI.ControlEventType.KeyUp
+  commentId: F:LibGFX.UI.ControlEventType.KeyUp
+  id: KeyUp
+  parent: LibGFX.UI.ControlEventType
+  langs:
+  - csharp
+  - vb
+  name: KeyUp
+  nameWithType: ControlEventType.KeyUp
+  fullName: LibGFX.UI.ControlEventType.KeyUp
+  type: Field
+  source:
+    remote:
+      path: LibGFX/UI/Control.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: KeyUp
+    path: ../LibGFX/UI/Control.cs
+    startLine: 26
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  syntax:
+    content: KeyUp = 7
+    return:
+      type: LibGFX.UI.ControlEventType
+references:
+- uid: LibGFX.UI
+  commentId: N:LibGFX.UI
+  href: LibGFX.html
+  name: LibGFX.UI
+  nameWithType: LibGFX.UI
+  fullName: LibGFX.UI
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.UI
+    name: UI
+    href: LibGFX.UI.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.UI
+    name: UI
+    href: LibGFX.UI.html
+- uid: LibGFX.UI.ControlEventType
+  commentId: T:LibGFX.UI.ControlEventType
+  parent: LibGFX.UI
+  href: LibGFX.UI.ControlEventType.html
+  name: ControlEventType
+  nameWithType: ControlEventType
+  fullName: LibGFX.UI.ControlEventType

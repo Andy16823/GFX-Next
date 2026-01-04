@@ -1,0 +1,372 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  commentId: T:LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  id: IPostProcessFilter
+  parent: LibGFX.Graphics.PostProcessing
+  children:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+  langs:
+  - csharp
+  - vb
+  name: IPostProcessFilter
+  nameWithType: IPostProcessFilter
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  type: Interface
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/IPostProcessFilter.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IPostProcessFilter
+    path: ../LibGFX/Graphics/PostProcessing/IPostProcessFilter.cs
+    startLine: 8
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  syntax:
+    content: public interface IPostProcessFilter
+    content.vb: Public Interface IPostProcessFilter
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+  commentId: P:LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+  id: RenderTarget
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  langs:
+  - csharp
+  - vb
+  name: RenderTarget
+  nameWithType: IPostProcessFilter.RenderTarget
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/IPostProcessFilter.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderTarget
+    path: ../LibGFX/Graphics/PostProcessing/IPostProcessFilter.cs
+    startLine: 10
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  syntax:
+    content: RenderTarget2D RenderTarget { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.RenderTarget2D
+    content.vb: ReadOnly Property RenderTarget As RenderTarget2D
+  overload: LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget*
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  id: Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  langs:
+  - csharp
+  - vb
+  name: Apply(PostProcessStack, IRenderDevice, int)
+  nameWithType: IPostProcessFilter.Apply(PostProcessStack, IRenderDevice, int)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/IPostProcessFilter.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Apply
+    path: ../LibGFX/Graphics/PostProcessing/IPostProcessFilter.cs
+    startLine: 11
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  syntax:
+    content: void Apply(PostProcessStack stack, IRenderDevice renderer, int sourceTexture)
+    parameters:
+    - id: stack
+      type: LibGFX.Graphics.PostProcessing.PostProcessStack
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    - id: sourceTexture
+      type: System.Int32
+    content.vb: Sub Apply(stack As PostProcessStack, renderer As IRenderDevice, sourceTexture As Integer)
+  overload: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply*
+  nameWithType.vb: IPostProcessFilter.Apply(PostProcessStack, IRenderDevice, Integer)
+  fullName.vb: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, Integer)
+  name.vb: Apply(PostProcessStack, IRenderDevice, Integer)
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  langs:
+  - csharp
+  - vb
+  name: Init(PostProcessStack, Viewport, IRenderDevice)
+  nameWithType: IPostProcessFilter.Init(PostProcessStack, Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/IPostProcessFilter.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Init
+    path: ../LibGFX/Graphics/PostProcessing/IPostProcessFilter.cs
+    startLine: 12
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  syntax:
+    content: void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: stack
+      type: LibGFX.Graphics.PostProcessing.PostProcessStack
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Sub Init(stack As PostProcessStack, viewport As Viewport, renderer As IRenderDevice)
+  overload: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init*
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  id: Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  langs:
+  - csharp
+  - vb
+  name: Dispose(PostProcessStack, IRenderDevice)
+  nameWithType: IPostProcessFilter.Dispose(PostProcessStack, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/IPostProcessFilter.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/Graphics/PostProcessing/IPostProcessFilter.cs
+    startLine: 13
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  syntax:
+    content: void Dispose(PostProcessStack stack, IRenderDevice renderer)
+    parameters:
+    - id: stack
+      type: LibGFX.Graphics.PostProcessing.PostProcessStack
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Sub Dispose(stack As PostProcessStack, renderer As IRenderDevice)
+  overload: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose*
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  langs:
+  - csharp
+  - vb
+  name: Resize(Viewport, IRenderDevice)
+  nameWithType: IPostProcessFilter.Resize(Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/IPostProcessFilter.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Resize
+    path: ../LibGFX/Graphics/PostProcessing/IPostProcessFilter.cs
+    startLine: 14
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  syntax:
+    content: void Resize(Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Sub Resize(viewport As Viewport, renderer As IRenderDevice)
+  overload: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize*
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+  id: Update(System.Single)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  langs:
+  - csharp
+  - vb
+  name: Update(float)
+  nameWithType: IPostProcessFilter.Update(float)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/IPostProcessFilter.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Update
+    path: ../LibGFX/Graphics/PostProcessing/IPostProcessFilter.cs
+    startLine: 15
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  syntax:
+    content: void Update(float deltaTime)
+    parameters:
+    - id: deltaTime
+      type: System.Single
+    content.vb: Sub Update(deltaTime As Single)
+  overload: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update*
+  nameWithType.vb: IPostProcessFilter.Update(Single)
+  fullName.vb: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(Single)
+  name.vb: Update(Single)
+references:
+- uid: LibGFX.Graphics.PostProcessing
+  commentId: N:LibGFX.Graphics.PostProcessing
+  href: LibGFX.html
+  name: LibGFX.Graphics.PostProcessing
+  nameWithType: LibGFX.Graphics.PostProcessing
+  fullName: LibGFX.Graphics.PostProcessing
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.PostProcessing
+    name: PostProcessing
+    href: LibGFX.Graphics.PostProcessing.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.PostProcessing
+    name: PostProcessing
+    href: LibGFX.Graphics.PostProcessing.html
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_RenderTarget
+  name: RenderTarget
+  nameWithType: IPostProcessFilter.RenderTarget
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+- uid: LibGFX.Graphics.RenderTarget2D
+  commentId: T:LibGFX.Graphics.RenderTarget2D
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderTarget2D.html
+  name: RenderTarget2D
+  nameWithType: RenderTarget2D
+  fullName: LibGFX.Graphics.RenderTarget2D
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  name: Apply
+  nameWithType: IPostProcessFilter.Apply
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply
+- uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+  commentId: T:LibGFX.Graphics.PostProcessing.PostProcessStack
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  name: PostProcessStack
+  nameWithType: PostProcessStack
+  fullName: LibGFX.Graphics.PostProcessing.PostProcessStack
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Init
+  nameWithType: IPostProcessFilter.Init
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  name: Dispose
+  nameWithType: IPostProcessFilter.Dispose
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Resize
+  nameWithType: IPostProcessFilter.Resize
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Update_System_Single_
+  name: Update
+  nameWithType: IPostProcessFilter.Update
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single

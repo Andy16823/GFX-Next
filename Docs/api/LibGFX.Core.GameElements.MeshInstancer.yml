@@ -1,0 +1,2314 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Core.GameElements.MeshInstancer
+  commentId: T:LibGFX.Core.GameElements.MeshInstancer
+  id: MeshInstancer
+  parent: LibGFX.Core.GameElements
+  children:
+  - LibGFX.Core.GameElements.MeshInstancer.#ctor(LibGFX.Graphics.Mesh,LibGFX.Graphics.Materials.IMaterial)
+  - LibGFX.Core.GameElements.MeshInstancer.AddInstance(LibGFX.Math.Transform,System.Boolean)
+  - LibGFX.Core.GameElements.MeshInstancer.BakeInstances(System.UInt32)
+  - LibGFX.Core.GameElements.MeshInstancer.ComputeAABB
+  - LibGFX.Core.GameElements.MeshInstancer.CreateInstanceHandle(System.Int32)
+  - LibGFX.Core.GameElements.MeshInstancer.Dispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Core.GameElements.MeshInstancer.FindHiddenInstances(System.Int32)
+  - LibGFX.Core.GameElements.MeshInstancer.HasTransparency
+  - LibGFX.Core.GameElements.MeshInstancer.Init(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Core.GameElements.MeshInstancer.InstanceContainer
+  - LibGFX.Core.GameElements.MeshInstancer.Material
+  - LibGFX.Core.GameElements.MeshInstancer.Mesh
+  - LibGFX.Core.GameElements.MeshInstancer.Render(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  - LibGFX.Core.GameElements.MeshInstancer.RenderShadow(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Core.GameElements.MeshInstancer.Shader
+  - LibGFX.Core.GameElements.MeshInstancer.Update(LibGFX.Core.BaseScene,System.Single)
+  langs:
+  - csharp
+  - vb
+  name: MeshInstancer
+  nameWithType: MeshInstancer
+  fullName: LibGFX.Core.GameElements.MeshInstancer
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MeshInstancer
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 18
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: Represents a mesh instancer that can render multiple instances of a mesh with a material.
+  example: []
+  syntax:
+    content: 'public class MeshInstancer : GameElement, IIdentifier, IPropertyTable, ISerialization'
+    content.vb: Public Class MeshInstancer Inherits GameElement Implements IIdentifier, IPropertyTable, ISerialization
+  inheritance:
+  - System.Object
+  - LibGFX.Core.GameElement
+  implements:
+  - LibGFX.Core.IIdentifier
+  - LibGFX.Core.IPropertyTable
+  - LibGFX.Core.ISerialization
+  inheritedMembers:
+  - LibGFX.Core.GameElement.Name
+  - LibGFX.Core.GameElement.Transform
+  - LibGFX.Core.GameElement.Visible
+  - LibGFX.Core.GameElement.Enabled
+  - LibGFX.Core.GameElement.CastShadows
+  - LibGFX.Core.GameElement.ID
+  - LibGFX.Core.GameElement.Parent
+  - LibGFX.Core.GameElement.Behaviors
+  - LibGFX.Core.GameElement.Tags
+  - LibGFX.Core.GameElement.AABB
+  - LibGFX.Core.GameElement.WorldAABB
+  - LibGFX.Core.GameElement.Children
+  - LibGFX.Core.GameElement.Properties
+  - LibGFX.Core.GameElement.AddChild(LibGFX.Core.GameElement)
+  - LibGFX.Core.GameElement.Collide(LibGFX.Physics.Collision)
+  - LibGFX.Core.GameElement.AddBehavior``1({T})
+  - LibGFX.Core.GameElement.GetBehavior``1
+  - LibGFX.Core.GameElement.AddTag(System.String)
+  - LibGFX.Core.GameElement.RemoveTag(System.String)
+  - LibGFX.Core.GameElement.HasTag(System.String)
+  - LibGFX.Core.GameElement.GetMeshes
+  - LibGFX.Core.GameElement.GetWorldAABB
+  - LibGFX.Core.GameElement.GetWorldTransform
+  - LibGFX.Core.GameElement.FindChild``1
+  - LibGFX.Core.GameElement.FindChildren``1
+  - LibGFX.Core.GameElement.FindChild``1(System.String)
+  - LibGFX.Core.GameElement.FindChildren``1(System.String)
+  - LibGFX.Core.GameElement.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  - LibGFX.Core.GameElement.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Core.GameElements.MeshInstancer.Material
+  commentId: P:LibGFX.Core.GameElements.MeshInstancer.Material
+  id: Material
+  parent: LibGFX.Core.GameElements.MeshInstancer
+  langs:
+  - csharp
+  - vb
+  name: Material
+  nameWithType: MeshInstancer.Material
+  fullName: LibGFX.Core.GameElements.MeshInstancer.Material
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Material
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 23
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: The material used for rendering the mesh instances.
+  example: []
+  syntax:
+    content: public IMaterial Material { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.Materials.IMaterial
+    content.vb: Public Property Material As IMaterial
+  overload: LibGFX.Core.GameElements.MeshInstancer.Material*
+- uid: LibGFX.Core.GameElements.MeshInstancer.Mesh
+  commentId: P:LibGFX.Core.GameElements.MeshInstancer.Mesh
+  id: Mesh
+  parent: LibGFX.Core.GameElements.MeshInstancer
+  langs:
+  - csharp
+  - vb
+  name: Mesh
+  nameWithType: MeshInstancer.Mesh
+  fullName: LibGFX.Core.GameElements.MeshInstancer.Mesh
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Mesh
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 28
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: The mesh to be instanced.
+  example: []
+  syntax:
+    content: public Mesh Mesh { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.Mesh
+    content.vb: Public Property Mesh As Mesh
+  overload: LibGFX.Core.GameElements.MeshInstancer.Mesh*
+- uid: LibGFX.Core.GameElements.MeshInstancer.InstanceContainer
+  commentId: P:LibGFX.Core.GameElements.MeshInstancer.InstanceContainer
+  id: InstanceContainer
+  parent: LibGFX.Core.GameElements.MeshInstancer
+  langs:
+  - csharp
+  - vb
+  name: InstanceContainer
+  nameWithType: MeshInstancer.InstanceContainer
+  fullName: LibGFX.Core.GameElements.MeshInstancer.InstanceContainer
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: InstanceContainer
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 33
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: The container that holds the instances of the mesh.
+  example: []
+  syntax:
+    content: public RenderInstanceContainer InstanceContainer { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.RenderInstanceContainer
+    content.vb: Public Property InstanceContainer As RenderInstanceContainer
+  overload: LibGFX.Core.GameElements.MeshInstancer.InstanceContainer*
+- uid: LibGFX.Core.GameElements.MeshInstancer.Shader
+  commentId: P:LibGFX.Core.GameElements.MeshInstancer.Shader
+  id: Shader
+  parent: LibGFX.Core.GameElements.MeshInstancer
+  langs:
+  - csharp
+  - vb
+  name: Shader
+  nameWithType: MeshInstancer.Shader
+  fullName: LibGFX.Core.GameElements.MeshInstancer.Shader
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Shader
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 38
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: The shader program used for rendering the mesh instances.
+  example: []
+  syntax:
+    content: public RenderShader Shader { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.Shader.RenderShader
+    content.vb: Public Property Shader As RenderShader
+  overload: LibGFX.Core.GameElements.MeshInstancer.Shader*
+- uid: LibGFX.Core.GameElements.MeshInstancer.HasTransparency
+  commentId: P:LibGFX.Core.GameElements.MeshInstancer.HasTransparency
+  id: HasTransparency
+  parent: LibGFX.Core.GameElements.MeshInstancer
+  langs:
+  - csharp
+  - vb
+  name: HasTransparency
+  nameWithType: MeshInstancer.HasTransparency
+  fullName: LibGFX.Core.GameElements.MeshInstancer.HasTransparency
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: HasTransparency
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 43
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: Gets a value indicating whether the image contains any transparent pixels.
+  example: []
+  syntax:
+    content: public override bool HasTransparency { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property HasTransparency As Boolean
+  overridden: LibGFX.Core.GameElement.HasTransparency
+  overload: LibGFX.Core.GameElements.MeshInstancer.HasTransparency*
+- uid: LibGFX.Core.GameElements.MeshInstancer.#ctor(LibGFX.Graphics.Mesh,LibGFX.Graphics.Materials.IMaterial)
+  commentId: M:LibGFX.Core.GameElements.MeshInstancer.#ctor(LibGFX.Graphics.Mesh,LibGFX.Graphics.Materials.IMaterial)
+  id: '#ctor(LibGFX.Graphics.Mesh,LibGFX.Graphics.Materials.IMaterial)'
+  parent: LibGFX.Core.GameElements.MeshInstancer
+  langs:
+  - csharp
+  - vb
+  name: MeshInstancer(Mesh, IMaterial)
+  nameWithType: MeshInstancer.MeshInstancer(Mesh, IMaterial)
+  fullName: LibGFX.Core.GameElements.MeshInstancer.MeshInstancer(LibGFX.Graphics.Mesh, LibGFX.Graphics.Materials.IMaterial)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 50
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: Creates a new instance of the MeshInstancer class.
+  example: []
+  syntax:
+    content: public MeshInstancer(Mesh mesh, IMaterial material)
+    parameters:
+    - id: mesh
+      type: LibGFX.Graphics.Mesh
+      description: ''
+    - id: material
+      type: LibGFX.Graphics.Materials.IMaterial
+      description: ''
+    content.vb: Public Sub New(mesh As Mesh, material As IMaterial)
+  overload: LibGFX.Core.GameElements.MeshInstancer.#ctor*
+  nameWithType.vb: MeshInstancer.New(Mesh, IMaterial)
+  fullName.vb: LibGFX.Core.GameElements.MeshInstancer.New(LibGFX.Graphics.Mesh, LibGFX.Graphics.Materials.IMaterial)
+  name.vb: New(Mesh, IMaterial)
+- uid: LibGFX.Core.GameElements.MeshInstancer.Init(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.GameElements.MeshInstancer.Init(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: Init(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.GameElements.MeshInstancer
+  langs:
+  - csharp
+  - vb
+  name: Init(BaseScene, Viewport, IRenderDevice)
+  nameWithType: MeshInstancer.Init(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Core.GameElements.MeshInstancer.Init(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Init
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 63
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: Initializes the mesh instancer with the specified scene, viewport, and renderer.
+  example: []
+  syntax:
+    content: public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Overrides Sub Init(scene As BaseScene, viewport As Viewport, renderer As IRenderDevice)
+  overridden: LibGFX.Core.GameElement.Init(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  overload: LibGFX.Core.GameElements.MeshInstancer.Init*
+- uid: LibGFX.Core.GameElements.MeshInstancer.AddInstance(LibGFX.Math.Transform,System.Boolean)
+  commentId: M:LibGFX.Core.GameElements.MeshInstancer.AddInstance(LibGFX.Math.Transform,System.Boolean)
+  id: AddInstance(LibGFX.Math.Transform,System.Boolean)
+  parent: LibGFX.Core.GameElements.MeshInstancer
+  langs:
+  - csharp
+  - vb
+  name: AddInstance(Transform, bool)
+  nameWithType: MeshInstancer.AddInstance(Transform, bool)
+  fullName: LibGFX.Core.GameElements.MeshInstancer.AddInstance(LibGFX.Math.Transform, bool)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AddInstance
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 85
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: Adds a new instance of the mesh to the instancer.
+  example: []
+  syntax:
+    content: public int AddInstance(Transform transform, bool visible = true)
+    parameters:
+    - id: transform
+      type: LibGFX.Math.Transform
+      description: ''
+    - id: visible
+      type: System.Boolean
+    return:
+      type: System.Int32
+    content.vb: Public Function AddInstance(transform As Transform, visible As Boolean = True) As Integer
+  overload: LibGFX.Core.GameElements.MeshInstancer.AddInstance*
+  nameWithType.vb: MeshInstancer.AddInstance(Transform, Boolean)
+  fullName.vb: LibGFX.Core.GameElements.MeshInstancer.AddInstance(LibGFX.Math.Transform, Boolean)
+  name.vb: AddInstance(Transform, Boolean)
+- uid: LibGFX.Core.GameElements.MeshInstancer.Update(LibGFX.Core.BaseScene,System.Single)
+  commentId: M:LibGFX.Core.GameElements.MeshInstancer.Update(LibGFX.Core.BaseScene,System.Single)
+  id: Update(LibGFX.Core.BaseScene,System.Single)
+  parent: LibGFX.Core.GameElements.MeshInstancer
+  langs:
+  - csharp
+  - vb
+  name: Update(BaseScene, float)
+  nameWithType: MeshInstancer.Update(BaseScene, float)
+  fullName: LibGFX.Core.GameElements.MeshInstancer.Update(LibGFX.Core.BaseScene, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Update
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 95
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: Update the handles of the mesh instances in the instancer.
+  example: []
+  syntax:
+    content: public override void Update(BaseScene scene, float dt)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: dt
+      type: System.Single
+    content.vb: Public Overrides Sub Update(scene As BaseScene, dt As Single)
+  overridden: LibGFX.Core.GameElement.Update(LibGFX.Core.BaseScene,System.Single)
+  overload: LibGFX.Core.GameElements.MeshInstancer.Update*
+  nameWithType.vb: MeshInstancer.Update(BaseScene, Single)
+  fullName.vb: LibGFX.Core.GameElements.MeshInstancer.Update(LibGFX.Core.BaseScene, Single)
+  name.vb: Update(BaseScene, Single)
+- uid: LibGFX.Core.GameElements.MeshInstancer.Render(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  commentId: M:LibGFX.Core.GameElements.MeshInstancer.Render(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  id: Render(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  parent: LibGFX.Core.GameElements.MeshInstancer
+  langs:
+  - csharp
+  - vb
+  name: Render(BaseScene, Viewport, IRenderDevice, Camera)
+  nameWithType: MeshInstancer.Render(BaseScene, Viewport, IRenderDevice, Camera)
+  fullName: LibGFX.Core.GameElements.MeshInstancer.Render(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Render
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 107
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: Renders the mesh instances using the specified scene, viewport, renderer, and camera.
+  example: []
+  syntax:
+    content: public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    - id: camera
+      type: LibGFX.Graphics.Camera
+      description: ''
+    content.vb: Public Overrides Sub Render(scene As BaseScene, viewport As Viewport, renderer As IRenderDevice, camera As Camera)
+  overridden: LibGFX.Core.GameElement.Render(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  overload: LibGFX.Core.GameElements.MeshInstancer.Render*
+- uid: LibGFX.Core.GameElements.MeshInstancer.RenderShadow(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.GameElements.MeshInstancer.RenderShadow(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: RenderShadow(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.GameElements.MeshInstancer
+  langs:
+  - csharp
+  - vb
+  name: RenderShadow(BaseScene, Viewport, IRenderDevice)
+  nameWithType: MeshInstancer.RenderShadow(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Core.GameElements.MeshInstancer.RenderShadow(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderShadow
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 127
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: Renders the shadow of the game element
+  example: []
+  syntax:
+    content: public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Overrides Sub RenderShadow(scene As BaseScene, viewport As Viewport, renderer As IRenderDevice)
+  overridden: LibGFX.Core.GameElement.RenderShadow(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  overload: LibGFX.Core.GameElements.MeshInstancer.RenderShadow*
+- uid: LibGFX.Core.GameElements.MeshInstancer.Dispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.GameElements.MeshInstancer.Dispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  id: Dispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.GameElements.MeshInstancer
+  langs:
+  - csharp
+  - vb
+  name: Dispose(BaseScene, IRenderDevice)
+  nameWithType: MeshInstancer.Dispose(BaseScene, IRenderDevice)
+  fullName: LibGFX.Core.GameElements.MeshInstancer.Dispose(LibGFX.Core.BaseScene, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 141
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: Disposes the mesh instancer and its resources.
+  example: []
+  syntax:
+    content: public override void Dispose(BaseScene scene, IRenderDevice renderer)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Overrides Sub Dispose(scene As BaseScene, renderer As IRenderDevice)
+  overridden: LibGFX.Core.GameElement.Dispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  overload: LibGFX.Core.GameElements.MeshInstancer.Dispose*
+- uid: LibGFX.Core.GameElements.MeshInstancer.CreateInstanceHandle(System.Int32)
+  commentId: M:LibGFX.Core.GameElements.MeshInstancer.CreateInstanceHandle(System.Int32)
+  id: CreateInstanceHandle(System.Int32)
+  parent: LibGFX.Core.GameElements.MeshInstancer
+  langs:
+  - csharp
+  - vb
+  name: CreateInstanceHandle(int)
+  nameWithType: MeshInstancer.CreateInstanceHandle(int)
+  fullName: LibGFX.Core.GameElements.MeshInstancer.CreateInstanceHandle(int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CreateInstanceHandle
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 152
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: Creates a new instance handle for the specified instance ID.
+  example: []
+  syntax:
+    content: public InstanceHandle CreateInstanceHandle(int instanceId)
+    parameters:
+    - id: instanceId
+      type: System.Int32
+      description: ''
+    return:
+      type: LibGFX.Core.GameElements.InstanceHandle
+      description: ''
+    content.vb: Public Function CreateInstanceHandle(instanceId As Integer) As InstanceHandle
+  overload: LibGFX.Core.GameElements.MeshInstancer.CreateInstanceHandle*
+  nameWithType.vb: MeshInstancer.CreateInstanceHandle(Integer)
+  fullName.vb: LibGFX.Core.GameElements.MeshInstancer.CreateInstanceHandle(Integer)
+  name.vb: CreateInstanceHandle(Integer)
+- uid: LibGFX.Core.GameElements.MeshInstancer.BakeInstances(System.UInt32)
+  commentId: M:LibGFX.Core.GameElements.MeshInstancer.BakeInstances(System.UInt32)
+  id: BakeInstances(System.UInt32)
+  parent: LibGFX.Core.GameElements.MeshInstancer
+  langs:
+  - csharp
+  - vb
+  name: BakeInstances(uint)
+  nameWithType: MeshInstancer.BakeInstances(uint)
+  fullName: LibGFX.Core.GameElements.MeshInstancer.BakeInstances(uint)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BakeInstances
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 169
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: >-
+    Bakes a specified number of instances into the instancer. 
+
+    This instances are hidden untill you set them to visible.
+  example: []
+  syntax:
+    content: public void BakeInstances(uint instanceCount = 10)
+    parameters:
+    - id: instanceCount
+      type: System.UInt32
+      description: The amount of instances you want bake
+    content.vb: Public Sub BakeInstances(instanceCount As UInteger = 10)
+  overload: LibGFX.Core.GameElements.MeshInstancer.BakeInstances*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: ''
+  nameWithType.vb: MeshInstancer.BakeInstances(UInteger)
+  fullName.vb: LibGFX.Core.GameElements.MeshInstancer.BakeInstances(UInteger)
+  name.vb: BakeInstances(UInteger)
+- uid: LibGFX.Core.GameElements.MeshInstancer.FindHiddenInstances(System.Int32)
+  commentId: M:LibGFX.Core.GameElements.MeshInstancer.FindHiddenInstances(System.Int32)
+  id: FindHiddenInstances(System.Int32)
+  parent: LibGFX.Core.GameElements.MeshInstancer
+  langs:
+  - csharp
+  - vb
+  name: FindHiddenInstances(int)
+  nameWithType: MeshInstancer.FindHiddenInstances(int)
+  fullName: LibGFX.Core.GameElements.MeshInstancer.FindHiddenInstances(int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FindHiddenInstances
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 191
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: Finds hidden instances in the instancer and returns their indices.
+  example: []
+  syntax:
+    content: public IEnumerable<int> FindHiddenInstances(int count)
+    parameters:
+    - id: count
+      type: System.Int32
+      description: ''
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+      description: ''
+    content.vb: Public Function FindHiddenInstances(count As Integer) As IEnumerable(Of Integer)
+  overload: LibGFX.Core.GameElements.MeshInstancer.FindHiddenInstances*
+  nameWithType.vb: MeshInstancer.FindHiddenInstances(Integer)
+  fullName.vb: LibGFX.Core.GameElements.MeshInstancer.FindHiddenInstances(Integer)
+  name.vb: FindHiddenInstances(Integer)
+- uid: LibGFX.Core.GameElements.MeshInstancer.ComputeAABB
+  commentId: M:LibGFX.Core.GameElements.MeshInstancer.ComputeAABB
+  id: ComputeAABB
+  parent: LibGFX.Core.GameElements.MeshInstancer
+  langs:
+  - csharp
+  - vb
+  name: ComputeAABB()
+  nameWithType: MeshInstancer.ComputeAABB()
+  fullName: LibGFX.Core.GameElements.MeshInstancer.ComputeAABB()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/GameElements/MeshInstancer.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ComputeAABB
+    path: ../LibGFX/Core/GameElements/MeshInstancer.cs
+    startLine: 208
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core.GameElements
+  summary: Computes the axis-aligned bounding box (AABB) of the game element.
+  example: []
+  syntax:
+    content: public override void ComputeAABB()
+    content.vb: Public Overrides Sub ComputeAABB()
+  overridden: LibGFX.Core.GameElement.ComputeAABB
+  overload: LibGFX.Core.GameElements.MeshInstancer.ComputeAABB*
+references:
+- uid: LibGFX.Core.GameElements
+  commentId: N:LibGFX.Core.GameElements
+  href: LibGFX.html
+  name: LibGFX.Core.GameElements
+  nameWithType: LibGFX.Core.GameElements
+  fullName: LibGFX.Core.GameElements
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  - name: .
+  - uid: LibGFX.Core.GameElements
+    name: GameElements
+    href: LibGFX.Core.GameElements.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  - name: .
+  - uid: LibGFX.Core.GameElements
+    name: GameElements
+    href: LibGFX.Core.GameElements.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Core.GameElement
+  commentId: T:LibGFX.Core.GameElement
+  parent: LibGFX.Core
+  href: LibGFX.Core.GameElement.html
+  name: GameElement
+  nameWithType: GameElement
+  fullName: LibGFX.Core.GameElement
+- uid: LibGFX.Core.IIdentifier
+  commentId: T:LibGFX.Core.IIdentifier
+  parent: LibGFX.Core
+  href: LibGFX.Core.IIdentifier.html
+  name: IIdentifier
+  nameWithType: IIdentifier
+  fullName: LibGFX.Core.IIdentifier
+- uid: LibGFX.Core.IPropertyTable
+  commentId: T:LibGFX.Core.IPropertyTable
+  parent: LibGFX.Core
+  href: LibGFX.Core.IPropertyTable.html
+  name: IPropertyTable
+  nameWithType: IPropertyTable
+  fullName: LibGFX.Core.IPropertyTable
+- uid: LibGFX.Core.ISerialization
+  commentId: T:LibGFX.Core.ISerialization
+  parent: LibGFX.Core
+  href: LibGFX.Core.ISerialization.html
+  name: ISerialization
+  nameWithType: ISerialization
+  fullName: LibGFX.Core.ISerialization
+- uid: LibGFX.Core.GameElement.Name
+  commentId: P:LibGFX.Core.GameElement.Name
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Name
+  name: Name
+  nameWithType: GameElement.Name
+  fullName: LibGFX.Core.GameElement.Name
+- uid: LibGFX.Core.GameElement.Transform
+  commentId: P:LibGFX.Core.GameElement.Transform
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Transform
+  name: Transform
+  nameWithType: GameElement.Transform
+  fullName: LibGFX.Core.GameElement.Transform
+- uid: LibGFX.Core.GameElement.Visible
+  commentId: P:LibGFX.Core.GameElement.Visible
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Visible
+  name: Visible
+  nameWithType: GameElement.Visible
+  fullName: LibGFX.Core.GameElement.Visible
+- uid: LibGFX.Core.GameElement.Enabled
+  commentId: P:LibGFX.Core.GameElement.Enabled
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Enabled
+  name: Enabled
+  nameWithType: GameElement.Enabled
+  fullName: LibGFX.Core.GameElement.Enabled
+- uid: LibGFX.Core.GameElement.CastShadows
+  commentId: P:LibGFX.Core.GameElement.CastShadows
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_CastShadows
+  name: CastShadows
+  nameWithType: GameElement.CastShadows
+  fullName: LibGFX.Core.GameElement.CastShadows
+- uid: LibGFX.Core.GameElement.ID
+  commentId: P:LibGFX.Core.GameElement.ID
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_ID
+  name: ID
+  nameWithType: GameElement.ID
+  fullName: LibGFX.Core.GameElement.ID
+- uid: LibGFX.Core.GameElement.Parent
+  commentId: P:LibGFX.Core.GameElement.Parent
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Parent
+  name: Parent
+  nameWithType: GameElement.Parent
+  fullName: LibGFX.Core.GameElement.Parent
+- uid: LibGFX.Core.GameElement.Behaviors
+  commentId: P:LibGFX.Core.GameElement.Behaviors
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Behaviors
+  name: Behaviors
+  nameWithType: GameElement.Behaviors
+  fullName: LibGFX.Core.GameElement.Behaviors
+- uid: LibGFX.Core.GameElement.Tags
+  commentId: P:LibGFX.Core.GameElement.Tags
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Tags
+  name: Tags
+  nameWithType: GameElement.Tags
+  fullName: LibGFX.Core.GameElement.Tags
+- uid: LibGFX.Core.GameElement.AABB
+  commentId: P:LibGFX.Core.GameElement.AABB
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AABB
+  name: AABB
+  nameWithType: GameElement.AABB
+  fullName: LibGFX.Core.GameElement.AABB
+- uid: LibGFX.Core.GameElement.WorldAABB
+  commentId: P:LibGFX.Core.GameElement.WorldAABB
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_WorldAABB
+  name: WorldAABB
+  nameWithType: GameElement.WorldAABB
+  fullName: LibGFX.Core.GameElement.WorldAABB
+- uid: LibGFX.Core.GameElement.Children
+  commentId: P:LibGFX.Core.GameElement.Children
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Children
+  name: Children
+  nameWithType: GameElement.Children
+  fullName: LibGFX.Core.GameElement.Children
+- uid: LibGFX.Core.GameElement.Properties
+  commentId: P:LibGFX.Core.GameElement.Properties
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Properties
+  name: Properties
+  nameWithType: GameElement.Properties
+  fullName: LibGFX.Core.GameElement.Properties
+- uid: LibGFX.Core.GameElement.AddChild(LibGFX.Core.GameElement)
+  commentId: M:LibGFX.Core.GameElement.AddChild(LibGFX.Core.GameElement)
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddChild_LibGFX_Core_GameElement_
+  name: AddChild(GameElement)
+  nameWithType: GameElement.AddChild(GameElement)
+  fullName: LibGFX.Core.GameElement.AddChild(LibGFX.Core.GameElement)
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.AddChild(LibGFX.Core.GameElement)
+    name: AddChild
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddChild_LibGFX_Core_GameElement_
+  - name: (
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.AddChild(LibGFX.Core.GameElement)
+    name: AddChild
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddChild_LibGFX_Core_GameElement_
+  - name: (
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: )
+- uid: LibGFX.Core.GameElement.Collide(LibGFX.Physics.Collision)
+  commentId: M:LibGFX.Core.GameElement.Collide(LibGFX.Physics.Collision)
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Collide_LibGFX_Physics_Collision_
+  name: Collide(Collision)
+  nameWithType: GameElement.Collide(Collision)
+  fullName: LibGFX.Core.GameElement.Collide(LibGFX.Physics.Collision)
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.Collide(LibGFX.Physics.Collision)
+    name: Collide
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Collide_LibGFX_Physics_Collision_
+  - name: (
+  - uid: LibGFX.Physics.Collision
+    name: Collision
+    href: LibGFX.Physics.Collision.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.Collide(LibGFX.Physics.Collision)
+    name: Collide
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Collide_LibGFX_Physics_Collision_
+  - name: (
+  - uid: LibGFX.Physics.Collision
+    name: Collision
+    href: LibGFX.Physics.Collision.html
+  - name: )
+- uid: LibGFX.Core.GameElement.AddBehavior``1({T})
+  commentId: M:LibGFX.Core.GameElement.AddBehavior``1(``0)
+  parent: LibGFX.Core.GameElement
+  definition: LibGFX.Core.GameElement.AddBehavior``1(``0)
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddBehavior__1___0_
+  name: AddBehavior<T>(T)
+  nameWithType: GameElement.AddBehavior<T>(T)
+  fullName: LibGFX.Core.GameElement.AddBehavior<T>(T)
+  nameWithType.vb: GameElement.AddBehavior(Of T)(T)
+  fullName.vb: LibGFX.Core.GameElement.AddBehavior(Of T)(T)
+  name.vb: AddBehavior(Of T)(T)
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.AddBehavior``1(``0)
+    name: AddBehavior
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddBehavior__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.AddBehavior``1(``0)
+    name: AddBehavior
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddBehavior__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: LibGFX.Core.GameElement.GetBehavior``1
+  commentId: M:LibGFX.Core.GameElement.GetBehavior``1
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetBehavior__1
+  name: GetBehavior<T>()
+  nameWithType: GameElement.GetBehavior<T>()
+  fullName: LibGFX.Core.GameElement.GetBehavior<T>()
+  nameWithType.vb: GameElement.GetBehavior(Of T)()
+  fullName.vb: LibGFX.Core.GameElement.GetBehavior(Of T)()
+  name.vb: GetBehavior(Of T)()
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.GetBehavior``1
+    name: GetBehavior
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetBehavior__1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.GetBehavior``1
+    name: GetBehavior
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetBehavior__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: LibGFX.Core.GameElement.AddTag(System.String)
+  commentId: M:LibGFX.Core.GameElement.AddTag(System.String)
+  parent: LibGFX.Core.GameElement
+  isExternal: true
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddTag_System_String_
+  name: AddTag(string)
+  nameWithType: GameElement.AddTag(string)
+  fullName: LibGFX.Core.GameElement.AddTag(string)
+  nameWithType.vb: GameElement.AddTag(String)
+  fullName.vb: LibGFX.Core.GameElement.AddTag(String)
+  name.vb: AddTag(String)
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.AddTag(System.String)
+    name: AddTag
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddTag_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.AddTag(System.String)
+    name: AddTag
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddTag_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: LibGFX.Core.GameElement.RemoveTag(System.String)
+  commentId: M:LibGFX.Core.GameElement.RemoveTag(System.String)
+  parent: LibGFX.Core.GameElement
+  isExternal: true
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_RemoveTag_System_String_
+  name: RemoveTag(string)
+  nameWithType: GameElement.RemoveTag(string)
+  fullName: LibGFX.Core.GameElement.RemoveTag(string)
+  nameWithType.vb: GameElement.RemoveTag(String)
+  fullName.vb: LibGFX.Core.GameElement.RemoveTag(String)
+  name.vb: RemoveTag(String)
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.RemoveTag(System.String)
+    name: RemoveTag
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_RemoveTag_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.RemoveTag(System.String)
+    name: RemoveTag
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_RemoveTag_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: LibGFX.Core.GameElement.HasTag(System.String)
+  commentId: M:LibGFX.Core.GameElement.HasTag(System.String)
+  parent: LibGFX.Core.GameElement
+  isExternal: true
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_HasTag_System_String_
+  name: HasTag(string)
+  nameWithType: GameElement.HasTag(string)
+  fullName: LibGFX.Core.GameElement.HasTag(string)
+  nameWithType.vb: GameElement.HasTag(String)
+  fullName.vb: LibGFX.Core.GameElement.HasTag(String)
+  name.vb: HasTag(String)
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.HasTag(System.String)
+    name: HasTag
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_HasTag_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.HasTag(System.String)
+    name: HasTag
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_HasTag_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: LibGFX.Core.GameElement.GetMeshes
+  commentId: M:LibGFX.Core.GameElement.GetMeshes
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetMeshes
+  name: GetMeshes()
+  nameWithType: GameElement.GetMeshes()
+  fullName: LibGFX.Core.GameElement.GetMeshes()
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.GetMeshes
+    name: GetMeshes
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetMeshes
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.GetMeshes
+    name: GetMeshes
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetMeshes
+  - name: (
+  - name: )
+- uid: LibGFX.Core.GameElement.GetWorldAABB
+  commentId: M:LibGFX.Core.GameElement.GetWorldAABB
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetWorldAABB
+  name: GetWorldAABB()
+  nameWithType: GameElement.GetWorldAABB()
+  fullName: LibGFX.Core.GameElement.GetWorldAABB()
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.GetWorldAABB
+    name: GetWorldAABB
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetWorldAABB
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.GetWorldAABB
+    name: GetWorldAABB
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetWorldAABB
+  - name: (
+  - name: )
+- uid: LibGFX.Core.GameElement.GetWorldTransform
+  commentId: M:LibGFX.Core.GameElement.GetWorldTransform
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetWorldTransform
+  name: GetWorldTransform()
+  nameWithType: GameElement.GetWorldTransform()
+  fullName: LibGFX.Core.GameElement.GetWorldTransform()
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.GetWorldTransform
+    name: GetWorldTransform
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetWorldTransform
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.GetWorldTransform
+    name: GetWorldTransform
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_GetWorldTransform
+  - name: (
+  - name: )
+- uid: LibGFX.Core.GameElement.FindChild``1
+  commentId: M:LibGFX.Core.GameElement.FindChild``1
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChild__1
+  name: FindChild<T>()
+  nameWithType: GameElement.FindChild<T>()
+  fullName: LibGFX.Core.GameElement.FindChild<T>()
+  nameWithType.vb: GameElement.FindChild(Of T)()
+  fullName.vb: LibGFX.Core.GameElement.FindChild(Of T)()
+  name.vb: FindChild(Of T)()
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.FindChild``1
+    name: FindChild
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChild__1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.FindChild``1
+    name: FindChild
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChild__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: LibGFX.Core.GameElement.FindChildren``1
+  commentId: M:LibGFX.Core.GameElement.FindChildren``1
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChildren__1
+  name: FindChildren<T>()
+  nameWithType: GameElement.FindChildren<T>()
+  fullName: LibGFX.Core.GameElement.FindChildren<T>()
+  nameWithType.vb: GameElement.FindChildren(Of T)()
+  fullName.vb: LibGFX.Core.GameElement.FindChildren(Of T)()
+  name.vb: FindChildren(Of T)()
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.FindChildren``1
+    name: FindChildren
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChildren__1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.FindChildren``1
+    name: FindChildren
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChildren__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: LibGFX.Core.GameElement.FindChild``1(System.String)
+  commentId: M:LibGFX.Core.GameElement.FindChild``1(System.String)
+  parent: LibGFX.Core.GameElement
+  isExternal: true
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChild__1_System_String_
+  name: FindChild<T>(string)
+  nameWithType: GameElement.FindChild<T>(string)
+  fullName: LibGFX.Core.GameElement.FindChild<T>(string)
+  nameWithType.vb: GameElement.FindChild(Of T)(String)
+  fullName.vb: LibGFX.Core.GameElement.FindChild(Of T)(String)
+  name.vb: FindChild(Of T)(String)
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.FindChild``1(System.String)
+    name: FindChild
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChild__1_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.FindChild``1(System.String)
+    name: FindChild
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChild__1_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: LibGFX.Core.GameElement.FindChildren``1(System.String)
+  commentId: M:LibGFX.Core.GameElement.FindChildren``1(System.String)
+  parent: LibGFX.Core.GameElement
+  isExternal: true
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChildren__1_System_String_
+  name: FindChildren<T>(string)
+  nameWithType: GameElement.FindChildren<T>(string)
+  fullName: LibGFX.Core.GameElement.FindChildren<T>(string)
+  nameWithType.vb: GameElement.FindChildren(Of T)(String)
+  fullName.vb: LibGFX.Core.GameElement.FindChildren(Of T)(String)
+  name.vb: FindChildren(Of T)(String)
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.FindChildren``1(System.String)
+    name: FindChildren
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChildren__1_System_String_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.FindChildren``1(System.String)
+    name: FindChildren
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_FindChildren__1_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: LibGFX.Core.GameElement.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Core.GameElement.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Core.GameElement
+  isExternal: true
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: GameElement.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Core.GameElement.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  nameWithType.vb: GameElement.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Core.GameElement.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+  - name: )
+- uid: LibGFX.Core.GameElement.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Core.GameElement.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Core.GameElement
+  isExternal: true
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: GameElement.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Core.GameElement.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  nameWithType.vb: GameElement.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Core.GameElement.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Core.GameElement.AddBehavior``1(``0)
+  commentId: M:LibGFX.Core.GameElement.AddBehavior``1(``0)
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddBehavior__1___0_
+  name: AddBehavior<T>(T)
+  nameWithType: GameElement.AddBehavior<T>(T)
+  fullName: LibGFX.Core.GameElement.AddBehavior<T>(T)
+  nameWithType.vb: GameElement.AddBehavior(Of T)(T)
+  fullName.vb: LibGFX.Core.GameElement.AddBehavior(Of T)(T)
+  name.vb: AddBehavior(Of T)(T)
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.AddBehavior``1(``0)
+    name: AddBehavior
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddBehavior__1___0_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.AddBehavior``1(``0)
+    name: AddBehavior
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_AddBehavior__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: LibGFX.Core.GameElements.MeshInstancer.Material*
+  commentId: Overload:LibGFX.Core.GameElements.MeshInstancer.Material
+  href: LibGFX.Core.GameElements.MeshInstancer.html#LibGFX_Core_GameElements_MeshInstancer_Material
+  name: Material
+  nameWithType: MeshInstancer.Material
+  fullName: LibGFX.Core.GameElements.MeshInstancer.Material
+- uid: LibGFX.Graphics.Materials.IMaterial
+  commentId: T:LibGFX.Graphics.Materials.IMaterial
+  parent: LibGFX.Graphics.Materials
+  href: LibGFX.Graphics.Materials.IMaterial.html
+  name: IMaterial
+  nameWithType: IMaterial
+  fullName: LibGFX.Graphics.Materials.IMaterial
+- uid: LibGFX.Graphics.Materials
+  commentId: N:LibGFX.Graphics.Materials
+  href: LibGFX.html
+  name: LibGFX.Graphics.Materials
+  nameWithType: LibGFX.Graphics.Materials
+  fullName: LibGFX.Graphics.Materials
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Materials
+    name: Materials
+    href: LibGFX.Graphics.Materials.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Materials
+    name: Materials
+    href: LibGFX.Graphics.Materials.html
+- uid: LibGFX.Core.GameElements.MeshInstancer.Mesh*
+  commentId: Overload:LibGFX.Core.GameElements.MeshInstancer.Mesh
+  href: LibGFX.Core.GameElements.MeshInstancer.html#LibGFX_Core_GameElements_MeshInstancer_Mesh
+  name: Mesh
+  nameWithType: MeshInstancer.Mesh
+  fullName: LibGFX.Core.GameElements.MeshInstancer.Mesh
+- uid: LibGFX.Graphics.Mesh
+  commentId: T:LibGFX.Graphics.Mesh
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Mesh.html
+  name: Mesh
+  nameWithType: Mesh
+  fullName: LibGFX.Graphics.Mesh
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Core.GameElements.MeshInstancer.InstanceContainer*
+  commentId: Overload:LibGFX.Core.GameElements.MeshInstancer.InstanceContainer
+  href: LibGFX.Core.GameElements.MeshInstancer.html#LibGFX_Core_GameElements_MeshInstancer_InstanceContainer
+  name: InstanceContainer
+  nameWithType: MeshInstancer.InstanceContainer
+  fullName: LibGFX.Core.GameElements.MeshInstancer.InstanceContainer
+- uid: LibGFX.Graphics.RenderInstanceContainer
+  commentId: T:LibGFX.Graphics.RenderInstanceContainer
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderInstanceContainer.html
+  name: RenderInstanceContainer
+  nameWithType: RenderInstanceContainer
+  fullName: LibGFX.Graphics.RenderInstanceContainer
+- uid: LibGFX.Core.GameElements.MeshInstancer.Shader*
+  commentId: Overload:LibGFX.Core.GameElements.MeshInstancer.Shader
+  href: LibGFX.Core.GameElements.MeshInstancer.html#LibGFX_Core_GameElements_MeshInstancer_Shader
+  name: Shader
+  nameWithType: MeshInstancer.Shader
+  fullName: LibGFX.Core.GameElements.MeshInstancer.Shader
+- uid: LibGFX.Graphics.Shader.RenderShader
+  commentId: T:LibGFX.Graphics.Shader.RenderShader
+  parent: LibGFX.Graphics.Shader
+  href: LibGFX.Graphics.Shader.RenderShader.html
+  name: RenderShader
+  nameWithType: RenderShader
+  fullName: LibGFX.Graphics.Shader.RenderShader
+- uid: LibGFX.Graphics.Shader
+  commentId: N:LibGFX.Graphics.Shader
+  href: LibGFX.html
+  name: LibGFX.Graphics.Shader
+  nameWithType: LibGFX.Graphics.Shader
+  fullName: LibGFX.Graphics.Shader
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Shader
+    name: Shader
+    href: LibGFX.Graphics.Shader.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Shader
+    name: Shader
+    href: LibGFX.Graphics.Shader.html
+- uid: LibGFX.Core.GameElement.HasTransparency
+  commentId: P:LibGFX.Core.GameElement.HasTransparency
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_HasTransparency
+  name: HasTransparency
+  nameWithType: GameElement.HasTransparency
+  fullName: LibGFX.Core.GameElement.HasTransparency
+- uid: LibGFX.Core.GameElements.MeshInstancer.HasTransparency*
+  commentId: Overload:LibGFX.Core.GameElements.MeshInstancer.HasTransparency
+  href: LibGFX.Core.GameElements.MeshInstancer.html#LibGFX_Core_GameElements_MeshInstancer_HasTransparency
+  name: HasTransparency
+  nameWithType: MeshInstancer.HasTransparency
+  fullName: LibGFX.Core.GameElements.MeshInstancer.HasTransparency
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Core.GameElements.MeshInstancer.#ctor*
+  commentId: Overload:LibGFX.Core.GameElements.MeshInstancer.#ctor
+  href: LibGFX.Core.GameElements.MeshInstancer.html#LibGFX_Core_GameElements_MeshInstancer__ctor_LibGFX_Graphics_Mesh_LibGFX_Graphics_Materials_IMaterial_
+  name: MeshInstancer
+  nameWithType: MeshInstancer.MeshInstancer
+  fullName: LibGFX.Core.GameElements.MeshInstancer.MeshInstancer
+  nameWithType.vb: MeshInstancer.New
+  fullName.vb: LibGFX.Core.GameElements.MeshInstancer.New
+  name.vb: New
+- uid: LibGFX.Core.GameElement.Init(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.GameElement.Init(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Init_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Init(BaseScene, Viewport, IRenderDevice)
+  nameWithType: GameElement.Init(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Core.GameElement.Init(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.Init(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Init_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.Init(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Init_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Core.GameElements.MeshInstancer.Init*
+  commentId: Overload:LibGFX.Core.GameElements.MeshInstancer.Init
+  href: LibGFX.Core.GameElements.MeshInstancer.html#LibGFX_Core_GameElements_MeshInstancer_Init_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Init
+  nameWithType: MeshInstancer.Init
+  fullName: LibGFX.Core.GameElements.MeshInstancer.Init
+- uid: LibGFX.Core.BaseScene
+  commentId: T:LibGFX.Core.BaseScene
+  parent: LibGFX.Core
+  href: LibGFX.Core.BaseScene.html
+  name: BaseScene
+  nameWithType: BaseScene
+  fullName: LibGFX.Core.BaseScene
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.Core.GameElements.MeshInstancer.AddInstance*
+  commentId: Overload:LibGFX.Core.GameElements.MeshInstancer.AddInstance
+  href: LibGFX.Core.GameElements.MeshInstancer.html#LibGFX_Core_GameElements_MeshInstancer_AddInstance_LibGFX_Math_Transform_System_Boolean_
+  name: AddInstance
+  nameWithType: MeshInstancer.AddInstance
+  fullName: LibGFX.Core.GameElements.MeshInstancer.AddInstance
+- uid: LibGFX.Math.Transform
+  commentId: T:LibGFX.Math.Transform
+  parent: LibGFX.Math
+  href: LibGFX.Math.Transform.html
+  name: Transform
+  nameWithType: Transform
+  fullName: LibGFX.Math.Transform
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LibGFX.Math
+  commentId: N:LibGFX.Math
+  href: LibGFX.html
+  name: LibGFX.Math
+  nameWithType: LibGFX.Math
+  fullName: LibGFX.Math
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+- uid: LibGFX.Core.GameElement.Update(LibGFX.Core.BaseScene,System.Single)
+  commentId: M:LibGFX.Core.GameElement.Update(LibGFX.Core.BaseScene,System.Single)
+  parent: LibGFX.Core.GameElement
+  isExternal: true
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Update_LibGFX_Core_BaseScene_System_Single_
+  name: Update(BaseScene, float)
+  nameWithType: GameElement.Update(BaseScene, float)
+  fullName: LibGFX.Core.GameElement.Update(LibGFX.Core.BaseScene, float)
+  nameWithType.vb: GameElement.Update(BaseScene, Single)
+  fullName.vb: LibGFX.Core.GameElement.Update(LibGFX.Core.BaseScene, Single)
+  name.vb: Update(BaseScene, Single)
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.Update(LibGFX.Core.BaseScene,System.Single)
+    name: Update
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Update_LibGFX_Core_BaseScene_System_Single_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.Update(LibGFX.Core.BaseScene,System.Single)
+    name: Update
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Update_LibGFX_Core_BaseScene_System_Single_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: LibGFX.Core.GameElements.MeshInstancer.Update*
+  commentId: Overload:LibGFX.Core.GameElements.MeshInstancer.Update
+  href: LibGFX.Core.GameElements.MeshInstancer.html#LibGFX_Core_GameElements_MeshInstancer_Update_LibGFX_Core_BaseScene_System_Single_
+  name: Update
+  nameWithType: MeshInstancer.Update
+  fullName: LibGFX.Core.GameElements.MeshInstancer.Update
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Core.GameElement.Render(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  commentId: M:LibGFX.Core.GameElement.Render(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Render_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  name: Render(BaseScene, Viewport, IRenderDevice, Camera)
+  nameWithType: GameElement.Render(BaseScene, Viewport, IRenderDevice, Camera)
+  fullName: LibGFX.Core.GameElement.Render(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera)
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.Render(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+    name: Render
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Render_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    href: LibGFX.Graphics.Camera.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.Render(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+    name: Render
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Render_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    href: LibGFX.Graphics.Camera.html
+  - name: )
+- uid: LibGFX.Core.GameElements.MeshInstancer.Render*
+  commentId: Overload:LibGFX.Core.GameElements.MeshInstancer.Render
+  href: LibGFX.Core.GameElements.MeshInstancer.html#LibGFX_Core_GameElements_MeshInstancer_Render_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  name: Render
+  nameWithType: MeshInstancer.Render
+  fullName: LibGFX.Core.GameElements.MeshInstancer.Render
+- uid: LibGFX.Graphics.Camera
+  commentId: T:LibGFX.Graphics.Camera
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Camera.html
+  name: Camera
+  nameWithType: Camera
+  fullName: LibGFX.Graphics.Camera
+- uid: LibGFX.Core.GameElement.RenderShadow(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.GameElement.RenderShadow(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_RenderShadow_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: RenderShadow(BaseScene, Viewport, IRenderDevice)
+  nameWithType: GameElement.RenderShadow(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Core.GameElement.RenderShadow(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.RenderShadow(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: RenderShadow
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_RenderShadow_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.RenderShadow(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: RenderShadow
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_RenderShadow_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Core.GameElements.MeshInstancer.RenderShadow*
+  commentId: Overload:LibGFX.Core.GameElements.MeshInstancer.RenderShadow
+  href: LibGFX.Core.GameElements.MeshInstancer.html#LibGFX_Core_GameElements_MeshInstancer_RenderShadow_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: RenderShadow
+  nameWithType: MeshInstancer.RenderShadow
+  fullName: LibGFX.Core.GameElements.MeshInstancer.RenderShadow
+- uid: LibGFX.Core.GameElement.Dispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.GameElement.Dispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Dispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  name: Dispose(BaseScene, IRenderDevice)
+  nameWithType: GameElement.Dispose(BaseScene, IRenderDevice)
+  fullName: LibGFX.Core.GameElement.Dispose(LibGFX.Core.BaseScene, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.Dispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Dispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.Dispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_Dispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Core.GameElements.MeshInstancer.Dispose*
+  commentId: Overload:LibGFX.Core.GameElements.MeshInstancer.Dispose
+  href: LibGFX.Core.GameElements.MeshInstancer.html#LibGFX_Core_GameElements_MeshInstancer_Dispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  name: Dispose
+  nameWithType: MeshInstancer.Dispose
+  fullName: LibGFX.Core.GameElements.MeshInstancer.Dispose
+- uid: LibGFX.Core.GameElements.MeshInstancer.CreateInstanceHandle*
+  commentId: Overload:LibGFX.Core.GameElements.MeshInstancer.CreateInstanceHandle
+  href: LibGFX.Core.GameElements.MeshInstancer.html#LibGFX_Core_GameElements_MeshInstancer_CreateInstanceHandle_System_Int32_
+  name: CreateInstanceHandle
+  nameWithType: MeshInstancer.CreateInstanceHandle
+  fullName: LibGFX.Core.GameElements.MeshInstancer.CreateInstanceHandle
+- uid: LibGFX.Core.GameElements.InstanceHandle
+  commentId: T:LibGFX.Core.GameElements.InstanceHandle
+  parent: LibGFX.Core.GameElements
+  href: LibGFX.Core.GameElements.InstanceHandle.html
+  name: InstanceHandle
+  nameWithType: InstanceHandle
+  fullName: LibGFX.Core.GameElements.InstanceHandle
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: LibGFX.Core.GameElements.MeshInstancer.BakeInstances*
+  commentId: Overload:LibGFX.Core.GameElements.MeshInstancer.BakeInstances
+  href: LibGFX.Core.GameElements.MeshInstancer.html#LibGFX_Core_GameElements_MeshInstancer_BakeInstances_System_UInt32_
+  name: BakeInstances
+  nameWithType: MeshInstancer.BakeInstances
+  fullName: LibGFX.Core.GameElements.MeshInstancer.BakeInstances
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: LibGFX.Core.GameElements.MeshInstancer.FindHiddenInstances*
+  commentId: Overload:LibGFX.Core.GameElements.MeshInstancer.FindHiddenInstances
+  href: LibGFX.Core.GameElements.MeshInstancer.html#LibGFX_Core_GameElements_MeshInstancer_FindHiddenInstances_System_Int32_
+  name: FindHiddenInstances
+  nameWithType: MeshInstancer.FindHiddenInstances
+  fullName: LibGFX.Core.GameElements.MeshInstancer.FindHiddenInstances
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<int>
+  nameWithType: IEnumerable<int>
+  fullName: System.Collections.Generic.IEnumerable<int>
+  nameWithType.vb: IEnumerable(Of Integer)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Integer)
+  name.vb: IEnumerable(Of Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: LibGFX.Core.GameElement.ComputeAABB
+  commentId: M:LibGFX.Core.GameElement.ComputeAABB
+  parent: LibGFX.Core.GameElement
+  href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_ComputeAABB
+  name: ComputeAABB()
+  nameWithType: GameElement.ComputeAABB()
+  fullName: LibGFX.Core.GameElement.ComputeAABB()
+  spec.csharp:
+  - uid: LibGFX.Core.GameElement.ComputeAABB
+    name: ComputeAABB
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_ComputeAABB
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.GameElement.ComputeAABB
+    name: ComputeAABB
+    href: LibGFX.Core.GameElement.html#LibGFX_Core_GameElement_ComputeAABB
+  - name: (
+  - name: )
+- uid: LibGFX.Core.GameElements.MeshInstancer.ComputeAABB*
+  commentId: Overload:LibGFX.Core.GameElements.MeshInstancer.ComputeAABB
+  href: LibGFX.Core.GameElements.MeshInstancer.html#LibGFX_Core_GameElements_MeshInstancer_ComputeAABB
+  name: ComputeAABB
+  nameWithType: MeshInstancer.ComputeAABB
+  fullName: LibGFX.Core.GameElements.MeshInstancer.ComputeAABB

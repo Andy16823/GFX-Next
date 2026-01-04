@@ -1,0 +1,115 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.UI
+  commentId: N:LibGFX.UI
+  id: LibGFX.UI
+  children:
+  - LibGFX.UI.Button
+  - LibGFX.UI.Canvas
+  - LibGFX.UI.Canvas2D
+  - LibGFX.UI.Control
+  - LibGFX.UI.ControlEventArgs
+  - LibGFX.UI.ControlEventHandler
+  - LibGFX.UI.ControlEventType
+  - LibGFX.UI.Label
+  - LibGFX.UI.Progressbar
+  - LibGFX.UI.ProgressbarEventHandler
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.UI
+  nameWithType: LibGFX.UI
+  fullName: LibGFX.UI
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.UI.Button
+  commentId: T:LibGFX.UI.Button
+  href: LibGFX.UI.Button.html
+  name: Button
+  nameWithType: Button
+  fullName: LibGFX.UI.Button
+- uid: LibGFX.UI.Canvas
+  commentId: T:LibGFX.UI.Canvas
+  parent: LibGFX.UI
+  href: LibGFX.UI.Canvas.html
+  name: Canvas
+  nameWithType: Canvas
+  fullName: LibGFX.UI.Canvas
+- uid: LibGFX.UI.Canvas2D
+  commentId: T:LibGFX.UI.Canvas2D
+  href: LibGFX.UI.Canvas2D.html
+  name: Canvas2D
+  nameWithType: Canvas2D
+  fullName: LibGFX.UI.Canvas2D
+- uid: LibGFX.UI.ControlEventType
+  commentId: T:LibGFX.UI.ControlEventType
+  parent: LibGFX.UI
+  href: LibGFX.UI.ControlEventType.html
+  name: ControlEventType
+  nameWithType: ControlEventType
+  fullName: LibGFX.UI.ControlEventType
+- uid: LibGFX.UI.ControlEventArgs
+  commentId: T:LibGFX.UI.ControlEventArgs
+  parent: LibGFX.UI
+  href: LibGFX.UI.ControlEventArgs.html
+  name: ControlEventArgs
+  nameWithType: ControlEventArgs
+  fullName: LibGFX.UI.ControlEventArgs
+- uid: LibGFX.UI.ControlEventHandler
+  commentId: T:LibGFX.UI.ControlEventHandler
+  parent: LibGFX.UI
+  href: LibGFX.UI.ControlEventHandler.html
+  name: ControlEventHandler
+  nameWithType: ControlEventHandler
+  fullName: LibGFX.UI.ControlEventHandler
+- uid: LibGFX.UI.Control
+  commentId: T:LibGFX.UI.Control
+  parent: LibGFX.UI
+  href: LibGFX.UI.Control.html
+  name: Control
+  nameWithType: Control
+  fullName: LibGFX.UI.Control
+- uid: LibGFX.UI.Label
+  commentId: T:LibGFX.UI.Label
+  href: LibGFX.UI.Label.html
+  name: Label
+  nameWithType: Label
+  fullName: LibGFX.UI.Label
+- uid: LibGFX.UI.ProgressbarEventHandler
+  commentId: T:LibGFX.UI.ProgressbarEventHandler
+  parent: LibGFX.UI
+  href: LibGFX.UI.ProgressbarEventHandler.html
+  name: ProgressbarEventHandler
+  nameWithType: ProgressbarEventHandler
+  fullName: LibGFX.UI.ProgressbarEventHandler
+- uid: LibGFX.UI.Progressbar
+  commentId: T:LibGFX.UI.Progressbar
+  parent: LibGFX.UI
+  href: LibGFX.UI.Progressbar.html
+  name: Progressbar
+  nameWithType: Progressbar
+  fullName: LibGFX.UI.Progressbar
+- uid: LibGFX.UI
+  commentId: N:LibGFX.UI
+  href: LibGFX.html
+  name: LibGFX.UI
+  nameWithType: LibGFX.UI
+  fullName: LibGFX.UI
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.UI
+    name: UI
+    href: LibGFX.UI.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.UI
+    name: UI
+    href: LibGFX.UI.html

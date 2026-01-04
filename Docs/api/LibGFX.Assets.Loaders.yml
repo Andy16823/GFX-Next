@@ -1,0 +1,110 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Assets.Loaders
+  commentId: N:LibGFX.Assets.Loaders
+  id: LibGFX.Assets.Loaders
+  children:
+  - LibGFX.Assets.Loaders.AudioLoader
+  - LibGFX.Assets.Loaders.ComputeShaderLoader
+  - LibGFX.Assets.Loaders.CubemapLoader
+  - LibGFX.Assets.Loaders.IAssetLoader
+  - LibGFX.Assets.Loaders.SGMaterialLoader
+  - LibGFX.Assets.Loaders.SkinnedMeshModelLoader
+  - LibGFX.Assets.Loaders.SpriteMaterialLoader
+  - LibGFX.Assets.Loaders.StaticMeshModelLoader
+  - LibGFX.Assets.Loaders.TextureLoader
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Assets.Loaders
+  nameWithType: LibGFX.Assets.Loaders
+  fullName: LibGFX.Assets.Loaders
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Assets.Loaders.AudioLoader
+  commentId: T:LibGFX.Assets.Loaders.AudioLoader
+  href: LibGFX.Assets.Loaders.AudioLoader.html
+  name: AudioLoader
+  nameWithType: AudioLoader
+  fullName: LibGFX.Assets.Loaders.AudioLoader
+- uid: LibGFX.Assets.Loaders.ComputeShaderLoader
+  commentId: T:LibGFX.Assets.Loaders.ComputeShaderLoader
+  href: LibGFX.Assets.Loaders.ComputeShaderLoader.html
+  name: ComputeShaderLoader
+  nameWithType: ComputeShaderLoader
+  fullName: LibGFX.Assets.Loaders.ComputeShaderLoader
+- uid: LibGFX.Assets.Loaders.CubemapLoader
+  commentId: T:LibGFX.Assets.Loaders.CubemapLoader
+  href: LibGFX.Assets.Loaders.CubemapLoader.html
+  name: CubemapLoader
+  nameWithType: CubemapLoader
+  fullName: LibGFX.Assets.Loaders.CubemapLoader
+- uid: LibGFX.Assets.Loaders.IAssetLoader
+  commentId: T:LibGFX.Assets.Loaders.IAssetLoader
+  parent: LibGFX.Assets.Loaders
+  href: LibGFX.Assets.Loaders.IAssetLoader.html
+  name: IAssetLoader
+  nameWithType: IAssetLoader
+  fullName: LibGFX.Assets.Loaders.IAssetLoader
+- uid: LibGFX.Assets.Loaders.SGMaterialLoader
+  commentId: T:LibGFX.Assets.Loaders.SGMaterialLoader
+  href: LibGFX.Assets.Loaders.SGMaterialLoader.html
+  name: SGMaterialLoader
+  nameWithType: SGMaterialLoader
+  fullName: LibGFX.Assets.Loaders.SGMaterialLoader
+- uid: LibGFX.Assets.Loaders.SkinnedMeshModelLoader
+  commentId: T:LibGFX.Assets.Loaders.SkinnedMeshModelLoader
+  href: LibGFX.Assets.Loaders.SkinnedMeshModelLoader.html
+  name: SkinnedMeshModelLoader
+  nameWithType: SkinnedMeshModelLoader
+  fullName: LibGFX.Assets.Loaders.SkinnedMeshModelLoader
+- uid: LibGFX.Assets.Loaders.SpriteMaterialLoader
+  commentId: T:LibGFX.Assets.Loaders.SpriteMaterialLoader
+  href: LibGFX.Assets.Loaders.SpriteMaterialLoader.html
+  name: SpriteMaterialLoader
+  nameWithType: SpriteMaterialLoader
+  fullName: LibGFX.Assets.Loaders.SpriteMaterialLoader
+- uid: LibGFX.Assets.Loaders.StaticMeshModelLoader
+  commentId: T:LibGFX.Assets.Loaders.StaticMeshModelLoader
+  href: LibGFX.Assets.Loaders.StaticMeshModelLoader.html
+  name: StaticMeshModelLoader
+  nameWithType: StaticMeshModelLoader
+  fullName: LibGFX.Assets.Loaders.StaticMeshModelLoader
+- uid: LibGFX.Assets.Loaders.TextureLoader
+  commentId: T:LibGFX.Assets.Loaders.TextureLoader
+  href: LibGFX.Assets.Loaders.TextureLoader.html
+  name: TextureLoader
+  nameWithType: TextureLoader
+  fullName: LibGFX.Assets.Loaders.TextureLoader
+- uid: LibGFX.Assets.Loaders
+  commentId: N:LibGFX.Assets.Loaders
+  href: LibGFX.html
+  name: LibGFX.Assets.Loaders
+  nameWithType: LibGFX.Assets.Loaders
+  fullName: LibGFX.Assets.Loaders
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+  - name: .
+  - uid: LibGFX.Assets.Loaders
+    name: Loaders
+    href: LibGFX.Assets.Loaders.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Assets
+    name: Assets
+    href: LibGFX.Assets.html
+  - name: .
+  - uid: LibGFX.Assets.Loaders
+    name: Loaders
+    href: LibGFX.Assets.Loaders.html

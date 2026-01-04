@@ -1,0 +1,1420 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX
+  commentId: T:LibGFX.Graphics.PostProcessing.SepiaFX
+  id: SepiaFX
+  parent: LibGFX.Graphics.PostProcessing
+  children:
+  - LibGFX.Graphics.PostProcessing.SepiaFX.#ctor
+  - LibGFX.Graphics.PostProcessing.SepiaFX.#ctor(System.Single)
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Aged
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Antique
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Faded
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Full
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Intensity
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Light
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Medium
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Memory
+  - LibGFX.Graphics.PostProcessing.SepiaFX.RenderTarget
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Strong
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Subtle
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Update(System.Single)
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Victorian
+  - LibGFX.Graphics.PostProcessing.SepiaFX.Western
+  langs:
+  - csharp
+  - vb
+  name: SepiaFX
+  nameWithType: SepiaFX
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SepiaFX
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Applies a sepia tone post-processing effect to a rendered image using a configurable intensity.
+  remarks: >-
+    The SepiaFX filter can be added to a post-processing stack to simulate a warm, vintage
+        appearance on rendered scenes. The intensity of the sepia effect can be adjusted to achieve the desired visual
+        result. This class manages its own render target and shader resources, which should be properly initialized and
+        disposed of using the provided methods. SepiaFX is not thread-safe and should be used from the rendering
+        thread.
+  example: []
+  syntax:
+    content: 'public class SepiaFX : IPostProcessFilter'
+    content.vb: Public Class SepiaFX Implements IPostProcessFilter
+  inheritance:
+  - System.Object
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.RenderTarget
+  commentId: P:LibGFX.Graphics.PostProcessing.SepiaFX.RenderTarget
+  id: RenderTarget
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: RenderTarget
+  nameWithType: SepiaFX.RenderTarget
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.RenderTarget
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderTarget
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 22
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Gets the render target used for drawing operations.
+  example: []
+  syntax:
+    content: public RenderTarget2D RenderTarget { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.RenderTarget2D
+    content.vb: Public Property RenderTarget As RenderTarget2D
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.RenderTarget*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Intensity
+  commentId: P:LibGFX.Graphics.PostProcessing.SepiaFX.Intensity
+  id: Intensity
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Intensity
+  nameWithType: SepiaFX.Intensity
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Intensity
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Intensity
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 27
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: Gets or sets the intensity value.
+  example: []
+  syntax:
+    content: public float Intensity { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Intensity As Single
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Intensity*
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.#ctor
+  commentId: M:LibGFX.Graphics.PostProcessing.SepiaFX.#ctor
+  id: '#ctor'
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: SepiaFX()
+  nameWithType: SepiaFX.SepiaFX()
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.SepiaFX()
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 31
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  syntax:
+    content: public SepiaFX()
+    content.vb: Public Sub New()
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.#ctor*
+  nameWithType.vb: SepiaFX.New()
+  fullName.vb: LibGFX.Graphics.PostProcessing.SepiaFX.New()
+  name.vb: New()
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.#ctor(System.Single)
+  commentId: M:LibGFX.Graphics.PostProcessing.SepiaFX.#ctor(System.Single)
+  id: '#ctor(System.Single)'
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: SepiaFX(float)
+  nameWithType: SepiaFX.SepiaFX(float)
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.SepiaFX(float)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 36
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  syntax:
+    content: public SepiaFX(float intensity)
+    parameters:
+    - id: intensity
+      type: System.Single
+    content.vb: Public Sub New(intensity As Single)
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.#ctor*
+  nameWithType.vb: SepiaFX.New(Single)
+  fullName.vb: LibGFX.Graphics.PostProcessing.SepiaFX.New(Single)
+  name.vb: New(Single)
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  commentId: M:LibGFX.Graphics.PostProcessing.SepiaFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  id: Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Apply(PostProcessStack, IRenderDevice, int)
+  nameWithType: SepiaFX.Apply(PostProcessStack, IRenderDevice, int)
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Apply
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 42
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Apply(PostProcessStack stack, IRenderDevice renderer, int sourceTexture)
+    parameters:
+    - id: stack
+      type: LibGFX.Graphics.PostProcessing.PostProcessStack
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    - id: sourceTexture
+      type: System.Int32
+    content.vb: Public Sub Apply(stack As PostProcessStack, renderer As IRenderDevice, sourceTexture As Integer)
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Apply*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  nameWithType.vb: SepiaFX.Apply(PostProcessStack, IRenderDevice, Integer)
+  fullName.vb: LibGFX.Graphics.PostProcessing.SepiaFX.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, Integer)
+  name.vb: Apply(PostProcessStack, IRenderDevice, Integer)
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.SepiaFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  id: Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Dispose(PostProcessStack, IRenderDevice)
+  nameWithType: SepiaFX.Dispose(PostProcessStack, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 53
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Dispose(PostProcessStack stack, IRenderDevice renderer)
+    parameters:
+    - id: stack
+      type: LibGFX.Graphics.PostProcessing.PostProcessStack
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Public Sub Dispose(stack As PostProcessStack, renderer As IRenderDevice)
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Dispose*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.SepiaFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Init(PostProcessStack, Viewport, IRenderDevice)
+  nameWithType: SepiaFX.Init(PostProcessStack, Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Init(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Init
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 59
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: stack
+      type: LibGFX.Graphics.PostProcessing.PostProcessStack
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Public Sub Init(stack As PostProcessStack, viewport As Viewport, renderer As IRenderDevice)
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Init*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.SepiaFX.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Resize(Viewport, IRenderDevice)
+  nameWithType: SepiaFX.Resize(Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Resize(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Resize
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 65
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Resize(Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Public Sub Resize(viewport As Viewport, renderer As IRenderDevice)
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Resize*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Update(System.Single)
+  commentId: M:LibGFX.Graphics.PostProcessing.SepiaFX.Update(System.Single)
+  id: Update(System.Single)
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Update(float)
+  nameWithType: SepiaFX.Update(float)
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Update(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Update
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 70
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  example: []
+  syntax:
+    content: public void Update(float deltaTime)
+    parameters:
+    - id: deltaTime
+      type: System.Single
+    content.vb: Public Sub Update(deltaTime As Single)
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Update*
+  implements:
+  - LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+  nameWithType.vb: SepiaFX.Update(Single)
+  fullName.vb: LibGFX.Graphics.PostProcessing.SepiaFX.Update(Single)
+  name.vb: Update(Single)
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Subtle
+  commentId: P:LibGFX.Graphics.PostProcessing.SepiaFX.Subtle
+  id: Subtle
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Subtle
+  nameWithType: SepiaFX.Subtle
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Subtle
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Subtle
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 81
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Subtle sepia tint (slight warmth, mostly color)
+
+    Warm filter look
+  example: []
+  syntax:
+    content: public static SepiaFX Subtle { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.SepiaFX
+    content.vb: Public Shared ReadOnly Property Subtle As SepiaFX
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Subtle*
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Light
+  commentId: P:LibGFX.Graphics.PostProcessing.SepiaFX.Light
+  id: Light
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Light
+  nameWithType: SepiaFX.Light
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Light
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Light
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 90
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Light sepia (nostalgic warmth)
+
+    Instagram-style vintage filter
+  example: []
+  syntax:
+    content: public static SepiaFX Light { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.SepiaFX
+    content.vb: Public Shared ReadOnly Property Light As SepiaFX
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Light*
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Medium
+  commentId: P:LibGFX.Graphics.PostProcessing.SepiaFX.Medium
+  id: Medium
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Medium
+  nameWithType: SepiaFX.Medium
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Medium
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Medium
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 99
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Medium sepia (balanced vintage look)
+
+    Old photograph aesthetic
+  example: []
+  syntax:
+    content: public static SepiaFX Medium { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.SepiaFX
+    content.vb: Public Shared ReadOnly Property Medium As SepiaFX
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Medium*
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Strong
+  commentId: P:LibGFX.Graphics.PostProcessing.SepiaFX.Strong
+  id: Strong
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Strong
+  nameWithType: SepiaFX.Strong
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Strong
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Strong
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 108
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Strong sepia (classic vintage)
+
+    Traditional sepia photograph
+  example: []
+  syntax:
+    content: public static SepiaFX Strong { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.SepiaFX
+    content.vb: Public Shared ReadOnly Property Strong As SepiaFX
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Strong*
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Full
+  commentId: P:LibGFX.Graphics.PostProcessing.SepiaFX.Full
+  id: Full
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Full
+  nameWithType: SepiaFX.Full
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Full
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Full
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 117
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Full sepia (complete vintage transformation)
+
+    Pure sepia tone, no original color
+  example: []
+  syntax:
+    content: public static SepiaFX Full { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.SepiaFX
+    content.vb: Public Shared ReadOnly Property Full As SepiaFX
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Full*
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Faded
+  commentId: P:LibGFX.Graphics.PostProcessing.SepiaFX.Faded
+  id: Faded
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Faded
+  nameWithType: SepiaFX.Faded
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Faded
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Faded
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 126
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Faded photograph (very light sepia)
+
+    Sun-bleached old photo
+  example: []
+  syntax:
+    content: public static SepiaFX Faded { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.SepiaFX
+    content.vb: Public Shared ReadOnly Property Faded As SepiaFX
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Faded*
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Aged
+  commentId: P:LibGFX.Graphics.PostProcessing.SepiaFX.Aged
+  id: Aged
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Aged
+  nameWithType: SepiaFX.Aged
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Aged
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Aged
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 135
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Aged photograph (strong, authentic vintage)
+
+    1920s-1940s photograph look
+  example: []
+  syntax:
+    content: public static SepiaFX Aged { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.SepiaFX
+    content.vb: Public Shared ReadOnly Property Aged As SepiaFX
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Aged*
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Western
+  commentId: P:LibGFX.Graphics.PostProcessing.SepiaFX.Western
+  id: Western
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Western
+  nameWithType: SepiaFX.Western
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Western
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Western
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 144
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Western film sepia (desert, dusty)
+
+    Old western movie aesthetic
+  example: []
+  syntax:
+    content: public static SepiaFX Western { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.SepiaFX
+    content.vb: Public Shared ReadOnly Property Western As SepiaFX
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Western*
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Victorian
+  commentId: P:LibGFX.Graphics.PostProcessing.SepiaFX.Victorian
+  id: Victorian
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Victorian
+  nameWithType: SepiaFX.Victorian
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Victorian
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Victorian
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 153
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Victorian photograph (very old, authentic)
+
+    1800s photography look
+  example: []
+  syntax:
+    content: public static SepiaFX Victorian { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.SepiaFX
+    content.vb: Public Shared ReadOnly Property Victorian As SepiaFX
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Victorian*
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Memory
+  commentId: P:LibGFX.Graphics.PostProcessing.SepiaFX.Memory
+  id: Memory
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Memory
+  nameWithType: SepiaFX.Memory
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Memory
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Memory
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 162
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Warm memory (flashback effect)
+
+    Nostalgic, dream-like
+  example: []
+  syntax:
+    content: public static SepiaFX Memory { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.SepiaFX
+    content.vb: Public Shared ReadOnly Property Memory As SepiaFX
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Memory*
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Antique
+  commentId: P:LibGFX.Graphics.PostProcessing.SepiaFX.Antique
+  id: Antique
+  parent: LibGFX.Graphics.PostProcessing.SepiaFX
+  langs:
+  - csharp
+  - vb
+  name: Antique
+  nameWithType: SepiaFX.Antique
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Antique
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/PostProcessing/SepiaFX.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Antique
+    path: ../LibGFX/Graphics/PostProcessing/SepiaFX.cs
+    startLine: 171
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.PostProcessing
+  summary: >-
+    Antique (very aged appearance)
+
+    Ancient photograph
+  example: []
+  syntax:
+    content: public static SepiaFX Antique { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.PostProcessing.SepiaFX
+    content.vb: Public Shared ReadOnly Property Antique As SepiaFX
+  overload: LibGFX.Graphics.PostProcessing.SepiaFX.Antique*
+references:
+- uid: LibGFX.Graphics.PostProcessing
+  commentId: N:LibGFX.Graphics.PostProcessing
+  href: LibGFX.html
+  name: LibGFX.Graphics.PostProcessing
+  nameWithType: LibGFX.Graphics.PostProcessing
+  fullName: LibGFX.Graphics.PostProcessing
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.PostProcessing
+    name: PostProcessing
+    href: LibGFX.Graphics.PostProcessing.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.PostProcessing
+    name: PostProcessing
+    href: LibGFX.Graphics.PostProcessing.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  commentId: T:LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html
+  name: IPostProcessFilter
+  nameWithType: IPostProcessFilter
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.RenderTarget*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.RenderTarget
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_RenderTarget
+  name: RenderTarget
+  nameWithType: SepiaFX.RenderTarget
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.RenderTarget
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+  commentId: P:LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_RenderTarget
+  name: RenderTarget
+  nameWithType: IPostProcessFilter.RenderTarget
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.RenderTarget
+- uid: LibGFX.Graphics.RenderTarget2D
+  commentId: T:LibGFX.Graphics.RenderTarget2D
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderTarget2D.html
+  name: RenderTarget2D
+  nameWithType: RenderTarget2D
+  fullName: LibGFX.Graphics.RenderTarget2D
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Intensity*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Intensity
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Intensity
+  name: Intensity
+  nameWithType: SepiaFX.Intensity
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Intensity
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.#ctor*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.#ctor
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX__ctor
+  name: SepiaFX
+  nameWithType: SepiaFX.SepiaFX
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.SepiaFX
+  nameWithType.vb: SepiaFX.New
+  fullName.vb: LibGFX.Graphics.PostProcessing.SepiaFX.New
+  name.vb: New
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Apply*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Apply
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  name: Apply
+  nameWithType: SepiaFX.Apply
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Apply
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  isExternal: true
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  name: Apply(PostProcessStack, IRenderDevice, int)
+  nameWithType: IPostProcessFilter.Apply(PostProcessStack, IRenderDevice, int)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, int)
+  nameWithType.vb: IPostProcessFilter.Apply(PostProcessStack, IRenderDevice, Integer)
+  fullName.vb: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice, Integer)
+  name.vb: Apply(PostProcessStack, IRenderDevice, Integer)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+    name: Apply
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Apply(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice,System.Int32)
+    name: Apply
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Apply_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_System_Int32_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+  commentId: T:LibGFX.Graphics.PostProcessing.PostProcessStack
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  name: PostProcessStack
+  nameWithType: PostProcessStack
+  fullName: LibGFX.Graphics.PostProcessing.PostProcessStack
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Dispose*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Dispose
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  name: Dispose
+  nameWithType: SepiaFX.Dispose
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Dispose
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  name: Dispose(PostProcessStack, IRenderDevice)
+  nameWithType: IPostProcessFilter.Dispose(PostProcessStack, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Dispose(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Dispose_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Init*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Init
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Init
+  nameWithType: SepiaFX.Init
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Init
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Init(PostProcessStack, Viewport, IRenderDevice)
+  nameWithType: IPostProcessFilter.Init(PostProcessStack, Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Init(LibGFX.Graphics.PostProcessing.PostProcessStack,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Init_LibGFX_Graphics_PostProcessing_PostProcessStack_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    href: LibGFX.Graphics.PostProcessing.PostProcessStack.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Resize*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Resize
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Resize
+  nameWithType: SepiaFX.Resize
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Resize
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Resize(Viewport, IRenderDevice)
+  nameWithType: IPostProcessFilter.Resize(Viewport, IRenderDevice)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Resize
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Resize(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: Resize
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Resize_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Update*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Update
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Update_System_Single_
+  name: Update
+  nameWithType: SepiaFX.Update
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Update
+- uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+  commentId: M:LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+  parent: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+  isExternal: true
+  href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Update_System_Single_
+  name: Update(float)
+  nameWithType: IPostProcessFilter.Update(float)
+  fullName: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(float)
+  nameWithType.vb: IPostProcessFilter.Update(Single)
+  fullName.vb: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(Single)
+  name.vb: Update(Single)
+  spec.csharp:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+    name: Update
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Update_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter.Update(System.Single)
+    name: Update
+    href: LibGFX.Graphics.PostProcessing.IPostProcessFilter.html#LibGFX_Graphics_PostProcessing_IPostProcessFilter_Update_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Subtle*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Subtle
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Subtle
+  name: Subtle
+  nameWithType: SepiaFX.Subtle
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Subtle
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX
+  commentId: T:LibGFX.Graphics.PostProcessing.SepiaFX
+  parent: LibGFX.Graphics.PostProcessing
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html
+  name: SepiaFX
+  nameWithType: SepiaFX
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Light*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Light
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Light
+  name: Light
+  nameWithType: SepiaFX.Light
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Light
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Medium*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Medium
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Medium
+  name: Medium
+  nameWithType: SepiaFX.Medium
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Medium
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Strong*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Strong
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Strong
+  name: Strong
+  nameWithType: SepiaFX.Strong
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Strong
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Full*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Full
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Full
+  name: Full
+  nameWithType: SepiaFX.Full
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Full
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Faded*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Faded
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Faded
+  name: Faded
+  nameWithType: SepiaFX.Faded
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Faded
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Aged*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Aged
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Aged
+  name: Aged
+  nameWithType: SepiaFX.Aged
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Aged
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Western*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Western
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Western
+  name: Western
+  nameWithType: SepiaFX.Western
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Western
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Victorian*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Victorian
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Victorian
+  name: Victorian
+  nameWithType: SepiaFX.Victorian
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Victorian
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Memory*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Memory
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Memory
+  name: Memory
+  nameWithType: SepiaFX.Memory
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Memory
+- uid: LibGFX.Graphics.PostProcessing.SepiaFX.Antique*
+  commentId: Overload:LibGFX.Graphics.PostProcessing.SepiaFX.Antique
+  href: LibGFX.Graphics.PostProcessing.SepiaFX.html#LibGFX_Graphics_PostProcessing_SepiaFX_Antique
+  name: Antique
+  nameWithType: SepiaFX.Antique
+  fullName: LibGFX.Graphics.PostProcessing.SepiaFX.Antique

@@ -1,0 +1,151 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.TextureMirrorMode
+  commentId: T:LibGFX.Graphics.TextureMirrorMode
+  id: TextureMirrorMode
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.TextureMirrorMode.Horizontal
+  - LibGFX.Graphics.TextureMirrorMode.None
+  - LibGFX.Graphics.TextureMirrorMode.Vertical
+  langs:
+  - csharp
+  - vb
+  name: TextureMirrorMode
+  nameWithType: TextureMirrorMode
+  fullName: LibGFX.Graphics.TextureMirrorMode
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureMirrorMode
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 25
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Represents the mirror modes for a texture.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum TextureMirrorMode
+    content.vb: >-
+      <Flags>
+
+      Public Enum TextureMirrorMode
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: LibGFX.Graphics.TextureMirrorMode.None
+  commentId: F:LibGFX.Graphics.TextureMirrorMode.None
+  id: None
+  parent: LibGFX.Graphics.TextureMirrorMode
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: TextureMirrorMode.None
+  fullName: LibGFX.Graphics.TextureMirrorMode.None
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: None
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 28
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: None = 0
+    return:
+      type: LibGFX.Graphics.TextureMirrorMode
+- uid: LibGFX.Graphics.TextureMirrorMode.Horizontal
+  commentId: F:LibGFX.Graphics.TextureMirrorMode.Horizontal
+  id: Horizontal
+  parent: LibGFX.Graphics.TextureMirrorMode
+  langs:
+  - csharp
+  - vb
+  name: Horizontal
+  nameWithType: TextureMirrorMode.Horizontal
+  fullName: LibGFX.Graphics.TextureMirrorMode.Horizontal
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Horizontal
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 29
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Horizontal = 1
+    return:
+      type: LibGFX.Graphics.TextureMirrorMode
+- uid: LibGFX.Graphics.TextureMirrorMode.Vertical
+  commentId: F:LibGFX.Graphics.TextureMirrorMode.Vertical
+  id: Vertical
+  parent: LibGFX.Graphics.TextureMirrorMode
+  langs:
+  - csharp
+  - vb
+  name: Vertical
+  nameWithType: TextureMirrorMode.Vertical
+  fullName: LibGFX.Graphics.TextureMirrorMode.Vertical
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Texture.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Vertical
+    path: ../LibGFX/Graphics/Texture.cs
+    startLine: 30
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Vertical = 2
+    return:
+      type: LibGFX.Graphics.TextureMirrorMode
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.TextureMirrorMode
+  commentId: T:LibGFX.Graphics.TextureMirrorMode
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.TextureMirrorMode.html
+  name: TextureMirrorMode
+  nameWithType: TextureMirrorMode
+  fullName: LibGFX.Graphics.TextureMirrorMode

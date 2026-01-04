@@ -1,0 +1,4916 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IRenderDevice | LibGFX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IRenderDevice | LibGFX ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Graphics_IRenderDevice.md&amp;value=---%0Auid%3A%20LibGFX.Graphics.IRenderDevice%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="LibGFX">
+            LibGFX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LibGFX.Graphics.IRenderDevice">
+
+
+
+  <h1 id="LibGFX_Graphics_IRenderDevice" data-uid="LibGFX.Graphics.IRenderDevice" class="text-break">
+Interface IRenderDevice  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LibGFX.html">LibGFX</a>.<a class="xref" href="LibGFX.Graphics.html">Graphics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LibGFX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IRenderDevice</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_AddRenderInstance_" data-uid="LibGFX.Graphics.IRenderDevice.AddRenderInstance*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_AddRenderInstance_LibGFX_Graphics_RenderInstanceContainer_LibGFX_Math_Transform_" data-uid="LibGFX.Graphics.IRenderDevice.AddRenderInstance(LibGFX.Graphics.RenderInstanceContainer,LibGFX.Math.Transform)">
+  AddRenderInstance(RenderInstanceContainer, Transform)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int AddRenderInstance(RenderInstanceContainer container, Transform transform)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>container</code> <a class="xref" href="LibGFX.Graphics.RenderInstanceContainer.html">RenderInstanceContainer</a></dt>
+    <dd></dd>
+    <dt><code>transform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_AddShape_" data-uid="LibGFX.Graphics.IRenderDevice.AddShape*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_AddShape_LibGFX_Graphics_Shapes_Shape_" data-uid="LibGFX.Graphics.IRenderDevice.AddShape(LibGFX.Graphics.Shapes.Shape)">
+  AddShape(Shape)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void AddShape(Shape shape)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shape</code> <a class="xref" href="LibGFX.Graphics.Shapes.Shape.html">Shape</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_BindBuffer_" data-uid="LibGFX.Graphics.IRenderDevice.BindBuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_BindBuffer_LibGFX_Graphics_RenderFlags_GFXBufferTarget_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.BindBuffer(LibGFX.Graphics.RenderFlags.GFXBufferTarget,System.Int32)">
+  BindBuffer(GFXBufferTarget, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void BindBuffer(RenderFlags.GFXBufferTarget target, int buffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="LibGFX.Graphics.RenderFlags.html">RenderFlags</a>.<a class="xref" href="LibGFX.Graphics.RenderFlags.GFXBufferTarget.html">GFXBufferTarget</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_BindElementBuffer_" data-uid="LibGFX.Graphics.IRenderDevice.BindElementBuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_BindElementBuffer_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.BindElementBuffer(System.Int32)">
+  BindElementBuffer(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void BindElementBuffer(int buffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_BindMeshForInstance_" data-uid="LibGFX.Graphics.IRenderDevice.BindMeshForInstance*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_BindMeshForInstance_LibGFX_Graphics_RenderInstanceContainer_LibGFX_Graphics_Mesh_" data-uid="LibGFX.Graphics.IRenderDevice.BindMeshForInstance(LibGFX.Graphics.RenderInstanceContainer,LibGFX.Graphics.Mesh)">
+  BindMeshForInstance(RenderInstanceContainer, Mesh)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void BindMeshForInstance(RenderInstanceContainer container, Mesh mesh)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>container</code> <a class="xref" href="LibGFX.Graphics.RenderInstanceContainer.html">RenderInstanceContainer</a></dt>
+    <dd></dd>
+    <dt><code>mesh</code> <a class="xref" href="LibGFX.Graphics.Mesh.html">Mesh</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_BindRenderTarget_" data-uid="LibGFX.Graphics.IRenderDevice.BindRenderTarget*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_BindRenderTarget_LibGFX_Graphics_IRenderTarget_" data-uid="LibGFX.Graphics.IRenderDevice.BindRenderTarget(LibGFX.Graphics.IRenderTarget)">
+  BindRenderTarget(IRenderTarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void BindRenderTarget(IRenderTarget renderTarget)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderTarget</code> <a class="xref" href="LibGFX.Graphics.IRenderTarget.html">IRenderTarget</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_BindShaderProgram_" data-uid="LibGFX.Graphics.IRenderDevice.BindShaderProgram*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_BindShaderProgram_LibGFX_Graphics_Shader_IShaderProgram_" data-uid="LibGFX.Graphics.IRenderDevice.BindShaderProgram(LibGFX.Graphics.Shader.IShaderProgram)">
+  BindShaderProgram(IShaderProgram)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void BindShaderProgram(IShaderProgram shaderProgram)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shaderProgram</code> <a class="xref" href="LibGFX.Graphics.Shader.IShaderProgram.html">IShaderProgram</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_BindShaderStorageBuffer_" data-uid="LibGFX.Graphics.IRenderDevice.BindShaderStorageBuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_BindShaderStorageBuffer_System_Int32_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.BindShaderStorageBuffer(System.Int32,System.Int32)">
+  BindShaderStorageBuffer(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void BindShaderStorageBuffer(int binding, int buffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>binding</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_BindVertexArray_" data-uid="LibGFX.Graphics.IRenderDevice.BindVertexArray*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_BindVertexArray_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.BindVertexArray(System.Int32)">
+  BindVertexArray(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void BindVertexArray(int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_BindVertexBuffer_" data-uid="LibGFX.Graphics.IRenderDevice.BindVertexBuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_BindVertexBuffer_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.BindVertexBuffer(System.Int32)">
+  BindVertexBuffer(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void BindVertexBuffer(int buffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_BlendEnabled_" data-uid="LibGFX.Graphics.IRenderDevice.BlendEnabled*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_BlendEnabled" data-uid="LibGFX.Graphics.IRenderDevice.BlendEnabled">
+  BlendEnabled()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool BlendEnabled()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_BuildComputeShader_" data-uid="LibGFX.Graphics.IRenderDevice.BuildComputeShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_BuildComputeShader_LibGFX_Compute_ComputeShader_" data-uid="LibGFX.Graphics.IRenderDevice.BuildComputeShader(LibGFX.Compute.ComputeShader)">
+  BuildComputeShader(ComputeShader)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void BuildComputeShader(ComputeShader computeShader)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>computeShader</code> <a class="xref" href="LibGFX.Compute.ComputeShader.html">ComputeShader</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_BuildRenderShader_" data-uid="LibGFX.Graphics.IRenderDevice.BuildRenderShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_BuildRenderShader_LibGFX_Graphics_Shader_RenderShader_" data-uid="LibGFX.Graphics.IRenderDevice.BuildRenderShader(LibGFX.Graphics.Shader.RenderShader)">
+  BuildRenderShader(RenderShader)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void BuildRenderShader(RenderShader shaderProgram)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shaderProgram</code> <a class="xref" href="LibGFX.Graphics.Shader.RenderShader.html">RenderShader</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_Clear_" data-uid="LibGFX.Graphics.IRenderDevice.Clear*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_Clear_LibGFX_Graphics_RenderFlags_ClearFlags_" data-uid="LibGFX.Graphics.IRenderDevice.Clear(LibGFX.Graphics.RenderFlags.ClearFlags)">
+  Clear(ClearFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Clear(RenderFlags.ClearFlags clearFlags)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>clearFlags</code> <a class="xref" href="LibGFX.Graphics.RenderFlags.html">RenderFlags</a>.<a class="xref" href="LibGFX.Graphics.RenderFlags.ClearFlags.html">ClearFlags</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_ClearColor_" data-uid="LibGFX.Graphics.IRenderDevice.ClearColor*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_ClearColor_System_Single_System_Single_System_Single_System_Single_" data-uid="LibGFX.Graphics.IRenderDevice.ClearColor(System.Single,System.Single,System.Single,System.Single)">
+  ClearColor(float, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ClearColor(float r, float g, float b, float a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>g</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_CreateBuffer_" data-uid="LibGFX.Graphics.IRenderDevice.CreateBuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_CreateBuffer" data-uid="LibGFX.Graphics.IRenderDevice.CreateBuffer">
+  CreateBuffer()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int CreateBuffer()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_CreateDepthRenderTarget2D_" data-uid="LibGFX.Graphics.IRenderDevice.CreateDepthRenderTarget2D*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_CreateDepthRenderTarget2D_System_Int32_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.CreateDepthRenderTarget2D(System.Int32,System.Int32)">
+  CreateDepthRenderTarget2D(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DepthOnlyRenderTarget CreateDepthRenderTarget2D(int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.DepthOnlyRenderTarget.html">DepthOnlyRenderTarget</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_CreateElementBuffer_" data-uid="LibGFX.Graphics.IRenderDevice.CreateElementBuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_CreateElementBuffer_System_Int32___System_Boolean_" data-uid="LibGFX.Graphics.IRenderDevice.CreateElementBuffer(System.Int32[],System.Boolean)">
+  CreateElementBuffer(int[], bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int CreateElementBuffer(int[] data, bool dynamic = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd></dd>
+    <dt><code>dynamic</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_CreateMSAARenderTarget2D_" data-uid="LibGFX.Graphics.IRenderDevice.CreateMSAARenderTarget2D*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_CreateMSAARenderTarget2D_System_Int32_System_Int32_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.CreateMSAARenderTarget2D(System.Int32,System.Int32,System.Int32)">
+  CreateMSAARenderTarget2D(int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">MSAARenderTarget2D CreateMSAARenderTarget2D(int width, int height, int samples = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>samples</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.MSAARenderTarget2D.html">MSAARenderTarget2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_CreateRenderTarget2D_" data-uid="LibGFX.Graphics.IRenderDevice.CreateRenderTarget2D*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_CreateRenderTarget2D_System_Int32_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.CreateRenderTarget2D(System.Int32,System.Int32)">
+  CreateRenderTarget2D(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">RenderTarget2D CreateRenderTarget2D(int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.RenderTarget2D.html">RenderTarget2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_CreateVertexArray_" data-uid="LibGFX.Graphics.IRenderDevice.CreateVertexArray*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_CreateVertexArray" data-uid="LibGFX.Graphics.IRenderDevice.CreateVertexArray">
+  CreateVertexArray()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int CreateVertexArray()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_CreateVertexBuffer_" data-uid="LibGFX.Graphics.IRenderDevice.CreateVertexBuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_CreateVertexBuffer__1___0___System_Boolean_" data-uid="LibGFX.Graphics.IRenderDevice.CreateVertexBuffer``1(``0[],System.Boolean)">
+  CreateVertexBuffer&lt;T&gt;(T[], bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int CreateVertexBuffer&lt;T&gt;(T[] data, bool dynamic = false) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> T[]</dt>
+    <dd></dd>
+    <dt><code>dynamic</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DeleteFramebuffer_" data-uid="LibGFX.Graphics.IRenderDevice.DeleteFramebuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DeleteFramebuffer_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.DeleteFramebuffer(System.Int32)">
+  DeleteFramebuffer(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DeleteFramebuffer(int framebuffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>framebuffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DeleteRenderbuffer_" data-uid="LibGFX.Graphics.IRenderDevice.DeleteRenderbuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DeleteRenderbuffer_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.DeleteRenderbuffer(System.Int32)">
+  DeleteRenderbuffer(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DeleteRenderbuffer(int renderbuffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderbuffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DeleteTexture_" data-uid="LibGFX.Graphics.IRenderDevice.DeleteTexture*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DeleteTexture_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.DeleteTexture(System.Int32)">
+  DeleteTexture(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DeleteTexture(int texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DisableBlend_" data-uid="LibGFX.Graphics.IRenderDevice.DisableBlend*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DisableBlend" data-uid="LibGFX.Graphics.IRenderDevice.DisableBlend">
+  DisableBlend()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisableBlend()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DisableDepthTest_" data-uid="LibGFX.Graphics.IRenderDevice.DisableDepthTest*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DisableDepthTest" data-uid="LibGFX.Graphics.IRenderDevice.DisableDepthTest">
+  DisableDepthTest()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisableDepthTest()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DispatchCompute_" data-uid="LibGFX.Graphics.IRenderDevice.DispatchCompute*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DispatchCompute_System_Int32_System_Int32_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.DispatchCompute(System.Int32,System.Int32,System.Int32)">
+  DispatchCompute(int, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DispatchCompute(int numGroupsX, int numGroupsY, int numGroupsZ)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>numGroupsX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>numGroupsY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>numGroupsZ</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_Dispose_" data-uid="LibGFX.Graphics.IRenderDevice.Dispose*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_Dispose" data-uid="LibGFX.Graphics.IRenderDevice.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DisposeBuffer_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeBuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DisposeBuffer_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeBuffer(System.Int32)">
+  DisposeBuffer(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisposeBuffer(int buffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DisposeComputeShader_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeComputeShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DisposeComputeShader_LibGFX_Compute_ComputeShader_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeComputeShader(LibGFX.Compute.ComputeShader)">
+  DisposeComputeShader(ComputeShader)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisposeComputeShader(ComputeShader computeShader)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>computeShader</code> <a class="xref" href="LibGFX.Compute.ComputeShader.html">ComputeShader</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DisposeCubemap_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeCubemap*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DisposeCubemap_LibGFX_Graphics_Cubemap_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeCubemap(LibGFX.Graphics.Cubemap)">
+  DisposeCubemap(Cubemap)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisposeCubemap(Cubemap cubemap)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cubemap</code> <a class="xref" href="LibGFX.Graphics.Cubemap.html">Cubemap</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DisposeFont_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeFont*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DisposeFont_LibGFX_Graphics_Font_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeFont(LibGFX.Graphics.Font)">
+  DisposeFont(Font)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisposeFont(Font font)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>font</code> <a class="xref" href="LibGFX.Graphics.Font.html">Font</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DisposeInstanceContainer_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeInstanceContainer*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DisposeInstanceContainer_LibGFX_Graphics_RenderInstanceContainer_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeInstanceContainer(LibGFX.Graphics.RenderInstanceContainer)">
+  DisposeInstanceContainer(RenderInstanceContainer)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisposeInstanceContainer(RenderInstanceContainer container)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>container</code> <a class="xref" href="LibGFX.Graphics.RenderInstanceContainer.html">RenderInstanceContainer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DisposeMesh_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeMesh*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DisposeMesh_LibGFX_Graphics_Mesh_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeMesh(LibGFX.Graphics.Mesh)">
+  DisposeMesh(Mesh)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisposeMesh(Mesh mesh)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <a class="xref" href="LibGFX.Graphics.Mesh.html">Mesh</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DisposeRenderShader_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeRenderShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DisposeRenderShader_LibGFX_Graphics_Shader_RenderShader_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeRenderShader(LibGFX.Graphics.Shader.RenderShader)">
+  DisposeRenderShader(RenderShader)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisposeRenderShader(RenderShader shaderProgram)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shaderProgram</code> <a class="xref" href="LibGFX.Graphics.Shader.RenderShader.html">RenderShader</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DisposeShape_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeShape*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DisposeShape_LibGFX_Graphics_Shapes_Shape_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeShape(LibGFX.Graphics.Shapes.Shape)">
+  DisposeShape(Shape)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisposeShape(Shape shape)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shape</code> <a class="xref" href="LibGFX.Graphics.Shapes.Shape.html">Shape</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DisposeTexture_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeTexture*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DisposeTexture_LibGFX_Graphics_Texture_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeTexture(LibGFX.Graphics.Texture)">
+  DisposeTexture(Texture)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisposeTexture(Texture texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="LibGFX.Graphics.Texture.html">Texture</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DisposeVertexArray_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeVertexArray*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DisposeVertexArray_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.DisposeVertexArray(System.Int32)">
+  DisposeVertexArray(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisposeVertexArray(int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawAABB_" data-uid="LibGFX.Graphics.IRenderDevice.DrawAABB*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawAABB_LibGFX_Math_AABB_OpenTK_Mathematics_Vector4_" data-uid="LibGFX.Graphics.IRenderDevice.DrawAABB(LibGFX.Math.AABB,OpenTK.Mathematics.Vector4)">
+  DrawAABB(AABB, Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawAABB(AABB aabb, Vector4 color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>aabb</code> <a class="xref" href="LibGFX.Math.AABB.html">AABB</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawCubemap_" data-uid="LibGFX.Graphics.IRenderDevice.DrawCubemap*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawCubemap_LibGFX_Math_Transform_LibGFX_Graphics_Cubemap_OpenTK_Mathematics_Vector4_" data-uid="LibGFX.Graphics.IRenderDevice.DrawCubemap(LibGFX.Math.Transform,LibGFX.Graphics.Cubemap,OpenTK.Mathematics.Vector4)">
+  DrawCubemap(Transform, Cubemap, Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawCubemap(Transform transform, Cubemap cubemap, Vector4 color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
+    <dd></dd>
+    <dt><code>cubemap</code> <a class="xref" href="LibGFX.Graphics.Cubemap.html">Cubemap</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawFullScreenQuad_" data-uid="LibGFX.Graphics.IRenderDevice.DrawFullScreenQuad*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawFullScreenQuad" data-uid="LibGFX.Graphics.IRenderDevice.DrawFullScreenQuad">
+  DrawFullScreenQuad()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawFullScreenQuad()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawGrid_" data-uid="LibGFX.Graphics.IRenderDevice.DrawGrid*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawGrid_LibGFX_Graphics_Camera_OpenTK_Mathematics_Vector4_" data-uid="LibGFX.Graphics.IRenderDevice.DrawGrid(LibGFX.Graphics.Camera,OpenTK.Mathematics.Vector4)">
+  DrawGrid(Camera, Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawGrid(Camera camera, Vector4 color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camera</code> <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawInstances_" data-uid="LibGFX.Graphics.IRenderDevice.DrawInstances*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawInstances_LibGFX_Graphics_RenderInstanceContainer_LibGFX_Graphics_Materials_IMaterial_" data-uid="LibGFX.Graphics.IRenderDevice.DrawInstances(LibGFX.Graphics.RenderInstanceContainer,LibGFX.Graphics.Materials.IMaterial)">
+  DrawInstances(RenderInstanceContainer, IMaterial)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawInstances(RenderInstanceContainer container, IMaterial material)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>container</code> <a class="xref" href="LibGFX.Graphics.RenderInstanceContainer.html">RenderInstanceContainer</a></dt>
+    <dd></dd>
+    <dt><code>material</code> <a class="xref" href="LibGFX.Graphics.Materials.IMaterial.html">IMaterial</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawLine_" data-uid="LibGFX.Graphics.IRenderDevice.DrawLine*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawLine_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector4_" data-uid="LibGFX.Graphics.IRenderDevice.DrawLine(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector4)">
+  DrawLine(Vector3, Vector3, Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawLine(Vector3 start, Vector3 end, Vector4 color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>end</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawMesh_" data-uid="LibGFX.Graphics.IRenderDevice.DrawMesh*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawMesh_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_LibGFX_Graphics_Materials_IMaterial_" data-uid="LibGFX.Graphics.IRenderDevice.DrawMesh(LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.Materials.IMaterial)">
+  DrawMesh(Transform, Mesh, IMaterial)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawMesh(Transform transform, Mesh mesh, IMaterial materialOverwrite = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
+    <dd></dd>
+    <dt><code>mesh</code> <a class="xref" href="LibGFX.Graphics.Mesh.html">Mesh</a></dt>
+    <dd></dd>
+    <dt><code>materialOverwrite</code> <a class="xref" href="LibGFX.Graphics.Materials.IMaterial.html">IMaterial</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawPrimitive_" data-uid="LibGFX.Graphics.IRenderDevice.DrawPrimitive*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawPrimitive_LibGFX_Math_Transform_LibGFX_Graphics_Primitives_PrimitiveType_OpenTK_Mathematics_Vector4_" data-uid="LibGFX.Graphics.IRenderDevice.DrawPrimitive(LibGFX.Math.Transform,LibGFX.Graphics.Primitives.PrimitiveType,OpenTK.Mathematics.Vector4)">
+  DrawPrimitive(Transform, PrimitiveType, Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawPrimitive(Transform tansform, PrimitiveType type, Vector4 color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tansform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
+    <dd></dd>
+    <dt><code>type</code> <a class="xref" href="LibGFX.Graphics.Primitives.PrimitiveType.html">PrimitiveType</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawRect_" data-uid="LibGFX.Graphics.IRenderDevice.DrawRect*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawRect_LibGFX_Math_Rect_OpenTK_Mathematics_Vector4_System_Single_System_Single_" data-uid="LibGFX.Graphics.IRenderDevice.DrawRect(LibGFX.Math.Rect,OpenTK.Mathematics.Vector4,System.Single,System.Single)">
+  DrawRect(Rect, Vector4, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawRect(Rect rect, Vector4 color, float borderWidth = 1, float rotation = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rect</code> <a class="xref" href="LibGFX.Math.Rect.html">Rect</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+    <dt><code>borderWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawRect3D_" data-uid="LibGFX.Graphics.IRenderDevice.DrawRect3D*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawRect3D_LibGFX_Math_Transform_OpenTK_Mathematics_Vector4_System_Single_" data-uid="LibGFX.Graphics.IRenderDevice.DrawRect3D(LibGFX.Math.Transform,OpenTK.Mathematics.Vector4,System.Single)">
+  DrawRect3D(Transform, Vector4, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawRect3D(Transform transform, Vector4 color, float borderWidth = 1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+    <dt><code>borderWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawRenderTarget_" data-uid="LibGFX.Graphics.IRenderDevice.DrawRenderTarget*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawRenderTarget_LibGFX_Graphics_MSAARenderTarget2D_" data-uid="LibGFX.Graphics.IRenderDevice.DrawRenderTarget(LibGFX.Graphics.MSAARenderTarget2D)">
+  DrawRenderTarget(MSAARenderTarget2D)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawRenderTarget(MSAARenderTarget2D renderTarget)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderTarget</code> <a class="xref" href="LibGFX.Graphics.MSAARenderTarget2D.html">MSAARenderTarget2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawRenderTarget_" data-uid="LibGFX.Graphics.IRenderDevice.DrawRenderTarget*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawRenderTarget_LibGFX_Graphics_MSAARenderTarget2D_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.DrawRenderTarget(LibGFX.Graphics.MSAARenderTarget2D,System.Int32)">
+  DrawRenderTarget(MSAARenderTarget2D, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawRenderTarget(MSAARenderTarget2D renderTarget, int framebuffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderTarget</code> <a class="xref" href="LibGFX.Graphics.MSAARenderTarget2D.html">MSAARenderTarget2D</a></dt>
+    <dd></dd>
+    <dt><code>framebuffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawRenderTarget_" data-uid="LibGFX.Graphics.IRenderDevice.DrawRenderTarget*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawRenderTarget_LibGFX_Graphics_RenderTarget2D_" data-uid="LibGFX.Graphics.IRenderDevice.DrawRenderTarget(LibGFX.Graphics.RenderTarget2D)">
+  DrawRenderTarget(RenderTarget2D)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawRenderTarget(RenderTarget2D renderTarget)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderTarget</code> <a class="xref" href="LibGFX.Graphics.RenderTarget2D.html">RenderTarget2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawRenderTarget_" data-uid="LibGFX.Graphics.IRenderDevice.DrawRenderTarget*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawRenderTarget_LibGFX_Graphics_RenderTarget2D_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.DrawRenderTarget(LibGFX.Graphics.RenderTarget2D,System.Int32)">
+  DrawRenderTarget(RenderTarget2D, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawRenderTarget(RenderTarget2D renderTarget, int framebuffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderTarget</code> <a class="xref" href="LibGFX.Graphics.RenderTarget2D.html">RenderTarget2D</a></dt>
+    <dd></dd>
+    <dt><code>framebuffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawRenderTarget_" data-uid="LibGFX.Graphics.IRenderDevice.DrawRenderTarget*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawRenderTarget_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.DrawRenderTarget(System.Int32)">
+  DrawRenderTarget(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawRenderTarget(int textureId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>textureId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawRenderTarget_" data-uid="LibGFX.Graphics.IRenderDevice.DrawRenderTarget*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawRenderTarget_System_Int32_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.DrawRenderTarget(System.Int32,System.Int32)">
+  DrawRenderTarget(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawRenderTarget(int textureId, int framebuffer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>textureId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>framebuffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawShape_" data-uid="LibGFX.Graphics.IRenderDevice.DrawShape*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawShape_LibGFX_Graphics_Shapes_Shape_" data-uid="LibGFX.Graphics.IRenderDevice.DrawShape(LibGFX.Graphics.Shapes.Shape)">
+  DrawShape(Shape)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawShape(Shape shape)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shape</code> <a class="xref" href="LibGFX.Graphics.Shapes.Shape.html">Shape</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawString2D_" data-uid="LibGFX.Graphics.IRenderDevice.DrawString2D*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawString2D_System_String_OpenTK_Mathematics_Vector2_LibGFX_Graphics_Font_OpenTK_Mathematics_Vector4_System_Single_LibGFX_Graphics_FontAlignment_" data-uid="LibGFX.Graphics.IRenderDevice.DrawString2D(System.String,OpenTK.Mathematics.Vector2,LibGFX.Graphics.Font,OpenTK.Mathematics.Vector4,System.Single,LibGFX.Graphics.FontAlignment)">
+  DrawString2D(string, Vector2, Font, Vector4, float, FontAlignment)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawString2D(string text, Vector2 position, Font font, Vector4 color, float scale = 1, FontAlignment alignment = FontAlignment.BottomLeft)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs">Vector2</a></dt>
+    <dd></dd>
+    <dt><code>font</code> <a class="xref" href="LibGFX.Graphics.Font.html">Font</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+    <dt><code>scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>alignment</code> <a class="xref" href="LibGFX.Graphics.FontAlignment.html">FontAlignment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawTexture_" data-uid="LibGFX.Graphics.IRenderDevice.DrawTexture*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawTexture_LibGFX_Math_Transform_LibGFX_Graphics_Texture_OpenTK_Mathematics_Vector4_" data-uid="LibGFX.Graphics.IRenderDevice.DrawTexture(LibGFX.Math.Transform,LibGFX.Graphics.Texture,OpenTK.Mathematics.Vector4)">
+  DrawTexture(Transform, Texture, Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawTexture(Transform transform, Texture texture, Vector4 color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
+    <dd></dd>
+    <dt><code>texture</code> <a class="xref" href="LibGFX.Graphics.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawTexture_" data-uid="LibGFX.Graphics.IRenderDevice.DrawTexture*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawTexture_LibGFX_Math_Transform_System_Int32_OpenTK_Mathematics_Vector4_" data-uid="LibGFX.Graphics.IRenderDevice.DrawTexture(LibGFX.Math.Transform,System.Int32,OpenTK.Mathematics.Vector4)">
+  DrawTexture(Transform, int, Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawTexture(Transform transform, int textureId, Vector4 color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
+    <dd></dd>
+    <dt><code>textureId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawTexture_" data-uid="LibGFX.Graphics.IRenderDevice.DrawTexture*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawTexture_LibGFX_Math_Transform_System_Int32_OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector4_" data-uid="LibGFX.Graphics.IRenderDevice.DrawTexture(LibGFX.Math.Transform,System.Int32,OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4)">
+  DrawTexture(Transform, int, Vector4, Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawTexture(Transform transform, int textureId, Vector4 color, Vector4 uvTransform)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
+    <dd></dd>
+    <dt><code>textureId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+    <dt><code>uvTransform</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawTexture_" data-uid="LibGFX.Graphics.IRenderDevice.DrawTexture*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawTexture_LibGFX_Math_Transform_System_Int32_OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector2_" data-uid="LibGFX.Graphics.IRenderDevice.DrawTexture(LibGFX.Math.Transform,System.Int32,OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector2)">
+  DrawTexture(Transform, int, Vector4, Vector4, Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawTexture(Transform transform, int textureId, Vector4 color, Vector4 uvTransform, Vector2 uvScale)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
+    <dd></dd>
+    <dt><code>textureId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+    <dt><code>uvTransform</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+    <dt><code>uvScale</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_DrawVertexArray_" data-uid="LibGFX.Graphics.IRenderDevice.DrawVertexArray*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_DrawVertexArray_LibGFX_Math_Transform_System_Int32_System_Int32_LibGFX_Graphics_RenderFlags_PrimitiveTypes_" data-uid="LibGFX.Graphics.IRenderDevice.DrawVertexArray(LibGFX.Math.Transform,System.Int32,System.Int32,LibGFX.Graphics.RenderFlags.PrimitiveTypes)">
+  DrawVertexArray(Transform, int, int, PrimitiveTypes)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DrawVertexArray(Transform transform, int vertexBuffer, int vertexCount, RenderFlags.PrimitiveTypes primitiveTypes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
+    <dd></dd>
+    <dt><code>vertexBuffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>vertexCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>primitiveTypes</code> <a class="xref" href="LibGFX.Graphics.RenderFlags.html">RenderFlags</a>.<a class="xref" href="LibGFX.Graphics.RenderFlags.PrimitiveTypes.html">PrimitiveTypes</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_EnableBlend_" data-uid="LibGFX.Graphics.IRenderDevice.EnableBlend*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_EnableBlend" data-uid="LibGFX.Graphics.IRenderDevice.EnableBlend">
+  EnableBlend()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void EnableBlend()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_EnableDepthTest_" data-uid="LibGFX.Graphics.IRenderDevice.EnableDepthTest*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_EnableDepthTest" data-uid="LibGFX.Graphics.IRenderDevice.EnableDepthTest">
+  EnableDepthTest()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void EnableDepthTest()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_EnableVertexArrayAttribute_" data-uid="LibGFX.Graphics.IRenderDevice.EnableVertexArrayAttribute*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_EnableVertexArrayAttribute_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.EnableVertexArrayAttribute(System.Int32)">
+  EnableVertexArrayAttribute(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void EnableVertexArrayAttribute(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_FillRect_" data-uid="LibGFX.Graphics.IRenderDevice.FillRect*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_FillRect_LibGFX_Math_Rect_OpenTK_Mathematics_Vector4_System_Single_" data-uid="LibGFX.Graphics.IRenderDevice.FillRect(LibGFX.Math.Rect,OpenTK.Mathematics.Vector4,System.Single)">
+  FillRect(Rect, Vector4, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void FillRect(Rect rect, Vector4 color, float rotation = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rect</code> <a class="xref" href="LibGFX.Math.Rect.html">Rect</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+    <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_FillRect3D_" data-uid="LibGFX.Graphics.IRenderDevice.FillRect3D*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_FillRect3D_LibGFX_Math_Transform_OpenTK_Mathematics_Vector4_" data-uid="LibGFX.Graphics.IRenderDevice.FillRect3D(LibGFX.Math.Transform,OpenTK.Mathematics.Vector4)">
+  FillRect3D(Transform, Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void FillRect3D(Transform transform, Vector4 color)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>transform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
+    <dd></dd>
+    <dt><code>color</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_Flush_" data-uid="LibGFX.Graphics.IRenderDevice.Flush*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_Flush" data-uid="LibGFX.Graphics.IRenderDevice.Flush">
+  Flush()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Flush()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetBufferData_" data-uid="LibGFX.Graphics.IRenderDevice.GetBufferData*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetBufferData__1_System_Int32_System_Int32_LibGFX_Graphics_RenderFlags_GFXBufferTarget_" data-uid="LibGFX.Graphics.IRenderDevice.GetBufferData``1(System.Int32,System.Int32,LibGFX.Graphics.RenderFlags.GFXBufferTarget)">
+  GetBufferData&lt;T&gt;(int, int, GFXBufferTarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">T[] GetBufferData&lt;T&gt;(int buffer, int length, RenderFlags.GFXBufferTarget target) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>target</code> <a class="xref" href="LibGFX.Graphics.RenderFlags.html">RenderFlags</a>.<a class="xref" href="LibGFX.Graphics.RenderFlags.GFXBufferTarget.html">GFXBufferTarget</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>T[]</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetContext_" data-uid="LibGFX.Graphics.IRenderDevice.GetContext*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetContext" data-uid="LibGFX.Graphics.IRenderDevice.GetContext">
+  GetContext()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IGLFWGraphicsContext GetContext()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Windowing.Desktop/IGLFWGraphicsContext.cs">IGLFWGraphicsContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetCullMode_" data-uid="LibGFX.Graphics.IRenderDevice.GetCullMode*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetCullMode" data-uid="LibGFX.Graphics.IRenderDevice.GetCullMode">
+  GetCullMode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CullMode GetCullMode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.CullMode.html">CullMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetCurrentBlendMode_" data-uid="LibGFX.Graphics.IRenderDevice.GetCurrentBlendMode*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetCurrentBlendMode" data-uid="LibGFX.Graphics.IRenderDevice.GetCurrentBlendMode">
+  GetCurrentBlendMode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">(int srcFactor, int dstFactor) GetCurrentBlendMode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.srcfactor">srcFactor</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.dstfactor">dstFactor</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetCurrentRenderTargetID_" data-uid="LibGFX.Graphics.IRenderDevice.GetCurrentRenderTargetID*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetCurrentRenderTargetID" data-uid="LibGFX.Graphics.IRenderDevice.GetCurrentRenderTargetID">
+  GetCurrentRenderTargetID()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int GetCurrentRenderTargetID()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetError_" data-uid="LibGFX.Graphics.IRenderDevice.GetError*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetError" data-uid="LibGFX.Graphics.IRenderDevice.GetError">
+  GetError()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int GetError()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetFramebufferIndex_" data-uid="LibGFX.Graphics.IRenderDevice.GetFramebufferIndex*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetFramebufferIndex" data-uid="LibGFX.Graphics.IRenderDevice.GetFramebufferIndex">
+  GetFramebufferIndex()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int GetFramebufferIndex()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetPrimitiveMesh_" data-uid="LibGFX.Graphics.IRenderDevice.GetPrimitiveMesh*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetPrimitiveMesh_LibGFX_Graphics_Primitives_PrimitiveType_" data-uid="LibGFX.Graphics.IRenderDevice.GetPrimitiveMesh(LibGFX.Graphics.Primitives.PrimitiveType)">
+  GetPrimitiveMesh(PrimitiveType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Mesh GetPrimitiveMesh(PrimitiveType type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <a class="xref" href="LibGFX.Graphics.Primitives.PrimitiveType.html">PrimitiveType</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Mesh.html">Mesh</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetProjectionMatrix_" data-uid="LibGFX.Graphics.IRenderDevice.GetProjectionMatrix*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetProjectionMatrix" data-uid="LibGFX.Graphics.IRenderDevice.GetProjectionMatrix">
+  GetProjectionMatrix()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Matrix4 GetProjectionMatrix()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Matrix/Matrix4.cs">Matrix4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetRenderShader_" data-uid="LibGFX.Graphics.IRenderDevice.GetRenderShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetRenderShader_System_String_" data-uid="LibGFX.Graphics.IRenderDevice.GetRenderShader(System.String)">
+  GetRenderShader(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">RenderShader GetRenderShader(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Shader.RenderShader.html">RenderShader</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetRenderTargetData_" data-uid="LibGFX.Graphics.IRenderDevice.GetRenderTargetData*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetRenderTargetData_LibGFX_Graphics_MSAARenderTarget2D_" data-uid="LibGFX.Graphics.IRenderDevice.GetRenderTargetData(LibGFX.Graphics.MSAARenderTarget2D)">
+  GetRenderTargetData(MSAARenderTarget2D)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">byte[] GetRenderTargetData(MSAARenderTarget2D renderTarget)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderTarget</code> <a class="xref" href="LibGFX.Graphics.MSAARenderTarget2D.html">MSAARenderTarget2D</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetRenderTargetData_" data-uid="LibGFX.Graphics.IRenderDevice.GetRenderTargetData*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetRenderTargetData_LibGFX_Graphics_MSAARenderTarget2D_System_Int32_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.GetRenderTargetData(LibGFX.Graphics.MSAARenderTarget2D,System.Int32,System.Int32)">
+  GetRenderTargetData(MSAARenderTarget2D, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">byte[] GetRenderTargetData(MSAARenderTarget2D renderTarget, int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderTarget</code> <a class="xref" href="LibGFX.Graphics.MSAARenderTarget2D.html">MSAARenderTarget2D</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetRenderTargetSize_" data-uid="LibGFX.Graphics.IRenderDevice.GetRenderTargetSize*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetRenderTargetSize_LibGFX_Graphics_MSAARenderTarget2D_" data-uid="LibGFX.Graphics.IRenderDevice.GetRenderTargetSize(LibGFX.Graphics.MSAARenderTarget2D)">
+  GetRenderTargetSize(MSAARenderTarget2D)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Vector2i GetRenderTargetSize(MSAARenderTarget2D renderTarget)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderTarget</code> <a class="xref" href="LibGFX.Graphics.MSAARenderTarget2D.html">MSAARenderTarget2D</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2i.cs">Vector2i</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetShape_" data-uid="LibGFX.Graphics.IRenderDevice.GetShape*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetShape_System_String_" data-uid="LibGFX.Graphics.IRenderDevice.GetShape(System.String)">
+  GetShape(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Shape GetShape(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Shapes.Shape.html">Shape</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetUniformLocation_" data-uid="LibGFX.Graphics.IRenderDevice.GetUniformLocation*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetUniformLocation_System_Int32_System_String_" data-uid="LibGFX.Graphics.IRenderDevice.GetUniformLocation(System.Int32,System.String)">
+  GetUniformLocation(int, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int GetUniformLocation(int program, string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>program</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetViewMatrix_" data-uid="LibGFX.Graphics.IRenderDevice.GetViewMatrix*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetViewMatrix" data-uid="LibGFX.Graphics.IRenderDevice.GetViewMatrix">
+  GetViewMatrix()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Matrix4 GetViewMatrix()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Matrix/Matrix4.cs">Matrix4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_GetViewport_" data-uid="LibGFX.Graphics.IRenderDevice.GetViewport*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_GetViewport" data-uid="LibGFX.Graphics.IRenderDevice.GetViewport">
+  GetViewport()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Viewport GetViewport()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_Init_" data-uid="LibGFX.Graphics.IRenderDevice.Init*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_Init_LibGFX_Core_Window_" data-uid="LibGFX.Graphics.IRenderDevice.Init(LibGFX.Core.Window)">
+  Init(Window)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Init(Window window)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>window</code> <a class="xref" href="LibGFX.Core.Window.html">Window</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_Init_" data-uid="LibGFX.Graphics.IRenderDevice.Init*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_Init_OpenTK_Windowing_Desktop_IGLFWGraphicsContext_" data-uid="LibGFX.Graphics.IRenderDevice.Init(OpenTK.Windowing.Desktop.IGLFWGraphicsContext)">
+  Init(IGLFWGraphicsContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Init(IGLFWGraphicsContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Windowing.Desktop/IGLFWGraphicsContext.cs">IGLFWGraphicsContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_InitShape_" data-uid="LibGFX.Graphics.IRenderDevice.InitShape*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_InitShape_LibGFX_Graphics_Shapes_Shape_" data-uid="LibGFX.Graphics.IRenderDevice.InitShape(LibGFX.Graphics.Shapes.Shape)">
+  InitShape(Shape)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void InitShape(Shape shape)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>shape</code> <a class="xref" href="LibGFX.Graphics.Shapes.Shape.html">Shape</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_IsDepthTestEnabled_" data-uid="LibGFX.Graphics.IRenderDevice.IsDepthTestEnabled*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_IsDepthTestEnabled" data-uid="LibGFX.Graphics.IRenderDevice.IsDepthTestEnabled">
+  IsDepthTestEnabled()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsDepthTestEnabled()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_IsRenderShaderRegistered_" data-uid="LibGFX.Graphics.IRenderDevice.IsRenderShaderRegistered*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_IsRenderShaderRegistered_System_String_" data-uid="LibGFX.Graphics.IRenderDevice.IsRenderShaderRegistered(System.String)">
+  IsRenderShaderRegistered(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsRenderShaderRegistered(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_LoadCubemap_" data-uid="LibGFX.Graphics.IRenderDevice.LoadCubemap*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_LoadCubemap_LibGFX_Graphics_Cubemap_" data-uid="LibGFX.Graphics.IRenderDevice.LoadCubemap(LibGFX.Graphics.Cubemap)">
+  LoadCubemap(Cubemap)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void LoadCubemap(Cubemap cubemap)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cubemap</code> <a class="xref" href="LibGFX.Graphics.Cubemap.html">Cubemap</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_LoadFont_" data-uid="LibGFX.Graphics.IRenderDevice.LoadFont*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_LoadFont_System_String_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.LoadFont(System.String,System.Int32)">
+  LoadFont(string, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Font LoadFont(string path, int fontsize = 48)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>fontsize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Font.html">Font</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_LoadInstanceContainer_" data-uid="LibGFX.Graphics.IRenderDevice.LoadInstanceContainer*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_LoadInstanceContainer_LibGFX_Graphics_RenderInstanceContainer_" data-uid="LibGFX.Graphics.IRenderDevice.LoadInstanceContainer(LibGFX.Graphics.RenderInstanceContainer)">
+  LoadInstanceContainer(RenderInstanceContainer)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void LoadInstanceContainer(RenderInstanceContainer container)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>container</code> <a class="xref" href="LibGFX.Graphics.RenderInstanceContainer.html">RenderInstanceContainer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_LoadInstances_" data-uid="LibGFX.Graphics.IRenderDevice.LoadInstances*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_LoadInstances_LibGFX_Graphics_RenderInstanceContainer_" data-uid="LibGFX.Graphics.IRenderDevice.LoadInstances(LibGFX.Graphics.RenderInstanceContainer)">
+  LoadInstances(RenderInstanceContainer)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void LoadInstances(RenderInstanceContainer container)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>container</code> <a class="xref" href="LibGFX.Graphics.RenderInstanceContainer.html">RenderInstanceContainer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_LoadMesh_" data-uid="LibGFX.Graphics.IRenderDevice.LoadMesh*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_LoadMesh_LibGFX_Graphics_Mesh_" data-uid="LibGFX.Graphics.IRenderDevice.LoadMesh(LibGFX.Graphics.Mesh)">
+  LoadMesh(Mesh)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void LoadMesh(Mesh mesh)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mesh</code> <a class="xref" href="LibGFX.Graphics.Mesh.html">Mesh</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_LoadTexture_" data-uid="LibGFX.Graphics.IRenderDevice.LoadTexture*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_LoadTexture_LibGFX_Graphics_Texture_" data-uid="LibGFX.Graphics.IRenderDevice.LoadTexture(LibGFX.Graphics.Texture)">
+  LoadTexture(Texture)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void LoadTexture(Texture texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="LibGFX.Graphics.Texture.html">Texture</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_LoadTexture_" data-uid="LibGFX.Graphics.IRenderDevice.LoadTexture*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_LoadTexture_LibGFX_Graphics_Texture_LibGFX_Graphics_TextureParameters_" data-uid="LibGFX.Graphics.IRenderDevice.LoadTexture(LibGFX.Graphics.Texture,LibGFX.Graphics.TextureParameters)">
+  LoadTexture(Texture, TextureParameters)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void LoadTexture(Texture texture, TextureParameters textureOptions)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="LibGFX.Graphics.Texture.html">Texture</a></dt>
+    <dd></dd>
+    <dt><code>textureOptions</code> <a class="xref" href="LibGFX.Graphics.TextureParameters.html">TextureParameters</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_MakeCurrent_" data-uid="LibGFX.Graphics.IRenderDevice.MakeCurrent*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_MakeCurrent" data-uid="LibGFX.Graphics.IRenderDevice.MakeCurrent">
+  MakeCurrent()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void MakeCurrent()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_MapBufferRange_" data-uid="LibGFX.Graphics.IRenderDevice.MapBufferRange*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_MapBufferRange_LibGFX_Graphics_RenderFlags_GFXBufferTarget_System_Int32_System_Int32_OpenTK_Graphics_OpenGL4_MapBufferAccessMask_" data-uid="LibGFX.Graphics.IRenderDevice.MapBufferRange(LibGFX.Graphics.RenderFlags.GFXBufferTarget,System.Int32,System.Int32,OpenTK.Graphics.OpenGL4.MapBufferAccessMask)">
+  MapBufferRange(GFXBufferTarget, int, int, MapBufferAccessMask)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">nint MapBufferRange(RenderFlags.GFXBufferTarget target, int offset, int length, MapBufferAccessMask access)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="LibGFX.Graphics.RenderFlags.html">RenderFlags</a>.<a class="xref" href="LibGFX.Graphics.RenderFlags.GFXBufferTarget.html">GFXBufferTarget</a></dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>access</code> <span class="xref">MapBufferAccessMask</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_MemoryBarrier_" data-uid="LibGFX.Graphics.IRenderDevice.MemoryBarrier*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_MemoryBarrier_OpenTK_Graphics_OpenGL4_MemoryBarrierFlags_" data-uid="LibGFX.Graphics.IRenderDevice.MemoryBarrier(OpenTK.Graphics.OpenGL4.MemoryBarrierFlags)">
+  MemoryBarrier(MemoryBarrierFlags)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void MemoryBarrier(MemoryBarrierFlags barriers)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>barriers</code> <span class="xref">MemoryBarrierFlags</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShader_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShader_System_String_OpenTK_Graphics_OpenGL4_TextureUnit_LibGFX_Graphics_Texture_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader(System.String,OpenTK.Graphics.OpenGL4.TextureUnit,LibGFX.Graphics.Texture)">
+  PrepareShader(string, TextureUnit, Texture)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShader(string location, TextureUnit textureUnit, Texture texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>textureUnit</code> <span class="xref">TextureUnit</span></dt>
+    <dd></dd>
+    <dt><code>texture</code> <a class="xref" href="LibGFX.Graphics.Texture.html">Texture</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShader_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShader_System_String_OpenTK_Graphics_OpenGL4_TextureUnit_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader(System.String,OpenTK.Graphics.OpenGL4.TextureUnit,System.Int32)">
+  PrepareShader(string, TextureUnit, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShader(string location, TextureUnit textureUnit, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>textureUnit</code> <span class="xref">TextureUnit</span></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShader_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShader_System_String_OpenTK_Mathematics_Vector2_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader(System.String,OpenTK.Mathematics.Vector2)">
+  PrepareShader(string, Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShader(string location, Vector2 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShader_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShader_System_String_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader(System.String,OpenTK.Mathematics.Vector3)">
+  PrepareShader(string, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShader(string location, Vector3 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShader_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShader_System_String_OpenTK_Mathematics_Vector4_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader(System.String,OpenTK.Mathematics.Vector4)">
+  PrepareShader(string, Vector4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShader(string location, Vector4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs">Vector4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShader_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShader_System_String_System_Boolean_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader(System.String,System.Boolean)">
+  PrepareShader(string, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShader(string location, bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShader_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShader_System_String_System_Boolean_OpenTK_Mathematics_Matrix4_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader(System.String,System.Boolean,OpenTK.Mathematics.Matrix4)">
+  PrepareShader(string, bool, Matrix4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShader(string location, bool transpose, Matrix4 value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>transpose</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Matrix/Matrix4.cs">Matrix4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShader_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShader_System_String_System_Boolean_OpenTK_Mathematics_Matrix4___" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader(System.String,System.Boolean,OpenTK.Mathematics.Matrix4[])">
+  PrepareShader(string, bool, Matrix4[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShader(string uniformName, bool transpose, Matrix4[] matrices)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>uniformName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>transpose</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>matrices</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Matrix/Matrix4.cs">Matrix4</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShader_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShader_System_String_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader(System.String,System.Int32)">
+  PrepareShader(string, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShader(string location, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShader_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShader_System_String_System_Int32_LibGFX_Graphics_Cubemap_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader(System.String,System.Int32,LibGFX.Graphics.Cubemap)">
+  PrepareShader(string, int, Cubemap)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShader(string location, int textureUnit, Cubemap cubemap)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>textureUnit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cubemap</code> <a class="xref" href="LibGFX.Graphics.Cubemap.html">Cubemap</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShader_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShader_System_String_System_Int32_LibGFX_Graphics_Texture_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader(System.String,System.Int32,LibGFX.Graphics.Texture)">
+  PrepareShader(string, int, Texture)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShader(string location, int textureUnit, Texture texture)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>textureUnit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>texture</code> <a class="xref" href="LibGFX.Graphics.Texture.html">Texture</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShader_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShader_System_String_System_Int32_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader(System.String,System.Int32,System.Int32)">
+  PrepareShader(string, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShader(string location, int textureUnit, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>textureUnit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShader_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShader_System_String_System_Int32_System_Single___" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader(System.String,System.Int32,System.Single[])">
+  PrepareShader(string, int, float[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShader(string location, int count, float[] value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShader_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShader_System_String_System_Single_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShader(System.String,System.Single)">
+  PrepareShader(string, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShader(string location, float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShaderVec2Array_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShaderVec2Array*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShaderVec2Array_System_String_System_Int32_System_Single___" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShaderVec2Array(System.String,System.Int32,System.Single[])">
+  PrepareShaderVec2Array(string, int, float[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShaderVec2Array(string location, int count, float[] value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShaderVec3Array_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShaderVec3Array*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShaderVec3Array_System_String_System_Int32_System_Single___" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShaderVec3Array(System.String,System.Int32,System.Single[])">
+  PrepareShaderVec3Array(string, int, float[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShaderVec3Array(string location, int count, float[] value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_PrepareShaderVec4Array_" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShaderVec4Array*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_PrepareShaderVec4Array_System_String_System_Int32_System_Single___" data-uid="LibGFX.Graphics.IRenderDevice.PrepareShaderVec4Array(System.String,System.Int32,System.Single[])">
+  PrepareShaderVec4Array(string, int, float[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PrepareShaderVec4Array(string location, int count, float[] value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>location</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_RegisterRenderShader_" data-uid="LibGFX.Graphics.IRenderDevice.RegisterRenderShader*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_RegisterRenderShader_System_String_LibGFX_Graphics_Shader_RenderShader_" data-uid="LibGFX.Graphics.IRenderDevice.RegisterRenderShader(System.String,LibGFX.Graphics.Shader.RenderShader)">
+  RegisterRenderShader(string, RenderShader)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void RegisterRenderShader(string name, RenderShader shaderProgram)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>shaderProgram</code> <a class="xref" href="LibGFX.Graphics.Shader.RenderShader.html">RenderShader</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_ResizeRenderTarget_" data-uid="LibGFX.Graphics.IRenderDevice.ResizeRenderTarget*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_ResizeRenderTarget_LibGFX_Graphics_DepthOnlyRenderTarget_System_Int32_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.ResizeRenderTarget(LibGFX.Graphics.DepthOnlyRenderTarget,System.Int32,System.Int32)">
+  ResizeRenderTarget(DepthOnlyRenderTarget, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ResizeRenderTarget(DepthOnlyRenderTarget renderTarget, int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderTarget</code> <a class="xref" href="LibGFX.Graphics.DepthOnlyRenderTarget.html">DepthOnlyRenderTarget</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_ResizeRenderTarget_" data-uid="LibGFX.Graphics.IRenderDevice.ResizeRenderTarget*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_ResizeRenderTarget_LibGFX_Graphics_MSAARenderTarget2D_System_Int32_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.ResizeRenderTarget(LibGFX.Graphics.MSAARenderTarget2D,System.Int32,System.Int32)">
+  ResizeRenderTarget(MSAARenderTarget2D, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ResizeRenderTarget(MSAARenderTarget2D renderTarget, int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderTarget</code> <a class="xref" href="LibGFX.Graphics.MSAARenderTarget2D.html">MSAARenderTarget2D</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_ResizeRenderTarget_" data-uid="LibGFX.Graphics.IRenderDevice.ResizeRenderTarget*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_ResizeRenderTarget_LibGFX_Graphics_RenderTarget2D_System_Int32_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.ResizeRenderTarget(LibGFX.Graphics.RenderTarget2D,System.Int32,System.Int32)">
+  ResizeRenderTarget(RenderTarget2D, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ResizeRenderTarget(RenderTarget2D renderTarget, int width, int height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderTarget</code> <a class="xref" href="LibGFX.Graphics.RenderTarget2D.html">RenderTarget2D</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_ResolveRenderTarget_" data-uid="LibGFX.Graphics.IRenderDevice.ResolveRenderTarget*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_ResolveRenderTarget_LibGFX_Graphics_MSAARenderTarget2D_" data-uid="LibGFX.Graphics.IRenderDevice.ResolveRenderTarget(LibGFX.Graphics.MSAARenderTarget2D)">
+  ResolveRenderTarget(MSAARenderTarget2D)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ResolveRenderTarget(MSAARenderTarget2D renderTarget)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderTarget</code> <a class="xref" href="LibGFX.Graphics.MSAARenderTarget2D.html">MSAARenderTarget2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_SetBlendMode_" data-uid="LibGFX.Graphics.IRenderDevice.SetBlendMode*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_SetBlendMode_System_Int32_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.SetBlendMode(System.Int32,System.Int32)">
+  SetBlendMode(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetBlendMode(int srcFactor, int dstFactor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>srcFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>dstFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_SetBufferData_" data-uid="LibGFX.Graphics.IRenderDevice.SetBufferData*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_SetBufferData__1_System_Int32___0___LibGFX_Graphics_RenderFlags_GFXBufferTarget_LibGFX_Graphics_RenderFlags_GFXBufferUsageHint_" data-uid="LibGFX.Graphics.IRenderDevice.SetBufferData``1(System.Int32,``0[],LibGFX.Graphics.RenderFlags.GFXBufferTarget,LibGFX.Graphics.RenderFlags.GFXBufferUsageHint)">
+  SetBufferData&lt;T&gt;(int, T[], GFXBufferTarget, GFXBufferUsageHint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetBufferData&lt;T&gt;(int buffer, T[] data, RenderFlags.GFXBufferTarget target, RenderFlags.GFXBufferUsageHint bufferUsageHint) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>data</code> T[]</dt>
+    <dd></dd>
+    <dt><code>target</code> <a class="xref" href="LibGFX.Graphics.RenderFlags.html">RenderFlags</a>.<a class="xref" href="LibGFX.Graphics.RenderFlags.GFXBufferTarget.html">GFXBufferTarget</a></dt>
+    <dd></dd>
+    <dt><code>bufferUsageHint</code> <a class="xref" href="LibGFX.Graphics.RenderFlags.html">RenderFlags</a>.<a class="xref" href="LibGFX.Graphics.RenderFlags.GFXBufferUsageHint.html">GFXBufferUsageHint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_SetContext_" data-uid="LibGFX.Graphics.IRenderDevice.SetContext*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_SetContext_OpenTK_Windowing_Desktop_IGLFWGraphicsContext_" data-uid="LibGFX.Graphics.IRenderDevice.SetContext(OpenTK.Windowing.Desktop.IGLFWGraphicsContext)">
+  SetContext(IGLFWGraphicsContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetContext(IGLFWGraphicsContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Windowing.Desktop/IGLFWGraphicsContext.cs">IGLFWGraphicsContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_SetCullMode_" data-uid="LibGFX.Graphics.IRenderDevice.SetCullMode*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_SetCullMode_LibGFX_Graphics_CullMode_" data-uid="LibGFX.Graphics.IRenderDevice.SetCullMode(LibGFX.Graphics.CullMode)">
+  SetCullMode(CullMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetCullMode(CullMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mode</code> <a class="xref" href="LibGFX.Graphics.CullMode.html">CullMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_SetDepthMask_" data-uid="LibGFX.Graphics.IRenderDevice.SetDepthMask*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_SetDepthMask_System_Boolean_" data-uid="LibGFX.Graphics.IRenderDevice.SetDepthMask(System.Boolean)">
+  SetDepthMask(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetDepthMask(bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_SetDepthTest_" data-uid="LibGFX.Graphics.IRenderDevice.SetDepthTest*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_SetDepthTest_System_Boolean_" data-uid="LibGFX.Graphics.IRenderDevice.SetDepthTest(System.Boolean)">
+  SetDepthTest(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetDepthTest(bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_SetElementBufferData_" data-uid="LibGFX.Graphics.IRenderDevice.SetElementBufferData*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_SetElementBufferData_System_Int32_System_Int32___System_Boolean_" data-uid="LibGFX.Graphics.IRenderDevice.SetElementBufferData(System.Int32,System.Int32[],System.Boolean)">
+  SetElementBufferData(int, int[], bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetElementBufferData(int buffer, int[] data, bool dynamic = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd></dd>
+    <dt><code>dynamic</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_SetProjectionMatrix_" data-uid="LibGFX.Graphics.IRenderDevice.SetProjectionMatrix*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_SetProjectionMatrix_OpenTK_Mathematics_Matrix4_" data-uid="LibGFX.Graphics.IRenderDevice.SetProjectionMatrix(OpenTK.Mathematics.Matrix4)">
+  SetProjectionMatrix(Matrix4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetProjectionMatrix(Matrix4 matrix)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrix</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Matrix/Matrix4.cs">Matrix4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_SetVertexArrayAttribute_" data-uid="LibGFX.Graphics.IRenderDevice.SetVertexArrayAttribute*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_SetVertexArrayAttribute_System_Int32_System_Int32_LibGFX_Graphics_RenderFlags_RenderDataTypes_System_Boolean_System_Int32_System_IntPtr_" data-uid="LibGFX.Graphics.IRenderDevice.SetVertexArrayAttribute(System.Int32,System.Int32,LibGFX.Graphics.RenderFlags.RenderDataTypes,System.Boolean,System.Int32,System.IntPtr)">
+  SetVertexArrayAttribute(int, int, RenderDataTypes, bool, int, nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetVertexArrayAttribute(int index, int size, RenderFlags.RenderDataTypes type, bool normalized, int stride, nint pointer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>type</code> <a class="xref" href="LibGFX.Graphics.RenderFlags.html">RenderFlags</a>.<a class="xref" href="LibGFX.Graphics.RenderFlags.RenderDataTypes.html">RenderDataTypes</a></dt>
+    <dd></dd>
+    <dt><code>normalized</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>stride</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>pointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_SetVertexBufferData_" data-uid="LibGFX.Graphics.IRenderDevice.SetVertexBufferData*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_SetVertexBufferData__1_System_Int32___0___System_Boolean_" data-uid="LibGFX.Graphics.IRenderDevice.SetVertexBufferData``1(System.Int32,``0[],System.Boolean)">
+  SetVertexBufferData&lt;T&gt;(int, T[], bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetVertexBufferData&lt;T&gt;(int buffer, T[] data, bool dynamic = false) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>data</code> T[]</dt>
+    <dd></dd>
+    <dt><code>dynamic</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_SetViewMatrix_" data-uid="LibGFX.Graphics.IRenderDevice.SetViewMatrix*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_SetViewMatrix_OpenTK_Mathematics_Matrix4_" data-uid="LibGFX.Graphics.IRenderDevice.SetViewMatrix(OpenTK.Mathematics.Matrix4)">
+  SetViewMatrix(Matrix4)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetViewMatrix(Matrix4 matrix)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>matrix</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Matrix/Matrix4.cs">Matrix4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_SetViewport_" data-uid="LibGFX.Graphics.IRenderDevice.SetViewport*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_SetViewport_LibGFX_Graphics_Viewport_" data-uid="LibGFX.Graphics.IRenderDevice.SetViewport(LibGFX.Graphics.Viewport)">
+  SetViewport(Viewport)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetViewport(Viewport viewport)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_SwapBuffers_" data-uid="LibGFX.Graphics.IRenderDevice.SwapBuffers*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_SwapBuffers" data-uid="LibGFX.Graphics.IRenderDevice.SwapBuffers">
+  SwapBuffers()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SwapBuffers()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_UnbindRenderTarget_" data-uid="LibGFX.Graphics.IRenderDevice.UnbindRenderTarget*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_UnbindRenderTarget" data-uid="LibGFX.Graphics.IRenderDevice.UnbindRenderTarget">
+  UnbindRenderTarget()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void UnbindRenderTarget()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_UnbindShaderProgram_" data-uid="LibGFX.Graphics.IRenderDevice.UnbindShaderProgram*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_UnbindShaderProgram" data-uid="LibGFX.Graphics.IRenderDevice.UnbindShaderProgram">
+  UnbindShaderProgram()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void UnbindShaderProgram()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_UnbindShaderStorageBuffer_" data-uid="LibGFX.Graphics.IRenderDevice.UnbindShaderStorageBuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_UnbindShaderStorageBuffer_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.UnbindShaderStorageBuffer(System.Int32)">
+  UnbindShaderStorageBuffer(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void UnbindShaderStorageBuffer(int binding)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>binding</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_UnmapBuffer_" data-uid="LibGFX.Graphics.IRenderDevice.UnmapBuffer*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_UnmapBuffer_LibGFX_Graphics_RenderFlags_GFXBufferTarget_" data-uid="LibGFX.Graphics.IRenderDevice.UnmapBuffer(LibGFX.Graphics.RenderFlags.GFXBufferTarget)">
+  UnmapBuffer(GFXBufferTarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void UnmapBuffer(RenderFlags.GFXBufferTarget target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="LibGFX.Graphics.RenderFlags.html">RenderFlags</a>.<a class="xref" href="LibGFX.Graphics.RenderFlags.GFXBufferTarget.html">GFXBufferTarget</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_UpdateBufferData_" data-uid="LibGFX.Graphics.IRenderDevice.UpdateBufferData*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_UpdateBufferData__1_System_Int32___0___System_Int32_LibGFX_Graphics_RenderFlags_GFXBufferTarget_" data-uid="LibGFX.Graphics.IRenderDevice.UpdateBufferData``1(System.Int32,``0[],System.Int32,LibGFX.Graphics.RenderFlags.GFXBufferTarget)">
+  UpdateBufferData&lt;T&gt;(int, T[], int, GFXBufferTarget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void UpdateBufferData&lt;T&gt;(int buffer, T[] data, int offset, RenderFlags.GFXBufferTarget target) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>data</code> T[]</dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>target</code> <a class="xref" href="LibGFX.Graphics.RenderFlags.html">RenderFlags</a>.<a class="xref" href="LibGFX.Graphics.RenderFlags.GFXBufferTarget.html">GFXBufferTarget</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_UpdateElementBufferData_" data-uid="LibGFX.Graphics.IRenderDevice.UpdateElementBufferData*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_UpdateElementBufferData_System_Int32_System_Int32___System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.UpdateElementBufferData(System.Int32,System.Int32[],System.Int32)">
+  UpdateElementBufferData(int, int[], int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void UpdateElementBufferData(int buffer, int[] data, int offset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>data</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_UpdateInstance_" data-uid="LibGFX.Graphics.IRenderDevice.UpdateInstance*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_UpdateInstance_LibGFX_Graphics_RenderInstanceContainer_System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.UpdateInstance(LibGFX.Graphics.RenderInstanceContainer,System.Int32)">
+  UpdateInstance(RenderInstanceContainer, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void UpdateInstance(RenderInstanceContainer container, int instanceIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>container</code> <a class="xref" href="LibGFX.Graphics.RenderInstanceContainer.html">RenderInstanceContainer</a></dt>
+    <dd></dd>
+    <dt><code>instanceIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_UpdateVertexBufferData_" data-uid="LibGFX.Graphics.IRenderDevice.UpdateVertexBufferData*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_UpdateVertexBufferData__1_System_Int32___0___System_Int32_" data-uid="LibGFX.Graphics.IRenderDevice.UpdateVertexBufferData``1(System.Int32,``0[],System.Int32)">
+  UpdateVertexBufferData&lt;T&gt;(int, T[], int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void UpdateVertexBufferData&lt;T&gt;(int buffer, T[] data, int offset) where T : unmanaged</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>data</code> T[]</dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Graphics_IRenderDevice_UseVsync_" data-uid="LibGFX.Graphics.IRenderDevice.UseVsync*"></a>
+
+  <h3 id="LibGFX_Graphics_IRenderDevice_UseVsync_System_Boolean_" data-uid="LibGFX.Graphics.IRenderDevice.UseVsync(System.Boolean)">
+  UseVsync(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void UseVsync(bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Graphics/IRenderDevice.cs/#L28" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

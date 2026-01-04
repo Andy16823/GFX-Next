@@ -1,0 +1,222 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Audio.AudioSourceState
+  commentId: T:LibGFX.Audio.AudioSourceState
+  id: AudioSourceState
+  parent: LibGFX.Audio
+  children:
+  - LibGFX.Audio.AudioSourceState.Disposed
+  - LibGFX.Audio.AudioSourceState.Initialized
+  - LibGFX.Audio.AudioSourceState.None
+  - LibGFX.Audio.AudioSourceState.Paused
+  - LibGFX.Audio.AudioSourceState.Playing
+  - LibGFX.Audio.AudioSourceState.Stopped
+  langs:
+  - csharp
+  - vb
+  name: AudioSourceState
+  nameWithType: AudioSourceState
+  fullName: LibGFX.Audio.AudioSourceState
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AudioSourceState
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Represents the state of the audio source
+  example: []
+  syntax:
+    content: public enum AudioSourceState
+    content.vb: Public Enum AudioSourceState
+- uid: LibGFX.Audio.AudioSourceState.None
+  commentId: F:LibGFX.Audio.AudioSourceState.None
+  id: None
+  parent: LibGFX.Audio.AudioSourceState
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: AudioSourceState.None
+  fullName: LibGFX.Audio.AudioSourceState.None
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: None
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  syntax:
+    content: None = 0
+    return:
+      type: LibGFX.Audio.AudioSourceState
+- uid: LibGFX.Audio.AudioSourceState.Initialized
+  commentId: F:LibGFX.Audio.AudioSourceState.Initialized
+  id: Initialized
+  parent: LibGFX.Audio.AudioSourceState
+  langs:
+  - csharp
+  - vb
+  name: Initialized
+  nameWithType: AudioSourceState.Initialized
+  fullName: LibGFX.Audio.AudioSourceState.Initialized
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Initialized
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 20
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  syntax:
+    content: Initialized = 1
+    return:
+      type: LibGFX.Audio.AudioSourceState
+- uid: LibGFX.Audio.AudioSourceState.Playing
+  commentId: F:LibGFX.Audio.AudioSourceState.Playing
+  id: Playing
+  parent: LibGFX.Audio.AudioSourceState
+  langs:
+  - csharp
+  - vb
+  name: Playing
+  nameWithType: AudioSourceState.Playing
+  fullName: LibGFX.Audio.AudioSourceState.Playing
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Playing
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 21
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  syntax:
+    content: Playing = 2
+    return:
+      type: LibGFX.Audio.AudioSourceState
+- uid: LibGFX.Audio.AudioSourceState.Paused
+  commentId: F:LibGFX.Audio.AudioSourceState.Paused
+  id: Paused
+  parent: LibGFX.Audio.AudioSourceState
+  langs:
+  - csharp
+  - vb
+  name: Paused
+  nameWithType: AudioSourceState.Paused
+  fullName: LibGFX.Audio.AudioSourceState.Paused
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Paused
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 22
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  syntax:
+    content: Paused = 3
+    return:
+      type: LibGFX.Audio.AudioSourceState
+- uid: LibGFX.Audio.AudioSourceState.Stopped
+  commentId: F:LibGFX.Audio.AudioSourceState.Stopped
+  id: Stopped
+  parent: LibGFX.Audio.AudioSourceState
+  langs:
+  - csharp
+  - vb
+  name: Stopped
+  nameWithType: AudioSourceState.Stopped
+  fullName: LibGFX.Audio.AudioSourceState.Stopped
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Stopped
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 23
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  syntax:
+    content: Stopped = 4
+    return:
+      type: LibGFX.Audio.AudioSourceState
+- uid: LibGFX.Audio.AudioSourceState.Disposed
+  commentId: F:LibGFX.Audio.AudioSourceState.Disposed
+  id: Disposed
+  parent: LibGFX.Audio.AudioSourceState
+  langs:
+  - csharp
+  - vb
+  name: Disposed
+  nameWithType: AudioSourceState.Disposed
+  fullName: LibGFX.Audio.AudioSourceState.Disposed
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Disposed
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 24
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  syntax:
+    content: Disposed = 5
+    return:
+      type: LibGFX.Audio.AudioSourceState
+references:
+- uid: LibGFX.Audio
+  commentId: N:LibGFX.Audio
+  href: LibGFX.html
+  name: LibGFX.Audio
+  nameWithType: LibGFX.Audio
+  fullName: LibGFX.Audio
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Audio
+    name: Audio
+    href: LibGFX.Audio.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Audio
+    name: Audio
+    href: LibGFX.Audio.html
+- uid: LibGFX.Audio.AudioSourceState
+  commentId: T:LibGFX.Audio.AudioSourceState
+  parent: LibGFX.Audio
+  href: LibGFX.Audio.AudioSourceState.html
+  name: AudioSourceState
+  nameWithType: AudioSourceState
+  fullName: LibGFX.Audio.AudioSourceState

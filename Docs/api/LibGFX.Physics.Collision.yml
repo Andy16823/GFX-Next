@@ -1,0 +1,532 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Physics.Collision
+  commentId: T:LibGFX.Physics.Collision
+  id: Collision
+  parent: LibGFX.Physics
+  children:
+  - LibGFX.Physics.Collision.ContactPoints
+  - LibGFX.Physics.Collision.Contacts
+  - LibGFX.Physics.Collision.ElementIndex
+  - LibGFX.Physics.Collision.GameElement
+  langs:
+  - csharp
+  - vb
+  name: Collision
+  nameWithType: Collision
+  fullName: LibGFX.Physics.Collision
+  type: Struct
+  source:
+    remote:
+      path: LibGFX/Physics/Collision.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Collision
+    path: ../LibGFX/Physics/Collision.cs
+    startLine: 26
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  syntax:
+    content: public struct Collision
+    content.vb: Public Structure Collision
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: LibGFX.Physics.Collision.GameElement
+  commentId: F:LibGFX.Physics.Collision.GameElement
+  id: GameElement
+  parent: LibGFX.Physics.Collision
+  langs:
+  - csharp
+  - vb
+  name: GameElement
+  nameWithType: Collision.GameElement
+  fullName: LibGFX.Physics.Collision.GameElement
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/Collision.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GameElement
+    path: ../LibGFX/Physics/Collision.cs
+    startLine: 28
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  syntax:
+    content: public GameElement GameElement
+    return:
+      type: LibGFX.Core.GameElement
+    content.vb: Public GameElement As GameElement
+- uid: LibGFX.Physics.Collision.Contacts
+  commentId: F:LibGFX.Physics.Collision.Contacts
+  id: Contacts
+  parent: LibGFX.Physics.Collision
+  langs:
+  - csharp
+  - vb
+  name: Contacts
+  nameWithType: Collision.Contacts
+  fullName: LibGFX.Physics.Collision.Contacts
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/Collision.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Contacts
+    path: ../LibGFX/Physics/Collision.cs
+    startLine: 29
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  syntax:
+    content: public int Contacts
+    return:
+      type: System.Int32
+    content.vb: Public Contacts As Integer
+- uid: LibGFX.Physics.Collision.ContactPoints
+  commentId: F:LibGFX.Physics.Collision.ContactPoints
+  id: ContactPoints
+  parent: LibGFX.Physics.Collision
+  langs:
+  - csharp
+  - vb
+  name: ContactPoints
+  nameWithType: Collision.ContactPoints
+  fullName: LibGFX.Physics.Collision.ContactPoints
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/Collision.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ContactPoints
+    path: ../LibGFX/Physics/Collision.cs
+    startLine: 30
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  syntax:
+    content: public List<CollisionPoint> ContactPoints
+    return:
+      type: System.Collections.Generic.List{LibGFX.Physics.CollisionPoint}
+    content.vb: Public ContactPoints As List(Of CollisionPoint)
+- uid: LibGFX.Physics.Collision.ElementIndex
+  commentId: F:LibGFX.Physics.Collision.ElementIndex
+  id: ElementIndex
+  parent: LibGFX.Physics.Collision
+  langs:
+  - csharp
+  - vb
+  name: ElementIndex
+  nameWithType: Collision.ElementIndex
+  fullName: LibGFX.Physics.Collision.ElementIndex
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Physics/Collision.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ElementIndex
+    path: ../LibGFX/Physics/Collision.cs
+    startLine: 31
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  syntax:
+    content: public ElementIndex ElementIndex
+    return:
+      type: LibGFX.Physics.ElementIndex
+    content.vb: Public ElementIndex As ElementIndex
+references:
+- uid: LibGFX.Physics
+  commentId: N:LibGFX.Physics
+  href: LibGFX.html
+  name: LibGFX.Physics
+  nameWithType: LibGFX.Physics
+  fullName: LibGFX.Physics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core.GameElement
+  commentId: T:LibGFX.Core.GameElement
+  parent: LibGFX.Core
+  href: LibGFX.Core.GameElement.html
+  name: GameElement
+  nameWithType: GameElement
+  fullName: LibGFX.Core.GameElement
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Collections.Generic.List{LibGFX.Physics.CollisionPoint}
+  commentId: T:System.Collections.Generic.List{LibGFX.Physics.CollisionPoint}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<CollisionPoint>
+  nameWithType: List<CollisionPoint>
+  fullName: System.Collections.Generic.List<LibGFX.Physics.CollisionPoint>
+  nameWithType.vb: List(Of CollisionPoint)
+  fullName.vb: System.Collections.Generic.List(Of LibGFX.Physics.CollisionPoint)
+  name.vb: List(Of CollisionPoint)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: LibGFX.Physics.CollisionPoint
+    name: CollisionPoint
+    href: LibGFX.Physics.CollisionPoint.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LibGFX.Physics.CollisionPoint
+    name: CollisionPoint
+    href: LibGFX.Physics.CollisionPoint.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: LibGFX.Physics.ElementIndex
+  commentId: T:LibGFX.Physics.ElementIndex
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.ElementIndex.html
+  name: ElementIndex
+  nameWithType: ElementIndex
+  fullName: LibGFX.Physics.ElementIndex

@@ -1,0 +1,1298 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.UI.Button
+  commentId: T:LibGFX.UI.Button
+  id: Button
+  parent: LibGFX.UI
+  children:
+  - LibGFX.UI.Button.#ctor(System.String,System.String,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2,LibGFX.Graphics.Font,System.Single,LibGFX.Graphics.FontAlignment)
+  - LibGFX.UI.Button.Alignment
+  - LibGFX.UI.Button.BackgroundColor
+  - LibGFX.UI.Button.BorderColor
+  - LibGFX.UI.Button.Dispose(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  - LibGFX.UI.Button.Font
+  - LibGFX.UI.Button.FontColor
+  - LibGFX.UI.Button.FontScale
+  - LibGFX.UI.Button.HoverColor
+  - LibGFX.UI.Button.Init(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  - LibGFX.UI.Button.Render(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  - LibGFX.UI.Button.Text
+  - LibGFX.UI.Button.Update(LibGFX.UI.Canvas,LibGFX.Core.Window)
+  langs:
+  - csharp
+  - vb
+  name: Button
+  nameWithType: Button
+  fullName: LibGFX.UI.Button
+  type: Class
+  source:
+    remote:
+      path: LibGFX/UI/Button.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Button
+    path: ../LibGFX/UI/Button.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: Represents a label control that can be rendered on the screen.
+  example: []
+  syntax:
+    content: 'public class Button : Control'
+    content.vb: Public Class Button Inherits Control
+  inheritance:
+  - System.Object
+  - LibGFX.UI.Control
+  inheritedMembers:
+  - LibGFX.UI.Control.Name
+  - LibGFX.UI.Control.Transform
+  - LibGFX.UI.Control.RenderTarget
+  - LibGFX.UI.Control.Hovered
+  - LibGFX.UI.Control.OnMouseEnter
+  - LibGFX.UI.Control.OnMouseLeave
+  - LibGFX.UI.Control.OnMouseDown
+  - LibGFX.UI.Control.Contains(OpenTK.Mathematics.Vector2)
+  - LibGFX.UI.Control.TranslatePosition(OpenTK.Mathematics.Vector2)
+  - LibGFX.UI.Control.DisposeEvents
+  - LibGFX.UI.Control.RaiseMouseEvent(OpenTK.Mathematics.Vector2,LibGFX.UI.ControlEventType)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.UI.Button.Text
+  commentId: P:LibGFX.UI.Button.Text
+  id: Text
+  parent: LibGFX.UI.Button
+  langs:
+  - csharp
+  - vb
+  name: Text
+  nameWithType: Button.Text
+  fullName: LibGFX.UI.Button.Text
+  type: Property
+  source:
+    remote:
+      path: LibGFX/UI/Button.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Text
+    path: ../LibGFX/UI/Button.cs
+    startLine: 22
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: The text of the button
+  example: []
+  syntax:
+    content: public string Text { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Text As String
+  overload: LibGFX.UI.Button.Text*
+- uid: LibGFX.UI.Button.Font
+  commentId: P:LibGFX.UI.Button.Font
+  id: Font
+  parent: LibGFX.UI.Button
+  langs:
+  - csharp
+  - vb
+  name: Font
+  nameWithType: Button.Font
+  fullName: LibGFX.UI.Button.Font
+  type: Property
+  source:
+    remote:
+      path: LibGFX/UI/Button.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Font
+    path: ../LibGFX/UI/Button.cs
+    startLine: 27
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: The font of the button
+  example: []
+  syntax:
+    content: public Font Font { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.Font
+    content.vb: Public Property Font As Font
+  overload: LibGFX.UI.Button.Font*
+- uid: LibGFX.UI.Button.FontScale
+  commentId: P:LibGFX.UI.Button.FontScale
+  id: FontScale
+  parent: LibGFX.UI.Button
+  langs:
+  - csharp
+  - vb
+  name: FontScale
+  nameWithType: Button.FontScale
+  fullName: LibGFX.UI.Button.FontScale
+  type: Property
+  source:
+    remote:
+      path: LibGFX/UI/Button.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FontScale
+    path: ../LibGFX/UI/Button.cs
+    startLine: 32
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: The font scale of the button
+  example: []
+  syntax:
+    content: public float FontScale { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property FontScale As Single
+  overload: LibGFX.UI.Button.FontScale*
+- uid: LibGFX.UI.Button.Alignment
+  commentId: P:LibGFX.UI.Button.Alignment
+  id: Alignment
+  parent: LibGFX.UI.Button
+  langs:
+  - csharp
+  - vb
+  name: Alignment
+  nameWithType: Button.Alignment
+  fullName: LibGFX.UI.Button.Alignment
+  type: Property
+  source:
+    remote:
+      path: LibGFX/UI/Button.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Alignment
+    path: ../LibGFX/UI/Button.cs
+    startLine: 37
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: The font alignment of the button
+  example: []
+  syntax:
+    content: public FontAlignment Alignment { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.FontAlignment
+    content.vb: Public Property Alignment As FontAlignment
+  overload: LibGFX.UI.Button.Alignment*
+- uid: LibGFX.UI.Button.BackgroundColor
+  commentId: P:LibGFX.UI.Button.BackgroundColor
+  id: BackgroundColor
+  parent: LibGFX.UI.Button
+  langs:
+  - csharp
+  - vb
+  name: BackgroundColor
+  nameWithType: Button.BackgroundColor
+  fullName: LibGFX.UI.Button.BackgroundColor
+  type: Property
+  source:
+    remote:
+      path: LibGFX/UI/Button.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BackgroundColor
+    path: ../LibGFX/UI/Button.cs
+    startLine: 42
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: The Color of the button
+  example: []
+  syntax:
+    content: public Vector4 BackgroundColor { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Property BackgroundColor As Vector4
+  overload: LibGFX.UI.Button.BackgroundColor*
+- uid: LibGFX.UI.Button.HoverColor
+  commentId: P:LibGFX.UI.Button.HoverColor
+  id: HoverColor
+  parent: LibGFX.UI.Button
+  langs:
+  - csharp
+  - vb
+  name: HoverColor
+  nameWithType: Button.HoverColor
+  fullName: LibGFX.UI.Button.HoverColor
+  type: Property
+  source:
+    remote:
+      path: LibGFX/UI/Button.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: HoverColor
+    path: ../LibGFX/UI/Button.cs
+    startLine: 47
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: The Color of the button when hovered
+  example: []
+  syntax:
+    content: public Vector4 HoverColor { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Property HoverColor As Vector4
+  overload: LibGFX.UI.Button.HoverColor*
+- uid: LibGFX.UI.Button.FontColor
+  commentId: P:LibGFX.UI.Button.FontColor
+  id: FontColor
+  parent: LibGFX.UI.Button
+  langs:
+  - csharp
+  - vb
+  name: FontColor
+  nameWithType: Button.FontColor
+  fullName: LibGFX.UI.Button.FontColor
+  type: Property
+  source:
+    remote:
+      path: LibGFX/UI/Button.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FontColor
+    path: ../LibGFX/UI/Button.cs
+    startLine: 52
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: The Color of the Font
+  example: []
+  syntax:
+    content: public Vector4 FontColor { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Property FontColor As Vector4
+  overload: LibGFX.UI.Button.FontColor*
+- uid: LibGFX.UI.Button.BorderColor
+  commentId: P:LibGFX.UI.Button.BorderColor
+  id: BorderColor
+  parent: LibGFX.UI.Button
+  langs:
+  - csharp
+  - vb
+  name: BorderColor
+  nameWithType: Button.BorderColor
+  fullName: LibGFX.UI.Button.BorderColor
+  type: Property
+  source:
+    remote:
+      path: LibGFX/UI/Button.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BorderColor
+    path: ../LibGFX/UI/Button.cs
+    startLine: 57
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: The Color of the Border
+  example: []
+  syntax:
+    content: public Vector4 BorderColor { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Property BorderColor As Vector4
+  overload: LibGFX.UI.Button.BorderColor*
+- uid: LibGFX.UI.Button.#ctor(System.String,System.String,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2,LibGFX.Graphics.Font,System.Single,LibGFX.Graphics.FontAlignment)
+  commentId: M:LibGFX.UI.Button.#ctor(System.String,System.String,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2,LibGFX.Graphics.Font,System.Single,LibGFX.Graphics.FontAlignment)
+  id: '#ctor(System.String,System.String,OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector2,LibGFX.Graphics.Font,System.Single,LibGFX.Graphics.FontAlignment)'
+  parent: LibGFX.UI.Button
+  langs:
+  - csharp
+  - vb
+  name: Button(string, string, Vector2, Vector2, Font, float, FontAlignment)
+  nameWithType: Button.Button(string, string, Vector2, Vector2, Font, float, FontAlignment)
+  fullName: LibGFX.UI.Button.Button(string, string, OpenTK.Mathematics.Vector2, OpenTK.Mathematics.Vector2, LibGFX.Graphics.Font, float, LibGFX.Graphics.FontAlignment)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/UI/Button.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/UI/Button.cs
+    startLine: 73
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: Creates a new label control.
+  example: []
+  syntax:
+    content: public Button(string name, string text, Vector2 position, Vector2 scale, Font font, float fontscale = 1, FontAlignment alignment = FontAlignment.Center)
+    parameters:
+    - id: name
+      type: System.String
+      description: ''
+    - id: text
+      type: System.String
+      description: ''
+    - id: position
+      type: OpenTK.Mathematics.Vector2
+      description: ''
+    - id: scale
+      type: OpenTK.Mathematics.Vector2
+      description: ''
+    - id: font
+      type: LibGFX.Graphics.Font
+      description: ''
+    - id: fontscale
+      type: System.Single
+      description: ''
+    - id: alignment
+      type: LibGFX.Graphics.FontAlignment
+      description: ''
+    content.vb: Public Sub New(name As String, text As String, position As Vector2, scale As Vector2, font As Font, fontscale As Single = 1, alignment As FontAlignment = FontAlignment.Center)
+  overload: LibGFX.UI.Button.#ctor*
+  nameWithType.vb: Button.New(String, String, Vector2, Vector2, Font, Single, FontAlignment)
+  fullName.vb: LibGFX.UI.Button.New(String, String, OpenTK.Mathematics.Vector2, OpenTK.Mathematics.Vector2, LibGFX.Graphics.Font, Single, LibGFX.Graphics.FontAlignment)
+  name.vb: New(String, String, Vector2, Vector2, Font, Single, FontAlignment)
+- uid: LibGFX.UI.Button.Dispose(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  commentId: M:LibGFX.UI.Button.Dispose(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  id: Dispose(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  parent: LibGFX.UI.Button
+  langs:
+  - csharp
+  - vb
+  name: Dispose(IRenderDevice, Canvas)
+  nameWithType: Button.Dispose(IRenderDevice, Canvas)
+  fullName: LibGFX.UI.Button.Dispose(LibGFX.Graphics.IRenderDevice, LibGFX.UI.Canvas)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/UI/Button.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/UI/Button.cs
+    startLine: 94
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: Disposes the label and its resources.
+  example: []
+  syntax:
+    content: public override void Dispose(IRenderDevice renderer, Canvas canvas)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    - id: canvas
+      type: LibGFX.UI.Canvas
+      description: ''
+    content.vb: Public Overrides Sub Dispose(renderer As IRenderDevice, canvas As Canvas)
+  overridden: LibGFX.UI.Control.Dispose(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  overload: LibGFX.UI.Button.Dispose*
+- uid: LibGFX.UI.Button.Init(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  commentId: M:LibGFX.UI.Button.Init(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  id: Init(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  parent: LibGFX.UI.Button
+  langs:
+  - csharp
+  - vb
+  name: Init(IRenderDevice, Canvas)
+  nameWithType: Button.Init(IRenderDevice, Canvas)
+  fullName: LibGFX.UI.Button.Init(LibGFX.Graphics.IRenderDevice, LibGFX.UI.Canvas)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/UI/Button.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Init
+    path: ../LibGFX/UI/Button.cs
+    startLine: 106
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: Initializes the label and its resources.
+  example: []
+  syntax:
+    content: public override void Init(IRenderDevice renderer, Canvas canvas)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    - id: canvas
+      type: LibGFX.UI.Canvas
+      description: ''
+    content.vb: Public Overrides Sub Init(renderer As IRenderDevice, canvas As Canvas)
+  overridden: LibGFX.UI.Control.Init(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  overload: LibGFX.UI.Button.Init*
+- uid: LibGFX.UI.Button.Render(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  commentId: M:LibGFX.UI.Button.Render(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  id: Render(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  parent: LibGFX.UI.Button
+  langs:
+  - csharp
+  - vb
+  name: Render(IRenderDevice, Canvas)
+  nameWithType: Button.Render(IRenderDevice, Canvas)
+  fullName: LibGFX.UI.Button.Render(LibGFX.Graphics.IRenderDevice, LibGFX.UI.Canvas)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/UI/Button.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Render
+    path: ../LibGFX/UI/Button.cs
+    startLine: 116
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: Renders the label on the screen.
+  example: []
+  syntax:
+    content: public override void Render(IRenderDevice renderer, Canvas canvas)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    - id: canvas
+      type: LibGFX.UI.Canvas
+      description: ''
+    content.vb: Public Overrides Sub Render(renderer As IRenderDevice, canvas As Canvas)
+  overridden: LibGFX.UI.Control.Render(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  overload: LibGFX.UI.Button.Render*
+- uid: LibGFX.UI.Button.Update(LibGFX.UI.Canvas,LibGFX.Core.Window)
+  commentId: M:LibGFX.UI.Button.Update(LibGFX.UI.Canvas,LibGFX.Core.Window)
+  id: Update(LibGFX.UI.Canvas,LibGFX.Core.Window)
+  parent: LibGFX.UI.Button
+  langs:
+  - csharp
+  - vb
+  name: Update(Canvas, Window)
+  nameWithType: Button.Update(Canvas, Window)
+  fullName: LibGFX.UI.Button.Update(LibGFX.UI.Canvas, LibGFX.Core.Window)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/UI/Button.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Update
+    path: ../LibGFX/UI/Button.cs
+    startLine: 149
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: Updates the label and its resources.
+  example: []
+  syntax:
+    content: public override void Update(Canvas canvas, Window window)
+    parameters:
+    - id: canvas
+      type: LibGFX.UI.Canvas
+      description: ''
+    - id: window
+      type: LibGFX.Core.Window
+    content.vb: Public Overrides Sub Update(canvas As Canvas, window As Window)
+  overridden: LibGFX.UI.Control.Update(LibGFX.UI.Canvas,LibGFX.Core.Window)
+  overload: LibGFX.UI.Button.Update*
+references:
+- uid: LibGFX.UI
+  commentId: N:LibGFX.UI
+  href: LibGFX.html
+  name: LibGFX.UI
+  nameWithType: LibGFX.UI
+  fullName: LibGFX.UI
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.UI
+    name: UI
+    href: LibGFX.UI.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.UI
+    name: UI
+    href: LibGFX.UI.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.UI.Control
+  commentId: T:LibGFX.UI.Control
+  parent: LibGFX.UI
+  href: LibGFX.UI.Control.html
+  name: Control
+  nameWithType: Control
+  fullName: LibGFX.UI.Control
+- uid: LibGFX.UI.Control.Name
+  commentId: P:LibGFX.UI.Control.Name
+  parent: LibGFX.UI.Control
+  href: LibGFX.UI.Control.html#LibGFX_UI_Control_Name
+  name: Name
+  nameWithType: Control.Name
+  fullName: LibGFX.UI.Control.Name
+- uid: LibGFX.UI.Control.Transform
+  commentId: P:LibGFX.UI.Control.Transform
+  parent: LibGFX.UI.Control
+  href: LibGFX.UI.Control.html#LibGFX_UI_Control_Transform
+  name: Transform
+  nameWithType: Control.Transform
+  fullName: LibGFX.UI.Control.Transform
+- uid: LibGFX.UI.Control.RenderTarget
+  commentId: P:LibGFX.UI.Control.RenderTarget
+  parent: LibGFX.UI.Control
+  href: LibGFX.UI.Control.html#LibGFX_UI_Control_RenderTarget
+  name: RenderTarget
+  nameWithType: Control.RenderTarget
+  fullName: LibGFX.UI.Control.RenderTarget
+- uid: LibGFX.UI.Control.Hovered
+  commentId: P:LibGFX.UI.Control.Hovered
+  parent: LibGFX.UI.Control
+  href: LibGFX.UI.Control.html#LibGFX_UI_Control_Hovered
+  name: Hovered
+  nameWithType: Control.Hovered
+  fullName: LibGFX.UI.Control.Hovered
+- uid: LibGFX.UI.Control.OnMouseEnter
+  commentId: E:LibGFX.UI.Control.OnMouseEnter
+  parent: LibGFX.UI.Control
+  href: LibGFX.UI.Control.html#LibGFX_UI_Control_OnMouseEnter
+  name: OnMouseEnter
+  nameWithType: Control.OnMouseEnter
+  fullName: LibGFX.UI.Control.OnMouseEnter
+- uid: LibGFX.UI.Control.OnMouseLeave
+  commentId: E:LibGFX.UI.Control.OnMouseLeave
+  parent: LibGFX.UI.Control
+  href: LibGFX.UI.Control.html#LibGFX_UI_Control_OnMouseLeave
+  name: OnMouseLeave
+  nameWithType: Control.OnMouseLeave
+  fullName: LibGFX.UI.Control.OnMouseLeave
+- uid: LibGFX.UI.Control.OnMouseDown
+  commentId: E:LibGFX.UI.Control.OnMouseDown
+  parent: LibGFX.UI.Control
+  href: LibGFX.UI.Control.html#LibGFX_UI_Control_OnMouseDown
+  name: OnMouseDown
+  nameWithType: Control.OnMouseDown
+  fullName: LibGFX.UI.Control.OnMouseDown
+- uid: LibGFX.UI.Control.Contains(OpenTK.Mathematics.Vector2)
+  commentId: M:LibGFX.UI.Control.Contains(OpenTK.Mathematics.Vector2)
+  parent: LibGFX.UI.Control
+  isExternal: true
+  href: LibGFX.UI.Control.html#LibGFX_UI_Control_Contains_OpenTK_Mathematics_Vector2_
+  name: Contains(Vector2)
+  nameWithType: Control.Contains(Vector2)
+  fullName: LibGFX.UI.Control.Contains(OpenTK.Mathematics.Vector2)
+  spec.csharp:
+  - uid: LibGFX.UI.Control.Contains(OpenTK.Mathematics.Vector2)
+    name: Contains
+    href: LibGFX.UI.Control.html#LibGFX_UI_Control_Contains_OpenTK_Mathematics_Vector2_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Control.Contains(OpenTK.Mathematics.Vector2)
+    name: Contains
+    href: LibGFX.UI.Control.html#LibGFX_UI_Control_Contains_OpenTK_Mathematics_Vector2_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  - name: )
+- uid: LibGFX.UI.Control.TranslatePosition(OpenTK.Mathematics.Vector2)
+  commentId: M:LibGFX.UI.Control.TranslatePosition(OpenTK.Mathematics.Vector2)
+  parent: LibGFX.UI.Control
+  isExternal: true
+  href: LibGFX.UI.Control.html#LibGFX_UI_Control_TranslatePosition_OpenTK_Mathematics_Vector2_
+  name: TranslatePosition(Vector2)
+  nameWithType: Control.TranslatePosition(Vector2)
+  fullName: LibGFX.UI.Control.TranslatePosition(OpenTK.Mathematics.Vector2)
+  spec.csharp:
+  - uid: LibGFX.UI.Control.TranslatePosition(OpenTK.Mathematics.Vector2)
+    name: TranslatePosition
+    href: LibGFX.UI.Control.html#LibGFX_UI_Control_TranslatePosition_OpenTK_Mathematics_Vector2_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Control.TranslatePosition(OpenTK.Mathematics.Vector2)
+    name: TranslatePosition
+    href: LibGFX.UI.Control.html#LibGFX_UI_Control_TranslatePosition_OpenTK_Mathematics_Vector2_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  - name: )
+- uid: LibGFX.UI.Control.DisposeEvents
+  commentId: M:LibGFX.UI.Control.DisposeEvents
+  parent: LibGFX.UI.Control
+  href: LibGFX.UI.Control.html#LibGFX_UI_Control_DisposeEvents
+  name: DisposeEvents()
+  nameWithType: Control.DisposeEvents()
+  fullName: LibGFX.UI.Control.DisposeEvents()
+  spec.csharp:
+  - uid: LibGFX.UI.Control.DisposeEvents
+    name: DisposeEvents
+    href: LibGFX.UI.Control.html#LibGFX_UI_Control_DisposeEvents
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Control.DisposeEvents
+    name: DisposeEvents
+    href: LibGFX.UI.Control.html#LibGFX_UI_Control_DisposeEvents
+  - name: (
+  - name: )
+- uid: LibGFX.UI.Control.RaiseMouseEvent(OpenTK.Mathematics.Vector2,LibGFX.UI.ControlEventType)
+  commentId: M:LibGFX.UI.Control.RaiseMouseEvent(OpenTK.Mathematics.Vector2,LibGFX.UI.ControlEventType)
+  parent: LibGFX.UI.Control
+  isExternal: true
+  href: LibGFX.UI.Control.html#LibGFX_UI_Control_RaiseMouseEvent_OpenTK_Mathematics_Vector2_LibGFX_UI_ControlEventType_
+  name: RaiseMouseEvent(Vector2, ControlEventType)
+  nameWithType: Control.RaiseMouseEvent(Vector2, ControlEventType)
+  fullName: LibGFX.UI.Control.RaiseMouseEvent(OpenTK.Mathematics.Vector2, LibGFX.UI.ControlEventType)
+  spec.csharp:
+  - uid: LibGFX.UI.Control.RaiseMouseEvent(OpenTK.Mathematics.Vector2,LibGFX.UI.ControlEventType)
+    name: RaiseMouseEvent
+    href: LibGFX.UI.Control.html#LibGFX_UI_Control_RaiseMouseEvent_OpenTK_Mathematics_Vector2_LibGFX_UI_ControlEventType_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  - name: ','
+  - name: " "
+  - uid: LibGFX.UI.ControlEventType
+    name: ControlEventType
+    href: LibGFX.UI.ControlEventType.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Control.RaiseMouseEvent(OpenTK.Mathematics.Vector2,LibGFX.UI.ControlEventType)
+    name: RaiseMouseEvent
+    href: LibGFX.UI.Control.html#LibGFX_UI_Control_RaiseMouseEvent_OpenTK_Mathematics_Vector2_LibGFX_UI_ControlEventType_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector2
+    name: Vector2
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  - name: ','
+  - name: " "
+  - uid: LibGFX.UI.ControlEventType
+    name: ControlEventType
+    href: LibGFX.UI.ControlEventType.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.UI.Button.Text*
+  commentId: Overload:LibGFX.UI.Button.Text
+  href: LibGFX.UI.Button.html#LibGFX_UI_Button_Text
+  name: Text
+  nameWithType: Button.Text
+  fullName: LibGFX.UI.Button.Text
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: LibGFX.UI.Button.Font*
+  commentId: Overload:LibGFX.UI.Button.Font
+  href: LibGFX.UI.Button.html#LibGFX_UI_Button_Font
+  name: Font
+  nameWithType: Button.Font
+  fullName: LibGFX.UI.Button.Font
+- uid: LibGFX.Graphics.Font
+  commentId: T:LibGFX.Graphics.Font
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Font.html
+  name: Font
+  nameWithType: Font
+  fullName: LibGFX.Graphics.Font
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.UI.Button.FontScale*
+  commentId: Overload:LibGFX.UI.Button.FontScale
+  href: LibGFX.UI.Button.html#LibGFX_UI_Button_FontScale
+  name: FontScale
+  nameWithType: Button.FontScale
+  fullName: LibGFX.UI.Button.FontScale
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.UI.Button.Alignment*
+  commentId: Overload:LibGFX.UI.Button.Alignment
+  href: LibGFX.UI.Button.html#LibGFX_UI_Button_Alignment
+  name: Alignment
+  nameWithType: Button.Alignment
+  fullName: LibGFX.UI.Button.Alignment
+- uid: LibGFX.Graphics.FontAlignment
+  commentId: T:LibGFX.Graphics.FontAlignment
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.FontAlignment.html
+  name: FontAlignment
+  nameWithType: FontAlignment
+  fullName: LibGFX.Graphics.FontAlignment
+- uid: LibGFX.UI.Button.BackgroundColor*
+  commentId: Overload:LibGFX.UI.Button.BackgroundColor
+  href: LibGFX.UI.Button.html#LibGFX_UI_Button_BackgroundColor
+  name: BackgroundColor
+  nameWithType: Button.BackgroundColor
+  fullName: LibGFX.UI.Button.BackgroundColor
+- uid: OpenTK.Mathematics.Vector4
+  commentId: T:OpenTK.Mathematics.Vector4
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs
+  name: Vector4
+  nameWithType: Vector4
+  fullName: OpenTK.Mathematics.Vector4
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.UI.Button.HoverColor*
+  commentId: Overload:LibGFX.UI.Button.HoverColor
+  href: LibGFX.UI.Button.html#LibGFX_UI_Button_HoverColor
+  name: HoverColor
+  nameWithType: Button.HoverColor
+  fullName: LibGFX.UI.Button.HoverColor
+- uid: LibGFX.UI.Button.FontColor*
+  commentId: Overload:LibGFX.UI.Button.FontColor
+  href: LibGFX.UI.Button.html#LibGFX_UI_Button_FontColor
+  name: FontColor
+  nameWithType: Button.FontColor
+  fullName: LibGFX.UI.Button.FontColor
+- uid: LibGFX.UI.Button.BorderColor*
+  commentId: Overload:LibGFX.UI.Button.BorderColor
+  href: LibGFX.UI.Button.html#LibGFX_UI_Button_BorderColor
+  name: BorderColor
+  nameWithType: Button.BorderColor
+  fullName: LibGFX.UI.Button.BorderColor
+- uid: LibGFX.UI.Button.#ctor*
+  commentId: Overload:LibGFX.UI.Button.#ctor
+  href: LibGFX.UI.Button.html#LibGFX_UI_Button__ctor_System_String_System_String_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector2_LibGFX_Graphics_Font_System_Single_LibGFX_Graphics_FontAlignment_
+  name: Button
+  nameWithType: Button.Button
+  fullName: LibGFX.UI.Button.Button
+  nameWithType.vb: Button.New
+  fullName.vb: LibGFX.UI.Button.New
+  name.vb: New
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: LibGFX.UI.Control.Dispose(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  commentId: M:LibGFX.UI.Control.Dispose(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  parent: LibGFX.UI.Control
+  href: LibGFX.UI.Control.html#LibGFX_UI_Control_Dispose_LibGFX_Graphics_IRenderDevice_LibGFX_UI_Canvas_
+  name: Dispose(IRenderDevice, Canvas)
+  nameWithType: Control.Dispose(IRenderDevice, Canvas)
+  fullName: LibGFX.UI.Control.Dispose(LibGFX.Graphics.IRenderDevice, LibGFX.UI.Canvas)
+  spec.csharp:
+  - uid: LibGFX.UI.Control.Dispose(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+    name: Dispose
+    href: LibGFX.UI.Control.html#LibGFX_UI_Control_Dispose_LibGFX_Graphics_IRenderDevice_LibGFX_UI_Canvas_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.UI.Canvas
+    name: Canvas
+    href: LibGFX.UI.Canvas.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Control.Dispose(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+    name: Dispose
+    href: LibGFX.UI.Control.html#LibGFX_UI_Control_Dispose_LibGFX_Graphics_IRenderDevice_LibGFX_UI_Canvas_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.UI.Canvas
+    name: Canvas
+    href: LibGFX.UI.Canvas.html
+  - name: )
+- uid: LibGFX.UI.Button.Dispose*
+  commentId: Overload:LibGFX.UI.Button.Dispose
+  href: LibGFX.UI.Button.html#LibGFX_UI_Button_Dispose_LibGFX_Graphics_IRenderDevice_LibGFX_UI_Canvas_
+  name: Dispose
+  nameWithType: Button.Dispose
+  fullName: LibGFX.UI.Button.Dispose
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.UI.Canvas
+  commentId: T:LibGFX.UI.Canvas
+  parent: LibGFX.UI
+  href: LibGFX.UI.Canvas.html
+  name: Canvas
+  nameWithType: Canvas
+  fullName: LibGFX.UI.Canvas
+- uid: LibGFX.UI.Control.Init(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  commentId: M:LibGFX.UI.Control.Init(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  parent: LibGFX.UI.Control
+  href: LibGFX.UI.Control.html#LibGFX_UI_Control_Init_LibGFX_Graphics_IRenderDevice_LibGFX_UI_Canvas_
+  name: Init(IRenderDevice, Canvas)
+  nameWithType: Control.Init(IRenderDevice, Canvas)
+  fullName: LibGFX.UI.Control.Init(LibGFX.Graphics.IRenderDevice, LibGFX.UI.Canvas)
+  spec.csharp:
+  - uid: LibGFX.UI.Control.Init(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+    name: Init
+    href: LibGFX.UI.Control.html#LibGFX_UI_Control_Init_LibGFX_Graphics_IRenderDevice_LibGFX_UI_Canvas_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.UI.Canvas
+    name: Canvas
+    href: LibGFX.UI.Canvas.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Control.Init(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+    name: Init
+    href: LibGFX.UI.Control.html#LibGFX_UI_Control_Init_LibGFX_Graphics_IRenderDevice_LibGFX_UI_Canvas_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.UI.Canvas
+    name: Canvas
+    href: LibGFX.UI.Canvas.html
+  - name: )
+- uid: LibGFX.UI.Button.Init*
+  commentId: Overload:LibGFX.UI.Button.Init
+  href: LibGFX.UI.Button.html#LibGFX_UI_Button_Init_LibGFX_Graphics_IRenderDevice_LibGFX_UI_Canvas_
+  name: Init
+  nameWithType: Button.Init
+  fullName: LibGFX.UI.Button.Init
+- uid: LibGFX.UI.Control.Render(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  commentId: M:LibGFX.UI.Control.Render(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+  parent: LibGFX.UI.Control
+  href: LibGFX.UI.Control.html#LibGFX_UI_Control_Render_LibGFX_Graphics_IRenderDevice_LibGFX_UI_Canvas_
+  name: Render(IRenderDevice, Canvas)
+  nameWithType: Control.Render(IRenderDevice, Canvas)
+  fullName: LibGFX.UI.Control.Render(LibGFX.Graphics.IRenderDevice, LibGFX.UI.Canvas)
+  spec.csharp:
+  - uid: LibGFX.UI.Control.Render(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+    name: Render
+    href: LibGFX.UI.Control.html#LibGFX_UI_Control_Render_LibGFX_Graphics_IRenderDevice_LibGFX_UI_Canvas_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.UI.Canvas
+    name: Canvas
+    href: LibGFX.UI.Canvas.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Control.Render(LibGFX.Graphics.IRenderDevice,LibGFX.UI.Canvas)
+    name: Render
+    href: LibGFX.UI.Control.html#LibGFX_UI_Control_Render_LibGFX_Graphics_IRenderDevice_LibGFX_UI_Canvas_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.UI.Canvas
+    name: Canvas
+    href: LibGFX.UI.Canvas.html
+  - name: )
+- uid: LibGFX.UI.Button.Render*
+  commentId: Overload:LibGFX.UI.Button.Render
+  href: LibGFX.UI.Button.html#LibGFX_UI_Button_Render_LibGFX_Graphics_IRenderDevice_LibGFX_UI_Canvas_
+  name: Render
+  nameWithType: Button.Render
+  fullName: LibGFX.UI.Button.Render
+- uid: LibGFX.UI.Control.Update(LibGFX.UI.Canvas,LibGFX.Core.Window)
+  commentId: M:LibGFX.UI.Control.Update(LibGFX.UI.Canvas,LibGFX.Core.Window)
+  parent: LibGFX.UI.Control
+  href: LibGFX.UI.Control.html#LibGFX_UI_Control_Update_LibGFX_UI_Canvas_LibGFX_Core_Window_
+  name: Update(Canvas, Window)
+  nameWithType: Control.Update(Canvas, Window)
+  fullName: LibGFX.UI.Control.Update(LibGFX.UI.Canvas, LibGFX.Core.Window)
+  spec.csharp:
+  - uid: LibGFX.UI.Control.Update(LibGFX.UI.Canvas,LibGFX.Core.Window)
+    name: Update
+    href: LibGFX.UI.Control.html#LibGFX_UI_Control_Update_LibGFX_UI_Canvas_LibGFX_Core_Window_
+  - name: (
+  - uid: LibGFX.UI.Canvas
+    name: Canvas
+    href: LibGFX.UI.Canvas.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.Window
+    name: Window
+    href: LibGFX.Core.Window.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.UI.Control.Update(LibGFX.UI.Canvas,LibGFX.Core.Window)
+    name: Update
+    href: LibGFX.UI.Control.html#LibGFX_UI_Control_Update_LibGFX_UI_Canvas_LibGFX_Core_Window_
+  - name: (
+  - uid: LibGFX.UI.Canvas
+    name: Canvas
+    href: LibGFX.UI.Canvas.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.Window
+    name: Window
+    href: LibGFX.Core.Window.html
+  - name: )
+- uid: LibGFX.UI.Button.Update*
+  commentId: Overload:LibGFX.UI.Button.Update
+  href: LibGFX.UI.Button.html#LibGFX_UI_Button_Update_LibGFX_UI_Canvas_LibGFX_Core_Window_
+  name: Update
+  nameWithType: Button.Update
+  fullName: LibGFX.UI.Button.Update
+- uid: LibGFX.Core.Window
+  commentId: T:LibGFX.Core.Window
+  parent: LibGFX.Core
+  href: LibGFX.Core.Window.html
+  name: Window
+  nameWithType: Window
+  fullName: LibGFX.Core.Window
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html

@@ -1,0 +1,64 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.UI.ProgressbarEventHandler
+  commentId: T:LibGFX.UI.ProgressbarEventHandler
+  id: ProgressbarEventHandler
+  parent: LibGFX.UI
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ProgressbarEventHandler
+  nameWithType: ProgressbarEventHandler
+  fullName: LibGFX.UI.ProgressbarEventHandler
+  type: Delegate
+  source:
+    remote:
+      path: LibGFX/UI/Progressbar.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ProgressbarEventHandler
+    path: ../LibGFX/UI/Progressbar.cs
+    startLine: 18
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.UI
+  summary: Delegate for progress bar events.
+  example: []
+  syntax:
+    content: public delegate void ProgressbarEventHandler(Progressbar progressbar)
+    parameters:
+    - id: progressbar
+      type: LibGFX.UI.Progressbar
+      description: ''
+    content.vb: Public Delegate Sub ProgressbarEventHandler(progressbar As Progressbar)
+references:
+- uid: LibGFX.UI
+  commentId: N:LibGFX.UI
+  href: LibGFX.html
+  name: LibGFX.UI
+  nameWithType: LibGFX.UI
+  fullName: LibGFX.UI
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.UI
+    name: UI
+    href: LibGFX.UI.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.UI
+    name: UI
+    href: LibGFX.UI.html
+- uid: LibGFX.UI.Progressbar
+  commentId: T:LibGFX.UI.Progressbar
+  parent: LibGFX.UI
+  href: LibGFX.UI.Progressbar.html
+  name: Progressbar
+  nameWithType: Progressbar
+  fullName: LibGFX.UI.Progressbar

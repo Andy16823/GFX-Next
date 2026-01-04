@@ -1,0 +1,2018 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  id: RenderFlags.GFXRenderbufferStorage
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Alpha12
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Alpha16
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Alpha4
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Alpha8
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Depth24Stencil8
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Depth32fStencil8
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.DepthComponent16
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.DepthComponent24
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.DepthComponent32
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.DepthComponent32f
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R11fG11fB10f
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R16
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R16f
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R16i
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R16ui
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R32f
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R32i
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R32ui
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R3G3B2
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R8
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R8i
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R8ui
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg16
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg16f
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg16i
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg16ui
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg32f
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg32i
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg32ui
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg8
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg8i
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg8ui
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb10
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb10A2
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb10A2ui
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb12
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb16
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb16f
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb16i
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb16ui
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb32f
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb32i
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb32ui
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb4
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb5
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb8
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb8i
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb8ui
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb9E5
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba12
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba16
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba16f
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba16i
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba16ui
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba2
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba32f
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba32i
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba32ui
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba4
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba8
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba8i
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba8ui
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Srgb8
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Srgb8Alpha8
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex1
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex16
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex16Ext
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex1Ext
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex4
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex4Ext
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex8
+  - LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex8Ext
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.GFXRenderbufferStorage
+  nameWithType: RenderFlags.GFXRenderbufferStorage
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GFXRenderbufferStorage
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 245
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public enum RenderFlags.GFXRenderbufferStorage
+    content.vb: Public Enum RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R3G3B2
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R3G3B2
+  id: R3G3B2
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: R3G3B2
+  nameWithType: RenderFlags.GFXRenderbufferStorage.R3G3B2
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R3G3B2
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: R3G3B2
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 247
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: R3G3B2 = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Alpha4
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Alpha4
+  id: Alpha4
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Alpha4
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Alpha4
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Alpha4
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Alpha4
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 248
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Alpha4 = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Alpha8
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Alpha8
+  id: Alpha8
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Alpha8
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Alpha8
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Alpha8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Alpha8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 249
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Alpha8 = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Alpha12
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Alpha12
+  id: Alpha12
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Alpha12
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Alpha12
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Alpha12
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Alpha12
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 250
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Alpha12 = 3
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Alpha16
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Alpha16
+  id: Alpha16
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Alpha16
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Alpha16
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Alpha16
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Alpha16
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 251
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Alpha16 = 4
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb4
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb4
+  id: Rgb4
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb4
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb4
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb4
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb4
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 252
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb4 = 5
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb5
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb5
+  id: Rgb5
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb5
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb5
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb5
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb5
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 253
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb5 = 6
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb8
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb8
+  id: Rgb8
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb8
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb8
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 254
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb8 = 7
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb10
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb10
+  id: Rgb10
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb10
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb10
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb10
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb10
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 255
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb10 = 8
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb12
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb12
+  id: Rgb12
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb12
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb12
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb12
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb12
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 256
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb12 = 9
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb16
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb16
+  id: Rgb16
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb16
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb16
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb16
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb16
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 257
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb16 = 10
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba2
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba2
+  id: Rgba2
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgba2
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgba2
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba2
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgba2
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 258
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgba2 = 11
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba4
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba4
+  id: Rgba4
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgba4
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgba4
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba4
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgba4
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 259
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgba4 = 12
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba8
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba8
+  id: Rgba8
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgba8
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgba8
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgba8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 260
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgba8 = 13
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb10A2
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb10A2
+  id: Rgb10A2
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb10A2
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb10A2
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb10A2
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb10A2
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 261
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb10A2 = 14
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba12
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba12
+  id: Rgba12
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgba12
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgba12
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba12
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgba12
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 262
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgba12 = 15
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba16
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba16
+  id: Rgba16
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgba16
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgba16
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba16
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgba16
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 263
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgba16 = 16
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.DepthComponent16
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.DepthComponent16
+  id: DepthComponent16
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: DepthComponent16
+  nameWithType: RenderFlags.GFXRenderbufferStorage.DepthComponent16
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.DepthComponent16
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DepthComponent16
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 264
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: DepthComponent16 = 17
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.DepthComponent24
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.DepthComponent24
+  id: DepthComponent24
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: DepthComponent24
+  nameWithType: RenderFlags.GFXRenderbufferStorage.DepthComponent24
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.DepthComponent24
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DepthComponent24
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 265
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: DepthComponent24 = 18
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.DepthComponent32
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.DepthComponent32
+  id: DepthComponent32
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: DepthComponent32
+  nameWithType: RenderFlags.GFXRenderbufferStorage.DepthComponent32
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.DepthComponent32
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DepthComponent32
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 266
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: DepthComponent32 = 19
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R8
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R8
+  id: R8
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: R8
+  nameWithType: RenderFlags.GFXRenderbufferStorage.R8
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: R8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 267
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: R8 = 20
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R16
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R16
+  id: R16
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: R16
+  nameWithType: RenderFlags.GFXRenderbufferStorage.R16
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R16
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: R16
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 268
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: R16 = 21
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg8
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg8
+  id: Rg8
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rg8
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rg8
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rg8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 269
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rg8 = 22
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg16
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg16
+  id: Rg16
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rg16
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rg16
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg16
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rg16
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 270
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rg16 = 23
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R16f
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R16f
+  id: R16f
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: R16f
+  nameWithType: RenderFlags.GFXRenderbufferStorage.R16f
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R16f
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: R16f
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 271
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: R16f = 24
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R32f
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R32f
+  id: R32f
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: R32f
+  nameWithType: RenderFlags.GFXRenderbufferStorage.R32f
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R32f
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: R32f
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 272
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: R32f = 25
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg16f
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg16f
+  id: Rg16f
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rg16f
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rg16f
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg16f
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rg16f
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 273
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rg16f = 26
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg32f
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg32f
+  id: Rg32f
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rg32f
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rg32f
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg32f
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rg32f
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 274
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rg32f = 27
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R8i
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R8i
+  id: R8i
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: R8i
+  nameWithType: RenderFlags.GFXRenderbufferStorage.R8i
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R8i
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: R8i
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 275
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: R8i = 28
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R8ui
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R8ui
+  id: R8ui
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: R8ui
+  nameWithType: RenderFlags.GFXRenderbufferStorage.R8ui
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R8ui
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: R8ui
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 276
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: R8ui = 29
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R16i
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R16i
+  id: R16i
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: R16i
+  nameWithType: RenderFlags.GFXRenderbufferStorage.R16i
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R16i
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: R16i
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 277
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: R16i = 30
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R16ui
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R16ui
+  id: R16ui
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: R16ui
+  nameWithType: RenderFlags.GFXRenderbufferStorage.R16ui
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R16ui
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: R16ui
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 278
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: R16ui = 31
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R32i
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R32i
+  id: R32i
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: R32i
+  nameWithType: RenderFlags.GFXRenderbufferStorage.R32i
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R32i
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: R32i
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 279
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: R32i = 32
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R32ui
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R32ui
+  id: R32ui
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: R32ui
+  nameWithType: RenderFlags.GFXRenderbufferStorage.R32ui
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R32ui
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: R32ui
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 280
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: R32ui = 33
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg8i
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg8i
+  id: Rg8i
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rg8i
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rg8i
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg8i
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rg8i
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 281
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rg8i = 34
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg8ui
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg8ui
+  id: Rg8ui
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rg8ui
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rg8ui
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg8ui
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rg8ui
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 282
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rg8ui = 35
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg16i
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg16i
+  id: Rg16i
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rg16i
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rg16i
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg16i
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rg16i
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 283
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rg16i = 36
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg16ui
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg16ui
+  id: Rg16ui
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rg16ui
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rg16ui
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg16ui
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rg16ui
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 284
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rg16ui = 37
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg32i
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg32i
+  id: Rg32i
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rg32i
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rg32i
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg32i
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rg32i
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 285
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rg32i = 38
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg32ui
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg32ui
+  id: Rg32ui
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rg32ui
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rg32ui
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rg32ui
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rg32ui
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 286
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rg32ui = 39
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba32f
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba32f
+  id: Rgba32f
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgba32f
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgba32f
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba32f
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgba32f
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 287
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgba32f = 40
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb32f
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb32f
+  id: Rgb32f
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb32f
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb32f
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb32f
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb32f
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 288
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb32f = 41
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba16f
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba16f
+  id: Rgba16f
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgba16f
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgba16f
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba16f
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgba16f
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 289
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgba16f = 42
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb16f
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb16f
+  id: Rgb16f
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb16f
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb16f
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb16f
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb16f
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 290
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb16f = 43
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Depth24Stencil8
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Depth24Stencil8
+  id: Depth24Stencil8
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Depth24Stencil8
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Depth24Stencil8
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Depth24Stencil8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Depth24Stencil8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 291
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Depth24Stencil8 = 44
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R11fG11fB10f
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R11fG11fB10f
+  id: R11fG11fB10f
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: R11fG11fB10f
+  nameWithType: RenderFlags.GFXRenderbufferStorage.R11fG11fB10f
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.R11fG11fB10f
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: R11fG11fB10f
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 292
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: R11fG11fB10f = 45
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb9E5
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb9E5
+  id: Rgb9E5
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb9E5
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb9E5
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb9E5
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb9E5
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 293
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb9E5 = 46
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Srgb8
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Srgb8
+  id: Srgb8
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Srgb8
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Srgb8
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Srgb8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Srgb8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 294
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Srgb8 = 47
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Srgb8Alpha8
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Srgb8Alpha8
+  id: Srgb8Alpha8
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Srgb8Alpha8
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Srgb8Alpha8
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Srgb8Alpha8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Srgb8Alpha8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 295
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Srgb8Alpha8 = 48
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.DepthComponent32f
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.DepthComponent32f
+  id: DepthComponent32f
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: DepthComponent32f
+  nameWithType: RenderFlags.GFXRenderbufferStorage.DepthComponent32f
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.DepthComponent32f
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DepthComponent32f
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 296
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: DepthComponent32f = 49
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Depth32fStencil8
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Depth32fStencil8
+  id: Depth32fStencil8
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Depth32fStencil8
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Depth32fStencil8
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Depth32fStencil8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Depth32fStencil8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 297
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Depth32fStencil8 = 50
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex1
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex1
+  id: StencilIndex1
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: StencilIndex1
+  nameWithType: RenderFlags.GFXRenderbufferStorage.StencilIndex1
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex1
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StencilIndex1
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 298
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: StencilIndex1 = 51
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex1Ext
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex1Ext
+  id: StencilIndex1Ext
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: StencilIndex1Ext
+  nameWithType: RenderFlags.GFXRenderbufferStorage.StencilIndex1Ext
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex1Ext
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StencilIndex1Ext
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 299
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: StencilIndex1Ext = 52
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex4
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex4
+  id: StencilIndex4
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: StencilIndex4
+  nameWithType: RenderFlags.GFXRenderbufferStorage.StencilIndex4
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex4
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StencilIndex4
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 300
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: StencilIndex4 = 53
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex4Ext
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex4Ext
+  id: StencilIndex4Ext
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: StencilIndex4Ext
+  nameWithType: RenderFlags.GFXRenderbufferStorage.StencilIndex4Ext
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex4Ext
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StencilIndex4Ext
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 301
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: StencilIndex4Ext = 54
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex8
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex8
+  id: StencilIndex8
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: StencilIndex8
+  nameWithType: RenderFlags.GFXRenderbufferStorage.StencilIndex8
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StencilIndex8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 302
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: StencilIndex8 = 55
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex8Ext
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex8Ext
+  id: StencilIndex8Ext
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: StencilIndex8Ext
+  nameWithType: RenderFlags.GFXRenderbufferStorage.StencilIndex8Ext
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex8Ext
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StencilIndex8Ext
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 303
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: StencilIndex8Ext = 56
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex16
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex16
+  id: StencilIndex16
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: StencilIndex16
+  nameWithType: RenderFlags.GFXRenderbufferStorage.StencilIndex16
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex16
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StencilIndex16
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 304
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: StencilIndex16 = 57
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex16Ext
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex16Ext
+  id: StencilIndex16Ext
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: StencilIndex16Ext
+  nameWithType: RenderFlags.GFXRenderbufferStorage.StencilIndex16Ext
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.StencilIndex16Ext
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StencilIndex16Ext
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 305
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: StencilIndex16Ext = 58
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba32ui
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba32ui
+  id: Rgba32ui
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgba32ui
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgba32ui
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba32ui
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgba32ui
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 306
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgba32ui = 59
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb32ui
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb32ui
+  id: Rgb32ui
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb32ui
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb32ui
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb32ui
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb32ui
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 307
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb32ui = 60
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba16ui
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba16ui
+  id: Rgba16ui
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgba16ui
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgba16ui
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba16ui
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgba16ui
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 308
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgba16ui = 61
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb16ui
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb16ui
+  id: Rgb16ui
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb16ui
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb16ui
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb16ui
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb16ui
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 309
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb16ui = 62
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba8ui
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba8ui
+  id: Rgba8ui
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgba8ui
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgba8ui
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba8ui
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgba8ui
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 310
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgba8ui = 63
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb8ui
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb8ui
+  id: Rgb8ui
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb8ui
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb8ui
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb8ui
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb8ui
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 311
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb8ui = 64
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba32i
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba32i
+  id: Rgba32i
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgba32i
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgba32i
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba32i
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgba32i
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 312
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgba32i = 65
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb32i
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb32i
+  id: Rgb32i
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb32i
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb32i
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb32i
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb32i
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 313
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb32i = 66
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba16i
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba16i
+  id: Rgba16i
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgba16i
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgba16i
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba16i
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgba16i
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 314
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgba16i = 67
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb16i
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb16i
+  id: Rgb16i
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb16i
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb16i
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb16i
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb16i
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 315
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb16i = 68
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba8i
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba8i
+  id: Rgba8i
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgba8i
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgba8i
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgba8i
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgba8i
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 316
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgba8i = 69
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb8i
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb8i
+  id: Rgb8i
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb8i
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb8i
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb8i
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb8i
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 317
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb8i = 70
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb10A2ui
+  commentId: F:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb10A2ui
+  id: Rgb10A2ui
+  parent: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  langs:
+  - csharp
+  - vb
+  name: Rgb10A2ui
+  nameWithType: RenderFlags.GFXRenderbufferStorage.Rgb10A2ui
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.Rgb10A2ui
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rgb10A2ui
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 318
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Rgb10A2ui = 71
+    return:
+      type: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  commentId: T:LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.GFXRenderbufferStorage
+  nameWithType: RenderFlags.GFXRenderbufferStorage
+  fullName: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+    name: GFXRenderbufferStorage
+    href: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+    name: GFXRenderbufferStorage
+    href: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage.html

@@ -1,0 +1,2134 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Audio.OpenALDevice
+  commentId: T:LibGFX.Audio.OpenALDevice
+  id: OpenALDevice
+  parent: LibGFX.Audio
+  children:
+  - LibGFX.Audio.OpenALDevice.DisposeAudioClip(LibGFX.Audio.AudioClip)
+  - LibGFX.Audio.OpenALDevice.DisposeAudioSource(LibGFX.Audio.AudioSource)
+  - LibGFX.Audio.OpenALDevice.GetAudioListenerPosition
+  - LibGFX.Audio.OpenALDevice.GetAudioSourcePosition(LibGFX.Audio.AudioSource)
+  - LibGFX.Audio.OpenALDevice.GetAudioSourceTime(LibGFX.Audio.AudioSource)
+  - LibGFX.Audio.OpenALDevice.InitializeAudioDevice
+  - LibGFX.Audio.OpenALDevice.LoadAudioClip(LibGFX.Audio.AudioClip)
+  - LibGFX.Audio.OpenALDevice.LoadAudioSource(LibGFX.Audio.AudioSource)
+  - LibGFX.Audio.OpenALDevice.LoadSourceClip(LibGFX.Audio.AudioSource,LibGFX.Audio.AudioClip)
+  - LibGFX.Audio.OpenALDevice.MakeCurrent
+  - LibGFX.Audio.OpenALDevice.PauseAudioSource(LibGFX.Audio.AudioSource)
+  - LibGFX.Audio.OpenALDevice.PlayAudioSource(LibGFX.Audio.AudioSource)
+  - LibGFX.Audio.OpenALDevice.SetAudioListenerOrientation(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - LibGFX.Audio.OpenALDevice.SetAudioListenerPosition(OpenTK.Mathematics.Vector3)
+  - LibGFX.Audio.OpenALDevice.SetAudioListenerVelocity(OpenTK.Mathematics.Vector3)
+  - LibGFX.Audio.OpenALDevice.SetAudioSourceGain(LibGFX.Audio.AudioSource,System.Single)
+  - LibGFX.Audio.OpenALDevice.SetAudioSourceLooping(LibGFX.Audio.AudioSource,System.Boolean)
+  - LibGFX.Audio.OpenALDevice.SetAudioSourcePitch(LibGFX.Audio.AudioSource,System.Single)
+  - LibGFX.Audio.OpenALDevice.SetAudioSourcePosition(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+  - LibGFX.Audio.OpenALDevice.SetAudioSourceRange(LibGFX.Audio.AudioSource,System.Single,System.Single,System.Single)
+  - LibGFX.Audio.OpenALDevice.SetAudioSourceTime(LibGFX.Audio.AudioSource,System.Single)
+  - LibGFX.Audio.OpenALDevice.SetAudioSourceVelocity(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+  - LibGFX.Audio.OpenALDevice.SetDistanceModel
+  - LibGFX.Audio.OpenALDevice.StopAudioSource(LibGFX.Audio.AudioSource)
+  langs:
+  - csharp
+  - vb
+  name: OpenALDevice
+  nameWithType: OpenALDevice
+  fullName: LibGFX.Audio.OpenALDevice
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OpenALDevice
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 11
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  syntax:
+    content: 'public class OpenALDevice : IAudioDevice'
+    content.vb: Public Class OpenALDevice Implements IAudioDevice
+  inheritance:
+  - System.Object
+  implements:
+  - LibGFX.Audio.IAudioDevice
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Audio.OpenALDevice.InitializeAudioDevice
+  commentId: M:LibGFX.Audio.OpenALDevice.InitializeAudioDevice
+  id: InitializeAudioDevice
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: InitializeAudioDevice()
+  nameWithType: OpenALDevice.InitializeAudioDevice()
+  fullName: LibGFX.Audio.OpenALDevice.InitializeAudioDevice()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: InitializeAudioDevice
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Initializes the audio device
+  example: []
+  syntax:
+    content: public void InitializeAudioDevice()
+    content.vb: Public Sub InitializeAudioDevice()
+  overload: LibGFX.Audio.OpenALDevice.InitializeAudioDevice*
+  implements:
+  - LibGFX.Audio.IAudioDevice.InitializeAudioDevice
+- uid: LibGFX.Audio.OpenALDevice.MakeCurrent
+  commentId: M:LibGFX.Audio.OpenALDevice.MakeCurrent
+  id: MakeCurrent
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: MakeCurrent()
+  nameWithType: OpenALDevice.MakeCurrent()
+  fullName: LibGFX.Audio.OpenALDevice.MakeCurrent()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MakeCurrent
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 24
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Makes the audio device current
+  example: []
+  syntax:
+    content: public void MakeCurrent()
+    content.vb: Public Sub MakeCurrent()
+  overload: LibGFX.Audio.OpenALDevice.MakeCurrent*
+  implements:
+  - LibGFX.Audio.IAudioDevice.MakeCurrent
+- uid: LibGFX.Audio.OpenALDevice.SetDistanceModel
+  commentId: M:LibGFX.Audio.OpenALDevice.SetDistanceModel
+  id: SetDistanceModel
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: SetDistanceModel()
+  nameWithType: OpenALDevice.SetDistanceModel()
+  fullName: LibGFX.Audio.OpenALDevice.SetDistanceModel()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetDistanceModel
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 30
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Sets the distance model for the audio device
+  example: []
+  syntax:
+    content: public void SetDistanceModel()
+    content.vb: Public Sub SetDistanceModel()
+  overload: LibGFX.Audio.OpenALDevice.SetDistanceModel*
+  implements:
+  - LibGFX.Audio.IAudioDevice.SetDistanceModel
+- uid: LibGFX.Audio.OpenALDevice.LoadAudioClip(LibGFX.Audio.AudioClip)
+  commentId: M:LibGFX.Audio.OpenALDevice.LoadAudioClip(LibGFX.Audio.AudioClip)
+  id: LoadAudioClip(LibGFX.Audio.AudioClip)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: LoadAudioClip(AudioClip)
+  nameWithType: OpenALDevice.LoadAudioClip(AudioClip)
+  fullName: LibGFX.Audio.OpenALDevice.LoadAudioClip(LibGFX.Audio.AudioClip)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LoadAudioClip
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 35
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Loads an audio clip into memory
+  example: []
+  syntax:
+    content: public void LoadAudioClip(AudioClip clip)
+    parameters:
+    - id: clip
+      type: LibGFX.Audio.AudioClip
+      description: ''
+    content.vb: Public Sub LoadAudioClip(clip As AudioClip)
+  overload: LibGFX.Audio.OpenALDevice.LoadAudioClip*
+  implements:
+  - LibGFX.Audio.IAudioDevice.LoadAudioClip(LibGFX.Audio.AudioClip)
+- uid: LibGFX.Audio.OpenALDevice.LoadAudioSource(LibGFX.Audio.AudioSource)
+  commentId: M:LibGFX.Audio.OpenALDevice.LoadAudioSource(LibGFX.Audio.AudioSource)
+  id: LoadAudioSource(LibGFX.Audio.AudioSource)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: LoadAudioSource(AudioSource)
+  nameWithType: OpenALDevice.LoadAudioSource(AudioSource)
+  fullName: LibGFX.Audio.OpenALDevice.LoadAudioSource(LibGFX.Audio.AudioSource)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LoadAudioSource
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 50
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Loads an audio source into memory
+  example: []
+  syntax:
+    content: public void LoadAudioSource(AudioSource source)
+    parameters:
+    - id: source
+      type: LibGFX.Audio.AudioSource
+      description: ''
+    content.vb: Public Sub LoadAudioSource(source As AudioSource)
+  overload: LibGFX.Audio.OpenALDevice.LoadAudioSource*
+  implements:
+  - LibGFX.Audio.IAudioDevice.LoadAudioSource(LibGFX.Audio.AudioSource)
+- uid: LibGFX.Audio.OpenALDevice.LoadSourceClip(LibGFX.Audio.AudioSource,LibGFX.Audio.AudioClip)
+  commentId: M:LibGFX.Audio.OpenALDevice.LoadSourceClip(LibGFX.Audio.AudioSource,LibGFX.Audio.AudioClip)
+  id: LoadSourceClip(LibGFX.Audio.AudioSource,LibGFX.Audio.AudioClip)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: LoadSourceClip(AudioSource, AudioClip)
+  nameWithType: OpenALDevice.LoadSourceClip(AudioSource, AudioClip)
+  fullName: LibGFX.Audio.OpenALDevice.LoadSourceClip(LibGFX.Audio.AudioSource, LibGFX.Audio.AudioClip)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LoadSourceClip
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 59
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Loads an audio clip into an audio source
+  example: []
+  syntax:
+    content: public void LoadSourceClip(AudioSource source, AudioClip audioClip)
+    parameters:
+    - id: source
+      type: LibGFX.Audio.AudioSource
+      description: ''
+    - id: audioClip
+      type: LibGFX.Audio.AudioClip
+      description: ''
+    content.vb: Public Sub LoadSourceClip(source As AudioSource, audioClip As AudioClip)
+  overload: LibGFX.Audio.OpenALDevice.LoadSourceClip*
+  implements:
+  - LibGFX.Audio.IAudioDevice.LoadSourceClip(LibGFX.Audio.AudioSource,LibGFX.Audio.AudioClip)
+- uid: LibGFX.Audio.OpenALDevice.SetAudioListenerPosition(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Audio.OpenALDevice.SetAudioListenerPosition(OpenTK.Mathematics.Vector3)
+  id: SetAudioListenerPosition(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: SetAudioListenerPosition(Vector3)
+  nameWithType: OpenALDevice.SetAudioListenerPosition(Vector3)
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioListenerPosition(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetAudioListenerPosition
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 64
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Sets the position of the audio listener
+  example: []
+  syntax:
+    content: public void SetAudioListenerPosition(Vector3 position)
+    parameters:
+    - id: position
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Sub SetAudioListenerPosition(position As Vector3)
+  overload: LibGFX.Audio.OpenALDevice.SetAudioListenerPosition*
+  implements:
+  - LibGFX.Audio.IAudioDevice.SetAudioListenerPosition(OpenTK.Mathematics.Vector3)
+- uid: LibGFX.Audio.OpenALDevice.SetAudioListenerOrientation(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Audio.OpenALDevice.SetAudioListenerOrientation(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  id: SetAudioListenerOrientation(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: SetAudioListenerOrientation(Vector3, Vector3)
+  nameWithType: OpenALDevice.SetAudioListenerOrientation(Vector3, Vector3)
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioListenerOrientation(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetAudioListenerOrientation
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 69
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Sets the orientation of the audio listener
+  example: []
+  syntax:
+    content: public void SetAudioListenerOrientation(Vector3 forward, Vector3 up)
+    parameters:
+    - id: forward
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    - id: up
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Sub SetAudioListenerOrientation(forward As Vector3, up As Vector3)
+  overload: LibGFX.Audio.OpenALDevice.SetAudioListenerOrientation*
+  implements:
+  - LibGFX.Audio.IAudioDevice.SetAudioListenerOrientation(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+- uid: LibGFX.Audio.OpenALDevice.SetAudioListenerVelocity(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Audio.OpenALDevice.SetAudioListenerVelocity(OpenTK.Mathematics.Vector3)
+  id: SetAudioListenerVelocity(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: SetAudioListenerVelocity(Vector3)
+  nameWithType: OpenALDevice.SetAudioListenerVelocity(Vector3)
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioListenerVelocity(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetAudioListenerVelocity
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 74
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Sets the velocity of the audio listener
+  example: []
+  syntax:
+    content: public void SetAudioListenerVelocity(Vector3 velocity)
+    parameters:
+    - id: velocity
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Sub SetAudioListenerVelocity(velocity As Vector3)
+  overload: LibGFX.Audio.OpenALDevice.SetAudioListenerVelocity*
+  implements:
+  - LibGFX.Audio.IAudioDevice.SetAudioListenerVelocity(OpenTK.Mathematics.Vector3)
+- uid: LibGFX.Audio.OpenALDevice.SetAudioSourcePosition(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Audio.OpenALDevice.SetAudioSourcePosition(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+  id: SetAudioSourcePosition(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: SetAudioSourcePosition(AudioSource, Vector3)
+  nameWithType: OpenALDevice.SetAudioSourcePosition(AudioSource, Vector3)
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioSourcePosition(LibGFX.Audio.AudioSource, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetAudioSourcePosition
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 79
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Sets the position of the audio source
+  example: []
+  syntax:
+    content: public void SetAudioSourcePosition(AudioSource source, Vector3 position)
+    parameters:
+    - id: source
+      type: LibGFX.Audio.AudioSource
+      description: ''
+    - id: position
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Sub SetAudioSourcePosition(source As AudioSource, position As Vector3)
+  overload: LibGFX.Audio.OpenALDevice.SetAudioSourcePosition*
+  implements:
+  - LibGFX.Audio.IAudioDevice.SetAudioSourcePosition(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+- uid: LibGFX.Audio.OpenALDevice.DisposeAudioClip(LibGFX.Audio.AudioClip)
+  commentId: M:LibGFX.Audio.OpenALDevice.DisposeAudioClip(LibGFX.Audio.AudioClip)
+  id: DisposeAudioClip(LibGFX.Audio.AudioClip)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: DisposeAudioClip(AudioClip)
+  nameWithType: OpenALDevice.DisposeAudioClip(AudioClip)
+  fullName: LibGFX.Audio.OpenALDevice.DisposeAudioClip(LibGFX.Audio.AudioClip)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DisposeAudioClip
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 85
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Disposes of an audio clip
+  example: []
+  syntax:
+    content: public void DisposeAudioClip(AudioClip clip)
+    parameters:
+    - id: clip
+      type: LibGFX.Audio.AudioClip
+      description: ''
+    content.vb: Public Sub DisposeAudioClip(clip As AudioClip)
+  overload: LibGFX.Audio.OpenALDevice.DisposeAudioClip*
+  implements:
+  - LibGFX.Audio.IAudioDevice.DisposeAudioClip(LibGFX.Audio.AudioClip)
+- uid: LibGFX.Audio.OpenALDevice.DisposeAudioSource(LibGFX.Audio.AudioSource)
+  commentId: M:LibGFX.Audio.OpenALDevice.DisposeAudioSource(LibGFX.Audio.AudioSource)
+  id: DisposeAudioSource(LibGFX.Audio.AudioSource)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: DisposeAudioSource(AudioSource)
+  nameWithType: OpenALDevice.DisposeAudioSource(AudioSource)
+  fullName: LibGFX.Audio.OpenALDevice.DisposeAudioSource(LibGFX.Audio.AudioSource)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DisposeAudioSource
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 94
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Disposes of an audio source
+  example: []
+  syntax:
+    content: public void DisposeAudioSource(AudioSource source)
+    parameters:
+    - id: source
+      type: LibGFX.Audio.AudioSource
+      description: ''
+    content.vb: Public Sub DisposeAudioSource(source As AudioSource)
+  overload: LibGFX.Audio.OpenALDevice.DisposeAudioSource*
+  implements:
+  - LibGFX.Audio.IAudioDevice.DisposeAudioSource(LibGFX.Audio.AudioSource)
+- uid: LibGFX.Audio.OpenALDevice.SetAudioSourceVelocity(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Audio.OpenALDevice.SetAudioSourceVelocity(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+  id: SetAudioSourceVelocity(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: SetAudioSourceVelocity(AudioSource, Vector3)
+  nameWithType: OpenALDevice.SetAudioSourceVelocity(AudioSource, Vector3)
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioSourceVelocity(LibGFX.Audio.AudioSource, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetAudioSourceVelocity
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 103
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Sets the velocity of the audio source
+  example: []
+  syntax:
+    content: public void SetAudioSourceVelocity(AudioSource source, Vector3 velocity)
+    parameters:
+    - id: source
+      type: LibGFX.Audio.AudioSource
+      description: ''
+    - id: velocity
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Sub SetAudioSourceVelocity(source As AudioSource, velocity As Vector3)
+  overload: LibGFX.Audio.OpenALDevice.SetAudioSourceVelocity*
+  implements:
+  - LibGFX.Audio.IAudioDevice.SetAudioSourceVelocity(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+- uid: LibGFX.Audio.OpenALDevice.SetAudioSourcePitch(LibGFX.Audio.AudioSource,System.Single)
+  commentId: M:LibGFX.Audio.OpenALDevice.SetAudioSourcePitch(LibGFX.Audio.AudioSource,System.Single)
+  id: SetAudioSourcePitch(LibGFX.Audio.AudioSource,System.Single)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: SetAudioSourcePitch(AudioSource, float)
+  nameWithType: OpenALDevice.SetAudioSourcePitch(AudioSource, float)
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioSourcePitch(LibGFX.Audio.AudioSource, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetAudioSourcePitch
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 108
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Sets the pitch of the audio source
+  example: []
+  syntax:
+    content: public void SetAudioSourcePitch(AudioSource source, float pitch)
+    parameters:
+    - id: source
+      type: LibGFX.Audio.AudioSource
+      description: ''
+    - id: pitch
+      type: System.Single
+      description: ''
+    content.vb: Public Sub SetAudioSourcePitch(source As AudioSource, pitch As Single)
+  overload: LibGFX.Audio.OpenALDevice.SetAudioSourcePitch*
+  implements:
+  - LibGFX.Audio.IAudioDevice.SetAudioSourcePitch(LibGFX.Audio.AudioSource,System.Single)
+  nameWithType.vb: OpenALDevice.SetAudioSourcePitch(AudioSource, Single)
+  fullName.vb: LibGFX.Audio.OpenALDevice.SetAudioSourcePitch(LibGFX.Audio.AudioSource, Single)
+  name.vb: SetAudioSourcePitch(AudioSource, Single)
+- uid: LibGFX.Audio.OpenALDevice.SetAudioSourceGain(LibGFX.Audio.AudioSource,System.Single)
+  commentId: M:LibGFX.Audio.OpenALDevice.SetAudioSourceGain(LibGFX.Audio.AudioSource,System.Single)
+  id: SetAudioSourceGain(LibGFX.Audio.AudioSource,System.Single)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: SetAudioSourceGain(AudioSource, float)
+  nameWithType: OpenALDevice.SetAudioSourceGain(AudioSource, float)
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioSourceGain(LibGFX.Audio.AudioSource, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetAudioSourceGain
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 113
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Sets the gain of the audio source
+  example: []
+  syntax:
+    content: public void SetAudioSourceGain(AudioSource source, float gain)
+    parameters:
+    - id: source
+      type: LibGFX.Audio.AudioSource
+      description: ''
+    - id: gain
+      type: System.Single
+      description: ''
+    content.vb: Public Sub SetAudioSourceGain(source As AudioSource, gain As Single)
+  overload: LibGFX.Audio.OpenALDevice.SetAudioSourceGain*
+  implements:
+  - LibGFX.Audio.IAudioDevice.SetAudioSourceGain(LibGFX.Audio.AudioSource,System.Single)
+  nameWithType.vb: OpenALDevice.SetAudioSourceGain(AudioSource, Single)
+  fullName.vb: LibGFX.Audio.OpenALDevice.SetAudioSourceGain(LibGFX.Audio.AudioSource, Single)
+  name.vb: SetAudioSourceGain(AudioSource, Single)
+- uid: LibGFX.Audio.OpenALDevice.SetAudioSourceLooping(LibGFX.Audio.AudioSource,System.Boolean)
+  commentId: M:LibGFX.Audio.OpenALDevice.SetAudioSourceLooping(LibGFX.Audio.AudioSource,System.Boolean)
+  id: SetAudioSourceLooping(LibGFX.Audio.AudioSource,System.Boolean)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: SetAudioSourceLooping(AudioSource, bool)
+  nameWithType: OpenALDevice.SetAudioSourceLooping(AudioSource, bool)
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioSourceLooping(LibGFX.Audio.AudioSource, bool)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetAudioSourceLooping
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 118
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Sets the looping state of the audio source
+  example: []
+  syntax:
+    content: public void SetAudioSourceLooping(AudioSource source, bool looping)
+    parameters:
+    - id: source
+      type: LibGFX.Audio.AudioSource
+      description: ''
+    - id: looping
+      type: System.Boolean
+      description: ''
+    content.vb: Public Sub SetAudioSourceLooping(source As AudioSource, looping As Boolean)
+  overload: LibGFX.Audio.OpenALDevice.SetAudioSourceLooping*
+  implements:
+  - LibGFX.Audio.IAudioDevice.SetAudioSourceLooping(LibGFX.Audio.AudioSource,System.Boolean)
+  nameWithType.vb: OpenALDevice.SetAudioSourceLooping(AudioSource, Boolean)
+  fullName.vb: LibGFX.Audio.OpenALDevice.SetAudioSourceLooping(LibGFX.Audio.AudioSource, Boolean)
+  name.vb: SetAudioSourceLooping(AudioSource, Boolean)
+- uid: LibGFX.Audio.OpenALDevice.PlayAudioSource(LibGFX.Audio.AudioSource)
+  commentId: M:LibGFX.Audio.OpenALDevice.PlayAudioSource(LibGFX.Audio.AudioSource)
+  id: PlayAudioSource(LibGFX.Audio.AudioSource)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: PlayAudioSource(AudioSource)
+  nameWithType: OpenALDevice.PlayAudioSource(AudioSource)
+  fullName: LibGFX.Audio.OpenALDevice.PlayAudioSource(LibGFX.Audio.AudioSource)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PlayAudioSource
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 123
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Plays the audio source
+  example: []
+  syntax:
+    content: public void PlayAudioSource(AudioSource source)
+    parameters:
+    - id: source
+      type: LibGFX.Audio.AudioSource
+      description: ''
+    content.vb: Public Sub PlayAudioSource(source As AudioSource)
+  overload: LibGFX.Audio.OpenALDevice.PlayAudioSource*
+  implements:
+  - LibGFX.Audio.IAudioDevice.PlayAudioSource(LibGFX.Audio.AudioSource)
+- uid: LibGFX.Audio.OpenALDevice.StopAudioSource(LibGFX.Audio.AudioSource)
+  commentId: M:LibGFX.Audio.OpenALDevice.StopAudioSource(LibGFX.Audio.AudioSource)
+  id: StopAudioSource(LibGFX.Audio.AudioSource)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: StopAudioSource(AudioSource)
+  nameWithType: OpenALDevice.StopAudioSource(AudioSource)
+  fullName: LibGFX.Audio.OpenALDevice.StopAudioSource(LibGFX.Audio.AudioSource)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: StopAudioSource
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 128
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Stops the audio source and sets the time to 0
+  example: []
+  syntax:
+    content: public void StopAudioSource(AudioSource source)
+    parameters:
+    - id: source
+      type: LibGFX.Audio.AudioSource
+      description: ''
+    content.vb: Public Sub StopAudioSource(source As AudioSource)
+  overload: LibGFX.Audio.OpenALDevice.StopAudioSource*
+  implements:
+  - LibGFX.Audio.IAudioDevice.StopAudioSource(LibGFX.Audio.AudioSource)
+- uid: LibGFX.Audio.OpenALDevice.PauseAudioSource(LibGFX.Audio.AudioSource)
+  commentId: M:LibGFX.Audio.OpenALDevice.PauseAudioSource(LibGFX.Audio.AudioSource)
+  id: PauseAudioSource(LibGFX.Audio.AudioSource)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: PauseAudioSource(AudioSource)
+  nameWithType: OpenALDevice.PauseAudioSource(AudioSource)
+  fullName: LibGFX.Audio.OpenALDevice.PauseAudioSource(LibGFX.Audio.AudioSource)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PauseAudioSource
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 133
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Pauses the audio source
+  example: []
+  syntax:
+    content: public void PauseAudioSource(AudioSource source)
+    parameters:
+    - id: source
+      type: LibGFX.Audio.AudioSource
+      description: ''
+    content.vb: Public Sub PauseAudioSource(source As AudioSource)
+  overload: LibGFX.Audio.OpenALDevice.PauseAudioSource*
+  implements:
+  - LibGFX.Audio.IAudioDevice.PauseAudioSource(LibGFX.Audio.AudioSource)
+- uid: LibGFX.Audio.OpenALDevice.SetAudioSourceRange(LibGFX.Audio.AudioSource,System.Single,System.Single,System.Single)
+  commentId: M:LibGFX.Audio.OpenALDevice.SetAudioSourceRange(LibGFX.Audio.AudioSource,System.Single,System.Single,System.Single)
+  id: SetAudioSourceRange(LibGFX.Audio.AudioSource,System.Single,System.Single,System.Single)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: SetAudioSourceRange(AudioSource, float, float, float)
+  nameWithType: OpenALDevice.SetAudioSourceRange(AudioSource, float, float, float)
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioSourceRange(LibGFX.Audio.AudioSource, float, float, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetAudioSourceRange
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 138
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Sets the range of the audio source
+  example: []
+  syntax:
+    content: public void SetAudioSourceRange(AudioSource source, float min, float max, float rollof)
+    parameters:
+    - id: source
+      type: LibGFX.Audio.AudioSource
+      description: ''
+    - id: min
+      type: System.Single
+      description: ''
+    - id: max
+      type: System.Single
+      description: ''
+    - id: rollof
+      type: System.Single
+    content.vb: Public Sub SetAudioSourceRange(source As AudioSource, min As Single, max As Single, rollof As Single)
+  overload: LibGFX.Audio.OpenALDevice.SetAudioSourceRange*
+  implements:
+  - LibGFX.Audio.IAudioDevice.SetAudioSourceRange(LibGFX.Audio.AudioSource,System.Single,System.Single,System.Single)
+  nameWithType.vb: OpenALDevice.SetAudioSourceRange(AudioSource, Single, Single, Single)
+  fullName.vb: LibGFX.Audio.OpenALDevice.SetAudioSourceRange(LibGFX.Audio.AudioSource, Single, Single, Single)
+  name.vb: SetAudioSourceRange(AudioSource, Single, Single, Single)
+- uid: LibGFX.Audio.OpenALDevice.GetAudioSourcePosition(LibGFX.Audio.AudioSource)
+  commentId: M:LibGFX.Audio.OpenALDevice.GetAudioSourcePosition(LibGFX.Audio.AudioSource)
+  id: GetAudioSourcePosition(LibGFX.Audio.AudioSource)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: GetAudioSourcePosition(AudioSource)
+  nameWithType: OpenALDevice.GetAudioSourcePosition(AudioSource)
+  fullName: LibGFX.Audio.OpenALDevice.GetAudioSourcePosition(LibGFX.Audio.AudioSource)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetAudioSourcePosition
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 145
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Gets the position of the audio source
+  example: []
+  syntax:
+    content: public Vector3 GetAudioSourcePosition(AudioSource source)
+    parameters:
+    - id: source
+      type: LibGFX.Audio.AudioSource
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Function GetAudioSourcePosition(source As AudioSource) As Vector3
+  overload: LibGFX.Audio.OpenALDevice.GetAudioSourcePosition*
+  implements:
+  - LibGFX.Audio.IAudioDevice.GetAudioSourcePosition(LibGFX.Audio.AudioSource)
+- uid: LibGFX.Audio.OpenALDevice.SetAudioSourceTime(LibGFX.Audio.AudioSource,System.Single)
+  commentId: M:LibGFX.Audio.OpenALDevice.SetAudioSourceTime(LibGFX.Audio.AudioSource,System.Single)
+  id: SetAudioSourceTime(LibGFX.Audio.AudioSource,System.Single)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: SetAudioSourceTime(AudioSource, float)
+  nameWithType: OpenALDevice.SetAudioSourceTime(AudioSource, float)
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioSourceTime(LibGFX.Audio.AudioSource, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetAudioSourceTime
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 151
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Sets the time of the audio source
+  example: []
+  syntax:
+    content: public void SetAudioSourceTime(AudioSource source, float time)
+    parameters:
+    - id: source
+      type: LibGFX.Audio.AudioSource
+      description: ''
+    - id: time
+      type: System.Single
+      description: ''
+    content.vb: Public Sub SetAudioSourceTime(source As AudioSource, time As Single)
+  overload: LibGFX.Audio.OpenALDevice.SetAudioSourceTime*
+  implements:
+  - LibGFX.Audio.IAudioDevice.SetAudioSourceTime(LibGFX.Audio.AudioSource,System.Single)
+  nameWithType.vb: OpenALDevice.SetAudioSourceTime(AudioSource, Single)
+  fullName.vb: LibGFX.Audio.OpenALDevice.SetAudioSourceTime(LibGFX.Audio.AudioSource, Single)
+  name.vb: SetAudioSourceTime(AudioSource, Single)
+- uid: LibGFX.Audio.OpenALDevice.GetAudioSourceTime(LibGFX.Audio.AudioSource)
+  commentId: M:LibGFX.Audio.OpenALDevice.GetAudioSourceTime(LibGFX.Audio.AudioSource)
+  id: GetAudioSourceTime(LibGFX.Audio.AudioSource)
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: GetAudioSourceTime(AudioSource)
+  nameWithType: OpenALDevice.GetAudioSourceTime(AudioSource)
+  fullName: LibGFX.Audio.OpenALDevice.GetAudioSourceTime(LibGFX.Audio.AudioSource)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetAudioSourceTime
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 156
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Gets the time of the audio source
+  example: []
+  syntax:
+    content: public float GetAudioSourceTime(AudioSource source)
+    parameters:
+    - id: source
+      type: LibGFX.Audio.AudioSource
+      description: ''
+    return:
+      type: System.Single
+      description: ''
+    content.vb: Public Function GetAudioSourceTime(source As AudioSource) As Single
+  overload: LibGFX.Audio.OpenALDevice.GetAudioSourceTime*
+  implements:
+  - LibGFX.Audio.IAudioDevice.GetAudioSourceTime(LibGFX.Audio.AudioSource)
+- uid: LibGFX.Audio.OpenALDevice.GetAudioListenerPosition
+  commentId: M:LibGFX.Audio.OpenALDevice.GetAudioListenerPosition
+  id: GetAudioListenerPosition
+  parent: LibGFX.Audio.OpenALDevice
+  langs:
+  - csharp
+  - vb
+  name: GetAudioListenerPosition()
+  nameWithType: OpenALDevice.GetAudioListenerPosition()
+  fullName: LibGFX.Audio.OpenALDevice.GetAudioListenerPosition()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/OpenALDevice.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetAudioListenerPosition
+    path: ../LibGFX/Audio/OpenALDevice.cs
+    startLine: 162
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Gets the position of the audio listener
+  example: []
+  syntax:
+    content: public Vector3 GetAudioListenerPosition()
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Function GetAudioListenerPosition() As Vector3
+  overload: LibGFX.Audio.OpenALDevice.GetAudioListenerPosition*
+  implements:
+  - LibGFX.Audio.IAudioDevice.GetAudioListenerPosition
+references:
+- uid: LibGFX.Audio
+  commentId: N:LibGFX.Audio
+  href: LibGFX.html
+  name: LibGFX.Audio
+  nameWithType: LibGFX.Audio
+  fullName: LibGFX.Audio
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Audio
+    name: Audio
+    href: LibGFX.Audio.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Audio
+    name: Audio
+    href: LibGFX.Audio.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Audio.IAudioDevice
+  commentId: T:LibGFX.Audio.IAudioDevice
+  parent: LibGFX.Audio
+  href: LibGFX.Audio.IAudioDevice.html
+  name: IAudioDevice
+  nameWithType: IAudioDevice
+  fullName: LibGFX.Audio.IAudioDevice
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Audio.OpenALDevice.InitializeAudioDevice*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.InitializeAudioDevice
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_InitializeAudioDevice
+  name: InitializeAudioDevice
+  nameWithType: OpenALDevice.InitializeAudioDevice
+  fullName: LibGFX.Audio.OpenALDevice.InitializeAudioDevice
+- uid: LibGFX.Audio.IAudioDevice.InitializeAudioDevice
+  commentId: M:LibGFX.Audio.IAudioDevice.InitializeAudioDevice
+  parent: LibGFX.Audio.IAudioDevice
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_InitializeAudioDevice
+  name: InitializeAudioDevice()
+  nameWithType: IAudioDevice.InitializeAudioDevice()
+  fullName: LibGFX.Audio.IAudioDevice.InitializeAudioDevice()
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.InitializeAudioDevice
+    name: InitializeAudioDevice
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_InitializeAudioDevice
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.InitializeAudioDevice
+    name: InitializeAudioDevice
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_InitializeAudioDevice
+  - name: (
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.MakeCurrent*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.MakeCurrent
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_MakeCurrent
+  name: MakeCurrent
+  nameWithType: OpenALDevice.MakeCurrent
+  fullName: LibGFX.Audio.OpenALDevice.MakeCurrent
+- uid: LibGFX.Audio.IAudioDevice.MakeCurrent
+  commentId: M:LibGFX.Audio.IAudioDevice.MakeCurrent
+  parent: LibGFX.Audio.IAudioDevice
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_MakeCurrent
+  name: MakeCurrent()
+  nameWithType: IAudioDevice.MakeCurrent()
+  fullName: LibGFX.Audio.IAudioDevice.MakeCurrent()
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.MakeCurrent
+    name: MakeCurrent
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_MakeCurrent
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.MakeCurrent
+    name: MakeCurrent
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_MakeCurrent
+  - name: (
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.SetDistanceModel*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.SetDistanceModel
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_SetDistanceModel
+  name: SetDistanceModel
+  nameWithType: OpenALDevice.SetDistanceModel
+  fullName: LibGFX.Audio.OpenALDevice.SetDistanceModel
+- uid: LibGFX.Audio.IAudioDevice.SetDistanceModel
+  commentId: M:LibGFX.Audio.IAudioDevice.SetDistanceModel
+  parent: LibGFX.Audio.IAudioDevice
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetDistanceModel
+  name: SetDistanceModel()
+  nameWithType: IAudioDevice.SetDistanceModel()
+  fullName: LibGFX.Audio.IAudioDevice.SetDistanceModel()
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.SetDistanceModel
+    name: SetDistanceModel
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetDistanceModel
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.SetDistanceModel
+    name: SetDistanceModel
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetDistanceModel
+  - name: (
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.LoadAudioClip*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.LoadAudioClip
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_LoadAudioClip_LibGFX_Audio_AudioClip_
+  name: LoadAudioClip
+  nameWithType: OpenALDevice.LoadAudioClip
+  fullName: LibGFX.Audio.OpenALDevice.LoadAudioClip
+- uid: LibGFX.Audio.IAudioDevice.LoadAudioClip(LibGFX.Audio.AudioClip)
+  commentId: M:LibGFX.Audio.IAudioDevice.LoadAudioClip(LibGFX.Audio.AudioClip)
+  parent: LibGFX.Audio.IAudioDevice
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_LoadAudioClip_LibGFX_Audio_AudioClip_
+  name: LoadAudioClip(AudioClip)
+  nameWithType: IAudioDevice.LoadAudioClip(AudioClip)
+  fullName: LibGFX.Audio.IAudioDevice.LoadAudioClip(LibGFX.Audio.AudioClip)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.LoadAudioClip(LibGFX.Audio.AudioClip)
+    name: LoadAudioClip
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_LoadAudioClip_LibGFX_Audio_AudioClip_
+  - name: (
+  - uid: LibGFX.Audio.AudioClip
+    name: AudioClip
+    href: LibGFX.Audio.AudioClip.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.LoadAudioClip(LibGFX.Audio.AudioClip)
+    name: LoadAudioClip
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_LoadAudioClip_LibGFX_Audio_AudioClip_
+  - name: (
+  - uid: LibGFX.Audio.AudioClip
+    name: AudioClip
+    href: LibGFX.Audio.AudioClip.html
+  - name: )
+- uid: LibGFX.Audio.AudioClip
+  commentId: T:LibGFX.Audio.AudioClip
+  parent: LibGFX.Audio
+  href: LibGFX.Audio.AudioClip.html
+  name: AudioClip
+  nameWithType: AudioClip
+  fullName: LibGFX.Audio.AudioClip
+- uid: LibGFX.Audio.OpenALDevice.LoadAudioSource*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.LoadAudioSource
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_LoadAudioSource_LibGFX_Audio_AudioSource_
+  name: LoadAudioSource
+  nameWithType: OpenALDevice.LoadAudioSource
+  fullName: LibGFX.Audio.OpenALDevice.LoadAudioSource
+- uid: LibGFX.Audio.IAudioDevice.LoadAudioSource(LibGFX.Audio.AudioSource)
+  commentId: M:LibGFX.Audio.IAudioDevice.LoadAudioSource(LibGFX.Audio.AudioSource)
+  parent: LibGFX.Audio.IAudioDevice
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_LoadAudioSource_LibGFX_Audio_AudioSource_
+  name: LoadAudioSource(AudioSource)
+  nameWithType: IAudioDevice.LoadAudioSource(AudioSource)
+  fullName: LibGFX.Audio.IAudioDevice.LoadAudioSource(LibGFX.Audio.AudioSource)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.LoadAudioSource(LibGFX.Audio.AudioSource)
+    name: LoadAudioSource
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_LoadAudioSource_LibGFX_Audio_AudioSource_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.LoadAudioSource(LibGFX.Audio.AudioSource)
+    name: LoadAudioSource
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_LoadAudioSource_LibGFX_Audio_AudioSource_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: )
+- uid: LibGFX.Audio.AudioSource
+  commentId: T:LibGFX.Audio.AudioSource
+  parent: LibGFX.Audio
+  href: LibGFX.Audio.AudioSource.html
+  name: AudioSource
+  nameWithType: AudioSource
+  fullName: LibGFX.Audio.AudioSource
+- uid: LibGFX.Audio.OpenALDevice.LoadSourceClip*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.LoadSourceClip
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_LoadSourceClip_LibGFX_Audio_AudioSource_LibGFX_Audio_AudioClip_
+  name: LoadSourceClip
+  nameWithType: OpenALDevice.LoadSourceClip
+  fullName: LibGFX.Audio.OpenALDevice.LoadSourceClip
+- uid: LibGFX.Audio.IAudioDevice.LoadSourceClip(LibGFX.Audio.AudioSource,LibGFX.Audio.AudioClip)
+  commentId: M:LibGFX.Audio.IAudioDevice.LoadSourceClip(LibGFX.Audio.AudioSource,LibGFX.Audio.AudioClip)
+  parent: LibGFX.Audio.IAudioDevice
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_LoadSourceClip_LibGFX_Audio_AudioSource_LibGFX_Audio_AudioClip_
+  name: LoadSourceClip(AudioSource, AudioClip)
+  nameWithType: IAudioDevice.LoadSourceClip(AudioSource, AudioClip)
+  fullName: LibGFX.Audio.IAudioDevice.LoadSourceClip(LibGFX.Audio.AudioSource, LibGFX.Audio.AudioClip)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.LoadSourceClip(LibGFX.Audio.AudioSource,LibGFX.Audio.AudioClip)
+    name: LoadSourceClip
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_LoadSourceClip_LibGFX_Audio_AudioSource_LibGFX_Audio_AudioClip_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Audio.AudioClip
+    name: AudioClip
+    href: LibGFX.Audio.AudioClip.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.LoadSourceClip(LibGFX.Audio.AudioSource,LibGFX.Audio.AudioClip)
+    name: LoadSourceClip
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_LoadSourceClip_LibGFX_Audio_AudioSource_LibGFX_Audio_AudioClip_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Audio.AudioClip
+    name: AudioClip
+    href: LibGFX.Audio.AudioClip.html
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.SetAudioListenerPosition*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.SetAudioListenerPosition
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_SetAudioListenerPosition_OpenTK_Mathematics_Vector3_
+  name: SetAudioListenerPosition
+  nameWithType: OpenALDevice.SetAudioListenerPosition
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioListenerPosition
+- uid: LibGFX.Audio.IAudioDevice.SetAudioListenerPosition(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Audio.IAudioDevice.SetAudioListenerPosition(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Audio.IAudioDevice
+  isExternal: true
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioListenerPosition_OpenTK_Mathematics_Vector3_
+  name: SetAudioListenerPosition(Vector3)
+  nameWithType: IAudioDevice.SetAudioListenerPosition(Vector3)
+  fullName: LibGFX.Audio.IAudioDevice.SetAudioListenerPosition(OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioListenerPosition(OpenTK.Mathematics.Vector3)
+    name: SetAudioListenerPosition
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioListenerPosition_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioListenerPosition(OpenTK.Mathematics.Vector3)
+    name: SetAudioListenerPosition
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioListenerPosition_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: OpenTK.Mathematics.Vector3
+  commentId: T:OpenTK.Mathematics.Vector3
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  name: Vector3
+  nameWithType: Vector3
+  fullName: OpenTK.Mathematics.Vector3
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Audio.OpenALDevice.SetAudioListenerOrientation*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.SetAudioListenerOrientation
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_SetAudioListenerOrientation_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  name: SetAudioListenerOrientation
+  nameWithType: OpenALDevice.SetAudioListenerOrientation
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioListenerOrientation
+- uid: LibGFX.Audio.IAudioDevice.SetAudioListenerOrientation(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Audio.IAudioDevice.SetAudioListenerOrientation(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Audio.IAudioDevice
+  isExternal: true
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioListenerOrientation_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  name: SetAudioListenerOrientation(Vector3, Vector3)
+  nameWithType: IAudioDevice.SetAudioListenerOrientation(Vector3, Vector3)
+  fullName: LibGFX.Audio.IAudioDevice.SetAudioListenerOrientation(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioListenerOrientation(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+    name: SetAudioListenerOrientation
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioListenerOrientation_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioListenerOrientation(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+    name: SetAudioListenerOrientation
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioListenerOrientation_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.SetAudioListenerVelocity*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.SetAudioListenerVelocity
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_SetAudioListenerVelocity_OpenTK_Mathematics_Vector3_
+  name: SetAudioListenerVelocity
+  nameWithType: OpenALDevice.SetAudioListenerVelocity
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioListenerVelocity
+- uid: LibGFX.Audio.IAudioDevice.SetAudioListenerVelocity(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Audio.IAudioDevice.SetAudioListenerVelocity(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Audio.IAudioDevice
+  isExternal: true
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioListenerVelocity_OpenTK_Mathematics_Vector3_
+  name: SetAudioListenerVelocity(Vector3)
+  nameWithType: IAudioDevice.SetAudioListenerVelocity(Vector3)
+  fullName: LibGFX.Audio.IAudioDevice.SetAudioListenerVelocity(OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioListenerVelocity(OpenTK.Mathematics.Vector3)
+    name: SetAudioListenerVelocity
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioListenerVelocity_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioListenerVelocity(OpenTK.Mathematics.Vector3)
+    name: SetAudioListenerVelocity
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioListenerVelocity_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.SetAudioSourcePosition*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.SetAudioSourcePosition
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_SetAudioSourcePosition_LibGFX_Audio_AudioSource_OpenTK_Mathematics_Vector3_
+  name: SetAudioSourcePosition
+  nameWithType: OpenALDevice.SetAudioSourcePosition
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioSourcePosition
+- uid: LibGFX.Audio.IAudioDevice.SetAudioSourcePosition(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Audio.IAudioDevice.SetAudioSourcePosition(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Audio.IAudioDevice
+  isExternal: true
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourcePosition_LibGFX_Audio_AudioSource_OpenTK_Mathematics_Vector3_
+  name: SetAudioSourcePosition(AudioSource, Vector3)
+  nameWithType: IAudioDevice.SetAudioSourcePosition(AudioSource, Vector3)
+  fullName: LibGFX.Audio.IAudioDevice.SetAudioSourcePosition(LibGFX.Audio.AudioSource, OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioSourcePosition(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+    name: SetAudioSourcePosition
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourcePosition_LibGFX_Audio_AudioSource_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioSourcePosition(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+    name: SetAudioSourcePosition
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourcePosition_LibGFX_Audio_AudioSource_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.DisposeAudioClip*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.DisposeAudioClip
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_DisposeAudioClip_LibGFX_Audio_AudioClip_
+  name: DisposeAudioClip
+  nameWithType: OpenALDevice.DisposeAudioClip
+  fullName: LibGFX.Audio.OpenALDevice.DisposeAudioClip
+- uid: LibGFX.Audio.IAudioDevice.DisposeAudioClip(LibGFX.Audio.AudioClip)
+  commentId: M:LibGFX.Audio.IAudioDevice.DisposeAudioClip(LibGFX.Audio.AudioClip)
+  parent: LibGFX.Audio.IAudioDevice
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_DisposeAudioClip_LibGFX_Audio_AudioClip_
+  name: DisposeAudioClip(AudioClip)
+  nameWithType: IAudioDevice.DisposeAudioClip(AudioClip)
+  fullName: LibGFX.Audio.IAudioDevice.DisposeAudioClip(LibGFX.Audio.AudioClip)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.DisposeAudioClip(LibGFX.Audio.AudioClip)
+    name: DisposeAudioClip
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_DisposeAudioClip_LibGFX_Audio_AudioClip_
+  - name: (
+  - uid: LibGFX.Audio.AudioClip
+    name: AudioClip
+    href: LibGFX.Audio.AudioClip.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.DisposeAudioClip(LibGFX.Audio.AudioClip)
+    name: DisposeAudioClip
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_DisposeAudioClip_LibGFX_Audio_AudioClip_
+  - name: (
+  - uid: LibGFX.Audio.AudioClip
+    name: AudioClip
+    href: LibGFX.Audio.AudioClip.html
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.DisposeAudioSource*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.DisposeAudioSource
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_DisposeAudioSource_LibGFX_Audio_AudioSource_
+  name: DisposeAudioSource
+  nameWithType: OpenALDevice.DisposeAudioSource
+  fullName: LibGFX.Audio.OpenALDevice.DisposeAudioSource
+- uid: LibGFX.Audio.IAudioDevice.DisposeAudioSource(LibGFX.Audio.AudioSource)
+  commentId: M:LibGFX.Audio.IAudioDevice.DisposeAudioSource(LibGFX.Audio.AudioSource)
+  parent: LibGFX.Audio.IAudioDevice
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_DisposeAudioSource_LibGFX_Audio_AudioSource_
+  name: DisposeAudioSource(AudioSource)
+  nameWithType: IAudioDevice.DisposeAudioSource(AudioSource)
+  fullName: LibGFX.Audio.IAudioDevice.DisposeAudioSource(LibGFX.Audio.AudioSource)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.DisposeAudioSource(LibGFX.Audio.AudioSource)
+    name: DisposeAudioSource
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_DisposeAudioSource_LibGFX_Audio_AudioSource_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.DisposeAudioSource(LibGFX.Audio.AudioSource)
+    name: DisposeAudioSource
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_DisposeAudioSource_LibGFX_Audio_AudioSource_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.SetAudioSourceVelocity*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.SetAudioSourceVelocity
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_SetAudioSourceVelocity_LibGFX_Audio_AudioSource_OpenTK_Mathematics_Vector3_
+  name: SetAudioSourceVelocity
+  nameWithType: OpenALDevice.SetAudioSourceVelocity
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioSourceVelocity
+- uid: LibGFX.Audio.IAudioDevice.SetAudioSourceVelocity(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Audio.IAudioDevice.SetAudioSourceVelocity(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Audio.IAudioDevice
+  isExternal: true
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourceVelocity_LibGFX_Audio_AudioSource_OpenTK_Mathematics_Vector3_
+  name: SetAudioSourceVelocity(AudioSource, Vector3)
+  nameWithType: IAudioDevice.SetAudioSourceVelocity(AudioSource, Vector3)
+  fullName: LibGFX.Audio.IAudioDevice.SetAudioSourceVelocity(LibGFX.Audio.AudioSource, OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioSourceVelocity(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+    name: SetAudioSourceVelocity
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourceVelocity_LibGFX_Audio_AudioSource_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioSourceVelocity(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)
+    name: SetAudioSourceVelocity
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourceVelocity_LibGFX_Audio_AudioSource_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.SetAudioSourcePitch*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.SetAudioSourcePitch
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_SetAudioSourcePitch_LibGFX_Audio_AudioSource_System_Single_
+  name: SetAudioSourcePitch
+  nameWithType: OpenALDevice.SetAudioSourcePitch
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioSourcePitch
+- uid: LibGFX.Audio.IAudioDevice.SetAudioSourcePitch(LibGFX.Audio.AudioSource,System.Single)
+  commentId: M:LibGFX.Audio.IAudioDevice.SetAudioSourcePitch(LibGFX.Audio.AudioSource,System.Single)
+  parent: LibGFX.Audio.IAudioDevice
+  isExternal: true
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourcePitch_LibGFX_Audio_AudioSource_System_Single_
+  name: SetAudioSourcePitch(AudioSource, float)
+  nameWithType: IAudioDevice.SetAudioSourcePitch(AudioSource, float)
+  fullName: LibGFX.Audio.IAudioDevice.SetAudioSourcePitch(LibGFX.Audio.AudioSource, float)
+  nameWithType.vb: IAudioDevice.SetAudioSourcePitch(AudioSource, Single)
+  fullName.vb: LibGFX.Audio.IAudioDevice.SetAudioSourcePitch(LibGFX.Audio.AudioSource, Single)
+  name.vb: SetAudioSourcePitch(AudioSource, Single)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioSourcePitch(LibGFX.Audio.AudioSource,System.Single)
+    name: SetAudioSourcePitch
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourcePitch_LibGFX_Audio_AudioSource_System_Single_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioSourcePitch(LibGFX.Audio.AudioSource,System.Single)
+    name: SetAudioSourcePitch
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourcePitch_LibGFX_Audio_AudioSource_System_Single_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Audio.OpenALDevice.SetAudioSourceGain*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.SetAudioSourceGain
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_SetAudioSourceGain_LibGFX_Audio_AudioSource_System_Single_
+  name: SetAudioSourceGain
+  nameWithType: OpenALDevice.SetAudioSourceGain
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioSourceGain
+- uid: LibGFX.Audio.IAudioDevice.SetAudioSourceGain(LibGFX.Audio.AudioSource,System.Single)
+  commentId: M:LibGFX.Audio.IAudioDevice.SetAudioSourceGain(LibGFX.Audio.AudioSource,System.Single)
+  parent: LibGFX.Audio.IAudioDevice
+  isExternal: true
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourceGain_LibGFX_Audio_AudioSource_System_Single_
+  name: SetAudioSourceGain(AudioSource, float)
+  nameWithType: IAudioDevice.SetAudioSourceGain(AudioSource, float)
+  fullName: LibGFX.Audio.IAudioDevice.SetAudioSourceGain(LibGFX.Audio.AudioSource, float)
+  nameWithType.vb: IAudioDevice.SetAudioSourceGain(AudioSource, Single)
+  fullName.vb: LibGFX.Audio.IAudioDevice.SetAudioSourceGain(LibGFX.Audio.AudioSource, Single)
+  name.vb: SetAudioSourceGain(AudioSource, Single)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioSourceGain(LibGFX.Audio.AudioSource,System.Single)
+    name: SetAudioSourceGain
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourceGain_LibGFX_Audio_AudioSource_System_Single_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioSourceGain(LibGFX.Audio.AudioSource,System.Single)
+    name: SetAudioSourceGain
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourceGain_LibGFX_Audio_AudioSource_System_Single_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.SetAudioSourceLooping*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.SetAudioSourceLooping
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_SetAudioSourceLooping_LibGFX_Audio_AudioSource_System_Boolean_
+  name: SetAudioSourceLooping
+  nameWithType: OpenALDevice.SetAudioSourceLooping
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioSourceLooping
+- uid: LibGFX.Audio.IAudioDevice.SetAudioSourceLooping(LibGFX.Audio.AudioSource,System.Boolean)
+  commentId: M:LibGFX.Audio.IAudioDevice.SetAudioSourceLooping(LibGFX.Audio.AudioSource,System.Boolean)
+  parent: LibGFX.Audio.IAudioDevice
+  isExternal: true
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourceLooping_LibGFX_Audio_AudioSource_System_Boolean_
+  name: SetAudioSourceLooping(AudioSource, bool)
+  nameWithType: IAudioDevice.SetAudioSourceLooping(AudioSource, bool)
+  fullName: LibGFX.Audio.IAudioDevice.SetAudioSourceLooping(LibGFX.Audio.AudioSource, bool)
+  nameWithType.vb: IAudioDevice.SetAudioSourceLooping(AudioSource, Boolean)
+  fullName.vb: LibGFX.Audio.IAudioDevice.SetAudioSourceLooping(LibGFX.Audio.AudioSource, Boolean)
+  name.vb: SetAudioSourceLooping(AudioSource, Boolean)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioSourceLooping(LibGFX.Audio.AudioSource,System.Boolean)
+    name: SetAudioSourceLooping
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourceLooping_LibGFX_Audio_AudioSource_System_Boolean_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioSourceLooping(LibGFX.Audio.AudioSource,System.Boolean)
+    name: SetAudioSourceLooping
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourceLooping_LibGFX_Audio_AudioSource_System_Boolean_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Audio.OpenALDevice.PlayAudioSource*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.PlayAudioSource
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_PlayAudioSource_LibGFX_Audio_AudioSource_
+  name: PlayAudioSource
+  nameWithType: OpenALDevice.PlayAudioSource
+  fullName: LibGFX.Audio.OpenALDevice.PlayAudioSource
+- uid: LibGFX.Audio.IAudioDevice.PlayAudioSource(LibGFX.Audio.AudioSource)
+  commentId: M:LibGFX.Audio.IAudioDevice.PlayAudioSource(LibGFX.Audio.AudioSource)
+  parent: LibGFX.Audio.IAudioDevice
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_PlayAudioSource_LibGFX_Audio_AudioSource_
+  name: PlayAudioSource(AudioSource)
+  nameWithType: IAudioDevice.PlayAudioSource(AudioSource)
+  fullName: LibGFX.Audio.IAudioDevice.PlayAudioSource(LibGFX.Audio.AudioSource)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.PlayAudioSource(LibGFX.Audio.AudioSource)
+    name: PlayAudioSource
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_PlayAudioSource_LibGFX_Audio_AudioSource_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.PlayAudioSource(LibGFX.Audio.AudioSource)
+    name: PlayAudioSource
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_PlayAudioSource_LibGFX_Audio_AudioSource_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.StopAudioSource*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.StopAudioSource
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_StopAudioSource_LibGFX_Audio_AudioSource_
+  name: StopAudioSource
+  nameWithType: OpenALDevice.StopAudioSource
+  fullName: LibGFX.Audio.OpenALDevice.StopAudioSource
+- uid: LibGFX.Audio.IAudioDevice.StopAudioSource(LibGFX.Audio.AudioSource)
+  commentId: M:LibGFX.Audio.IAudioDevice.StopAudioSource(LibGFX.Audio.AudioSource)
+  parent: LibGFX.Audio.IAudioDevice
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_StopAudioSource_LibGFX_Audio_AudioSource_
+  name: StopAudioSource(AudioSource)
+  nameWithType: IAudioDevice.StopAudioSource(AudioSource)
+  fullName: LibGFX.Audio.IAudioDevice.StopAudioSource(LibGFX.Audio.AudioSource)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.StopAudioSource(LibGFX.Audio.AudioSource)
+    name: StopAudioSource
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_StopAudioSource_LibGFX_Audio_AudioSource_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.StopAudioSource(LibGFX.Audio.AudioSource)
+    name: StopAudioSource
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_StopAudioSource_LibGFX_Audio_AudioSource_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.PauseAudioSource*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.PauseAudioSource
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_PauseAudioSource_LibGFX_Audio_AudioSource_
+  name: PauseAudioSource
+  nameWithType: OpenALDevice.PauseAudioSource
+  fullName: LibGFX.Audio.OpenALDevice.PauseAudioSource
+- uid: LibGFX.Audio.IAudioDevice.PauseAudioSource(LibGFX.Audio.AudioSource)
+  commentId: M:LibGFX.Audio.IAudioDevice.PauseAudioSource(LibGFX.Audio.AudioSource)
+  parent: LibGFX.Audio.IAudioDevice
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_PauseAudioSource_LibGFX_Audio_AudioSource_
+  name: PauseAudioSource(AudioSource)
+  nameWithType: IAudioDevice.PauseAudioSource(AudioSource)
+  fullName: LibGFX.Audio.IAudioDevice.PauseAudioSource(LibGFX.Audio.AudioSource)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.PauseAudioSource(LibGFX.Audio.AudioSource)
+    name: PauseAudioSource
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_PauseAudioSource_LibGFX_Audio_AudioSource_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.PauseAudioSource(LibGFX.Audio.AudioSource)
+    name: PauseAudioSource
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_PauseAudioSource_LibGFX_Audio_AudioSource_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.SetAudioSourceRange*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.SetAudioSourceRange
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_SetAudioSourceRange_LibGFX_Audio_AudioSource_System_Single_System_Single_System_Single_
+  name: SetAudioSourceRange
+  nameWithType: OpenALDevice.SetAudioSourceRange
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioSourceRange
+- uid: LibGFX.Audio.IAudioDevice.SetAudioSourceRange(LibGFX.Audio.AudioSource,System.Single,System.Single,System.Single)
+  commentId: M:LibGFX.Audio.IAudioDevice.SetAudioSourceRange(LibGFX.Audio.AudioSource,System.Single,System.Single,System.Single)
+  parent: LibGFX.Audio.IAudioDevice
+  isExternal: true
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourceRange_LibGFX_Audio_AudioSource_System_Single_System_Single_System_Single_
+  name: SetAudioSourceRange(AudioSource, float, float, float)
+  nameWithType: IAudioDevice.SetAudioSourceRange(AudioSource, float, float, float)
+  fullName: LibGFX.Audio.IAudioDevice.SetAudioSourceRange(LibGFX.Audio.AudioSource, float, float, float)
+  nameWithType.vb: IAudioDevice.SetAudioSourceRange(AudioSource, Single, Single, Single)
+  fullName.vb: LibGFX.Audio.IAudioDevice.SetAudioSourceRange(LibGFX.Audio.AudioSource, Single, Single, Single)
+  name.vb: SetAudioSourceRange(AudioSource, Single, Single, Single)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioSourceRange(LibGFX.Audio.AudioSource,System.Single,System.Single,System.Single)
+    name: SetAudioSourceRange
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourceRange_LibGFX_Audio_AudioSource_System_Single_System_Single_System_Single_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioSourceRange(LibGFX.Audio.AudioSource,System.Single,System.Single,System.Single)
+    name: SetAudioSourceRange
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourceRange_LibGFX_Audio_AudioSource_System_Single_System_Single_System_Single_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.GetAudioSourcePosition*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.GetAudioSourcePosition
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_GetAudioSourcePosition_LibGFX_Audio_AudioSource_
+  name: GetAudioSourcePosition
+  nameWithType: OpenALDevice.GetAudioSourcePosition
+  fullName: LibGFX.Audio.OpenALDevice.GetAudioSourcePosition
+- uid: LibGFX.Audio.IAudioDevice.GetAudioSourcePosition(LibGFX.Audio.AudioSource)
+  commentId: M:LibGFX.Audio.IAudioDevice.GetAudioSourcePosition(LibGFX.Audio.AudioSource)
+  parent: LibGFX.Audio.IAudioDevice
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_GetAudioSourcePosition_LibGFX_Audio_AudioSource_
+  name: GetAudioSourcePosition(AudioSource)
+  nameWithType: IAudioDevice.GetAudioSourcePosition(AudioSource)
+  fullName: LibGFX.Audio.IAudioDevice.GetAudioSourcePosition(LibGFX.Audio.AudioSource)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.GetAudioSourcePosition(LibGFX.Audio.AudioSource)
+    name: GetAudioSourcePosition
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_GetAudioSourcePosition_LibGFX_Audio_AudioSource_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.GetAudioSourcePosition(LibGFX.Audio.AudioSource)
+    name: GetAudioSourcePosition
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_GetAudioSourcePosition_LibGFX_Audio_AudioSource_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.SetAudioSourceTime*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.SetAudioSourceTime
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_SetAudioSourceTime_LibGFX_Audio_AudioSource_System_Single_
+  name: SetAudioSourceTime
+  nameWithType: OpenALDevice.SetAudioSourceTime
+  fullName: LibGFX.Audio.OpenALDevice.SetAudioSourceTime
+- uid: LibGFX.Audio.IAudioDevice.SetAudioSourceTime(LibGFX.Audio.AudioSource,System.Single)
+  commentId: M:LibGFX.Audio.IAudioDevice.SetAudioSourceTime(LibGFX.Audio.AudioSource,System.Single)
+  parent: LibGFX.Audio.IAudioDevice
+  isExternal: true
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourceTime_LibGFX_Audio_AudioSource_System_Single_
+  name: SetAudioSourceTime(AudioSource, float)
+  nameWithType: IAudioDevice.SetAudioSourceTime(AudioSource, float)
+  fullName: LibGFX.Audio.IAudioDevice.SetAudioSourceTime(LibGFX.Audio.AudioSource, float)
+  nameWithType.vb: IAudioDevice.SetAudioSourceTime(AudioSource, Single)
+  fullName.vb: LibGFX.Audio.IAudioDevice.SetAudioSourceTime(LibGFX.Audio.AudioSource, Single)
+  name.vb: SetAudioSourceTime(AudioSource, Single)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioSourceTime(LibGFX.Audio.AudioSource,System.Single)
+    name: SetAudioSourceTime
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourceTime_LibGFX_Audio_AudioSource_System_Single_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.SetAudioSourceTime(LibGFX.Audio.AudioSource,System.Single)
+    name: SetAudioSourceTime
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_SetAudioSourceTime_LibGFX_Audio_AudioSource_System_Single_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.GetAudioSourceTime*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.GetAudioSourceTime
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_GetAudioSourceTime_LibGFX_Audio_AudioSource_
+  name: GetAudioSourceTime
+  nameWithType: OpenALDevice.GetAudioSourceTime
+  fullName: LibGFX.Audio.OpenALDevice.GetAudioSourceTime
+- uid: LibGFX.Audio.IAudioDevice.GetAudioSourceTime(LibGFX.Audio.AudioSource)
+  commentId: M:LibGFX.Audio.IAudioDevice.GetAudioSourceTime(LibGFX.Audio.AudioSource)
+  parent: LibGFX.Audio.IAudioDevice
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_GetAudioSourceTime_LibGFX_Audio_AudioSource_
+  name: GetAudioSourceTime(AudioSource)
+  nameWithType: IAudioDevice.GetAudioSourceTime(AudioSource)
+  fullName: LibGFX.Audio.IAudioDevice.GetAudioSourceTime(LibGFX.Audio.AudioSource)
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.GetAudioSourceTime(LibGFX.Audio.AudioSource)
+    name: GetAudioSourceTime
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_GetAudioSourceTime_LibGFX_Audio_AudioSource_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.GetAudioSourceTime(LibGFX.Audio.AudioSource)
+    name: GetAudioSourceTime
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_GetAudioSourceTime_LibGFX_Audio_AudioSource_
+  - name: (
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    href: LibGFX.Audio.AudioSource.html
+  - name: )
+- uid: LibGFX.Audio.OpenALDevice.GetAudioListenerPosition*
+  commentId: Overload:LibGFX.Audio.OpenALDevice.GetAudioListenerPosition
+  href: LibGFX.Audio.OpenALDevice.html#LibGFX_Audio_OpenALDevice_GetAudioListenerPosition
+  name: GetAudioListenerPosition
+  nameWithType: OpenALDevice.GetAudioListenerPosition
+  fullName: LibGFX.Audio.OpenALDevice.GetAudioListenerPosition
+- uid: LibGFX.Audio.IAudioDevice.GetAudioListenerPosition
+  commentId: M:LibGFX.Audio.IAudioDevice.GetAudioListenerPosition
+  parent: LibGFX.Audio.IAudioDevice
+  href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_GetAudioListenerPosition
+  name: GetAudioListenerPosition()
+  nameWithType: IAudioDevice.GetAudioListenerPosition()
+  fullName: LibGFX.Audio.IAudioDevice.GetAudioListenerPosition()
+  spec.csharp:
+  - uid: LibGFX.Audio.IAudioDevice.GetAudioListenerPosition
+    name: GetAudioListenerPosition
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_GetAudioListenerPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Audio.IAudioDevice.GetAudioListenerPosition
+    name: GetAudioListenerPosition
+    href: LibGFX.Audio.IAudioDevice.html#LibGFX_Audio_IAudioDevice_GetAudioListenerPosition
+  - name: (
+  - name: )

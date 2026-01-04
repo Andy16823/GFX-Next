@@ -1,0 +1,301 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.FontAlignment
+  commentId: T:LibGFX.Graphics.FontAlignment
+  id: FontAlignment
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.FontAlignment.BottomCenter
+  - LibGFX.Graphics.FontAlignment.BottomLeft
+  - LibGFX.Graphics.FontAlignment.BottomRight
+  - LibGFX.Graphics.FontAlignment.Center
+  - LibGFX.Graphics.FontAlignment.Left
+  - LibGFX.Graphics.FontAlignment.Right
+  - LibGFX.Graphics.FontAlignment.TopCenter
+  - LibGFX.Graphics.FontAlignment.TopLeft
+  - LibGFX.Graphics.FontAlignment.TopRight
+  langs:
+  - csharp
+  - vb
+  name: FontAlignment
+  nameWithType: FontAlignment
+  fullName: LibGFX.Graphics.FontAlignment
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/Font.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FontAlignment
+    path: ../LibGFX/Graphics/Font.cs
+    startLine: 13
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public enum FontAlignment
+    content.vb: Public Enum FontAlignment
+- uid: LibGFX.Graphics.FontAlignment.BottomLeft
+  commentId: F:LibGFX.Graphics.FontAlignment.BottomLeft
+  id: BottomLeft
+  parent: LibGFX.Graphics.FontAlignment
+  langs:
+  - csharp
+  - vb
+  name: BottomLeft
+  nameWithType: FontAlignment.BottomLeft
+  fullName: LibGFX.Graphics.FontAlignment.BottomLeft
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Font.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BottomLeft
+    path: ../LibGFX/Graphics/Font.cs
+    startLine: 15
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: BottomLeft = 0
+    return:
+      type: LibGFX.Graphics.FontAlignment
+- uid: LibGFX.Graphics.FontAlignment.BottomCenter
+  commentId: F:LibGFX.Graphics.FontAlignment.BottomCenter
+  id: BottomCenter
+  parent: LibGFX.Graphics.FontAlignment
+  langs:
+  - csharp
+  - vb
+  name: BottomCenter
+  nameWithType: FontAlignment.BottomCenter
+  fullName: LibGFX.Graphics.FontAlignment.BottomCenter
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Font.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BottomCenter
+    path: ../LibGFX/Graphics/Font.cs
+    startLine: 16
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: BottomCenter = 1
+    return:
+      type: LibGFX.Graphics.FontAlignment
+- uid: LibGFX.Graphics.FontAlignment.BottomRight
+  commentId: F:LibGFX.Graphics.FontAlignment.BottomRight
+  id: BottomRight
+  parent: LibGFX.Graphics.FontAlignment
+  langs:
+  - csharp
+  - vb
+  name: BottomRight
+  nameWithType: FontAlignment.BottomRight
+  fullName: LibGFX.Graphics.FontAlignment.BottomRight
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Font.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BottomRight
+    path: ../LibGFX/Graphics/Font.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: BottomRight = 2
+    return:
+      type: LibGFX.Graphics.FontAlignment
+- uid: LibGFX.Graphics.FontAlignment.Left
+  commentId: F:LibGFX.Graphics.FontAlignment.Left
+  id: Left
+  parent: LibGFX.Graphics.FontAlignment
+  langs:
+  - csharp
+  - vb
+  name: Left
+  nameWithType: FontAlignment.Left
+  fullName: LibGFX.Graphics.FontAlignment.Left
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Font.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Left
+    path: ../LibGFX/Graphics/Font.cs
+    startLine: 18
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Left = 3
+    return:
+      type: LibGFX.Graphics.FontAlignment
+- uid: LibGFX.Graphics.FontAlignment.Center
+  commentId: F:LibGFX.Graphics.FontAlignment.Center
+  id: Center
+  parent: LibGFX.Graphics.FontAlignment
+  langs:
+  - csharp
+  - vb
+  name: Center
+  nameWithType: FontAlignment.Center
+  fullName: LibGFX.Graphics.FontAlignment.Center
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Font.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Center
+    path: ../LibGFX/Graphics/Font.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Center = 4
+    return:
+      type: LibGFX.Graphics.FontAlignment
+- uid: LibGFX.Graphics.FontAlignment.Right
+  commentId: F:LibGFX.Graphics.FontAlignment.Right
+  id: Right
+  parent: LibGFX.Graphics.FontAlignment
+  langs:
+  - csharp
+  - vb
+  name: Right
+  nameWithType: FontAlignment.Right
+  fullName: LibGFX.Graphics.FontAlignment.Right
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Font.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Right
+    path: ../LibGFX/Graphics/Font.cs
+    startLine: 20
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Right = 5
+    return:
+      type: LibGFX.Graphics.FontAlignment
+- uid: LibGFX.Graphics.FontAlignment.TopLeft
+  commentId: F:LibGFX.Graphics.FontAlignment.TopLeft
+  id: TopLeft
+  parent: LibGFX.Graphics.FontAlignment
+  langs:
+  - csharp
+  - vb
+  name: TopLeft
+  nameWithType: FontAlignment.TopLeft
+  fullName: LibGFX.Graphics.FontAlignment.TopLeft
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Font.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TopLeft
+    path: ../LibGFX/Graphics/Font.cs
+    startLine: 21
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TopLeft = 6
+    return:
+      type: LibGFX.Graphics.FontAlignment
+- uid: LibGFX.Graphics.FontAlignment.TopCenter
+  commentId: F:LibGFX.Graphics.FontAlignment.TopCenter
+  id: TopCenter
+  parent: LibGFX.Graphics.FontAlignment
+  langs:
+  - csharp
+  - vb
+  name: TopCenter
+  nameWithType: FontAlignment.TopCenter
+  fullName: LibGFX.Graphics.FontAlignment.TopCenter
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Font.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TopCenter
+    path: ../LibGFX/Graphics/Font.cs
+    startLine: 22
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TopCenter = 7
+    return:
+      type: LibGFX.Graphics.FontAlignment
+- uid: LibGFX.Graphics.FontAlignment.TopRight
+  commentId: F:LibGFX.Graphics.FontAlignment.TopRight
+  id: TopRight
+  parent: LibGFX.Graphics.FontAlignment
+  langs:
+  - csharp
+  - vb
+  name: TopRight
+  nameWithType: FontAlignment.TopRight
+  fullName: LibGFX.Graphics.FontAlignment.TopRight
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Font.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TopRight
+    path: ../LibGFX/Graphics/Font.cs
+    startLine: 23
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: TopRight = 8
+    return:
+      type: LibGFX.Graphics.FontAlignment
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.FontAlignment
+  commentId: T:LibGFX.Graphics.FontAlignment
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.FontAlignment.html
+  name: FontAlignment
+  nameWithType: FontAlignment
+  fullName: LibGFX.Graphics.FontAlignment

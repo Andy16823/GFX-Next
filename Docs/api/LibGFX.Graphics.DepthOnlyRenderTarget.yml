@@ -1,0 +1,579 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.DepthOnlyRenderTarget
+  commentId: T:LibGFX.Graphics.DepthOnlyRenderTarget
+  id: DepthOnlyRenderTarget
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.DepthOnlyRenderTarget.DepthTextureId
+  - LibGFX.Graphics.DepthOnlyRenderTarget.Dispose(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.DepthOnlyRenderTarget.FramebufferId
+  - LibGFX.Graphics.DepthOnlyRenderTarget.Height
+  - LibGFX.Graphics.DepthOnlyRenderTarget.Width
+  langs:
+  - csharp
+  - vb
+  name: DepthOnlyRenderTarget
+  nameWithType: DepthOnlyRenderTarget
+  fullName: LibGFX.Graphics.DepthOnlyRenderTarget
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Graphics/DepthOnlyRenderTarget.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DepthOnlyRenderTarget
+    path: ../LibGFX/Graphics/DepthOnlyRenderTarget.cs
+    startLine: 12
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: >-
+    Represents a render target that only contains a depth texture.
+
+    Useful for shadow mapping and depth pre-pass techniques.
+  example: []
+  syntax:
+    content: 'public class DepthOnlyRenderTarget : IRenderTarget, IRendererResource'
+    content.vb: Public Class DepthOnlyRenderTarget Implements IRenderTarget, IRendererResource
+  inheritance:
+  - System.Object
+  implements:
+  - LibGFX.Graphics.IRenderTarget
+  - LibGFX.Core.IRendererResource
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Graphics.DepthOnlyRenderTarget.FramebufferId
+  commentId: P:LibGFX.Graphics.DepthOnlyRenderTarget.FramebufferId
+  id: FramebufferId
+  parent: LibGFX.Graphics.DepthOnlyRenderTarget
+  langs:
+  - csharp
+  - vb
+  name: FramebufferId
+  nameWithType: DepthOnlyRenderTarget.FramebufferId
+  fullName: LibGFX.Graphics.DepthOnlyRenderTarget.FramebufferId
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/DepthOnlyRenderTarget.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FramebufferId
+    path: ../LibGFX/Graphics/DepthOnlyRenderTarget.cs
+    startLine: 14
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: The unique identifier for the render target.
+  example: []
+  syntax:
+    content: public int FramebufferId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property FramebufferId As Integer
+  overload: LibGFX.Graphics.DepthOnlyRenderTarget.FramebufferId*
+  implements:
+  - LibGFX.Graphics.IRenderTarget.FramebufferId
+- uid: LibGFX.Graphics.DepthOnlyRenderTarget.DepthTextureId
+  commentId: P:LibGFX.Graphics.DepthOnlyRenderTarget.DepthTextureId
+  id: DepthTextureId
+  parent: LibGFX.Graphics.DepthOnlyRenderTarget
+  langs:
+  - csharp
+  - vb
+  name: DepthTextureId
+  nameWithType: DepthOnlyRenderTarget.DepthTextureId
+  fullName: LibGFX.Graphics.DepthOnlyRenderTarget.DepthTextureId
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/DepthOnlyRenderTarget.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DepthTextureId
+    path: ../LibGFX/Graphics/DepthOnlyRenderTarget.cs
+    startLine: 15
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public int DepthTextureId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property DepthTextureId As Integer
+  overload: LibGFX.Graphics.DepthOnlyRenderTarget.DepthTextureId*
+- uid: LibGFX.Graphics.DepthOnlyRenderTarget.Width
+  commentId: P:LibGFX.Graphics.DepthOnlyRenderTarget.Width
+  id: Width
+  parent: LibGFX.Graphics.DepthOnlyRenderTarget
+  langs:
+  - csharp
+  - vb
+  name: Width
+  nameWithType: DepthOnlyRenderTarget.Width
+  fullName: LibGFX.Graphics.DepthOnlyRenderTarget.Width
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/DepthOnlyRenderTarget.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Width
+    path: ../LibGFX/Graphics/DepthOnlyRenderTarget.cs
+    startLine: 16
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public int Width { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Width As Integer
+  overload: LibGFX.Graphics.DepthOnlyRenderTarget.Width*
+- uid: LibGFX.Graphics.DepthOnlyRenderTarget.Height
+  commentId: P:LibGFX.Graphics.DepthOnlyRenderTarget.Height
+  id: Height
+  parent: LibGFX.Graphics.DepthOnlyRenderTarget
+  langs:
+  - csharp
+  - vb
+  name: Height
+  nameWithType: DepthOnlyRenderTarget.Height
+  fullName: LibGFX.Graphics.DepthOnlyRenderTarget.Height
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/DepthOnlyRenderTarget.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Height
+    path: ../LibGFX/Graphics/DepthOnlyRenderTarget.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public int Height { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Height As Integer
+  overload: LibGFX.Graphics.DepthOnlyRenderTarget.Height*
+- uid: LibGFX.Graphics.DepthOnlyRenderTarget.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.DepthOnlyRenderTarget.Dispose(LibGFX.Graphics.IRenderDevice)
+  id: Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.DepthOnlyRenderTarget
+  langs:
+  - csharp
+  - vb
+  name: Dispose(IRenderDevice)
+  nameWithType: DepthOnlyRenderTarget.Dispose(IRenderDevice)
+  fullName: LibGFX.Graphics.DepthOnlyRenderTarget.Dispose(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/DepthOnlyRenderTarget.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/Graphics/DepthOnlyRenderTarget.cs
+    startLine: 20
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  example: []
+  syntax:
+    content: public void Dispose(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+    content.vb: Public Sub Dispose(renderer As IRenderDevice)
+  overload: LibGFX.Graphics.DepthOnlyRenderTarget.Dispose*
+  implements:
+  - LibGFX.Core.IRendererResource.Dispose(LibGFX.Graphics.IRenderDevice)
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Graphics.IRenderTarget
+  commentId: T:LibGFX.Graphics.IRenderTarget
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderTarget.html
+  name: IRenderTarget
+  nameWithType: IRenderTarget
+  fullName: LibGFX.Graphics.IRenderTarget
+- uid: LibGFX.Core.IRendererResource
+  commentId: T:LibGFX.Core.IRendererResource
+  parent: LibGFX.Core
+  href: LibGFX.Core.IRendererResource.html
+  name: IRendererResource
+  nameWithType: IRendererResource
+  fullName: LibGFX.Core.IRendererResource
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Graphics.DepthOnlyRenderTarget.FramebufferId*
+  commentId: Overload:LibGFX.Graphics.DepthOnlyRenderTarget.FramebufferId
+  href: LibGFX.Graphics.DepthOnlyRenderTarget.html#LibGFX_Graphics_DepthOnlyRenderTarget_FramebufferId
+  name: FramebufferId
+  nameWithType: DepthOnlyRenderTarget.FramebufferId
+  fullName: LibGFX.Graphics.DepthOnlyRenderTarget.FramebufferId
+- uid: LibGFX.Graphics.IRenderTarget.FramebufferId
+  commentId: P:LibGFX.Graphics.IRenderTarget.FramebufferId
+  parent: LibGFX.Graphics.IRenderTarget
+  href: LibGFX.Graphics.IRenderTarget.html#LibGFX_Graphics_IRenderTarget_FramebufferId
+  name: FramebufferId
+  nameWithType: IRenderTarget.FramebufferId
+  fullName: LibGFX.Graphics.IRenderTarget.FramebufferId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LibGFX.Graphics.DepthOnlyRenderTarget.DepthTextureId*
+  commentId: Overload:LibGFX.Graphics.DepthOnlyRenderTarget.DepthTextureId
+  href: LibGFX.Graphics.DepthOnlyRenderTarget.html#LibGFX_Graphics_DepthOnlyRenderTarget_DepthTextureId
+  name: DepthTextureId
+  nameWithType: DepthOnlyRenderTarget.DepthTextureId
+  fullName: LibGFX.Graphics.DepthOnlyRenderTarget.DepthTextureId
+- uid: LibGFX.Graphics.DepthOnlyRenderTarget.Width*
+  commentId: Overload:LibGFX.Graphics.DepthOnlyRenderTarget.Width
+  href: LibGFX.Graphics.DepthOnlyRenderTarget.html#LibGFX_Graphics_DepthOnlyRenderTarget_Width
+  name: Width
+  nameWithType: DepthOnlyRenderTarget.Width
+  fullName: LibGFX.Graphics.DepthOnlyRenderTarget.Width
+- uid: LibGFX.Graphics.DepthOnlyRenderTarget.Height*
+  commentId: Overload:LibGFX.Graphics.DepthOnlyRenderTarget.Height
+  href: LibGFX.Graphics.DepthOnlyRenderTarget.html#LibGFX_Graphics_DepthOnlyRenderTarget_Height
+  name: Height
+  nameWithType: DepthOnlyRenderTarget.Height
+  fullName: LibGFX.Graphics.DepthOnlyRenderTarget.Height
+- uid: LibGFX.Graphics.DepthOnlyRenderTarget.Dispose*
+  commentId: Overload:LibGFX.Graphics.DepthOnlyRenderTarget.Dispose
+  href: LibGFX.Graphics.DepthOnlyRenderTarget.html#LibGFX_Graphics_DepthOnlyRenderTarget_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose
+  nameWithType: DepthOnlyRenderTarget.Dispose
+  fullName: LibGFX.Graphics.DepthOnlyRenderTarget.Dispose
+- uid: LibGFX.Core.IRendererResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IRendererResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IRendererResource
+  href: LibGFX.Core.IRendererResource.html#LibGFX_Core_IRendererResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose(IRenderDevice)
+  nameWithType: IRendererResource.Dispose(IRenderDevice)
+  fullName: LibGFX.Core.IRendererResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IRendererResource.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Core.IRendererResource.html#LibGFX_Core_IRendererResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IRendererResource.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Core.IRendererResource.html#LibGFX_Core_IRendererResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice

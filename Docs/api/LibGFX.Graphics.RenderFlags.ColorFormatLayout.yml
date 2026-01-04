@@ -1,0 +1,238 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+  commentId: T:LibGFX.Graphics.RenderFlags.ColorFormatLayout
+  id: RenderFlags.ColorFormatLayout
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.ColorFormatLayout.Depth
+  - LibGFX.Graphics.RenderFlags.ColorFormatLayout.DepthStencil
+  - LibGFX.Graphics.RenderFlags.ColorFormatLayout.R
+  - LibGFX.Graphics.RenderFlags.ColorFormatLayout.RG
+  - LibGFX.Graphics.RenderFlags.ColorFormatLayout.RGB
+  - LibGFX.Graphics.RenderFlags.ColorFormatLayout.RGBA
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.ColorFormatLayout
+  nameWithType: RenderFlags.ColorFormatLayout
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ColorFormatLayout
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 96
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Represents the layout of color formats used in textures and render targets.
+  example: []
+  syntax:
+    content: public enum RenderFlags.ColorFormatLayout
+    content.vb: Public Enum RenderFlags.ColorFormatLayout
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatLayout.R
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatLayout.R
+  id: R
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+  langs:
+  - csharp
+  - vb
+  name: R
+  nameWithType: RenderFlags.ColorFormatLayout.R
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatLayout.R
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: R
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 98
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: R = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatLayout.RG
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatLayout.RG
+  id: RG
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+  langs:
+  - csharp
+  - vb
+  name: RG
+  nameWithType: RenderFlags.ColorFormatLayout.RG
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatLayout.RG
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RG
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 99
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RG = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatLayout.RGB
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatLayout.RGB
+  id: RGB
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+  langs:
+  - csharp
+  - vb
+  name: RGB
+  nameWithType: RenderFlags.ColorFormatLayout.RGB
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatLayout.RGB
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RGB
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 100
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RGB = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatLayout.RGBA
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatLayout.RGBA
+  id: RGBA
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+  langs:
+  - csharp
+  - vb
+  name: RGBA
+  nameWithType: RenderFlags.ColorFormatLayout.RGBA
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatLayout.RGBA
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RGBA
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 101
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: RGBA = 3
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatLayout.Depth
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatLayout.Depth
+  id: Depth
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+  langs:
+  - csharp
+  - vb
+  name: Depth
+  nameWithType: RenderFlags.ColorFormatLayout.Depth
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatLayout.Depth
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Depth
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 102
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Depth = 4
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatLayout.DepthStencil
+  commentId: F:LibGFX.Graphics.RenderFlags.ColorFormatLayout.DepthStencil
+  id: DepthStencil
+  parent: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+  langs:
+  - csharp
+  - vb
+  name: DepthStencil
+  nameWithType: RenderFlags.ColorFormatLayout.DepthStencil
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatLayout.DepthStencil
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DepthStencil
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 103
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: DepthStencil = 5
+    return:
+      type: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+  commentId: T:LibGFX.Graphics.RenderFlags.ColorFormatLayout
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.ColorFormatLayout
+  nameWithType: RenderFlags.ColorFormatLayout
+  fullName: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+    name: ColorFormatLayout
+    href: LibGFX.Graphics.RenderFlags.ColorFormatLayout.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+    name: ColorFormatLayout
+    href: LibGFX.Graphics.RenderFlags.ColorFormatLayout.html

@@ -1,0 +1,1129 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  commentId: T:LibGFX.Graphics.RenderFlags.RenderBufferMode
+  id: RenderFlags.RenderBufferMode
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.BackLeft
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.BackRight
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color0
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color1
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color10
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color11
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color12
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color13
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color14
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color15
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color16
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color17
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color18
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color19
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color2
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color20
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color21
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color22
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color23
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color24
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color25
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color26
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color27
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color28
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color29
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color3
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color30
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color31
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color4
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color5
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color6
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color7
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color8
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Color9
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.FrontLeft
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.FrontRight
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Left
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.None
+  - LibGFX.Graphics.RenderFlags.RenderBufferMode.Right
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.RenderBufferMode
+  nameWithType: RenderFlags.RenderBufferMode
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderBufferMode
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 140
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Modes for rendering buffers, specifying which buffer to use for rendering operations.
+  example: []
+  syntax:
+    content: public enum RenderFlags.RenderBufferMode
+    content.vb: Public Enum RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.None
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.None
+  id: None
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: RenderFlags.RenderBufferMode.None
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.None
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: None
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 142
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: None = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.FrontLeft
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.FrontLeft
+  id: FrontLeft
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: FrontLeft
+  nameWithType: RenderFlags.RenderBufferMode.FrontLeft
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.FrontLeft
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FrontLeft
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 143
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: FrontLeft = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.FrontRight
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.FrontRight
+  id: FrontRight
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: FrontRight
+  nameWithType: RenderFlags.RenderBufferMode.FrontRight
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.FrontRight
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FrontRight
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 144
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: FrontRight = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.BackLeft
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.BackLeft
+  id: BackLeft
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: BackLeft
+  nameWithType: RenderFlags.RenderBufferMode.BackLeft
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.BackLeft
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BackLeft
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 145
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: BackLeft = 3
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.BackRight
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.BackRight
+  id: BackRight
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: BackRight
+  nameWithType: RenderFlags.RenderBufferMode.BackRight
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.BackRight
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BackRight
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 146
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: BackRight = 4
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Left
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Left
+  id: Left
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Left
+  nameWithType: RenderFlags.RenderBufferMode.Left
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Left
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Left
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 147
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Left = 5
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Right
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Right
+  id: Right
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Right
+  nameWithType: RenderFlags.RenderBufferMode.Right
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Right
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Right
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 148
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Right = 6
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color0
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color0
+  id: Color0
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color0
+  nameWithType: RenderFlags.RenderBufferMode.Color0
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color0
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color0
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 149
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color0 = 7
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color1
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color1
+  id: Color1
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color1
+  nameWithType: RenderFlags.RenderBufferMode.Color1
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color1
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color1
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 150
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color1 = 8
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color2
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color2
+  id: Color2
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color2
+  nameWithType: RenderFlags.RenderBufferMode.Color2
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color2
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color2
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 151
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color2 = 9
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color3
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color3
+  id: Color3
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color3
+  nameWithType: RenderFlags.RenderBufferMode.Color3
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color3
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color3
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 152
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color3 = 10
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color4
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color4
+  id: Color4
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color4
+  nameWithType: RenderFlags.RenderBufferMode.Color4
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color4
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color4
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 153
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color4 = 11
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color5
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color5
+  id: Color5
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color5
+  nameWithType: RenderFlags.RenderBufferMode.Color5
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color5
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color5
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 154
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color5 = 12
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color6
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color6
+  id: Color6
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color6
+  nameWithType: RenderFlags.RenderBufferMode.Color6
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color6
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color6
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 155
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color6 = 13
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color7
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color7
+  id: Color7
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color7
+  nameWithType: RenderFlags.RenderBufferMode.Color7
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color7
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color7
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 156
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color7 = 14
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color8
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color8
+  id: Color8
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color8
+  nameWithType: RenderFlags.RenderBufferMode.Color8
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color8
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color8
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 157
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color8 = 15
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color9
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color9
+  id: Color9
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color9
+  nameWithType: RenderFlags.RenderBufferMode.Color9
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color9
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color9
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 158
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color9 = 16
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color10
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color10
+  id: Color10
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color10
+  nameWithType: RenderFlags.RenderBufferMode.Color10
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color10
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color10
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 159
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color10 = 17
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color11
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color11
+  id: Color11
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color11
+  nameWithType: RenderFlags.RenderBufferMode.Color11
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color11
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color11
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 160
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color11 = 18
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color12
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color12
+  id: Color12
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color12
+  nameWithType: RenderFlags.RenderBufferMode.Color12
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color12
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color12
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 161
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color12 = 19
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color13
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color13
+  id: Color13
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color13
+  nameWithType: RenderFlags.RenderBufferMode.Color13
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color13
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color13
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 162
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color13 = 20
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color14
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color14
+  id: Color14
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color14
+  nameWithType: RenderFlags.RenderBufferMode.Color14
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color14
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color14
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 163
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color14 = 21
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color15
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color15
+  id: Color15
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color15
+  nameWithType: RenderFlags.RenderBufferMode.Color15
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color15
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color15
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 164
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color15 = 22
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color16
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color16
+  id: Color16
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color16
+  nameWithType: RenderFlags.RenderBufferMode.Color16
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color16
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color16
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 165
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color16 = 23
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color17
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color17
+  id: Color17
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color17
+  nameWithType: RenderFlags.RenderBufferMode.Color17
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color17
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color17
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 166
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color17 = 24
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color18
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color18
+  id: Color18
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color18
+  nameWithType: RenderFlags.RenderBufferMode.Color18
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color18
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color18
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 167
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color18 = 25
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color19
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color19
+  id: Color19
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color19
+  nameWithType: RenderFlags.RenderBufferMode.Color19
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color19
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color19
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 168
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color19 = 26
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color20
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color20
+  id: Color20
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color20
+  nameWithType: RenderFlags.RenderBufferMode.Color20
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color20
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color20
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 169
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color20 = 27
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color21
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color21
+  id: Color21
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color21
+  nameWithType: RenderFlags.RenderBufferMode.Color21
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color21
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color21
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 170
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color21 = 28
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color22
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color22
+  id: Color22
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color22
+  nameWithType: RenderFlags.RenderBufferMode.Color22
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color22
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color22
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 171
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color22 = 29
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color23
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color23
+  id: Color23
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color23
+  nameWithType: RenderFlags.RenderBufferMode.Color23
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color23
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color23
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 172
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color23 = 30
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color24
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color24
+  id: Color24
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color24
+  nameWithType: RenderFlags.RenderBufferMode.Color24
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color24
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color24
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 173
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color24 = 31
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color25
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color25
+  id: Color25
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color25
+  nameWithType: RenderFlags.RenderBufferMode.Color25
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color25
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color25
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 174
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color25 = 32
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color26
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color26
+  id: Color26
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color26
+  nameWithType: RenderFlags.RenderBufferMode.Color26
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color26
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color26
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 175
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color26 = 33
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color27
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color27
+  id: Color27
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color27
+  nameWithType: RenderFlags.RenderBufferMode.Color27
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color27
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color27
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 176
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color27 = 34
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color28
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color28
+  id: Color28
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color28
+  nameWithType: RenderFlags.RenderBufferMode.Color28
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color28
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color28
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 177
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color28 = 35
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color29
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color29
+  id: Color29
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color29
+  nameWithType: RenderFlags.RenderBufferMode.Color29
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color29
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color29
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 178
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color29 = 36
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color30
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color30
+  id: Color30
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color30
+  nameWithType: RenderFlags.RenderBufferMode.Color30
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color30
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color30
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 179
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color30 = 37
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color31
+  commentId: F:LibGFX.Graphics.RenderFlags.RenderBufferMode.Color31
+  id: Color31
+  parent: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  langs:
+  - csharp
+  - vb
+  name: Color31
+  nameWithType: RenderFlags.RenderBufferMode.Color31
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode.Color31
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Color31
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 180
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Color31 = 38
+    return:
+      type: LibGFX.Graphics.RenderFlags.RenderBufferMode
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  commentId: T:LibGFX.Graphics.RenderFlags.RenderBufferMode
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.RenderBufferMode
+  nameWithType: RenderFlags.RenderBufferMode
+  fullName: LibGFX.Graphics.RenderFlags.RenderBufferMode
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.RenderBufferMode
+    name: RenderBufferMode
+    href: LibGFX.Graphics.RenderFlags.RenderBufferMode.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.RenderBufferMode
+    name: RenderBufferMode
+    href: LibGFX.Graphics.RenderFlags.RenderBufferMode.html

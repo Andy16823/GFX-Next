@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Scene2D | LibGFX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Scene2D | LibGFX ">
+      
+      <meta name="description" content="Represents a 2D scene">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Core_Scene2D.md&amp;value=---%0Auid%3A%20LibGFX.Core.Scene2D%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="LibGFX">
+            LibGFX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LibGFX.Core.Scene2D">
+
+
+
+  <h1 id="LibGFX_Core_Scene2D" data-uid="LibGFX.Core.Scene2D" class="text-break">
+Class Scene2D  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LibGFX.html">LibGFX</a>.<a class="xref" href="LibGFX.Core.html">Core</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LibGFX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a 2D scene</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Scene2D : BaseScene, IIdentifier, ISerialization</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a></div>
+      <div><span class="xref">Scene2D</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="LibGFX.Core.IIdentifier.html">IIdentifier</a></div>
+      <div><a class="xref" href="LibGFX.Core.ISerialization.html">ISerialization</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_Name">BaseScene.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_ID">BaseScene.ID</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_PhysicsHandler">BaseScene.PhysicsHandler</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_RenderStats">BaseScene.RenderStats</a>
+    </div>
+    <div>
+      <a class="xref" href="LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_EnqueEntries">BaseScene.EnqueEntries</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LibGFX_Core_Scene2D__ctor_" data-uid="LibGFX.Core.Scene2D.#ctor*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D__ctor" data-uid="LibGFX.Core.Scene2D.#ctor">
+  Scene2D()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 2D scene</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Scene2D()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D__ctor_" data-uid="LibGFX.Core.Scene2D.#ctor*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D__ctor_System_String___" data-uid="LibGFX.Core.Scene2D.#ctor(System.String[])">
+  Scene2D(params string[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 2D scene with the given layers</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Scene2D(params string[] layers)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="LibGFX_Core_Scene2D_Layers_" data-uid="LibGFX.Core.Scene2D.Layers*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_Layers" data-uid="LibGFX.Core.Scene2D.Layers">
+  Layers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the collection of layers contained in the model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Layer&gt; Layers { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="LibGFX.Core.Layer.html">Layer</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Scene2D_Layers_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Layers are typically processed in the order they appear in the collection. Modifying
+this list will affect the structure and behavior of the model.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_LightManager_" data-uid="LibGFX.Core.Scene2D.LightManager*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_LightManager" data-uid="LibGFX.Core.Scene2D.LightManager">
+  LightManager
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The light manager of the scene</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ILightManager LightManager { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Lights.ILightManager.html">ILightManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_RenderTarget_" data-uid="LibGFX.Core.Scene2D.RenderTarget*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_RenderTarget" data-uid="LibGFX.Core.Scene2D.RenderTarget">
+  RenderTarget
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the render target associated with this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IRenderTarget RenderTarget { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.IRenderTarget.html">IRenderTarget</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_SceneLight_" data-uid="LibGFX.Core.Scene2D.SceneLight*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_SceneLight" data-uid="LibGFX.Core.Scene2D.SceneLight">
+  SceneLight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the main light manager for the scene</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DirectionalLight2D SceneLight { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Graphics.Lights.DirectionalLight2D.html">DirectionalLight2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LibGFX_Core_Scene2D_AddEnqueEntry_" data-uid="LibGFX.Core.Scene2D.AddEnqueEntry*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_AddEnqueEntry_LibGFX_Core_IEnqueEntry_" data-uid="LibGFX.Core.Scene2D.AddEnqueEntry(LibGFX.Core.IEnqueEntry)">
+  AddEnqueEntry(IEnqueEntry)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L348"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an enque entry to the collection if it is of type EnqueScene2DEntry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void AddEnqueEntry(IEnqueEntry entry)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entry</code> <a class="xref" href="LibGFX.Core.IEnqueEntry.html">IEnqueEntry</a></dt>
+    <dd><p>The enque entry to add. Must be an instance of EnqueScene2DEntry.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Scene2D_AddEnqueEntry_LibGFX_Core_IEnqueEntry__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Only entries of type EnqueScene2DEntry are supported by this method. Attempting to
+add an entry of a different type will result in an exception.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if entry is not of type EnqueScene2DEntry.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LibGFX_Core_Scene2D_AddGameElement_" data-uid="LibGFX.Core.Scene2D.AddGameElement*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_AddGameElement_LibGFX_Core_GameElement_" data-uid="LibGFX.Core.Scene2D.AddGameElement(LibGFX.Core.GameElement)">
+  AddGameElement(GameElement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a game element to the first layer of the collection, creating a default layer if none exist.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void AddGameElement(GameElement element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a></dt>
+    <dd><p>The game element to add to the collection. If null, the method performs no action.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Scene2D_AddGameElement_LibGFX_Core_GameElement__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If no layers are present, a new layer named &quot;Default&quot; is created before adding the
+element. The element is always added to the first layer in the collection.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_AddGameElement_" data-uid="LibGFX.Core.Scene2D.AddGameElement*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_AddGameElement_System_String_LibGFX_Core_GameElement_" data-uid="LibGFX.Core.Scene2D.AddGameElement(System.String,LibGFX.Core.GameElement)">
+  AddGameElement(string, GameElement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attempts to add a game element to the specified layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AddGameElement(string layerName, GameElement element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layerName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the layer to which the game element will be added. Cannot be null or empty.</p>
+</dd>
+    <dt><code>element</code> <a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a></dt>
+    <dd><p>The game element to add to the layer. Cannot be null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>true if the element was successfully added to the specified layer; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_AddLight_" data-uid="LibGFX.Core.Scene2D.AddLight*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_AddLight__1___0_" data-uid="LibGFX.Core.Scene2D.AddLight``1(``0)">
+  AddLight&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L398"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a light to the 2D scene. Supports adding either a directional light or a point light.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void AddLight&lt;T&gt;(T light) where T : Light</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>light</code> <span class="xref">T</span></dt>
+    <dd><p>The light instance to add to the scene. Must be of type DirectionalLight2D or PointLight2D.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the light to add. Must be either DirectionalLight2D or PointLight2D.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Scene2D_AddLight__1___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If a DirectionalLight2D is provided, it replaces the current directional light in the
+scene. If a PointLight2D is provided, it is added to the collection of point lights managed by the
+scene.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if <code class="paramref">light</code> is not of type DirectionalLight2D or PointLight2D.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LibGFX_Core_Scene2D_ClearElements_" data-uid="LibGFX.Core.Scene2D.ClearElements*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_ClearElements" data-uid="LibGFX.Core.Scene2D.ClearElements">
+  ClearElements()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L286"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes all elements from the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ClearElements()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_CreateDefaultScene_" data-uid="LibGFX.Core.Scene2D.CreateDefaultScene*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_CreateDefaultScene" data-uid="LibGFX.Core.Scene2D.CreateDefaultScene">
+  CreateDefaultScene()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L629"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new 2D scene with default settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Scene2D CreateDefaultScene()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Core.Scene2D.html">Scene2D</a></dt>
+    <dd><p>A <a class="xref" href="LibGFX.Core.Scene2D.html">Scene2D</a> instance initialized with default parameters.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_Deserialize_" data-uid="LibGFX.Core.Scene2D.Deserialize*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__" data-uid="LibGFX.Core.Scene2D.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})">
+  Deserialize(JObject, SerializationContext, Func&lt;JObject, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L661"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deserializes the scene from a JSON object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Deserialize(JObject obj, SerializationContext serializationContext, Func&lt;JObject, bool&gt; callback = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">JObject</span></dt>
+    <dd></dd>
+    <dt><code>serializationContext</code> <a class="xref" href="LibGFX.Core.SerializationContext.html">SerializationContext</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<span class="xref">JObject</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_DisposeScene_" data-uid="LibGFX.Core.Scene2D.DisposeScene*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_DisposeScene_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Core.Scene2D.DisposeScene(LibGFX.Graphics.IRenderDevice)">
+  DisposeScene(IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L579"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes the scene</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void DisposeScene(IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_EnqueElements_" data-uid="LibGFX.Core.Scene2D.EnqueElements*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_EnqueElements" data-uid="LibGFX.Core.Scene2D.EnqueElements">
+  EnqueElements()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L319"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds all queued 2D scene elements to their designated layers and triggers any associated actions before
+insertion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void EnqueElements()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Scene2D_EnqueElements_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method processes each entry in the queue, invoking any specified actions prior
+to adding the element to the scene. After all elements have been enqueued, the queue is cleared. Elements
+with a null reference are skipped and not added to the scene.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_FindElement_" data-uid="LibGFX.Core.Scene2D.FindElement*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_FindElement__1_System_String_" data-uid="LibGFX.Core.Scene2D.FindElement``1(System.String)">
+  FindElement&lt;T&gt;(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L207"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Searches all layers for a game element with the specified name and returns the first match found.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override T? FindElement&lt;T&gt;(string name) where T : GameElement</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the game element to locate. The search is case-sensitive and matches the element's name exactly.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>The first <a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a> with the specified name, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no matching
+element is found.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Scene2D_FindElement__1_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The search is performed in the order of the layers as they appear in the collection.
+If multiple elements share the same name across different layers, only the first match is
+returned.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_FindElementsWithBehavior_" data-uid="LibGFX.Core.Scene2D.FindElementsWithBehavior*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_FindElementsWithBehavior__1" data-uid="LibGFX.Core.Scene2D.FindElementsWithBehavior``1">
+  FindElementsWithBehavior&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L244"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds all game elements that implement the specified behavior type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ICollection&lt;GameElement&gt; FindElementsWithBehavior&lt;T&gt;() where T : IGameBehavior</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a>&gt;</dt>
+    <dd><p>A collection of game elements that implement the specified behavior type. The collection is empty if no
+elements with the behavior are found.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of behavior to search for. Must be implemented by the game elements to be included in the results.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_FindElementsWithTag_" data-uid="LibGFX.Core.Scene2D.FindElementsWithTag*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_FindElementsWithTag_System_String_" data-uid="LibGFX.Core.Scene2D.FindElementsWithTag(System.String)">
+  FindElementsWithTag(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L264"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Finds all game elements that have the specified tag across all layers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ICollection&lt;GameElement&gt; FindElementsWithTag(string tag)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>tag</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The tag to search for. Only elements with this tag will be included in the results. Cannot be null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a>&gt;</dt>
+    <dd><p>A collection of game elements that have the specified tag. The collection is empty if no elements with the
+tag are found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Scene2D_FindElementsWithTag_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method searches all layers in parallel to improve performance when working with
+a large number of layers. The returned collection is not thread-safe.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_FindLayer_" data-uid="LibGFX.Core.Scene2D.FindLayer*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_FindLayer_System_String_" data-uid="LibGFX.Core.Scene2D.FindLayer(System.String)">
+  FindLayer(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Searches for a layer with the specified name and returns the first matching layer, if found.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Layer? FindLayer(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the layer to locate. The comparison is case-sensitive.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Core.Layer.html">Layer</a></dt>
+    <dd><p>The first <a class="xref" href="LibGFX.Core.Layer.html">Layer</a> whose <code>Name</code> property matches the specified name, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no such layer exists.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_ForEachElement_" data-uid="LibGFX.Core.Scene2D.ForEachElement*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_ForEachElement_System_Action_LibGFX_Core_GameElement__" data-uid="LibGFX.Core.Scene2D.ForEachElement(System.Action{LibGFX.Core.GameElement})">
+  ForEachElement(Action&lt;GameElement&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L301"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invokes the specified action for each game element contained in all layers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void ForEachElement(Action&lt;GameElement&gt; action)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>action</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a>&gt;</dt>
+    <dd><p>The action to perform on each <a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a>. Cannot be null.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Scene2D_ForEachElement_System_Action_LibGFX_Core_GameElement___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The action is invoked once for every element in every layer, in the order they are
+stored. If the collection of layers or elements is modified during iteration, the behavior is
+undefined.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_FreeScene_" data-uid="LibGFX.Core.Scene2D.FreeScene*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_FreeScene_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Core.Scene2D.FreeScene(LibGFX.Graphics.IRenderDevice)">
+  FreeScene(IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L367"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Releases all resources associated with the scene and its layers using the specified render device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void FreeScene(IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd><p>The render device to use when releasing resources for each layer. Cannot be null.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Scene2D_FreeScene_LibGFX_Graphics_IRenderDevice__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>After calling this method, the scene's layers are cleared and should not be used
+further. This method should be called when the scene is no longer needed to ensure proper resource
+cleanup.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_GetAllElements_" data-uid="LibGFX.Core.Scene2D.GetAllElements*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_GetAllElements" data-uid="LibGFX.Core.Scene2D.GetAllElements">
+  GetAllElements()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a collection containing all game elements from all layers in the order they appear.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;GameElement&gt; GetAllElements()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a>&gt;</dt>
+    <dd><p>An enumerable collection of all <a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a> instances contained in every layer. The collection
+will be empty if there are no elements in any layer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_GetElementByID_" data-uid="LibGFX.Core.Scene2D.GetElementByID*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_GetElementByID_System_String_" data-uid="LibGFX.Core.Scene2D.GetElementByID(System.String)">
+  GetElementByID(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L185"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the first game element with the specified unique identifier from all layers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override GameElement? GetElementByID(string uuid)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>uuid</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unique identifier of the game element to locate. Cannot be null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a></dt>
+    <dd><p>The first <a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a> with the specified identifier, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no matching
+element is found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Scene2D_GetElementByID_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Searches each layer in order and returns the first matching element. If multiple
+elements share the same identifier across layers, only the first encountered is returned.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_GetElements_" data-uid="LibGFX.Core.Scene2D.GetElements*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_GetElements__1" data-uid="LibGFX.Core.Scene2D.GetElements``1">
+  GetElements&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L228"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves all game elements of the specified type from all layers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ICollection&lt;GameElement&gt; GetElements&lt;T&gt;() where T : GameElement</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a>&gt;</dt>
+    <dd><p>A collection containing all elements of type T found in all layers. The collection is empty if no matching
+elements are found.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of game elements to retrieve.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Scene2D_GetElements__1_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method searches each layer in parallel and aggregates the results. The returned
+collection is not thread-safe.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_GetLight_" data-uid="LibGFX.Core.Scene2D.GetLight*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_GetLight__1" data-uid="LibGFX.Core.Scene2D.GetLight``1">
+  GetLight&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L422"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the directional light for the 2D scene if the specified type is supported.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override T GetLight&lt;T&gt;() where T : Light</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>The directional light instance cast to the specified type <code class="typeparamref">T</code>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of light to retrieve. Must be <a class="xref" href="LibGFX.Graphics.Lights.DirectionalLight2D.html">DirectionalLight2D</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Scene2D_GetLight__1_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Only <a class="xref" href="LibGFX.Graphics.Lights.DirectionalLight2D.html">DirectionalLight2D</a> is supported for 2D scenes. Attempting to
+retrieve any other light type will result in an exception.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if <code class="typeparamref">T</code> is not <a class="xref" href="LibGFX.Graphics.Lights.DirectionalLight2D.html">DirectionalLight2D</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LibGFX_Core_Scene2D_Init_" data-uid="LibGFX.Core.Scene2D.Init*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_Init_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Core.Scene2D.Init(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)">
+  Init(Viewport, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L464"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the scene</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Init(Viewport viewport, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_InitializeElements_" data-uid="LibGFX.Core.Scene2D.InitializeElements*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_InitializeElements_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_" data-uid="LibGFX.Core.Scene2D.InitializeElements(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)">
+  InitializeElements(Viewport, IRenderDevice)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L381"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes all elements in the collection using the specified viewport and render device.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void InitializeElements(Viewport viewport, IRenderDevice renderer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd><p>The viewport that defines the rendering context for the elements.</p>
+</dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd><p>The render device used to initialize the elements for drawing operations.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_RemoveElement_" data-uid="LibGFX.Core.Scene2D.RemoveElement*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_RemoveElement_LibGFX_Core_GameElement_" data-uid="LibGFX.Core.Scene2D.RemoveElement(LibGFX.Core.GameElement)">
+  RemoveElement(GameElement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L275"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the specified game element from all layers in the collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void RemoveElement(GameElement element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a></dt>
+    <dd><p>The game element to remove from each layer. Cannot be null.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Scene2D_RemoveElement_LibGFX_Core_GameElement__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method attempts to remove the element from every layer in parallel. If the
+element does not exist in a layer, that layer is unaffected. This operation is thread-safe.</p>
+</div>
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_RemoveLight_" data-uid="LibGFX.Core.Scene2D.RemoveLight*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_RemoveLight__1___0_" data-uid="LibGFX.Core.Scene2D.RemoveLight``1(``0)">
+  RemoveLight&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L443"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the specified light from the scene. Supports removal of directional and point lights.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void RemoveLight&lt;T&gt;(T light) where T : Light</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>light</code> <span class="xref">T</span></dt>
+    <dd><p>The light instance to remove from the scene. Must be a DirectionalLight2D or PointLight2D object.</p>
+</dd>
+  </dl>
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type of the light to remove. Must be either DirectionalLight2D or PointLight2D.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="LibGFX_Core_Scene2D_RemoveLight__1___0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If a DirectionalLight2D is specified, it will be unset from the scene. If a
+PointLight2D is specified, it will be removed from the collection of point lights. Other light types are not
+supported and will result in an exception.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if <code class="paramref">light</code> is not a DirectionalLight2D or PointLight2D.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="LibGFX_Core_Scene2D_Render_" data-uid="LibGFX.Core.Scene2D.Render*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_Render_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_" data-uid="LibGFX.Core.Scene2D.Render(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)">
+  Render(Viewport, IRenderDevice, Camera)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L496"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders the scene</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Render(Viewport viewport, IRenderDevice renderer, Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+    <dt><code>camera</code> <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_RenderShadowMaps_" data-uid="LibGFX.Core.Scene2D.RenderShadowMaps*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_RenderShadowMaps_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_" data-uid="LibGFX.Core.Scene2D.RenderShadowMaps(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)">
+  RenderShadowMaps(Viewport, IRenderDevice, Camera)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L553"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renders the shadow maps for the scene</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void RenderShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>renderer</code> <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a></dt>
+    <dd></dd>
+    <dt><code>camera</code> <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_Serialize_" data-uid="LibGFX.Core.Scene2D.Serialize*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__" data-uid="LibGFX.Core.Scene2D.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})">
+  Serialize(JsonWriter, SerializationContext, Action&lt;JsonWriter&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L641"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Serializes the scene to a JSON object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Serialize(JsonWriter writer, SerializationContext serializationContext, Action&lt;JsonWriter&gt; callback = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>writer</code> <span class="xref">JsonWriter</span></dt>
+    <dd></dd>
+    <dt><code>serializationContext</code> <a class="xref" href="LibGFX.Core.SerializationContext.html">SerializationContext</a></dt>
+    <dd></dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">JsonWriter</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_Update_" data-uid="LibGFX.Core.Scene2D.Update*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_Update_System_Single_" data-uid="LibGFX.Core.Scene2D.Update(System.Single)">
+  Update(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L561"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the scene</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Update(float dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Core_Scene2D_UpdatePhysics_" data-uid="LibGFX.Core.Scene2D.UpdatePhysics*"></a>
+
+  <h3 id="LibGFX_Core_Scene2D_UpdatePhysics_System_Single_" data-uid="LibGFX.Core.Scene2D.UpdatePhysics(System.Single)">
+  UpdatePhysics(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L606"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates the physics of the scene</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void UpdatePhysics(float dt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_AfterLightCulling" data-uid="LibGFX.Core.Scene2D.AfterLightCulling">
+  AfterLightCulling
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called after light culling has been performed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, Viewport, IRenderDevice, Camera&gt; AfterLightCulling</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-4">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a>, <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a>, <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_AfterRenderTargetCreation" data-uid="LibGFX.Core.Scene2D.AfterRenderTargetCreation">
+  AfterRenderTargetCreation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called after the render target for the scene has been created</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, Viewport, IRenderDevice&gt; AfterRenderTargetCreation</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-3">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a>, <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_OnDispose" data-uid="LibGFX.Core.Scene2D.OnDispose">
+  OnDispose
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when the scene gets disposed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, IRenderDevice&gt; OnDispose</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_OnDisposeEnd" data-uid="LibGFX.Core.Scene2D.OnDisposeEnd">
+  OnDisposeEnd
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called after the scene has been disposed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, IRenderDevice&gt; OnDisposeEnd</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_OnDisposeStart" data-uid="LibGFX.Core.Scene2D.OnDisposeStart">
+  OnDisposeStart
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called before the scene is disposed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, IRenderDevice&gt; OnDisposeStart</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_OnInitEnd" data-uid="LibGFX.Core.Scene2D.OnInitEnd">
+  OnInitEnd
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when the scene has been initialized</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, Viewport, IRenderDevice&gt; OnInitEnd</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-3">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a>, <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_OnInitStart" data-uid="LibGFX.Core.Scene2D.OnInitStart">
+  OnInitStart
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when the scene is initializing</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, Viewport, IRenderDevice&gt; OnInitStart</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-3">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a>, <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_OnPhysicsUpdateEnd" data-uid="LibGFX.Core.Scene2D.OnPhysicsUpdateEnd">
+  OnPhysicsUpdateEnd
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when the physics update ends</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, float&gt; OnPhysicsUpdateEnd</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_OnPhysicsUpdateStart" data-uid="LibGFX.Core.Scene2D.OnPhysicsUpdateStart">
+  OnPhysicsUpdateStart
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when the physics update starts</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, float&gt; OnPhysicsUpdateStart</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_OnRenderEnd" data-uid="LibGFX.Core.Scene2D.OnRenderEnd">
+  OnRenderEnd
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called at the end of the render process</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, Viewport, IRenderDevice, Camera&gt; OnRenderEnd</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-4">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a>, <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a>, <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_OnRenderPassBegin" data-uid="LibGFX.Core.Scene2D.OnRenderPassBegin">
+  OnRenderPassBegin
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called before the game elements get rendered</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, Viewport, IRenderDevice, Camera&gt; OnRenderPassBegin</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-4">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a>, <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a>, <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_OnRenderPassEnd" data-uid="LibGFX.Core.Scene2D.OnRenderPassEnd">
+  OnRenderPassEnd
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when all game elements have been rendered before the render target blitting</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, Viewport, IRenderDevice, Camera&gt; OnRenderPassEnd</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-4">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a>, <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a>, <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_OnRenderStart" data-uid="LibGFX.Core.Scene2D.OnRenderStart">
+  OnRenderStart
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called immediately on the start of the render process</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, Viewport, IRenderDevice, Camera&gt; OnRenderStart</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-4">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a>, <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a>, <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_OnShadowPassEnd" data-uid="LibGFX.Core.Scene2D.OnShadowPassEnd">
+  OnShadowPassEnd
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when the shadow pass ends</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, Viewport, IRenderDevice, Camera&gt; OnShadowPassEnd</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-4">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a>, <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a>, <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_OnShadowPassStart" data-uid="LibGFX.Core.Scene2D.OnShadowPassStart">
+  OnShadowPassStart
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when the shadow pass starts</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, Viewport, IRenderDevice, Camera&gt; OnShadowPassStart</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-4">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a>, <a class="xref" href="LibGFX.Graphics.IRenderDevice.html">IRenderDevice</a>, <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_OnUpdateEnd" data-uid="LibGFX.Core.Scene2D.OnUpdateEnd">
+  OnUpdateEnd
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when the scene has been updated</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, float&gt; OnUpdateEnd</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="LibGFX_Core_Scene2D_OnUpdateStart" data-uid="LibGFX.Core.Scene2D.OnUpdateStart">
+  OnUpdateStart
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called when the scene is updating</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override event Action&lt;BaseScene, float&gt; OnUpdateStart</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="LibGFX.Core.BaseScene.html">BaseScene</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Core/Scene2D.cs/#L31" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

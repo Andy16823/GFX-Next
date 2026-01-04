@@ -1,0 +1,218 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  id: LibGFX.Core
+  children:
+  - LibGFX.Core.BaseScene
+  - LibGFX.Core.EnqueScene2DEntry
+  - LibGFX.Core.EnqueScene3DEntry
+  - LibGFX.Core.Game
+  - LibGFX.Core.GameElement
+  - LibGFX.Core.IEnqueEntry
+  - LibGFX.Core.IGameBehavior
+  - LibGFX.Core.IGraphicsResource
+  - LibGFX.Core.IIdentifier
+  - LibGFX.Core.IPropertyTable
+  - LibGFX.Core.IRendererResource
+  - LibGFX.Core.ISerialization
+  - LibGFX.Core.Layer
+  - LibGFX.Core.RenderStats
+  - LibGFX.Core.Scene2D
+  - LibGFX.Core.Scene3D
+  - LibGFX.Core.SerializationContext
+  - LibGFX.Core.ServiceContainer
+  - LibGFX.Core.Utils
+  - LibGFX.Core.Window
+  - LibGFX.Core.Window.WindowState
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Core.BaseScene
+  commentId: T:LibGFX.Core.BaseScene
+  parent: LibGFX.Core
+  href: LibGFX.Core.BaseScene.html
+  name: BaseScene
+  nameWithType: BaseScene
+  fullName: LibGFX.Core.BaseScene
+- uid: LibGFX.Core.Game
+  commentId: T:LibGFX.Core.Game
+  href: LibGFX.Core.Game.html
+  name: Game
+  nameWithType: Game
+  fullName: LibGFX.Core.Game
+- uid: LibGFX.Core.GameElement
+  commentId: T:LibGFX.Core.GameElement
+  parent: LibGFX.Core
+  href: LibGFX.Core.GameElement.html
+  name: GameElement
+  nameWithType: GameElement
+  fullName: LibGFX.Core.GameElement
+- uid: LibGFX.Core.IEnqueEntry
+  commentId: T:LibGFX.Core.IEnqueEntry
+  parent: LibGFX.Core
+  href: LibGFX.Core.IEnqueEntry.html
+  name: IEnqueEntry
+  nameWithType: IEnqueEntry
+  fullName: LibGFX.Core.IEnqueEntry
+- uid: LibGFX.Core.IGameBehavior
+  commentId: T:LibGFX.Core.IGameBehavior
+  parent: LibGFX.Core
+  href: LibGFX.Core.IGameBehavior.html
+  name: IGameBehavior
+  nameWithType: IGameBehavior
+  fullName: LibGFX.Core.IGameBehavior
+- uid: LibGFX.Core.IGraphicsResource
+  commentId: T:LibGFX.Core.IGraphicsResource
+  parent: LibGFX.Core
+  href: LibGFX.Core.IGraphicsResource.html
+  name: IGraphicsResource
+  nameWithType: IGraphicsResource
+  fullName: LibGFX.Core.IGraphicsResource
+- uid: LibGFX.Core.IIdentifier
+  commentId: T:LibGFX.Core.IIdentifier
+  parent: LibGFX.Core
+  href: LibGFX.Core.IIdentifier.html
+  name: IIdentifier
+  nameWithType: IIdentifier
+  fullName: LibGFX.Core.IIdentifier
+- uid: LibGFX.Core.IPropertyTable
+  commentId: T:LibGFX.Core.IPropertyTable
+  parent: LibGFX.Core
+  href: LibGFX.Core.IPropertyTable.html
+  name: IPropertyTable
+  nameWithType: IPropertyTable
+  fullName: LibGFX.Core.IPropertyTable
+- uid: LibGFX.Core.IRendererResource
+  commentId: T:LibGFX.Core.IRendererResource
+  parent: LibGFX.Core
+  href: LibGFX.Core.IRendererResource.html
+  name: IRendererResource
+  nameWithType: IRendererResource
+  fullName: LibGFX.Core.IRendererResource
+- uid: LibGFX.Core.ISerialization
+  commentId: T:LibGFX.Core.ISerialization
+  parent: LibGFX.Core
+  href: LibGFX.Core.ISerialization.html
+  name: ISerialization
+  nameWithType: ISerialization
+  fullName: LibGFX.Core.ISerialization
+- uid: LibGFX.Core.Layer
+  commentId: T:LibGFX.Core.Layer
+  parent: LibGFX.Core
+  href: LibGFX.Core.Layer.html
+  name: Layer
+  nameWithType: Layer
+  fullName: LibGFX.Core.Layer
+- uid: LibGFX.Core.RenderStats
+  commentId: T:LibGFX.Core.RenderStats
+  parent: LibGFX.Core
+  href: LibGFX.Core.RenderStats.html
+  name: RenderStats
+  nameWithType: RenderStats
+  fullName: LibGFX.Core.RenderStats
+- uid: LibGFX.Core.EnqueScene2DEntry
+  commentId: T:LibGFX.Core.EnqueScene2DEntry
+  href: LibGFX.Core.EnqueScene2DEntry.html
+  name: EnqueScene2DEntry
+  nameWithType: EnqueScene2DEntry
+  fullName: LibGFX.Core.EnqueScene2DEntry
+- uid: LibGFX.Core.Scene2D
+  commentId: T:LibGFX.Core.Scene2D
+  parent: LibGFX.Core
+  href: LibGFX.Core.Scene2D.html
+  name: Scene2D
+  nameWithType: Scene2D
+  fullName: LibGFX.Core.Scene2D
+- uid: LibGFX.Core.EnqueScene3DEntry
+  commentId: T:LibGFX.Core.EnqueScene3DEntry
+  href: LibGFX.Core.EnqueScene3DEntry.html
+  name: EnqueScene3DEntry
+  nameWithType: EnqueScene3DEntry
+  fullName: LibGFX.Core.EnqueScene3DEntry
+- uid: LibGFX.Core.Scene3D
+  commentId: T:LibGFX.Core.Scene3D
+  parent: LibGFX.Core
+  href: LibGFX.Core.Scene3D.html
+  name: Scene3D
+  nameWithType: Scene3D
+  fullName: LibGFX.Core.Scene3D
+- uid: LibGFX.Core.SerializationContext
+  commentId: T:LibGFX.Core.SerializationContext
+  parent: LibGFX.Core
+  href: LibGFX.Core.SerializationContext.html
+  name: SerializationContext
+  nameWithType: SerializationContext
+  fullName: LibGFX.Core.SerializationContext
+- uid: LibGFX.Core.ServiceContainer
+  commentId: T:LibGFX.Core.ServiceContainer
+  parent: LibGFX.Core
+  href: LibGFX.Core.ServiceContainer.html
+  name: ServiceContainer
+  nameWithType: ServiceContainer
+  fullName: LibGFX.Core.ServiceContainer
+- uid: LibGFX.Core.Utils
+  commentId: T:LibGFX.Core.Utils
+  href: LibGFX.Core.Utils.html
+  name: Utils
+  nameWithType: Utils
+  fullName: LibGFX.Core.Utils
+- uid: LibGFX.Core.Window
+  commentId: T:LibGFX.Core.Window
+  parent: LibGFX.Core
+  href: LibGFX.Core.Window.html
+  name: Window
+  nameWithType: Window
+  fullName: LibGFX.Core.Window
+- uid: LibGFX.Core.Window.WindowState
+  commentId: T:LibGFX.Core.Window.WindowState
+  parent: LibGFX.Core
+  href: LibGFX.Core.Window.html
+  name: Window.WindowState
+  nameWithType: Window.WindowState
+  fullName: LibGFX.Core.Window.WindowState
+  spec.csharp:
+  - uid: LibGFX.Core.Window
+    name: Window
+    href: LibGFX.Core.Window.html
+  - name: .
+  - uid: LibGFX.Core.Window.WindowState
+    name: WindowState
+    href: LibGFX.Core.Window.WindowState.html
+  spec.vb:
+  - uid: LibGFX.Core.Window
+    name: Window
+    href: LibGFX.Core.Window.html
+  - name: .
+  - uid: LibGFX.Core.Window.WindowState
+    name: WindowState
+    href: LibGFX.Core.Window.WindowState.html
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html

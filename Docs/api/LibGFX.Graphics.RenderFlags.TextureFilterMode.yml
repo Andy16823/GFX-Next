@@ -1,0 +1,184 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.RenderFlags.TextureFilterMode
+  commentId: T:LibGFX.Graphics.RenderFlags.TextureFilterMode
+  id: RenderFlags.TextureFilterMode
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.RenderFlags.TextureFilterMode.Linear
+  - LibGFX.Graphics.RenderFlags.TextureFilterMode.MipmapLinear
+  - LibGFX.Graphics.RenderFlags.TextureFilterMode.MipmapNearest
+  - LibGFX.Graphics.RenderFlags.TextureFilterMode.Nearest
+  langs:
+  - csharp
+  - vb
+  name: RenderFlags.TextureFilterMode
+  nameWithType: RenderFlags.TextureFilterMode
+  fullName: LibGFX.Graphics.RenderFlags.TextureFilterMode
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: TextureFilterMode
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 44
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Texture filtering modes used for texture sampling.
+  example: []
+  syntax:
+    content: public enum RenderFlags.TextureFilterMode
+    content.vb: Public Enum RenderFlags.TextureFilterMode
+- uid: LibGFX.Graphics.RenderFlags.TextureFilterMode.Nearest
+  commentId: F:LibGFX.Graphics.RenderFlags.TextureFilterMode.Nearest
+  id: Nearest
+  parent: LibGFX.Graphics.RenderFlags.TextureFilterMode
+  langs:
+  - csharp
+  - vb
+  name: Nearest
+  nameWithType: RenderFlags.TextureFilterMode.Nearest
+  fullName: LibGFX.Graphics.RenderFlags.TextureFilterMode.Nearest
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Nearest
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 46
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Nearest = 0
+    return:
+      type: LibGFX.Graphics.RenderFlags.TextureFilterMode
+- uid: LibGFX.Graphics.RenderFlags.TextureFilterMode.Linear
+  commentId: F:LibGFX.Graphics.RenderFlags.TextureFilterMode.Linear
+  id: Linear
+  parent: LibGFX.Graphics.RenderFlags.TextureFilterMode
+  langs:
+  - csharp
+  - vb
+  name: Linear
+  nameWithType: RenderFlags.TextureFilterMode.Linear
+  fullName: LibGFX.Graphics.RenderFlags.TextureFilterMode.Linear
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Linear
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 47
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: Linear = 1
+    return:
+      type: LibGFX.Graphics.RenderFlags.TextureFilterMode
+- uid: LibGFX.Graphics.RenderFlags.TextureFilterMode.MipmapNearest
+  commentId: F:LibGFX.Graphics.RenderFlags.TextureFilterMode.MipmapNearest
+  id: MipmapNearest
+  parent: LibGFX.Graphics.RenderFlags.TextureFilterMode
+  langs:
+  - csharp
+  - vb
+  name: MipmapNearest
+  nameWithType: RenderFlags.TextureFilterMode.MipmapNearest
+  fullName: LibGFX.Graphics.RenderFlags.TextureFilterMode.MipmapNearest
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MipmapNearest
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 48
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: MipmapNearest = 2
+    return:
+      type: LibGFX.Graphics.RenderFlags.TextureFilterMode
+- uid: LibGFX.Graphics.RenderFlags.TextureFilterMode.MipmapLinear
+  commentId: F:LibGFX.Graphics.RenderFlags.TextureFilterMode.MipmapLinear
+  id: MipmapLinear
+  parent: LibGFX.Graphics.RenderFlags.TextureFilterMode
+  langs:
+  - csharp
+  - vb
+  name: MipmapLinear
+  nameWithType: RenderFlags.TextureFilterMode.MipmapLinear
+  fullName: LibGFX.Graphics.RenderFlags.TextureFilterMode.MipmapLinear
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/RenderFlags.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MipmapLinear
+    path: ../LibGFX/Graphics/RenderFlags.cs
+    startLine: 49
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: MipmapLinear = 3
+    return:
+      type: LibGFX.Graphics.RenderFlags.TextureFilterMode
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Graphics.RenderFlags.TextureFilterMode
+  commentId: T:LibGFX.Graphics.RenderFlags.TextureFilterMode
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderFlags.html
+  name: RenderFlags.TextureFilterMode
+  nameWithType: RenderFlags.TextureFilterMode
+  fullName: LibGFX.Graphics.RenderFlags.TextureFilterMode
+  spec.csharp:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.TextureFilterMode
+    name: TextureFilterMode
+    href: LibGFX.Graphics.RenderFlags.TextureFilterMode.html
+  spec.vb:
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    href: LibGFX.Graphics.RenderFlags.html
+  - name: .
+  - uid: LibGFX.Graphics.RenderFlags.TextureFilterMode
+    name: TextureFilterMode
+    href: LibGFX.Graphics.RenderFlags.TextureFilterMode.html

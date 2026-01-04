@@ -1,0 +1,1019 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Physics.Behaviors3D.CapsuleTrigger
+  commentId: T:LibGFX.Physics.Behaviors3D.CapsuleTrigger
+  id: CapsuleTrigger
+  parent: LibGFX.Physics.Behaviors3D
+  children:
+  - LibGFX.Physics.Behaviors3D.CapsuleTrigger.#ctor(LibGFX.Physics.PhysicsHandler)
+  - LibGFX.Physics.Behaviors3D.CapsuleTrigger.CreateTrigger(System.Single,System.Single,System.Int32,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: CapsuleTrigger
+  nameWithType: CapsuleTrigger
+  fullName: LibGFX.Physics.Behaviors3D.CapsuleTrigger
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors3D/CapsuleTrigger.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CapsuleTrigger
+    path: ../LibGFX/Physics/Behaviors3D/CapsuleTrigger.cs
+    startLine: 14
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors3D
+  summary: Represents a 3D capsule trigger
+  example: []
+  syntax:
+    content: 'public class CapsuleTrigger : TriggerBehavior, IGameBehavior'
+    content.vb: Public Class CapsuleTrigger Inherits TriggerBehavior Implements IGameBehavior
+  inheritance:
+  - System.Object
+  - LibGFX.Physics.PhysicsBehavior
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior
+  implements:
+  - LibGFX.Core.IGameBehavior
+  inheritedMembers:
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.Trigger
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.Offset
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.Parent
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.Sync
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.Translate(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.Rotate(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.Rotate(OpenTK.Mathematics.Quaternion)
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.GetRotation
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.GetLocation
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.GetElement
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.SetElement(LibGFX.Core.GameElement)
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.GetPhysicsObject
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.RemoveCollider
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.OnCollide(LibGFX.Physics.Collision)
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  - LibGFX.Physics.Behaviors3D.TriggerBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  - LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+  - LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Physics.Behaviors3D.CapsuleTrigger.#ctor(LibGFX.Physics.PhysicsHandler)
+  commentId: M:LibGFX.Physics.Behaviors3D.CapsuleTrigger.#ctor(LibGFX.Physics.PhysicsHandler)
+  id: '#ctor(LibGFX.Physics.PhysicsHandler)'
+  parent: LibGFX.Physics.Behaviors3D.CapsuleTrigger
+  langs:
+  - csharp
+  - vb
+  name: CapsuleTrigger(PhysicsHandler)
+  nameWithType: CapsuleTrigger.CapsuleTrigger(PhysicsHandler)
+  fullName: LibGFX.Physics.Behaviors3D.CapsuleTrigger.CapsuleTrigger(LibGFX.Physics.PhysicsHandler)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors3D/CapsuleTrigger.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Physics/Behaviors3D/CapsuleTrigger.cs
+    startLine: 20
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors3D
+  summary: Creates a new 3D capsule trigger
+  example: []
+  syntax:
+    content: public CapsuleTrigger(PhysicsHandler physicsHandler)
+    parameters:
+    - id: physicsHandler
+      type: LibGFX.Physics.PhysicsHandler
+      description: ''
+    content.vb: Public Sub New(physicsHandler As PhysicsHandler)
+  overload: LibGFX.Physics.Behaviors3D.CapsuleTrigger.#ctor*
+  nameWithType.vb: CapsuleTrigger.New(PhysicsHandler)
+  fullName.vb: LibGFX.Physics.Behaviors3D.CapsuleTrigger.New(LibGFX.Physics.PhysicsHandler)
+  name.vb: New(PhysicsHandler)
+- uid: LibGFX.Physics.Behaviors3D.CapsuleTrigger.CreateTrigger(System.Single,System.Single,System.Int32,System.Int32)
+  commentId: M:LibGFX.Physics.Behaviors3D.CapsuleTrigger.CreateTrigger(System.Single,System.Single,System.Int32,System.Int32)
+  id: CreateTrigger(System.Single,System.Single,System.Int32,System.Int32)
+  parent: LibGFX.Physics.Behaviors3D.CapsuleTrigger
+  langs:
+  - csharp
+  - vb
+  name: CreateTrigger(float, float, int, int)
+  nameWithType: CapsuleTrigger.CreateTrigger(float, float, int, int)
+  fullName: LibGFX.Physics.Behaviors3D.CapsuleTrigger.CreateTrigger(float, float, int, int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors3D/CapsuleTrigger.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CreateTrigger
+    path: ../LibGFX/Physics/Behaviors3D/CapsuleTrigger.cs
+    startLine: 32
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors3D
+  summary: Creates a capsule trigger with the given radius, height, collision group and collision mask
+  example: []
+  syntax:
+    content: public void CreateTrigger(float radius = 0.5, float height = 1, int collisionGroup = -1, int collisionMask = -1)
+    parameters:
+    - id: radius
+      type: System.Single
+      description: ''
+    - id: height
+      type: System.Single
+      description: ''
+    - id: collisionGroup
+      type: System.Int32
+      description: ''
+    - id: collisionMask
+      type: System.Int32
+      description: ''
+    content.vb: Public Sub CreateTrigger(radius As Single = 0.5, height As Single = 1, collisionGroup As Integer = -1, collisionMask As Integer = -1)
+  overload: LibGFX.Physics.Behaviors3D.CapsuleTrigger.CreateTrigger*
+  nameWithType.vb: CapsuleTrigger.CreateTrigger(Single, Single, Integer, Integer)
+  fullName.vb: LibGFX.Physics.Behaviors3D.CapsuleTrigger.CreateTrigger(Single, Single, Integer, Integer)
+  name.vb: CreateTrigger(Single, Single, Integer, Integer)
+references:
+- uid: LibGFX.Physics.Behaviors3D
+  commentId: N:LibGFX.Physics.Behaviors3D
+  href: LibGFX.html
+  name: LibGFX.Physics.Behaviors3D
+  nameWithType: LibGFX.Physics.Behaviors3D
+  fullName: LibGFX.Physics.Behaviors3D
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  - name: .
+  - uid: LibGFX.Physics.Behaviors3D
+    name: Behaviors3D
+    href: LibGFX.Physics.Behaviors3D.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  - name: .
+  - uid: LibGFX.Physics.Behaviors3D
+    name: Behaviors3D
+    href: LibGFX.Physics.Behaviors3D.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Physics.PhysicsBehavior
+  commentId: T:LibGFX.Physics.PhysicsBehavior
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.PhysicsBehavior.html
+  name: PhysicsBehavior
+  nameWithType: PhysicsBehavior
+  fullName: LibGFX.Physics.PhysicsBehavior
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  commentId: T:LibGFX.Physics.Behaviors3D.TriggerBehavior
+  parent: LibGFX.Physics.Behaviors3D
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html
+  name: TriggerBehavior
+  nameWithType: TriggerBehavior
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior
+- uid: LibGFX.Core.IGameBehavior
+  commentId: T:LibGFX.Core.IGameBehavior
+  parent: LibGFX.Core
+  href: LibGFX.Core.IGameBehavior.html
+  name: IGameBehavior
+  nameWithType: IGameBehavior
+  fullName: LibGFX.Core.IGameBehavior
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.Trigger
+  commentId: P:LibGFX.Physics.Behaviors3D.TriggerBehavior.Trigger
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_Trigger
+  name: Trigger
+  nameWithType: TriggerBehavior.Trigger
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.Trigger
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.Offset
+  commentId: P:LibGFX.Physics.Behaviors3D.TriggerBehavior.Offset
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_Offset
+  name: Offset
+  nameWithType: TriggerBehavior.Offset
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.Offset
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.Parent
+  commentId: P:LibGFX.Physics.Behaviors3D.TriggerBehavior.Parent
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_Parent
+  name: Parent
+  nameWithType: TriggerBehavior.Parent
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.Parent
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.Sync
+  commentId: M:LibGFX.Physics.Behaviors3D.TriggerBehavior.Sync
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_Sync
+  name: Sync()
+  nameWithType: TriggerBehavior.Sync()
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.Sync()
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.Sync
+    name: Sync
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_Sync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.Sync
+    name: Sync
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_Sync
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.Translate(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors3D.TriggerBehavior.Translate(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_Translate_OpenTK_Mathematics_Vector3_
+  name: Translate(Vector3)
+  nameWithType: TriggerBehavior.Translate(Vector3)
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.Translate(OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.Translate(OpenTK.Mathematics.Vector3)
+    name: Translate
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_Translate_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.Translate(OpenTK.Mathematics.Vector3)
+    name: Translate
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_Translate_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.Rotate(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors3D.TriggerBehavior.Rotate(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_Rotate_OpenTK_Mathematics_Vector3_
+  name: Rotate(Vector3)
+  nameWithType: TriggerBehavior.Rotate(Vector3)
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.Rotate(OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.Rotate(OpenTK.Mathematics.Vector3)
+    name: Rotate
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_Rotate_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.Rotate(OpenTK.Mathematics.Vector3)
+    name: Rotate
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_Rotate_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.Rotate(OpenTK.Mathematics.Quaternion)
+  commentId: M:LibGFX.Physics.Behaviors3D.TriggerBehavior.Rotate(OpenTK.Mathematics.Quaternion)
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_Rotate_OpenTK_Mathematics_Quaternion_
+  name: Rotate(Quaternion)
+  nameWithType: TriggerBehavior.Rotate(Quaternion)
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.Rotate(OpenTK.Mathematics.Quaternion)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.Rotate(OpenTK.Mathematics.Quaternion)
+    name: Rotate
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_Rotate_OpenTK_Mathematics_Quaternion_
+  - name: (
+  - uid: OpenTK.Mathematics.Quaternion
+    name: Quaternion
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Data/Quaternion.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.Rotate(OpenTK.Mathematics.Quaternion)
+    name: Rotate
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_Rotate_OpenTK_Mathematics_Quaternion_
+  - name: (
+  - uid: OpenTK.Mathematics.Quaternion
+    name: Quaternion
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Data/Quaternion.cs
+  - name: )
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.GetRotation
+  commentId: M:LibGFX.Physics.Behaviors3D.TriggerBehavior.GetRotation
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_GetRotation
+  name: GetRotation()
+  nameWithType: TriggerBehavior.GetRotation()
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.GetRotation()
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.GetRotation
+    name: GetRotation
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_GetRotation
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.GetRotation
+    name: GetRotation
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_GetRotation
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.GetLocation
+  commentId: M:LibGFX.Physics.Behaviors3D.TriggerBehavior.GetLocation
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_GetLocation
+  name: GetLocation()
+  nameWithType: TriggerBehavior.GetLocation()
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.GetLocation()
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.GetLocation
+    name: GetLocation
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_GetLocation
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.GetLocation
+    name: GetLocation
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_GetLocation
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.GetElement
+  commentId: M:LibGFX.Physics.Behaviors3D.TriggerBehavior.GetElement
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_GetElement
+  name: GetElement()
+  nameWithType: TriggerBehavior.GetElement()
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.GetElement()
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.GetElement
+    name: GetElement
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_GetElement
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.GetElement
+    name: GetElement
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_GetElement
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.SetElement(LibGFX.Core.GameElement)
+  commentId: M:LibGFX.Physics.Behaviors3D.TriggerBehavior.SetElement(LibGFX.Core.GameElement)
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_SetElement_LibGFX_Core_GameElement_
+  name: SetElement(GameElement)
+  nameWithType: TriggerBehavior.SetElement(GameElement)
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.SetElement(LibGFX.Core.GameElement)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.SetElement(LibGFX.Core.GameElement)
+    name: SetElement
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_SetElement_LibGFX_Core_GameElement_
+  - name: (
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.SetElement(LibGFX.Core.GameElement)
+    name: SetElement
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_SetElement_LibGFX_Core_GameElement_
+  - name: (
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: )
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.GetPhysicsObject
+  commentId: M:LibGFX.Physics.Behaviors3D.TriggerBehavior.GetPhysicsObject
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_GetPhysicsObject
+  name: GetPhysicsObject()
+  nameWithType: TriggerBehavior.GetPhysicsObject()
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.GetPhysicsObject()
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.GetPhysicsObject
+    name: GetPhysicsObject
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_GetPhysicsObject
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.GetPhysicsObject
+    name: GetPhysicsObject
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_GetPhysicsObject
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.RemoveCollider
+  commentId: M:LibGFX.Physics.Behaviors3D.TriggerBehavior.RemoveCollider
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_RemoveCollider
+  name: RemoveCollider()
+  nameWithType: TriggerBehavior.RemoveCollider()
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.RemoveCollider()
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.RemoveCollider
+    name: RemoveCollider
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_RemoveCollider
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.RemoveCollider
+    name: RemoveCollider
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_RemoveCollider
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnCollide(LibGFX.Physics.Collision)
+  commentId: M:LibGFX.Physics.Behaviors3D.TriggerBehavior.OnCollide(LibGFX.Physics.Collision)
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_OnCollide_LibGFX_Physics_Collision_
+  name: OnCollide(Collision)
+  nameWithType: TriggerBehavior.OnCollide(Collision)
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnCollide(LibGFX.Physics.Collision)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnCollide(LibGFX.Physics.Collision)
+    name: OnCollide
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_OnCollide_LibGFX_Physics_Collision_
+  - name: (
+  - uid: LibGFX.Physics.Collision
+    name: Collision
+    href: LibGFX.Physics.Collision.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnCollide(LibGFX.Physics.Collision)
+    name: OnCollide
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_OnCollide_LibGFX_Physics_Collision_
+  - name: (
+  - uid: LibGFX.Physics.Collision
+    name: Collision
+    href: LibGFX.Physics.Collision.html
+  - name: )
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.Behaviors3D.TriggerBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  name: OnDispose(BaseScene, IRenderDevice)
+  nameWithType: TriggerBehavior.OnDispose(BaseScene, IRenderDevice)
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnDispose(LibGFX.Core.BaseScene, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+    name: OnDispose
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+    name: OnDispose
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.Behaviors3D.TriggerBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: OnInit(BaseScene, Viewport, IRenderDevice)
+  nameWithType: TriggerBehavior.OnInit(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnInit(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnInit
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnInit
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  commentId: M:LibGFX.Physics.Behaviors3D.TriggerBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  name: OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  nameWithType: TriggerBehavior.OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnRender(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+    name: OnRender
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    href: LibGFX.Graphics.Camera.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+    name: OnRender
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    href: LibGFX.Graphics.Camera.html
+  - name: )
+- uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  commentId: M:LibGFX.Physics.Behaviors3D.TriggerBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  parent: LibGFX.Physics.Behaviors3D.TriggerBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  name: OnUpdate(BaseScene, float)
+  nameWithType: TriggerBehavior.OnUpdate(BaseScene, float)
+  fullName: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnUpdate(LibGFX.Core.BaseScene, float)
+  nameWithType.vb: TriggerBehavior.OnUpdate(BaseScene, Single)
+  fullName.vb: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnUpdate(LibGFX.Core.BaseScene, Single)
+  name.vb: OnUpdate(BaseScene, Single)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+    name: OnUpdate
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+    name: OnUpdate
+    href: LibGFX.Physics.Behaviors3D.TriggerBehavior.html#LibGFX_Physics_Behaviors3D_TriggerBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+  commentId: P:LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+  parent: LibGFX.Physics.PhysicsBehavior
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_PhysicsHandler
+  name: PhysicsHandler
+  nameWithType: PhysicsBehavior.PhysicsHandler
+  fullName: LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+- uid: LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.PhysicsBehavior
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: OnShadowPass(BaseScene, Viewport, IRenderDevice)
+  nameWithType: PhysicsBehavior.OnShadowPass(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnShadowPass
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnShadowPass
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Physics
+  commentId: N:LibGFX.Physics
+  href: LibGFX.html
+  name: LibGFX.Physics
+  nameWithType: LibGFX.Physics
+  fullName: LibGFX.Physics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Physics.Behaviors3D.CapsuleTrigger.#ctor*
+  commentId: Overload:LibGFX.Physics.Behaviors3D.CapsuleTrigger.#ctor
+  href: LibGFX.Physics.Behaviors3D.CapsuleTrigger.html#LibGFX_Physics_Behaviors3D_CapsuleTrigger__ctor_LibGFX_Physics_PhysicsHandler_
+  name: CapsuleTrigger
+  nameWithType: CapsuleTrigger.CapsuleTrigger
+  fullName: LibGFX.Physics.Behaviors3D.CapsuleTrigger.CapsuleTrigger
+  nameWithType.vb: CapsuleTrigger.New
+  fullName.vb: LibGFX.Physics.Behaviors3D.CapsuleTrigger.New
+  name.vb: New
+- uid: LibGFX.Physics.PhysicsHandler
+  commentId: T:LibGFX.Physics.PhysicsHandler
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.PhysicsHandler.html
+  name: PhysicsHandler
+  nameWithType: PhysicsHandler
+  fullName: LibGFX.Physics.PhysicsHandler
+- uid: LibGFX.Physics.Behaviors3D.CapsuleTrigger.CreateTrigger*
+  commentId: Overload:LibGFX.Physics.Behaviors3D.CapsuleTrigger.CreateTrigger
+  href: LibGFX.Physics.Behaviors3D.CapsuleTrigger.html#LibGFX_Physics_Behaviors3D_CapsuleTrigger_CreateTrigger_System_Single_System_Single_System_Int32_System_Int32_
+  name: CreateTrigger
+  nameWithType: CapsuleTrigger.CreateTrigger
+  fullName: LibGFX.Physics.Behaviors3D.CapsuleTrigger.CreateTrigger
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

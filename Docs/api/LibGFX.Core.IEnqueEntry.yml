@@ -1,0 +1,414 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Core.IEnqueEntry
+  commentId: T:LibGFX.Core.IEnqueEntry
+  id: IEnqueEntry
+  parent: LibGFX.Core
+  children:
+  - LibGFX.Core.IEnqueEntry.Element
+  - LibGFX.Core.IEnqueEntry.EnqueAction
+  - LibGFX.Core.IEnqueEntry.ExtraData
+  langs:
+  - csharp
+  - vb
+  name: IEnqueEntry
+  nameWithType: IEnqueEntry
+  fullName: LibGFX.Core.IEnqueEntry
+  type: Interface
+  source:
+    remote:
+      path: LibGFX/Core/IEnqueEntry.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IEnqueEntry
+    path: ../LibGFX/Core/IEnqueEntry.cs
+    startLine: 9
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public interface IEnqueEntry
+    content.vb: Public Interface IEnqueEntry
+- uid: LibGFX.Core.IEnqueEntry.Element
+  commentId: P:LibGFX.Core.IEnqueEntry.Element
+  id: Element
+  parent: LibGFX.Core.IEnqueEntry
+  langs:
+  - csharp
+  - vb
+  name: Element
+  nameWithType: IEnqueEntry.Element
+  fullName: LibGFX.Core.IEnqueEntry.Element
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/IEnqueEntry.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Element
+    path: ../LibGFX/Core/IEnqueEntry.cs
+    startLine: 14
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Gets or sets the game element associated with this instance.
+  example: []
+  syntax:
+    content: GameElement Element { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Core.GameElement
+    content.vb: Property Element As GameElement
+  overload: LibGFX.Core.IEnqueEntry.Element*
+- uid: LibGFX.Core.IEnqueEntry.EnqueAction
+  commentId: P:LibGFX.Core.IEnqueEntry.EnqueAction
+  id: EnqueAction
+  parent: LibGFX.Core.IEnqueEntry
+  langs:
+  - csharp
+  - vb
+  name: EnqueAction
+  nameWithType: IEnqueEntry.EnqueAction
+  fullName: LibGFX.Core.IEnqueEntry.EnqueAction
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/IEnqueEntry.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: EnqueAction
+    path: ../LibGFX/Core/IEnqueEntry.cs
+    startLine: 16
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: Action<BaseScene, GameElement, Dictionary<string, object>>? EnqueAction { get; set; }
+    parameters: []
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,LibGFX.Core.GameElement,System.Collections.Generic.Dictionary{System.String,System.Object}}
+    content.vb: Property EnqueAction As Action(Of BaseScene, GameElement, Dictionary(Of String, Object))
+  overload: LibGFX.Core.IEnqueEntry.EnqueAction*
+- uid: LibGFX.Core.IEnqueEntry.ExtraData
+  commentId: P:LibGFX.Core.IEnqueEntry.ExtraData
+  id: ExtraData
+  parent: LibGFX.Core.IEnqueEntry
+  langs:
+  - csharp
+  - vb
+  name: ExtraData
+  nameWithType: IEnqueEntry.ExtraData
+  fullName: LibGFX.Core.IEnqueEntry.ExtraData
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/IEnqueEntry.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ExtraData
+    path: ../LibGFX/Core/IEnqueEntry.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: Dictionary<string, object>? ExtraData { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Object}
+    content.vb: Property ExtraData As Dictionary(Of String, Object)
+  overload: LibGFX.Core.IEnqueEntry.ExtraData*
+references:
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Core.IEnqueEntry.Element*
+  commentId: Overload:LibGFX.Core.IEnqueEntry.Element
+  href: LibGFX.Core.IEnqueEntry.html#LibGFX_Core_IEnqueEntry_Element
+  name: Element
+  nameWithType: IEnqueEntry.Element
+  fullName: LibGFX.Core.IEnqueEntry.Element
+- uid: LibGFX.Core.GameElement
+  commentId: T:LibGFX.Core.GameElement
+  parent: LibGFX.Core
+  href: LibGFX.Core.GameElement.html
+  name: GameElement
+  nameWithType: GameElement
+  fullName: LibGFX.Core.GameElement
+- uid: LibGFX.Core.IEnqueEntry.EnqueAction*
+  commentId: Overload:LibGFX.Core.IEnqueEntry.EnqueAction
+  href: LibGFX.Core.IEnqueEntry.html#LibGFX_Core_IEnqueEntry_EnqueAction
+  name: EnqueAction
+  nameWithType: IEnqueEntry.EnqueAction
+  fullName: LibGFX.Core.IEnqueEntry.EnqueAction
+- uid: System.Action{LibGFX.Core.BaseScene,LibGFX.Core.GameElement,System.Collections.Generic.Dictionary{System.String,System.Object}}
+  commentId: T:System.Action{LibGFX.Core.BaseScene,LibGFX.Core.GameElement,System.Collections.Generic.Dictionary{System.String,System.Object}}
+  parent: System
+  definition: System.Action`3
+  href: https://learn.microsoft.com/dotnet/api/system.action-3
+  name: Action<BaseScene, GameElement, Dictionary<string, object>>
+  nameWithType: Action<BaseScene, GameElement, Dictionary<string, object>>
+  fullName: System.Action<LibGFX.Core.BaseScene, LibGFX.Core.GameElement, System.Collections.Generic.Dictionary<string, object>>
+  nameWithType.vb: Action(Of BaseScene, GameElement, Dictionary(Of String, Object))
+  fullName.vb: System.Action(Of LibGFX.Core.BaseScene, LibGFX.Core.GameElement, System.Collections.Generic.Dictionary(Of String, Object))
+  name.vb: Action(Of BaseScene, GameElement, Dictionary(Of String, Object))
+  spec.csharp:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: <
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  - name: )
+- uid: System.Action`3
+  commentId: T:System.Action`3
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-3
+  name: Action<T1, T2, T3>
+  nameWithType: Action<T1, T2, T3>
+  fullName: System.Action<T1, T2, T3>
+  nameWithType.vb: Action(Of T1, T2, T3)
+  fullName.vb: System.Action(Of T1, T2, T3)
+  name.vb: Action(Of T1, T2, T3)
+  spec.csharp:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core.IEnqueEntry.ExtraData*
+  commentId: Overload:LibGFX.Core.IEnqueEntry.ExtraData
+  href: LibGFX.Core.IEnqueEntry.html#LibGFX_Core_IEnqueEntry_ExtraData
+  name: ExtraData
+  nameWithType: IEnqueEntry.ExtraData
+  fullName: LibGFX.Core.IEnqueEntry.ExtraData
+- uid: System.Collections.Generic.Dictionary{System.String,System.Object}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, object>
+  nameWithType: Dictionary<string, object>
+  fullName: System.Collections.Generic.Dictionary<string, object>
+  nameWithType.vb: Dictionary(Of String, Object)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, Object)
+  name.vb: Dictionary(Of String, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

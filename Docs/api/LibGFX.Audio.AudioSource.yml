@@ -1,0 +1,1683 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Audio.AudioSource
+  commentId: T:LibGFX.Audio.AudioSource
+  id: AudioSource
+  parent: LibGFX.Audio
+  children:
+  - LibGFX.Audio.AudioSource.#ctor(LibGFX.Audio.IAudioDevice,LibGFX.Audio.PlayMode)
+  - LibGFX.Audio.AudioSource.AudioClip
+  - LibGFX.Audio.AudioSource.Gain
+  - LibGFX.Audio.AudioSource.GetElement
+  - LibGFX.Audio.AudioSource.OnCollide(LibGFX.Physics.Collision)
+  - LibGFX.Audio.AudioSource.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Audio.AudioSource.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Audio.AudioSource.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  - LibGFX.Audio.AudioSource.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Audio.AudioSource.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  - LibGFX.Audio.AudioSource.Pause
+  - LibGFX.Audio.AudioSource.Play
+  - LibGFX.Audio.AudioSource.PlayMode
+  - LibGFX.Audio.AudioSource.Range
+  - LibGFX.Audio.AudioSource.SetAudioClip(LibGFX.Audio.AudioClip)
+  - LibGFX.Audio.AudioSource.SetElement(LibGFX.Core.GameElement)
+  - LibGFX.Audio.AudioSource.SetGain(System.Single)
+  - LibGFX.Audio.AudioSource.SetPlayMode(LibGFX.Audio.PlayMode)
+  - LibGFX.Audio.AudioSource.SetRange(OpenTK.Mathematics.Vector3)
+  - LibGFX.Audio.AudioSource.SourceId
+  - LibGFX.Audio.AudioSource.State
+  - LibGFX.Audio.AudioSource.Stop
+  langs:
+  - csharp
+  - vb
+  name: AudioSource
+  nameWithType: AudioSource
+  fullName: LibGFX.Audio.AudioSource
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AudioSource
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 39
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Represents an audio source
+  example: []
+  syntax:
+    content: 'public class AudioSource : IGameBehavior'
+    content.vb: Public Class AudioSource Implements IGameBehavior
+  inheritance:
+  - System.Object
+  implements:
+  - LibGFX.Core.IGameBehavior
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Audio.AudioSource.State
+  commentId: P:LibGFX.Audio.AudioSource.State
+  id: State
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: AudioSource.State
+  fullName: LibGFX.Audio.AudioSource.State
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: State
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 44
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: The state of the audio source
+  example: []
+  syntax:
+    content: public AudioSourceState State { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Audio.AudioSourceState
+    content.vb: Public Property State As AudioSourceState
+  overload: LibGFX.Audio.AudioSource.State*
+- uid: LibGFX.Audio.AudioSource.SourceId
+  commentId: P:LibGFX.Audio.AudioSource.SourceId
+  id: SourceId
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: SourceId
+  nameWithType: AudioSource.SourceId
+  fullName: LibGFX.Audio.AudioSource.SourceId
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SourceId
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 49
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: The ID of the audio source
+  example: []
+  syntax:
+    content: public int SourceId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property SourceId As Integer
+  overload: LibGFX.Audio.AudioSource.SourceId*
+- uid: LibGFX.Audio.AudioSource.AudioClip
+  commentId: P:LibGFX.Audio.AudioSource.AudioClip
+  id: AudioClip
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: AudioClip
+  nameWithType: AudioSource.AudioClip
+  fullName: LibGFX.Audio.AudioSource.AudioClip
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AudioClip
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 54
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: The audio clip of the audio source
+  example: []
+  syntax:
+    content: public AudioClip AudioClip { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Audio.AudioClip
+    content.vb: Public Property AudioClip As AudioClip
+  overload: LibGFX.Audio.AudioSource.AudioClip*
+- uid: LibGFX.Audio.AudioSource.PlayMode
+  commentId: P:LibGFX.Audio.AudioSource.PlayMode
+  id: PlayMode
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: PlayMode
+  nameWithType: AudioSource.PlayMode
+  fullName: LibGFX.Audio.AudioSource.PlayMode
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PlayMode
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 59
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: The play mode of the audio source
+  example: []
+  syntax:
+    content: public PlayMode PlayMode { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Audio.PlayMode
+    content.vb: Public Property PlayMode As PlayMode
+  overload: LibGFX.Audio.AudioSource.PlayMode*
+- uid: LibGFX.Audio.AudioSource.Gain
+  commentId: P:LibGFX.Audio.AudioSource.Gain
+  id: Gain
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: Gain
+  nameWithType: AudioSource.Gain
+  fullName: LibGFX.Audio.AudioSource.Gain
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Gain
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 64
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: The gain (volume) of the audio source
+  example: []
+  syntax:
+    content: public float Gain { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Gain As Single
+  overload: LibGFX.Audio.AudioSource.Gain*
+- uid: LibGFX.Audio.AudioSource.Range
+  commentId: P:LibGFX.Audio.AudioSource.Range
+  id: Range
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: Range
+  nameWithType: AudioSource.Range
+  fullName: LibGFX.Audio.AudioSource.Range
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Range
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 69
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: The range of the audio source
+  example: []
+  syntax:
+    content: public Vector3 Range { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Property Range As Vector3
+  overload: LibGFX.Audio.AudioSource.Range*
+- uid: LibGFX.Audio.AudioSource.#ctor(LibGFX.Audio.IAudioDevice,LibGFX.Audio.PlayMode)
+  commentId: M:LibGFX.Audio.AudioSource.#ctor(LibGFX.Audio.IAudioDevice,LibGFX.Audio.PlayMode)
+  id: '#ctor(LibGFX.Audio.IAudioDevice,LibGFX.Audio.PlayMode)'
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: AudioSource(IAudioDevice, PlayMode)
+  nameWithType: AudioSource.AudioSource(IAudioDevice, PlayMode)
+  fullName: LibGFX.Audio.AudioSource.AudioSource(LibGFX.Audio.IAudioDevice, LibGFX.Audio.PlayMode)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 83
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Creates a new audio source
+  example: []
+  syntax:
+    content: public AudioSource(IAudioDevice audioDevice, PlayMode playmode = PlayMode.Loop)
+    parameters:
+    - id: audioDevice
+      type: LibGFX.Audio.IAudioDevice
+      description: ''
+    - id: playmode
+      type: LibGFX.Audio.PlayMode
+      description: ''
+    content.vb: Public Sub New(audioDevice As IAudioDevice, playmode As PlayMode = PlayMode.Loop)
+  overload: LibGFX.Audio.AudioSource.#ctor*
+  nameWithType.vb: AudioSource.New(IAudioDevice, PlayMode)
+  fullName.vb: LibGFX.Audio.AudioSource.New(LibGFX.Audio.IAudioDevice, LibGFX.Audio.PlayMode)
+  name.vb: New(IAudioDevice, PlayMode)
+- uid: LibGFX.Audio.AudioSource.SetAudioClip(LibGFX.Audio.AudioClip)
+  commentId: M:LibGFX.Audio.AudioSource.SetAudioClip(LibGFX.Audio.AudioClip)
+  id: SetAudioClip(LibGFX.Audio.AudioClip)
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: SetAudioClip(AudioClip)
+  nameWithType: AudioSource.SetAudioClip(AudioClip)
+  fullName: LibGFX.Audio.AudioSource.SetAudioClip(LibGFX.Audio.AudioClip)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetAudioClip
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 93
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Sets the audio clip for the audio source
+  example: []
+  syntax:
+    content: public void SetAudioClip(AudioClip audioClip)
+    parameters:
+    - id: audioClip
+      type: LibGFX.Audio.AudioClip
+      description: ''
+    content.vb: Public Sub SetAudioClip(audioClip As AudioClip)
+  overload: LibGFX.Audio.AudioSource.SetAudioClip*
+- uid: LibGFX.Audio.AudioSource.SetPlayMode(LibGFX.Audio.PlayMode)
+  commentId: M:LibGFX.Audio.AudioSource.SetPlayMode(LibGFX.Audio.PlayMode)
+  id: SetPlayMode(LibGFX.Audio.PlayMode)
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: SetPlayMode(PlayMode)
+  nameWithType: AudioSource.SetPlayMode(PlayMode)
+  fullName: LibGFX.Audio.AudioSource.SetPlayMode(LibGFX.Audio.PlayMode)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetPlayMode
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 106
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Sets the play mode for the audio source
+  example: []
+  syntax:
+    content: public void SetPlayMode(PlayMode playMode)
+    parameters:
+    - id: playMode
+      type: LibGFX.Audio.PlayMode
+      description: ''
+    content.vb: Public Sub SetPlayMode(playMode As PlayMode)
+  overload: LibGFX.Audio.AudioSource.SetPlayMode*
+- uid: LibGFX.Audio.AudioSource.SetRange(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Audio.AudioSource.SetRange(OpenTK.Mathematics.Vector3)
+  id: SetRange(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: SetRange(Vector3)
+  nameWithType: AudioSource.SetRange(Vector3)
+  fullName: LibGFX.Audio.AudioSource.SetRange(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetRange
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 130
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Sets the range of the audio source
+  example: []
+  syntax:
+    content: public void SetRange(Vector3 value)
+    parameters:
+    - id: value
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Sub SetRange(value As Vector3)
+  overload: LibGFX.Audio.AudioSource.SetRange*
+- uid: LibGFX.Audio.AudioSource.SetGain(System.Single)
+  commentId: M:LibGFX.Audio.AudioSource.SetGain(System.Single)
+  id: SetGain(System.Single)
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: SetGain(float)
+  nameWithType: AudioSource.SetGain(float)
+  fullName: LibGFX.Audio.AudioSource.SetGain(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetGain
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 143
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Sets the gain (volume) of the audio source
+  example: []
+  syntax:
+    content: public void SetGain(float value)
+    parameters:
+    - id: value
+      type: System.Single
+      description: ''
+    content.vb: Public Sub SetGain(value As Single)
+  overload: LibGFX.Audio.AudioSource.SetGain*
+  nameWithType.vb: AudioSource.SetGain(Single)
+  fullName.vb: LibGFX.Audio.AudioSource.SetGain(Single)
+  name.vb: SetGain(Single)
+- uid: LibGFX.Audio.AudioSource.Play
+  commentId: M:LibGFX.Audio.AudioSource.Play
+  id: Play
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: Play()
+  nameWithType: AudioSource.Play()
+  fullName: LibGFX.Audio.AudioSource.Play()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Play
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 154
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Plays the audio source
+  example: []
+  syntax:
+    content: public void Play()
+    content.vb: Public Sub Play()
+  overload: LibGFX.Audio.AudioSource.Play*
+- uid: LibGFX.Audio.AudioSource.Stop
+  commentId: M:LibGFX.Audio.AudioSource.Stop
+  id: Stop
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: Stop()
+  nameWithType: AudioSource.Stop()
+  fullName: LibGFX.Audio.AudioSource.Stop()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Stop
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 166
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Stops the audio source
+  example: []
+  syntax:
+    content: public void Stop()
+    content.vb: Public Sub [Stop]()
+  overload: LibGFX.Audio.AudioSource.Stop*
+- uid: LibGFX.Audio.AudioSource.Pause
+  commentId: M:LibGFX.Audio.AudioSource.Pause
+  id: Pause
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: Pause()
+  nameWithType: AudioSource.Pause()
+  fullName: LibGFX.Audio.AudioSource.Pause()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Pause
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 178
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Pauses the audio source
+  example: []
+  syntax:
+    content: public void Pause()
+    content.vb: Public Sub Pause()
+  overload: LibGFX.Audio.AudioSource.Pause*
+- uid: LibGFX.Audio.AudioSource.GetElement
+  commentId: M:LibGFX.Audio.AudioSource.GetElement
+  id: GetElement
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: GetElement()
+  nameWithType: AudioSource.GetElement()
+  fullName: LibGFX.Audio.AudioSource.GetElement()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetElement
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 191
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Returns the game element associated with the audio source
+  example: []
+  syntax:
+    content: public GameElement GetElement()
+    return:
+      type: LibGFX.Core.GameElement
+      description: ''
+    content.vb: Public Function GetElement() As GameElement
+  overload: LibGFX.Audio.AudioSource.GetElement*
+  implements:
+  - LibGFX.Core.IGameBehavior.GetElement
+- uid: LibGFX.Audio.AudioSource.SetElement(LibGFX.Core.GameElement)
+  commentId: M:LibGFX.Audio.AudioSource.SetElement(LibGFX.Core.GameElement)
+  id: SetElement(LibGFX.Core.GameElement)
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: SetElement(GameElement)
+  nameWithType: AudioSource.SetElement(GameElement)
+  fullName: LibGFX.Audio.AudioSource.SetElement(LibGFX.Core.GameElement)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetElement
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 200
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Sets the game element associated with the audio source
+  example: []
+  syntax:
+    content: public void SetElement(GameElement gameElement)
+    parameters:
+    - id: gameElement
+      type: LibGFX.Core.GameElement
+      description: ''
+    content.vb: Public Sub SetElement(gameElement As GameElement)
+  overload: LibGFX.Audio.AudioSource.SetElement*
+  implements:
+  - LibGFX.Core.IGameBehavior.SetElement(LibGFX.Core.GameElement)
+- uid: LibGFX.Audio.AudioSource.OnCollide(LibGFX.Physics.Collision)
+  commentId: M:LibGFX.Audio.AudioSource.OnCollide(LibGFX.Physics.Collision)
+  id: OnCollide(LibGFX.Physics.Collision)
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: OnCollide(Collision)
+  nameWithType: AudioSource.OnCollide(Collision)
+  fullName: LibGFX.Audio.AudioSource.OnCollide(LibGFX.Physics.Collision)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnCollide
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 209
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Handles the collision event (not used in this implementation)
+  example: []
+  syntax:
+    content: public void OnCollide(Collision collision)
+    parameters:
+    - id: collision
+      type: LibGFX.Physics.Collision
+      description: ''
+    content.vb: Public Sub OnCollide(collision As Collision)
+  overload: LibGFX.Audio.AudioSource.OnCollide*
+  implements:
+  - LibGFX.Core.IGameBehavior.OnCollide(LibGFX.Physics.Collision)
+- uid: LibGFX.Audio.AudioSource.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Audio.AudioSource.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  id: OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: OnDispose(BaseScene, IRenderDevice)
+  nameWithType: AudioSource.OnDispose(BaseScene, IRenderDevice)
+  fullName: LibGFX.Audio.AudioSource.OnDispose(LibGFX.Core.BaseScene, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnDispose
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 219
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Disposes the audio source
+  example: []
+  syntax:
+    content: public void OnDispose(BaseScene scene, IRenderDevice renderer)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Sub OnDispose(scene As BaseScene, renderer As IRenderDevice)
+  overload: LibGFX.Audio.AudioSource.OnDispose*
+  implements:
+  - LibGFX.Core.IGameBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Audio.AudioSource.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Audio.AudioSource.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: OnInit(BaseScene, Viewport, IRenderDevice)
+  nameWithType: AudioSource.OnInit(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Audio.AudioSource.OnInit(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnInit
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 234
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Initializes the audio source and sets the start parameters
+  example: []
+  syntax:
+    content: public void OnInit(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Sub OnInit(scene As BaseScene, viewport As Viewport, renderer As IRenderDevice)
+  overload: LibGFX.Audio.AudioSource.OnInit*
+  implements:
+  - LibGFX.Core.IGameBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Audio.AudioSource.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Audio.AudioSource.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: OnShadowPass(BaseScene, Viewport, IRenderDevice)
+  nameWithType: AudioSource.OnShadowPass(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Audio.AudioSource.OnShadowPass(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnShadowPass
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 273
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Handles the shadow pass rendering (not used in this implementation)
+  example: []
+  syntax:
+    content: public void OnShadowPass(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Sub OnShadowPass(scene As BaseScene, viewport As Viewport, renderer As IRenderDevice)
+  overload: LibGFX.Audio.AudioSource.OnShadowPass*
+  implements:
+  - LibGFX.Core.IGameBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Audio.AudioSource.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  commentId: M:LibGFX.Audio.AudioSource.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  id: OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  nameWithType: AudioSource.OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  fullName: LibGFX.Audio.AudioSource.OnRender(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnRender
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 285
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Handles the rendering of the audio source (not used in this implementation)
+  example: []
+  syntax:
+    content: public void OnRender(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    - id: camera
+      type: LibGFX.Graphics.Camera
+      description: ''
+    content.vb: Public Sub OnRender(scene As BaseScene, viewport As Viewport, renderer As IRenderDevice, camera As Camera)
+  overload: LibGFX.Audio.AudioSource.OnRender*
+  implements:
+  - LibGFX.Core.IGameBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+- uid: LibGFX.Audio.AudioSource.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  commentId: M:LibGFX.Audio.AudioSource.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  id: OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  parent: LibGFX.Audio.AudioSource
+  langs:
+  - csharp
+  - vb
+  name: OnUpdate(BaseScene, float)
+  nameWithType: AudioSource.OnUpdate(BaseScene, float)
+  fullName: LibGFX.Audio.AudioSource.OnUpdate(LibGFX.Core.BaseScene, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Audio/AudioSource.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnUpdate
+    path: ../LibGFX/Audio/AudioSource.cs
+    startLine: 294
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Audio
+  summary: Handles the update of the audio source
+  example: []
+  syntax:
+    content: public void OnUpdate(BaseScene scene, float dt)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: dt
+      type: System.Single
+    content.vb: Public Sub OnUpdate(scene As BaseScene, dt As Single)
+  overload: LibGFX.Audio.AudioSource.OnUpdate*
+  implements:
+  - LibGFX.Core.IGameBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  nameWithType.vb: AudioSource.OnUpdate(BaseScene, Single)
+  fullName.vb: LibGFX.Audio.AudioSource.OnUpdate(LibGFX.Core.BaseScene, Single)
+  name.vb: OnUpdate(BaseScene, Single)
+references:
+- uid: LibGFX.Audio
+  commentId: N:LibGFX.Audio
+  href: LibGFX.html
+  name: LibGFX.Audio
+  nameWithType: LibGFX.Audio
+  fullName: LibGFX.Audio
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Audio
+    name: Audio
+    href: LibGFX.Audio.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Audio
+    name: Audio
+    href: LibGFX.Audio.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Core.IGameBehavior
+  commentId: T:LibGFX.Core.IGameBehavior
+  parent: LibGFX.Core
+  href: LibGFX.Core.IGameBehavior.html
+  name: IGameBehavior
+  nameWithType: IGameBehavior
+  fullName: LibGFX.Core.IGameBehavior
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Audio.AudioSource.State*
+  commentId: Overload:LibGFX.Audio.AudioSource.State
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_State
+  name: State
+  nameWithType: AudioSource.State
+  fullName: LibGFX.Audio.AudioSource.State
+- uid: LibGFX.Audio.AudioSourceState
+  commentId: T:LibGFX.Audio.AudioSourceState
+  parent: LibGFX.Audio
+  href: LibGFX.Audio.AudioSourceState.html
+  name: AudioSourceState
+  nameWithType: AudioSourceState
+  fullName: LibGFX.Audio.AudioSourceState
+- uid: LibGFX.Audio.AudioSource.SourceId*
+  commentId: Overload:LibGFX.Audio.AudioSource.SourceId
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_SourceId
+  name: SourceId
+  nameWithType: AudioSource.SourceId
+  fullName: LibGFX.Audio.AudioSource.SourceId
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LibGFX.Audio.AudioSource.AudioClip*
+  commentId: Overload:LibGFX.Audio.AudioSource.AudioClip
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_AudioClip
+  name: AudioClip
+  nameWithType: AudioSource.AudioClip
+  fullName: LibGFX.Audio.AudioSource.AudioClip
+- uid: LibGFX.Audio.AudioClip
+  commentId: T:LibGFX.Audio.AudioClip
+  parent: LibGFX.Audio
+  href: LibGFX.Audio.AudioClip.html
+  name: AudioClip
+  nameWithType: AudioClip
+  fullName: LibGFX.Audio.AudioClip
+- uid: LibGFX.Audio.AudioSource.PlayMode*
+  commentId: Overload:LibGFX.Audio.AudioSource.PlayMode
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_PlayMode
+  name: PlayMode
+  nameWithType: AudioSource.PlayMode
+  fullName: LibGFX.Audio.AudioSource.PlayMode
+- uid: LibGFX.Audio.PlayMode
+  commentId: T:LibGFX.Audio.PlayMode
+  parent: LibGFX.Audio
+  href: LibGFX.Audio.PlayMode.html
+  name: PlayMode
+  nameWithType: PlayMode
+  fullName: LibGFX.Audio.PlayMode
+- uid: LibGFX.Audio.AudioSource.Gain*
+  commentId: Overload:LibGFX.Audio.AudioSource.Gain
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_Gain
+  name: Gain
+  nameWithType: AudioSource.Gain
+  fullName: LibGFX.Audio.AudioSource.Gain
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Audio.AudioSource.Range*
+  commentId: Overload:LibGFX.Audio.AudioSource.Range
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_Range
+  name: Range
+  nameWithType: AudioSource.Range
+  fullName: LibGFX.Audio.AudioSource.Range
+- uid: OpenTK.Mathematics.Vector3
+  commentId: T:OpenTK.Mathematics.Vector3
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  name: Vector3
+  nameWithType: Vector3
+  fullName: OpenTK.Mathematics.Vector3
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Audio.AudioSource.#ctor*
+  commentId: Overload:LibGFX.Audio.AudioSource.#ctor
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource__ctor_LibGFX_Audio_IAudioDevice_LibGFX_Audio_PlayMode_
+  name: AudioSource
+  nameWithType: AudioSource.AudioSource
+  fullName: LibGFX.Audio.AudioSource.AudioSource
+  nameWithType.vb: AudioSource.New
+  fullName.vb: LibGFX.Audio.AudioSource.New
+  name.vb: New
+- uid: LibGFX.Audio.IAudioDevice
+  commentId: T:LibGFX.Audio.IAudioDevice
+  parent: LibGFX.Audio
+  href: LibGFX.Audio.IAudioDevice.html
+  name: IAudioDevice
+  nameWithType: IAudioDevice
+  fullName: LibGFX.Audio.IAudioDevice
+- uid: LibGFX.Audio.AudioSource.SetAudioClip*
+  commentId: Overload:LibGFX.Audio.AudioSource.SetAudioClip
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_SetAudioClip_LibGFX_Audio_AudioClip_
+  name: SetAudioClip
+  nameWithType: AudioSource.SetAudioClip
+  fullName: LibGFX.Audio.AudioSource.SetAudioClip
+- uid: LibGFX.Audio.AudioSource.SetPlayMode*
+  commentId: Overload:LibGFX.Audio.AudioSource.SetPlayMode
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_SetPlayMode_LibGFX_Audio_PlayMode_
+  name: SetPlayMode
+  nameWithType: AudioSource.SetPlayMode
+  fullName: LibGFX.Audio.AudioSource.SetPlayMode
+- uid: LibGFX.Audio.AudioSource.SetRange*
+  commentId: Overload:LibGFX.Audio.AudioSource.SetRange
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_SetRange_OpenTK_Mathematics_Vector3_
+  name: SetRange
+  nameWithType: AudioSource.SetRange
+  fullName: LibGFX.Audio.AudioSource.SetRange
+- uid: LibGFX.Audio.AudioSource.SetGain*
+  commentId: Overload:LibGFX.Audio.AudioSource.SetGain
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_SetGain_System_Single_
+  name: SetGain
+  nameWithType: AudioSource.SetGain
+  fullName: LibGFX.Audio.AudioSource.SetGain
+- uid: LibGFX.Audio.AudioSource.Play*
+  commentId: Overload:LibGFX.Audio.AudioSource.Play
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_Play
+  name: Play
+  nameWithType: AudioSource.Play
+  fullName: LibGFX.Audio.AudioSource.Play
+- uid: LibGFX.Audio.AudioSource.Stop*
+  commentId: Overload:LibGFX.Audio.AudioSource.Stop
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_Stop
+  name: Stop
+  nameWithType: AudioSource.Stop
+  fullName: LibGFX.Audio.AudioSource.Stop
+- uid: LibGFX.Audio.AudioSource.Pause*
+  commentId: Overload:LibGFX.Audio.AudioSource.Pause
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_Pause
+  name: Pause
+  nameWithType: AudioSource.Pause
+  fullName: LibGFX.Audio.AudioSource.Pause
+- uid: LibGFX.Audio.AudioSource.GetElement*
+  commentId: Overload:LibGFX.Audio.AudioSource.GetElement
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_GetElement
+  name: GetElement
+  nameWithType: AudioSource.GetElement
+  fullName: LibGFX.Audio.AudioSource.GetElement
+- uid: LibGFX.Core.IGameBehavior.GetElement
+  commentId: M:LibGFX.Core.IGameBehavior.GetElement
+  parent: LibGFX.Core.IGameBehavior
+  href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_GetElement
+  name: GetElement()
+  nameWithType: IGameBehavior.GetElement()
+  fullName: LibGFX.Core.IGameBehavior.GetElement()
+  spec.csharp:
+  - uid: LibGFX.Core.IGameBehavior.GetElement
+    name: GetElement
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_GetElement
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGameBehavior.GetElement
+    name: GetElement
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_GetElement
+  - name: (
+  - name: )
+- uid: LibGFX.Core.GameElement
+  commentId: T:LibGFX.Core.GameElement
+  parent: LibGFX.Core
+  href: LibGFX.Core.GameElement.html
+  name: GameElement
+  nameWithType: GameElement
+  fullName: LibGFX.Core.GameElement
+- uid: LibGFX.Audio.AudioSource.SetElement*
+  commentId: Overload:LibGFX.Audio.AudioSource.SetElement
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_SetElement_LibGFX_Core_GameElement_
+  name: SetElement
+  nameWithType: AudioSource.SetElement
+  fullName: LibGFX.Audio.AudioSource.SetElement
+- uid: LibGFX.Core.IGameBehavior.SetElement(LibGFX.Core.GameElement)
+  commentId: M:LibGFX.Core.IGameBehavior.SetElement(LibGFX.Core.GameElement)
+  parent: LibGFX.Core.IGameBehavior
+  href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_SetElement_LibGFX_Core_GameElement_
+  name: SetElement(GameElement)
+  nameWithType: IGameBehavior.SetElement(GameElement)
+  fullName: LibGFX.Core.IGameBehavior.SetElement(LibGFX.Core.GameElement)
+  spec.csharp:
+  - uid: LibGFX.Core.IGameBehavior.SetElement(LibGFX.Core.GameElement)
+    name: SetElement
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_SetElement_LibGFX_Core_GameElement_
+  - name: (
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGameBehavior.SetElement(LibGFX.Core.GameElement)
+    name: SetElement
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_SetElement_LibGFX_Core_GameElement_
+  - name: (
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: )
+- uid: LibGFX.Audio.AudioSource.OnCollide*
+  commentId: Overload:LibGFX.Audio.AudioSource.OnCollide
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_OnCollide_LibGFX_Physics_Collision_
+  name: OnCollide
+  nameWithType: AudioSource.OnCollide
+  fullName: LibGFX.Audio.AudioSource.OnCollide
+- uid: LibGFX.Core.IGameBehavior.OnCollide(LibGFX.Physics.Collision)
+  commentId: M:LibGFX.Core.IGameBehavior.OnCollide(LibGFX.Physics.Collision)
+  parent: LibGFX.Core.IGameBehavior
+  href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnCollide_LibGFX_Physics_Collision_
+  name: OnCollide(Collision)
+  nameWithType: IGameBehavior.OnCollide(Collision)
+  fullName: LibGFX.Core.IGameBehavior.OnCollide(LibGFX.Physics.Collision)
+  spec.csharp:
+  - uid: LibGFX.Core.IGameBehavior.OnCollide(LibGFX.Physics.Collision)
+    name: OnCollide
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnCollide_LibGFX_Physics_Collision_
+  - name: (
+  - uid: LibGFX.Physics.Collision
+    name: Collision
+    href: LibGFX.Physics.Collision.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGameBehavior.OnCollide(LibGFX.Physics.Collision)
+    name: OnCollide
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnCollide_LibGFX_Physics_Collision_
+  - name: (
+  - uid: LibGFX.Physics.Collision
+    name: Collision
+    href: LibGFX.Physics.Collision.html
+  - name: )
+- uid: LibGFX.Physics.Collision
+  commentId: T:LibGFX.Physics.Collision
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.Collision.html
+  name: Collision
+  nameWithType: Collision
+  fullName: LibGFX.Physics.Collision
+- uid: LibGFX.Physics
+  commentId: N:LibGFX.Physics
+  href: LibGFX.html
+  name: LibGFX.Physics
+  nameWithType: LibGFX.Physics
+  fullName: LibGFX.Physics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+- uid: LibGFX.Audio.AudioSource.OnDispose*
+  commentId: Overload:LibGFX.Audio.AudioSource.OnDispose
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  name: OnDispose
+  nameWithType: AudioSource.OnDispose
+  fullName: LibGFX.Audio.AudioSource.OnDispose
+- uid: LibGFX.Core.IGameBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IGameBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IGameBehavior
+  href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  name: OnDispose(BaseScene, IRenderDevice)
+  nameWithType: IGameBehavior.OnDispose(BaseScene, IRenderDevice)
+  fullName: LibGFX.Core.IGameBehavior.OnDispose(LibGFX.Core.BaseScene, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IGameBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+    name: OnDispose
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGameBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+    name: OnDispose
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Core.BaseScene
+  commentId: T:LibGFX.Core.BaseScene
+  parent: LibGFX.Core
+  href: LibGFX.Core.BaseScene.html
+  name: BaseScene
+  nameWithType: BaseScene
+  fullName: LibGFX.Core.BaseScene
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Audio.AudioSource.OnInit*
+  commentId: Overload:LibGFX.Audio.AudioSource.OnInit
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: OnInit
+  nameWithType: AudioSource.OnInit
+  fullName: LibGFX.Audio.AudioSource.OnInit
+- uid: LibGFX.Core.IGameBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IGameBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IGameBehavior
+  href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: OnInit(BaseScene, Viewport, IRenderDevice)
+  nameWithType: IGameBehavior.OnInit(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Core.IGameBehavior.OnInit(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IGameBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnInit
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGameBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnInit
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.Audio.AudioSource.OnShadowPass*
+  commentId: Overload:LibGFX.Audio.AudioSource.OnShadowPass
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: OnShadowPass
+  nameWithType: AudioSource.OnShadowPass
+  fullName: LibGFX.Audio.AudioSource.OnShadowPass
+- uid: LibGFX.Core.IGameBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IGameBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IGameBehavior
+  href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: OnShadowPass(BaseScene, Viewport, IRenderDevice)
+  nameWithType: IGameBehavior.OnShadowPass(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Core.IGameBehavior.OnShadowPass(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IGameBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnShadowPass
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGameBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnShadowPass
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Audio.AudioSource.OnRender*
+  commentId: Overload:LibGFX.Audio.AudioSource.OnRender
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  name: OnRender
+  nameWithType: AudioSource.OnRender
+  fullName: LibGFX.Audio.AudioSource.OnRender
+- uid: LibGFX.Core.IGameBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  commentId: M:LibGFX.Core.IGameBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  parent: LibGFX.Core.IGameBehavior
+  href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  name: OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  nameWithType: IGameBehavior.OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  fullName: LibGFX.Core.IGameBehavior.OnRender(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera)
+  spec.csharp:
+  - uid: LibGFX.Core.IGameBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+    name: OnRender
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    href: LibGFX.Graphics.Camera.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGameBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+    name: OnRender
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    href: LibGFX.Graphics.Camera.html
+  - name: )
+- uid: LibGFX.Graphics.Camera
+  commentId: T:LibGFX.Graphics.Camera
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Camera.html
+  name: Camera
+  nameWithType: Camera
+  fullName: LibGFX.Graphics.Camera
+- uid: LibGFX.Audio.AudioSource.OnUpdate*
+  commentId: Overload:LibGFX.Audio.AudioSource.OnUpdate
+  href: LibGFX.Audio.AudioSource.html#LibGFX_Audio_AudioSource_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  name: OnUpdate
+  nameWithType: AudioSource.OnUpdate
+  fullName: LibGFX.Audio.AudioSource.OnUpdate
+- uid: LibGFX.Core.IGameBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  commentId: M:LibGFX.Core.IGameBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  parent: LibGFX.Core.IGameBehavior
+  isExternal: true
+  href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  name: OnUpdate(BaseScene, float)
+  nameWithType: IGameBehavior.OnUpdate(BaseScene, float)
+  fullName: LibGFX.Core.IGameBehavior.OnUpdate(LibGFX.Core.BaseScene, float)
+  nameWithType.vb: IGameBehavior.OnUpdate(BaseScene, Single)
+  fullName.vb: LibGFX.Core.IGameBehavior.OnUpdate(LibGFX.Core.BaseScene, Single)
+  name.vb: OnUpdate(BaseScene, Single)
+  spec.csharp:
+  - uid: LibGFX.Core.IGameBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+    name: OnUpdate
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGameBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+    name: OnUpdate
+    href: LibGFX.Core.IGameBehavior.html#LibGFX_Core_IGameBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )

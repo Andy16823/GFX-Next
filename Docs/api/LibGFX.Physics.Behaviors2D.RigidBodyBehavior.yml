@@ -1,0 +1,2578 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  commentId: T:LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  id: RigidBodyBehavior
+  parent: LibGFX.Physics.Behaviors2D
+  children:
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.#ctor(LibGFX.Physics.PhysicsHandler)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.AngularVelocity
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralForce(OpenTK.Mathematics.Vector2)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse(OpenTK.Mathematics.Vector2)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse(System.Single)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyImpulse(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyImpulse(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateForwardVector(System.Single)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateRightVector(System.Single)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateUpVector(System.Single)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Friction
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetAngularFactor
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetAngularVelocity
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetElement
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLinearFactor
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLinearVelocity
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLocation
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetPhysicsObject
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetRotation
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.LinearVelocity
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Offset
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnCollide(LibGFX.Physics.Collision)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Parent
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RemoveRigidBody
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Restitution
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RigidBody
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Quaternion)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate(System.Single)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularFactor(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularVelocity(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularVelocity(System.Single)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetElement(LibGFX.Core.GameElement)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearFactor(OpenTK.Mathematics.Vector2)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearFactor(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearVelocity(OpenTK.Mathematics.Vector2)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearVelocity(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Sync
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Translate(OpenTK.Mathematics.Vector2)
+  - LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Translate(OpenTK.Mathematics.Vector3)
+  langs:
+  - csharp
+  - vb
+  name: RigidBodyBehavior
+  nameWithType: RigidBodyBehavior
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RigidBodyBehavior
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 16
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Represents a 2D rigid body behavior
+  example: []
+  syntax:
+    content: 'public abstract class RigidBodyBehavior : PhysicsBehavior, IGameBehavior'
+    content.vb: Public MustInherit Class RigidBodyBehavior Inherits PhysicsBehavior Implements IGameBehavior
+  inheritance:
+  - System.Object
+  - LibGFX.Physics.PhysicsBehavior
+  derivedClasses:
+  - LibGFX.Physics.Behaviors2D.BoxRigidBody
+  - LibGFX.Physics.Behaviors2D.CapsuleRigidBody
+  - LibGFX.Physics.Behaviors2D.SphereRigidBody
+  implements:
+  - LibGFX.Core.IGameBehavior
+  inheritedMembers:
+  - LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+  - LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RigidBody
+  commentId: P:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RigidBody
+  id: RigidBody
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: RigidBody
+  nameWithType: RigidBodyBehavior.RigidBody
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RigidBody
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RigidBody
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 21
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: The rigid body of the behavior
+  example: []
+  syntax:
+    content: public RigidBody RigidBody { get; set; }
+    parameters: []
+    return:
+      type: BulletSharp.RigidBody
+    content.vb: Public Property RigidBody As RigidBody
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RigidBody*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Offset
+  commentId: P:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Offset
+  id: Offset
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: Offset
+  nameWithType: RigidBodyBehavior.Offset
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Offset
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Offset
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 26
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: The offset of the rigid body
+  example: []
+  syntax:
+    content: public Vector3 Offset { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Property Offset As Vector3
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Offset*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Parent
+  commentId: P:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Parent
+  id: Parent
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: Parent
+  nameWithType: RigidBodyBehavior.Parent
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Parent
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Parent
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 31
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: The parent game element of the rigid body
+  example: []
+  syntax:
+    content: public GameElement Parent { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Core.GameElement
+    content.vb: Public Property Parent As GameElement
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Parent*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.LinearVelocity
+  commentId: P:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.LinearVelocity
+  id: LinearVelocity
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: LinearVelocity
+  nameWithType: RigidBodyBehavior.LinearVelocity
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.LinearVelocity
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LinearVelocity
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 36
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: The linear velocity of the rigid body
+  example: []
+  syntax:
+    content: public Vector3 LinearVelocity { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Property LinearVelocity As Vector3
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.LinearVelocity*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.AngularVelocity
+  commentId: P:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.AngularVelocity
+  id: AngularVelocity
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: AngularVelocity
+  nameWithType: RigidBodyBehavior.AngularVelocity
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.AngularVelocity
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AngularVelocity
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 41
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: The angular factor of the rigid body
+  example: []
+  syntax:
+    content: public Vector3 AngularVelocity { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Property AngularVelocity As Vector3
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.AngularVelocity*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Restitution
+  commentId: P:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Restitution
+  id: Restitution
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: Restitution
+  nameWithType: RigidBodyBehavior.Restitution
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Restitution
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Restitution
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 46
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Gets or sets the restitution of the rigid body
+  example: []
+  syntax:
+    content: public float Restitution { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Restitution As Single
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Restitution*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Friction
+  commentId: P:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Friction
+  id: Friction
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: Friction
+  nameWithType: RigidBodyBehavior.Friction
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Friction
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Friction
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 51
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Gets or sets the friction of the rigid body
+  example: []
+  syntax:
+    content: public float Friction { get; set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property Friction As Single
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Friction*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.#ctor(LibGFX.Physics.PhysicsHandler)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.#ctor(LibGFX.Physics.PhysicsHandler)
+  id: '#ctor(LibGFX.Physics.PhysicsHandler)'
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: RigidBodyBehavior(PhysicsHandler)
+  nameWithType: RigidBodyBehavior.RigidBodyBehavior(PhysicsHandler)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RigidBodyBehavior(LibGFX.Physics.PhysicsHandler)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 57
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Creates a new 2D rigid body behavior
+  example: []
+  syntax:
+    content: public RigidBodyBehavior(PhysicsHandler physicsHandler)
+    parameters:
+    - id: physicsHandler
+      type: LibGFX.Physics.PhysicsHandler
+      description: ''
+    content.vb: Public Sub New(physicsHandler As PhysicsHandler)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.#ctor*
+  nameWithType.vb: RigidBodyBehavior.New(PhysicsHandler)
+  fullName.vb: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.New(LibGFX.Physics.PhysicsHandler)
+  name.vb: New(PhysicsHandler)
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Sync
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Sync
+  id: Sync
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: Sync()
+  nameWithType: RigidBodyBehavior.Sync()
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Sync()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Sync
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 65
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Syncs the rigid body with the parent game element
+  example: []
+  syntax:
+    content: public void Sync()
+    content.vb: Public Sub Sync()
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Sync*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate(System.Single)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate(System.Single)
+  id: Rotate(System.Single)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: Rotate(float)
+  nameWithType: RigidBodyBehavior.Rotate(float)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rotate
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 75
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Rotates the rigid body by the given angle in degrees
+  example: []
+  syntax:
+    content: public virtual void Rotate(float angle)
+    parameters:
+    - id: angle
+      type: System.Single
+      description: ''
+    content.vb: Public Overridable Sub Rotate(angle As Single)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate*
+  nameWithType.vb: RigidBodyBehavior.Rotate(Single)
+  fullName.vb: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate(Single)
+  name.vb: Rotate(Single)
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Vector3)
+  id: Rotate(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: Rotate(Vector3)
+  nameWithType: RigidBodyBehavior.Rotate(Vector3)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rotate
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 84
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Rotates the rigid body by the given angle in degrees
+  example: []
+  syntax:
+    content: public virtual void Rotate(Vector3 rotation)
+    parameters:
+    - id: rotation
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Overridable Sub Rotate(rotation As Vector3)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Quaternion)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Quaternion)
+  id: Rotate(OpenTK.Mathematics.Quaternion)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: Rotate(Quaternion)
+  nameWithType: RigidBodyBehavior.Rotate(Quaternion)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Quaternion)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Rotate
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 95
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Rotates the rigid body by the given quaternion
+  example: []
+  syntax:
+    content: public virtual void Rotate(Quaternion rotation)
+    parameters:
+    - id: rotation
+      type: OpenTK.Mathematics.Quaternion
+      description: ''
+    content.vb: Public Overridable Sub Rotate(rotation As Quaternion)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetRotation
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetRotation
+  id: GetRotation
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: GetRotation()
+  nameWithType: RigidBodyBehavior.GetRotation()
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetRotation()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetRotation
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 106
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Gets the rotation of the rigid body
+  example: []
+  syntax:
+    content: public Quaternion GetRotation()
+    return:
+      type: OpenTK.Mathematics.Quaternion
+      description: ''
+    content.vb: Public Function GetRotation() As Quaternion
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetRotation*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLocation
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLocation
+  id: GetLocation
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: GetLocation()
+  nameWithType: RigidBodyBehavior.GetLocation()
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLocation()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetLocation
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 116
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Gets the location of the rigid body
+  example: []
+  syntax:
+    content: public Vector3 GetLocation()
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Function GetLocation() As Vector3
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLocation*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Translate(OpenTK.Mathematics.Vector2)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Translate(OpenTK.Mathematics.Vector2)
+  id: Translate(OpenTK.Mathematics.Vector2)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: Translate(Vector2)
+  nameWithType: RigidBodyBehavior.Translate(Vector2)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Translate(OpenTK.Mathematics.Vector2)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Translate
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 125
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Translates the rigid body by the given value
+  example: []
+  syntax:
+    content: public void Translate(Vector2 translation)
+    parameters:
+    - id: translation
+      type: OpenTK.Mathematics.Vector2
+      description: ''
+    content.vb: Public Sub Translate(translation As Vector2)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Translate*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Translate(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Translate(OpenTK.Mathematics.Vector3)
+  id: Translate(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: Translate(Vector3)
+  nameWithType: RigidBodyBehavior.Translate(Vector3)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Translate(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Translate
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 134
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Translates the rigid body by the given value
+  example: []
+  syntax:
+    content: public void Translate(Vector3 translation)
+    parameters:
+    - id: translation
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Sub Translate(translation As Vector3)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Translate*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLinearVelocity
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLinearVelocity
+  id: GetLinearVelocity
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: GetLinearVelocity()
+  nameWithType: RigidBodyBehavior.GetLinearVelocity()
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLinearVelocity()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetLinearVelocity
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 143
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Gets the linear velocity of the rigid body
+  example: []
+  syntax:
+    content: public Vector3 GetLinearVelocity()
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Function GetLinearVelocity() As Vector3
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLinearVelocity*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearVelocity(OpenTK.Mathematics.Vector2)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearVelocity(OpenTK.Mathematics.Vector2)
+  id: SetLinearVelocity(OpenTK.Mathematics.Vector2)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: SetLinearVelocity(Vector2)
+  nameWithType: RigidBodyBehavior.SetLinearVelocity(Vector2)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearVelocity(OpenTK.Mathematics.Vector2)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetLinearVelocity
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 152
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Sets the linear velocity of the rigid body
+  example: []
+  syntax:
+    content: public void SetLinearVelocity(Vector2 velocity)
+    parameters:
+    - id: velocity
+      type: OpenTK.Mathematics.Vector2
+      description: ''
+    content.vb: Public Sub SetLinearVelocity(velocity As Vector2)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearVelocity*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearVelocity(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearVelocity(OpenTK.Mathematics.Vector3)
+  id: SetLinearVelocity(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: SetLinearVelocity(Vector3)
+  nameWithType: RigidBodyBehavior.SetLinearVelocity(Vector3)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearVelocity(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetLinearVelocity
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 161
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Sets the linear velocity of the rigid body
+  example: []
+  syntax:
+    content: public void SetLinearVelocity(Vector3 velocity)
+    parameters:
+    - id: velocity
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Sub SetLinearVelocity(velocity As Vector3)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearVelocity*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetAngularVelocity
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetAngularVelocity
+  id: GetAngularVelocity
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: GetAngularVelocity()
+  nameWithType: RigidBodyBehavior.GetAngularVelocity()
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetAngularVelocity()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetAngularVelocity
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 170
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Gets the angular velocity of the rigid body
+  example: []
+  syntax:
+    content: public Vector3 GetAngularVelocity()
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Function GetAngularVelocity() As Vector3
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetAngularVelocity*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularVelocity(System.Single)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularVelocity(System.Single)
+  id: SetAngularVelocity(System.Single)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: SetAngularVelocity(float)
+  nameWithType: RigidBodyBehavior.SetAngularVelocity(float)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularVelocity(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetAngularVelocity
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 179
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Sets the angular velocity of the rigid body
+  example: []
+  syntax:
+    content: public void SetAngularVelocity(float velocity)
+    parameters:
+    - id: velocity
+      type: System.Single
+      description: ''
+    content.vb: Public Sub SetAngularVelocity(velocity As Single)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularVelocity*
+  nameWithType.vb: RigidBodyBehavior.SetAngularVelocity(Single)
+  fullName.vb: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularVelocity(Single)
+  name.vb: SetAngularVelocity(Single)
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularVelocity(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularVelocity(OpenTK.Mathematics.Vector3)
+  id: SetAngularVelocity(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: SetAngularVelocity(Vector3)
+  nameWithType: RigidBodyBehavior.SetAngularVelocity(Vector3)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularVelocity(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetAngularVelocity
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 188
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Sets the angular velocity of the rigid body
+  example: []
+  syntax:
+    content: public void SetAngularVelocity(Vector3 velocity)
+    parameters:
+    - id: velocity
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Sub SetAngularVelocity(velocity As Vector3)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularVelocity*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetAngularFactor
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetAngularFactor
+  id: GetAngularFactor
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: GetAngularFactor()
+  nameWithType: RigidBodyBehavior.GetAngularFactor()
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetAngularFactor()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetAngularFactor
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 197
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Gets the angular factor of the rigid body
+  example: []
+  syntax:
+    content: public Vector3 GetAngularFactor()
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Function GetAngularFactor() As Vector3
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetAngularFactor*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularFactor(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularFactor(OpenTK.Mathematics.Vector3)
+  id: SetAngularFactor(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: SetAngularFactor(Vector3)
+  nameWithType: RigidBodyBehavior.SetAngularFactor(Vector3)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularFactor(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetAngularFactor
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 206
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Sets the angular factor of the rigid body
+  example: []
+  syntax:
+    content: public void SetAngularFactor(Vector3 value)
+    parameters:
+    - id: value
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Sub SetAngularFactor(value As Vector3)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularFactor*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLinearFactor
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLinearFactor
+  id: GetLinearFactor
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: GetLinearFactor()
+  nameWithType: RigidBodyBehavior.GetLinearFactor()
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLinearFactor()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetLinearFactor
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 215
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Gets the linear factor of the rigid body
+  example: []
+  syntax:
+    content: public Vector3 GetLinearFactor()
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Function GetLinearFactor() As Vector3
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLinearFactor*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearFactor(OpenTK.Mathematics.Vector2)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearFactor(OpenTK.Mathematics.Vector2)
+  id: SetLinearFactor(OpenTK.Mathematics.Vector2)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: SetLinearFactor(Vector2)
+  nameWithType: RigidBodyBehavior.SetLinearFactor(Vector2)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearFactor(OpenTK.Mathematics.Vector2)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetLinearFactor
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 224
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Sets the linear factor of the rigid body
+  example: []
+  syntax:
+    content: public void SetLinearFactor(Vector2 value)
+    parameters:
+    - id: value
+      type: OpenTK.Mathematics.Vector2
+      description: ''
+    content.vb: Public Sub SetLinearFactor(value As Vector2)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearFactor*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearFactor(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearFactor(OpenTK.Mathematics.Vector3)
+  id: SetLinearFactor(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: SetLinearFactor(Vector3)
+  nameWithType: RigidBodyBehavior.SetLinearFactor(Vector3)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearFactor(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetLinearFactor
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 233
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Sets the linear factor of the rigid body
+  example: []
+  syntax:
+    content: public void SetLinearFactor(Vector3 value)
+    parameters:
+    - id: value
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Sub SetLinearFactor(value As Vector3)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearFactor*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse(OpenTK.Mathematics.Vector2)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse(OpenTK.Mathematics.Vector2)
+  id: ApplyCentralImpulse(OpenTK.Mathematics.Vector2)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: ApplyCentralImpulse(Vector2)
+  nameWithType: RigidBodyBehavior.ApplyCentralImpulse(Vector2)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse(OpenTK.Mathematics.Vector2)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ApplyCentralImpulse
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 242
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Applies a central impulse to the rigid body
+  example: []
+  syntax:
+    content: public void ApplyCentralImpulse(Vector2 impulse)
+    parameters:
+    - id: impulse
+      type: OpenTK.Mathematics.Vector2
+      description: ''
+    content.vb: Public Sub ApplyCentralImpulse(impulse As Vector2)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse(System.Single)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse(System.Single)
+  id: ApplyCentralImpulse(System.Single)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: ApplyCentralImpulse(float)
+  nameWithType: RigidBodyBehavior.ApplyCentralImpulse(float)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ApplyCentralImpulse
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 251
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Applies a central impulse to the rigid body
+  example: []
+  syntax:
+    content: public void ApplyCentralImpulse(float impulse)
+    parameters:
+    - id: impulse
+      type: System.Single
+      description: ''
+    content.vb: Public Sub ApplyCentralImpulse(impulse As Single)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse*
+  nameWithType.vb: RigidBodyBehavior.ApplyCentralImpulse(Single)
+  fullName.vb: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse(Single)
+  name.vb: ApplyCentralImpulse(Single)
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse(OpenTK.Mathematics.Vector3)
+  id: ApplyCentralImpulse(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: ApplyCentralImpulse(Vector3)
+  nameWithType: RigidBodyBehavior.ApplyCentralImpulse(Vector3)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse(OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ApplyCentralImpulse
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 260
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Applies a central impulse to the rigid body
+  example: []
+  syntax:
+    content: public void ApplyCentralImpulse(Vector3 impulse)
+    parameters:
+    - id: impulse
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Sub ApplyCentralImpulse(impulse As Vector3)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralForce(OpenTK.Mathematics.Vector2)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralForce(OpenTK.Mathematics.Vector2)
+  id: ApplyCentralForce(OpenTK.Mathematics.Vector2)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: ApplyCentralForce(Vector2)
+  nameWithType: RigidBodyBehavior.ApplyCentralForce(Vector2)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralForce(OpenTK.Mathematics.Vector2)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ApplyCentralForce
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 269
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Applies a central force to the rigid body
+  example: []
+  syntax:
+    content: public void ApplyCentralForce(Vector2 force)
+    parameters:
+    - id: force
+      type: OpenTK.Mathematics.Vector2
+      description: ''
+    content.vb: Public Sub ApplyCentralForce(force As Vector2)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralForce*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyImpulse(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyImpulse(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector3)
+  id: ApplyImpulse(OpenTK.Mathematics.Vector2,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: ApplyImpulse(Vector2, Vector3)
+  nameWithType: RigidBodyBehavior.ApplyImpulse(Vector2, Vector3)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyImpulse(OpenTK.Mathematics.Vector2, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ApplyImpulse
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 278
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Applies a impulse to the rigid body
+  example: []
+  syntax:
+    content: public void ApplyImpulse(Vector2 impulse, Vector3 relpos)
+    parameters:
+    - id: impulse
+      type: OpenTK.Mathematics.Vector2
+      description: ''
+    - id: relpos
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Sub ApplyImpulse(impulse As Vector2, relpos As Vector3)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyImpulse*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyImpulse(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyImpulse(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  id: ApplyImpulse(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: ApplyImpulse(Vector3, Vector3)
+  nameWithType: RigidBodyBehavior.ApplyImpulse(Vector3, Vector3)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyImpulse(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ApplyImpulse
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 287
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Applies a impulse to the rigid body
+  example: []
+  syntax:
+    content: public void ApplyImpulse(Vector3 impulse, Vector3 relpos)
+    parameters:
+    - id: impulse
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    - id: relpos
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Sub ApplyImpulse(impulse As Vector3, relpos As Vector3)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyImpulse*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateForwardVector(System.Single)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateForwardVector(System.Single)
+  id: CalculateForwardVector(System.Single)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: CalculateForwardVector(float)
+  nameWithType: RigidBodyBehavior.CalculateForwardVector(float)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateForwardVector(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CalculateForwardVector
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 297
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Calculates the forward vector of the rigid body
+  example: []
+  syntax:
+    content: public Vector3 CalculateForwardVector(float distance)
+    parameters:
+    - id: distance
+      type: System.Single
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Function CalculateForwardVector(distance As Single) As Vector3
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateForwardVector*
+  nameWithType.vb: RigidBodyBehavior.CalculateForwardVector(Single)
+  fullName.vb: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateForwardVector(Single)
+  name.vb: CalculateForwardVector(Single)
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateRightVector(System.Single)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateRightVector(System.Single)
+  id: CalculateRightVector(System.Single)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: CalculateRightVector(float)
+  nameWithType: RigidBodyBehavior.CalculateRightVector(float)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateRightVector(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CalculateRightVector
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 313
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Calculates the right vector of the rigid body
+  example: []
+  syntax:
+    content: public Vector3 CalculateRightVector(float distance)
+    parameters:
+    - id: distance
+      type: System.Single
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Function CalculateRightVector(distance As Single) As Vector3
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateRightVector*
+  nameWithType.vb: RigidBodyBehavior.CalculateRightVector(Single)
+  fullName.vb: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateRightVector(Single)
+  name.vb: CalculateRightVector(Single)
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateUpVector(System.Single)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateUpVector(System.Single)
+  id: CalculateUpVector(System.Single)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: CalculateUpVector(float)
+  nameWithType: RigidBodyBehavior.CalculateUpVector(float)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateUpVector(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CalculateUpVector
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 329
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Calculates the up vector of the rigid body
+  example: []
+  syntax:
+    content: public Vector3 CalculateUpVector(float distance)
+    parameters:
+    - id: distance
+      type: System.Single
+      description: ''
+    return:
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    content.vb: Public Function CalculateUpVector(distance As Single) As Vector3
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateUpVector*
+  nameWithType.vb: RigidBodyBehavior.CalculateUpVector(Single)
+  fullName.vb: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateUpVector(Single)
+  name.vb: CalculateUpVector(Single)
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetPhysicsObject
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetPhysicsObject
+  id: GetPhysicsObject
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: GetPhysicsObject()
+  nameWithType: RigidBodyBehavior.GetPhysicsObject()
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetPhysicsObject()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetPhysicsObject
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 344
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Gets the physics object of the rigid body
+  example: []
+  syntax:
+    content: public override object GetPhysicsObject()
+    return:
+      type: System.Object
+      description: ''
+    content.vb: Public Overrides Function GetPhysicsObject() As Object
+  overridden: LibGFX.Physics.PhysicsBehavior.GetPhysicsObject
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetPhysicsObject*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RemoveRigidBody
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RemoveRigidBody
+  id: RemoveRigidBody
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: RemoveRigidBody()
+  nameWithType: RigidBodyBehavior.RemoveRigidBody()
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RemoveRigidBody()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RemoveRigidBody
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 352
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Removes the rigid body from the physics handler
+  example: []
+  syntax:
+    content: public virtual void RemoveRigidBody()
+    content.vb: Public Overridable Sub RemoveRigidBody()
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RemoveRigidBody*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetElement
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetElement
+  id: GetElement
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: GetElement()
+  nameWithType: RigidBodyBehavior.GetElement()
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetElement()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetElement
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 364
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Gets the parent game element of the rigid body
+  example: []
+  syntax:
+    content: public override GameElement GetElement()
+    return:
+      type: LibGFX.Core.GameElement
+      description: ''
+    content.vb: Public Overrides Function GetElement() As GameElement
+  overridden: LibGFX.Physics.PhysicsBehavior.GetElement
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetElement*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetElement(LibGFX.Core.GameElement)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetElement(LibGFX.Core.GameElement)
+  id: SetElement(LibGFX.Core.GameElement)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: SetElement(GameElement)
+  nameWithType: RigidBodyBehavior.SetElement(GameElement)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetElement(LibGFX.Core.GameElement)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetElement
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 373
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Sets the parent game element of the rigid body
+  example: []
+  syntax:
+    content: public override void SetElement(GameElement gameElement)
+    parameters:
+    - id: gameElement
+      type: LibGFX.Core.GameElement
+      description: ''
+    content.vb: Public Overrides Sub SetElement(gameElement As GameElement)
+  overridden: LibGFX.Physics.PhysicsBehavior.SetElement(LibGFX.Core.GameElement)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetElement*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: OnInit(BaseScene, Viewport, IRenderDevice)
+  nameWithType: RigidBodyBehavior.OnInit(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnInit(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnInit
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 384
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Initializes the rigid body behavior
+  example: []
+  syntax:
+    content: public override void OnInit(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Overrides Sub OnInit(scene As BaseScene, viewport As Viewport, renderer As IRenderDevice)
+  overridden: LibGFX.Physics.PhysicsBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnInit*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  id: OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  nameWithType: RigidBodyBehavior.OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnRender(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnRender
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 396
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Renders the rigid body behavior
+  example: []
+  syntax:
+    content: public override void OnRender(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    - id: camera
+      type: LibGFX.Graphics.Camera
+      description: ''
+    content.vb: Public Overrides Sub OnRender(scene As BaseScene, viewport As Viewport, renderer As IRenderDevice, camera As Camera)
+  overridden: LibGFX.Physics.PhysicsBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnRender*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnCollide(LibGFX.Physics.Collision)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnCollide(LibGFX.Physics.Collision)
+  id: OnCollide(LibGFX.Physics.Collision)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: OnCollide(Collision)
+  nameWithType: RigidBodyBehavior.OnCollide(Collision)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnCollide(LibGFX.Physics.Collision)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnCollide
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 405
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Handles the collision of the rigid body
+  example: []
+  syntax:
+    content: public override void OnCollide(Collision collision)
+    parameters:
+    - id: collision
+      type: LibGFX.Physics.Collision
+      description: ''
+    content.vb: Public Overrides Sub OnCollide(collision As Collision)
+  overridden: LibGFX.Physics.PhysicsBehavior.OnCollide(LibGFX.Physics.Collision)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnCollide*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  id: OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: OnDispose(BaseScene, IRenderDevice)
+  nameWithType: RigidBodyBehavior.OnDispose(BaseScene, IRenderDevice)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnDispose(LibGFX.Core.BaseScene, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnDispose
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 415
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Disposes the rigid body behavior
+  example: []
+  syntax:
+    content: public override void OnDispose(BaseScene scene, IRenderDevice renderer)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public Overrides Sub OnDispose(scene As BaseScene, renderer As IRenderDevice)
+  overridden: LibGFX.Physics.PhysicsBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnDispose*
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  commentId: M:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  id: OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  parent: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+  langs:
+  - csharp
+  - vb
+  name: OnUpdate(BaseScene, float)
+  nameWithType: RigidBodyBehavior.OnUpdate(BaseScene, float)
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnUpdate(LibGFX.Core.BaseScene, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnUpdate
+    path: ../LibGFX/Physics/Behaviors2D/RigidBodyBehavior.cs
+    startLine: 424
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors2D
+  summary: Updates the rigid body behavior
+  example: []
+  syntax:
+    content: public override void OnUpdate(BaseScene scene, float dt)
+    parameters:
+    - id: scene
+      type: LibGFX.Core.BaseScene
+      description: ''
+    - id: dt
+      type: System.Single
+    content.vb: Public Overrides Sub OnUpdate(scene As BaseScene, dt As Single)
+  overridden: LibGFX.Physics.PhysicsBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  overload: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnUpdate*
+  nameWithType.vb: RigidBodyBehavior.OnUpdate(BaseScene, Single)
+  fullName.vb: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnUpdate(LibGFX.Core.BaseScene, Single)
+  name.vb: OnUpdate(BaseScene, Single)
+references:
+- uid: LibGFX.Physics.Behaviors2D
+  commentId: N:LibGFX.Physics.Behaviors2D
+  href: LibGFX.html
+  name: LibGFX.Physics.Behaviors2D
+  nameWithType: LibGFX.Physics.Behaviors2D
+  fullName: LibGFX.Physics.Behaviors2D
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  - name: .
+  - uid: LibGFX.Physics.Behaviors2D
+    name: Behaviors2D
+    href: LibGFX.Physics.Behaviors2D.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  - name: .
+  - uid: LibGFX.Physics.Behaviors2D
+    name: Behaviors2D
+    href: LibGFX.Physics.Behaviors2D.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Physics.PhysicsBehavior
+  commentId: T:LibGFX.Physics.PhysicsBehavior
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.PhysicsBehavior.html
+  name: PhysicsBehavior
+  nameWithType: PhysicsBehavior
+  fullName: LibGFX.Physics.PhysicsBehavior
+- uid: LibGFX.Core.IGameBehavior
+  commentId: T:LibGFX.Core.IGameBehavior
+  parent: LibGFX.Core
+  href: LibGFX.Core.IGameBehavior.html
+  name: IGameBehavior
+  nameWithType: IGameBehavior
+  fullName: LibGFX.Core.IGameBehavior
+- uid: LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+  commentId: P:LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+  parent: LibGFX.Physics.PhysicsBehavior
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_PhysicsHandler
+  name: PhysicsHandler
+  nameWithType: PhysicsBehavior.PhysicsHandler
+  fullName: LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+- uid: LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.PhysicsBehavior
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: OnShadowPass(BaseScene, Viewport, IRenderDevice)
+  nameWithType: PhysicsBehavior.OnShadowPass(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnShadowPass
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnShadowPass
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Physics
+  commentId: N:LibGFX.Physics
+  href: LibGFX.html
+  name: LibGFX.Physics
+  nameWithType: LibGFX.Physics
+  fullName: LibGFX.Physics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RigidBody*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RigidBody
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_RigidBody
+  name: RigidBody
+  nameWithType: RigidBodyBehavior.RigidBody
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RigidBody
+- uid: BulletSharp.RigidBody
+  commentId: T:BulletSharp.RigidBody
+  parent: BulletSharp
+  isExternal: true
+  name: RigidBody
+  nameWithType: RigidBody
+  fullName: BulletSharp.RigidBody
+- uid: BulletSharp
+  commentId: N:BulletSharp
+  isExternal: true
+  name: BulletSharp
+  nameWithType: BulletSharp
+  fullName: BulletSharp
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Offset*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Offset
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_Offset
+  name: Offset
+  nameWithType: RigidBodyBehavior.Offset
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Offset
+- uid: OpenTK.Mathematics.Vector3
+  commentId: T:OpenTK.Mathematics.Vector3
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  name: Vector3
+  nameWithType: Vector3
+  fullName: OpenTK.Mathematics.Vector3
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Parent*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Parent
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_Parent
+  name: Parent
+  nameWithType: RigidBodyBehavior.Parent
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Parent
+- uid: LibGFX.Core.GameElement
+  commentId: T:LibGFX.Core.GameElement
+  parent: LibGFX.Core
+  href: LibGFX.Core.GameElement.html
+  name: GameElement
+  nameWithType: GameElement
+  fullName: LibGFX.Core.GameElement
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.LinearVelocity*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.LinearVelocity
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_LinearVelocity
+  name: LinearVelocity
+  nameWithType: RigidBodyBehavior.LinearVelocity
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.LinearVelocity
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.AngularVelocity*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.AngularVelocity
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_AngularVelocity
+  name: AngularVelocity
+  nameWithType: RigidBodyBehavior.AngularVelocity
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.AngularVelocity
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Restitution*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Restitution
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_Restitution
+  name: Restitution
+  nameWithType: RigidBodyBehavior.Restitution
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Restitution
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Friction*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Friction
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_Friction
+  name: Friction
+  nameWithType: RigidBodyBehavior.Friction
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Friction
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.#ctor*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.#ctor
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior__ctor_LibGFX_Physics_PhysicsHandler_
+  name: RigidBodyBehavior
+  nameWithType: RigidBodyBehavior.RigidBodyBehavior
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RigidBodyBehavior
+  nameWithType.vb: RigidBodyBehavior.New
+  fullName.vb: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.New
+  name.vb: New
+- uid: LibGFX.Physics.PhysicsHandler
+  commentId: T:LibGFX.Physics.PhysicsHandler
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.PhysicsHandler.html
+  name: PhysicsHandler
+  nameWithType: PhysicsHandler
+  fullName: LibGFX.Physics.PhysicsHandler
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Sync*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Sync
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_Sync
+  name: Sync
+  nameWithType: RigidBodyBehavior.Sync
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Sync
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_Rotate_System_Single_
+  name: Rotate
+  nameWithType: RigidBodyBehavior.Rotate
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Rotate
+- uid: OpenTK.Mathematics.Quaternion
+  commentId: T:OpenTK.Mathematics.Quaternion
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Data/Quaternion.cs
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: OpenTK.Mathematics.Quaternion
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetRotation*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetRotation
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_GetRotation
+  name: GetRotation
+  nameWithType: RigidBodyBehavior.GetRotation
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetRotation
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLocation*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLocation
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_GetLocation
+  name: GetLocation
+  nameWithType: RigidBodyBehavior.GetLocation
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLocation
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Translate*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Translate
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_Translate_OpenTK_Mathematics_Vector2_
+  name: Translate
+  nameWithType: RigidBodyBehavior.Translate
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.Translate
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLinearVelocity*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLinearVelocity
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_GetLinearVelocity
+  name: GetLinearVelocity
+  nameWithType: RigidBodyBehavior.GetLinearVelocity
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLinearVelocity
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearVelocity*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearVelocity
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_SetLinearVelocity_OpenTK_Mathematics_Vector2_
+  name: SetLinearVelocity
+  nameWithType: RigidBodyBehavior.SetLinearVelocity
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearVelocity
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetAngularVelocity*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetAngularVelocity
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_GetAngularVelocity
+  name: GetAngularVelocity
+  nameWithType: RigidBodyBehavior.GetAngularVelocity
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetAngularVelocity
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularVelocity*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularVelocity
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_SetAngularVelocity_System_Single_
+  name: SetAngularVelocity
+  nameWithType: RigidBodyBehavior.SetAngularVelocity
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularVelocity
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetAngularFactor*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetAngularFactor
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_GetAngularFactor
+  name: GetAngularFactor
+  nameWithType: RigidBodyBehavior.GetAngularFactor
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetAngularFactor
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularFactor*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularFactor
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_SetAngularFactor_OpenTK_Mathematics_Vector3_
+  name: SetAngularFactor
+  nameWithType: RigidBodyBehavior.SetAngularFactor
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetAngularFactor
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLinearFactor*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLinearFactor
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_GetLinearFactor
+  name: GetLinearFactor
+  nameWithType: RigidBodyBehavior.GetLinearFactor
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetLinearFactor
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearFactor*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearFactor
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_SetLinearFactor_OpenTK_Mathematics_Vector2_
+  name: SetLinearFactor
+  nameWithType: RigidBodyBehavior.SetLinearFactor
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetLinearFactor
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_ApplyCentralImpulse_OpenTK_Mathematics_Vector2_
+  name: ApplyCentralImpulse
+  nameWithType: RigidBodyBehavior.ApplyCentralImpulse
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralImpulse
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralForce*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralForce
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_ApplyCentralForce_OpenTK_Mathematics_Vector2_
+  name: ApplyCentralForce
+  nameWithType: RigidBodyBehavior.ApplyCentralForce
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyCentralForce
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyImpulse*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyImpulse
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_ApplyImpulse_OpenTK_Mathematics_Vector2_OpenTK_Mathematics_Vector3_
+  name: ApplyImpulse
+  nameWithType: RigidBodyBehavior.ApplyImpulse
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.ApplyImpulse
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateForwardVector*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateForwardVector
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_CalculateForwardVector_System_Single_
+  name: CalculateForwardVector
+  nameWithType: RigidBodyBehavior.CalculateForwardVector
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateForwardVector
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateRightVector*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateRightVector
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_CalculateRightVector_System_Single_
+  name: CalculateRightVector
+  nameWithType: RigidBodyBehavior.CalculateRightVector
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateRightVector
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateUpVector*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateUpVector
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_CalculateUpVector_System_Single_
+  name: CalculateUpVector
+  nameWithType: RigidBodyBehavior.CalculateUpVector
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.CalculateUpVector
+- uid: LibGFX.Physics.PhysicsBehavior.GetPhysicsObject
+  commentId: M:LibGFX.Physics.PhysicsBehavior.GetPhysicsObject
+  parent: LibGFX.Physics.PhysicsBehavior
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_GetPhysicsObject
+  name: GetPhysicsObject()
+  nameWithType: PhysicsBehavior.GetPhysicsObject()
+  fullName: LibGFX.Physics.PhysicsBehavior.GetPhysicsObject()
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsBehavior.GetPhysicsObject
+    name: GetPhysicsObject
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_GetPhysicsObject
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsBehavior.GetPhysicsObject
+    name: GetPhysicsObject
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_GetPhysicsObject
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetPhysicsObject*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetPhysicsObject
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_GetPhysicsObject
+  name: GetPhysicsObject
+  nameWithType: RigidBodyBehavior.GetPhysicsObject
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetPhysicsObject
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RemoveRigidBody*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RemoveRigidBody
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_RemoveRigidBody
+  name: RemoveRigidBody
+  nameWithType: RigidBodyBehavior.RemoveRigidBody
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.RemoveRigidBody
+- uid: LibGFX.Physics.PhysicsBehavior.GetElement
+  commentId: M:LibGFX.Physics.PhysicsBehavior.GetElement
+  parent: LibGFX.Physics.PhysicsBehavior
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_GetElement
+  name: GetElement()
+  nameWithType: PhysicsBehavior.GetElement()
+  fullName: LibGFX.Physics.PhysicsBehavior.GetElement()
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsBehavior.GetElement
+    name: GetElement
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_GetElement
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsBehavior.GetElement
+    name: GetElement
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_GetElement
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetElement*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetElement
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_GetElement
+  name: GetElement
+  nameWithType: RigidBodyBehavior.GetElement
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.GetElement
+- uid: LibGFX.Physics.PhysicsBehavior.SetElement(LibGFX.Core.GameElement)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.SetElement(LibGFX.Core.GameElement)
+  parent: LibGFX.Physics.PhysicsBehavior
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_SetElement_LibGFX_Core_GameElement_
+  name: SetElement(GameElement)
+  nameWithType: PhysicsBehavior.SetElement(GameElement)
+  fullName: LibGFX.Physics.PhysicsBehavior.SetElement(LibGFX.Core.GameElement)
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsBehavior.SetElement(LibGFX.Core.GameElement)
+    name: SetElement
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_SetElement_LibGFX_Core_GameElement_
+  - name: (
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsBehavior.SetElement(LibGFX.Core.GameElement)
+    name: SetElement
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_SetElement_LibGFX_Core_GameElement_
+  - name: (
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: )
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetElement*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetElement
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_SetElement_LibGFX_Core_GameElement_
+  name: SetElement
+  nameWithType: RigidBodyBehavior.SetElement
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.SetElement
+- uid: LibGFX.Physics.PhysicsBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.PhysicsBehavior
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: OnInit(BaseScene, Viewport, IRenderDevice)
+  nameWithType: PhysicsBehavior.OnInit(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Physics.PhysicsBehavior.OnInit(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnInit
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnInit
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnInit*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnInit
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: OnInit
+  nameWithType: RigidBodyBehavior.OnInit
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnInit
+- uid: LibGFX.Core.BaseScene
+  commentId: T:LibGFX.Core.BaseScene
+  parent: LibGFX.Core
+  href: LibGFX.Core.BaseScene.html
+  name: BaseScene
+  nameWithType: BaseScene
+  fullName: LibGFX.Core.BaseScene
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Physics.PhysicsBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  parent: LibGFX.Physics.PhysicsBehavior
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  name: OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  nameWithType: PhysicsBehavior.OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  fullName: LibGFX.Physics.PhysicsBehavior.OnRender(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera)
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+    name: OnRender
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    href: LibGFX.Graphics.Camera.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+    name: OnRender
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    href: LibGFX.Graphics.Camera.html
+  - name: )
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnRender*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnRender
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  name: OnRender
+  nameWithType: RigidBodyBehavior.OnRender
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnRender
+- uid: LibGFX.Graphics.Camera
+  commentId: T:LibGFX.Graphics.Camera
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Camera.html
+  name: Camera
+  nameWithType: Camera
+  fullName: LibGFX.Graphics.Camera
+- uid: LibGFX.Physics.PhysicsBehavior.OnCollide(LibGFX.Physics.Collision)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.OnCollide(LibGFX.Physics.Collision)
+  parent: LibGFX.Physics.PhysicsBehavior
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnCollide_LibGFX_Physics_Collision_
+  name: OnCollide(Collision)
+  nameWithType: PhysicsBehavior.OnCollide(Collision)
+  fullName: LibGFX.Physics.PhysicsBehavior.OnCollide(LibGFX.Physics.Collision)
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsBehavior.OnCollide(LibGFX.Physics.Collision)
+    name: OnCollide
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnCollide_LibGFX_Physics_Collision_
+  - name: (
+  - uid: LibGFX.Physics.Collision
+    name: Collision
+    href: LibGFX.Physics.Collision.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsBehavior.OnCollide(LibGFX.Physics.Collision)
+    name: OnCollide
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnCollide_LibGFX_Physics_Collision_
+  - name: (
+  - uid: LibGFX.Physics.Collision
+    name: Collision
+    href: LibGFX.Physics.Collision.html
+  - name: )
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnCollide*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnCollide
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_OnCollide_LibGFX_Physics_Collision_
+  name: OnCollide
+  nameWithType: RigidBodyBehavior.OnCollide
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnCollide
+- uid: LibGFX.Physics.Collision
+  commentId: T:LibGFX.Physics.Collision
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.Collision.html
+  name: Collision
+  nameWithType: Collision
+  fullName: LibGFX.Physics.Collision
+- uid: LibGFX.Physics.PhysicsBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.PhysicsBehavior
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  name: OnDispose(BaseScene, IRenderDevice)
+  nameWithType: PhysicsBehavior.OnDispose(BaseScene, IRenderDevice)
+  fullName: LibGFX.Physics.PhysicsBehavior.OnDispose(LibGFX.Core.BaseScene, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+    name: OnDispose
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+    name: OnDispose
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnDispose*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnDispose
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  name: OnDispose
+  nameWithType: RigidBodyBehavior.OnDispose
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnDispose
+- uid: LibGFX.Physics.PhysicsBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  parent: LibGFX.Physics.PhysicsBehavior
+  isExternal: true
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  name: OnUpdate(BaseScene, float)
+  nameWithType: PhysicsBehavior.OnUpdate(BaseScene, float)
+  fullName: LibGFX.Physics.PhysicsBehavior.OnUpdate(LibGFX.Core.BaseScene, float)
+  nameWithType.vb: PhysicsBehavior.OnUpdate(BaseScene, Single)
+  fullName.vb: LibGFX.Physics.PhysicsBehavior.OnUpdate(LibGFX.Core.BaseScene, Single)
+  name.vb: OnUpdate(BaseScene, Single)
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+    name: OnUpdate
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+    name: OnUpdate
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnUpdate*
+  commentId: Overload:LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnUpdate
+  href: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.html#LibGFX_Physics_Behaviors2D_RigidBodyBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  name: OnUpdate
+  nameWithType: RigidBodyBehavior.OnUpdate
+  fullName: LibGFX.Physics.Behaviors2D.RigidBodyBehavior.OnUpdate

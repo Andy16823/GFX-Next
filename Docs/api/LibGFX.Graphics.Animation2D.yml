@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Animation2D
+  commentId: N:LibGFX.Graphics.Animation2D
+  id: LibGFX.Graphics.Animation2D
+  children:
+  - LibGFX.Graphics.Animation2D.Animation2D
+  - LibGFX.Graphics.Animation2D.Animator
+  - LibGFX.Graphics.Animation2D.IAnimationCallback
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Graphics.Animation2D
+  nameWithType: LibGFX.Graphics.Animation2D
+  fullName: LibGFX.Graphics.Animation2D
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Graphics.Animation2D.Animation2D
+  commentId: T:LibGFX.Graphics.Animation2D.Animation2D
+  parent: LibGFX.Graphics.Animation2D
+  href: LibGFX.Graphics.Animation2D.Animation2D.html
+  name: Animation2D
+  nameWithType: Animation2D
+  fullName: LibGFX.Graphics.Animation2D.Animation2D
+- uid: LibGFX.Graphics.Animation2D.Animator
+  commentId: T:LibGFX.Graphics.Animation2D.Animator
+  parent: LibGFX.Graphics.Animation2D
+  href: LibGFX.Graphics.Animation2D.Animator.html
+  name: Animator
+  nameWithType: Animator
+  fullName: LibGFX.Graphics.Animation2D.Animator
+- uid: LibGFX.Graphics.Animation2D.IAnimationCallback
+  commentId: T:LibGFX.Graphics.Animation2D.IAnimationCallback
+  parent: LibGFX.Graphics.Animation2D
+  href: LibGFX.Graphics.Animation2D.IAnimationCallback.html
+  name: IAnimationCallback
+  nameWithType: IAnimationCallback
+  fullName: LibGFX.Graphics.Animation2D.IAnimationCallback
+- uid: LibGFX.Graphics.Animation2D
+  commentId: N:LibGFX.Graphics.Animation2D
+  href: LibGFX.html
+  name: LibGFX.Graphics.Animation2D
+  nameWithType: LibGFX.Graphics.Animation2D
+  fullName: LibGFX.Graphics.Animation2D
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Animation2D
+    name: Animation2D
+    href: LibGFX.Graphics.Animation2D.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Animation2D
+    name: Animation2D
+    href: LibGFX.Graphics.Animation2D.html

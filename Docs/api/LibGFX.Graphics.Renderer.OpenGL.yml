@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Renderer.OpenGL
+  commentId: N:LibGFX.Graphics.Renderer.OpenGL
+  id: LibGFX.Graphics.Renderer.OpenGL
+  children:
+  - LibGFX.Graphics.Renderer.OpenGL.GLRenderer
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Graphics.Renderer.OpenGL
+  nameWithType: LibGFX.Graphics.Renderer.OpenGL
+  fullName: LibGFX.Graphics.Renderer.OpenGL
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Graphics.Renderer.OpenGL.GLRenderer
+  commentId: T:LibGFX.Graphics.Renderer.OpenGL.GLRenderer
+  href: LibGFX.Graphics.Renderer.OpenGL.GLRenderer.html
+  name: GLRenderer
+  nameWithType: GLRenderer
+  fullName: LibGFX.Graphics.Renderer.OpenGL.GLRenderer

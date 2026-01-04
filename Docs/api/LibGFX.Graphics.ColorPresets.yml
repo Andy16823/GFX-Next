@@ -1,0 +1,5521 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.ColorPresets
+  commentId: T:LibGFX.Graphics.ColorPresets
+  id: ColorPresets
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.ColorPresets.AliceBlue
+  - LibGFX.Graphics.ColorPresets.AntiqueWhite
+  - LibGFX.Graphics.ColorPresets.Aqua
+  - LibGFX.Graphics.ColorPresets.Aquamarine
+  - LibGFX.Graphics.ColorPresets.Azure
+  - LibGFX.Graphics.ColorPresets.Beige
+  - LibGFX.Graphics.ColorPresets.Bisque
+  - LibGFX.Graphics.ColorPresets.Black
+  - LibGFX.Graphics.ColorPresets.BlanchedAlmond
+  - LibGFX.Graphics.ColorPresets.Blue
+  - LibGFX.Graphics.ColorPresets.BlueViolet
+  - LibGFX.Graphics.ColorPresets.Brown
+  - LibGFX.Graphics.ColorPresets.BurlyWood
+  - LibGFX.Graphics.ColorPresets.CadetBlue
+  - LibGFX.Graphics.ColorPresets.Chartreuse
+  - LibGFX.Graphics.ColorPresets.Chocolate
+  - LibGFX.Graphics.ColorPresets.Coral
+  - LibGFX.Graphics.ColorPresets.CornflowerBlue
+  - LibGFX.Graphics.ColorPresets.Crimson
+  - LibGFX.Graphics.ColorPresets.Cyan
+  - LibGFX.Graphics.ColorPresets.DarkBlue
+  - LibGFX.Graphics.ColorPresets.DarkCyan
+  - LibGFX.Graphics.ColorPresets.DarkGoldenrod
+  - LibGFX.Graphics.ColorPresets.DarkGray
+  - LibGFX.Graphics.ColorPresets.DarkGreen
+  - LibGFX.Graphics.ColorPresets.DarkKhaki
+  - LibGFX.Graphics.ColorPresets.DarkMagenta
+  - LibGFX.Graphics.ColorPresets.DarkOliveGreen
+  - LibGFX.Graphics.ColorPresets.DarkOrange
+  - LibGFX.Graphics.ColorPresets.DarkOrchid
+  - LibGFX.Graphics.ColorPresets.DarkRed
+  - LibGFX.Graphics.ColorPresets.DarkSalmon
+  - LibGFX.Graphics.ColorPresets.DarkSeaGreen
+  - LibGFX.Graphics.ColorPresets.DarkSlateBlue
+  - LibGFX.Graphics.ColorPresets.DarkSlateGray
+  - LibGFX.Graphics.ColorPresets.DarkTurquoise
+  - LibGFX.Graphics.ColorPresets.DarkViolet
+  - LibGFX.Graphics.ColorPresets.DeepPink
+  - LibGFX.Graphics.ColorPresets.DeepSkyBlue
+  - LibGFX.Graphics.ColorPresets.DimGray
+  - LibGFX.Graphics.ColorPresets.DodgerBlue
+  - LibGFX.Graphics.ColorPresets.Firebrick
+  - LibGFX.Graphics.ColorPresets.FloralWhite
+  - LibGFX.Graphics.ColorPresets.ForestGreen
+  - LibGFX.Graphics.ColorPresets.FromHex(System.String)
+  - LibGFX.Graphics.ColorPresets.FromRgb(System.Byte,System.Byte,System.Byte,System.Byte)
+  - LibGFX.Graphics.ColorPresets.Fuchsia
+  - LibGFX.Graphics.ColorPresets.Gainsboro
+  - LibGFX.Graphics.ColorPresets.GhostWhite
+  - LibGFX.Graphics.ColorPresets.Gold
+  - LibGFX.Graphics.ColorPresets.Goldenrod
+  - LibGFX.Graphics.ColorPresets.Gray
+  - LibGFX.Graphics.ColorPresets.Green
+  - LibGFX.Graphics.ColorPresets.GreenYellow
+  - LibGFX.Graphics.ColorPresets.Honeydew
+  - LibGFX.Graphics.ColorPresets.HotPink
+  - LibGFX.Graphics.ColorPresets.IndianRed
+  - LibGFX.Graphics.ColorPresets.Indigo
+  - LibGFX.Graphics.ColorPresets.Ivory
+  - LibGFX.Graphics.ColorPresets.Khaki
+  - LibGFX.Graphics.ColorPresets.Lavender
+  - LibGFX.Graphics.ColorPresets.LavenderBlush
+  - LibGFX.Graphics.ColorPresets.LawnGreen
+  - LibGFX.Graphics.ColorPresets.LemonChiffon
+  - LibGFX.Graphics.ColorPresets.Lerp(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4,System.Single)
+  - LibGFX.Graphics.ColorPresets.LightBlue
+  - LibGFX.Graphics.ColorPresets.LightCoral
+  - LibGFX.Graphics.ColorPresets.LightCyan
+  - LibGFX.Graphics.ColorPresets.LightGoldenrodYellow
+  - LibGFX.Graphics.ColorPresets.LightGray
+  - LibGFX.Graphics.ColorPresets.LightGreen
+  - LibGFX.Graphics.ColorPresets.LightPink
+  - LibGFX.Graphics.ColorPresets.LightSalmon
+  - LibGFX.Graphics.ColorPresets.LightSeaGreen
+  - LibGFX.Graphics.ColorPresets.LightSkyBlue
+  - LibGFX.Graphics.ColorPresets.LightSlateGray
+  - LibGFX.Graphics.ColorPresets.LightSteelBlue
+  - LibGFX.Graphics.ColorPresets.Lime
+  - LibGFX.Graphics.ColorPresets.LimeGreen
+  - LibGFX.Graphics.ColorPresets.Linen
+  - LibGFX.Graphics.ColorPresets.Magenta
+  - LibGFX.Graphics.ColorPresets.Maroon
+  - LibGFX.Graphics.ColorPresets.MediumAquamarine
+  - LibGFX.Graphics.ColorPresets.MediumBlue
+  - LibGFX.Graphics.ColorPresets.MediumOrchid
+  - LibGFX.Graphics.ColorPresets.MediumPurple
+  - LibGFX.Graphics.ColorPresets.MediumSeaGreen
+  - LibGFX.Graphics.ColorPresets.MediumSlateBlue
+  - LibGFX.Graphics.ColorPresets.MediumSpringGreen
+  - LibGFX.Graphics.ColorPresets.MediumTurquoise
+  - LibGFX.Graphics.ColorPresets.MediumVioletRed
+  - LibGFX.Graphics.ColorPresets.MidnightBlue
+  - LibGFX.Graphics.ColorPresets.MintCream
+  - LibGFX.Graphics.ColorPresets.MistyRose
+  - LibGFX.Graphics.ColorPresets.Moccasin
+  - LibGFX.Graphics.ColorPresets.NavajoWhite
+  - LibGFX.Graphics.ColorPresets.Navy
+  - LibGFX.Graphics.ColorPresets.OldLace
+  - LibGFX.Graphics.ColorPresets.Olive
+  - LibGFX.Graphics.ColorPresets.OliveDrab
+  - LibGFX.Graphics.ColorPresets.Orange
+  - LibGFX.Graphics.ColorPresets.OrangeRed
+  - LibGFX.Graphics.ColorPresets.Orchid
+  - LibGFX.Graphics.ColorPresets.PaleGoldenrod
+  - LibGFX.Graphics.ColorPresets.PaleGreen
+  - LibGFX.Graphics.ColorPresets.PaleTurquoise
+  - LibGFX.Graphics.ColorPresets.PaleVioletRed
+  - LibGFX.Graphics.ColorPresets.PapayaWhip
+  - LibGFX.Graphics.ColorPresets.PeachPuff
+  - LibGFX.Graphics.ColorPresets.Peru
+  - LibGFX.Graphics.ColorPresets.Pink
+  - LibGFX.Graphics.ColorPresets.Plum
+  - LibGFX.Graphics.ColorPresets.PowderBlue
+  - LibGFX.Graphics.ColorPresets.Purple
+  - LibGFX.Graphics.ColorPresets.Red
+  - LibGFX.Graphics.ColorPresets.RosyBrown
+  - LibGFX.Graphics.ColorPresets.RoyalBlue
+  - LibGFX.Graphics.ColorPresets.SaddleBrown
+  - LibGFX.Graphics.ColorPresets.Salmon
+  - LibGFX.Graphics.ColorPresets.SandyBrown
+  - LibGFX.Graphics.ColorPresets.SeaGreen
+  - LibGFX.Graphics.ColorPresets.Seashell
+  - LibGFX.Graphics.ColorPresets.Sienna
+  - LibGFX.Graphics.ColorPresets.Silver
+  - LibGFX.Graphics.ColorPresets.SkyBlue
+  - LibGFX.Graphics.ColorPresets.SlateBlue
+  - LibGFX.Graphics.ColorPresets.SlateGray
+  - LibGFX.Graphics.ColorPresets.Snow
+  - LibGFX.Graphics.ColorPresets.SpringGreen
+  - LibGFX.Graphics.ColorPresets.SteelBlue
+  - LibGFX.Graphics.ColorPresets.Tan
+  - LibGFX.Graphics.ColorPresets.Teal
+  - LibGFX.Graphics.ColorPresets.Thistle
+  - LibGFX.Graphics.ColorPresets.Tomato
+  - LibGFX.Graphics.ColorPresets.Turquoise
+  - LibGFX.Graphics.ColorPresets.Violet
+  - LibGFX.Graphics.ColorPresets.Wheat
+  - LibGFX.Graphics.ColorPresets.White
+  - LibGFX.Graphics.ColorPresets.WhiteSmoke
+  - LibGFX.Graphics.ColorPresets.WithAlpha(OpenTK.Mathematics.Vector4,System.Single)
+  - LibGFX.Graphics.ColorPresets.Yellow
+  - LibGFX.Graphics.ColorPresets.YellowGreen
+  langs:
+  - csharp
+  - vb
+  name: ColorPresets
+  nameWithType: ColorPresets
+  fullName: LibGFX.Graphics.ColorPresets
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ColorPresets
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 10
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: >-
+    A collection of convenient color presets and helpers.
+
+    Colors are returned as Vector4 (r,g,b,a) with each component in range [0,1].
+  example: []
+  syntax:
+    content: public static class ColorPresets
+    content.vb: Public Module ColorPresets
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Graphics.ColorPresets.White
+  commentId: P:LibGFX.Graphics.ColorPresets.White
+  id: White
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: White
+  nameWithType: ColorPresets.White
+  fullName: LibGFX.Graphics.ColorPresets.White
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: White
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 13
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 White { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property White As Vector4
+  overload: LibGFX.Graphics.ColorPresets.White*
+- uid: LibGFX.Graphics.ColorPresets.AliceBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.AliceBlue
+  id: AliceBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: AliceBlue
+  nameWithType: ColorPresets.AliceBlue
+  fullName: LibGFX.Graphics.ColorPresets.AliceBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AliceBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 14
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 AliceBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property AliceBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.AliceBlue*
+- uid: LibGFX.Graphics.ColorPresets.AntiqueWhite
+  commentId: P:LibGFX.Graphics.ColorPresets.AntiqueWhite
+  id: AntiqueWhite
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: AntiqueWhite
+  nameWithType: ColorPresets.AntiqueWhite
+  fullName: LibGFX.Graphics.ColorPresets.AntiqueWhite
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AntiqueWhite
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 15
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 AntiqueWhite { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property AntiqueWhite As Vector4
+  overload: LibGFX.Graphics.ColorPresets.AntiqueWhite*
+- uid: LibGFX.Graphics.ColorPresets.Aqua
+  commentId: P:LibGFX.Graphics.ColorPresets.Aqua
+  id: Aqua
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Aqua
+  nameWithType: ColorPresets.Aqua
+  fullName: LibGFX.Graphics.ColorPresets.Aqua
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Aqua
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 16
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Aqua { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Aqua As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Aqua*
+- uid: LibGFX.Graphics.ColorPresets.Aquamarine
+  commentId: P:LibGFX.Graphics.ColorPresets.Aquamarine
+  id: Aquamarine
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Aquamarine
+  nameWithType: ColorPresets.Aquamarine
+  fullName: LibGFX.Graphics.ColorPresets.Aquamarine
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Aquamarine
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Aquamarine { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Aquamarine As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Aquamarine*
+- uid: LibGFX.Graphics.ColorPresets.Azure
+  commentId: P:LibGFX.Graphics.ColorPresets.Azure
+  id: Azure
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Azure
+  nameWithType: ColorPresets.Azure
+  fullName: LibGFX.Graphics.ColorPresets.Azure
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Azure
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 18
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Azure { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Azure As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Azure*
+- uid: LibGFX.Graphics.ColorPresets.Beige
+  commentId: P:LibGFX.Graphics.ColorPresets.Beige
+  id: Beige
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Beige
+  nameWithType: ColorPresets.Beige
+  fullName: LibGFX.Graphics.ColorPresets.Beige
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Beige
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Beige { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Beige As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Beige*
+- uid: LibGFX.Graphics.ColorPresets.Bisque
+  commentId: P:LibGFX.Graphics.ColorPresets.Bisque
+  id: Bisque
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Bisque
+  nameWithType: ColorPresets.Bisque
+  fullName: LibGFX.Graphics.ColorPresets.Bisque
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Bisque
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 20
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Bisque { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Bisque As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Bisque*
+- uid: LibGFX.Graphics.ColorPresets.Black
+  commentId: P:LibGFX.Graphics.ColorPresets.Black
+  id: Black
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Black
+  nameWithType: ColorPresets.Black
+  fullName: LibGFX.Graphics.ColorPresets.Black
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Black
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 21
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Black { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Black As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Black*
+- uid: LibGFX.Graphics.ColorPresets.BlanchedAlmond
+  commentId: P:LibGFX.Graphics.ColorPresets.BlanchedAlmond
+  id: BlanchedAlmond
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: BlanchedAlmond
+  nameWithType: ColorPresets.BlanchedAlmond
+  fullName: LibGFX.Graphics.ColorPresets.BlanchedAlmond
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BlanchedAlmond
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 22
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 BlanchedAlmond { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property BlanchedAlmond As Vector4
+  overload: LibGFX.Graphics.ColorPresets.BlanchedAlmond*
+- uid: LibGFX.Graphics.ColorPresets.Blue
+  commentId: P:LibGFX.Graphics.ColorPresets.Blue
+  id: Blue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Blue
+  nameWithType: ColorPresets.Blue
+  fullName: LibGFX.Graphics.ColorPresets.Blue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Blue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 23
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Blue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Blue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Blue*
+- uid: LibGFX.Graphics.ColorPresets.BlueViolet
+  commentId: P:LibGFX.Graphics.ColorPresets.BlueViolet
+  id: BlueViolet
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: BlueViolet
+  nameWithType: ColorPresets.BlueViolet
+  fullName: LibGFX.Graphics.ColorPresets.BlueViolet
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BlueViolet
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 24
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 BlueViolet { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property BlueViolet As Vector4
+  overload: LibGFX.Graphics.ColorPresets.BlueViolet*
+- uid: LibGFX.Graphics.ColorPresets.Brown
+  commentId: P:LibGFX.Graphics.ColorPresets.Brown
+  id: Brown
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Brown
+  nameWithType: ColorPresets.Brown
+  fullName: LibGFX.Graphics.ColorPresets.Brown
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Brown
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 25
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Brown { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Brown As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Brown*
+- uid: LibGFX.Graphics.ColorPresets.BurlyWood
+  commentId: P:LibGFX.Graphics.ColorPresets.BurlyWood
+  id: BurlyWood
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: BurlyWood
+  nameWithType: ColorPresets.BurlyWood
+  fullName: LibGFX.Graphics.ColorPresets.BurlyWood
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BurlyWood
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 26
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 BurlyWood { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property BurlyWood As Vector4
+  overload: LibGFX.Graphics.ColorPresets.BurlyWood*
+- uid: LibGFX.Graphics.ColorPresets.CadetBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.CadetBlue
+  id: CadetBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: CadetBlue
+  nameWithType: ColorPresets.CadetBlue
+  fullName: LibGFX.Graphics.ColorPresets.CadetBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CadetBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 27
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 CadetBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property CadetBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.CadetBlue*
+- uid: LibGFX.Graphics.ColorPresets.Chartreuse
+  commentId: P:LibGFX.Graphics.ColorPresets.Chartreuse
+  id: Chartreuse
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Chartreuse
+  nameWithType: ColorPresets.Chartreuse
+  fullName: LibGFX.Graphics.ColorPresets.Chartreuse
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Chartreuse
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 28
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Chartreuse { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Chartreuse As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Chartreuse*
+- uid: LibGFX.Graphics.ColorPresets.Chocolate
+  commentId: P:LibGFX.Graphics.ColorPresets.Chocolate
+  id: Chocolate
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Chocolate
+  nameWithType: ColorPresets.Chocolate
+  fullName: LibGFX.Graphics.ColorPresets.Chocolate
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Chocolate
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 29
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Chocolate { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Chocolate As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Chocolate*
+- uid: LibGFX.Graphics.ColorPresets.Coral
+  commentId: P:LibGFX.Graphics.ColorPresets.Coral
+  id: Coral
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Coral
+  nameWithType: ColorPresets.Coral
+  fullName: LibGFX.Graphics.ColorPresets.Coral
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Coral
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 30
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Coral { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Coral As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Coral*
+- uid: LibGFX.Graphics.ColorPresets.CornflowerBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.CornflowerBlue
+  id: CornflowerBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: CornflowerBlue
+  nameWithType: ColorPresets.CornflowerBlue
+  fullName: LibGFX.Graphics.ColorPresets.CornflowerBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CornflowerBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 31
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 CornflowerBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property CornflowerBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.CornflowerBlue*
+- uid: LibGFX.Graphics.ColorPresets.Crimson
+  commentId: P:LibGFX.Graphics.ColorPresets.Crimson
+  id: Crimson
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Crimson
+  nameWithType: ColorPresets.Crimson
+  fullName: LibGFX.Graphics.ColorPresets.Crimson
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Crimson
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 32
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Crimson { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Crimson As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Crimson*
+- uid: LibGFX.Graphics.ColorPresets.Cyan
+  commentId: P:LibGFX.Graphics.ColorPresets.Cyan
+  id: Cyan
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Cyan
+  nameWithType: ColorPresets.Cyan
+  fullName: LibGFX.Graphics.ColorPresets.Cyan
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Cyan
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 33
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Cyan { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Cyan As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Cyan*
+- uid: LibGFX.Graphics.ColorPresets.DarkBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkBlue
+  id: DarkBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkBlue
+  nameWithType: ColorPresets.DarkBlue
+  fullName: LibGFX.Graphics.ColorPresets.DarkBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 34
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkBlue*
+- uid: LibGFX.Graphics.ColorPresets.DarkCyan
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkCyan
+  id: DarkCyan
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkCyan
+  nameWithType: ColorPresets.DarkCyan
+  fullName: LibGFX.Graphics.ColorPresets.DarkCyan
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkCyan
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 35
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkCyan { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkCyan As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkCyan*
+- uid: LibGFX.Graphics.ColorPresets.DarkGoldenrod
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkGoldenrod
+  id: DarkGoldenrod
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkGoldenrod
+  nameWithType: ColorPresets.DarkGoldenrod
+  fullName: LibGFX.Graphics.ColorPresets.DarkGoldenrod
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkGoldenrod
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 36
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkGoldenrod { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkGoldenrod As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkGoldenrod*
+- uid: LibGFX.Graphics.ColorPresets.DarkGray
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkGray
+  id: DarkGray
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkGray
+  nameWithType: ColorPresets.DarkGray
+  fullName: LibGFX.Graphics.ColorPresets.DarkGray
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkGray
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 37
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkGray { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkGray As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkGray*
+- uid: LibGFX.Graphics.ColorPresets.DarkGreen
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkGreen
+  id: DarkGreen
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkGreen
+  nameWithType: ColorPresets.DarkGreen
+  fullName: LibGFX.Graphics.ColorPresets.DarkGreen
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkGreen
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 38
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkGreen { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkGreen As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkGreen*
+- uid: LibGFX.Graphics.ColorPresets.DarkKhaki
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkKhaki
+  id: DarkKhaki
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkKhaki
+  nameWithType: ColorPresets.DarkKhaki
+  fullName: LibGFX.Graphics.ColorPresets.DarkKhaki
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkKhaki
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 39
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkKhaki { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkKhaki As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkKhaki*
+- uid: LibGFX.Graphics.ColorPresets.DarkMagenta
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkMagenta
+  id: DarkMagenta
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkMagenta
+  nameWithType: ColorPresets.DarkMagenta
+  fullName: LibGFX.Graphics.ColorPresets.DarkMagenta
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkMagenta
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 40
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkMagenta { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkMagenta As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkMagenta*
+- uid: LibGFX.Graphics.ColorPresets.DarkOliveGreen
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkOliveGreen
+  id: DarkOliveGreen
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkOliveGreen
+  nameWithType: ColorPresets.DarkOliveGreen
+  fullName: LibGFX.Graphics.ColorPresets.DarkOliveGreen
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkOliveGreen
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 41
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkOliveGreen { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkOliveGreen As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkOliveGreen*
+- uid: LibGFX.Graphics.ColorPresets.DarkOrange
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkOrange
+  id: DarkOrange
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkOrange
+  nameWithType: ColorPresets.DarkOrange
+  fullName: LibGFX.Graphics.ColorPresets.DarkOrange
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkOrange
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 42
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkOrange { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkOrange As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkOrange*
+- uid: LibGFX.Graphics.ColorPresets.DarkOrchid
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkOrchid
+  id: DarkOrchid
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkOrchid
+  nameWithType: ColorPresets.DarkOrchid
+  fullName: LibGFX.Graphics.ColorPresets.DarkOrchid
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkOrchid
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 43
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkOrchid { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkOrchid As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkOrchid*
+- uid: LibGFX.Graphics.ColorPresets.DarkRed
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkRed
+  id: DarkRed
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkRed
+  nameWithType: ColorPresets.DarkRed
+  fullName: LibGFX.Graphics.ColorPresets.DarkRed
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkRed
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 44
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkRed { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkRed As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkRed*
+- uid: LibGFX.Graphics.ColorPresets.DarkSalmon
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkSalmon
+  id: DarkSalmon
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkSalmon
+  nameWithType: ColorPresets.DarkSalmon
+  fullName: LibGFX.Graphics.ColorPresets.DarkSalmon
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkSalmon
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 45
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkSalmon { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkSalmon As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkSalmon*
+- uid: LibGFX.Graphics.ColorPresets.DarkSeaGreen
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkSeaGreen
+  id: DarkSeaGreen
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkSeaGreen
+  nameWithType: ColorPresets.DarkSeaGreen
+  fullName: LibGFX.Graphics.ColorPresets.DarkSeaGreen
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkSeaGreen
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 46
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkSeaGreen { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkSeaGreen As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkSeaGreen*
+- uid: LibGFX.Graphics.ColorPresets.DarkSlateBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkSlateBlue
+  id: DarkSlateBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkSlateBlue
+  nameWithType: ColorPresets.DarkSlateBlue
+  fullName: LibGFX.Graphics.ColorPresets.DarkSlateBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkSlateBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 47
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkSlateBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkSlateBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkSlateBlue*
+- uid: LibGFX.Graphics.ColorPresets.DarkSlateGray
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkSlateGray
+  id: DarkSlateGray
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkSlateGray
+  nameWithType: ColorPresets.DarkSlateGray
+  fullName: LibGFX.Graphics.ColorPresets.DarkSlateGray
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkSlateGray
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 48
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkSlateGray { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkSlateGray As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkSlateGray*
+- uid: LibGFX.Graphics.ColorPresets.DarkTurquoise
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkTurquoise
+  id: DarkTurquoise
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkTurquoise
+  nameWithType: ColorPresets.DarkTurquoise
+  fullName: LibGFX.Graphics.ColorPresets.DarkTurquoise
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkTurquoise
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 49
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkTurquoise { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkTurquoise As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkTurquoise*
+- uid: LibGFX.Graphics.ColorPresets.DarkViolet
+  commentId: P:LibGFX.Graphics.ColorPresets.DarkViolet
+  id: DarkViolet
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DarkViolet
+  nameWithType: ColorPresets.DarkViolet
+  fullName: LibGFX.Graphics.ColorPresets.DarkViolet
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DarkViolet
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 50
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DarkViolet { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DarkViolet As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DarkViolet*
+- uid: LibGFX.Graphics.ColorPresets.DeepPink
+  commentId: P:LibGFX.Graphics.ColorPresets.DeepPink
+  id: DeepPink
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DeepPink
+  nameWithType: ColorPresets.DeepPink
+  fullName: LibGFX.Graphics.ColorPresets.DeepPink
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DeepPink
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 51
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DeepPink { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DeepPink As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DeepPink*
+- uid: LibGFX.Graphics.ColorPresets.DeepSkyBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.DeepSkyBlue
+  id: DeepSkyBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DeepSkyBlue
+  nameWithType: ColorPresets.DeepSkyBlue
+  fullName: LibGFX.Graphics.ColorPresets.DeepSkyBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DeepSkyBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 52
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DeepSkyBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DeepSkyBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DeepSkyBlue*
+- uid: LibGFX.Graphics.ColorPresets.DimGray
+  commentId: P:LibGFX.Graphics.ColorPresets.DimGray
+  id: DimGray
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DimGray
+  nameWithType: ColorPresets.DimGray
+  fullName: LibGFX.Graphics.ColorPresets.DimGray
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DimGray
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 53
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DimGray { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DimGray As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DimGray*
+- uid: LibGFX.Graphics.ColorPresets.DodgerBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.DodgerBlue
+  id: DodgerBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: DodgerBlue
+  nameWithType: ColorPresets.DodgerBlue
+  fullName: LibGFX.Graphics.ColorPresets.DodgerBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DodgerBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 54
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 DodgerBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property DodgerBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.DodgerBlue*
+- uid: LibGFX.Graphics.ColorPresets.Firebrick
+  commentId: P:LibGFX.Graphics.ColorPresets.Firebrick
+  id: Firebrick
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Firebrick
+  nameWithType: ColorPresets.Firebrick
+  fullName: LibGFX.Graphics.ColorPresets.Firebrick
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Firebrick
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 55
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Firebrick { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Firebrick As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Firebrick*
+- uid: LibGFX.Graphics.ColorPresets.FloralWhite
+  commentId: P:LibGFX.Graphics.ColorPresets.FloralWhite
+  id: FloralWhite
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: FloralWhite
+  nameWithType: ColorPresets.FloralWhite
+  fullName: LibGFX.Graphics.ColorPresets.FloralWhite
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FloralWhite
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 56
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 FloralWhite { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property FloralWhite As Vector4
+  overload: LibGFX.Graphics.ColorPresets.FloralWhite*
+- uid: LibGFX.Graphics.ColorPresets.ForestGreen
+  commentId: P:LibGFX.Graphics.ColorPresets.ForestGreen
+  id: ForestGreen
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: ForestGreen
+  nameWithType: ColorPresets.ForestGreen
+  fullName: LibGFX.Graphics.ColorPresets.ForestGreen
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ForestGreen
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 57
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 ForestGreen { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property ForestGreen As Vector4
+  overload: LibGFX.Graphics.ColorPresets.ForestGreen*
+- uid: LibGFX.Graphics.ColorPresets.Fuchsia
+  commentId: P:LibGFX.Graphics.ColorPresets.Fuchsia
+  id: Fuchsia
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Fuchsia
+  nameWithType: ColorPresets.Fuchsia
+  fullName: LibGFX.Graphics.ColorPresets.Fuchsia
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Fuchsia
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 58
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Fuchsia { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Fuchsia As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Fuchsia*
+- uid: LibGFX.Graphics.ColorPresets.Gainsboro
+  commentId: P:LibGFX.Graphics.ColorPresets.Gainsboro
+  id: Gainsboro
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Gainsboro
+  nameWithType: ColorPresets.Gainsboro
+  fullName: LibGFX.Graphics.ColorPresets.Gainsboro
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Gainsboro
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 59
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Gainsboro { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Gainsboro As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Gainsboro*
+- uid: LibGFX.Graphics.ColorPresets.GhostWhite
+  commentId: P:LibGFX.Graphics.ColorPresets.GhostWhite
+  id: GhostWhite
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: GhostWhite
+  nameWithType: ColorPresets.GhostWhite
+  fullName: LibGFX.Graphics.ColorPresets.GhostWhite
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GhostWhite
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 60
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 GhostWhite { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property GhostWhite As Vector4
+  overload: LibGFX.Graphics.ColorPresets.GhostWhite*
+- uid: LibGFX.Graphics.ColorPresets.Gold
+  commentId: P:LibGFX.Graphics.ColorPresets.Gold
+  id: Gold
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Gold
+  nameWithType: ColorPresets.Gold
+  fullName: LibGFX.Graphics.ColorPresets.Gold
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Gold
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 61
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Gold { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Gold As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Gold*
+- uid: LibGFX.Graphics.ColorPresets.Goldenrod
+  commentId: P:LibGFX.Graphics.ColorPresets.Goldenrod
+  id: Goldenrod
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Goldenrod
+  nameWithType: ColorPresets.Goldenrod
+  fullName: LibGFX.Graphics.ColorPresets.Goldenrod
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Goldenrod
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 62
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Goldenrod { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Goldenrod As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Goldenrod*
+- uid: LibGFX.Graphics.ColorPresets.Gray
+  commentId: P:LibGFX.Graphics.ColorPresets.Gray
+  id: Gray
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Gray
+  nameWithType: ColorPresets.Gray
+  fullName: LibGFX.Graphics.ColorPresets.Gray
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Gray
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 63
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Gray { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Gray As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Gray*
+- uid: LibGFX.Graphics.ColorPresets.Green
+  commentId: P:LibGFX.Graphics.ColorPresets.Green
+  id: Green
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Green
+  nameWithType: ColorPresets.Green
+  fullName: LibGFX.Graphics.ColorPresets.Green
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Green
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 64
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Green { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Green As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Green*
+- uid: LibGFX.Graphics.ColorPresets.GreenYellow
+  commentId: P:LibGFX.Graphics.ColorPresets.GreenYellow
+  id: GreenYellow
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: GreenYellow
+  nameWithType: ColorPresets.GreenYellow
+  fullName: LibGFX.Graphics.ColorPresets.GreenYellow
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GreenYellow
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 65
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 GreenYellow { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property GreenYellow As Vector4
+  overload: LibGFX.Graphics.ColorPresets.GreenYellow*
+- uid: LibGFX.Graphics.ColorPresets.Honeydew
+  commentId: P:LibGFX.Graphics.ColorPresets.Honeydew
+  id: Honeydew
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Honeydew
+  nameWithType: ColorPresets.Honeydew
+  fullName: LibGFX.Graphics.ColorPresets.Honeydew
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Honeydew
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 66
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Honeydew { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Honeydew As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Honeydew*
+- uid: LibGFX.Graphics.ColorPresets.HotPink
+  commentId: P:LibGFX.Graphics.ColorPresets.HotPink
+  id: HotPink
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: HotPink
+  nameWithType: ColorPresets.HotPink
+  fullName: LibGFX.Graphics.ColorPresets.HotPink
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: HotPink
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 67
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 HotPink { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property HotPink As Vector4
+  overload: LibGFX.Graphics.ColorPresets.HotPink*
+- uid: LibGFX.Graphics.ColorPresets.IndianRed
+  commentId: P:LibGFX.Graphics.ColorPresets.IndianRed
+  id: IndianRed
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: IndianRed
+  nameWithType: ColorPresets.IndianRed
+  fullName: LibGFX.Graphics.ColorPresets.IndianRed
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IndianRed
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 68
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 IndianRed { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property IndianRed As Vector4
+  overload: LibGFX.Graphics.ColorPresets.IndianRed*
+- uid: LibGFX.Graphics.ColorPresets.Indigo
+  commentId: P:LibGFX.Graphics.ColorPresets.Indigo
+  id: Indigo
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Indigo
+  nameWithType: ColorPresets.Indigo
+  fullName: LibGFX.Graphics.ColorPresets.Indigo
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Indigo
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 69
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Indigo { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Indigo As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Indigo*
+- uid: LibGFX.Graphics.ColorPresets.Ivory
+  commentId: P:LibGFX.Graphics.ColorPresets.Ivory
+  id: Ivory
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Ivory
+  nameWithType: ColorPresets.Ivory
+  fullName: LibGFX.Graphics.ColorPresets.Ivory
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Ivory
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 70
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Ivory { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Ivory As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Ivory*
+- uid: LibGFX.Graphics.ColorPresets.Khaki
+  commentId: P:LibGFX.Graphics.ColorPresets.Khaki
+  id: Khaki
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Khaki
+  nameWithType: ColorPresets.Khaki
+  fullName: LibGFX.Graphics.ColorPresets.Khaki
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Khaki
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 71
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Khaki { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Khaki As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Khaki*
+- uid: LibGFX.Graphics.ColorPresets.Lavender
+  commentId: P:LibGFX.Graphics.ColorPresets.Lavender
+  id: Lavender
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Lavender
+  nameWithType: ColorPresets.Lavender
+  fullName: LibGFX.Graphics.ColorPresets.Lavender
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Lavender
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 72
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Lavender { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Lavender As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Lavender*
+- uid: LibGFX.Graphics.ColorPresets.LavenderBlush
+  commentId: P:LibGFX.Graphics.ColorPresets.LavenderBlush
+  id: LavenderBlush
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: LavenderBlush
+  nameWithType: ColorPresets.LavenderBlush
+  fullName: LibGFX.Graphics.ColorPresets.LavenderBlush
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LavenderBlush
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 73
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 LavenderBlush { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property LavenderBlush As Vector4
+  overload: LibGFX.Graphics.ColorPresets.LavenderBlush*
+- uid: LibGFX.Graphics.ColorPresets.LawnGreen
+  commentId: P:LibGFX.Graphics.ColorPresets.LawnGreen
+  id: LawnGreen
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: LawnGreen
+  nameWithType: ColorPresets.LawnGreen
+  fullName: LibGFX.Graphics.ColorPresets.LawnGreen
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LawnGreen
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 74
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 LawnGreen { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property LawnGreen As Vector4
+  overload: LibGFX.Graphics.ColorPresets.LawnGreen*
+- uid: LibGFX.Graphics.ColorPresets.LemonChiffon
+  commentId: P:LibGFX.Graphics.ColorPresets.LemonChiffon
+  id: LemonChiffon
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: LemonChiffon
+  nameWithType: ColorPresets.LemonChiffon
+  fullName: LibGFX.Graphics.ColorPresets.LemonChiffon
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LemonChiffon
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 75
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 LemonChiffon { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property LemonChiffon As Vector4
+  overload: LibGFX.Graphics.ColorPresets.LemonChiffon*
+- uid: LibGFX.Graphics.ColorPresets.LightBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.LightBlue
+  id: LightBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: LightBlue
+  nameWithType: ColorPresets.LightBlue
+  fullName: LibGFX.Graphics.ColorPresets.LightBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LightBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 76
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 LightBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property LightBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.LightBlue*
+- uid: LibGFX.Graphics.ColorPresets.LightCoral
+  commentId: P:LibGFX.Graphics.ColorPresets.LightCoral
+  id: LightCoral
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: LightCoral
+  nameWithType: ColorPresets.LightCoral
+  fullName: LibGFX.Graphics.ColorPresets.LightCoral
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LightCoral
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 77
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 LightCoral { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property LightCoral As Vector4
+  overload: LibGFX.Graphics.ColorPresets.LightCoral*
+- uid: LibGFX.Graphics.ColorPresets.LightCyan
+  commentId: P:LibGFX.Graphics.ColorPresets.LightCyan
+  id: LightCyan
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: LightCyan
+  nameWithType: ColorPresets.LightCyan
+  fullName: LibGFX.Graphics.ColorPresets.LightCyan
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LightCyan
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 78
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 LightCyan { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property LightCyan As Vector4
+  overload: LibGFX.Graphics.ColorPresets.LightCyan*
+- uid: LibGFX.Graphics.ColorPresets.LightGoldenrodYellow
+  commentId: P:LibGFX.Graphics.ColorPresets.LightGoldenrodYellow
+  id: LightGoldenrodYellow
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: LightGoldenrodYellow
+  nameWithType: ColorPresets.LightGoldenrodYellow
+  fullName: LibGFX.Graphics.ColorPresets.LightGoldenrodYellow
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LightGoldenrodYellow
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 79
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 LightGoldenrodYellow { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property LightGoldenrodYellow As Vector4
+  overload: LibGFX.Graphics.ColorPresets.LightGoldenrodYellow*
+- uid: LibGFX.Graphics.ColorPresets.LightGray
+  commentId: P:LibGFX.Graphics.ColorPresets.LightGray
+  id: LightGray
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: LightGray
+  nameWithType: ColorPresets.LightGray
+  fullName: LibGFX.Graphics.ColorPresets.LightGray
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LightGray
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 80
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 LightGray { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property LightGray As Vector4
+  overload: LibGFX.Graphics.ColorPresets.LightGray*
+- uid: LibGFX.Graphics.ColorPresets.LightGreen
+  commentId: P:LibGFX.Graphics.ColorPresets.LightGreen
+  id: LightGreen
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: LightGreen
+  nameWithType: ColorPresets.LightGreen
+  fullName: LibGFX.Graphics.ColorPresets.LightGreen
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LightGreen
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 81
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 LightGreen { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property LightGreen As Vector4
+  overload: LibGFX.Graphics.ColorPresets.LightGreen*
+- uid: LibGFX.Graphics.ColorPresets.LightPink
+  commentId: P:LibGFX.Graphics.ColorPresets.LightPink
+  id: LightPink
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: LightPink
+  nameWithType: ColorPresets.LightPink
+  fullName: LibGFX.Graphics.ColorPresets.LightPink
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LightPink
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 82
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 LightPink { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property LightPink As Vector4
+  overload: LibGFX.Graphics.ColorPresets.LightPink*
+- uid: LibGFX.Graphics.ColorPresets.LightSalmon
+  commentId: P:LibGFX.Graphics.ColorPresets.LightSalmon
+  id: LightSalmon
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: LightSalmon
+  nameWithType: ColorPresets.LightSalmon
+  fullName: LibGFX.Graphics.ColorPresets.LightSalmon
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LightSalmon
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 83
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 LightSalmon { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property LightSalmon As Vector4
+  overload: LibGFX.Graphics.ColorPresets.LightSalmon*
+- uid: LibGFX.Graphics.ColorPresets.LightSeaGreen
+  commentId: P:LibGFX.Graphics.ColorPresets.LightSeaGreen
+  id: LightSeaGreen
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: LightSeaGreen
+  nameWithType: ColorPresets.LightSeaGreen
+  fullName: LibGFX.Graphics.ColorPresets.LightSeaGreen
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LightSeaGreen
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 84
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 LightSeaGreen { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property LightSeaGreen As Vector4
+  overload: LibGFX.Graphics.ColorPresets.LightSeaGreen*
+- uid: LibGFX.Graphics.ColorPresets.LightSkyBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.LightSkyBlue
+  id: LightSkyBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: LightSkyBlue
+  nameWithType: ColorPresets.LightSkyBlue
+  fullName: LibGFX.Graphics.ColorPresets.LightSkyBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LightSkyBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 85
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 LightSkyBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property LightSkyBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.LightSkyBlue*
+- uid: LibGFX.Graphics.ColorPresets.LightSlateGray
+  commentId: P:LibGFX.Graphics.ColorPresets.LightSlateGray
+  id: LightSlateGray
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: LightSlateGray
+  nameWithType: ColorPresets.LightSlateGray
+  fullName: LibGFX.Graphics.ColorPresets.LightSlateGray
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LightSlateGray
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 86
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 LightSlateGray { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property LightSlateGray As Vector4
+  overload: LibGFX.Graphics.ColorPresets.LightSlateGray*
+- uid: LibGFX.Graphics.ColorPresets.LightSteelBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.LightSteelBlue
+  id: LightSteelBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: LightSteelBlue
+  nameWithType: ColorPresets.LightSteelBlue
+  fullName: LibGFX.Graphics.ColorPresets.LightSteelBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LightSteelBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 87
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 LightSteelBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property LightSteelBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.LightSteelBlue*
+- uid: LibGFX.Graphics.ColorPresets.Lime
+  commentId: P:LibGFX.Graphics.ColorPresets.Lime
+  id: Lime
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Lime
+  nameWithType: ColorPresets.Lime
+  fullName: LibGFX.Graphics.ColorPresets.Lime
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Lime
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 88
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Lime { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Lime As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Lime*
+- uid: LibGFX.Graphics.ColorPresets.LimeGreen
+  commentId: P:LibGFX.Graphics.ColorPresets.LimeGreen
+  id: LimeGreen
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: LimeGreen
+  nameWithType: ColorPresets.LimeGreen
+  fullName: LibGFX.Graphics.ColorPresets.LimeGreen
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LimeGreen
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 89
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 LimeGreen { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property LimeGreen As Vector4
+  overload: LibGFX.Graphics.ColorPresets.LimeGreen*
+- uid: LibGFX.Graphics.ColorPresets.Linen
+  commentId: P:LibGFX.Graphics.ColorPresets.Linen
+  id: Linen
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Linen
+  nameWithType: ColorPresets.Linen
+  fullName: LibGFX.Graphics.ColorPresets.Linen
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Linen
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 90
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Linen { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Linen As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Linen*
+- uid: LibGFX.Graphics.ColorPresets.Magenta
+  commentId: P:LibGFX.Graphics.ColorPresets.Magenta
+  id: Magenta
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Magenta
+  nameWithType: ColorPresets.Magenta
+  fullName: LibGFX.Graphics.ColorPresets.Magenta
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Magenta
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 91
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Magenta { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Magenta As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Magenta*
+- uid: LibGFX.Graphics.ColorPresets.Maroon
+  commentId: P:LibGFX.Graphics.ColorPresets.Maroon
+  id: Maroon
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Maroon
+  nameWithType: ColorPresets.Maroon
+  fullName: LibGFX.Graphics.ColorPresets.Maroon
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Maroon
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 92
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Maroon { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Maroon As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Maroon*
+- uid: LibGFX.Graphics.ColorPresets.MediumAquamarine
+  commentId: P:LibGFX.Graphics.ColorPresets.MediumAquamarine
+  id: MediumAquamarine
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: MediumAquamarine
+  nameWithType: ColorPresets.MediumAquamarine
+  fullName: LibGFX.Graphics.ColorPresets.MediumAquamarine
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MediumAquamarine
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 93
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 MediumAquamarine { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property MediumAquamarine As Vector4
+  overload: LibGFX.Graphics.ColorPresets.MediumAquamarine*
+- uid: LibGFX.Graphics.ColorPresets.MediumBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.MediumBlue
+  id: MediumBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: MediumBlue
+  nameWithType: ColorPresets.MediumBlue
+  fullName: LibGFX.Graphics.ColorPresets.MediumBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MediumBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 94
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 MediumBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property MediumBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.MediumBlue*
+- uid: LibGFX.Graphics.ColorPresets.MediumOrchid
+  commentId: P:LibGFX.Graphics.ColorPresets.MediumOrchid
+  id: MediumOrchid
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: MediumOrchid
+  nameWithType: ColorPresets.MediumOrchid
+  fullName: LibGFX.Graphics.ColorPresets.MediumOrchid
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MediumOrchid
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 95
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 MediumOrchid { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property MediumOrchid As Vector4
+  overload: LibGFX.Graphics.ColorPresets.MediumOrchid*
+- uid: LibGFX.Graphics.ColorPresets.MediumPurple
+  commentId: P:LibGFX.Graphics.ColorPresets.MediumPurple
+  id: MediumPurple
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: MediumPurple
+  nameWithType: ColorPresets.MediumPurple
+  fullName: LibGFX.Graphics.ColorPresets.MediumPurple
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MediumPurple
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 96
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 MediumPurple { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property MediumPurple As Vector4
+  overload: LibGFX.Graphics.ColorPresets.MediumPurple*
+- uid: LibGFX.Graphics.ColorPresets.MediumSeaGreen
+  commentId: P:LibGFX.Graphics.ColorPresets.MediumSeaGreen
+  id: MediumSeaGreen
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: MediumSeaGreen
+  nameWithType: ColorPresets.MediumSeaGreen
+  fullName: LibGFX.Graphics.ColorPresets.MediumSeaGreen
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MediumSeaGreen
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 97
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 MediumSeaGreen { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property MediumSeaGreen As Vector4
+  overload: LibGFX.Graphics.ColorPresets.MediumSeaGreen*
+- uid: LibGFX.Graphics.ColorPresets.MediumSlateBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.MediumSlateBlue
+  id: MediumSlateBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: MediumSlateBlue
+  nameWithType: ColorPresets.MediumSlateBlue
+  fullName: LibGFX.Graphics.ColorPresets.MediumSlateBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MediumSlateBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 98
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 MediumSlateBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property MediumSlateBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.MediumSlateBlue*
+- uid: LibGFX.Graphics.ColorPresets.MediumSpringGreen
+  commentId: P:LibGFX.Graphics.ColorPresets.MediumSpringGreen
+  id: MediumSpringGreen
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: MediumSpringGreen
+  nameWithType: ColorPresets.MediumSpringGreen
+  fullName: LibGFX.Graphics.ColorPresets.MediumSpringGreen
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MediumSpringGreen
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 99
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 MediumSpringGreen { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property MediumSpringGreen As Vector4
+  overload: LibGFX.Graphics.ColorPresets.MediumSpringGreen*
+- uid: LibGFX.Graphics.ColorPresets.MediumTurquoise
+  commentId: P:LibGFX.Graphics.ColorPresets.MediumTurquoise
+  id: MediumTurquoise
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: MediumTurquoise
+  nameWithType: ColorPresets.MediumTurquoise
+  fullName: LibGFX.Graphics.ColorPresets.MediumTurquoise
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MediumTurquoise
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 100
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 MediumTurquoise { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property MediumTurquoise As Vector4
+  overload: LibGFX.Graphics.ColorPresets.MediumTurquoise*
+- uid: LibGFX.Graphics.ColorPresets.MediumVioletRed
+  commentId: P:LibGFX.Graphics.ColorPresets.MediumVioletRed
+  id: MediumVioletRed
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: MediumVioletRed
+  nameWithType: ColorPresets.MediumVioletRed
+  fullName: LibGFX.Graphics.ColorPresets.MediumVioletRed
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MediumVioletRed
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 101
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 MediumVioletRed { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property MediumVioletRed As Vector4
+  overload: LibGFX.Graphics.ColorPresets.MediumVioletRed*
+- uid: LibGFX.Graphics.ColorPresets.MidnightBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.MidnightBlue
+  id: MidnightBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: MidnightBlue
+  nameWithType: ColorPresets.MidnightBlue
+  fullName: LibGFX.Graphics.ColorPresets.MidnightBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MidnightBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 102
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 MidnightBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property MidnightBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.MidnightBlue*
+- uid: LibGFX.Graphics.ColorPresets.MintCream
+  commentId: P:LibGFX.Graphics.ColorPresets.MintCream
+  id: MintCream
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: MintCream
+  nameWithType: ColorPresets.MintCream
+  fullName: LibGFX.Graphics.ColorPresets.MintCream
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MintCream
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 103
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 MintCream { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property MintCream As Vector4
+  overload: LibGFX.Graphics.ColorPresets.MintCream*
+- uid: LibGFX.Graphics.ColorPresets.MistyRose
+  commentId: P:LibGFX.Graphics.ColorPresets.MistyRose
+  id: MistyRose
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: MistyRose
+  nameWithType: ColorPresets.MistyRose
+  fullName: LibGFX.Graphics.ColorPresets.MistyRose
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: MistyRose
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 104
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 MistyRose { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property MistyRose As Vector4
+  overload: LibGFX.Graphics.ColorPresets.MistyRose*
+- uid: LibGFX.Graphics.ColorPresets.Moccasin
+  commentId: P:LibGFX.Graphics.ColorPresets.Moccasin
+  id: Moccasin
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Moccasin
+  nameWithType: ColorPresets.Moccasin
+  fullName: LibGFX.Graphics.ColorPresets.Moccasin
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Moccasin
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 105
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Moccasin { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Moccasin As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Moccasin*
+- uid: LibGFX.Graphics.ColorPresets.NavajoWhite
+  commentId: P:LibGFX.Graphics.ColorPresets.NavajoWhite
+  id: NavajoWhite
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: NavajoWhite
+  nameWithType: ColorPresets.NavajoWhite
+  fullName: LibGFX.Graphics.ColorPresets.NavajoWhite
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: NavajoWhite
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 106
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 NavajoWhite { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property NavajoWhite As Vector4
+  overload: LibGFX.Graphics.ColorPresets.NavajoWhite*
+- uid: LibGFX.Graphics.ColorPresets.Navy
+  commentId: P:LibGFX.Graphics.ColorPresets.Navy
+  id: Navy
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Navy
+  nameWithType: ColorPresets.Navy
+  fullName: LibGFX.Graphics.ColorPresets.Navy
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Navy
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 107
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Navy { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Navy As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Navy*
+- uid: LibGFX.Graphics.ColorPresets.OldLace
+  commentId: P:LibGFX.Graphics.ColorPresets.OldLace
+  id: OldLace
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: OldLace
+  nameWithType: ColorPresets.OldLace
+  fullName: LibGFX.Graphics.ColorPresets.OldLace
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OldLace
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 108
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 OldLace { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property OldLace As Vector4
+  overload: LibGFX.Graphics.ColorPresets.OldLace*
+- uid: LibGFX.Graphics.ColorPresets.Olive
+  commentId: P:LibGFX.Graphics.ColorPresets.Olive
+  id: Olive
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Olive
+  nameWithType: ColorPresets.Olive
+  fullName: LibGFX.Graphics.ColorPresets.Olive
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Olive
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 109
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Olive { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Olive As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Olive*
+- uid: LibGFX.Graphics.ColorPresets.OliveDrab
+  commentId: P:LibGFX.Graphics.ColorPresets.OliveDrab
+  id: OliveDrab
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: OliveDrab
+  nameWithType: ColorPresets.OliveDrab
+  fullName: LibGFX.Graphics.ColorPresets.OliveDrab
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OliveDrab
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 110
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 OliveDrab { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property OliveDrab As Vector4
+  overload: LibGFX.Graphics.ColorPresets.OliveDrab*
+- uid: LibGFX.Graphics.ColorPresets.Orange
+  commentId: P:LibGFX.Graphics.ColorPresets.Orange
+  id: Orange
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Orange
+  nameWithType: ColorPresets.Orange
+  fullName: LibGFX.Graphics.ColorPresets.Orange
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Orange
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 111
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Orange { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Orange As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Orange*
+- uid: LibGFX.Graphics.ColorPresets.OrangeRed
+  commentId: P:LibGFX.Graphics.ColorPresets.OrangeRed
+  id: OrangeRed
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: OrangeRed
+  nameWithType: ColorPresets.OrangeRed
+  fullName: LibGFX.Graphics.ColorPresets.OrangeRed
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OrangeRed
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 112
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 OrangeRed { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property OrangeRed As Vector4
+  overload: LibGFX.Graphics.ColorPresets.OrangeRed*
+- uid: LibGFX.Graphics.ColorPresets.Orchid
+  commentId: P:LibGFX.Graphics.ColorPresets.Orchid
+  id: Orchid
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Orchid
+  nameWithType: ColorPresets.Orchid
+  fullName: LibGFX.Graphics.ColorPresets.Orchid
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Orchid
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 113
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Orchid { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Orchid As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Orchid*
+- uid: LibGFX.Graphics.ColorPresets.PaleGoldenrod
+  commentId: P:LibGFX.Graphics.ColorPresets.PaleGoldenrod
+  id: PaleGoldenrod
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: PaleGoldenrod
+  nameWithType: ColorPresets.PaleGoldenrod
+  fullName: LibGFX.Graphics.ColorPresets.PaleGoldenrod
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PaleGoldenrod
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 114
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 PaleGoldenrod { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property PaleGoldenrod As Vector4
+  overload: LibGFX.Graphics.ColorPresets.PaleGoldenrod*
+- uid: LibGFX.Graphics.ColorPresets.PaleGreen
+  commentId: P:LibGFX.Graphics.ColorPresets.PaleGreen
+  id: PaleGreen
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: PaleGreen
+  nameWithType: ColorPresets.PaleGreen
+  fullName: LibGFX.Graphics.ColorPresets.PaleGreen
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PaleGreen
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 115
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 PaleGreen { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property PaleGreen As Vector4
+  overload: LibGFX.Graphics.ColorPresets.PaleGreen*
+- uid: LibGFX.Graphics.ColorPresets.PaleTurquoise
+  commentId: P:LibGFX.Graphics.ColorPresets.PaleTurquoise
+  id: PaleTurquoise
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: PaleTurquoise
+  nameWithType: ColorPresets.PaleTurquoise
+  fullName: LibGFX.Graphics.ColorPresets.PaleTurquoise
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PaleTurquoise
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 116
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 PaleTurquoise { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property PaleTurquoise As Vector4
+  overload: LibGFX.Graphics.ColorPresets.PaleTurquoise*
+- uid: LibGFX.Graphics.ColorPresets.PaleVioletRed
+  commentId: P:LibGFX.Graphics.ColorPresets.PaleVioletRed
+  id: PaleVioletRed
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: PaleVioletRed
+  nameWithType: ColorPresets.PaleVioletRed
+  fullName: LibGFX.Graphics.ColorPresets.PaleVioletRed
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PaleVioletRed
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 117
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 PaleVioletRed { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property PaleVioletRed As Vector4
+  overload: LibGFX.Graphics.ColorPresets.PaleVioletRed*
+- uid: LibGFX.Graphics.ColorPresets.PapayaWhip
+  commentId: P:LibGFX.Graphics.ColorPresets.PapayaWhip
+  id: PapayaWhip
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: PapayaWhip
+  nameWithType: ColorPresets.PapayaWhip
+  fullName: LibGFX.Graphics.ColorPresets.PapayaWhip
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PapayaWhip
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 118
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 PapayaWhip { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property PapayaWhip As Vector4
+  overload: LibGFX.Graphics.ColorPresets.PapayaWhip*
+- uid: LibGFX.Graphics.ColorPresets.PeachPuff
+  commentId: P:LibGFX.Graphics.ColorPresets.PeachPuff
+  id: PeachPuff
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: PeachPuff
+  nameWithType: ColorPresets.PeachPuff
+  fullName: LibGFX.Graphics.ColorPresets.PeachPuff
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PeachPuff
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 119
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 PeachPuff { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property PeachPuff As Vector4
+  overload: LibGFX.Graphics.ColorPresets.PeachPuff*
+- uid: LibGFX.Graphics.ColorPresets.Peru
+  commentId: P:LibGFX.Graphics.ColorPresets.Peru
+  id: Peru
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Peru
+  nameWithType: ColorPresets.Peru
+  fullName: LibGFX.Graphics.ColorPresets.Peru
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Peru
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 120
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Peru { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Peru As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Peru*
+- uid: LibGFX.Graphics.ColorPresets.Pink
+  commentId: P:LibGFX.Graphics.ColorPresets.Pink
+  id: Pink
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Pink
+  nameWithType: ColorPresets.Pink
+  fullName: LibGFX.Graphics.ColorPresets.Pink
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Pink
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 121
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Pink { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Pink As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Pink*
+- uid: LibGFX.Graphics.ColorPresets.Plum
+  commentId: P:LibGFX.Graphics.ColorPresets.Plum
+  id: Plum
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Plum
+  nameWithType: ColorPresets.Plum
+  fullName: LibGFX.Graphics.ColorPresets.Plum
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Plum
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 122
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Plum { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Plum As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Plum*
+- uid: LibGFX.Graphics.ColorPresets.PowderBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.PowderBlue
+  id: PowderBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: PowderBlue
+  nameWithType: ColorPresets.PowderBlue
+  fullName: LibGFX.Graphics.ColorPresets.PowderBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PowderBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 123
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 PowderBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property PowderBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.PowderBlue*
+- uid: LibGFX.Graphics.ColorPresets.Purple
+  commentId: P:LibGFX.Graphics.ColorPresets.Purple
+  id: Purple
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Purple
+  nameWithType: ColorPresets.Purple
+  fullName: LibGFX.Graphics.ColorPresets.Purple
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Purple
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 124
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Purple { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Purple As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Purple*
+- uid: LibGFX.Graphics.ColorPresets.Red
+  commentId: P:LibGFX.Graphics.ColorPresets.Red
+  id: Red
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Red
+  nameWithType: ColorPresets.Red
+  fullName: LibGFX.Graphics.ColorPresets.Red
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Red
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 125
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Red { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Red As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Red*
+- uid: LibGFX.Graphics.ColorPresets.RosyBrown
+  commentId: P:LibGFX.Graphics.ColorPresets.RosyBrown
+  id: RosyBrown
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: RosyBrown
+  nameWithType: ColorPresets.RosyBrown
+  fullName: LibGFX.Graphics.ColorPresets.RosyBrown
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RosyBrown
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 126
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 RosyBrown { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property RosyBrown As Vector4
+  overload: LibGFX.Graphics.ColorPresets.RosyBrown*
+- uid: LibGFX.Graphics.ColorPresets.RoyalBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.RoyalBlue
+  id: RoyalBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: RoyalBlue
+  nameWithType: ColorPresets.RoyalBlue
+  fullName: LibGFX.Graphics.ColorPresets.RoyalBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RoyalBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 127
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 RoyalBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property RoyalBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.RoyalBlue*
+- uid: LibGFX.Graphics.ColorPresets.SaddleBrown
+  commentId: P:LibGFX.Graphics.ColorPresets.SaddleBrown
+  id: SaddleBrown
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: SaddleBrown
+  nameWithType: ColorPresets.SaddleBrown
+  fullName: LibGFX.Graphics.ColorPresets.SaddleBrown
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SaddleBrown
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 128
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 SaddleBrown { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property SaddleBrown As Vector4
+  overload: LibGFX.Graphics.ColorPresets.SaddleBrown*
+- uid: LibGFX.Graphics.ColorPresets.Salmon
+  commentId: P:LibGFX.Graphics.ColorPresets.Salmon
+  id: Salmon
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Salmon
+  nameWithType: ColorPresets.Salmon
+  fullName: LibGFX.Graphics.ColorPresets.Salmon
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Salmon
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 129
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Salmon { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Salmon As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Salmon*
+- uid: LibGFX.Graphics.ColorPresets.SandyBrown
+  commentId: P:LibGFX.Graphics.ColorPresets.SandyBrown
+  id: SandyBrown
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: SandyBrown
+  nameWithType: ColorPresets.SandyBrown
+  fullName: LibGFX.Graphics.ColorPresets.SandyBrown
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SandyBrown
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 130
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 SandyBrown { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property SandyBrown As Vector4
+  overload: LibGFX.Graphics.ColorPresets.SandyBrown*
+- uid: LibGFX.Graphics.ColorPresets.SeaGreen
+  commentId: P:LibGFX.Graphics.ColorPresets.SeaGreen
+  id: SeaGreen
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: SeaGreen
+  nameWithType: ColorPresets.SeaGreen
+  fullName: LibGFX.Graphics.ColorPresets.SeaGreen
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SeaGreen
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 131
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 SeaGreen { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property SeaGreen As Vector4
+  overload: LibGFX.Graphics.ColorPresets.SeaGreen*
+- uid: LibGFX.Graphics.ColorPresets.Seashell
+  commentId: P:LibGFX.Graphics.ColorPresets.Seashell
+  id: Seashell
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Seashell
+  nameWithType: ColorPresets.Seashell
+  fullName: LibGFX.Graphics.ColorPresets.Seashell
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Seashell
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 132
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Seashell { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Seashell As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Seashell*
+- uid: LibGFX.Graphics.ColorPresets.Sienna
+  commentId: P:LibGFX.Graphics.ColorPresets.Sienna
+  id: Sienna
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Sienna
+  nameWithType: ColorPresets.Sienna
+  fullName: LibGFX.Graphics.ColorPresets.Sienna
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Sienna
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 133
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Sienna { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Sienna As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Sienna*
+- uid: LibGFX.Graphics.ColorPresets.Silver
+  commentId: P:LibGFX.Graphics.ColorPresets.Silver
+  id: Silver
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Silver
+  nameWithType: ColorPresets.Silver
+  fullName: LibGFX.Graphics.ColorPresets.Silver
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Silver
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 134
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Silver { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Silver As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Silver*
+- uid: LibGFX.Graphics.ColorPresets.SkyBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.SkyBlue
+  id: SkyBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: SkyBlue
+  nameWithType: ColorPresets.SkyBlue
+  fullName: LibGFX.Graphics.ColorPresets.SkyBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SkyBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 135
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 SkyBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property SkyBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.SkyBlue*
+- uid: LibGFX.Graphics.ColorPresets.SlateBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.SlateBlue
+  id: SlateBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: SlateBlue
+  nameWithType: ColorPresets.SlateBlue
+  fullName: LibGFX.Graphics.ColorPresets.SlateBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SlateBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 136
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 SlateBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property SlateBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.SlateBlue*
+- uid: LibGFX.Graphics.ColorPresets.SlateGray
+  commentId: P:LibGFX.Graphics.ColorPresets.SlateGray
+  id: SlateGray
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: SlateGray
+  nameWithType: ColorPresets.SlateGray
+  fullName: LibGFX.Graphics.ColorPresets.SlateGray
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SlateGray
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 137
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 SlateGray { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property SlateGray As Vector4
+  overload: LibGFX.Graphics.ColorPresets.SlateGray*
+- uid: LibGFX.Graphics.ColorPresets.Snow
+  commentId: P:LibGFX.Graphics.ColorPresets.Snow
+  id: Snow
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Snow
+  nameWithType: ColorPresets.Snow
+  fullName: LibGFX.Graphics.ColorPresets.Snow
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Snow
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 138
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Snow { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Snow As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Snow*
+- uid: LibGFX.Graphics.ColorPresets.SpringGreen
+  commentId: P:LibGFX.Graphics.ColorPresets.SpringGreen
+  id: SpringGreen
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: SpringGreen
+  nameWithType: ColorPresets.SpringGreen
+  fullName: LibGFX.Graphics.ColorPresets.SpringGreen
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SpringGreen
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 139
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 SpringGreen { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property SpringGreen As Vector4
+  overload: LibGFX.Graphics.ColorPresets.SpringGreen*
+- uid: LibGFX.Graphics.ColorPresets.SteelBlue
+  commentId: P:LibGFX.Graphics.ColorPresets.SteelBlue
+  id: SteelBlue
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: SteelBlue
+  nameWithType: ColorPresets.SteelBlue
+  fullName: LibGFX.Graphics.ColorPresets.SteelBlue
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SteelBlue
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 140
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 SteelBlue { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property SteelBlue As Vector4
+  overload: LibGFX.Graphics.ColorPresets.SteelBlue*
+- uid: LibGFX.Graphics.ColorPresets.Tan
+  commentId: P:LibGFX.Graphics.ColorPresets.Tan
+  id: Tan
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Tan
+  nameWithType: ColorPresets.Tan
+  fullName: LibGFX.Graphics.ColorPresets.Tan
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Tan
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 141
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Tan { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Tan As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Tan*
+- uid: LibGFX.Graphics.ColorPresets.Teal
+  commentId: P:LibGFX.Graphics.ColorPresets.Teal
+  id: Teal
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Teal
+  nameWithType: ColorPresets.Teal
+  fullName: LibGFX.Graphics.ColorPresets.Teal
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Teal
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 142
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Teal { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Teal As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Teal*
+- uid: LibGFX.Graphics.ColorPresets.Thistle
+  commentId: P:LibGFX.Graphics.ColorPresets.Thistle
+  id: Thistle
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Thistle
+  nameWithType: ColorPresets.Thistle
+  fullName: LibGFX.Graphics.ColorPresets.Thistle
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Thistle
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 143
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Thistle { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Thistle As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Thistle*
+- uid: LibGFX.Graphics.ColorPresets.Tomato
+  commentId: P:LibGFX.Graphics.ColorPresets.Tomato
+  id: Tomato
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Tomato
+  nameWithType: ColorPresets.Tomato
+  fullName: LibGFX.Graphics.ColorPresets.Tomato
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Tomato
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 144
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Tomato { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Tomato As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Tomato*
+- uid: LibGFX.Graphics.ColorPresets.Turquoise
+  commentId: P:LibGFX.Graphics.ColorPresets.Turquoise
+  id: Turquoise
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Turquoise
+  nameWithType: ColorPresets.Turquoise
+  fullName: LibGFX.Graphics.ColorPresets.Turquoise
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Turquoise
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 145
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Turquoise { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Turquoise As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Turquoise*
+- uid: LibGFX.Graphics.ColorPresets.Violet
+  commentId: P:LibGFX.Graphics.ColorPresets.Violet
+  id: Violet
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Violet
+  nameWithType: ColorPresets.Violet
+  fullName: LibGFX.Graphics.ColorPresets.Violet
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Violet
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 146
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Violet { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Violet As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Violet*
+- uid: LibGFX.Graphics.ColorPresets.Wheat
+  commentId: P:LibGFX.Graphics.ColorPresets.Wheat
+  id: Wheat
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Wheat
+  nameWithType: ColorPresets.Wheat
+  fullName: LibGFX.Graphics.ColorPresets.Wheat
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Wheat
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 147
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Wheat { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Wheat As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Wheat*
+- uid: LibGFX.Graphics.ColorPresets.WhiteSmoke
+  commentId: P:LibGFX.Graphics.ColorPresets.WhiteSmoke
+  id: WhiteSmoke
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: WhiteSmoke
+  nameWithType: ColorPresets.WhiteSmoke
+  fullName: LibGFX.Graphics.ColorPresets.WhiteSmoke
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: WhiteSmoke
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 148
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 WhiteSmoke { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property WhiteSmoke As Vector4
+  overload: LibGFX.Graphics.ColorPresets.WhiteSmoke*
+- uid: LibGFX.Graphics.ColorPresets.Yellow
+  commentId: P:LibGFX.Graphics.ColorPresets.Yellow
+  id: Yellow
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Yellow
+  nameWithType: ColorPresets.Yellow
+  fullName: LibGFX.Graphics.ColorPresets.Yellow
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Yellow
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 149
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 Yellow { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property Yellow As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Yellow*
+- uid: LibGFX.Graphics.ColorPresets.YellowGreen
+  commentId: P:LibGFX.Graphics.ColorPresets.YellowGreen
+  id: YellowGreen
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: YellowGreen
+  nameWithType: ColorPresets.YellowGreen
+  fullName: LibGFX.Graphics.ColorPresets.YellowGreen
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: YellowGreen
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 150
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static Vector4 YellowGreen { get; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared ReadOnly Property YellowGreen As Vector4
+  overload: LibGFX.Graphics.ColorPresets.YellowGreen*
+- uid: LibGFX.Graphics.ColorPresets.FromRgb(System.Byte,System.Byte,System.Byte,System.Byte)
+  commentId: M:LibGFX.Graphics.ColorPresets.FromRgb(System.Byte,System.Byte,System.Byte,System.Byte)
+  id: FromRgb(System.Byte,System.Byte,System.Byte,System.Byte)
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: FromRgb(byte, byte, byte, byte)
+  nameWithType: ColorPresets.FromRgb(byte, byte, byte, byte)
+  fullName: LibGFX.Graphics.ColorPresets.FromRgb(byte, byte, byte, byte)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FromRgb
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 155
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Create a Vector4 color from 0-255 RGB values and optional alpha (0..255).
+  example: []
+  syntax:
+    content: public static Vector4 FromRgb(byte r, byte g, byte b, byte a = 255)
+    parameters:
+    - id: r
+      type: System.Byte
+    - id: g
+      type: System.Byte
+    - id: b
+      type: System.Byte
+    - id: a
+      type: System.Byte
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared Function FromRgb(r As Byte, g As Byte, b As Byte, a As Byte = 255) As Vector4
+  overload: LibGFX.Graphics.ColorPresets.FromRgb*
+  nameWithType.vb: ColorPresets.FromRgb(Byte, Byte, Byte, Byte)
+  fullName.vb: LibGFX.Graphics.ColorPresets.FromRgb(Byte, Byte, Byte, Byte)
+  name.vb: FromRgb(Byte, Byte, Byte, Byte)
+- uid: LibGFX.Graphics.ColorPresets.FromHex(System.String)
+  commentId: M:LibGFX.Graphics.ColorPresets.FromHex(System.String)
+  id: FromHex(System.String)
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: FromHex(string)
+  nameWithType: ColorPresets.FromHex(string)
+  fullName: LibGFX.Graphics.ColorPresets.FromHex(string)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FromHex
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 162
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: >-
+    Parse a hex string like "#RRGGBB" or "#RRGGBBAA" into a Vector4.
+
+    Accepts "RRGGBB" or "RRGGBBAA" (with or without leading '#').
+  example: []
+  syntax:
+    content: public static Vector4 FromHex(string hex)
+    parameters:
+    - id: hex
+      type: System.String
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared Function FromHex(hex As String) As Vector4
+  overload: LibGFX.Graphics.ColorPresets.FromHex*
+  nameWithType.vb: ColorPresets.FromHex(String)
+  fullName.vb: LibGFX.Graphics.ColorPresets.FromHex(String)
+  name.vb: FromHex(String)
+- uid: LibGFX.Graphics.ColorPresets.WithAlpha(OpenTK.Mathematics.Vector4,System.Single)
+  commentId: M:LibGFX.Graphics.ColorPresets.WithAlpha(OpenTK.Mathematics.Vector4,System.Single)
+  id: WithAlpha(OpenTK.Mathematics.Vector4,System.Single)
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: WithAlpha(Vector4, float)
+  nameWithType: ColorPresets.WithAlpha(Vector4, float)
+  fullName: LibGFX.Graphics.ColorPresets.WithAlpha(OpenTK.Mathematics.Vector4, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: WithAlpha
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 192
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Return a copy of color with modified alpha (0..1).
+  example: []
+  syntax:
+    content: public static Vector4 WithAlpha(Vector4 color, float alpha)
+    parameters:
+    - id: color
+      type: OpenTK.Mathematics.Vector4
+    - id: alpha
+      type: System.Single
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared Function WithAlpha(color As Vector4, alpha As Single) As Vector4
+  overload: LibGFX.Graphics.ColorPresets.WithAlpha*
+  nameWithType.vb: ColorPresets.WithAlpha(Vector4, Single)
+  fullName.vb: LibGFX.Graphics.ColorPresets.WithAlpha(OpenTK.Mathematics.Vector4, Single)
+  name.vb: WithAlpha(Vector4, Single)
+- uid: LibGFX.Graphics.ColorPresets.Lerp(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4,System.Single)
+  commentId: M:LibGFX.Graphics.ColorPresets.Lerp(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4,System.Single)
+  id: Lerp(OpenTK.Mathematics.Vector4,OpenTK.Mathematics.Vector4,System.Single)
+  parent: LibGFX.Graphics.ColorPresets
+  langs:
+  - csharp
+  - vb
+  name: Lerp(Vector4, Vector4, float)
+  nameWithType: ColorPresets.Lerp(Vector4, Vector4, float)
+  fullName: LibGFX.Graphics.ColorPresets.Lerp(OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/ColorPresets.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Lerp
+    path: ../LibGFX/Graphics/ColorPresets.cs
+    startLine: 200
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Linearly interpolate between two colors (t in [0,1]).
+  example: []
+  syntax:
+    content: public static Vector4 Lerp(Vector4 a, Vector4 b, float t)
+    parameters:
+    - id: a
+      type: OpenTK.Mathematics.Vector4
+    - id: b
+      type: OpenTK.Mathematics.Vector4
+    - id: t
+      type: System.Single
+    return:
+      type: OpenTK.Mathematics.Vector4
+    content.vb: Public Shared Function Lerp(a As Vector4, b As Vector4, t As Single) As Vector4
+  overload: LibGFX.Graphics.ColorPresets.Lerp*
+  nameWithType.vb: ColorPresets.Lerp(Vector4, Vector4, Single)
+  fullName.vb: LibGFX.Graphics.ColorPresets.Lerp(OpenTK.Mathematics.Vector4, OpenTK.Mathematics.Vector4, Single)
+  name.vb: Lerp(Vector4, Vector4, Single)
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Graphics.ColorPresets.White*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.White
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_White
+  name: White
+  nameWithType: ColorPresets.White
+  fullName: LibGFX.Graphics.ColorPresets.White
+- uid: OpenTK.Mathematics.Vector4
+  commentId: T:OpenTK.Mathematics.Vector4
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector4.cs
+  name: Vector4
+  nameWithType: Vector4
+  fullName: OpenTK.Mathematics.Vector4
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Graphics.ColorPresets.AliceBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.AliceBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_AliceBlue
+  name: AliceBlue
+  nameWithType: ColorPresets.AliceBlue
+  fullName: LibGFX.Graphics.ColorPresets.AliceBlue
+- uid: LibGFX.Graphics.ColorPresets.AntiqueWhite*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.AntiqueWhite
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_AntiqueWhite
+  name: AntiqueWhite
+  nameWithType: ColorPresets.AntiqueWhite
+  fullName: LibGFX.Graphics.ColorPresets.AntiqueWhite
+- uid: LibGFX.Graphics.ColorPresets.Aqua*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Aqua
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Aqua
+  name: Aqua
+  nameWithType: ColorPresets.Aqua
+  fullName: LibGFX.Graphics.ColorPresets.Aqua
+- uid: LibGFX.Graphics.ColorPresets.Aquamarine*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Aquamarine
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Aquamarine
+  name: Aquamarine
+  nameWithType: ColorPresets.Aquamarine
+  fullName: LibGFX.Graphics.ColorPresets.Aquamarine
+- uid: LibGFX.Graphics.ColorPresets.Azure*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Azure
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Azure
+  name: Azure
+  nameWithType: ColorPresets.Azure
+  fullName: LibGFX.Graphics.ColorPresets.Azure
+- uid: LibGFX.Graphics.ColorPresets.Beige*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Beige
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Beige
+  name: Beige
+  nameWithType: ColorPresets.Beige
+  fullName: LibGFX.Graphics.ColorPresets.Beige
+- uid: LibGFX.Graphics.ColorPresets.Bisque*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Bisque
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Bisque
+  name: Bisque
+  nameWithType: ColorPresets.Bisque
+  fullName: LibGFX.Graphics.ColorPresets.Bisque
+- uid: LibGFX.Graphics.ColorPresets.Black*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Black
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Black
+  name: Black
+  nameWithType: ColorPresets.Black
+  fullName: LibGFX.Graphics.ColorPresets.Black
+- uid: LibGFX.Graphics.ColorPresets.BlanchedAlmond*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.BlanchedAlmond
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_BlanchedAlmond
+  name: BlanchedAlmond
+  nameWithType: ColorPresets.BlanchedAlmond
+  fullName: LibGFX.Graphics.ColorPresets.BlanchedAlmond
+- uid: LibGFX.Graphics.ColorPresets.Blue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Blue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Blue
+  name: Blue
+  nameWithType: ColorPresets.Blue
+  fullName: LibGFX.Graphics.ColorPresets.Blue
+- uid: LibGFX.Graphics.ColorPresets.BlueViolet*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.BlueViolet
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_BlueViolet
+  name: BlueViolet
+  nameWithType: ColorPresets.BlueViolet
+  fullName: LibGFX.Graphics.ColorPresets.BlueViolet
+- uid: LibGFX.Graphics.ColorPresets.Brown*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Brown
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Brown
+  name: Brown
+  nameWithType: ColorPresets.Brown
+  fullName: LibGFX.Graphics.ColorPresets.Brown
+- uid: LibGFX.Graphics.ColorPresets.BurlyWood*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.BurlyWood
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_BurlyWood
+  name: BurlyWood
+  nameWithType: ColorPresets.BurlyWood
+  fullName: LibGFX.Graphics.ColorPresets.BurlyWood
+- uid: LibGFX.Graphics.ColorPresets.CadetBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.CadetBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_CadetBlue
+  name: CadetBlue
+  nameWithType: ColorPresets.CadetBlue
+  fullName: LibGFX.Graphics.ColorPresets.CadetBlue
+- uid: LibGFX.Graphics.ColorPresets.Chartreuse*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Chartreuse
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Chartreuse
+  name: Chartreuse
+  nameWithType: ColorPresets.Chartreuse
+  fullName: LibGFX.Graphics.ColorPresets.Chartreuse
+- uid: LibGFX.Graphics.ColorPresets.Chocolate*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Chocolate
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Chocolate
+  name: Chocolate
+  nameWithType: ColorPresets.Chocolate
+  fullName: LibGFX.Graphics.ColorPresets.Chocolate
+- uid: LibGFX.Graphics.ColorPresets.Coral*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Coral
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Coral
+  name: Coral
+  nameWithType: ColorPresets.Coral
+  fullName: LibGFX.Graphics.ColorPresets.Coral
+- uid: LibGFX.Graphics.ColorPresets.CornflowerBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.CornflowerBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_CornflowerBlue
+  name: CornflowerBlue
+  nameWithType: ColorPresets.CornflowerBlue
+  fullName: LibGFX.Graphics.ColorPresets.CornflowerBlue
+- uid: LibGFX.Graphics.ColorPresets.Crimson*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Crimson
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Crimson
+  name: Crimson
+  nameWithType: ColorPresets.Crimson
+  fullName: LibGFX.Graphics.ColorPresets.Crimson
+- uid: LibGFX.Graphics.ColorPresets.Cyan*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Cyan
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Cyan
+  name: Cyan
+  nameWithType: ColorPresets.Cyan
+  fullName: LibGFX.Graphics.ColorPresets.Cyan
+- uid: LibGFX.Graphics.ColorPresets.DarkBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkBlue
+  name: DarkBlue
+  nameWithType: ColorPresets.DarkBlue
+  fullName: LibGFX.Graphics.ColorPresets.DarkBlue
+- uid: LibGFX.Graphics.ColorPresets.DarkCyan*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkCyan
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkCyan
+  name: DarkCyan
+  nameWithType: ColorPresets.DarkCyan
+  fullName: LibGFX.Graphics.ColorPresets.DarkCyan
+- uid: LibGFX.Graphics.ColorPresets.DarkGoldenrod*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkGoldenrod
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkGoldenrod
+  name: DarkGoldenrod
+  nameWithType: ColorPresets.DarkGoldenrod
+  fullName: LibGFX.Graphics.ColorPresets.DarkGoldenrod
+- uid: LibGFX.Graphics.ColorPresets.DarkGray*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkGray
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkGray
+  name: DarkGray
+  nameWithType: ColorPresets.DarkGray
+  fullName: LibGFX.Graphics.ColorPresets.DarkGray
+- uid: LibGFX.Graphics.ColorPresets.DarkGreen*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkGreen
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkGreen
+  name: DarkGreen
+  nameWithType: ColorPresets.DarkGreen
+  fullName: LibGFX.Graphics.ColorPresets.DarkGreen
+- uid: LibGFX.Graphics.ColorPresets.DarkKhaki*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkKhaki
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkKhaki
+  name: DarkKhaki
+  nameWithType: ColorPresets.DarkKhaki
+  fullName: LibGFX.Graphics.ColorPresets.DarkKhaki
+- uid: LibGFX.Graphics.ColorPresets.DarkMagenta*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkMagenta
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkMagenta
+  name: DarkMagenta
+  nameWithType: ColorPresets.DarkMagenta
+  fullName: LibGFX.Graphics.ColorPresets.DarkMagenta
+- uid: LibGFX.Graphics.ColorPresets.DarkOliveGreen*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkOliveGreen
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkOliveGreen
+  name: DarkOliveGreen
+  nameWithType: ColorPresets.DarkOliveGreen
+  fullName: LibGFX.Graphics.ColorPresets.DarkOliveGreen
+- uid: LibGFX.Graphics.ColorPresets.DarkOrange*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkOrange
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkOrange
+  name: DarkOrange
+  nameWithType: ColorPresets.DarkOrange
+  fullName: LibGFX.Graphics.ColorPresets.DarkOrange
+- uid: LibGFX.Graphics.ColorPresets.DarkOrchid*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkOrchid
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkOrchid
+  name: DarkOrchid
+  nameWithType: ColorPresets.DarkOrchid
+  fullName: LibGFX.Graphics.ColorPresets.DarkOrchid
+- uid: LibGFX.Graphics.ColorPresets.DarkRed*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkRed
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkRed
+  name: DarkRed
+  nameWithType: ColorPresets.DarkRed
+  fullName: LibGFX.Graphics.ColorPresets.DarkRed
+- uid: LibGFX.Graphics.ColorPresets.DarkSalmon*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkSalmon
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkSalmon
+  name: DarkSalmon
+  nameWithType: ColorPresets.DarkSalmon
+  fullName: LibGFX.Graphics.ColorPresets.DarkSalmon
+- uid: LibGFX.Graphics.ColorPresets.DarkSeaGreen*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkSeaGreen
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkSeaGreen
+  name: DarkSeaGreen
+  nameWithType: ColorPresets.DarkSeaGreen
+  fullName: LibGFX.Graphics.ColorPresets.DarkSeaGreen
+- uid: LibGFX.Graphics.ColorPresets.DarkSlateBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkSlateBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkSlateBlue
+  name: DarkSlateBlue
+  nameWithType: ColorPresets.DarkSlateBlue
+  fullName: LibGFX.Graphics.ColorPresets.DarkSlateBlue
+- uid: LibGFX.Graphics.ColorPresets.DarkSlateGray*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkSlateGray
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkSlateGray
+  name: DarkSlateGray
+  nameWithType: ColorPresets.DarkSlateGray
+  fullName: LibGFX.Graphics.ColorPresets.DarkSlateGray
+- uid: LibGFX.Graphics.ColorPresets.DarkTurquoise*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkTurquoise
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkTurquoise
+  name: DarkTurquoise
+  nameWithType: ColorPresets.DarkTurquoise
+  fullName: LibGFX.Graphics.ColorPresets.DarkTurquoise
+- uid: LibGFX.Graphics.ColorPresets.DarkViolet*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DarkViolet
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DarkViolet
+  name: DarkViolet
+  nameWithType: ColorPresets.DarkViolet
+  fullName: LibGFX.Graphics.ColorPresets.DarkViolet
+- uid: LibGFX.Graphics.ColorPresets.DeepPink*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DeepPink
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DeepPink
+  name: DeepPink
+  nameWithType: ColorPresets.DeepPink
+  fullName: LibGFX.Graphics.ColorPresets.DeepPink
+- uid: LibGFX.Graphics.ColorPresets.DeepSkyBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DeepSkyBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DeepSkyBlue
+  name: DeepSkyBlue
+  nameWithType: ColorPresets.DeepSkyBlue
+  fullName: LibGFX.Graphics.ColorPresets.DeepSkyBlue
+- uid: LibGFX.Graphics.ColorPresets.DimGray*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DimGray
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DimGray
+  name: DimGray
+  nameWithType: ColorPresets.DimGray
+  fullName: LibGFX.Graphics.ColorPresets.DimGray
+- uid: LibGFX.Graphics.ColorPresets.DodgerBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.DodgerBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_DodgerBlue
+  name: DodgerBlue
+  nameWithType: ColorPresets.DodgerBlue
+  fullName: LibGFX.Graphics.ColorPresets.DodgerBlue
+- uid: LibGFX.Graphics.ColorPresets.Firebrick*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Firebrick
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Firebrick
+  name: Firebrick
+  nameWithType: ColorPresets.Firebrick
+  fullName: LibGFX.Graphics.ColorPresets.Firebrick
+- uid: LibGFX.Graphics.ColorPresets.FloralWhite*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.FloralWhite
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_FloralWhite
+  name: FloralWhite
+  nameWithType: ColorPresets.FloralWhite
+  fullName: LibGFX.Graphics.ColorPresets.FloralWhite
+- uid: LibGFX.Graphics.ColorPresets.ForestGreen*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.ForestGreen
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_ForestGreen
+  name: ForestGreen
+  nameWithType: ColorPresets.ForestGreen
+  fullName: LibGFX.Graphics.ColorPresets.ForestGreen
+- uid: LibGFX.Graphics.ColorPresets.Fuchsia*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Fuchsia
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Fuchsia
+  name: Fuchsia
+  nameWithType: ColorPresets.Fuchsia
+  fullName: LibGFX.Graphics.ColorPresets.Fuchsia
+- uid: LibGFX.Graphics.ColorPresets.Gainsboro*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Gainsboro
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Gainsboro
+  name: Gainsboro
+  nameWithType: ColorPresets.Gainsboro
+  fullName: LibGFX.Graphics.ColorPresets.Gainsboro
+- uid: LibGFX.Graphics.ColorPresets.GhostWhite*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.GhostWhite
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_GhostWhite
+  name: GhostWhite
+  nameWithType: ColorPresets.GhostWhite
+  fullName: LibGFX.Graphics.ColorPresets.GhostWhite
+- uid: LibGFX.Graphics.ColorPresets.Gold*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Gold
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Gold
+  name: Gold
+  nameWithType: ColorPresets.Gold
+  fullName: LibGFX.Graphics.ColorPresets.Gold
+- uid: LibGFX.Graphics.ColorPresets.Goldenrod*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Goldenrod
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Goldenrod
+  name: Goldenrod
+  nameWithType: ColorPresets.Goldenrod
+  fullName: LibGFX.Graphics.ColorPresets.Goldenrod
+- uid: LibGFX.Graphics.ColorPresets.Gray*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Gray
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Gray
+  name: Gray
+  nameWithType: ColorPresets.Gray
+  fullName: LibGFX.Graphics.ColorPresets.Gray
+- uid: LibGFX.Graphics.ColorPresets.Green*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Green
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Green
+  name: Green
+  nameWithType: ColorPresets.Green
+  fullName: LibGFX.Graphics.ColorPresets.Green
+- uid: LibGFX.Graphics.ColorPresets.GreenYellow*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.GreenYellow
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_GreenYellow
+  name: GreenYellow
+  nameWithType: ColorPresets.GreenYellow
+  fullName: LibGFX.Graphics.ColorPresets.GreenYellow
+- uid: LibGFX.Graphics.ColorPresets.Honeydew*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Honeydew
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Honeydew
+  name: Honeydew
+  nameWithType: ColorPresets.Honeydew
+  fullName: LibGFX.Graphics.ColorPresets.Honeydew
+- uid: LibGFX.Graphics.ColorPresets.HotPink*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.HotPink
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_HotPink
+  name: HotPink
+  nameWithType: ColorPresets.HotPink
+  fullName: LibGFX.Graphics.ColorPresets.HotPink
+- uid: LibGFX.Graphics.ColorPresets.IndianRed*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.IndianRed
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_IndianRed
+  name: IndianRed
+  nameWithType: ColorPresets.IndianRed
+  fullName: LibGFX.Graphics.ColorPresets.IndianRed
+- uid: LibGFX.Graphics.ColorPresets.Indigo*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Indigo
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Indigo
+  name: Indigo
+  nameWithType: ColorPresets.Indigo
+  fullName: LibGFX.Graphics.ColorPresets.Indigo
+- uid: LibGFX.Graphics.ColorPresets.Ivory*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Ivory
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Ivory
+  name: Ivory
+  nameWithType: ColorPresets.Ivory
+  fullName: LibGFX.Graphics.ColorPresets.Ivory
+- uid: LibGFX.Graphics.ColorPresets.Khaki*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Khaki
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Khaki
+  name: Khaki
+  nameWithType: ColorPresets.Khaki
+  fullName: LibGFX.Graphics.ColorPresets.Khaki
+- uid: LibGFX.Graphics.ColorPresets.Lavender*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Lavender
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Lavender
+  name: Lavender
+  nameWithType: ColorPresets.Lavender
+  fullName: LibGFX.Graphics.ColorPresets.Lavender
+- uid: LibGFX.Graphics.ColorPresets.LavenderBlush*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.LavenderBlush
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_LavenderBlush
+  name: LavenderBlush
+  nameWithType: ColorPresets.LavenderBlush
+  fullName: LibGFX.Graphics.ColorPresets.LavenderBlush
+- uid: LibGFX.Graphics.ColorPresets.LawnGreen*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.LawnGreen
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_LawnGreen
+  name: LawnGreen
+  nameWithType: ColorPresets.LawnGreen
+  fullName: LibGFX.Graphics.ColorPresets.LawnGreen
+- uid: LibGFX.Graphics.ColorPresets.LemonChiffon*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.LemonChiffon
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_LemonChiffon
+  name: LemonChiffon
+  nameWithType: ColorPresets.LemonChiffon
+  fullName: LibGFX.Graphics.ColorPresets.LemonChiffon
+- uid: LibGFX.Graphics.ColorPresets.LightBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.LightBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_LightBlue
+  name: LightBlue
+  nameWithType: ColorPresets.LightBlue
+  fullName: LibGFX.Graphics.ColorPresets.LightBlue
+- uid: LibGFX.Graphics.ColorPresets.LightCoral*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.LightCoral
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_LightCoral
+  name: LightCoral
+  nameWithType: ColorPresets.LightCoral
+  fullName: LibGFX.Graphics.ColorPresets.LightCoral
+- uid: LibGFX.Graphics.ColorPresets.LightCyan*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.LightCyan
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_LightCyan
+  name: LightCyan
+  nameWithType: ColorPresets.LightCyan
+  fullName: LibGFX.Graphics.ColorPresets.LightCyan
+- uid: LibGFX.Graphics.ColorPresets.LightGoldenrodYellow*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.LightGoldenrodYellow
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_LightGoldenrodYellow
+  name: LightGoldenrodYellow
+  nameWithType: ColorPresets.LightGoldenrodYellow
+  fullName: LibGFX.Graphics.ColorPresets.LightGoldenrodYellow
+- uid: LibGFX.Graphics.ColorPresets.LightGray*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.LightGray
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_LightGray
+  name: LightGray
+  nameWithType: ColorPresets.LightGray
+  fullName: LibGFX.Graphics.ColorPresets.LightGray
+- uid: LibGFX.Graphics.ColorPresets.LightGreen*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.LightGreen
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_LightGreen
+  name: LightGreen
+  nameWithType: ColorPresets.LightGreen
+  fullName: LibGFX.Graphics.ColorPresets.LightGreen
+- uid: LibGFX.Graphics.ColorPresets.LightPink*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.LightPink
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_LightPink
+  name: LightPink
+  nameWithType: ColorPresets.LightPink
+  fullName: LibGFX.Graphics.ColorPresets.LightPink
+- uid: LibGFX.Graphics.ColorPresets.LightSalmon*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.LightSalmon
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_LightSalmon
+  name: LightSalmon
+  nameWithType: ColorPresets.LightSalmon
+  fullName: LibGFX.Graphics.ColorPresets.LightSalmon
+- uid: LibGFX.Graphics.ColorPresets.LightSeaGreen*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.LightSeaGreen
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_LightSeaGreen
+  name: LightSeaGreen
+  nameWithType: ColorPresets.LightSeaGreen
+  fullName: LibGFX.Graphics.ColorPresets.LightSeaGreen
+- uid: LibGFX.Graphics.ColorPresets.LightSkyBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.LightSkyBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_LightSkyBlue
+  name: LightSkyBlue
+  nameWithType: ColorPresets.LightSkyBlue
+  fullName: LibGFX.Graphics.ColorPresets.LightSkyBlue
+- uid: LibGFX.Graphics.ColorPresets.LightSlateGray*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.LightSlateGray
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_LightSlateGray
+  name: LightSlateGray
+  nameWithType: ColorPresets.LightSlateGray
+  fullName: LibGFX.Graphics.ColorPresets.LightSlateGray
+- uid: LibGFX.Graphics.ColorPresets.LightSteelBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.LightSteelBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_LightSteelBlue
+  name: LightSteelBlue
+  nameWithType: ColorPresets.LightSteelBlue
+  fullName: LibGFX.Graphics.ColorPresets.LightSteelBlue
+- uid: LibGFX.Graphics.ColorPresets.Lime*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Lime
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Lime
+  name: Lime
+  nameWithType: ColorPresets.Lime
+  fullName: LibGFX.Graphics.ColorPresets.Lime
+- uid: LibGFX.Graphics.ColorPresets.LimeGreen*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.LimeGreen
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_LimeGreen
+  name: LimeGreen
+  nameWithType: ColorPresets.LimeGreen
+  fullName: LibGFX.Graphics.ColorPresets.LimeGreen
+- uid: LibGFX.Graphics.ColorPresets.Linen*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Linen
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Linen
+  name: Linen
+  nameWithType: ColorPresets.Linen
+  fullName: LibGFX.Graphics.ColorPresets.Linen
+- uid: LibGFX.Graphics.ColorPresets.Magenta*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Magenta
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Magenta
+  name: Magenta
+  nameWithType: ColorPresets.Magenta
+  fullName: LibGFX.Graphics.ColorPresets.Magenta
+- uid: LibGFX.Graphics.ColorPresets.Maroon*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Maroon
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Maroon
+  name: Maroon
+  nameWithType: ColorPresets.Maroon
+  fullName: LibGFX.Graphics.ColorPresets.Maroon
+- uid: LibGFX.Graphics.ColorPresets.MediumAquamarine*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.MediumAquamarine
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_MediumAquamarine
+  name: MediumAquamarine
+  nameWithType: ColorPresets.MediumAquamarine
+  fullName: LibGFX.Graphics.ColorPresets.MediumAquamarine
+- uid: LibGFX.Graphics.ColorPresets.MediumBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.MediumBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_MediumBlue
+  name: MediumBlue
+  nameWithType: ColorPresets.MediumBlue
+  fullName: LibGFX.Graphics.ColorPresets.MediumBlue
+- uid: LibGFX.Graphics.ColorPresets.MediumOrchid*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.MediumOrchid
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_MediumOrchid
+  name: MediumOrchid
+  nameWithType: ColorPresets.MediumOrchid
+  fullName: LibGFX.Graphics.ColorPresets.MediumOrchid
+- uid: LibGFX.Graphics.ColorPresets.MediumPurple*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.MediumPurple
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_MediumPurple
+  name: MediumPurple
+  nameWithType: ColorPresets.MediumPurple
+  fullName: LibGFX.Graphics.ColorPresets.MediumPurple
+- uid: LibGFX.Graphics.ColorPresets.MediumSeaGreen*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.MediumSeaGreen
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_MediumSeaGreen
+  name: MediumSeaGreen
+  nameWithType: ColorPresets.MediumSeaGreen
+  fullName: LibGFX.Graphics.ColorPresets.MediumSeaGreen
+- uid: LibGFX.Graphics.ColorPresets.MediumSlateBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.MediumSlateBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_MediumSlateBlue
+  name: MediumSlateBlue
+  nameWithType: ColorPresets.MediumSlateBlue
+  fullName: LibGFX.Graphics.ColorPresets.MediumSlateBlue
+- uid: LibGFX.Graphics.ColorPresets.MediumSpringGreen*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.MediumSpringGreen
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_MediumSpringGreen
+  name: MediumSpringGreen
+  nameWithType: ColorPresets.MediumSpringGreen
+  fullName: LibGFX.Graphics.ColorPresets.MediumSpringGreen
+- uid: LibGFX.Graphics.ColorPresets.MediumTurquoise*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.MediumTurquoise
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_MediumTurquoise
+  name: MediumTurquoise
+  nameWithType: ColorPresets.MediumTurquoise
+  fullName: LibGFX.Graphics.ColorPresets.MediumTurquoise
+- uid: LibGFX.Graphics.ColorPresets.MediumVioletRed*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.MediumVioletRed
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_MediumVioletRed
+  name: MediumVioletRed
+  nameWithType: ColorPresets.MediumVioletRed
+  fullName: LibGFX.Graphics.ColorPresets.MediumVioletRed
+- uid: LibGFX.Graphics.ColorPresets.MidnightBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.MidnightBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_MidnightBlue
+  name: MidnightBlue
+  nameWithType: ColorPresets.MidnightBlue
+  fullName: LibGFX.Graphics.ColorPresets.MidnightBlue
+- uid: LibGFX.Graphics.ColorPresets.MintCream*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.MintCream
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_MintCream
+  name: MintCream
+  nameWithType: ColorPresets.MintCream
+  fullName: LibGFX.Graphics.ColorPresets.MintCream
+- uid: LibGFX.Graphics.ColorPresets.MistyRose*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.MistyRose
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_MistyRose
+  name: MistyRose
+  nameWithType: ColorPresets.MistyRose
+  fullName: LibGFX.Graphics.ColorPresets.MistyRose
+- uid: LibGFX.Graphics.ColorPresets.Moccasin*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Moccasin
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Moccasin
+  name: Moccasin
+  nameWithType: ColorPresets.Moccasin
+  fullName: LibGFX.Graphics.ColorPresets.Moccasin
+- uid: LibGFX.Graphics.ColorPresets.NavajoWhite*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.NavajoWhite
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_NavajoWhite
+  name: NavajoWhite
+  nameWithType: ColorPresets.NavajoWhite
+  fullName: LibGFX.Graphics.ColorPresets.NavajoWhite
+- uid: LibGFX.Graphics.ColorPresets.Navy*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Navy
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Navy
+  name: Navy
+  nameWithType: ColorPresets.Navy
+  fullName: LibGFX.Graphics.ColorPresets.Navy
+- uid: LibGFX.Graphics.ColorPresets.OldLace*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.OldLace
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_OldLace
+  name: OldLace
+  nameWithType: ColorPresets.OldLace
+  fullName: LibGFX.Graphics.ColorPresets.OldLace
+- uid: LibGFX.Graphics.ColorPresets.Olive*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Olive
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Olive
+  name: Olive
+  nameWithType: ColorPresets.Olive
+  fullName: LibGFX.Graphics.ColorPresets.Olive
+- uid: LibGFX.Graphics.ColorPresets.OliveDrab*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.OliveDrab
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_OliveDrab
+  name: OliveDrab
+  nameWithType: ColorPresets.OliveDrab
+  fullName: LibGFX.Graphics.ColorPresets.OliveDrab
+- uid: LibGFX.Graphics.ColorPresets.Orange*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Orange
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Orange
+  name: Orange
+  nameWithType: ColorPresets.Orange
+  fullName: LibGFX.Graphics.ColorPresets.Orange
+- uid: LibGFX.Graphics.ColorPresets.OrangeRed*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.OrangeRed
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_OrangeRed
+  name: OrangeRed
+  nameWithType: ColorPresets.OrangeRed
+  fullName: LibGFX.Graphics.ColorPresets.OrangeRed
+- uid: LibGFX.Graphics.ColorPresets.Orchid*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Orchid
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Orchid
+  name: Orchid
+  nameWithType: ColorPresets.Orchid
+  fullName: LibGFX.Graphics.ColorPresets.Orchid
+- uid: LibGFX.Graphics.ColorPresets.PaleGoldenrod*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.PaleGoldenrod
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_PaleGoldenrod
+  name: PaleGoldenrod
+  nameWithType: ColorPresets.PaleGoldenrod
+  fullName: LibGFX.Graphics.ColorPresets.PaleGoldenrod
+- uid: LibGFX.Graphics.ColorPresets.PaleGreen*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.PaleGreen
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_PaleGreen
+  name: PaleGreen
+  nameWithType: ColorPresets.PaleGreen
+  fullName: LibGFX.Graphics.ColorPresets.PaleGreen
+- uid: LibGFX.Graphics.ColorPresets.PaleTurquoise*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.PaleTurquoise
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_PaleTurquoise
+  name: PaleTurquoise
+  nameWithType: ColorPresets.PaleTurquoise
+  fullName: LibGFX.Graphics.ColorPresets.PaleTurquoise
+- uid: LibGFX.Graphics.ColorPresets.PaleVioletRed*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.PaleVioletRed
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_PaleVioletRed
+  name: PaleVioletRed
+  nameWithType: ColorPresets.PaleVioletRed
+  fullName: LibGFX.Graphics.ColorPresets.PaleVioletRed
+- uid: LibGFX.Graphics.ColorPresets.PapayaWhip*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.PapayaWhip
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_PapayaWhip
+  name: PapayaWhip
+  nameWithType: ColorPresets.PapayaWhip
+  fullName: LibGFX.Graphics.ColorPresets.PapayaWhip
+- uid: LibGFX.Graphics.ColorPresets.PeachPuff*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.PeachPuff
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_PeachPuff
+  name: PeachPuff
+  nameWithType: ColorPresets.PeachPuff
+  fullName: LibGFX.Graphics.ColorPresets.PeachPuff
+- uid: LibGFX.Graphics.ColorPresets.Peru*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Peru
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Peru
+  name: Peru
+  nameWithType: ColorPresets.Peru
+  fullName: LibGFX.Graphics.ColorPresets.Peru
+- uid: LibGFX.Graphics.ColorPresets.Pink*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Pink
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Pink
+  name: Pink
+  nameWithType: ColorPresets.Pink
+  fullName: LibGFX.Graphics.ColorPresets.Pink
+- uid: LibGFX.Graphics.ColorPresets.Plum*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Plum
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Plum
+  name: Plum
+  nameWithType: ColorPresets.Plum
+  fullName: LibGFX.Graphics.ColorPresets.Plum
+- uid: LibGFX.Graphics.ColorPresets.PowderBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.PowderBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_PowderBlue
+  name: PowderBlue
+  nameWithType: ColorPresets.PowderBlue
+  fullName: LibGFX.Graphics.ColorPresets.PowderBlue
+- uid: LibGFX.Graphics.ColorPresets.Purple*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Purple
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Purple
+  name: Purple
+  nameWithType: ColorPresets.Purple
+  fullName: LibGFX.Graphics.ColorPresets.Purple
+- uid: LibGFX.Graphics.ColorPresets.Red*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Red
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Red
+  name: Red
+  nameWithType: ColorPresets.Red
+  fullName: LibGFX.Graphics.ColorPresets.Red
+- uid: LibGFX.Graphics.ColorPresets.RosyBrown*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.RosyBrown
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_RosyBrown
+  name: RosyBrown
+  nameWithType: ColorPresets.RosyBrown
+  fullName: LibGFX.Graphics.ColorPresets.RosyBrown
+- uid: LibGFX.Graphics.ColorPresets.RoyalBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.RoyalBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_RoyalBlue
+  name: RoyalBlue
+  nameWithType: ColorPresets.RoyalBlue
+  fullName: LibGFX.Graphics.ColorPresets.RoyalBlue
+- uid: LibGFX.Graphics.ColorPresets.SaddleBrown*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.SaddleBrown
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_SaddleBrown
+  name: SaddleBrown
+  nameWithType: ColorPresets.SaddleBrown
+  fullName: LibGFX.Graphics.ColorPresets.SaddleBrown
+- uid: LibGFX.Graphics.ColorPresets.Salmon*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Salmon
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Salmon
+  name: Salmon
+  nameWithType: ColorPresets.Salmon
+  fullName: LibGFX.Graphics.ColorPresets.Salmon
+- uid: LibGFX.Graphics.ColorPresets.SandyBrown*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.SandyBrown
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_SandyBrown
+  name: SandyBrown
+  nameWithType: ColorPresets.SandyBrown
+  fullName: LibGFX.Graphics.ColorPresets.SandyBrown
+- uid: LibGFX.Graphics.ColorPresets.SeaGreen*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.SeaGreen
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_SeaGreen
+  name: SeaGreen
+  nameWithType: ColorPresets.SeaGreen
+  fullName: LibGFX.Graphics.ColorPresets.SeaGreen
+- uid: LibGFX.Graphics.ColorPresets.Seashell*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Seashell
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Seashell
+  name: Seashell
+  nameWithType: ColorPresets.Seashell
+  fullName: LibGFX.Graphics.ColorPresets.Seashell
+- uid: LibGFX.Graphics.ColorPresets.Sienna*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Sienna
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Sienna
+  name: Sienna
+  nameWithType: ColorPresets.Sienna
+  fullName: LibGFX.Graphics.ColorPresets.Sienna
+- uid: LibGFX.Graphics.ColorPresets.Silver*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Silver
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Silver
+  name: Silver
+  nameWithType: ColorPresets.Silver
+  fullName: LibGFX.Graphics.ColorPresets.Silver
+- uid: LibGFX.Graphics.ColorPresets.SkyBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.SkyBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_SkyBlue
+  name: SkyBlue
+  nameWithType: ColorPresets.SkyBlue
+  fullName: LibGFX.Graphics.ColorPresets.SkyBlue
+- uid: LibGFX.Graphics.ColorPresets.SlateBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.SlateBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_SlateBlue
+  name: SlateBlue
+  nameWithType: ColorPresets.SlateBlue
+  fullName: LibGFX.Graphics.ColorPresets.SlateBlue
+- uid: LibGFX.Graphics.ColorPresets.SlateGray*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.SlateGray
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_SlateGray
+  name: SlateGray
+  nameWithType: ColorPresets.SlateGray
+  fullName: LibGFX.Graphics.ColorPresets.SlateGray
+- uid: LibGFX.Graphics.ColorPresets.Snow*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Snow
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Snow
+  name: Snow
+  nameWithType: ColorPresets.Snow
+  fullName: LibGFX.Graphics.ColorPresets.Snow
+- uid: LibGFX.Graphics.ColorPresets.SpringGreen*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.SpringGreen
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_SpringGreen
+  name: SpringGreen
+  nameWithType: ColorPresets.SpringGreen
+  fullName: LibGFX.Graphics.ColorPresets.SpringGreen
+- uid: LibGFX.Graphics.ColorPresets.SteelBlue*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.SteelBlue
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_SteelBlue
+  name: SteelBlue
+  nameWithType: ColorPresets.SteelBlue
+  fullName: LibGFX.Graphics.ColorPresets.SteelBlue
+- uid: LibGFX.Graphics.ColorPresets.Tan*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Tan
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Tan
+  name: Tan
+  nameWithType: ColorPresets.Tan
+  fullName: LibGFX.Graphics.ColorPresets.Tan
+- uid: LibGFX.Graphics.ColorPresets.Teal*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Teal
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Teal
+  name: Teal
+  nameWithType: ColorPresets.Teal
+  fullName: LibGFX.Graphics.ColorPresets.Teal
+- uid: LibGFX.Graphics.ColorPresets.Thistle*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Thistle
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Thistle
+  name: Thistle
+  nameWithType: ColorPresets.Thistle
+  fullName: LibGFX.Graphics.ColorPresets.Thistle
+- uid: LibGFX.Graphics.ColorPresets.Tomato*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Tomato
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Tomato
+  name: Tomato
+  nameWithType: ColorPresets.Tomato
+  fullName: LibGFX.Graphics.ColorPresets.Tomato
+- uid: LibGFX.Graphics.ColorPresets.Turquoise*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Turquoise
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Turquoise
+  name: Turquoise
+  nameWithType: ColorPresets.Turquoise
+  fullName: LibGFX.Graphics.ColorPresets.Turquoise
+- uid: LibGFX.Graphics.ColorPresets.Violet*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Violet
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Violet
+  name: Violet
+  nameWithType: ColorPresets.Violet
+  fullName: LibGFX.Graphics.ColorPresets.Violet
+- uid: LibGFX.Graphics.ColorPresets.Wheat*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Wheat
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Wheat
+  name: Wheat
+  nameWithType: ColorPresets.Wheat
+  fullName: LibGFX.Graphics.ColorPresets.Wheat
+- uid: LibGFX.Graphics.ColorPresets.WhiteSmoke*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.WhiteSmoke
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_WhiteSmoke
+  name: WhiteSmoke
+  nameWithType: ColorPresets.WhiteSmoke
+  fullName: LibGFX.Graphics.ColorPresets.WhiteSmoke
+- uid: LibGFX.Graphics.ColorPresets.Yellow*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Yellow
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Yellow
+  name: Yellow
+  nameWithType: ColorPresets.Yellow
+  fullName: LibGFX.Graphics.ColorPresets.Yellow
+- uid: LibGFX.Graphics.ColorPresets.YellowGreen*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.YellowGreen
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_YellowGreen
+  name: YellowGreen
+  nameWithType: ColorPresets.YellowGreen
+  fullName: LibGFX.Graphics.ColorPresets.YellowGreen
+- uid: LibGFX.Graphics.ColorPresets.FromRgb*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.FromRgb
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_FromRgb_System_Byte_System_Byte_System_Byte_System_Byte_
+  name: FromRgb
+  nameWithType: ColorPresets.FromRgb
+  fullName: LibGFX.Graphics.ColorPresets.FromRgb
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: LibGFX.Graphics.ColorPresets.FromHex*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.FromHex
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_FromHex_System_String_
+  name: FromHex
+  nameWithType: ColorPresets.FromHex
+  fullName: LibGFX.Graphics.ColorPresets.FromHex
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: LibGFX.Graphics.ColorPresets.WithAlpha*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.WithAlpha
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_WithAlpha_OpenTK_Mathematics_Vector4_System_Single_
+  name: WithAlpha
+  nameWithType: ColorPresets.WithAlpha
+  fullName: LibGFX.Graphics.ColorPresets.WithAlpha
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Graphics.ColorPresets.Lerp*
+  commentId: Overload:LibGFX.Graphics.ColorPresets.Lerp
+  href: LibGFX.Graphics.ColorPresets.html#LibGFX_Graphics_ColorPresets_Lerp_OpenTK_Mathematics_Vector4_OpenTK_Mathematics_Vector4_System_Single_
+  name: Lerp
+  nameWithType: ColorPresets.Lerp
+  fullName: LibGFX.Graphics.ColorPresets.Lerp

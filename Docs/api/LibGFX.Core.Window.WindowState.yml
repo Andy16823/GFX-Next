@@ -1,0 +1,182 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Core.Window.WindowState
+  commentId: T:LibGFX.Core.Window.WindowState
+  id: Window.WindowState
+  parent: LibGFX.Core
+  children:
+  - LibGFX.Core.Window.WindowState.Fullscreen
+  - LibGFX.Core.Window.WindowState.Maximized
+  - LibGFX.Core.Window.WindowState.Minimized
+  - LibGFX.Core.Window.WindowState.Normal
+  langs:
+  - csharp
+  - vb
+  name: Window.WindowState
+  nameWithType: Window.WindowState
+  fullName: LibGFX.Core.Window.WindowState
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: WindowState
+    path: ../LibGFX/Core/Window.cs
+    startLine: 18
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: public enum Window.WindowState
+    content.vb: Public Enum Window.WindowState
+- uid: LibGFX.Core.Window.WindowState.Normal
+  commentId: F:LibGFX.Core.Window.WindowState.Normal
+  id: Normal
+  parent: LibGFX.Core.Window.WindowState
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: Window.WindowState.Normal
+  fullName: LibGFX.Core.Window.WindowState.Normal
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Normal
+    path: ../LibGFX/Core/Window.cs
+    startLine: 20
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: Normal = 0
+    return:
+      type: LibGFX.Core.Window.WindowState
+- uid: LibGFX.Core.Window.WindowState.Maximized
+  commentId: F:LibGFX.Core.Window.WindowState.Maximized
+  id: Maximized
+  parent: LibGFX.Core.Window.WindowState
+  langs:
+  - csharp
+  - vb
+  name: Maximized
+  nameWithType: Window.WindowState.Maximized
+  fullName: LibGFX.Core.Window.WindowState.Maximized
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Maximized
+    path: ../LibGFX/Core/Window.cs
+    startLine: 21
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: Maximized = 2
+    return:
+      type: LibGFX.Core.Window.WindowState
+- uid: LibGFX.Core.Window.WindowState.Minimized
+  commentId: F:LibGFX.Core.Window.WindowState.Minimized
+  id: Minimized
+  parent: LibGFX.Core.Window.WindowState
+  langs:
+  - csharp
+  - vb
+  name: Minimized
+  nameWithType: Window.WindowState.Minimized
+  fullName: LibGFX.Core.Window.WindowState.Minimized
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Minimized
+    path: ../LibGFX/Core/Window.cs
+    startLine: 22
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: Minimized = 1
+    return:
+      type: LibGFX.Core.Window.WindowState
+- uid: LibGFX.Core.Window.WindowState.Fullscreen
+  commentId: F:LibGFX.Core.Window.WindowState.Fullscreen
+  id: Fullscreen
+  parent: LibGFX.Core.Window.WindowState
+  langs:
+  - csharp
+  - vb
+  name: Fullscreen
+  nameWithType: Window.WindowState.Fullscreen
+  fullName: LibGFX.Core.Window.WindowState.Fullscreen
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Fullscreen
+    path: ../LibGFX/Core/Window.cs
+    startLine: 23
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  syntax:
+    content: Fullscreen = 3
+    return:
+      type: LibGFX.Core.Window.WindowState
+references:
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Core.Window.WindowState
+  commentId: T:LibGFX.Core.Window.WindowState
+  parent: LibGFX.Core
+  href: LibGFX.Core.Window.html
+  name: Window.WindowState
+  nameWithType: Window.WindowState
+  fullName: LibGFX.Core.Window.WindowState
+  spec.csharp:
+  - uid: LibGFX.Core.Window
+    name: Window
+    href: LibGFX.Core.Window.html
+  - name: .
+  - uid: LibGFX.Core.Window.WindowState
+    name: WindowState
+    href: LibGFX.Core.Window.WindowState.html
+  spec.vb:
+  - uid: LibGFX.Core.Window
+    name: Window
+    href: LibGFX.Core.Window.html
+  - name: .
+  - uid: LibGFX.Core.Window.WindowState
+    name: WindowState
+    href: LibGFX.Core.Window.WindowState.html

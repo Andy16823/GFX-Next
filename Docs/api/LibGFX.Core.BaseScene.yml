@@ -1,0 +1,3351 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Core.BaseScene
+  commentId: T:LibGFX.Core.BaseScene
+  id: BaseScene
+  parent: LibGFX.Core
+  children:
+  - LibGFX.Core.BaseScene.#ctor
+  - LibGFX.Core.BaseScene.AddEnqueEntry(LibGFX.Core.IEnqueEntry)
+  - LibGFX.Core.BaseScene.AddGameElement(LibGFX.Core.GameElement)
+  - LibGFX.Core.BaseScene.AddLight``1(``0)
+  - LibGFX.Core.BaseScene.AfterLightCulling
+  - LibGFX.Core.BaseScene.AfterRenderTargetCreation
+  - LibGFX.Core.BaseScene.ClearElements
+  - LibGFX.Core.BaseScene.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  - LibGFX.Core.BaseScene.DisposeScene(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Core.BaseScene.EnqueElements
+  - LibGFX.Core.BaseScene.EnqueEntries
+  - LibGFX.Core.BaseScene.FindElement``1(System.String)
+  - LibGFX.Core.BaseScene.FindElementsWithBehavior``1
+  - LibGFX.Core.BaseScene.FindElementsWithTag(System.String)
+  - LibGFX.Core.BaseScene.ForEachElement(System.Action{LibGFX.Core.GameElement})
+  - LibGFX.Core.BaseScene.FreeScene(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Core.BaseScene.GetAllElements
+  - LibGFX.Core.BaseScene.GetElementByID(System.String)
+  - LibGFX.Core.BaseScene.GetElements``1
+  - LibGFX.Core.BaseScene.GetLight``1
+  - LibGFX.Core.BaseScene.ID
+  - LibGFX.Core.BaseScene.Init(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Core.BaseScene.InitializeElements(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Core.BaseScene.LightManager
+  - LibGFX.Core.BaseScene.Name
+  - LibGFX.Core.BaseScene.OnDispose
+  - LibGFX.Core.BaseScene.OnDisposeEnd
+  - LibGFX.Core.BaseScene.OnDisposeStart
+  - LibGFX.Core.BaseScene.OnInitEnd
+  - LibGFX.Core.BaseScene.OnInitStart
+  - LibGFX.Core.BaseScene.OnPhysicsUpdateEnd
+  - LibGFX.Core.BaseScene.OnPhysicsUpdateStart
+  - LibGFX.Core.BaseScene.OnRenderEnd
+  - LibGFX.Core.BaseScene.OnRenderPassBegin
+  - LibGFX.Core.BaseScene.OnRenderPassEnd
+  - LibGFX.Core.BaseScene.OnRenderStart
+  - LibGFX.Core.BaseScene.OnShadowPassEnd
+  - LibGFX.Core.BaseScene.OnShadowPassStart
+  - LibGFX.Core.BaseScene.OnUpdateEnd
+  - LibGFX.Core.BaseScene.OnUpdateStart
+  - LibGFX.Core.BaseScene.PhysicsHandler
+  - LibGFX.Core.BaseScene.RemoveElement(LibGFX.Core.GameElement)
+  - LibGFX.Core.BaseScene.RemoveLight``1(``0)
+  - LibGFX.Core.BaseScene.Render(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  - LibGFX.Core.BaseScene.RenderShadowMaps(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  - LibGFX.Core.BaseScene.RenderStats
+  - LibGFX.Core.BaseScene.RenderTarget
+  - LibGFX.Core.BaseScene.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  - LibGFX.Core.BaseScene.Update(System.Single)
+  - LibGFX.Core.BaseScene.UpdatePhysics(System.Single)
+  langs:
+  - csharp
+  - vb
+  name: BaseScene
+  nameWithType: BaseScene
+  fullName: LibGFX.Core.BaseScene
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: BaseScene
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Base class for creating a scene
+  example: []
+  syntax:
+    content: 'public abstract class BaseScene : IIdentifier, ISerialization'
+    content.vb: Public MustInherit Class BaseScene Implements IIdentifier, ISerialization
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - LibGFX.Core.Scene2D
+  - LibGFX.Core.Scene3D
+  implements:
+  - LibGFX.Core.IIdentifier
+  - LibGFX.Core.ISerialization
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Core.BaseScene.Name
+  commentId: P:LibGFX.Core.BaseScene.Name
+  id: Name
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: BaseScene.Name
+  fullName: LibGFX.Core.BaseScene.Name
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Name
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 24
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Gets or sets the name associated with the object.
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: LibGFX.Core.BaseScene.Name*
+  implements:
+  - LibGFX.Core.IIdentifier.Name
+- uid: LibGFX.Core.BaseScene.ID
+  commentId: P:LibGFX.Core.BaseScene.ID
+  id: ID
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: BaseScene.ID
+  fullName: LibGFX.Core.BaseScene.ID
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ID
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 29
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Gets the unique identifier for this instance.
+  example: []
+  syntax:
+    content: public Guid ID { get; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property ID As Guid
+  overload: LibGFX.Core.BaseScene.ID*
+  implements:
+  - LibGFX.Core.IIdentifier.ID
+- uid: LibGFX.Core.BaseScene.RenderTarget
+  commentId: P:LibGFX.Core.BaseScene.RenderTarget
+  id: RenderTarget
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: RenderTarget
+  nameWithType: BaseScene.RenderTarget
+  fullName: LibGFX.Core.BaseScene.RenderTarget
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderTarget
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 34
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Gets the render target associated with this instance.
+  example: []
+  syntax:
+    content: public abstract IRenderTarget RenderTarget { get; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.IRenderTarget
+    content.vb: Public MustOverride ReadOnly Property RenderTarget As IRenderTarget
+  overload: LibGFX.Core.BaseScene.RenderTarget*
+- uid: LibGFX.Core.BaseScene.PhysicsHandler
+  commentId: P:LibGFX.Core.BaseScene.PhysicsHandler
+  id: PhysicsHandler
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: PhysicsHandler
+  nameWithType: BaseScene.PhysicsHandler
+  fullName: LibGFX.Core.BaseScene.PhysicsHandler
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PhysicsHandler
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 39
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: The physics handler of the scene
+  example: []
+  syntax:
+    content: public virtual PhysicsHandler PhysicsHandler { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Physics.PhysicsHandler
+    content.vb: Public Overridable Property PhysicsHandler As PhysicsHandler
+  overload: LibGFX.Core.BaseScene.PhysicsHandler*
+- uid: LibGFX.Core.BaseScene.LightManager
+  commentId: P:LibGFX.Core.BaseScene.LightManager
+  id: LightManager
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: LightManager
+  nameWithType: BaseScene.LightManager
+  fullName: LibGFX.Core.BaseScene.LightManager
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LightManager
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 44
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: The light handler of the scene
+  example: []
+  syntax:
+    content: public virtual ILightManager LightManager { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.Lights.ILightManager
+    content.vb: Public Overridable Property LightManager As ILightManager
+  overload: LibGFX.Core.BaseScene.LightManager*
+- uid: LibGFX.Core.BaseScene.RenderStats
+  commentId: P:LibGFX.Core.BaseScene.RenderStats
+  id: RenderStats
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: RenderStats
+  nameWithType: BaseScene.RenderStats
+  fullName: LibGFX.Core.BaseScene.RenderStats
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderStats
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 50
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: >-
+    The render stats of the scene. 
+
+    It contain the fps, delta time.
+  example: []
+  syntax:
+    content: public virtual RenderStats RenderStats { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Core.RenderStats
+    content.vb: Public Overridable Property RenderStats As RenderStats
+  overload: LibGFX.Core.BaseScene.RenderStats*
+- uid: LibGFX.Core.BaseScene.EnqueEntries
+  commentId: P:LibGFX.Core.BaseScene.EnqueEntries
+  id: EnqueEntries
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: EnqueEntries
+  nameWithType: BaseScene.EnqueEntries
+  fullName: LibGFX.Core.BaseScene.EnqueEntries
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: EnqueEntries
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 55
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Gets or sets the collection of entries to be enqueued.
+  example: []
+  syntax:
+    content: public List<IEnqueEntry> EnqueEntries { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{LibGFX.Core.IEnqueEntry}
+    content.vb: Public Property EnqueEntries As List(Of IEnqueEntry)
+  overload: LibGFX.Core.BaseScene.EnqueEntries*
+- uid: LibGFX.Core.BaseScene.OnInitStart
+  commentId: E:LibGFX.Core.BaseScene.OnInitStart
+  id: OnInitStart
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: OnInitStart
+  nameWithType: BaseScene.OnInitStart
+  fullName: LibGFX.Core.BaseScene.OnInitStart
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnInitStart
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 60
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called when the scene is initializing
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, Viewport, IRenderDevice> OnInitStart
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice}
+    content.vb: Public MustOverride Event OnInitStart As Action(Of BaseScene, Viewport, IRenderDevice)
+- uid: LibGFX.Core.BaseScene.AfterRenderTargetCreation
+  commentId: E:LibGFX.Core.BaseScene.AfterRenderTargetCreation
+  id: AfterRenderTargetCreation
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: AfterRenderTargetCreation
+  nameWithType: BaseScene.AfterRenderTargetCreation
+  fullName: LibGFX.Core.BaseScene.AfterRenderTargetCreation
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AfterRenderTargetCreation
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 65
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called after the render target for the scene has been created
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, Viewport, IRenderDevice> AfterRenderTargetCreation
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice}
+    content.vb: Public MustOverride Event AfterRenderTargetCreation As Action(Of BaseScene, Viewport, IRenderDevice)
+- uid: LibGFX.Core.BaseScene.OnInitEnd
+  commentId: E:LibGFX.Core.BaseScene.OnInitEnd
+  id: OnInitEnd
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: OnInitEnd
+  nameWithType: BaseScene.OnInitEnd
+  fullName: LibGFX.Core.BaseScene.OnInitEnd
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnInitEnd
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 70
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called when the scene has been initialized
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, Viewport, IRenderDevice> OnInitEnd
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice}
+    content.vb: Public MustOverride Event OnInitEnd As Action(Of BaseScene, Viewport, IRenderDevice)
+- uid: LibGFX.Core.BaseScene.OnShadowPassStart
+  commentId: E:LibGFX.Core.BaseScene.OnShadowPassStart
+  id: OnShadowPassStart
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: OnShadowPassStart
+  nameWithType: BaseScene.OnShadowPassStart
+  fullName: LibGFX.Core.BaseScene.OnShadowPassStart
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnShadowPassStart
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 75
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called when the shadow pass starts
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassStart
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera}
+    content.vb: Public MustOverride Event OnShadowPassStart As Action(Of BaseScene, Viewport, IRenderDevice, Camera)
+- uid: LibGFX.Core.BaseScene.OnShadowPassEnd
+  commentId: E:LibGFX.Core.BaseScene.OnShadowPassEnd
+  id: OnShadowPassEnd
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: OnShadowPassEnd
+  nameWithType: BaseScene.OnShadowPassEnd
+  fullName: LibGFX.Core.BaseScene.OnShadowPassEnd
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnShadowPassEnd
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 80
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called when the shadow pass ends
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassEnd
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera}
+    content.vb: Public MustOverride Event OnShadowPassEnd As Action(Of BaseScene, Viewport, IRenderDevice, Camera)
+- uid: LibGFX.Core.BaseScene.OnRenderStart
+  commentId: E:LibGFX.Core.BaseScene.OnRenderStart
+  id: OnRenderStart
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: OnRenderStart
+  nameWithType: BaseScene.OnRenderStart
+  fullName: LibGFX.Core.BaseScene.OnRenderStart
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnRenderStart
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 85
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called immediately on the start of the render process
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderStart
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera}
+    content.vb: Public MustOverride Event OnRenderStart As Action(Of BaseScene, Viewport, IRenderDevice, Camera)
+- uid: LibGFX.Core.BaseScene.AfterLightCulling
+  commentId: E:LibGFX.Core.BaseScene.AfterLightCulling
+  id: AfterLightCulling
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: AfterLightCulling
+  nameWithType: BaseScene.AfterLightCulling
+  fullName: LibGFX.Core.BaseScene.AfterLightCulling
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AfterLightCulling
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 90
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called after light culling has been performed
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> AfterLightCulling
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera}
+    content.vb: Public MustOverride Event AfterLightCulling As Action(Of BaseScene, Viewport, IRenderDevice, Camera)
+- uid: LibGFX.Core.BaseScene.OnRenderPassBegin
+  commentId: E:LibGFX.Core.BaseScene.OnRenderPassBegin
+  id: OnRenderPassBegin
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: OnRenderPassBegin
+  nameWithType: BaseScene.OnRenderPassBegin
+  fullName: LibGFX.Core.BaseScene.OnRenderPassBegin
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnRenderPassBegin
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 95
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called before the game elements get rendered
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassBegin
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera}
+    content.vb: Public MustOverride Event OnRenderPassBegin As Action(Of BaseScene, Viewport, IRenderDevice, Camera)
+- uid: LibGFX.Core.BaseScene.OnRenderPassEnd
+  commentId: E:LibGFX.Core.BaseScene.OnRenderPassEnd
+  id: OnRenderPassEnd
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: OnRenderPassEnd
+  nameWithType: BaseScene.OnRenderPassEnd
+  fullName: LibGFX.Core.BaseScene.OnRenderPassEnd
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnRenderPassEnd
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 100
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called when all game elements have been rendered before the render target blitting
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassEnd
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera}
+    content.vb: Public MustOverride Event OnRenderPassEnd As Action(Of BaseScene, Viewport, IRenderDevice, Camera)
+- uid: LibGFX.Core.BaseScene.OnRenderEnd
+  commentId: E:LibGFX.Core.BaseScene.OnRenderEnd
+  id: OnRenderEnd
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: OnRenderEnd
+  nameWithType: BaseScene.OnRenderEnd
+  fullName: LibGFX.Core.BaseScene.OnRenderEnd
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnRenderEnd
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 105
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called at the end of the render process
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderEnd
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera}
+    content.vb: Public MustOverride Event OnRenderEnd As Action(Of BaseScene, Viewport, IRenderDevice, Camera)
+- uid: LibGFX.Core.BaseScene.OnUpdateStart
+  commentId: E:LibGFX.Core.BaseScene.OnUpdateStart
+  id: OnUpdateStart
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: OnUpdateStart
+  nameWithType: BaseScene.OnUpdateStart
+  fullName: LibGFX.Core.BaseScene.OnUpdateStart
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnUpdateStart
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 110
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called when the scene is updating
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, float> OnUpdateStart
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,System.Single}
+    content.vb: Public MustOverride Event OnUpdateStart As Action(Of BaseScene, Single)
+- uid: LibGFX.Core.BaseScene.OnUpdateEnd
+  commentId: E:LibGFX.Core.BaseScene.OnUpdateEnd
+  id: OnUpdateEnd
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: OnUpdateEnd
+  nameWithType: BaseScene.OnUpdateEnd
+  fullName: LibGFX.Core.BaseScene.OnUpdateEnd
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnUpdateEnd
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 115
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called when the scene has been updated
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, float> OnUpdateEnd
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,System.Single}
+    content.vb: Public MustOverride Event OnUpdateEnd As Action(Of BaseScene, Single)
+- uid: LibGFX.Core.BaseScene.OnPhysicsUpdateStart
+  commentId: E:LibGFX.Core.BaseScene.OnPhysicsUpdateStart
+  id: OnPhysicsUpdateStart
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: OnPhysicsUpdateStart
+  nameWithType: BaseScene.OnPhysicsUpdateStart
+  fullName: LibGFX.Core.BaseScene.OnPhysicsUpdateStart
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnPhysicsUpdateStart
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 120
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called when the physics update starts
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, float> OnPhysicsUpdateStart
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,System.Single}
+    content.vb: Public MustOverride Event OnPhysicsUpdateStart As Action(Of BaseScene, Single)
+- uid: LibGFX.Core.BaseScene.OnPhysicsUpdateEnd
+  commentId: E:LibGFX.Core.BaseScene.OnPhysicsUpdateEnd
+  id: OnPhysicsUpdateEnd
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: OnPhysicsUpdateEnd
+  nameWithType: BaseScene.OnPhysicsUpdateEnd
+  fullName: LibGFX.Core.BaseScene.OnPhysicsUpdateEnd
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnPhysicsUpdateEnd
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 125
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called when the physics update ends
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, float> OnPhysicsUpdateEnd
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,System.Single}
+    content.vb: Public MustOverride Event OnPhysicsUpdateEnd As Action(Of BaseScene, Single)
+- uid: LibGFX.Core.BaseScene.OnDisposeStart
+  commentId: E:LibGFX.Core.BaseScene.OnDisposeStart
+  id: OnDisposeStart
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: OnDisposeStart
+  nameWithType: BaseScene.OnDisposeStart
+  fullName: LibGFX.Core.BaseScene.OnDisposeStart
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnDisposeStart
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 130
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called before the scene is disposed
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, IRenderDevice> OnDisposeStart
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice}
+    content.vb: Public MustOverride Event OnDisposeStart As Action(Of BaseScene, IRenderDevice)
+- uid: LibGFX.Core.BaseScene.OnDispose
+  commentId: E:LibGFX.Core.BaseScene.OnDispose
+  id: OnDispose
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: OnDispose
+  nameWithType: BaseScene.OnDispose
+  fullName: LibGFX.Core.BaseScene.OnDispose
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnDispose
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 135
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called when the scene gets disposed
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, IRenderDevice> OnDispose
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice}
+    content.vb: Public MustOverride Event OnDispose As Action(Of BaseScene, IRenderDevice)
+- uid: LibGFX.Core.BaseScene.OnDisposeEnd
+  commentId: E:LibGFX.Core.BaseScene.OnDisposeEnd
+  id: OnDisposeEnd
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: OnDisposeEnd
+  nameWithType: BaseScene.OnDisposeEnd
+  fullName: LibGFX.Core.BaseScene.OnDisposeEnd
+  type: Event
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: OnDisposeEnd
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 140
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Called after the scene has been disposed
+  example: []
+  syntax:
+    content: public abstract event Action<BaseScene, IRenderDevice> OnDisposeEnd
+    return:
+      type: System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice}
+    content.vb: Public MustOverride Event OnDisposeEnd As Action(Of BaseScene, IRenderDevice)
+- uid: LibGFX.Core.BaseScene.#ctor
+  commentId: M:LibGFX.Core.BaseScene.#ctor
+  id: '#ctor'
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: BaseScene()
+  nameWithType: BaseScene.BaseScene()
+  fullName: LibGFX.Core.BaseScene.BaseScene()
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 145
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Creates a new scene
+  example: []
+  syntax:
+    content: protected BaseScene()
+    content.vb: Protected Sub New()
+  overload: LibGFX.Core.BaseScene.#ctor*
+  nameWithType.vb: BaseScene.New()
+  fullName.vb: LibGFX.Core.BaseScene.New()
+  name.vb: New()
+- uid: LibGFX.Core.BaseScene.AddGameElement(LibGFX.Core.GameElement)
+  commentId: M:LibGFX.Core.BaseScene.AddGameElement(LibGFX.Core.GameElement)
+  id: AddGameElement(LibGFX.Core.GameElement)
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: AddGameElement(GameElement)
+  nameWithType: BaseScene.AddGameElement(GameElement)
+  fullName: LibGFX.Core.BaseScene.AddGameElement(LibGFX.Core.GameElement)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AddGameElement
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 154
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Adds a game element to the current collection or scene.
+  example: []
+  syntax:
+    content: public abstract void AddGameElement(GameElement element)
+    parameters:
+    - id: element
+      type: LibGFX.Core.GameElement
+      description: The game element to add. Cannot be null.
+    content.vb: Public MustOverride Sub AddGameElement(element As GameElement)
+  overload: LibGFX.Core.BaseScene.AddGameElement*
+- uid: LibGFX.Core.BaseScene.AddLight``1(``0)
+  commentId: M:LibGFX.Core.BaseScene.AddLight``1(``0)
+  id: AddLight``1(``0)
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: AddLight<T>(T)
+  nameWithType: BaseScene.AddLight<T>(T)
+  fullName: LibGFX.Core.BaseScene.AddLight<T>(T)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AddLight
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 161
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Adds a light object to the collection of managed lights.
+  example: []
+  syntax:
+    content: 'public abstract void AddLight<T>(T light) where T : Light'
+    parameters:
+    - id: light
+      type: '{T}'
+      description: The light instance to add. Cannot be null.
+    typeParameters:
+    - id: T
+      description: The type of light to add. Must derive from <xref href="LibGFX.Graphics.Lights.Light" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public MustOverride Sub AddLight(Of T As Light)(light As T)
+  overload: LibGFX.Core.BaseScene.AddLight*
+  nameWithType.vb: BaseScene.AddLight(Of T)(T)
+  fullName.vb: LibGFX.Core.BaseScene.AddLight(Of T)(T)
+  name.vb: AddLight(Of T)(T)
+- uid: LibGFX.Core.BaseScene.GetLight``1
+  commentId: M:LibGFX.Core.BaseScene.GetLight``1
+  id: GetLight``1
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: GetLight<T>()
+  nameWithType: BaseScene.GetLight<T>()
+  fullName: LibGFX.Core.BaseScene.GetLight<T>()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetLight
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 168
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Retrieves an instance of a light of the specified type.
+  example: []
+  syntax:
+    content: 'public abstract T GetLight<T>() where T : Light'
+    typeParameters:
+    - id: T
+      description: The type of light to retrieve. Must inherit from <xref href="LibGFX.Graphics.Lights.Light" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: '{T}'
+      description: An instance of type <code class="typeparamref">T</code> representing the requested light.
+    content.vb: Public MustOverride Function GetLight(Of T As Light)() As T
+  overload: LibGFX.Core.BaseScene.GetLight*
+  nameWithType.vb: BaseScene.GetLight(Of T)()
+  fullName.vb: LibGFX.Core.BaseScene.GetLight(Of T)()
+  name.vb: GetLight(Of T)()
+- uid: LibGFX.Core.BaseScene.RemoveLight``1(``0)
+  commentId: M:LibGFX.Core.BaseScene.RemoveLight``1(``0)
+  id: RemoveLight``1(``0)
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: RemoveLight<T>(T)
+  nameWithType: BaseScene.RemoveLight<T>(T)
+  fullName: LibGFX.Core.BaseScene.RemoveLight<T>(T)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RemoveLight
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 175
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Removes the specified light from the collection of managed lights.
+  example: []
+  syntax:
+    content: 'public abstract void RemoveLight<T>(T light) where T : Light'
+    parameters:
+    - id: light
+      type: '{T}'
+      description: The light instance to remove from the collection. Cannot be null.
+    typeParameters:
+    - id: T
+      description: The type of light to remove. Must derive from <xref href="LibGFX.Graphics.Lights.Light" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public MustOverride Sub RemoveLight(Of T As Light)(light As T)
+  overload: LibGFX.Core.BaseScene.RemoveLight*
+  nameWithType.vb: BaseScene.RemoveLight(Of T)(T)
+  fullName.vb: LibGFX.Core.BaseScene.RemoveLight(Of T)(T)
+  name.vb: RemoveLight(Of T)(T)
+- uid: LibGFX.Core.BaseScene.GetAllElements
+  commentId: M:LibGFX.Core.BaseScene.GetAllElements
+  id: GetAllElements
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: GetAllElements()
+  nameWithType: BaseScene.GetAllElements()
+  fullName: LibGFX.Core.BaseScene.GetAllElements()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetAllElements
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 181
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Gets all elements in the scene
+  example: []
+  syntax:
+    content: public abstract IEnumerable<GameElement> GetAllElements()
+    return:
+      type: System.Collections.Generic.IEnumerable{LibGFX.Core.GameElement}
+      description: ''
+    content.vb: Public MustOverride Function GetAllElements() As IEnumerable(Of GameElement)
+  overload: LibGFX.Core.BaseScene.GetAllElements*
+- uid: LibGFX.Core.BaseScene.ForEachElement(System.Action{LibGFX.Core.GameElement})
+  commentId: M:LibGFX.Core.BaseScene.ForEachElement(System.Action{LibGFX.Core.GameElement})
+  id: ForEachElement(System.Action{LibGFX.Core.GameElement})
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: ForEachElement(Action<GameElement>)
+  nameWithType: BaseScene.ForEachElement(Action<GameElement>)
+  fullName: LibGFX.Core.BaseScene.ForEachElement(System.Action<LibGFX.Core.GameElement>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ForEachElement
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 189
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Invokes the specified action for each element in the collection.
+  remarks: >-
+    The order in which elements are processed is implementation-dependent. The method
+        will throw an exception if <code class="paramref">action</code> is null.
+  example: []
+  syntax:
+    content: public abstract void ForEachElement(Action<GameElement> action)
+    parameters:
+    - id: action
+      type: System.Action{LibGFX.Core.GameElement}
+      description: The action to perform on each <xref href="LibGFX.Core.GameElement" data-throw-if-not-resolved="false"></xref> in the collection. Cannot be null.
+    content.vb: Public MustOverride Sub ForEachElement(action As Action(Of GameElement))
+  overload: LibGFX.Core.BaseScene.ForEachElement*
+  nameWithType.vb: BaseScene.ForEachElement(Action(Of GameElement))
+  fullName.vb: LibGFX.Core.BaseScene.ForEachElement(System.Action(Of LibGFX.Core.GameElement))
+  name.vb: ForEachElement(Action(Of GameElement))
+- uid: LibGFX.Core.BaseScene.GetElementByID(System.String)
+  commentId: M:LibGFX.Core.BaseScene.GetElementByID(System.String)
+  id: GetElementByID(System.String)
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: GetElementByID(string)
+  nameWithType: BaseScene.GetElementByID(string)
+  fullName: LibGFX.Core.BaseScene.GetElementByID(string)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetElementByID
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 198
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Retrieves the game element associated with the specified unique identifier.
+  example: []
+  syntax:
+    content: public abstract GameElement? GetElementByID(string uuid)
+    parameters:
+    - id: uuid
+      type: System.String
+      description: The unique identifier of the game element to retrieve. Cannot be null or empty.
+    return:
+      type: LibGFX.Core.GameElement
+      description: >-
+        The <xref href="LibGFX.Core.GameElement" data-throw-if-not-resolved="false"></xref> with the specified unique identifier, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if no such
+            element exists.
+    content.vb: Public MustOverride Function GetElementByID(uuid As String) As GameElement
+  overload: LibGFX.Core.BaseScene.GetElementByID*
+  nameWithType.vb: BaseScene.GetElementByID(String)
+  fullName.vb: LibGFX.Core.BaseScene.GetElementByID(String)
+  name.vb: GetElementByID(String)
+- uid: LibGFX.Core.BaseScene.FindElement``1(System.String)
+  commentId: M:LibGFX.Core.BaseScene.FindElement``1(System.String)
+  id: FindElement``1(System.String)
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: FindElement<T>(string)
+  nameWithType: BaseScene.FindElement<T>(string)
+  fullName: LibGFX.Core.BaseScene.FindElement<T>(string)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FindElement
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 205
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Finds an element by name
+  example: []
+  syntax:
+    content: 'public abstract T? FindElement<T>(string name) where T : GameElement'
+    parameters:
+    - id: name
+      type: System.String
+      description: ''
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+      description: ''
+    content.vb: Public MustOverride Function FindElement(Of T As GameElement)(name As String) As T
+  overload: LibGFX.Core.BaseScene.FindElement*
+  nameWithType.vb: BaseScene.FindElement(Of T)(String)
+  fullName.vb: LibGFX.Core.BaseScene.FindElement(Of T)(String)
+  name.vb: FindElement(Of T)(String)
+- uid: LibGFX.Core.BaseScene.GetElements``1
+  commentId: M:LibGFX.Core.BaseScene.GetElements``1
+  id: GetElements``1
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: GetElements<T>()
+  nameWithType: BaseScene.GetElements<T>()
+  fullName: LibGFX.Core.BaseScene.GetElements<T>()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetElements
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 213
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Retrieves a collection of game elements of the specified type.
+  example: []
+  syntax:
+    content: 'public abstract ICollection<GameElement> GetElements<T>() where T : GameElement'
+    typeParameters:
+    - id: T
+      description: The type of game element to retrieve. Must derive from GameElement.
+    return:
+      type: System.Collections.Generic.ICollection{LibGFX.Core.GameElement}
+      description: >-
+        A collection containing all game elements of type T. The collection is empty if no elements of the specified
+            type exist.
+    content.vb: Public MustOverride Function GetElements(Of T As GameElement)() As ICollection(Of GameElement)
+  overload: LibGFX.Core.BaseScene.GetElements*
+  nameWithType.vb: BaseScene.GetElements(Of T)()
+  fullName.vb: LibGFX.Core.BaseScene.GetElements(Of T)()
+  name.vb: GetElements(Of T)()
+- uid: LibGFX.Core.BaseScene.FindElementsWithBehavior``1
+  commentId: M:LibGFX.Core.BaseScene.FindElementsWithBehavior``1
+  id: FindElementsWithBehavior``1
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: FindElementsWithBehavior<T>()
+  nameWithType: BaseScene.FindElementsWithBehavior<T>()
+  fullName: LibGFX.Core.BaseScene.FindElementsWithBehavior<T>()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FindElementsWithBehavior
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 221
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: >-
+    Finds all elements with a specific behavior
+
+    Uses parallel processing to speed up the search
+  example: []
+  syntax:
+    content: 'public abstract ICollection<GameElement> FindElementsWithBehavior<T>() where T : IGameBehavior'
+    typeParameters:
+    - id: T
+      description: ''
+    return:
+      type: System.Collections.Generic.ICollection{LibGFX.Core.GameElement}
+      description: ''
+    content.vb: Public MustOverride Function FindElementsWithBehavior(Of T As IGameBehavior)() As ICollection(Of GameElement)
+  overload: LibGFX.Core.BaseScene.FindElementsWithBehavior*
+  nameWithType.vb: BaseScene.FindElementsWithBehavior(Of T)()
+  fullName.vb: LibGFX.Core.BaseScene.FindElementsWithBehavior(Of T)()
+  name.vb: FindElementsWithBehavior(Of T)()
+- uid: LibGFX.Core.BaseScene.FindElementsWithTag(System.String)
+  commentId: M:LibGFX.Core.BaseScene.FindElementsWithTag(System.String)
+  id: FindElementsWithTag(System.String)
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: FindElementsWithTag(string)
+  nameWithType: BaseScene.FindElementsWithTag(string)
+  fullName: LibGFX.Core.BaseScene.FindElementsWithTag(string)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FindElementsWithTag
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 228
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Finds all elements with a specific tag
+  example: []
+  syntax:
+    content: public abstract ICollection<GameElement> FindElementsWithTag(string tag)
+    parameters:
+    - id: tag
+      type: System.String
+      description: ''
+    return:
+      type: System.Collections.Generic.ICollection{LibGFX.Core.GameElement}
+      description: ''
+    content.vb: Public MustOverride Function FindElementsWithTag(tag As String) As ICollection(Of GameElement)
+  overload: LibGFX.Core.BaseScene.FindElementsWithTag*
+  nameWithType.vb: BaseScene.FindElementsWithTag(String)
+  fullName.vb: LibGFX.Core.BaseScene.FindElementsWithTag(String)
+  name.vb: FindElementsWithTag(String)
+- uid: LibGFX.Core.BaseScene.RemoveElement(LibGFX.Core.GameElement)
+  commentId: M:LibGFX.Core.BaseScene.RemoveElement(LibGFX.Core.GameElement)
+  id: RemoveElement(LibGFX.Core.GameElement)
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: RemoveElement(GameElement)
+  nameWithType: BaseScene.RemoveElement(GameElement)
+  fullName: LibGFX.Core.BaseScene.RemoveElement(LibGFX.Core.GameElement)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RemoveElement
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 234
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Removes an element from the scene
+  example: []
+  syntax:
+    content: public abstract void RemoveElement(GameElement element)
+    parameters:
+    - id: element
+      type: LibGFX.Core.GameElement
+      description: ''
+    content.vb: Public MustOverride Sub RemoveElement(element As GameElement)
+  overload: LibGFX.Core.BaseScene.RemoveElement*
+- uid: LibGFX.Core.BaseScene.ClearElements
+  commentId: M:LibGFX.Core.BaseScene.ClearElements
+  id: ClearElements
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: ClearElements()
+  nameWithType: BaseScene.ClearElements()
+  fullName: LibGFX.Core.BaseScene.ClearElements()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ClearElements
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 239
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Clears all elements in the scene
+  example: []
+  syntax:
+    content: public abstract void ClearElements()
+    content.vb: Public MustOverride Sub ClearElements()
+  overload: LibGFX.Core.BaseScene.ClearElements*
+- uid: LibGFX.Core.BaseScene.EnqueElements
+  commentId: M:LibGFX.Core.BaseScene.EnqueElements
+  id: EnqueElements
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: EnqueElements()
+  nameWithType: BaseScene.EnqueElements()
+  fullName: LibGFX.Core.BaseScene.EnqueElements()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: EnqueElements
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 244
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Enqueues elements to be added to the scene at the end of the update cycle
+  example: []
+  syntax:
+    content: public abstract void EnqueElements()
+    content.vb: Public MustOverride Sub EnqueElements()
+  overload: LibGFX.Core.BaseScene.EnqueElements*
+- uid: LibGFX.Core.BaseScene.AddEnqueEntry(LibGFX.Core.IEnqueEntry)
+  commentId: M:LibGFX.Core.BaseScene.AddEnqueEntry(LibGFX.Core.IEnqueEntry)
+  id: AddEnqueEntry(LibGFX.Core.IEnqueEntry)
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: AddEnqueEntry(IEnqueEntry)
+  nameWithType: BaseScene.AddEnqueEntry(IEnqueEntry)
+  fullName: LibGFX.Core.BaseScene.AddEnqueEntry(LibGFX.Core.IEnqueEntry)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: AddEnqueEntry
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 250
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Adds the specified entry to the enqueue queue for processing.
+  example: []
+  syntax:
+    content: public abstract void AddEnqueEntry(IEnqueEntry entry)
+    parameters:
+    - id: entry
+      type: LibGFX.Core.IEnqueEntry
+      description: The entry to add to the enqueue queue. Cannot be null.
+    content.vb: Public MustOverride Sub AddEnqueEntry(entry As IEnqueEntry)
+  overload: LibGFX.Core.BaseScene.AddEnqueEntry*
+- uid: LibGFX.Core.BaseScene.FreeScene(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.BaseScene.FreeScene(LibGFX.Graphics.IRenderDevice)
+  id: FreeScene(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: FreeScene(IRenderDevice)
+  nameWithType: BaseScene.FreeScene(IRenderDevice)
+  fullName: LibGFX.Core.BaseScene.FreeScene(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FreeScene
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 258
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Releases all resources associated with the scene and its layers using the specified renderer.
+  remarks: >-
+    After calling this method, the scene's layers are cleared and cannot be used unless
+        reinitialized.
+  example: []
+  syntax:
+    content: public abstract void FreeScene(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: The rendering device used to release resources for each layer. Cannot be null.
+    content.vb: Public MustOverride Sub FreeScene(renderer As IRenderDevice)
+  overload: LibGFX.Core.BaseScene.FreeScene*
+- uid: LibGFX.Core.BaseScene.InitializeElements(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.BaseScene.InitializeElements(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: InitializeElements(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: InitializeElements(Viewport, IRenderDevice)
+  nameWithType: BaseScene.InitializeElements(Viewport, IRenderDevice)
+  fullName: LibGFX.Core.BaseScene.InitializeElements(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: InitializeElements
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 265
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Initializes all elements in the collection using the specified viewport and render device.
+  example: []
+  syntax:
+    content: public abstract void InitializeElements(Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: The viewport that defines the rendering area for the elements.
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: The render device used to initialize the elements.
+    content.vb: Public MustOverride Sub InitializeElements(viewport As Viewport, renderer As IRenderDevice)
+  overload: LibGFX.Core.BaseScene.InitializeElements*
+- uid: LibGFX.Core.BaseScene.Init(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.BaseScene.Init(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  id: Init(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: Init(Viewport, IRenderDevice)
+  nameWithType: BaseScene.Init(Viewport, IRenderDevice)
+  fullName: LibGFX.Core.BaseScene.Init(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Init
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 272
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Initializes the scene
+  example: []
+  syntax:
+    content: public abstract void Init(Viewport viewport, IRenderDevice renderer)
+    parameters:
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public MustOverride Sub Init(viewport As Viewport, renderer As IRenderDevice)
+  overload: LibGFX.Core.BaseScene.Init*
+- uid: LibGFX.Core.BaseScene.Render(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  commentId: M:LibGFX.Core.BaseScene.Render(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  id: Render(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: Render(Viewport, IRenderDevice, Camera)
+  nameWithType: BaseScene.Render(Viewport, IRenderDevice, Camera)
+  fullName: LibGFX.Core.BaseScene.Render(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Render
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 280
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Renders the scene
+  example: []
+  syntax:
+    content: public abstract void Render(Viewport viewport, IRenderDevice renderer, Camera camera)
+    parameters:
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    - id: camera
+      type: LibGFX.Graphics.Camera
+      description: ''
+    content.vb: Public MustOverride Sub Render(viewport As Viewport, renderer As IRenderDevice, camera As Camera)
+  overload: LibGFX.Core.BaseScene.Render*
+- uid: LibGFX.Core.BaseScene.RenderShadowMaps(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  commentId: M:LibGFX.Core.BaseScene.RenderShadowMaps(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  id: RenderShadowMaps(LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: RenderShadowMaps(Viewport, IRenderDevice, Camera)
+  nameWithType: BaseScene.RenderShadowMaps(Viewport, IRenderDevice, Camera)
+  fullName: LibGFX.Core.BaseScene.RenderShadowMaps(LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderShadowMaps
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 287
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Renders the shadow maps for the scene
+  example: []
+  syntax:
+    content: public abstract void RenderShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera)
+    parameters:
+    - id: viewport
+      type: LibGFX.Graphics.Viewport
+      description: ''
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    - id: camera
+      type: LibGFX.Graphics.Camera
+    content.vb: Public MustOverride Sub RenderShadowMaps(viewport As Viewport, renderer As IRenderDevice, camera As Camera)
+  overload: LibGFX.Core.BaseScene.RenderShadowMaps*
+- uid: LibGFX.Core.BaseScene.Update(System.Single)
+  commentId: M:LibGFX.Core.BaseScene.Update(System.Single)
+  id: Update(System.Single)
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: Update(float)
+  nameWithType: BaseScene.Update(float)
+  fullName: LibGFX.Core.BaseScene.Update(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Update
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 292
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Updates the scene
+  example: []
+  syntax:
+    content: public abstract void Update(float dt)
+    parameters:
+    - id: dt
+      type: System.Single
+    content.vb: Public MustOverride Sub Update(dt As Single)
+  overload: LibGFX.Core.BaseScene.Update*
+  nameWithType.vb: BaseScene.Update(Single)
+  fullName.vb: LibGFX.Core.BaseScene.Update(Single)
+  name.vb: Update(Single)
+- uid: LibGFX.Core.BaseScene.DisposeScene(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.BaseScene.DisposeScene(LibGFX.Graphics.IRenderDevice)
+  id: DisposeScene(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: DisposeScene(IRenderDevice)
+  nameWithType: BaseScene.DisposeScene(IRenderDevice)
+  fullName: LibGFX.Core.BaseScene.DisposeScene(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: DisposeScene
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 298
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Disposes the scene
+  example: []
+  syntax:
+    content: public abstract void DisposeScene(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: ''
+    content.vb: Public MustOverride Sub DisposeScene(renderer As IRenderDevice)
+  overload: LibGFX.Core.BaseScene.DisposeScene*
+- uid: LibGFX.Core.BaseScene.UpdatePhysics(System.Single)
+  commentId: M:LibGFX.Core.BaseScene.UpdatePhysics(System.Single)
+  id: UpdatePhysics(System.Single)
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: UpdatePhysics(float)
+  nameWithType: BaseScene.UpdatePhysics(float)
+  fullName: LibGFX.Core.BaseScene.UpdatePhysics(float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: UpdatePhysics
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 303
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Updates the physics of the scene
+  example: []
+  syntax:
+    content: public abstract void UpdatePhysics(float dt)
+    parameters:
+    - id: dt
+      type: System.Single
+    content.vb: Public MustOverride Sub UpdatePhysics(dt As Single)
+  overload: LibGFX.Core.BaseScene.UpdatePhysics*
+  nameWithType.vb: BaseScene.UpdatePhysics(Single)
+  fullName.vb: LibGFX.Core.BaseScene.UpdatePhysics(Single)
+  name.vb: UpdatePhysics(Single)
+- uid: LibGFX.Core.BaseScene.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Core.BaseScene.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  id: Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: BaseScene.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Core.BaseScene.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Serialize
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 311
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Serializes the current object to a JSON representation using the specified serialization context.
+  example: []
+  syntax:
+    content: public virtual void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
+    parameters:
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+    - id: serializationContext
+      type: LibGFX.Core.SerializationContext
+      description: The context that provides configuration and state information for the serialization process.
+    - id: callback
+      type: System.Action{Newtonsoft.Json.JsonWriter}
+    content.vb: Public Overridable Sub Serialize(writer As JsonWriter, serializationContext As SerializationContext, callback As Action(Of JsonWriter) = Nothing)
+  overload: LibGFX.Core.BaseScene.Serialize*
+  exceptions:
+  - type: System.NotImplementedException
+    commentId: T:System.NotImplementedException
+    description: Thrown in all cases as the method is not yet implemented.
+  implements:
+  - LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  nameWithType.vb: BaseScene.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Core.BaseScene.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+- uid: LibGFX.Core.BaseScene.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Core.BaseScene.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  id: Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Core.BaseScene
+  langs:
+  - csharp
+  - vb
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: BaseScene.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Core.BaseScene.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/BaseScene.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Deserialize
+    path: ../LibGFX/Core/BaseScene.cs
+    startLine: 337
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Deserializes the object from the provided JSON representation using the specified serialization context.
+  example: []
+  syntax:
+    content: public virtual void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
+    parameters:
+    - id: obj
+      type: Newtonsoft.Json.Linq.JObject
+      description: ''
+    - id: serializationContext
+      type: LibGFX.Core.SerializationContext
+      description: ''
+    - id: callback
+      type: System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+      description: ''
+    content.vb: Public Overridable Sub Deserialize(obj As JObject, serializationContext As SerializationContext, callback As Func(Of JObject, Boolean) = Nothing)
+  overload: LibGFX.Core.BaseScene.Deserialize*
+  implements:
+  - LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  nameWithType.vb: BaseScene.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Core.BaseScene.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+references:
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Core.IIdentifier
+  commentId: T:LibGFX.Core.IIdentifier
+  parent: LibGFX.Core
+  href: LibGFX.Core.IIdentifier.html
+  name: IIdentifier
+  nameWithType: IIdentifier
+  fullName: LibGFX.Core.IIdentifier
+- uid: LibGFX.Core.ISerialization
+  commentId: T:LibGFX.Core.ISerialization
+  parent: LibGFX.Core
+  href: LibGFX.Core.ISerialization.html
+  name: ISerialization
+  nameWithType: ISerialization
+  fullName: LibGFX.Core.ISerialization
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core.BaseScene.Name*
+  commentId: Overload:LibGFX.Core.BaseScene.Name
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_Name
+  name: Name
+  nameWithType: BaseScene.Name
+  fullName: LibGFX.Core.BaseScene.Name
+- uid: LibGFX.Core.IIdentifier.Name
+  commentId: P:LibGFX.Core.IIdentifier.Name
+  parent: LibGFX.Core.IIdentifier
+  href: LibGFX.Core.IIdentifier.html#LibGFX_Core_IIdentifier_Name
+  name: Name
+  nameWithType: IIdentifier.Name
+  fullName: LibGFX.Core.IIdentifier.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: LibGFX.Core.BaseScene.ID*
+  commentId: Overload:LibGFX.Core.BaseScene.ID
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_ID
+  name: ID
+  nameWithType: BaseScene.ID
+  fullName: LibGFX.Core.BaseScene.ID
+- uid: LibGFX.Core.IIdentifier.ID
+  commentId: P:LibGFX.Core.IIdentifier.ID
+  parent: LibGFX.Core.IIdentifier
+  href: LibGFX.Core.IIdentifier.html#LibGFX_Core_IIdentifier_ID
+  name: ID
+  nameWithType: IIdentifier.ID
+  fullName: LibGFX.Core.IIdentifier.ID
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: LibGFX.Core.BaseScene.RenderTarget*
+  commentId: Overload:LibGFX.Core.BaseScene.RenderTarget
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_RenderTarget
+  name: RenderTarget
+  nameWithType: BaseScene.RenderTarget
+  fullName: LibGFX.Core.BaseScene.RenderTarget
+- uid: LibGFX.Graphics.IRenderTarget
+  commentId: T:LibGFX.Graphics.IRenderTarget
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderTarget.html
+  name: IRenderTarget
+  nameWithType: IRenderTarget
+  fullName: LibGFX.Graphics.IRenderTarget
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: LibGFX.Core.BaseScene.PhysicsHandler*
+  commentId: Overload:LibGFX.Core.BaseScene.PhysicsHandler
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_PhysicsHandler
+  name: PhysicsHandler
+  nameWithType: BaseScene.PhysicsHandler
+  fullName: LibGFX.Core.BaseScene.PhysicsHandler
+- uid: LibGFX.Physics.PhysicsHandler
+  commentId: T:LibGFX.Physics.PhysicsHandler
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.PhysicsHandler.html
+  name: PhysicsHandler
+  nameWithType: PhysicsHandler
+  fullName: LibGFX.Physics.PhysicsHandler
+- uid: LibGFX.Physics
+  commentId: N:LibGFX.Physics
+  href: LibGFX.html
+  name: LibGFX.Physics
+  nameWithType: LibGFX.Physics
+  fullName: LibGFX.Physics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+- uid: LibGFX.Core.BaseScene.LightManager*
+  commentId: Overload:LibGFX.Core.BaseScene.LightManager
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_LightManager
+  name: LightManager
+  nameWithType: BaseScene.LightManager
+  fullName: LibGFX.Core.BaseScene.LightManager
+- uid: LibGFX.Graphics.Lights.ILightManager
+  commentId: T:LibGFX.Graphics.Lights.ILightManager
+  parent: LibGFX.Graphics.Lights
+  href: LibGFX.Graphics.Lights.ILightManager.html
+  name: ILightManager
+  nameWithType: ILightManager
+  fullName: LibGFX.Graphics.Lights.ILightManager
+- uid: LibGFX.Graphics.Lights
+  commentId: N:LibGFX.Graphics.Lights
+  href: LibGFX.html
+  name: LibGFX.Graphics.Lights
+  nameWithType: LibGFX.Graphics.Lights
+  fullName: LibGFX.Graphics.Lights
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Lights
+    name: Lights
+    href: LibGFX.Graphics.Lights.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Lights
+    name: Lights
+    href: LibGFX.Graphics.Lights.html
+- uid: LibGFX.Core.BaseScene.RenderStats*
+  commentId: Overload:LibGFX.Core.BaseScene.RenderStats
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_RenderStats
+  name: RenderStats
+  nameWithType: BaseScene.RenderStats
+  fullName: LibGFX.Core.BaseScene.RenderStats
+- uid: LibGFX.Core.RenderStats
+  commentId: T:LibGFX.Core.RenderStats
+  parent: LibGFX.Core
+  href: LibGFX.Core.RenderStats.html
+  name: RenderStats
+  nameWithType: RenderStats
+  fullName: LibGFX.Core.RenderStats
+- uid: LibGFX.Core.BaseScene.EnqueEntries*
+  commentId: Overload:LibGFX.Core.BaseScene.EnqueEntries
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_EnqueEntries
+  name: EnqueEntries
+  nameWithType: BaseScene.EnqueEntries
+  fullName: LibGFX.Core.BaseScene.EnqueEntries
+- uid: System.Collections.Generic.List{LibGFX.Core.IEnqueEntry}
+  commentId: T:System.Collections.Generic.List{LibGFX.Core.IEnqueEntry}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<IEnqueEntry>
+  nameWithType: List<IEnqueEntry>
+  fullName: System.Collections.Generic.List<LibGFX.Core.IEnqueEntry>
+  nameWithType.vb: List(Of IEnqueEntry)
+  fullName.vb: System.Collections.Generic.List(Of LibGFX.Core.IEnqueEntry)
+  name.vb: List(Of IEnqueEntry)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: LibGFX.Core.IEnqueEntry
+    name: IEnqueEntry
+    href: LibGFX.Core.IEnqueEntry.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LibGFX.Core.IEnqueEntry
+    name: IEnqueEntry
+    href: LibGFX.Core.IEnqueEntry.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice}
+  commentId: T:System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice}
+  parent: System
+  definition: System.Action`3
+  href: https://learn.microsoft.com/dotnet/api/system.action-3
+  name: Action<BaseScene, Viewport, IRenderDevice>
+  nameWithType: Action<BaseScene, Viewport, IRenderDevice>
+  fullName: System.Action<LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice>
+  nameWithType.vb: Action(Of BaseScene, Viewport, IRenderDevice)
+  fullName.vb: System.Action(Of LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  name.vb: Action(Of BaseScene, Viewport, IRenderDevice)
+  spec.csharp:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: <
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: System.Action`3
+  commentId: T:System.Action`3
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-3
+  name: Action<T1, T2, T3>
+  nameWithType: Action<T1, T2, T3>
+  fullName: System.Action<T1, T2, T3>
+  nameWithType.vb: Action(Of T1, T2, T3)
+  fullName.vb: System.Action(Of T1, T2, T3)
+  name.vb: Action(Of T1, T2, T3)
+  spec.csharp:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: )
+- uid: System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera}
+  commentId: T:System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera}
+  parent: System
+  definition: System.Action`4
+  href: https://learn.microsoft.com/dotnet/api/system.action-4
+  name: Action<BaseScene, Viewport, IRenderDevice, Camera>
+  nameWithType: Action<BaseScene, Viewport, IRenderDevice, Camera>
+  fullName: System.Action<LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera>
+  nameWithType.vb: Action(Of BaseScene, Viewport, IRenderDevice, Camera)
+  fullName.vb: System.Action(Of LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera)
+  name.vb: Action(Of BaseScene, Viewport, IRenderDevice, Camera)
+  spec.csharp:
+  - uid: System.Action`4
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-4
+  - name: <
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    href: LibGFX.Graphics.Camera.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`4
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-4
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    href: LibGFX.Graphics.Camera.html
+  - name: )
+- uid: System.Action`4
+  commentId: T:System.Action`4
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-4
+  name: Action<T1, T2, T3, T4>
+  nameWithType: Action<T1, T2, T3, T4>
+  fullName: System.Action<T1, T2, T3, T4>
+  nameWithType.vb: Action(Of T1, T2, T3, T4)
+  fullName.vb: System.Action(Of T1, T2, T3, T4)
+  name.vb: Action(Of T1, T2, T3, T4)
+  spec.csharp:
+  - uid: System.Action`4
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-4
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: ','
+  - name: " "
+  - name: T4
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`4
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-4
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: ','
+  - name: " "
+  - name: T4
+  - name: )
+- uid: System.Action{LibGFX.Core.BaseScene,System.Single}
+  commentId: T:System.Action{LibGFX.Core.BaseScene,System.Single}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<BaseScene, float>
+  nameWithType: Action<BaseScene, float>
+  fullName: System.Action<LibGFX.Core.BaseScene, float>
+  nameWithType.vb: Action(Of BaseScene, Single)
+  fullName.vb: System.Action(Of LibGFX.Core.BaseScene, Single)
+  name.vb: Action(Of BaseScene, Single)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: System.Action`2
+  commentId: T:System.Action`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<T1, T2>
+  nameWithType: Action<T1, T2>
+  fullName: System.Action<T1, T2>
+  nameWithType.vb: Action(Of T1, T2)
+  fullName.vb: System.Action(Of T1, T2)
+  name.vb: Action(Of T1, T2)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice}
+  commentId: T:System.Action{LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice}
+  parent: System
+  definition: System.Action`2
+  href: https://learn.microsoft.com/dotnet/api/system.action-2
+  name: Action<BaseScene, IRenderDevice>
+  nameWithType: Action<BaseScene, IRenderDevice>
+  fullName: System.Action<LibGFX.Core.BaseScene, LibGFX.Graphics.IRenderDevice>
+  nameWithType.vb: Action(Of BaseScene, IRenderDevice)
+  fullName.vb: System.Action(Of LibGFX.Core.BaseScene, LibGFX.Graphics.IRenderDevice)
+  name.vb: Action(Of BaseScene, IRenderDevice)
+  spec.csharp:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Core.BaseScene.#ctor*
+  commentId: Overload:LibGFX.Core.BaseScene.#ctor
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene__ctor
+  name: BaseScene
+  nameWithType: BaseScene.BaseScene
+  fullName: LibGFX.Core.BaseScene.BaseScene
+  nameWithType.vb: BaseScene.New
+  fullName.vb: LibGFX.Core.BaseScene.New
+  name.vb: New
+- uid: LibGFX.Core.BaseScene.AddGameElement*
+  commentId: Overload:LibGFX.Core.BaseScene.AddGameElement
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_AddGameElement_LibGFX_Core_GameElement_
+  name: AddGameElement
+  nameWithType: BaseScene.AddGameElement
+  fullName: LibGFX.Core.BaseScene.AddGameElement
+- uid: LibGFX.Core.GameElement
+  commentId: T:LibGFX.Core.GameElement
+  parent: LibGFX.Core
+  href: LibGFX.Core.GameElement.html
+  name: GameElement
+  nameWithType: GameElement
+  fullName: LibGFX.Core.GameElement
+- uid: LibGFX.Graphics.Lights.Light
+  commentId: T:LibGFX.Graphics.Lights.Light
+  parent: LibGFX.Graphics.Lights
+  href: LibGFX.Graphics.Lights.Light.html
+  name: Light
+  nameWithType: Light
+  fullName: LibGFX.Graphics.Lights.Light
+- uid: LibGFX.Core.BaseScene.AddLight*
+  commentId: Overload:LibGFX.Core.BaseScene.AddLight
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_AddLight__1___0_
+  name: AddLight
+  nameWithType: BaseScene.AddLight
+  fullName: LibGFX.Core.BaseScene.AddLight
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: LibGFX.Core.BaseScene.GetLight*
+  commentId: Overload:LibGFX.Core.BaseScene.GetLight
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_GetLight__1
+  name: GetLight
+  nameWithType: BaseScene.GetLight
+  fullName: LibGFX.Core.BaseScene.GetLight
+- uid: LibGFX.Core.BaseScene.RemoveLight*
+  commentId: Overload:LibGFX.Core.BaseScene.RemoveLight
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_RemoveLight__1___0_
+  name: RemoveLight
+  nameWithType: BaseScene.RemoveLight
+  fullName: LibGFX.Core.BaseScene.RemoveLight
+- uid: LibGFX.Core.BaseScene.GetAllElements*
+  commentId: Overload:LibGFX.Core.BaseScene.GetAllElements
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_GetAllElements
+  name: GetAllElements
+  nameWithType: BaseScene.GetAllElements
+  fullName: LibGFX.Core.BaseScene.GetAllElements
+- uid: System.Collections.Generic.IEnumerable{LibGFX.Core.GameElement}
+  commentId: T:System.Collections.Generic.IEnumerable{LibGFX.Core.GameElement}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<GameElement>
+  nameWithType: IEnumerable<GameElement>
+  fullName: System.Collections.Generic.IEnumerable<LibGFX.Core.GameElement>
+  nameWithType.vb: IEnumerable(Of GameElement)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of LibGFX.Core.GameElement)
+  name.vb: IEnumerable(Of GameElement)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: LibGFX.Core.BaseScene.ForEachElement*
+  commentId: Overload:LibGFX.Core.BaseScene.ForEachElement
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_ForEachElement_System_Action_LibGFX_Core_GameElement__
+  name: ForEachElement
+  nameWithType: BaseScene.ForEachElement
+  fullName: LibGFX.Core.BaseScene.ForEachElement
+- uid: System.Action{LibGFX.Core.GameElement}
+  commentId: T:System.Action{LibGFX.Core.GameElement}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<GameElement>
+  nameWithType: Action<GameElement>
+  fullName: System.Action<LibGFX.Core.GameElement>
+  nameWithType.vb: Action(Of GameElement)
+  fullName.vb: System.Action(Of LibGFX.Core.GameElement)
+  name.vb: Action(Of GameElement)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: LibGFX.Core.BaseScene.GetElementByID*
+  commentId: Overload:LibGFX.Core.BaseScene.GetElementByID
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_GetElementByID_System_String_
+  name: GetElementByID
+  nameWithType: BaseScene.GetElementByID
+  fullName: LibGFX.Core.BaseScene.GetElementByID
+- uid: LibGFX.Core.BaseScene.FindElement*
+  commentId: Overload:LibGFX.Core.BaseScene.FindElement
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_FindElement__1_System_String_
+  name: FindElement
+  nameWithType: BaseScene.FindElement
+  fullName: LibGFX.Core.BaseScene.FindElement
+- uid: LibGFX.Core.BaseScene.GetElements*
+  commentId: Overload:LibGFX.Core.BaseScene.GetElements
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_GetElements__1
+  name: GetElements
+  nameWithType: BaseScene.GetElements
+  fullName: LibGFX.Core.BaseScene.GetElements
+- uid: System.Collections.Generic.ICollection{LibGFX.Core.GameElement}
+  commentId: T:System.Collections.Generic.ICollection{LibGFX.Core.GameElement}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<GameElement>
+  nameWithType: ICollection<GameElement>
+  fullName: System.Collections.Generic.ICollection<LibGFX.Core.GameElement>
+  nameWithType.vb: ICollection(Of GameElement)
+  fullName.vb: System.Collections.Generic.ICollection(Of LibGFX.Core.GameElement)
+  name.vb: ICollection(Of GameElement)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: )
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: LibGFX.Core.BaseScene.FindElementsWithBehavior*
+  commentId: Overload:LibGFX.Core.BaseScene.FindElementsWithBehavior
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_FindElementsWithBehavior__1
+  name: FindElementsWithBehavior
+  nameWithType: BaseScene.FindElementsWithBehavior
+  fullName: LibGFX.Core.BaseScene.FindElementsWithBehavior
+- uid: LibGFX.Core.BaseScene.FindElementsWithTag*
+  commentId: Overload:LibGFX.Core.BaseScene.FindElementsWithTag
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_FindElementsWithTag_System_String_
+  name: FindElementsWithTag
+  nameWithType: BaseScene.FindElementsWithTag
+  fullName: LibGFX.Core.BaseScene.FindElementsWithTag
+- uid: LibGFX.Core.BaseScene.RemoveElement*
+  commentId: Overload:LibGFX.Core.BaseScene.RemoveElement
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_RemoveElement_LibGFX_Core_GameElement_
+  name: RemoveElement
+  nameWithType: BaseScene.RemoveElement
+  fullName: LibGFX.Core.BaseScene.RemoveElement
+- uid: LibGFX.Core.BaseScene.ClearElements*
+  commentId: Overload:LibGFX.Core.BaseScene.ClearElements
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_ClearElements
+  name: ClearElements
+  nameWithType: BaseScene.ClearElements
+  fullName: LibGFX.Core.BaseScene.ClearElements
+- uid: LibGFX.Core.BaseScene.EnqueElements*
+  commentId: Overload:LibGFX.Core.BaseScene.EnqueElements
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_EnqueElements
+  name: EnqueElements
+  nameWithType: BaseScene.EnqueElements
+  fullName: LibGFX.Core.BaseScene.EnqueElements
+- uid: LibGFX.Core.BaseScene.AddEnqueEntry*
+  commentId: Overload:LibGFX.Core.BaseScene.AddEnqueEntry
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_AddEnqueEntry_LibGFX_Core_IEnqueEntry_
+  name: AddEnqueEntry
+  nameWithType: BaseScene.AddEnqueEntry
+  fullName: LibGFX.Core.BaseScene.AddEnqueEntry
+- uid: LibGFX.Core.IEnqueEntry
+  commentId: T:LibGFX.Core.IEnqueEntry
+  parent: LibGFX.Core
+  href: LibGFX.Core.IEnqueEntry.html
+  name: IEnqueEntry
+  nameWithType: IEnqueEntry
+  fullName: LibGFX.Core.IEnqueEntry
+- uid: LibGFX.Core.BaseScene.FreeScene*
+  commentId: Overload:LibGFX.Core.BaseScene.FreeScene
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_FreeScene_LibGFX_Graphics_IRenderDevice_
+  name: FreeScene
+  nameWithType: BaseScene.FreeScene
+  fullName: LibGFX.Core.BaseScene.FreeScene
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.Core.BaseScene.InitializeElements*
+  commentId: Overload:LibGFX.Core.BaseScene.InitializeElements
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_InitializeElements_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: InitializeElements
+  nameWithType: BaseScene.InitializeElements
+  fullName: LibGFX.Core.BaseScene.InitializeElements
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.Core.BaseScene.Init*
+  commentId: Overload:LibGFX.Core.BaseScene.Init
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_Init_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: Init
+  nameWithType: BaseScene.Init
+  fullName: LibGFX.Core.BaseScene.Init
+- uid: LibGFX.Core.BaseScene.Render*
+  commentId: Overload:LibGFX.Core.BaseScene.Render
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_Render_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  name: Render
+  nameWithType: BaseScene.Render
+  fullName: LibGFX.Core.BaseScene.Render
+- uid: LibGFX.Graphics.Camera
+  commentId: T:LibGFX.Graphics.Camera
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Camera.html
+  name: Camera
+  nameWithType: Camera
+  fullName: LibGFX.Graphics.Camera
+- uid: LibGFX.Core.BaseScene.RenderShadowMaps*
+  commentId: Overload:LibGFX.Core.BaseScene.RenderShadowMaps
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_RenderShadowMaps_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  name: RenderShadowMaps
+  nameWithType: BaseScene.RenderShadowMaps
+  fullName: LibGFX.Core.BaseScene.RenderShadowMaps
+- uid: LibGFX.Core.BaseScene.Update*
+  commentId: Overload:LibGFX.Core.BaseScene.Update
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_Update_System_Single_
+  name: Update
+  nameWithType: BaseScene.Update
+  fullName: LibGFX.Core.BaseScene.Update
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Core.BaseScene.DisposeScene*
+  commentId: Overload:LibGFX.Core.BaseScene.DisposeScene
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_DisposeScene_LibGFX_Graphics_IRenderDevice_
+  name: DisposeScene
+  nameWithType: BaseScene.DisposeScene
+  fullName: LibGFX.Core.BaseScene.DisposeScene
+- uid: LibGFX.Core.BaseScene.UpdatePhysics*
+  commentId: Overload:LibGFX.Core.BaseScene.UpdatePhysics
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_UpdatePhysics_System_Single_
+  name: UpdatePhysics
+  nameWithType: BaseScene.UpdatePhysics
+  fullName: LibGFX.Core.BaseScene.UpdatePhysics
+- uid: Newtonsoft.Json.Linq.JObject
+  commentId: T:Newtonsoft.Json.Linq.JObject
+  parent: Newtonsoft.Json.Linq
+  isExternal: true
+  name: JObject
+  nameWithType: JObject
+  fullName: Newtonsoft.Json.Linq.JObject
+- uid: System.NotImplementedException
+  commentId: T:System.NotImplementedException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.notimplementedexception
+  name: NotImplementedException
+  nameWithType: NotImplementedException
+  fullName: System.NotImplementedException
+- uid: LibGFX.Core.BaseScene.Serialize*
+  commentId: Overload:LibGFX.Core.BaseScene.Serialize
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize
+  nameWithType: BaseScene.Serialize
+  fullName: LibGFX.Core.BaseScene.Serialize
+- uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: ISerialization.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  nameWithType.vb: ISerialization.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+  - name: )
+- uid: Newtonsoft.Json.JsonWriter
+  commentId: T:Newtonsoft.Json.JsonWriter
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonWriter
+  nameWithType: JsonWriter
+  fullName: Newtonsoft.Json.JsonWriter
+- uid: LibGFX.Core.SerializationContext
+  commentId: T:LibGFX.Core.SerializationContext
+  parent: LibGFX.Core
+  href: LibGFX.Core.SerializationContext.html
+  name: SerializationContext
+  nameWithType: SerializationContext
+  fullName: LibGFX.Core.SerializationContext
+- uid: System.Action{Newtonsoft.Json.JsonWriter}
+  commentId: T:System.Action{Newtonsoft.Json.JsonWriter}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<JsonWriter>
+  nameWithType: Action<JsonWriter>
+  fullName: System.Action<Newtonsoft.Json.JsonWriter>
+  nameWithType.vb: Action(Of JsonWriter)
+  fullName.vb: System.Action(Of Newtonsoft.Json.JsonWriter)
+  name.vb: Action(Of JsonWriter)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+- uid: Newtonsoft.Json.Linq
+  commentId: N:Newtonsoft.Json.Linq
+  isExternal: true
+  name: Newtonsoft.Json.Linq
+  nameWithType: Newtonsoft.Json.Linq
+  fullName: Newtonsoft.Json.Linq
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: LibGFX.Core.BaseScene.Deserialize*
+  commentId: Overload:LibGFX.Core.BaseScene.Deserialize
+  href: LibGFX.Core.BaseScene.html#LibGFX_Core_BaseScene_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize
+  nameWithType: BaseScene.Deserialize
+  fullName: LibGFX.Core.BaseScene.Deserialize
+- uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: ISerialization.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  nameWithType.vb: ISerialization.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+  commentId: T:System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<JObject, bool>
+  nameWithType: Func<JObject, bool>
+  fullName: System.Func<Newtonsoft.Json.Linq.JObject, bool>
+  nameWithType.vb: Func(Of JObject, Boolean)
+  fullName.vb: System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean)
+  name.vb: Func(Of JObject, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )

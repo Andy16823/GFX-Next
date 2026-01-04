@@ -1,0 +1,1882 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Mesh
+  commentId: T:LibGFX.Graphics.Mesh
+  id: Mesh
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.Mesh.#ctor
+  - LibGFX.Graphics.Mesh.Bounds
+  - LibGFX.Graphics.Mesh.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  - LibGFX.Graphics.Mesh.Dispose(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.Mesh.FreeCPUResources
+  - LibGFX.Graphics.Mesh.GetTransform
+  - LibGFX.Graphics.Mesh.ID
+  - LibGFX.Graphics.Mesh.Indices
+  - LibGFX.Graphics.Mesh.Init(LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Graphics.Mesh.IsInitialized
+  - LibGFX.Graphics.Mesh.LocalRotation
+  - LibGFX.Graphics.Mesh.LocalScale
+  - LibGFX.Graphics.Mesh.LocalTranslation
+  - LibGFX.Graphics.Mesh.Material
+  - LibGFX.Graphics.Mesh.Name
+  - LibGFX.Graphics.Mesh.Positions
+  - LibGFX.Graphics.Mesh.RenderData
+  - LibGFX.Graphics.Mesh.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  - LibGFX.Graphics.Mesh.Vertices
+  langs:
+  - csharp
+  - vb
+  name: Mesh
+  nameWithType: Mesh
+  fullName: LibGFX.Graphics.Mesh
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Mesh
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 40
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Represents a mesh for the rendering pipeline
+  example: []
+  syntax:
+    content: 'public class Mesh : IGraphicsResource, IIdentifier, ISerialization'
+    content.vb: Public Class Mesh Implements IGraphicsResource, IIdentifier, ISerialization
+  inheritance:
+  - System.Object
+  implements:
+  - LibGFX.Core.IGraphicsResource
+  - LibGFX.Core.IIdentifier
+  - LibGFX.Core.ISerialization
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Graphics.Mesh.Name
+  commentId: P:LibGFX.Graphics.Mesh.Name
+  id: Name
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Mesh.Name
+  fullName: LibGFX.Graphics.Mesh.Name
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Name
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 45
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: The name of the mesh.
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: LibGFX.Graphics.Mesh.Name*
+  implements:
+  - LibGFX.Core.IIdentifier.Name
+- uid: LibGFX.Graphics.Mesh.ID
+  commentId: P:LibGFX.Graphics.Mesh.ID
+  id: ID
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: Mesh.ID
+  fullName: LibGFX.Graphics.Mesh.ID
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ID
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 50
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: The unique identifier of the mesh.
+  example: []
+  syntax:
+    content: public Guid ID { get; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property ID As Guid
+  overload: LibGFX.Graphics.Mesh.ID*
+  implements:
+  - LibGFX.Core.IIdentifier.ID
+- uid: LibGFX.Graphics.Mesh.Positions
+  commentId: P:LibGFX.Graphics.Mesh.Positions
+  id: Positions
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: Positions
+  nameWithType: Mesh.Positions
+  fullName: LibGFX.Graphics.Mesh.Positions
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Positions
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 55
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Gets or sets the collection of 3D positions associated with this instance.
+  example: []
+  syntax:
+    content: public List<Vector3> Positions { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{OpenTK.Mathematics.Vector3}
+    content.vb: Public Property Positions As List(Of Vector3)
+  overload: LibGFX.Graphics.Mesh.Positions*
+- uid: LibGFX.Graphics.Mesh.Vertices
+  commentId: P:LibGFX.Graphics.Mesh.Vertices
+  id: Vertices
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: Vertices
+  nameWithType: Mesh.Vertices
+  fullName: LibGFX.Graphics.Mesh.Vertices
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Vertices
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 60
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: The vertices of the mesh.
+  example: []
+  syntax:
+    content: public List<Vertex> Vertices { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{LibGFX.Graphics.Vertex}
+    content.vb: Public Property Vertices As List(Of Vertex)
+  overload: LibGFX.Graphics.Mesh.Vertices*
+- uid: LibGFX.Graphics.Mesh.Indices
+  commentId: P:LibGFX.Graphics.Mesh.Indices
+  id: Indices
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: Indices
+  nameWithType: Mesh.Indices
+  fullName: LibGFX.Graphics.Mesh.Indices
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Indices
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 65
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: The indices of the mesh.
+  example: []
+  syntax:
+    content: public List<int> Indices { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.Int32}
+    content.vb: Public Property Indices As List(Of Integer)
+  overload: LibGFX.Graphics.Mesh.Indices*
+- uid: LibGFX.Graphics.Mesh.LocalTranslation
+  commentId: P:LibGFX.Graphics.Mesh.LocalTranslation
+  id: LocalTranslation
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: LocalTranslation
+  nameWithType: Mesh.LocalTranslation
+  fullName: LibGFX.Graphics.Mesh.LocalTranslation
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LocalTranslation
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 70
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: The local translation of the mesh.
+  example: []
+  syntax:
+    content: public Vector3 LocalTranslation { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Property LocalTranslation As Vector3
+  overload: LibGFX.Graphics.Mesh.LocalTranslation*
+- uid: LibGFX.Graphics.Mesh.LocalRotation
+  commentId: P:LibGFX.Graphics.Mesh.LocalRotation
+  id: LocalRotation
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: LocalRotation
+  nameWithType: Mesh.LocalRotation
+  fullName: LibGFX.Graphics.Mesh.LocalRotation
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LocalRotation
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 75
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: the local rotation of the mesh.
+  example: []
+  syntax:
+    content: public Quaternion LocalRotation { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Quaternion
+    content.vb: Public Property LocalRotation As Quaternion
+  overload: LibGFX.Graphics.Mesh.LocalRotation*
+- uid: LibGFX.Graphics.Mesh.LocalScale
+  commentId: P:LibGFX.Graphics.Mesh.LocalScale
+  id: LocalScale
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: LocalScale
+  nameWithType: Mesh.LocalScale
+  fullName: LibGFX.Graphics.Mesh.LocalScale
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: LocalScale
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 80
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: The local scale of the mesh.
+  example: []
+  syntax:
+    content: public Vector3 LocalScale { get; set; }
+    parameters: []
+    return:
+      type: OpenTK.Mathematics.Vector3
+    content.vb: Public Property LocalScale As Vector3
+  overload: LibGFX.Graphics.Mesh.LocalScale*
+- uid: LibGFX.Graphics.Mesh.RenderData
+  commentId: P:LibGFX.Graphics.Mesh.RenderData
+  id: RenderData
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: RenderData
+  nameWithType: Mesh.RenderData
+  fullName: LibGFX.Graphics.Mesh.RenderData
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RenderData
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 85
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: The render data associated with the mesh.
+  example: []
+  syntax:
+    content: public RenderData RenderData { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.RenderData
+    content.vb: Public Property RenderData As RenderData
+  overload: LibGFX.Graphics.Mesh.RenderData*
+- uid: LibGFX.Graphics.Mesh.Material
+  commentId: P:LibGFX.Graphics.Mesh.Material
+  id: Material
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: Material
+  nameWithType: Mesh.Material
+  fullName: LibGFX.Graphics.Mesh.Material
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Material
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 90
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Material used by the mesh.
+  example: []
+  syntax:
+    content: public IMaterial Material { get; set; }
+    parameters: []
+    return:
+      type: LibGFX.Graphics.Materials.IMaterial
+    content.vb: Public Property Material As IMaterial
+  overload: LibGFX.Graphics.Mesh.Material*
+- uid: LibGFX.Graphics.Mesh.IsInitialized
+  commentId: P:LibGFX.Graphics.Mesh.IsInitialized
+  id: IsInitialized
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: IsInitialized
+  nameWithType: Mesh.IsInitialized
+  fullName: LibGFX.Graphics.Mesh.IsInitialized
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IsInitialized
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 95
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Gets a value indicating whether the object has been initialized.
+  example: []
+  syntax:
+    content: public bool IsInitialized { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsInitialized As Boolean
+  overload: LibGFX.Graphics.Mesh.IsInitialized*
+  implements:
+  - LibGFX.Core.IGraphicsResource.IsInitialized
+- uid: LibGFX.Graphics.Mesh.Bounds
+  commentId: P:LibGFX.Graphics.Mesh.Bounds
+  id: Bounds
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: Bounds
+  nameWithType: Mesh.Bounds
+  fullName: LibGFX.Graphics.Mesh.Bounds
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Bounds
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 100
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Gets the axis-aligned bounding box that defines the spatial boundaries of the object.
+  example: []
+  syntax:
+    content: public AABB Bounds { get; }
+    parameters: []
+    return:
+      type: LibGFX.Math.AABB
+    content.vb: Public Property Bounds As AABB
+  overload: LibGFX.Graphics.Mesh.Bounds*
+- uid: LibGFX.Graphics.Mesh.#ctor
+  commentId: M:LibGFX.Graphics.Mesh.#ctor
+  id: '#ctor'
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: Mesh()
+  nameWithType: Mesh.Mesh()
+  fullName: LibGFX.Graphics.Mesh.Mesh()
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 109
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: >-
+    Initializes a new instance of the Mesh class with default values for vertices, indices, transformation, and
+
+    render data.
+  remarks: >-
+    The new Mesh instance starts with empty vertex and index collections, identity
+        transformation (no translation or rotation, unit scale), and a default RenderData object. Use the properties
+        to configure the mesh as needed before rendering or processing.
+  example: []
+  syntax:
+    content: public Mesh()
+    content.vb: Public Sub New()
+  overload: LibGFX.Graphics.Mesh.#ctor*
+  nameWithType.vb: Mesh.New()
+  fullName.vb: LibGFX.Graphics.Mesh.New()
+  name.vb: New()
+- uid: LibGFX.Graphics.Mesh.GetTransform
+  commentId: M:LibGFX.Graphics.Mesh.GetTransform
+  id: GetTransform
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: GetTransform()
+  nameWithType: Mesh.GetTransform()
+  fullName: LibGFX.Graphics.Mesh.GetTransform()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetTransform
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 128
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Calculates the local transformation matrix by combining the current scale, rotation, and translation values.
+  remarks: >-
+    The resulting matrix applies scaling first, then rotation, and finally translation.
+        This order affects how objects are transformed in local space. The method does not account for any parent
+        transformations; it only reflects the local transform.
+  example: []
+  syntax:
+    content: public Matrix4 GetTransform()
+    return:
+      type: OpenTK.Mathematics.Matrix4
+      description: >-
+        A <xref href="OpenTK.Mathematics.Matrix4" data-throw-if-not-resolved="false"></xref> representing the local transformation composed of scale, rotation, and translation,
+            applied in that order.
+    content.vb: Public Function GetTransform() As Matrix4
+  overload: LibGFX.Graphics.Mesh.GetTransform*
+- uid: LibGFX.Graphics.Mesh.Init(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Mesh.Init(LibGFX.Graphics.IRenderDevice)
+  id: Init(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: Init(IRenderDevice)
+  nameWithType: Mesh.Init(IRenderDevice)
+  fullName: LibGFX.Graphics.Mesh.Init(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Init
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 140
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Initializes the mesh by loading it into the specified render device.
+  example: []
+  syntax:
+    content: public void Init(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: The render device used to load and initialize the mesh. Cannot be null.
+    content.vb: Public Sub Init(renderer As IRenderDevice)
+  overload: LibGFX.Graphics.Mesh.Init*
+  implements:
+  - LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.Mesh.FreeCPUResources
+  commentId: M:LibGFX.Graphics.Mesh.FreeCPUResources
+  id: FreeCPUResources
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: FreeCPUResources()
+  nameWithType: Mesh.FreeCPUResources()
+  fullName: LibGFX.Graphics.Mesh.FreeCPUResources()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: FreeCPUResources
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 150
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Free any CPU resources that are currently allocated by the mesh.
+  example: []
+  syntax:
+    content: public void FreeCPUResources()
+    content.vb: Public Sub FreeCPUResources()
+  overload: LibGFX.Graphics.Mesh.FreeCPUResources*
+  implements:
+  - LibGFX.Core.IGraphicsResource.FreeCPUResources
+- uid: LibGFX.Graphics.Mesh.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Graphics.Mesh.Dispose(LibGFX.Graphics.IRenderDevice)
+  id: Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: Dispose(IRenderDevice)
+  nameWithType: Mesh.Dispose(IRenderDevice)
+  fullName: LibGFX.Graphics.Mesh.Dispose(LibGFX.Graphics.IRenderDevice)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Dispose
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 164
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Releases the resources associated with this mesh using the specified render device.
+  remarks: >-
+    After calling this method, the mesh is no longer initialized and should not be used
+        in rendering operations.
+  example: []
+  syntax:
+    content: public void Dispose(IRenderDevice renderer)
+    parameters:
+    - id: renderer
+      type: LibGFX.Graphics.IRenderDevice
+      description: The render device used to dispose of the mesh resources. Cannot be null.
+    content.vb: Public Sub Dispose(renderer As IRenderDevice)
+  overload: LibGFX.Graphics.Mesh.Dispose*
+  implements:
+  - LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+- uid: LibGFX.Graphics.Mesh.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Graphics.Mesh.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  id: Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: Mesh.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Graphics.Mesh.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Serialize
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 191
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Serializes the current object to a new JSON object representation.
+  example: []
+  syntax:
+    content: public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
+    parameters:
+    - id: writer
+      type: Newtonsoft.Json.JsonWriter
+    - id: serializationContext
+      type: LibGFX.Core.SerializationContext
+    - id: callback
+      type: System.Action{Newtonsoft.Json.JsonWriter}
+    content.vb: Public Sub Serialize(writer As JsonWriter, serializationContext As SerializationContext, callback As Action(Of JsonWriter) = Nothing)
+  overload: LibGFX.Graphics.Mesh.Serialize*
+  implements:
+  - LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  nameWithType.vb: Mesh.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Graphics.Mesh.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+- uid: LibGFX.Graphics.Mesh.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Graphics.Mesh.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  id: Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Graphics.Mesh
+  langs:
+  - csharp
+  - vb
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: Mesh.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Graphics.Mesh.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Mesh.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Deserialize
+    path: ../LibGFX/Graphics/Mesh.cs
+    startLine: 241
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Populates the current object with values from the specified JSON object.
+  example: []
+  syntax:
+    content: public void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
+    parameters:
+    - id: obj
+      type: Newtonsoft.Json.Linq.JObject
+    - id: serializationContext
+      type: LibGFX.Core.SerializationContext
+    - id: callback
+      type: System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+    content.vb: Public Sub Deserialize(obj As JObject, serializationContext As SerializationContext, callback As Func(Of JObject, Boolean) = Nothing)
+  overload: LibGFX.Graphics.Mesh.Deserialize*
+  implements:
+  - LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  nameWithType.vb: Mesh.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Graphics.Mesh.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Core.IGraphicsResource
+  commentId: T:LibGFX.Core.IGraphicsResource
+  parent: LibGFX.Core
+  href: LibGFX.Core.IGraphicsResource.html
+  name: IGraphicsResource
+  nameWithType: IGraphicsResource
+  fullName: LibGFX.Core.IGraphicsResource
+- uid: LibGFX.Core.IIdentifier
+  commentId: T:LibGFX.Core.IIdentifier
+  parent: LibGFX.Core
+  href: LibGFX.Core.IIdentifier.html
+  name: IIdentifier
+  nameWithType: IIdentifier
+  fullName: LibGFX.Core.IIdentifier
+- uid: LibGFX.Core.ISerialization
+  commentId: T:LibGFX.Core.ISerialization
+  parent: LibGFX.Core
+  href: LibGFX.Core.ISerialization.html
+  name: ISerialization
+  nameWithType: ISerialization
+  fullName: LibGFX.Core.ISerialization
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Graphics.Mesh.Name*
+  commentId: Overload:LibGFX.Graphics.Mesh.Name
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_Name
+  name: Name
+  nameWithType: Mesh.Name
+  fullName: LibGFX.Graphics.Mesh.Name
+- uid: LibGFX.Core.IIdentifier.Name
+  commentId: P:LibGFX.Core.IIdentifier.Name
+  parent: LibGFX.Core.IIdentifier
+  href: LibGFX.Core.IIdentifier.html#LibGFX_Core_IIdentifier_Name
+  name: Name
+  nameWithType: IIdentifier.Name
+  fullName: LibGFX.Core.IIdentifier.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: LibGFX.Graphics.Mesh.ID*
+  commentId: Overload:LibGFX.Graphics.Mesh.ID
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_ID
+  name: ID
+  nameWithType: Mesh.ID
+  fullName: LibGFX.Graphics.Mesh.ID
+- uid: LibGFX.Core.IIdentifier.ID
+  commentId: P:LibGFX.Core.IIdentifier.ID
+  parent: LibGFX.Core.IIdentifier
+  href: LibGFX.Core.IIdentifier.html#LibGFX_Core_IIdentifier_ID
+  name: ID
+  nameWithType: IIdentifier.ID
+  fullName: LibGFX.Core.IIdentifier.ID
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: LibGFX.Graphics.Mesh.Positions*
+  commentId: Overload:LibGFX.Graphics.Mesh.Positions
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_Positions
+  name: Positions
+  nameWithType: Mesh.Positions
+  fullName: LibGFX.Graphics.Mesh.Positions
+- uid: System.Collections.Generic.List{OpenTK.Mathematics.Vector3}
+  commentId: T:System.Collections.Generic.List{OpenTK.Mathematics.Vector3}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Vector3>
+  nameWithType: List<Vector3>
+  fullName: System.Collections.Generic.List<OpenTK.Mathematics.Vector3>
+  nameWithType.vb: List(Of Vector3)
+  fullName.vb: System.Collections.Generic.List(Of OpenTK.Mathematics.Vector3)
+  name.vb: List(Of Vector3)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: LibGFX.Graphics.Mesh.Vertices*
+  commentId: Overload:LibGFX.Graphics.Mesh.Vertices
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_Vertices
+  name: Vertices
+  nameWithType: Mesh.Vertices
+  fullName: LibGFX.Graphics.Mesh.Vertices
+- uid: System.Collections.Generic.List{LibGFX.Graphics.Vertex}
+  commentId: T:System.Collections.Generic.List{LibGFX.Graphics.Vertex}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Vertex>
+  nameWithType: List<Vertex>
+  fullName: System.Collections.Generic.List<LibGFX.Graphics.Vertex>
+  nameWithType.vb: List(Of Vertex)
+  fullName.vb: System.Collections.Generic.List(Of LibGFX.Graphics.Vertex)
+  name.vb: List(Of Vertex)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: LibGFX.Graphics.Vertex
+    name: Vertex
+    href: LibGFX.Graphics.Vertex.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: LibGFX.Graphics.Vertex
+    name: Vertex
+    href: LibGFX.Graphics.Vertex.html
+  - name: )
+- uid: LibGFX.Graphics.Mesh.Indices*
+  commentId: Overload:LibGFX.Graphics.Mesh.Indices
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_Indices
+  name: Indices
+  nameWithType: Mesh.Indices
+  fullName: LibGFX.Graphics.Mesh.Indices
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<int>
+  nameWithType: List<int>
+  fullName: System.Collections.Generic.List<int>
+  nameWithType.vb: List(Of Integer)
+  fullName.vb: System.Collections.Generic.List(Of Integer)
+  name.vb: List(Of Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: LibGFX.Graphics.Mesh.LocalTranslation*
+  commentId: Overload:LibGFX.Graphics.Mesh.LocalTranslation
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_LocalTranslation
+  name: LocalTranslation
+  nameWithType: Mesh.LocalTranslation
+  fullName: LibGFX.Graphics.Mesh.LocalTranslation
+- uid: OpenTK.Mathematics.Vector3
+  commentId: T:OpenTK.Mathematics.Vector3
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  name: Vector3
+  nameWithType: Vector3
+  fullName: OpenTK.Mathematics.Vector3
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Graphics.Mesh.LocalRotation*
+  commentId: Overload:LibGFX.Graphics.Mesh.LocalRotation
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_LocalRotation
+  name: LocalRotation
+  nameWithType: Mesh.LocalRotation
+  fullName: LibGFX.Graphics.Mesh.LocalRotation
+- uid: OpenTK.Mathematics.Quaternion
+  commentId: T:OpenTK.Mathematics.Quaternion
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Data/Quaternion.cs
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: OpenTK.Mathematics.Quaternion
+- uid: LibGFX.Graphics.Mesh.LocalScale*
+  commentId: Overload:LibGFX.Graphics.Mesh.LocalScale
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_LocalScale
+  name: LocalScale
+  nameWithType: Mesh.LocalScale
+  fullName: LibGFX.Graphics.Mesh.LocalScale
+- uid: LibGFX.Graphics.Mesh.RenderData*
+  commentId: Overload:LibGFX.Graphics.Mesh.RenderData
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_RenderData
+  name: RenderData
+  nameWithType: Mesh.RenderData
+  fullName: LibGFX.Graphics.Mesh.RenderData
+- uid: LibGFX.Graphics.RenderData
+  commentId: T:LibGFX.Graphics.RenderData
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.RenderData.html
+  name: RenderData
+  nameWithType: RenderData
+  fullName: LibGFX.Graphics.RenderData
+- uid: LibGFX.Graphics.Mesh.Material*
+  commentId: Overload:LibGFX.Graphics.Mesh.Material
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_Material
+  name: Material
+  nameWithType: Mesh.Material
+  fullName: LibGFX.Graphics.Mesh.Material
+- uid: LibGFX.Graphics.Materials.IMaterial
+  commentId: T:LibGFX.Graphics.Materials.IMaterial
+  parent: LibGFX.Graphics.Materials
+  href: LibGFX.Graphics.Materials.IMaterial.html
+  name: IMaterial
+  nameWithType: IMaterial
+  fullName: LibGFX.Graphics.Materials.IMaterial
+- uid: LibGFX.Graphics.Materials
+  commentId: N:LibGFX.Graphics.Materials
+  href: LibGFX.html
+  name: LibGFX.Graphics.Materials
+  nameWithType: LibGFX.Graphics.Materials
+  fullName: LibGFX.Graphics.Materials
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Materials
+    name: Materials
+    href: LibGFX.Graphics.Materials.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Materials
+    name: Materials
+    href: LibGFX.Graphics.Materials.html
+- uid: LibGFX.Graphics.Mesh.IsInitialized*
+  commentId: Overload:LibGFX.Graphics.Mesh.IsInitialized
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_IsInitialized
+  name: IsInitialized
+  nameWithType: Mesh.IsInitialized
+  fullName: LibGFX.Graphics.Mesh.IsInitialized
+- uid: LibGFX.Core.IGraphicsResource.IsInitialized
+  commentId: P:LibGFX.Core.IGraphicsResource.IsInitialized
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_IsInitialized
+  name: IsInitialized
+  nameWithType: IGraphicsResource.IsInitialized
+  fullName: LibGFX.Core.IGraphicsResource.IsInitialized
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: LibGFX.Graphics.Mesh.Bounds*
+  commentId: Overload:LibGFX.Graphics.Mesh.Bounds
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_Bounds
+  name: Bounds
+  nameWithType: Mesh.Bounds
+  fullName: LibGFX.Graphics.Mesh.Bounds
+- uid: LibGFX.Math.AABB
+  commentId: T:LibGFX.Math.AABB
+  parent: LibGFX.Math
+  href: LibGFX.Math.AABB.html
+  name: AABB
+  nameWithType: AABB
+  fullName: LibGFX.Math.AABB
+- uid: LibGFX.Math
+  commentId: N:LibGFX.Math
+  href: LibGFX.html
+  name: LibGFX.Math
+  nameWithType: LibGFX.Math
+  fullName: LibGFX.Math
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Math
+    name: Math
+    href: LibGFX.Math.html
+- uid: LibGFX.Graphics.Mesh.#ctor*
+  commentId: Overload:LibGFX.Graphics.Mesh.#ctor
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh__ctor
+  name: Mesh
+  nameWithType: Mesh.Mesh
+  fullName: LibGFX.Graphics.Mesh.Mesh
+  nameWithType.vb: Mesh.New
+  fullName.vb: LibGFX.Graphics.Mesh.New
+  name.vb: New
+- uid: OpenTK.Mathematics.Matrix4
+  commentId: T:OpenTK.Mathematics.Matrix4
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Matrix/Matrix4.cs
+  name: Matrix4
+  nameWithType: Matrix4
+  fullName: OpenTK.Mathematics.Matrix4
+- uid: LibGFX.Graphics.Mesh.GetTransform*
+  commentId: Overload:LibGFX.Graphics.Mesh.GetTransform
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_GetTransform
+  name: GetTransform
+  nameWithType: Mesh.GetTransform
+  fullName: LibGFX.Graphics.Mesh.GetTransform
+- uid: LibGFX.Graphics.Mesh.Init*
+  commentId: Overload:LibGFX.Graphics.Mesh.Init
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_Init_LibGFX_Graphics_IRenderDevice_
+  name: Init
+  nameWithType: Mesh.Init
+  fullName: LibGFX.Graphics.Mesh.Init
+- uid: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Init_LibGFX_Graphics_IRenderDevice_
+  name: Init(IRenderDevice)
+  nameWithType: IGraphicsResource.Init(IRenderDevice)
+  fullName: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGraphicsResource.Init(LibGFX.Graphics.IRenderDevice)
+    name: Init
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Init_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Graphics.IRenderDevice
+  commentId: T:LibGFX.Graphics.IRenderDevice
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.IRenderDevice.html
+  name: IRenderDevice
+  nameWithType: IRenderDevice
+  fullName: LibGFX.Graphics.IRenderDevice
+- uid: LibGFX.Graphics.Mesh.FreeCPUResources*
+  commentId: Overload:LibGFX.Graphics.Mesh.FreeCPUResources
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_FreeCPUResources
+  name: FreeCPUResources
+  nameWithType: Mesh.FreeCPUResources
+  fullName: LibGFX.Graphics.Mesh.FreeCPUResources
+- uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+  commentId: M:LibGFX.Core.IGraphicsResource.FreeCPUResources
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  name: FreeCPUResources()
+  nameWithType: IGraphicsResource.FreeCPUResources()
+  fullName: LibGFX.Core.IGraphicsResource.FreeCPUResources()
+  spec.csharp:
+  - uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+    name: FreeCPUResources
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGraphicsResource.FreeCPUResources
+    name: FreeCPUResources
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_FreeCPUResources
+  - name: (
+  - name: )
+- uid: LibGFX.Graphics.Mesh.Dispose*
+  commentId: Overload:LibGFX.Graphics.Mesh.Dispose
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose
+  nameWithType: Mesh.Dispose
+  fullName: LibGFX.Graphics.Mesh.Dispose
+- uid: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Core.IGraphicsResource
+  href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  name: Dispose(IRenderDevice)
+  nameWithType: IGraphicsResource.Dispose(IRenderDevice)
+  fullName: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.IGraphicsResource.Dispose(LibGFX.Graphics.IRenderDevice)
+    name: Dispose
+    href: LibGFX.Core.IGraphicsResource.html#LibGFX_Core_IGraphicsResource_Dispose_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: Newtonsoft.Json.Linq.JObject
+  commentId: T:Newtonsoft.Json.Linq.JObject
+  parent: Newtonsoft.Json.Linq
+  isExternal: true
+  name: JObject
+  nameWithType: JObject
+  fullName: Newtonsoft.Json.Linq.JObject
+- uid: LibGFX.Graphics.Mesh.Serialize*
+  commentId: Overload:LibGFX.Graphics.Mesh.Serialize
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize
+  nameWithType: Mesh.Serialize
+  fullName: LibGFX.Graphics.Mesh.Serialize
+- uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  commentId: M:LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  name: Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  nameWithType: ISerialization.Serialize(JsonWriter, SerializationContext, Action<JsonWriter>)
+  fullName: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action<Newtonsoft.Json.JsonWriter>)
+  nameWithType.vb: ISerialization.Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  fullName.vb: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter, LibGFX.Core.SerializationContext, System.Action(Of Newtonsoft.Json.JsonWriter))
+  name.vb: Serialize(JsonWriter, SerializationContext, Action(Of JsonWriter))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Serialize(Newtonsoft.Json.JsonWriter,LibGFX.Core.SerializationContext,System.Action{Newtonsoft.Json.JsonWriter})
+    name: Serialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Serialize_Newtonsoft_Json_JsonWriter_LibGFX_Core_SerializationContext_System_Action_Newtonsoft_Json_JsonWriter__
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+  - name: )
+- uid: Newtonsoft.Json.JsonWriter
+  commentId: T:Newtonsoft.Json.JsonWriter
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonWriter
+  nameWithType: JsonWriter
+  fullName: Newtonsoft.Json.JsonWriter
+- uid: LibGFX.Core.SerializationContext
+  commentId: T:LibGFX.Core.SerializationContext
+  parent: LibGFX.Core
+  href: LibGFX.Core.SerializationContext.html
+  name: SerializationContext
+  nameWithType: SerializationContext
+  fullName: LibGFX.Core.SerializationContext
+- uid: System.Action{Newtonsoft.Json.JsonWriter}
+  commentId: T:System.Action{Newtonsoft.Json.JsonWriter}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<JsonWriter>
+  nameWithType: Action<JsonWriter>
+  fullName: System.Action<Newtonsoft.Json.JsonWriter>
+  nameWithType.vb: Action(Of JsonWriter)
+  fullName.vb: System.Action(Of Newtonsoft.Json.JsonWriter)
+  name.vb: Action(Of JsonWriter)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: )
+- uid: Newtonsoft.Json.Linq
+  commentId: N:Newtonsoft.Json.Linq
+  isExternal: true
+  name: Newtonsoft.Json.Linq
+  nameWithType: Newtonsoft.Json.Linq
+  fullName: Newtonsoft.Json.Linq
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Linq
+    name: Linq
+    isExternal: true
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: LibGFX.Graphics.Mesh.Deserialize*
+  commentId: Overload:LibGFX.Graphics.Mesh.Deserialize
+  href: LibGFX.Graphics.Mesh.html#LibGFX_Graphics_Mesh_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize
+  nameWithType: Mesh.Deserialize
+  fullName: LibGFX.Graphics.Mesh.Deserialize
+- uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  commentId: M:LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+  parent: LibGFX.Core.ISerialization
+  isExternal: true
+  href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  name: Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  nameWithType: ISerialization.Deserialize(JObject, SerializationContext, Func<JObject, bool>)
+  fullName: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func<Newtonsoft.Json.Linq.JObject, bool>)
+  nameWithType.vb: ISerialization.Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  fullName.vb: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject, LibGFX.Core.SerializationContext, System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean))
+  name.vb: Deserialize(JObject, SerializationContext, Func(Of JObject, Boolean))
+  spec.csharp:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Core.ISerialization.Deserialize(Newtonsoft.Json.Linq.JObject,LibGFX.Core.SerializationContext,System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean})
+    name: Deserialize
+    href: LibGFX.Core.ISerialization.html#LibGFX_Core_ISerialization_Deserialize_Newtonsoft_Json_Linq_JObject_LibGFX_Core_SerializationContext_System_Func_Newtonsoft_Json_Linq_JObject_System_Boolean__
+  - name: (
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    href: LibGFX.Core.SerializationContext.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+  commentId: T:System.Func{Newtonsoft.Json.Linq.JObject,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<JObject, bool>
+  nameWithType: Func<JObject, bool>
+  fullName: System.Func<Newtonsoft.Json.Linq.JObject, bool>
+  nameWithType.vb: Func(Of JObject, Boolean)
+  fullName.vb: System.Func(Of Newtonsoft.Json.Linq.JObject, Boolean)
+  name.vb: Func(Of JObject, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Newtonsoft.Json.Linq.JObject
+    name: JObject
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )

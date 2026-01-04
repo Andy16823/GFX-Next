@@ -1,0 +1,138 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Lights
+  commentId: N:LibGFX.Graphics.Lights
+  id: LibGFX.Graphics.Lights
+  children:
+  - LibGFX.Graphics.Lights.DirectionalLight2D
+  - LibGFX.Graphics.Lights.DirectionalLight3D
+  - LibGFX.Graphics.Lights.ILightManager
+  - LibGFX.Graphics.Lights.Light
+  - LibGFX.Graphics.Lights.Light2DChunk
+  - LibGFX.Graphics.Lights.Light2DManager
+  - LibGFX.Graphics.Lights.Light3DChunk
+  - LibGFX.Graphics.Lights.Light3DManager
+  - LibGFX.Graphics.Lights.Point2DLightData
+  - LibGFX.Graphics.Lights.PointLight2D
+  - LibGFX.Graphics.Lights.PointLight3D
+  - LibGFX.Graphics.Lights.PointLight3DData
+  langs:
+  - csharp
+  - vb
+  name: LibGFX.Graphics.Lights
+  nameWithType: LibGFX.Graphics.Lights
+  fullName: LibGFX.Graphics.Lights
+  type: Namespace
+  assemblies:
+  - LibGFX
+references:
+- uid: LibGFX.Graphics.Lights.DirectionalLight2D
+  commentId: T:LibGFX.Graphics.Lights.DirectionalLight2D
+  parent: LibGFX.Graphics.Lights
+  href: LibGFX.Graphics.Lights.DirectionalLight2D.html
+  name: DirectionalLight2D
+  nameWithType: DirectionalLight2D
+  fullName: LibGFX.Graphics.Lights.DirectionalLight2D
+- uid: LibGFX.Graphics.Lights.DirectionalLight3D
+  commentId: T:LibGFX.Graphics.Lights.DirectionalLight3D
+  parent: LibGFX.Graphics.Lights
+  href: LibGFX.Graphics.Lights.DirectionalLight3D.html
+  name: DirectionalLight3D
+  nameWithType: DirectionalLight3D
+  fullName: LibGFX.Graphics.Lights.DirectionalLight3D
+- uid: LibGFX.Graphics.Lights.ILightManager
+  commentId: T:LibGFX.Graphics.Lights.ILightManager
+  parent: LibGFX.Graphics.Lights
+  href: LibGFX.Graphics.Lights.ILightManager.html
+  name: ILightManager
+  nameWithType: ILightManager
+  fullName: LibGFX.Graphics.Lights.ILightManager
+- uid: LibGFX.Graphics.Lights.Light
+  commentId: T:LibGFX.Graphics.Lights.Light
+  parent: LibGFX.Graphics.Lights
+  href: LibGFX.Graphics.Lights.Light.html
+  name: Light
+  nameWithType: Light
+  fullName: LibGFX.Graphics.Lights.Light
+- uid: LibGFX.Graphics.Lights.Light2DChunk
+  commentId: T:LibGFX.Graphics.Lights.Light2DChunk
+  href: LibGFX.Graphics.Lights.Light2DChunk.html
+  name: Light2DChunk
+  nameWithType: Light2DChunk
+  fullName: LibGFX.Graphics.Lights.Light2DChunk
+- uid: LibGFX.Graphics.Lights.Light2DManager
+  commentId: T:LibGFX.Graphics.Lights.Light2DManager
+  href: LibGFX.Graphics.Lights.Light2DManager.html
+  name: Light2DManager
+  nameWithType: Light2DManager
+  fullName: LibGFX.Graphics.Lights.Light2DManager
+- uid: LibGFX.Graphics.Lights.Light3DChunk
+  commentId: T:LibGFX.Graphics.Lights.Light3DChunk
+  href: LibGFX.Graphics.Lights.Light3DChunk.html
+  name: Light3DChunk
+  nameWithType: Light3DChunk
+  fullName: LibGFX.Graphics.Lights.Light3DChunk
+- uid: LibGFX.Graphics.Lights.Light3DManager
+  commentId: T:LibGFX.Graphics.Lights.Light3DManager
+  href: LibGFX.Graphics.Lights.Light3DManager.html
+  name: Light3DManager
+  nameWithType: Light3DManager
+  fullName: LibGFX.Graphics.Lights.Light3DManager
+- uid: LibGFX.Graphics.Lights.Point2DLightData
+  commentId: T:LibGFX.Graphics.Lights.Point2DLightData
+  parent: LibGFX.Graphics.Lights
+  href: LibGFX.Graphics.Lights.Point2DLightData.html
+  name: Point2DLightData
+  nameWithType: Point2DLightData
+  fullName: LibGFX.Graphics.Lights.Point2DLightData
+- uid: LibGFX.Graphics.Lights.PointLight2D
+  commentId: T:LibGFX.Graphics.Lights.PointLight2D
+  parent: LibGFX.Graphics.Lights
+  href: LibGFX.Graphics.Lights.PointLight2D.html
+  name: PointLight2D
+  nameWithType: PointLight2D
+  fullName: LibGFX.Graphics.Lights.PointLight2D
+- uid: LibGFX.Graphics.Lights.PointLight3DData
+  commentId: T:LibGFX.Graphics.Lights.PointLight3DData
+  parent: LibGFX.Graphics.Lights
+  href: LibGFX.Graphics.Lights.PointLight3DData.html
+  name: PointLight3DData
+  nameWithType: PointLight3DData
+  fullName: LibGFX.Graphics.Lights.PointLight3DData
+- uid: LibGFX.Graphics.Lights.PointLight3D
+  commentId: T:LibGFX.Graphics.Lights.PointLight3D
+  parent: LibGFX.Graphics.Lights
+  href: LibGFX.Graphics.Lights.PointLight3D.html
+  name: PointLight3D
+  nameWithType: PointLight3D
+  fullName: LibGFX.Graphics.Lights.PointLight3D
+- uid: LibGFX.Graphics.Lights
+  commentId: N:LibGFX.Graphics.Lights
+  href: LibGFX.html
+  name: LibGFX.Graphics.Lights
+  nameWithType: LibGFX.Graphics.Lights
+  fullName: LibGFX.Graphics.Lights
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Lights
+    name: Lights
+    href: LibGFX.Graphics.Lights.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Lights
+    name: Lights
+    href: LibGFX.Graphics.Lights.html

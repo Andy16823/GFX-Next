@@ -1,0 +1,159 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Core.IIdentifier
+  commentId: T:LibGFX.Core.IIdentifier
+  id: IIdentifier
+  parent: LibGFX.Core
+  children:
+  - LibGFX.Core.IIdentifier.ID
+  - LibGFX.Core.IIdentifier.Name
+  langs:
+  - csharp
+  - vb
+  name: IIdentifier
+  nameWithType: IIdentifier
+  fullName: LibGFX.Core.IIdentifier
+  type: Interface
+  source:
+    remote:
+      path: LibGFX/Core/IIdentifier.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: IIdentifier
+    path: ../LibGFX/Core/IIdentifier.cs
+    startLine: 14
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Defines a contract for objects that have a unique identifier and a name.
+  remarks: >-
+    Implementations of this interface can be used to represent entities that require both a
+        human-readable name and a globally unique identifier. This is commonly used for objects that need to be
+        referenced or tracked across different systems or contexts.
+  example: []
+  syntax:
+    content: public interface IIdentifier
+    content.vb: Public Interface IIdentifier
+- uid: LibGFX.Core.IIdentifier.Name
+  commentId: P:LibGFX.Core.IIdentifier.Name
+  id: Name
+  parent: LibGFX.Core.IIdentifier
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IIdentifier.Name
+  fullName: LibGFX.Core.IIdentifier.Name
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/IIdentifier.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Name
+    path: ../LibGFX/Core/IIdentifier.cs
+    startLine: 19
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Gets or sets the name associated with the object.
+  example: []
+  syntax:
+    content: string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Name As String
+  overload: LibGFX.Core.IIdentifier.Name*
+- uid: LibGFX.Core.IIdentifier.ID
+  commentId: P:LibGFX.Core.IIdentifier.ID
+  id: ID
+  parent: LibGFX.Core.IIdentifier
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: IIdentifier.ID
+  fullName: LibGFX.Core.IIdentifier.ID
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/IIdentifier.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ID
+    path: ../LibGFX/Core/IIdentifier.cs
+    startLine: 24
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Gets or sets the unique identifier for the entity.
+  example: []
+  syntax:
+    content: Guid ID { get; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: ReadOnly Property ID As Guid
+  overload: LibGFX.Core.IIdentifier.ID*
+references:
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Core.IIdentifier.Name*
+  commentId: Overload:LibGFX.Core.IIdentifier.Name
+  href: LibGFX.Core.IIdentifier.html#LibGFX_Core_IIdentifier_Name
+  name: Name
+  nameWithType: IIdentifier.Name
+  fullName: LibGFX.Core.IIdentifier.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core.IIdentifier.ID*
+  commentId: Overload:LibGFX.Core.IIdentifier.ID
+  href: LibGFX.Core.IIdentifier.html#LibGFX_Core_IIdentifier_ID
+  name: ID
+  nameWithType: IIdentifier.ID
+  fullName: LibGFX.Core.IIdentifier.ID
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid

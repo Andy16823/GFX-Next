@@ -1,0 +1,1546 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Physics.Behaviors3D.SphereRigidBody
+  commentId: T:LibGFX.Physics.Behaviors3D.SphereRigidBody
+  id: SphereRigidBody
+  parent: LibGFX.Physics.Behaviors3D
+  children:
+  - LibGFX.Physics.Behaviors3D.SphereRigidBody.#ctor(LibGFX.Physics.PhysicsHandler)
+  - LibGFX.Physics.Behaviors3D.SphereRigidBody.CreateRigidBody(System.Single,System.Single,System.Int32,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: SphereRigidBody
+  nameWithType: SphereRigidBody
+  fullName: LibGFX.Physics.Behaviors3D.SphereRigidBody
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors3D/SphereRigidBody.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SphereRigidBody
+    path: ../LibGFX/Physics/Behaviors3D/SphereRigidBody.cs
+    startLine: 14
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors3D
+  summary: Represents a 3D sphere rigid body
+  example: []
+  syntax:
+    content: 'public class SphereRigidBody : RigidBodyBehavior, IGameBehavior'
+    content.vb: Public Class SphereRigidBody Inherits RigidBodyBehavior Implements IGameBehavior
+  inheritance:
+  - System.Object
+  - LibGFX.Physics.PhysicsBehavior
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior
+  implements:
+  - LibGFX.Core.IGameBehavior
+  inheritedMembers:
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.RigidBody
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.Parent
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.Offset
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.AngularVelocity
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.LinearVelocity
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.Restitution
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.Friction
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.GetLinearVelocity
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.SetLinearVelocity(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.GetAngularVelocity
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.SetAngularVelocity(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.SetAngularFactor(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.SetLinearFactor(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyImpulse(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyCentralImpulse(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyForce(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyCentralForce(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyTorque(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.Sync
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.Translate(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Vector3)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Quaternion)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.GetRotation
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.GetLocation
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateForwardVector(System.Single)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateRightVector(System.Single)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateUpVector(System.Single)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.EnableContinuousCollisionDetection(System.Single,System.Single)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.GetPhysicsObject
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.RemoveRigidBody
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.GetElement
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.SetElement(LibGFX.Core.GameElement)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.OnCollide(LibGFX.Physics.Collision)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  - LibGFX.Physics.Behaviors.RigidBodyBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  - LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+  - LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Physics.Behaviors3D.SphereRigidBody.#ctor(LibGFX.Physics.PhysicsHandler)
+  commentId: M:LibGFX.Physics.Behaviors3D.SphereRigidBody.#ctor(LibGFX.Physics.PhysicsHandler)
+  id: '#ctor(LibGFX.Physics.PhysicsHandler)'
+  parent: LibGFX.Physics.Behaviors3D.SphereRigidBody
+  langs:
+  - csharp
+  - vb
+  name: SphereRigidBody(PhysicsHandler)
+  nameWithType: SphereRigidBody.SphereRigidBody(PhysicsHandler)
+  fullName: LibGFX.Physics.Behaviors3D.SphereRigidBody.SphereRigidBody(LibGFX.Physics.PhysicsHandler)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors3D/SphereRigidBody.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Physics/Behaviors3D/SphereRigidBody.cs
+    startLine: 20
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors3D
+  summary: Creates a new 3D sphere rigid body
+  example: []
+  syntax:
+    content: public SphereRigidBody(PhysicsHandler physicsHandler)
+    parameters:
+    - id: physicsHandler
+      type: LibGFX.Physics.PhysicsHandler
+      description: ''
+    content.vb: Public Sub New(physicsHandler As PhysicsHandler)
+  overload: LibGFX.Physics.Behaviors3D.SphereRigidBody.#ctor*
+  nameWithType.vb: SphereRigidBody.New(PhysicsHandler)
+  fullName.vb: LibGFX.Physics.Behaviors3D.SphereRigidBody.New(LibGFX.Physics.PhysicsHandler)
+  name.vb: New(PhysicsHandler)
+- uid: LibGFX.Physics.Behaviors3D.SphereRigidBody.CreateRigidBody(System.Single,System.Single,System.Int32,System.Int32)
+  commentId: M:LibGFX.Physics.Behaviors3D.SphereRigidBody.CreateRigidBody(System.Single,System.Single,System.Int32,System.Int32)
+  id: CreateRigidBody(System.Single,System.Single,System.Int32,System.Int32)
+  parent: LibGFX.Physics.Behaviors3D.SphereRigidBody
+  langs:
+  - csharp
+  - vb
+  name: CreateRigidBody(float, float, int, int)
+  nameWithType: SphereRigidBody.CreateRigidBody(float, float, int, int)
+  fullName: LibGFX.Physics.Behaviors3D.SphereRigidBody.CreateRigidBody(float, float, int, int)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Behaviors3D/SphereRigidBody.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: CreateRigidBody
+    path: ../LibGFX/Physics/Behaviors3D/SphereRigidBody.cs
+    startLine: 32
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics.Behaviors3D
+  summary: Creates a sphere rigid body with the given mass, radius, collision group and collision mask
+  example: []
+  syntax:
+    content: public void CreateRigidBody(float mass, float radius = 0.5, int collisionGroup = -1, int collisionMask = -1)
+    parameters:
+    - id: mass
+      type: System.Single
+      description: ''
+    - id: radius
+      type: System.Single
+      description: ''
+    - id: collisionGroup
+      type: System.Int32
+      description: ''
+    - id: collisionMask
+      type: System.Int32
+      description: ''
+    content.vb: Public Sub CreateRigidBody(mass As Single, radius As Single = 0.5, collisionGroup As Integer = -1, collisionMask As Integer = -1)
+  overload: LibGFX.Physics.Behaviors3D.SphereRigidBody.CreateRigidBody*
+  nameWithType.vb: SphereRigidBody.CreateRigidBody(Single, Single, Integer, Integer)
+  fullName.vb: LibGFX.Physics.Behaviors3D.SphereRigidBody.CreateRigidBody(Single, Single, Integer, Integer)
+  name.vb: CreateRigidBody(Single, Single, Integer, Integer)
+references:
+- uid: LibGFX.Physics.Behaviors3D
+  commentId: N:LibGFX.Physics.Behaviors3D
+  href: LibGFX.html
+  name: LibGFX.Physics.Behaviors3D
+  nameWithType: LibGFX.Physics.Behaviors3D
+  fullName: LibGFX.Physics.Behaviors3D
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  - name: .
+  - uid: LibGFX.Physics.Behaviors3D
+    name: Behaviors3D
+    href: LibGFX.Physics.Behaviors3D.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  - name: .
+  - uid: LibGFX.Physics.Behaviors3D
+    name: Behaviors3D
+    href: LibGFX.Physics.Behaviors3D.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: LibGFX.Physics.PhysicsBehavior
+  commentId: T:LibGFX.Physics.PhysicsBehavior
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.PhysicsBehavior.html
+  name: PhysicsBehavior
+  nameWithType: PhysicsBehavior
+  fullName: LibGFX.Physics.PhysicsBehavior
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  commentId: T:LibGFX.Physics.Behaviors.RigidBodyBehavior
+  parent: LibGFX.Physics.Behaviors
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html
+  name: RigidBodyBehavior
+  nameWithType: RigidBodyBehavior
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior
+- uid: LibGFX.Core.IGameBehavior
+  commentId: T:LibGFX.Core.IGameBehavior
+  parent: LibGFX.Core
+  href: LibGFX.Core.IGameBehavior.html
+  name: IGameBehavior
+  nameWithType: IGameBehavior
+  fullName: LibGFX.Core.IGameBehavior
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.RigidBody
+  commentId: P:LibGFX.Physics.Behaviors.RigidBodyBehavior.RigidBody
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_RigidBody
+  name: RigidBody
+  nameWithType: RigidBodyBehavior.RigidBody
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.RigidBody
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.Parent
+  commentId: P:LibGFX.Physics.Behaviors.RigidBodyBehavior.Parent
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_Parent
+  name: Parent
+  nameWithType: RigidBodyBehavior.Parent
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.Parent
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.Offset
+  commentId: P:LibGFX.Physics.Behaviors.RigidBodyBehavior.Offset
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_Offset
+  name: Offset
+  nameWithType: RigidBodyBehavior.Offset
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.Offset
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.AngularVelocity
+  commentId: P:LibGFX.Physics.Behaviors.RigidBodyBehavior.AngularVelocity
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_AngularVelocity
+  name: AngularVelocity
+  nameWithType: RigidBodyBehavior.AngularVelocity
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.AngularVelocity
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.LinearVelocity
+  commentId: P:LibGFX.Physics.Behaviors.RigidBodyBehavior.LinearVelocity
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_LinearVelocity
+  name: LinearVelocity
+  nameWithType: RigidBodyBehavior.LinearVelocity
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.LinearVelocity
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.Restitution
+  commentId: P:LibGFX.Physics.Behaviors.RigidBodyBehavior.Restitution
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_Restitution
+  name: Restitution
+  nameWithType: RigidBodyBehavior.Restitution
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.Restitution
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.Friction
+  commentId: P:LibGFX.Physics.Behaviors.RigidBodyBehavior.Friction
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_Friction
+  name: Friction
+  nameWithType: RigidBodyBehavior.Friction
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.Friction
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetLinearVelocity
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.GetLinearVelocity
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetLinearVelocity
+  name: GetLinearVelocity()
+  nameWithType: RigidBodyBehavior.GetLinearVelocity()
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetLinearVelocity()
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetLinearVelocity
+    name: GetLinearVelocity
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetLinearVelocity
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetLinearVelocity
+    name: GetLinearVelocity
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetLinearVelocity
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetLinearVelocity(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.SetLinearVelocity(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_SetLinearVelocity_OpenTK_Mathematics_Vector3_
+  name: SetLinearVelocity(Vector3)
+  nameWithType: RigidBodyBehavior.SetLinearVelocity(Vector3)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetLinearVelocity(OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetLinearVelocity(OpenTK.Mathematics.Vector3)
+    name: SetLinearVelocity
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_SetLinearVelocity_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetLinearVelocity(OpenTK.Mathematics.Vector3)
+    name: SetLinearVelocity
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_SetLinearVelocity_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetAngularVelocity
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.GetAngularVelocity
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetAngularVelocity
+  name: GetAngularVelocity()
+  nameWithType: RigidBodyBehavior.GetAngularVelocity()
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetAngularVelocity()
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetAngularVelocity
+    name: GetAngularVelocity
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetAngularVelocity
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetAngularVelocity
+    name: GetAngularVelocity
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetAngularVelocity
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetAngularVelocity(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.SetAngularVelocity(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_SetAngularVelocity_OpenTK_Mathematics_Vector3_
+  name: SetAngularVelocity(Vector3)
+  nameWithType: RigidBodyBehavior.SetAngularVelocity(Vector3)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetAngularVelocity(OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetAngularVelocity(OpenTK.Mathematics.Vector3)
+    name: SetAngularVelocity
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_SetAngularVelocity_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetAngularVelocity(OpenTK.Mathematics.Vector3)
+    name: SetAngularVelocity
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_SetAngularVelocity_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetAngularFactor(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.SetAngularFactor(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_SetAngularFactor_OpenTK_Mathematics_Vector3_
+  name: SetAngularFactor(Vector3)
+  nameWithType: RigidBodyBehavior.SetAngularFactor(Vector3)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetAngularFactor(OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetAngularFactor(OpenTK.Mathematics.Vector3)
+    name: SetAngularFactor
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_SetAngularFactor_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetAngularFactor(OpenTK.Mathematics.Vector3)
+    name: SetAngularFactor
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_SetAngularFactor_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetLinearFactor(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.SetLinearFactor(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_SetLinearFactor_OpenTK_Mathematics_Vector3_
+  name: SetLinearFactor(Vector3)
+  nameWithType: RigidBodyBehavior.SetLinearFactor(Vector3)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetLinearFactor(OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetLinearFactor(OpenTK.Mathematics.Vector3)
+    name: SetLinearFactor
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_SetLinearFactor_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetLinearFactor(OpenTK.Mathematics.Vector3)
+    name: SetLinearFactor
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_SetLinearFactor_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyImpulse(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyImpulse(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_ApplyImpulse_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  name: ApplyImpulse(Vector3, Vector3)
+  nameWithType: RigidBodyBehavior.ApplyImpulse(Vector3, Vector3)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyImpulse(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyImpulse(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+    name: ApplyImpulse
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_ApplyImpulse_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyImpulse(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+    name: ApplyImpulse
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_ApplyImpulse_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyCentralImpulse(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyCentralImpulse(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_ApplyCentralImpulse_OpenTK_Mathematics_Vector3_
+  name: ApplyCentralImpulse(Vector3)
+  nameWithType: RigidBodyBehavior.ApplyCentralImpulse(Vector3)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyCentralImpulse(OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyCentralImpulse(OpenTK.Mathematics.Vector3)
+    name: ApplyCentralImpulse
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_ApplyCentralImpulse_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyCentralImpulse(OpenTK.Mathematics.Vector3)
+    name: ApplyCentralImpulse
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_ApplyCentralImpulse_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyForce(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyForce(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_ApplyForce_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  name: ApplyForce(Vector3, Vector3)
+  nameWithType: RigidBodyBehavior.ApplyForce(Vector3, Vector3)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyForce(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyForce(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+    name: ApplyForce
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_ApplyForce_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyForce(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+    name: ApplyForce
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_ApplyForce_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: ','
+  - name: " "
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyCentralForce(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyCentralForce(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_ApplyCentralForce_OpenTK_Mathematics_Vector3_
+  name: ApplyCentralForce(Vector3)
+  nameWithType: RigidBodyBehavior.ApplyCentralForce(Vector3)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyCentralForce(OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyCentralForce(OpenTK.Mathematics.Vector3)
+    name: ApplyCentralForce
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_ApplyCentralForce_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyCentralForce(OpenTK.Mathematics.Vector3)
+    name: ApplyCentralForce
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_ApplyCentralForce_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyTorque(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyTorque(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_ApplyTorque_OpenTK_Mathematics_Vector3_
+  name: ApplyTorque(Vector3)
+  nameWithType: RigidBodyBehavior.ApplyTorque(Vector3)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyTorque(OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyTorque(OpenTK.Mathematics.Vector3)
+    name: ApplyTorque
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_ApplyTorque_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.ApplyTorque(OpenTK.Mathematics.Vector3)
+    name: ApplyTorque
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_ApplyTorque_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.Sync
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.Sync
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_Sync
+  name: Sync()
+  nameWithType: RigidBodyBehavior.Sync()
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.Sync()
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.Sync
+    name: Sync
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_Sync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.Sync
+    name: Sync
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_Sync
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.Translate(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.Translate(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_Translate_OpenTK_Mathematics_Vector3_
+  name: Translate(Vector3)
+  nameWithType: RigidBodyBehavior.Translate(Vector3)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.Translate(OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.Translate(OpenTK.Mathematics.Vector3)
+    name: Translate
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_Translate_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.Translate(OpenTK.Mathematics.Vector3)
+    name: Translate
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_Translate_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_Rotate_OpenTK_Mathematics_Vector3_
+  name: Rotate(Vector3)
+  nameWithType: RigidBodyBehavior.Rotate(Vector3)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Vector3)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Vector3)
+    name: Rotate
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_Rotate_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Vector3)
+    name: Rotate
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_Rotate_OpenTK_Mathematics_Vector3_
+  - name: (
+  - uid: OpenTK.Mathematics.Vector3
+    name: Vector3
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Quaternion)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Quaternion)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_Rotate_OpenTK_Mathematics_Quaternion_
+  name: Rotate(Quaternion)
+  nameWithType: RigidBodyBehavior.Rotate(Quaternion)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Quaternion)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Quaternion)
+    name: Rotate
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_Rotate_OpenTK_Mathematics_Quaternion_
+  - name: (
+  - uid: OpenTK.Mathematics.Quaternion
+    name: Quaternion
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Data/Quaternion.cs
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.Rotate(OpenTK.Mathematics.Quaternion)
+    name: Rotate
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_Rotate_OpenTK_Mathematics_Quaternion_
+  - name: (
+  - uid: OpenTK.Mathematics.Quaternion
+    name: Quaternion
+    isExternal: true
+    href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Data/Quaternion.cs
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetRotation
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.GetRotation
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetRotation
+  name: GetRotation()
+  nameWithType: RigidBodyBehavior.GetRotation()
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetRotation()
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetRotation
+    name: GetRotation
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetRotation
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetRotation
+    name: GetRotation
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetRotation
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetLocation
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.GetLocation
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetLocation
+  name: GetLocation()
+  nameWithType: RigidBodyBehavior.GetLocation()
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetLocation()
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetLocation
+    name: GetLocation
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetLocation
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetLocation
+    name: GetLocation
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetLocation
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateForwardVector(System.Single)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateForwardVector(System.Single)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_CalculateForwardVector_System_Single_
+  name: CalculateForwardVector(float)
+  nameWithType: RigidBodyBehavior.CalculateForwardVector(float)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateForwardVector(float)
+  nameWithType.vb: RigidBodyBehavior.CalculateForwardVector(Single)
+  fullName.vb: LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateForwardVector(Single)
+  name.vb: CalculateForwardVector(Single)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateForwardVector(System.Single)
+    name: CalculateForwardVector
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_CalculateForwardVector_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateForwardVector(System.Single)
+    name: CalculateForwardVector
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_CalculateForwardVector_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateRightVector(System.Single)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateRightVector(System.Single)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_CalculateRightVector_System_Single_
+  name: CalculateRightVector(float)
+  nameWithType: RigidBodyBehavior.CalculateRightVector(float)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateRightVector(float)
+  nameWithType.vb: RigidBodyBehavior.CalculateRightVector(Single)
+  fullName.vb: LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateRightVector(Single)
+  name.vb: CalculateRightVector(Single)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateRightVector(System.Single)
+    name: CalculateRightVector
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_CalculateRightVector_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateRightVector(System.Single)
+    name: CalculateRightVector
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_CalculateRightVector_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateUpVector(System.Single)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateUpVector(System.Single)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_CalculateUpVector_System_Single_
+  name: CalculateUpVector(float)
+  nameWithType: RigidBodyBehavior.CalculateUpVector(float)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateUpVector(float)
+  nameWithType.vb: RigidBodyBehavior.CalculateUpVector(Single)
+  fullName.vb: LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateUpVector(Single)
+  name.vb: CalculateUpVector(Single)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateUpVector(System.Single)
+    name: CalculateUpVector
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_CalculateUpVector_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.CalculateUpVector(System.Single)
+    name: CalculateUpVector
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_CalculateUpVector_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.EnableContinuousCollisionDetection(System.Single,System.Single)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.EnableContinuousCollisionDetection(System.Single,System.Single)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_EnableContinuousCollisionDetection_System_Single_System_Single_
+  name: EnableContinuousCollisionDetection(float, float)
+  nameWithType: RigidBodyBehavior.EnableContinuousCollisionDetection(float, float)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.EnableContinuousCollisionDetection(float, float)
+  nameWithType.vb: RigidBodyBehavior.EnableContinuousCollisionDetection(Single, Single)
+  fullName.vb: LibGFX.Physics.Behaviors.RigidBodyBehavior.EnableContinuousCollisionDetection(Single, Single)
+  name.vb: EnableContinuousCollisionDetection(Single, Single)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.EnableContinuousCollisionDetection(System.Single,System.Single)
+    name: EnableContinuousCollisionDetection
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_EnableContinuousCollisionDetection_System_Single_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.EnableContinuousCollisionDetection(System.Single,System.Single)
+    name: EnableContinuousCollisionDetection
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_EnableContinuousCollisionDetection_System_Single_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetPhysicsObject
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.GetPhysicsObject
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetPhysicsObject
+  name: GetPhysicsObject()
+  nameWithType: RigidBodyBehavior.GetPhysicsObject()
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetPhysicsObject()
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetPhysicsObject
+    name: GetPhysicsObject
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetPhysicsObject
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetPhysicsObject
+    name: GetPhysicsObject
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetPhysicsObject
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.RemoveRigidBody
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.RemoveRigidBody
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_RemoveRigidBody
+  name: RemoveRigidBody()
+  nameWithType: RigidBodyBehavior.RemoveRigidBody()
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.RemoveRigidBody()
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.RemoveRigidBody
+    name: RemoveRigidBody
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_RemoveRigidBody
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.RemoveRigidBody
+    name: RemoveRigidBody
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_RemoveRigidBody
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetElement
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.GetElement
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetElement
+  name: GetElement()
+  nameWithType: RigidBodyBehavior.GetElement()
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetElement()
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetElement
+    name: GetElement
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetElement
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.GetElement
+    name: GetElement
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_GetElement
+  - name: (
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetElement(LibGFX.Core.GameElement)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.SetElement(LibGFX.Core.GameElement)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_SetElement_LibGFX_Core_GameElement_
+  name: SetElement(GameElement)
+  nameWithType: RigidBodyBehavior.SetElement(GameElement)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetElement(LibGFX.Core.GameElement)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetElement(LibGFX.Core.GameElement)
+    name: SetElement
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_SetElement_LibGFX_Core_GameElement_
+  - name: (
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.SetElement(LibGFX.Core.GameElement)
+    name: SetElement
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_SetElement_LibGFX_Core_GameElement_
+  - name: (
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    href: LibGFX.Core.GameElement.html
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  name: OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  nameWithType: RigidBodyBehavior.OnRender(BaseScene, Viewport, IRenderDevice, Camera)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnRender(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice, LibGFX.Graphics.Camera)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+    name: OnRender
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    href: LibGFX.Graphics.Camera.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnRender(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice,LibGFX.Graphics.Camera)
+    name: OnRender
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_OnRender_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_LibGFX_Graphics_Camera_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    href: LibGFX.Graphics.Camera.html
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: OnInit(BaseScene, Viewport, IRenderDevice)
+  nameWithType: RigidBodyBehavior.OnInit(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnInit(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnInit
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnInit(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnInit
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_OnInit_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnCollide(LibGFX.Physics.Collision)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.OnCollide(LibGFX.Physics.Collision)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_OnCollide_LibGFX_Physics_Collision_
+  name: OnCollide(Collision)
+  nameWithType: RigidBodyBehavior.OnCollide(Collision)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnCollide(LibGFX.Physics.Collision)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnCollide(LibGFX.Physics.Collision)
+    name: OnCollide
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_OnCollide_LibGFX_Physics_Collision_
+  - name: (
+  - uid: LibGFX.Physics.Collision
+    name: Collision
+    href: LibGFX.Physics.Collision.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnCollide(LibGFX.Physics.Collision)
+    name: OnCollide
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_OnCollide_LibGFX_Physics_Collision_
+  - name: (
+  - uid: LibGFX.Physics.Collision
+    name: Collision
+    href: LibGFX.Physics.Collision.html
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  name: OnDispose(BaseScene, IRenderDevice)
+  nameWithType: RigidBodyBehavior.OnDispose(BaseScene, IRenderDevice)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnDispose(LibGFX.Core.BaseScene, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+    name: OnDispose
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnDispose(LibGFX.Core.BaseScene,LibGFX.Graphics.IRenderDevice)
+    name: OnDispose
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_OnDispose_LibGFX_Core_BaseScene_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  commentId: M:LibGFX.Physics.Behaviors.RigidBodyBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+  parent: LibGFX.Physics.Behaviors.RigidBodyBehavior
+  isExternal: true
+  href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  name: OnUpdate(BaseScene, float)
+  nameWithType: RigidBodyBehavior.OnUpdate(BaseScene, float)
+  fullName: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnUpdate(LibGFX.Core.BaseScene, float)
+  nameWithType.vb: RigidBodyBehavior.OnUpdate(BaseScene, Single)
+  fullName.vb: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnUpdate(LibGFX.Core.BaseScene, Single)
+  name.vb: OnUpdate(BaseScene, Single)
+  spec.csharp:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+    name: OnUpdate
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior.OnUpdate(LibGFX.Core.BaseScene,System.Single)
+    name: OnUpdate
+    href: LibGFX.Physics.Behaviors.RigidBodyBehavior.html#LibGFX_Physics_Behaviors_RigidBodyBehavior_OnUpdate_LibGFX_Core_BaseScene_System_Single_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+  commentId: P:LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+  parent: LibGFX.Physics.PhysicsBehavior
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_PhysicsHandler
+  name: PhysicsHandler
+  nameWithType: PhysicsBehavior.PhysicsHandler
+  fullName: LibGFX.Physics.PhysicsBehavior.PhysicsHandler
+- uid: LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  commentId: M:LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+  parent: LibGFX.Physics.PhysicsBehavior
+  href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  name: OnShadowPass(BaseScene, Viewport, IRenderDevice)
+  nameWithType: PhysicsBehavior.OnShadowPass(BaseScene, Viewport, IRenderDevice)
+  fullName: LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene, LibGFX.Graphics.Viewport, LibGFX.Graphics.IRenderDevice)
+  spec.csharp:
+  - uid: LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnShadowPass
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+  spec.vb:
+  - uid: LibGFX.Physics.PhysicsBehavior.OnShadowPass(LibGFX.Core.BaseScene,LibGFX.Graphics.Viewport,LibGFX.Graphics.IRenderDevice)
+    name: OnShadowPass
+    href: LibGFX.Physics.PhysicsBehavior.html#LibGFX_Physics_PhysicsBehavior_OnShadowPass_LibGFX_Core_BaseScene_LibGFX_Graphics_Viewport_LibGFX_Graphics_IRenderDevice_
+  - name: (
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    href: LibGFX.Core.BaseScene.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    href: LibGFX.Graphics.Viewport.html
+  - name: ','
+  - name: " "
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    href: LibGFX.Graphics.IRenderDevice.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Physics
+  commentId: N:LibGFX.Physics
+  href: LibGFX.html
+  name: LibGFX.Physics
+  nameWithType: LibGFX.Physics
+  fullName: LibGFX.Physics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+- uid: LibGFX.Physics.Behaviors
+  commentId: N:LibGFX.Physics.Behaviors
+  href: LibGFX.html
+  name: LibGFX.Physics.Behaviors
+  nameWithType: LibGFX.Physics.Behaviors
+  fullName: LibGFX.Physics.Behaviors
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  - name: .
+  - uid: LibGFX.Physics.Behaviors
+    name: Behaviors
+    href: LibGFX.Physics.Behaviors.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Physics
+    name: Physics
+    href: LibGFX.Physics.html
+  - name: .
+  - uid: LibGFX.Physics.Behaviors
+    name: Behaviors
+    href: LibGFX.Physics.Behaviors.html
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: LibGFX.Physics.Behaviors3D.SphereRigidBody.#ctor*
+  commentId: Overload:LibGFX.Physics.Behaviors3D.SphereRigidBody.#ctor
+  href: LibGFX.Physics.Behaviors3D.SphereRigidBody.html#LibGFX_Physics_Behaviors3D_SphereRigidBody__ctor_LibGFX_Physics_PhysicsHandler_
+  name: SphereRigidBody
+  nameWithType: SphereRigidBody.SphereRigidBody
+  fullName: LibGFX.Physics.Behaviors3D.SphereRigidBody.SphereRigidBody
+  nameWithType.vb: SphereRigidBody.New
+  fullName.vb: LibGFX.Physics.Behaviors3D.SphereRigidBody.New
+  name.vb: New
+- uid: LibGFX.Physics.PhysicsHandler
+  commentId: T:LibGFX.Physics.PhysicsHandler
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.PhysicsHandler.html
+  name: PhysicsHandler
+  nameWithType: PhysicsHandler
+  fullName: LibGFX.Physics.PhysicsHandler
+- uid: LibGFX.Physics.Behaviors3D.SphereRigidBody.CreateRigidBody*
+  commentId: Overload:LibGFX.Physics.Behaviors3D.SphereRigidBody.CreateRigidBody
+  href: LibGFX.Physics.Behaviors3D.SphereRigidBody.html#LibGFX_Physics_Behaviors3D_SphereRigidBody_CreateRigidBody_System_Single_System_Single_System_Int32_System_Int32_
+  name: CreateRigidBody
+  nameWithType: SphereRigidBody.CreateRigidBody
+  fullName: LibGFX.Physics.Behaviors3D.SphereRigidBody.CreateRigidBody
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

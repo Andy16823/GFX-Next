@@ -1,0 +1,147 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Primitives.PrimitiveType
+  commentId: T:LibGFX.Graphics.Primitives.PrimitiveType
+  id: PrimitiveType
+  parent: LibGFX.Graphics.Primitives
+  children:
+  - LibGFX.Graphics.Primitives.PrimitiveType.Cube
+  - LibGFX.Graphics.Primitives.PrimitiveType.Quad
+  - LibGFX.Graphics.Primitives.PrimitiveType.Sphere
+  langs:
+  - csharp
+  - vb
+  name: PrimitiveType
+  nameWithType: PrimitiveType
+  fullName: LibGFX.Graphics.Primitives.PrimitiveType
+  type: Enum
+  source:
+    remote:
+      path: LibGFX/Graphics/Primitives/IPrimitive.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PrimitiveType
+    path: ../LibGFX/Graphics/Primitives/IPrimitive.cs
+    startLine: 9
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Primitives
+  syntax:
+    content: public enum PrimitiveType
+    content.vb: Public Enum PrimitiveType
+- uid: LibGFX.Graphics.Primitives.PrimitiveType.Cube
+  commentId: F:LibGFX.Graphics.Primitives.PrimitiveType.Cube
+  id: Cube
+  parent: LibGFX.Graphics.Primitives.PrimitiveType
+  langs:
+  - csharp
+  - vb
+  name: Cube
+  nameWithType: PrimitiveType.Cube
+  fullName: LibGFX.Graphics.Primitives.PrimitiveType.Cube
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Primitives/IPrimitive.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Cube
+    path: ../LibGFX/Graphics/Primitives/IPrimitive.cs
+    startLine: 11
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Primitives
+  syntax:
+    content: Cube = 0
+    return:
+      type: LibGFX.Graphics.Primitives.PrimitiveType
+- uid: LibGFX.Graphics.Primitives.PrimitiveType.Sphere
+  commentId: F:LibGFX.Graphics.Primitives.PrimitiveType.Sphere
+  id: Sphere
+  parent: LibGFX.Graphics.Primitives.PrimitiveType
+  langs:
+  - csharp
+  - vb
+  name: Sphere
+  nameWithType: PrimitiveType.Sphere
+  fullName: LibGFX.Graphics.Primitives.PrimitiveType.Sphere
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Primitives/IPrimitive.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Sphere
+    path: ../LibGFX/Graphics/Primitives/IPrimitive.cs
+    startLine: 12
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Primitives
+  syntax:
+    content: Sphere = 1
+    return:
+      type: LibGFX.Graphics.Primitives.PrimitiveType
+- uid: LibGFX.Graphics.Primitives.PrimitiveType.Quad
+  commentId: F:LibGFX.Graphics.Primitives.PrimitiveType.Quad
+  id: Quad
+  parent: LibGFX.Graphics.Primitives.PrimitiveType
+  langs:
+  - csharp
+  - vb
+  name: Quad
+  nameWithType: PrimitiveType.Quad
+  fullName: LibGFX.Graphics.Primitives.PrimitiveType.Quad
+  type: Field
+  source:
+    remote:
+      path: LibGFX/Graphics/Primitives/IPrimitive.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Quad
+    path: ../LibGFX/Graphics/Primitives/IPrimitive.cs
+    startLine: 13
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics.Primitives
+  syntax:
+    content: Quad = 2
+    return:
+      type: LibGFX.Graphics.Primitives.PrimitiveType
+references:
+- uid: LibGFX.Graphics.Primitives
+  commentId: N:LibGFX.Graphics.Primitives
+  href: LibGFX.html
+  name: LibGFX.Graphics.Primitives
+  nameWithType: LibGFX.Graphics.Primitives
+  fullName: LibGFX.Graphics.Primitives
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Primitives
+    name: Primitives
+    href: LibGFX.Graphics.Primitives.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  - name: .
+  - uid: LibGFX.Graphics.Primitives
+    name: Primitives
+    href: LibGFX.Graphics.Primitives.html
+- uid: LibGFX.Graphics.Primitives.PrimitiveType
+  commentId: T:LibGFX.Graphics.Primitives.PrimitiveType
+  parent: LibGFX.Graphics.Primitives
+  href: LibGFX.Graphics.Primitives.PrimitiveType.html
+  name: PrimitiveType
+  nameWithType: PrimitiveType
+  fullName: LibGFX.Graphics.Primitives.PrimitiveType

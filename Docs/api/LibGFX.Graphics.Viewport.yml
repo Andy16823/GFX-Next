@@ -1,0 +1,697 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  id: Viewport
+  parent: LibGFX.Graphics
+  children:
+  - LibGFX.Graphics.Viewport.#ctor(System.Int32,System.Int32)
+  - LibGFX.Graphics.Viewport.Height
+  - LibGFX.Graphics.Viewport.ToVector2
+  - LibGFX.Graphics.Viewport.ToVector2I
+  - LibGFX.Graphics.Viewport.Width
+  - LibGFX.Graphics.Viewport.op_Explicit(OpenTK.Mathematics.Vector2)~LibGFX.Graphics.Viewport
+  - LibGFX.Graphics.Viewport.op_Explicit(OpenTK.Mathematics.Vector2i)~LibGFX.Graphics.Viewport
+  - LibGFX.Graphics.Viewport.op_Implicit(LibGFX.Graphics.Viewport)~OpenTK.Mathematics.Vector2
+  - LibGFX.Graphics.Viewport.op_Implicit(LibGFX.Graphics.Viewport)~OpenTK.Mathematics.Vector2i
+  langs:
+  - csharp
+  - vb
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+  type: Struct
+  source:
+    remote:
+      path: LibGFX/Graphics/Viewport.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Viewport
+    path: ../LibGFX/Graphics/Viewport.cs
+    startLine: 12
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Represents a viewport in 2D or 3D space
+  example: []
+  syntax:
+    content: public struct Viewport
+    content.vb: Public Structure Viewport
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: LibGFX.Graphics.Viewport.Width
+  commentId: P:LibGFX.Graphics.Viewport.Width
+  id: Width
+  parent: LibGFX.Graphics.Viewport
+  langs:
+  - csharp
+  - vb
+  name: Width
+  nameWithType: Viewport.Width
+  fullName: LibGFX.Graphics.Viewport.Width
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Viewport.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Width
+    path: ../LibGFX/Graphics/Viewport.cs
+    startLine: 17
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: The width of the viewport
+  example: []
+  syntax:
+    content: public int Width { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Width As Integer
+  overload: LibGFX.Graphics.Viewport.Width*
+- uid: LibGFX.Graphics.Viewport.Height
+  commentId: P:LibGFX.Graphics.Viewport.Height
+  id: Height
+  parent: LibGFX.Graphics.Viewport
+  langs:
+  - csharp
+  - vb
+  name: Height
+  nameWithType: Viewport.Height
+  fullName: LibGFX.Graphics.Viewport.Height
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Graphics/Viewport.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: Height
+    path: ../LibGFX/Graphics/Viewport.cs
+    startLine: 22
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: The height of the viewport
+  example: []
+  syntax:
+    content: public int Height { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Height As Integer
+  overload: LibGFX.Graphics.Viewport.Height*
+- uid: LibGFX.Graphics.Viewport.#ctor(System.Int32,System.Int32)
+  commentId: M:LibGFX.Graphics.Viewport.#ctor(System.Int32,System.Int32)
+  id: '#ctor(System.Int32,System.Int32)'
+  parent: LibGFX.Graphics.Viewport
+  langs:
+  - csharp
+  - vb
+  name: Viewport(int, int)
+  nameWithType: Viewport.Viewport(int, int)
+  fullName: LibGFX.Graphics.Viewport.Viewport(int, int)
+  type: Constructor
+  source:
+    remote:
+      path: LibGFX/Graphics/Viewport.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: .ctor
+    path: ../LibGFX/Graphics/Viewport.cs
+    startLine: 29
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Creates a new viewport with the given width and height
+  example: []
+  syntax:
+    content: public Viewport(int width, int height)
+    parameters:
+    - id: width
+      type: System.Int32
+      description: ''
+    - id: height
+      type: System.Int32
+      description: ''
+    content.vb: Public Sub New(width As Integer, height As Integer)
+  overload: LibGFX.Graphics.Viewport.#ctor*
+  nameWithType.vb: Viewport.New(Integer, Integer)
+  fullName.vb: LibGFX.Graphics.Viewport.New(Integer, Integer)
+  name.vb: New(Integer, Integer)
+- uid: LibGFX.Graphics.Viewport.ToVector2I
+  commentId: M:LibGFX.Graphics.Viewport.ToVector2I
+  id: ToVector2I
+  parent: LibGFX.Graphics.Viewport
+  langs:
+  - csharp
+  - vb
+  name: ToVector2I()
+  nameWithType: Viewport.ToVector2I()
+  fullName: LibGFX.Graphics.Viewport.ToVector2I()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Viewport.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ToVector2I
+    path: ../LibGFX/Graphics/Viewport.cs
+    startLine: 39
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Converts the viewport to a Vector2i
+  example: []
+  syntax:
+    content: public Vector2i ToVector2I()
+    return:
+      type: OpenTK.Mathematics.Vector2i
+      description: ''
+    content.vb: Public Function ToVector2I() As Vector2i
+  overload: LibGFX.Graphics.Viewport.ToVector2I*
+- uid: LibGFX.Graphics.Viewport.ToVector2
+  commentId: M:LibGFX.Graphics.Viewport.ToVector2
+  id: ToVector2
+  parent: LibGFX.Graphics.Viewport
+  langs:
+  - csharp
+  - vb
+  name: ToVector2()
+  nameWithType: Viewport.ToVector2()
+  fullName: LibGFX.Graphics.Viewport.ToVector2()
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Graphics/Viewport.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ToVector2
+    path: ../LibGFX/Graphics/Viewport.cs
+    startLine: 48
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  summary: Converts the viewport to a Vector2
+  example: []
+  syntax:
+    content: public Vector2 ToVector2()
+    return:
+      type: OpenTK.Mathematics.Vector2
+      description: ''
+    content.vb: Public Function ToVector2() As Vector2
+  overload: LibGFX.Graphics.Viewport.ToVector2*
+- uid: LibGFX.Graphics.Viewport.op_Implicit(LibGFX.Graphics.Viewport)~OpenTK.Mathematics.Vector2i
+  commentId: M:LibGFX.Graphics.Viewport.op_Implicit(LibGFX.Graphics.Viewport)~OpenTK.Mathematics.Vector2i
+  id: op_Implicit(LibGFX.Graphics.Viewport)~OpenTK.Mathematics.Vector2i
+  parent: LibGFX.Graphics.Viewport
+  langs:
+  - csharp
+  - vb
+  name: implicit operator Vector2i(Viewport)
+  nameWithType: Viewport.implicit operator Vector2i(Viewport)
+  fullName: LibGFX.Graphics.Viewport.implicit operator OpenTK.Mathematics.Vector2i(LibGFX.Graphics.Viewport)
+  type: Operator
+  source:
+    remote:
+      path: LibGFX/Graphics/Viewport.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: op_Implicit
+    path: ../LibGFX/Graphics/Viewport.cs
+    startLine: 53
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static implicit operator Vector2i(Viewport vp)
+    parameters:
+    - id: vp
+      type: LibGFX.Graphics.Viewport
+    return:
+      type: OpenTK.Mathematics.Vector2i
+    content.vb: Public Shared Widening Operator CType(vp As Viewport) As Vector2i
+  overload: LibGFX.Graphics.Viewport.op_Implicit*
+  nameWithType.vb: Viewport.CType(Viewport)
+  fullName.vb: LibGFX.Graphics.Viewport.CType(LibGFX.Graphics.Viewport)
+  name.vb: CType(Viewport)
+- uid: LibGFX.Graphics.Viewport.op_Implicit(LibGFX.Graphics.Viewport)~OpenTK.Mathematics.Vector2
+  commentId: M:LibGFX.Graphics.Viewport.op_Implicit(LibGFX.Graphics.Viewport)~OpenTK.Mathematics.Vector2
+  id: op_Implicit(LibGFX.Graphics.Viewport)~OpenTK.Mathematics.Vector2
+  parent: LibGFX.Graphics.Viewport
+  langs:
+  - csharp
+  - vb
+  name: implicit operator Vector2(Viewport)
+  nameWithType: Viewport.implicit operator Vector2(Viewport)
+  fullName: LibGFX.Graphics.Viewport.implicit operator OpenTK.Mathematics.Vector2(LibGFX.Graphics.Viewport)
+  type: Operator
+  source:
+    remote:
+      path: LibGFX/Graphics/Viewport.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: op_Implicit
+    path: ../LibGFX/Graphics/Viewport.cs
+    startLine: 58
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static implicit operator Vector2(Viewport vp)
+    parameters:
+    - id: vp
+      type: LibGFX.Graphics.Viewport
+    return:
+      type: OpenTK.Mathematics.Vector2
+    content.vb: Public Shared Widening Operator CType(vp As Viewport) As Vector2
+  overload: LibGFX.Graphics.Viewport.op_Implicit*
+  nameWithType.vb: Viewport.CType(Viewport)
+  fullName.vb: LibGFX.Graphics.Viewport.CType(LibGFX.Graphics.Viewport)
+  name.vb: CType(Viewport)
+- uid: LibGFX.Graphics.Viewport.op_Explicit(OpenTK.Mathematics.Vector2i)~LibGFX.Graphics.Viewport
+  commentId: M:LibGFX.Graphics.Viewport.op_Explicit(OpenTK.Mathematics.Vector2i)~LibGFX.Graphics.Viewport
+  id: op_Explicit(OpenTK.Mathematics.Vector2i)~LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics.Viewport
+  langs:
+  - csharp
+  - vb
+  name: explicit operator Viewport(Vector2i)
+  nameWithType: Viewport.explicit operator Viewport(Vector2i)
+  fullName: LibGFX.Graphics.Viewport.explicit operator LibGFX.Graphics.Viewport(OpenTK.Mathematics.Vector2i)
+  type: Operator
+  source:
+    remote:
+      path: LibGFX/Graphics/Viewport.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: op_Explicit
+    path: ../LibGFX/Graphics/Viewport.cs
+    startLine: 63
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static explicit operator Viewport(Vector2i v)
+    parameters:
+    - id: v
+      type: OpenTK.Mathematics.Vector2i
+    return:
+      type: LibGFX.Graphics.Viewport
+    content.vb: Public Shared Narrowing Operator CType(v As Vector2i) As Viewport
+  overload: LibGFX.Graphics.Viewport.op_Explicit*
+  nameWithType.vb: Viewport.CType(Vector2i)
+  fullName.vb: LibGFX.Graphics.Viewport.CType(OpenTK.Mathematics.Vector2i)
+  name.vb: CType(Vector2i)
+- uid: LibGFX.Graphics.Viewport.op_Explicit(OpenTK.Mathematics.Vector2)~LibGFX.Graphics.Viewport
+  commentId: M:LibGFX.Graphics.Viewport.op_Explicit(OpenTK.Mathematics.Vector2)~LibGFX.Graphics.Viewport
+  id: op_Explicit(OpenTK.Mathematics.Vector2)~LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics.Viewport
+  langs:
+  - csharp
+  - vb
+  name: explicit operator Viewport(Vector2)
+  nameWithType: Viewport.explicit operator Viewport(Vector2)
+  fullName: LibGFX.Graphics.Viewport.explicit operator LibGFX.Graphics.Viewport(OpenTK.Mathematics.Vector2)
+  type: Operator
+  source:
+    remote:
+      path: LibGFX/Graphics/Viewport.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: op_Explicit
+    path: ../LibGFX/Graphics/Viewport.cs
+    startLine: 68
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Graphics
+  syntax:
+    content: public static explicit operator Viewport(Vector2 v)
+    parameters:
+    - id: v
+      type: OpenTK.Mathematics.Vector2
+    return:
+      type: LibGFX.Graphics.Viewport
+    content.vb: Public Shared Narrowing Operator CType(v As Vector2) As Viewport
+  overload: LibGFX.Graphics.Viewport.op_Explicit*
+  nameWithType.vb: Viewport.CType(Vector2)
+  fullName.vb: LibGFX.Graphics.Viewport.CType(OpenTK.Mathematics.Vector2)
+  name.vb: CType(Vector2)
+references:
+- uid: LibGFX.Graphics
+  commentId: N:LibGFX.Graphics
+  href: LibGFX.html
+  name: LibGFX.Graphics
+  nameWithType: LibGFX.Graphics
+  fullName: LibGFX.Graphics
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Graphics
+    name: Graphics
+    href: LibGFX.Graphics.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Graphics.Viewport.Width*
+  commentId: Overload:LibGFX.Graphics.Viewport.Width
+  href: LibGFX.Graphics.Viewport.html#LibGFX_Graphics_Viewport_Width
+  name: Width
+  nameWithType: Viewport.Width
+  fullName: LibGFX.Graphics.Viewport.Width
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: LibGFX.Graphics.Viewport.Height*
+  commentId: Overload:LibGFX.Graphics.Viewport.Height
+  href: LibGFX.Graphics.Viewport.html#LibGFX_Graphics_Viewport_Height
+  name: Height
+  nameWithType: Viewport.Height
+  fullName: LibGFX.Graphics.Viewport.Height
+- uid: LibGFX.Graphics.Viewport.#ctor*
+  commentId: Overload:LibGFX.Graphics.Viewport.#ctor
+  href: LibGFX.Graphics.Viewport.html#LibGFX_Graphics_Viewport__ctor_System_Int32_System_Int32_
+  name: Viewport
+  nameWithType: Viewport.Viewport
+  fullName: LibGFX.Graphics.Viewport.Viewport
+  nameWithType.vb: Viewport.New
+  fullName.vb: LibGFX.Graphics.Viewport.New
+  name.vb: New
+- uid: LibGFX.Graphics.Viewport.ToVector2I*
+  commentId: Overload:LibGFX.Graphics.Viewport.ToVector2I
+  href: LibGFX.Graphics.Viewport.html#LibGFX_Graphics_Viewport_ToVector2I
+  name: ToVector2I
+  nameWithType: Viewport.ToVector2I
+  fullName: LibGFX.Graphics.Viewport.ToVector2I
+- uid: OpenTK.Mathematics.Vector2i
+  commentId: T:OpenTK.Mathematics.Vector2i
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2i.cs
+  name: Vector2i
+  nameWithType: Vector2i
+  fullName: OpenTK.Mathematics.Vector2i
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+- uid: LibGFX.Graphics.Viewport.ToVector2*
+  commentId: Overload:LibGFX.Graphics.Viewport.ToVector2
+  href: LibGFX.Graphics.Viewport.html#LibGFX_Graphics_Viewport_ToVector2
+  name: ToVector2
+  nameWithType: Viewport.ToVector2
+  fullName: LibGFX.Graphics.Viewport.ToVector2
+- uid: OpenTK.Mathematics.Vector2
+  commentId: T:OpenTK.Mathematics.Vector2
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector2.cs
+  name: Vector2
+  nameWithType: Vector2
+  fullName: OpenTK.Mathematics.Vector2
+- uid: LibGFX.Graphics.Viewport.op_Implicit*
+  commentId: Overload:LibGFX.Graphics.Viewport.op_Implicit
+  name: implicit operator
+  nameWithType: Viewport.implicit operator
+  fullName: LibGFX.Graphics.Viewport.implicit operator
+  nameWithType.vb: Viewport.CType
+  fullName.vb: LibGFX.Graphics.Viewport.CType
+  name.vb: CType
+  spec.csharp:
+  - name: implicit
+  - name: " "
+  - name: operator
+- uid: LibGFX.Graphics.Viewport
+  commentId: T:LibGFX.Graphics.Viewport
+  parent: LibGFX.Graphics
+  href: LibGFX.Graphics.Viewport.html
+  name: Viewport
+  nameWithType: Viewport
+  fullName: LibGFX.Graphics.Viewport
+- uid: LibGFX.Graphics.Viewport.op_Explicit*
+  commentId: Overload:LibGFX.Graphics.Viewport.op_Explicit
+  name: explicit operator
+  nameWithType: Viewport.explicit operator
+  fullName: LibGFX.Graphics.Viewport.explicit operator
+  nameWithType.vb: Viewport.CType
+  fullName.vb: LibGFX.Graphics.Viewport.CType
+  name.vb: CType
+  spec.csharp:
+  - name: explicit
+  - name: " "
+  - name: operator

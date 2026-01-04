@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IAudioDevice | LibGFX </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IAudioDevice | LibGFX ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Audio_IAudioDevice.md&amp;value=---%0Auid%3A%20LibGFX.Audio.IAudioDevice%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="LibGFX">
+            LibGFX
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="LibGFX.Audio.IAudioDevice">
+
+
+
+  <h1 id="LibGFX_Audio_IAudioDevice" data-uid="LibGFX.Audio.IAudioDevice" class="text-break">
+Interface IAudioDevice  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="LibGFX.html">LibGFX</a>.<a class="xref" href="LibGFX.Audio.html">Audio</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>LibGFX.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IAudioDevice</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="LibGFX_Audio_IAudioDevice_DisposeAudioClip_" data-uid="LibGFX.Audio.IAudioDevice.DisposeAudioClip*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_DisposeAudioClip_LibGFX_Audio_AudioClip_" data-uid="LibGFX.Audio.IAudioDevice.DisposeAudioClip(LibGFX.Audio.AudioClip)">
+  DisposeAudioClip(AudioClip)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes of an audio clip</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisposeAudioClip(AudioClip clip)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>clip</code> <a class="xref" href="LibGFX.Audio.AudioClip.html">AudioClip</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_DisposeAudioSource_" data-uid="LibGFX.Audio.IAudioDevice.DisposeAudioSource*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_DisposeAudioSource_LibGFX_Audio_AudioSource_" data-uid="LibGFX.Audio.IAudioDevice.DisposeAudioSource(LibGFX.Audio.AudioSource)">
+  DisposeAudioSource(AudioSource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Disposes of an audio source</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void DisposeAudioSource(AudioSource source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LibGFX.Audio.AudioSource.html">AudioSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_GetAudioListenerPosition_" data-uid="LibGFX.Audio.IAudioDevice.GetAudioListenerPosition*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_GetAudioListenerPosition" data-uid="LibGFX.Audio.IAudioDevice.GetAudioListenerPosition">
+  GetAudioListenerPosition()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the position of the audio listener</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Vector3 GetAudioListenerPosition()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_GetAudioSourcePosition_" data-uid="LibGFX.Audio.IAudioDevice.GetAudioSourcePosition*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_GetAudioSourcePosition_LibGFX_Audio_AudioSource_" data-uid="LibGFX.Audio.IAudioDevice.GetAudioSourcePosition(LibGFX.Audio.AudioSource)">
+  GetAudioSourcePosition(AudioSource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the position of the audio source</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Vector3 GetAudioSourcePosition(AudioSource source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LibGFX.Audio.AudioSource.html">AudioSource</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_GetAudioSourceTime_" data-uid="LibGFX.Audio.IAudioDevice.GetAudioSourceTime*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_GetAudioSourceTime_LibGFX_Audio_AudioSource_" data-uid="LibGFX.Audio.IAudioDevice.GetAudioSourceTime(LibGFX.Audio.AudioSource)">
+  GetAudioSourceTime(AudioSource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the time of the audio source</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">float GetAudioSourceTime(AudioSource source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LibGFX.Audio.AudioSource.html">AudioSource</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_InitializeAudioDevice_" data-uid="LibGFX.Audio.IAudioDevice.InitializeAudioDevice*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_InitializeAudioDevice" data-uid="LibGFX.Audio.IAudioDevice.InitializeAudioDevice">
+  InitializeAudioDevice()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the audio device</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void InitializeAudioDevice()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_LoadAudioClip_" data-uid="LibGFX.Audio.IAudioDevice.LoadAudioClip*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_LoadAudioClip_LibGFX_Audio_AudioClip_" data-uid="LibGFX.Audio.IAudioDevice.LoadAudioClip(LibGFX.Audio.AudioClip)">
+  LoadAudioClip(AudioClip)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads an audio clip into memory</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void LoadAudioClip(AudioClip clip)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>clip</code> <a class="xref" href="LibGFX.Audio.AudioClip.html">AudioClip</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_LoadAudioSource_" data-uid="LibGFX.Audio.IAudioDevice.LoadAudioSource*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_LoadAudioSource_LibGFX_Audio_AudioSource_" data-uid="LibGFX.Audio.IAudioDevice.LoadAudioSource(LibGFX.Audio.AudioSource)">
+  LoadAudioSource(AudioSource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads an audio source into memory</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void LoadAudioSource(AudioSource source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LibGFX.Audio.AudioSource.html">AudioSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_LoadSourceClip_" data-uid="LibGFX.Audio.IAudioDevice.LoadSourceClip*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_LoadSourceClip_LibGFX_Audio_AudioSource_LibGFX_Audio_AudioClip_" data-uid="LibGFX.Audio.IAudioDevice.LoadSourceClip(LibGFX.Audio.AudioSource,LibGFX.Audio.AudioClip)">
+  LoadSourceClip(AudioSource, AudioClip)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads an audio clip into an audio source</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void LoadSourceClip(AudioSource source, AudioClip audioClip)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LibGFX.Audio.AudioSource.html">AudioSource</a></dt>
+    <dd></dd>
+    <dt><code>audioClip</code> <a class="xref" href="LibGFX.Audio.AudioClip.html">AudioClip</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_MakeCurrent_" data-uid="LibGFX.Audio.IAudioDevice.MakeCurrent*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_MakeCurrent" data-uid="LibGFX.Audio.IAudioDevice.MakeCurrent">
+  MakeCurrent()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Makes the audio device current</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void MakeCurrent()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_PauseAudioSource_" data-uid="LibGFX.Audio.IAudioDevice.PauseAudioSource*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_PauseAudioSource_LibGFX_Audio_AudioSource_" data-uid="LibGFX.Audio.IAudioDevice.PauseAudioSource(LibGFX.Audio.AudioSource)">
+  PauseAudioSource(AudioSource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pauses the audio source</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PauseAudioSource(AudioSource source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LibGFX.Audio.AudioSource.html">AudioSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_PlayAudioSource_" data-uid="LibGFX.Audio.IAudioDevice.PlayAudioSource*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_PlayAudioSource_LibGFX_Audio_AudioSource_" data-uid="LibGFX.Audio.IAudioDevice.PlayAudioSource(LibGFX.Audio.AudioSource)">
+  PlayAudioSource(AudioSource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Plays the audio source</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void PlayAudioSource(AudioSource source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LibGFX.Audio.AudioSource.html">AudioSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_SetAudioListenerOrientation_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioListenerOrientation*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_SetAudioListenerOrientation_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioListenerOrientation(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+  SetAudioListenerOrientation(Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the orientation of the audio listener</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetAudioListenerOrientation(Vector3 forward, Vector3 up)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>forward</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>up</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_SetAudioListenerPosition_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioListenerPosition*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_SetAudioListenerPosition_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioListenerPosition(OpenTK.Mathematics.Vector3)">
+  SetAudioListenerPosition(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the position of the audio listener</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetAudioListenerPosition(Vector3 position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_SetAudioListenerVelocity_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioListenerVelocity*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_SetAudioListenerVelocity_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioListenerVelocity(OpenTK.Mathematics.Vector3)">
+  SetAudioListenerVelocity(Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the velocity of the audio listener</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetAudioListenerVelocity(Vector3 velocity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>velocity</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_SetAudioSourceGain_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioSourceGain*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_SetAudioSourceGain_LibGFX_Audio_AudioSource_System_Single_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioSourceGain(LibGFX.Audio.AudioSource,System.Single)">
+  SetAudioSourceGain(AudioSource, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the gain of the audio source</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetAudioSourceGain(AudioSource source, float gain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LibGFX.Audio.AudioSource.html">AudioSource</a></dt>
+    <dd></dd>
+    <dt><code>gain</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_SetAudioSourceLooping_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioSourceLooping*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_SetAudioSourceLooping_LibGFX_Audio_AudioSource_System_Boolean_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioSourceLooping(LibGFX.Audio.AudioSource,System.Boolean)">
+  SetAudioSourceLooping(AudioSource, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the looping state of the audio source</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetAudioSourceLooping(AudioSource source, bool looping)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LibGFX.Audio.AudioSource.html">AudioSource</a></dt>
+    <dd></dd>
+    <dt><code>looping</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_SetAudioSourcePitch_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioSourcePitch*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_SetAudioSourcePitch_LibGFX_Audio_AudioSource_System_Single_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioSourcePitch(LibGFX.Audio.AudioSource,System.Single)">
+  SetAudioSourcePitch(AudioSource, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the pitch of the audio source</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetAudioSourcePitch(AudioSource source, float pitch)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LibGFX.Audio.AudioSource.html">AudioSource</a></dt>
+    <dd></dd>
+    <dt><code>pitch</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_SetAudioSourcePosition_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioSourcePosition*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_SetAudioSourcePosition_LibGFX_Audio_AudioSource_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioSourcePosition(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)">
+  SetAudioSourcePosition(AudioSource, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the position of the audio source</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetAudioSourcePosition(AudioSource source, Vector3 position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LibGFX.Audio.AudioSource.html">AudioSource</a></dt>
+    <dd></dd>
+    <dt><code>position</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_SetAudioSourceRange_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioSourceRange*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_SetAudioSourceRange_LibGFX_Audio_AudioSource_System_Single_System_Single_System_Single_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioSourceRange(LibGFX.Audio.AudioSource,System.Single,System.Single,System.Single)">
+  SetAudioSourceRange(AudioSource, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the range of the audio source</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetAudioSourceRange(AudioSource source, float min, float max, float rollof)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LibGFX.Audio.AudioSource.html">AudioSource</a></dt>
+    <dd></dd>
+    <dt><code>min</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>max</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>rollof</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_SetAudioSourceTime_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioSourceTime*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_SetAudioSourceTime_LibGFX_Audio_AudioSource_System_Single_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioSourceTime(LibGFX.Audio.AudioSource,System.Single)">
+  SetAudioSourceTime(AudioSource, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the time of the audio source</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetAudioSourceTime(AudioSource source, float time)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LibGFX.Audio.AudioSource.html">AudioSource</a></dt>
+    <dd></dd>
+    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_SetAudioSourceVelocity_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioSourceVelocity*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_SetAudioSourceVelocity_LibGFX_Audio_AudioSource_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Audio.IAudioDevice.SetAudioSourceVelocity(LibGFX.Audio.AudioSource,OpenTK.Mathematics.Vector3)">
+  SetAudioSourceVelocity(AudioSource, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the velocity of the audio source</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetAudioSourceVelocity(AudioSource source, Vector3 velocity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LibGFX.Audio.AudioSource.html">AudioSource</a></dt>
+    <dd></dd>
+    <dt><code>velocity</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_SetDistanceModel_" data-uid="LibGFX.Audio.IAudioDevice.SetDistanceModel*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_SetDistanceModel" data-uid="LibGFX.Audio.IAudioDevice.SetDistanceModel">
+  SetDistanceModel()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the distance model for the audio device</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetDistanceModel()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="LibGFX_Audio_IAudioDevice_StopAudioSource_" data-uid="LibGFX.Audio.IAudioDevice.StopAudioSource*"></a>
+
+  <h3 id="LibGFX_Audio_IAudioDevice_StopAudioSource_LibGFX_Audio_AudioSource_" data-uid="LibGFX.Audio.IAudioDevice.StopAudioSource(LibGFX.Audio.AudioSource)">
+  StopAudioSource(AudioSource)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stops the audio source and sets the time to 0</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void StopAudioSource(AudioSource source)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>source</code> <a class="xref" href="LibGFX.Audio.AudioSource.html">AudioSource</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Audio/IAudioDevice.cs/#L11" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

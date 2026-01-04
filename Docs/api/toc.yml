@@ -1,0 +1,872 @@
+### YamlMime:TableOfContent
+items:
+- uid: LibGFX
+  name: LibGFX
+  type: Namespace
+  items:
+  - uid: LibGFX.GFX
+    name: GFX
+    type: Class
+- uid: LibGFX.Assets
+  name: LibGFX.Assets
+  type: Namespace
+  items:
+  - uid: LibGFX.Assets.AssetManager
+    name: AssetManager
+    type: Class
+  - uid: LibGFX.Assets.IFileAsset
+    name: IFileAsset
+    type: Interface
+- uid: LibGFX.Assets.Loaders
+  name: LibGFX.Assets.Loaders
+  type: Namespace
+  items:
+  - uid: LibGFX.Assets.Loaders.AudioLoader
+    name: AudioLoader
+    type: Class
+  - uid: LibGFX.Assets.Loaders.ComputeShaderLoader
+    name: ComputeShaderLoader
+    type: Class
+  - uid: LibGFX.Assets.Loaders.CubemapLoader
+    name: CubemapLoader
+    type: Class
+  - uid: LibGFX.Assets.Loaders.IAssetLoader
+    name: IAssetLoader
+    type: Interface
+  - uid: LibGFX.Assets.Loaders.SGMaterialLoader
+    name: SGMaterialLoader
+    type: Class
+  - uid: LibGFX.Assets.Loaders.SkinnedMeshModelLoader
+    name: SkinnedMeshModelLoader
+    type: Class
+  - uid: LibGFX.Assets.Loaders.SpriteMaterialLoader
+    name: SpriteMaterialLoader
+    type: Class
+  - uid: LibGFX.Assets.Loaders.StaticMeshModelLoader
+    name: StaticMeshModelLoader
+    type: Class
+  - uid: LibGFX.Assets.Loaders.TextureLoader
+    name: TextureLoader
+    type: Class
+- uid: LibGFX.Audio
+  name: LibGFX.Audio
+  type: Namespace
+  items:
+  - uid: LibGFX.Audio.AudioClip
+    name: AudioClip
+    type: Class
+  - uid: LibGFX.Audio.AudioClipState
+    name: AudioClipState
+    type: Enum
+  - uid: LibGFX.Audio.AudioSource
+    name: AudioSource
+    type: Class
+  - uid: LibGFX.Audio.AudioSourceState
+    name: AudioSourceState
+    type: Enum
+  - uid: LibGFX.Audio.IAudioDevice
+    name: IAudioDevice
+    type: Interface
+  - uid: LibGFX.Audio.OpenALDevice
+    name: OpenALDevice
+    type: Class
+  - uid: LibGFX.Audio.PlayMode
+    name: PlayMode
+    type: Enum
+- uid: LibGFX.Compute
+  name: LibGFX.Compute
+  type: Namespace
+  items:
+  - uid: LibGFX.Compute.ComputeShader
+    name: ComputeShader
+    type: Class
+- uid: LibGFX.Compute.Shader
+  name: LibGFX.Compute.Shader
+  type: Namespace
+  items:
+  - uid: LibGFX.Compute.Shader.RaytestShader
+    name: RaytestShader
+    type: Class
+- uid: LibGFX.Core
+  name: LibGFX.Core
+  type: Namespace
+  items:
+  - uid: LibGFX.Core.BaseScene
+    name: BaseScene
+    type: Class
+  - uid: LibGFX.Core.EnqueScene2DEntry
+    name: EnqueScene2DEntry
+    type: Class
+  - uid: LibGFX.Core.EnqueScene3DEntry
+    name: EnqueScene3DEntry
+    type: Class
+  - uid: LibGFX.Core.Game
+    name: Game
+    type: Class
+  - uid: LibGFX.Core.GameElement
+    name: GameElement
+    type: Class
+  - uid: LibGFX.Core.IEnqueEntry
+    name: IEnqueEntry
+    type: Interface
+  - uid: LibGFX.Core.IGameBehavior
+    name: IGameBehavior
+    type: Interface
+  - uid: LibGFX.Core.IGraphicsResource
+    name: IGraphicsResource
+    type: Interface
+  - uid: LibGFX.Core.IIdentifier
+    name: IIdentifier
+    type: Interface
+  - uid: LibGFX.Core.IPropertyTable
+    name: IPropertyTable
+    type: Interface
+  - uid: LibGFX.Core.IRendererResource
+    name: IRendererResource
+    type: Interface
+  - uid: LibGFX.Core.ISerialization
+    name: ISerialization
+    type: Interface
+  - uid: LibGFX.Core.Layer
+    name: Layer
+    type: Class
+  - uid: LibGFX.Core.RenderStats
+    name: RenderStats
+    type: Class
+  - uid: LibGFX.Core.Scene2D
+    name: Scene2D
+    type: Class
+  - uid: LibGFX.Core.Scene3D
+    name: Scene3D
+    type: Class
+  - uid: LibGFX.Core.SerializationContext
+    name: SerializationContext
+    type: Class
+  - uid: LibGFX.Core.ServiceContainer
+    name: ServiceContainer
+    type: Class
+  - uid: LibGFX.Core.Utils
+    name: Utils
+    type: Class
+  - uid: LibGFX.Core.Window
+    name: Window
+    type: Class
+  - uid: LibGFX.Core.Window.WindowState
+    name: Window.WindowState
+    type: Enum
+- uid: LibGFX.Core.GameElements
+  name: LibGFX.Core.GameElements
+  type: Namespace
+  items:
+  - uid: LibGFX.Core.GameElements.AnimatedModel
+    name: AnimatedModel
+    type: Class
+  - uid: LibGFX.Core.GameElements.AudioEmitter
+    name: AudioEmitter
+    type: Class
+  - uid: LibGFX.Core.GameElements.Empty
+    name: Empty
+    type: Class
+  - uid: LibGFX.Core.GameElements.InstanceHandle
+    name: InstanceHandle
+    type: Class
+  - uid: LibGFX.Core.GameElements.MeshInstancer
+    name: MeshInstancer
+    type: Class
+  - uid: LibGFX.Core.GameElements.PBRTestEntity
+    name: PBRTestEntity
+    type: Class
+  - uid: LibGFX.Core.GameElements.PointLight3DHandle
+    name: PointLight3DHandle
+    type: Class
+  - uid: LibGFX.Core.GameElements.Primitive
+    name: Primitive
+    type: Class
+  - uid: LibGFX.Core.GameElements.Sprite
+    name: Sprite
+    type: Class
+  - uid: LibGFX.Core.GameElements.SpriteInstancer
+    name: SpriteInstancer
+    type: Class
+  - uid: LibGFX.Core.GameElements.StaticModel
+    name: StaticModel
+    type: Class
+- uid: LibGFX.Graphics
+  name: LibGFX.Graphics
+  type: Namespace
+  items:
+  - uid: LibGFX.Graphics.BoneInfo
+    name: BoneInfo
+    type: Struct
+  - uid: LibGFX.Graphics.Camera
+    name: Camera
+    type: Class
+  - uid: LibGFX.Graphics.Character
+    name: Character
+    type: Struct
+  - uid: LibGFX.Graphics.ColorPresets
+    name: ColorPresets
+    type: Class
+  - uid: LibGFX.Graphics.Cubemap
+    name: Cubemap
+    type: Class
+  - uid: LibGFX.Graphics.CullMode
+    name: CullMode
+    type: Enum
+  - uid: LibGFX.Graphics.DepthOnlyRenderTarget
+    name: DepthOnlyRenderTarget
+    type: Class
+  - uid: LibGFX.Graphics.Font
+    name: Font
+    type: Class
+  - uid: LibGFX.Graphics.FontAlignment
+    name: FontAlignment
+    type: Enum
+  - uid: LibGFX.Graphics.IModel
+    name: IModel
+    type: Interface
+  - uid: LibGFX.Graphics.IRenderDevice
+    name: IRenderDevice
+    type: Interface
+  - uid: LibGFX.Graphics.IRenderTarget
+    name: IRenderTarget
+    type: Interface
+  - uid: LibGFX.Graphics.MSAARenderTarget2D
+    name: MSAARenderTarget2D
+    type: Class
+  - uid: LibGFX.Graphics.Mesh
+    name: Mesh
+    type: Class
+  - uid: LibGFX.Graphics.OrthographicCamera
+    name: OrthographicCamera
+    type: Class
+  - uid: LibGFX.Graphics.PerspectiveCamera
+    name: PerspectiveCamera
+    type: Class
+  - uid: LibGFX.Graphics.RenderData
+    name: RenderData
+    type: Struct
+  - uid: LibGFX.Graphics.RenderFlags
+    name: RenderFlags
+    type: Class
+  - uid: LibGFX.Graphics.RenderFlags.ClearFlags
+    name: RenderFlags.ClearFlags
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.ColorFormatHint
+    name: RenderFlags.ColorFormatHint
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.ColorFormatLayout
+    name: RenderFlags.ColorFormatLayout
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.ColorFormatType
+    name: RenderFlags.ColorFormatType
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.GFXBufferTarget
+    name: RenderFlags.GFXBufferTarget
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.GFXBufferUsageHint
+    name: RenderFlags.GFXBufferUsageHint
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.GFXFramebufferAttachment
+    name: RenderFlags.GFXFramebufferAttachment
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.GFXFramebufferErrorCode
+    name: RenderFlags.GFXFramebufferErrorCode
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.GFXFramebufferTarget
+    name: RenderFlags.GFXFramebufferTarget
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferStorage
+    name: RenderFlags.GFXRenderbufferStorage
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.GFXRenderbufferTarget
+    name: RenderFlags.GFXRenderbufferTarget
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.GFXTextureParameterName
+    name: RenderFlags.GFXTextureParameterName
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.GFXTextureTarget
+    name: RenderFlags.GFXTextureTarget
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.PrimitiveTypes
+    name: RenderFlags.PrimitiveTypes
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.RenderBufferMode
+    name: RenderFlags.RenderBufferMode
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.RenderDataTypes
+    name: RenderFlags.RenderDataTypes
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.TextureFilterMode
+    name: RenderFlags.TextureFilterMode
+    type: Enum
+  - uid: LibGFX.Graphics.RenderFlags.TextureWrapMode
+    name: RenderFlags.TextureWrapMode
+    type: Enum
+  - uid: LibGFX.Graphics.RenderInstance
+    name: RenderInstance
+    type: Class
+  - uid: LibGFX.Graphics.RenderInstanceContainer
+    name: RenderInstanceContainer
+    type: Class
+  - uid: LibGFX.Graphics.RenderTarget2D
+    name: RenderTarget2D
+    type: Class
+  - uid: LibGFX.Graphics.RenderTargetDescriptor
+    name: RenderTargetDescriptor
+    type: Struct
+  - uid: LibGFX.Graphics.SkinnedMeshModel
+    name: SkinnedMeshModel
+    type: Class
+  - uid: LibGFX.Graphics.StaticMeshModel
+    name: StaticMeshModel
+    type: Class
+  - uid: LibGFX.Graphics.Texture
+    name: Texture
+    type: Class
+  - uid: LibGFX.Graphics.TextureMirrorMode
+    name: TextureMirrorMode
+    type: Enum
+  - uid: LibGFX.Graphics.TextureParameters
+    name: TextureParameters
+    type: Struct
+  - uid: LibGFX.Graphics.Vertex
+    name: Vertex
+    type: Struct
+  - uid: LibGFX.Graphics.Viewport
+    name: Viewport
+    type: Struct
+- uid: LibGFX.Graphics.Animation2D
+  name: LibGFX.Graphics.Animation2D
+  type: Namespace
+  items:
+  - uid: LibGFX.Graphics.Animation2D.Animation2D
+    name: Animation2D
+    type: Class
+  - uid: LibGFX.Graphics.Animation2D.Animator
+    name: Animator
+    type: Class
+  - uid: LibGFX.Graphics.Animation2D.IAnimationCallback
+    name: IAnimationCallback
+    type: Interface
+- uid: LibGFX.Graphics.Animation3D
+  name: LibGFX.Graphics.Animation3D
+  type: Namespace
+  items:
+  - uid: LibGFX.Graphics.Animation3D.Animation3D
+    name: Animation3D
+    type: Class
+  - uid: LibGFX.Graphics.Animation3D.AnimationChannel
+    name: AnimationChannel
+    type: Class
+  - uid: LibGFX.Graphics.Animation3D.Animator
+    name: Animator
+    type: Class
+  - uid: LibGFX.Graphics.Animation3D.Bone
+    name: Bone
+    type: Class
+  - uid: LibGFX.Graphics.Animation3D.IAnimationCallback
+    name: IAnimationCallback
+    type: Interface
+  - uid: LibGFX.Graphics.Animation3D.KeyPosition
+    name: KeyPosition
+    type: Struct
+  - uid: LibGFX.Graphics.Animation3D.KeyRotation
+    name: KeyRotation
+    type: Struct
+  - uid: LibGFX.Graphics.Animation3D.KeyScale
+    name: KeyScale
+    type: Struct
+  - uid: LibGFX.Graphics.Animation3D.SceneNodeData
+    name: SceneNodeData
+    type: Struct
+  - uid: LibGFX.Graphics.Animation3D.Skeleton
+    name: Skeleton
+    type: Class
+- uid: LibGFX.Graphics.Enviroment
+  name: LibGFX.Graphics.Enviroment
+  type: Namespace
+  items:
+  - uid: LibGFX.Graphics.Enviroment.IEnviroment
+    name: IEnviroment
+    type: Interface
+  - uid: LibGFX.Graphics.Enviroment.ProceduralSky
+    name: ProceduralSky
+    type: Class
+  - uid: LibGFX.Graphics.Enviroment.Skybox
+    name: Skybox
+    type: Class
+- uid: LibGFX.Graphics.Generator
+  name: LibGFX.Graphics.Generator
+  type: Namespace
+  items:
+  - uid: LibGFX.Graphics.Generator.SphereGenerator
+    name: SphereGenerator
+    type: Class
+  - uid: LibGFX.Graphics.Generator.SurfaceGenerator
+    name: SurfaceGenerator
+    type: Class
+- uid: LibGFX.Graphics.Lights
+  name: LibGFX.Graphics.Lights
+  type: Namespace
+  items:
+  - uid: LibGFX.Graphics.Lights.DirectionalLight2D
+    name: DirectionalLight2D
+    type: Class
+  - uid: LibGFX.Graphics.Lights.DirectionalLight3D
+    name: DirectionalLight3D
+    type: Class
+  - uid: LibGFX.Graphics.Lights.ILightManager
+    name: ILightManager
+    type: Interface
+  - uid: LibGFX.Graphics.Lights.Light
+    name: Light
+    type: Class
+  - uid: LibGFX.Graphics.Lights.Light2DChunk
+    name: Light2DChunk
+    type: Class
+  - uid: LibGFX.Graphics.Lights.Light2DManager
+    name: Light2DManager
+    type: Class
+  - uid: LibGFX.Graphics.Lights.Light3DChunk
+    name: Light3DChunk
+    type: Class
+  - uid: LibGFX.Graphics.Lights.Light3DManager
+    name: Light3DManager
+    type: Class
+  - uid: LibGFX.Graphics.Lights.Point2DLightData
+    name: Point2DLightData
+    type: Struct
+  - uid: LibGFX.Graphics.Lights.PointLight2D
+    name: PointLight2D
+    type: Class
+  - uid: LibGFX.Graphics.Lights.PointLight3D
+    name: PointLight3D
+    type: Class
+  - uid: LibGFX.Graphics.Lights.PointLight3DData
+    name: PointLight3DData
+    type: Struct
+- uid: LibGFX.Graphics.Materials
+  name: LibGFX.Graphics.Materials
+  type: Namespace
+  items:
+  - uid: LibGFX.Graphics.Materials.IMaterial
+    name: IMaterial
+    type: Interface
+  - uid: LibGFX.Graphics.Materials.PBRMaterial
+    name: PBRMaterial
+    type: Class
+  - uid: LibGFX.Graphics.Materials.SGMaterial
+    name: SGMaterial
+    type: Class
+  - uid: LibGFX.Graphics.Materials.SpriteMaterial
+    name: SpriteMaterial
+    type: Class
+- uid: LibGFX.Graphics.PostProcessing
+  name: LibGFX.Graphics.PostProcessing
+  type: Namespace
+  items:
+  - uid: LibGFX.Graphics.PostProcessing.BrightnessContrastFX
+    name: BrightnessContrastFX
+    type: Class
+  - uid: LibGFX.Graphics.PostProcessing.ChromaticAberrationFX
+    name: ChromaticAberrationFX
+    type: Class
+  - uid: LibGFX.Graphics.PostProcessing.ColorTintFX
+    name: ColorTintFX
+    type: Class
+  - uid: LibGFX.Graphics.PostProcessing.FilmGrainFX
+    name: FilmGrainFX
+    type: Class
+  - uid: LibGFX.Graphics.PostProcessing.GrayscaleFX
+    name: GrayscaleFX
+    type: Class
+  - uid: LibGFX.Graphics.PostProcessing.IPostProcessFilter
+    name: IPostProcessFilter
+    type: Interface
+  - uid: LibGFX.Graphics.PostProcessing.OverlayFX
+    name: OverlayFX
+    type: Class
+  - uid: LibGFX.Graphics.PostProcessing.PixelationFX
+    name: PixelationFX
+    type: Class
+  - uid: LibGFX.Graphics.PostProcessing.PostProcessStack
+    name: PostProcessStack
+    type: Class
+  - uid: LibGFX.Graphics.PostProcessing.PosterizationFX
+    name: PosterizationFX
+    type: Class
+  - uid: LibGFX.Graphics.PostProcessing.ScanlinesFX
+    name: ScanlinesFX
+    type: Class
+  - uid: LibGFX.Graphics.PostProcessing.SepiaFX
+    name: SepiaFX
+    type: Class
+  - uid: LibGFX.Graphics.PostProcessing.SharpenFX
+    name: SharpenFX
+    type: Class
+  - uid: LibGFX.Graphics.PostProcessing.VignetteFX
+    name: VignetteFX
+    type: Class
+- uid: LibGFX.Graphics.Primitives
+  name: LibGFX.Graphics.Primitives
+  type: Namespace
+  items:
+  - uid: LibGFX.Graphics.Primitives.Cube
+    name: Cube
+    type: Class
+  - uid: LibGFX.Graphics.Primitives.IPrimitive`1
+    name: IPrimitive<TSelf>
+    type: Interface
+  - uid: LibGFX.Graphics.Primitives.PrimitiveType
+    name: PrimitiveType
+    type: Enum
+  - uid: LibGFX.Graphics.Primitives.Quad
+    name: Quad
+    type: Class
+  - uid: LibGFX.Graphics.Primitives.Sphere
+    name: Sphere
+    type: Class
+- uid: LibGFX.Graphics.Renderer.OpenGL
+  name: LibGFX.Graphics.Renderer.OpenGL
+  type: Namespace
+  items:
+  - uid: LibGFX.Graphics.Renderer.OpenGL.GLRenderer
+    name: GLRenderer
+    type: Class
+- uid: LibGFX.Graphics.Shader
+  name: LibGFX.Graphics.Shader
+  type: Namespace
+  items:
+  - uid: LibGFX.Graphics.Shader.AABBShader
+    name: AABBShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.AnimatedDepthMeshShader
+    name: AnimatedDepthMeshShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.AnimatedMeshShader
+    name: AnimatedMeshShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.BrightnessContrastFXShader
+    name: BrightnessContrastFXShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.ChromaticAberrationFXShader
+    name: ChromaticAberrationFXShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.ColorTintFXShader
+    name: ColorTintFXShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.DepthInstancedShader3D
+    name: DepthInstancedShader3D
+    type: Class
+  - uid: LibGFX.Graphics.Shader.DepthMeshShader
+    name: DepthMeshShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.EnviromentShader
+    name: EnviromentShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.FilmGrainFXShader
+    name: FilmGrainFXShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.FontShader
+    name: FontShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.GrayscaleFXShader
+    name: GrayscaleFXShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.IShaderProgram
+    name: IShaderProgram
+    type: Interface
+  - uid: LibGFX.Graphics.Shader.InfiniteGridShader
+    name: InfiniteGridShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.InstancedShader2D
+    name: InstancedShader2D
+    type: Class
+  - uid: LibGFX.Graphics.Shader.InstancedShader3D
+    name: InstancedShader3D
+    type: Class
+  - uid: LibGFX.Graphics.Shader.LineShader
+    name: LineShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.LitSpriteShader
+    name: LitSpriteShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.MeshShader
+    name: MeshShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.OverlayFXShader
+    name: OverlayFXShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.PBRMeshShader
+    name: PBRMeshShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.PixelationFXShader
+    name: PixelationFXShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.PosterizationFXShader
+    name: PosterizationFXShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.ProceduralSkyShader
+    name: ProceduralSkyShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.RectShader
+    name: RectShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.RenderShader
+    name: RenderShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.ScanlinesFXShader
+    name: ScanlinesFXShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.ScreenShader
+    name: ScreenShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.SepiaFXShader
+    name: SepiaFXShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.Shader
+    name: Shader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.ShadowMapTest
+    name: ShadowMapTest
+    type: Class
+  - uid: LibGFX.Graphics.Shader.SharpenFXShader
+    name: SharpenFXShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.SolidMeshShader
+    name: SolidMeshShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.SpriteShader
+    name: SpriteShader
+    type: Class
+  - uid: LibGFX.Graphics.Shader.VignetteFXShader
+    name: VignetteFXShader
+    type: Class
+- uid: LibGFX.Graphics.Shapes
+  name: LibGFX.Graphics.Shapes
+  type: Namespace
+  items:
+  - uid: LibGFX.Graphics.Shapes.CubeShape
+    name: CubeShape
+    type: Class
+  - uid: LibGFX.Graphics.Shapes.CubeWireShape
+    name: CubeWireShape
+    type: Class
+  - uid: LibGFX.Graphics.Shapes.FramebufferShape
+    name: FramebufferShape
+    type: Class
+  - uid: LibGFX.Graphics.Shapes.LineShape
+    name: LineShape
+    type: Class
+  - uid: LibGFX.Graphics.Shapes.PlaneShape
+    name: PlaneShape
+    type: Class
+  - uid: LibGFX.Graphics.Shapes.RectShape
+    name: RectShape
+    type: Class
+  - uid: LibGFX.Graphics.Shapes.Shape
+    name: Shape
+    type: Class
+  - uid: LibGFX.Graphics.Shapes.SpriteShape
+    name: SpriteShape
+    type: Class
+- uid: LibGFX.Math
+  name: LibGFX.Math
+  type: Namespace
+  items:
+  - uid: LibGFX.Math.AABB
+    name: AABB
+    type: Struct
+  - uid: LibGFX.Math.MathUtils
+    name: MathUtils
+    type: Class
+  - uid: LibGFX.Math.Plane
+    name: Plane
+    type: Struct
+  - uid: LibGFX.Math.Rect
+    name: Rect
+    type: Struct
+  - uid: LibGFX.Math.Transform
+    name: Transform
+    type: Class
+- uid: LibGFX.Physics
+  name: LibGFX.Physics
+  type: Namespace
+  items:
+  - uid: LibGFX.Physics.Collision
+    name: Collision
+    type: Struct
+  - uid: LibGFX.Physics.CollisionGroup
+    name: CollisionGroup
+    type: Enum
+  - uid: LibGFX.Physics.CollisionGroupExtensions
+    name: CollisionGroupExtensions
+    type: Class
+  - uid: LibGFX.Physics.CollisionPoint
+    name: CollisionPoint
+    type: Struct
+  - uid: LibGFX.Physics.ComputeHitResult
+    name: ComputeHitResult
+    type: Struct
+  - uid: LibGFX.Physics.ComputeRaycast
+    name: ComputeRaycast
+    type: Class
+  - uid: LibGFX.Physics.DebugDrawer
+    name: DebugDrawer
+    type: Class
+  - uid: LibGFX.Physics.ElementIndex
+    name: ElementIndex
+    type: Enum
+  - uid: LibGFX.Physics.HitResult
+    name: HitResult
+    type: Struct
+  - uid: LibGFX.Physics.MeshRay
+    name: MeshRay
+    type: Struct
+  - uid: LibGFX.Physics.MeshRayHit
+    name: MeshRayHit
+    type: Struct
+  - uid: LibGFX.Physics.MeshRaycast
+    name: MeshRaycast
+    type: Class
+  - uid: LibGFX.Physics.PhysicsBehavior
+    name: PhysicsBehavior
+    type: Class
+  - uid: LibGFX.Physics.PhysicsHandler
+    name: PhysicsHandler
+    type: Class
+  - uid: LibGFX.Physics.PhysicsHandler2D
+    name: PhysicsHandler2D
+    type: Class
+  - uid: LibGFX.Physics.PhysicsHandler3D
+    name: PhysicsHandler3D
+    type: Class
+  - uid: LibGFX.Physics.Raycast
+    name: Raycast
+    type: Class
+- uid: LibGFX.Physics.Behaviors
+  name: LibGFX.Physics.Behaviors
+  type: Namespace
+  items:
+  - uid: LibGFX.Physics.Behaviors.RigidBodyBehavior
+    name: RigidBodyBehavior
+    type: Class
+- uid: LibGFX.Physics.Behaviors2D
+  name: LibGFX.Physics.Behaviors2D
+  type: Namespace
+  items:
+  - uid: LibGFX.Physics.Behaviors2D.BoxCollider
+    name: BoxCollider
+    type: Class
+  - uid: LibGFX.Physics.Behaviors2D.BoxRigidBody
+    name: BoxRigidBody
+    type: Class
+  - uid: LibGFX.Physics.Behaviors2D.BoxTrigger
+    name: BoxTrigger
+    type: Class
+  - uid: LibGFX.Physics.Behaviors2D.CapsuleCollider
+    name: CapsuleCollider
+    type: Class
+  - uid: LibGFX.Physics.Behaviors2D.CapsuleRigidBody
+    name: CapsuleRigidBody
+    type: Class
+  - uid: LibGFX.Physics.Behaviors2D.CapsuleTrigger
+    name: CapsuleTrigger
+    type: Class
+  - uid: LibGFX.Physics.Behaviors2D.CollisionBehavior
+    name: CollisionBehavior
+    type: Class
+  - uid: LibGFX.Physics.Behaviors2D.RigidBodyBehavior
+    name: RigidBodyBehavior
+    type: Class
+  - uid: LibGFX.Physics.Behaviors2D.SphereCollider
+    name: SphereCollider
+    type: Class
+  - uid: LibGFX.Physics.Behaviors2D.SphereRigidBody
+    name: SphereRigidBody
+    type: Class
+  - uid: LibGFX.Physics.Behaviors2D.SphereTrigger
+    name: SphereTrigger
+    type: Class
+  - uid: LibGFX.Physics.Behaviors2D.TriggerBehavior
+    name: TriggerBehavior
+    type: Class
+- uid: LibGFX.Physics.Behaviors3D
+  name: LibGFX.Physics.Behaviors3D
+  type: Namespace
+  items:
+  - uid: LibGFX.Physics.Behaviors3D.BoxCollider
+    name: BoxCollider
+    type: Class
+  - uid: LibGFX.Physics.Behaviors3D.BoxRigidBody
+    name: BoxRigidBody
+    type: Class
+  - uid: LibGFX.Physics.Behaviors3D.BoxTrigger
+    name: BoxTrigger
+    type: Class
+  - uid: LibGFX.Physics.Behaviors3D.CapsuleCollider
+    name: CapsuleCollider
+    type: Class
+  - uid: LibGFX.Physics.Behaviors3D.CapsuleRigidBody
+    name: CapsuleRigidBody
+    type: Class
+  - uid: LibGFX.Physics.Behaviors3D.CapsuleTrigger
+    name: CapsuleTrigger
+    type: Class
+  - uid: LibGFX.Physics.Behaviors3D.CollisionBehavior
+    name: CollisionBehavior
+    type: Class
+  - uid: LibGFX.Physics.Behaviors3D.ConvexHullCollider
+    name: ConvexHullCollider
+    type: Class
+  - uid: LibGFX.Physics.Behaviors3D.MeshCollider
+    name: MeshCollider
+    type: Class
+  - uid: LibGFX.Physics.Behaviors3D.SphereCollider
+    name: SphereCollider
+    type: Class
+  - uid: LibGFX.Physics.Behaviors3D.SphereRigidBody
+    name: SphereRigidBody
+    type: Class
+  - uid: LibGFX.Physics.Behaviors3D.SphereTrigger
+    name: SphereTrigger
+    type: Class
+  - uid: LibGFX.Physics.Behaviors3D.TriggerBehavior
+    name: TriggerBehavior
+    type: Class
+- uid: LibGFX.UI
+  name: LibGFX.UI
+  type: Namespace
+  items:
+  - uid: LibGFX.UI.Button
+    name: Button
+    type: Class
+  - uid: LibGFX.UI.Canvas
+    name: Canvas
+    type: Class
+  - uid: LibGFX.UI.Canvas2D
+    name: Canvas2D
+    type: Class
+  - uid: LibGFX.UI.Control
+    name: Control
+    type: Class
+  - uid: LibGFX.UI.ControlEventArgs
+    name: ControlEventArgs
+    type: Struct
+  - uid: LibGFX.UI.ControlEventHandler
+    name: ControlEventHandler
+    type: Delegate
+  - uid: LibGFX.UI.ControlEventType
+    name: ControlEventType
+    type: Enum
+  - uid: LibGFX.UI.Label
+    name: Label
+    type: Class
+  - uid: LibGFX.UI.Progressbar
+    name: Progressbar
+    type: Class
+  - uid: LibGFX.UI.ProgressbarEventHandler
+    name: ProgressbarEventHandler
+    type: Delegate
+memberLayout: SamePage

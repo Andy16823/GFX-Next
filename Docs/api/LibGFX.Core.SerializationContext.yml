@@ -1,0 +1,596 @@
+### YamlMime:ManagedReference
+items:
+- uid: LibGFX.Core.SerializationContext
+  commentId: T:LibGFX.Core.SerializationContext
+  id: SerializationContext
+  parent: LibGFX.Core
+  children:
+  - LibGFX.Core.SerializationContext.ContextData
+  - LibGFX.Core.SerializationContext.GetValue``1(System.String,``0)
+  - LibGFX.Core.SerializationContext.SetValue``1(System.String,``0)
+  langs:
+  - csharp
+  - vb
+  name: SerializationContext
+  nameWithType: SerializationContext
+  fullName: LibGFX.Core.SerializationContext
+  type: Class
+  source:
+    remote:
+      path: LibGFX/Core/SerializationContext.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SerializationContext
+    path: ../LibGFX/Core/SerializationContext.cs
+    startLine: 15
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Provides a context for storing and retrieving key-value pairs during serialization operations.
+  remarks: >-
+    Use this class to pass additional contextual information between serialization components.
+        The context is typically used to share data that may influence how objects are serialized or deserialized. Keys
+        are case-sensitive. This class is not thread-safe; synchronize access if used concurrently from multiple
+        threads.
+  example: []
+  syntax:
+    content: public class SerializationContext
+    content.vb: Public Class SerializationContext
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: LibGFX.Core.SerializationContext.ContextData
+  commentId: P:LibGFX.Core.SerializationContext.ContextData
+  id: ContextData
+  parent: LibGFX.Core.SerializationContext
+  langs:
+  - csharp
+  - vb
+  name: ContextData
+  nameWithType: SerializationContext.ContextData
+  fullName: LibGFX.Core.SerializationContext.ContextData
+  type: Property
+  source:
+    remote:
+      path: LibGFX/Core/SerializationContext.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: ContextData
+    path: ../LibGFX/Core/SerializationContext.cs
+    startLine: 24
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: >-
+    Gets a collection of key-value pairs that provide additional contextual information associated with the
+
+    current instance.
+  remarks: >-
+    Use this property to store or retrieve custom data relevant to the context in which
+        the instance is used. The dictionary is initialized and never null, but may be empty if no context data has
+        been added.
+  example: []
+  syntax:
+    content: public Dictionary<string, object> ContextData { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Object}
+    content.vb: Public ReadOnly Property ContextData As Dictionary(Of String, Object)
+  overload: LibGFX.Core.SerializationContext.ContextData*
+- uid: LibGFX.Core.SerializationContext.GetValue``1(System.String,``0)
+  commentId: M:LibGFX.Core.SerializationContext.GetValue``1(System.String,``0)
+  id: GetValue``1(System.String,``0)
+  parent: LibGFX.Core.SerializationContext
+  langs:
+  - csharp
+  - vb
+  name: GetValue<T>(string, T)
+  nameWithType: SerializationContext.GetValue<T>(string, T)
+  fullName: LibGFX.Core.SerializationContext.GetValue<T>(string, T)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/SerializationContext.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: GetValue
+    path: ../LibGFX/Core/SerializationContext.cs
+    startLine: 37
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: >-
+    Retrieves the value associated with the specified key, or returns a default value if the key is not found or
+
+    cannot be cast to the specified type.
+  remarks: >-
+    If the value associated with the key exists but is not of type T, the default value
+        is returned instead of throwing an exception.
+  example: []
+  syntax:
+    content: public T GetValue<T>(string key, T defaultValue = default)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key whose associated value is to be retrieved.
+    - id: defaultValue
+      type: '{T}'
+      description: The value to return if the key does not exist or the value cannot be cast to type T.
+    typeParameters:
+    - id: T
+      description: The type of the value to retrieve.
+    return:
+      type: '{T}'
+      description: >-
+        The value associated with the specified key, cast to type T, if found and of the correct type; otherwise,
+            the specified default value.
+    content.vb: Public Function GetValue(Of T)(key As String, defaultValue As T = Nothing) As T
+  overload: LibGFX.Core.SerializationContext.GetValue*
+  nameWithType.vb: SerializationContext.GetValue(Of T)(String, T)
+  fullName.vb: LibGFX.Core.SerializationContext.GetValue(Of T)(String, T)
+  name.vb: GetValue(Of T)(String, T)
+- uid: LibGFX.Core.SerializationContext.SetValue``1(System.String,``0)
+  commentId: M:LibGFX.Core.SerializationContext.SetValue``1(System.String,``0)
+  id: SetValue``1(System.String,``0)
+  parent: LibGFX.Core.SerializationContext
+  langs:
+  - csharp
+  - vb
+  name: SetValue<T>(string, T)
+  nameWithType: SerializationContext.SetValue<T>(string, T)
+  fullName: LibGFX.Core.SerializationContext.SetValue<T>(string, T)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/SerializationContext.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetValue
+    path: ../LibGFX/Core/SerializationContext.cs
+    startLine: 52
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Sets the value associated with the specified key in the context data.
+  example: []
+  syntax:
+    content: public void SetValue<T>(string key, T value)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key with which the value will be associated. Cannot be null.
+    - id: value
+      type: '{T}'
+      description: The value to associate with the specified key.
+    typeParameters:
+    - id: T
+      description: The type of the value to store.
+    content.vb: Public Sub SetValue(Of T)(key As String, value As T)
+  overload: LibGFX.Core.SerializationContext.SetValue*
+  nameWithType.vb: SerializationContext.SetValue(Of T)(String, T)
+  fullName.vb: LibGFX.Core.SerializationContext.SetValue(Of T)(String, T)
+  name.vb: SetValue(Of T)(String, T)
+references:
+- uid: LibGFX.Core
+  commentId: N:LibGFX.Core
+  href: LibGFX.html
+  name: LibGFX.Core
+  nameWithType: LibGFX.Core
+  fullName: LibGFX.Core
+  spec.csharp:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+  spec.vb:
+  - uid: LibGFX
+    name: LibGFX
+    href: LibGFX.html
+  - name: .
+  - uid: LibGFX.Core
+    name: Core
+    href: LibGFX.Core.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: LibGFX.Core.SerializationContext.ContextData*
+  commentId: Overload:LibGFX.Core.SerializationContext.ContextData
+  href: LibGFX.Core.SerializationContext.html#LibGFX_Core_SerializationContext_ContextData
+  name: ContextData
+  nameWithType: SerializationContext.ContextData
+  fullName: LibGFX.Core.SerializationContext.ContextData
+- uid: System.Collections.Generic.Dictionary{System.String,System.Object}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, object>
+  nameWithType: Dictionary<string, object>
+  fullName: System.Collections.Generic.Dictionary<string, object>
+  nameWithType.vb: Dictionary(Of String, Object)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, Object)
+  name.vb: Dictionary(Of String, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: LibGFX.Core.SerializationContext.GetValue*
+  commentId: Overload:LibGFX.Core.SerializationContext.GetValue
+  href: LibGFX.Core.SerializationContext.html#LibGFX_Core_SerializationContext_GetValue__1_System_String___0_
+  name: GetValue
+  nameWithType: SerializationContext.GetValue
+  fullName: LibGFX.Core.SerializationContext.GetValue
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: LibGFX.Core.SerializationContext.SetValue*
+  commentId: Overload:LibGFX.Core.SerializationContext.SetValue
+  href: LibGFX.Core.SerializationContext.html#LibGFX_Core_SerializationContext_SetValue__1_System_String___0_
+  name: SetValue
+  nameWithType: SerializationContext.SetValue
+  fullName: LibGFX.Core.SerializationContext.SetValue
