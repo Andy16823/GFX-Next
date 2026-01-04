@@ -1416,7 +1416,7 @@
   },
   "index.html": {
     "href": "index.html",
-    "title": "This is the HOMEPAGE. | LibGFX",
-    "summary": "This is the HOMEPAGE. Refer to Markdown for how to write markdown files. Quick Start Notes: Add images to the images folder if the file is referencing an image."
+    "title": "GFX Game Engine Documentation | LibGFX",
+    "summary": "GFX Game Engine Documentation Welcome to the official documentation for the GFX Game Engine – an open-source, cross-platform game development framework built on .NET 8. \uD83D\uDCDA About This Documentation This documentation is built with DocFX and provides comprehensive guides, API references, and examples to help you get started with GFX and build amazing games. \uD83D\uDE80 Quick Links Getting Started Guide - Begin your journey with GFX API Reference - Detailed API documentation for all classes and methods GitHub Repository - Source code and issue tracking Discord Community - Join our community for support and discussions"
   }
 }

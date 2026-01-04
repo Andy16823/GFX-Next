@@ -1,4 +1,8 @@
-- name: Docs
-  href: docs/
 - name: API
   href: api/
+- name: Getting Started
+  href: https://gfx-engine.org/index.php?category-article-list/2-getting-started/
+- name: Forum
+  href: https://gfx-engine.org/
+- name: GitHub
+  href: https://github.com/Andy16823/GFX-Next/tree/main/LibGFX
