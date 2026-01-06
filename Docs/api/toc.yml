@@ -706,9 +706,6 @@ items:
   - uid: LibGFX.Physics.CollisionPoint
     name: CollisionPoint
     type: Struct
-  - uid: LibGFX.Physics.ComputeHitResult
-    name: ComputeHitResult
-    type: Struct
   - uid: LibGFX.Physics.ComputeRaycast
     name: ComputeRaycast
     type: Class
@@ -720,12 +717,6 @@ items:
     type: Enum
   - uid: LibGFX.Physics.HitResult
     name: HitResult
-    type: Struct
-  - uid: LibGFX.Physics.MeshRay
-    name: MeshRay
-    type: Struct
-  - uid: LibGFX.Physics.MeshRayHit
-    name: MeshRayHit
     type: Struct
   - uid: LibGFX.Physics.MeshRaycast
     name: MeshRaycast
@@ -742,6 +733,9 @@ items:
   - uid: LibGFX.Physics.PhysicsHandler3D
     name: PhysicsHandler3D
     type: Class
+  - uid: LibGFX.Physics.Ray
+    name: Ray
+    type: Struct
   - uid: LibGFX.Physics.Raycast
     name: Raycast
     type: Class

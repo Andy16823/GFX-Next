@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Struct HitResult | LibGFX </title>
+      <title>Struct Ray | LibGFX </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Struct HitResult | LibGFX ">
+      <meta name="title" content="Struct Ray | LibGFX ">
       
-      <meta name="description" content="Hit result of a raycast operation.">
+      <meta name="description" content="Represents a ray in three-dimensional space, defined by an origin point and a direction vector.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Physics_HitResult.md&amp;value=---%0Auid%3A%20LibGFX.Physics.HitResult%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/Andy16823/GFX-Next/new/dev/apiSpec/new?filename=LibGFX_Physics_Ray.md&amp;value=---%0Auid%3A%20LibGFX.Physics.Ray%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,12 +84,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="LibGFX.Physics.HitResult">
+        <article data-uid="LibGFX.Physics.Ray">
 
 
 
-  <h1 id="LibGFX_Physics_HitResult" data-uid="LibGFX.Physics.HitResult" class="text-break">
-Struct HitResult  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/HitResult.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <h1 id="LibGFX_Physics_Ray" data-uid="LibGFX.Physics.Ray" class="text-break">
+Struct Ray  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Ray.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,12 +97,12 @@ Struct HitResult  <a class="header-action link-secondary" title="View source" hr
   <dl><dt>Assembly</dt><dd>LibGFX.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Hit result of a raycast operation.</p>
+  <div class="markdown summary"><p>Represents a ray in three-dimensional space, defined by an origin point and a direction vector.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct HitResult</code></pre>
+    <pre><code class="lang-csharp hljs">public struct Ray</code></pre>
   </div>
 
 
@@ -137,6 +137,49 @@ Struct HitResult  <a class="header-action link-secondary" title="View source" hr
 
 
 
+  <h2 id="LibGFX_Physics_Ray_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A ray is commonly used in graphics and physics calculations to represent a line with a
+specific starting point and direction, extending infinitely. The direction vector should be normalized to ensure
+consistent behavior in intersection and projection operations.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="LibGFX_Physics_Ray__ctor_" data-uid="LibGFX.Physics.Ray.#ctor*"></a>
+
+  <h3 id="LibGFX_Physics_Ray__ctor_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Physics.Ray.#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+  Ray(Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Ray.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a ray with the specified origin and direction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Ray(Vector3 origin, Vector3 direction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>origin</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>direction</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <h2 class="section" id="fields">Fields
@@ -144,106 +187,16 @@ Struct HitResult  <a class="header-action link-secondary" title="View source" hr
 
 
 
-  <h3 id="LibGFX_Physics_HitResult_hit" data-uid="LibGFX.Physics.HitResult.hit">
-  hit
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/HitResult.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <h3 id="LibGFX_Physics_Ray_Direction" data-uid="LibGFX.Physics.Ray.Direction">
+  Direction
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Ray.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool hit</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="LibGFX_Physics_HitResult_hitDistance" data-uid="LibGFX.Physics.HitResult.hitDistance">
-  hitDistance
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/HitResult.cs/#L24"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float hitDistance</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="LibGFX_Physics_HitResult_hitElement" data-uid="LibGFX.Physics.HitResult.hitElement">
-  hitElement
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/HitResult.cs/#L20"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public GameElement hitElement</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="LibGFX.Core.GameElement.html">GameElement</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="LibGFX_Physics_HitResult_hitLocation" data-uid="LibGFX.Physics.HitResult.hitLocation">
-  hitLocation
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/HitResult.cs/#L21"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3 hitLocation</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector3 Direction</code></pre>
   </div>
 
 
@@ -264,16 +217,16 @@ Struct HitResult  <a class="header-action link-secondary" title="View source" hr
 
 
 
-  <h3 id="LibGFX_Physics_HitResult_hitNormal" data-uid="LibGFX.Physics.HitResult.hitNormal">
-  hitNormal
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/HitResult.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <h3 id="LibGFX_Physics_Ray_Origin" data-uid="LibGFX.Physics.Ray.Origin">
+  Origin
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Ray.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3 hitNormal</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector3 Origin</code></pre>
   </div>
 
 
@@ -293,25 +246,36 @@ Struct HitResult  <a class="header-action link-secondary" title="View source" hr
 
 
 
+  <h2 class="section" id="methods">Methods
+</h2>
 
-  <h3 id="LibGFX_Physics_HitResult_hitTriangleIndex" data-uid="LibGFX.Physics.HitResult.hitTriangleIndex">
-  hitTriangleIndex
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/HitResult.cs/#L23"><i class="bi bi-code-slash"></i></a>
+
+  <a id="LibGFX_Physics_Ray_FromPoints_" data-uid="LibGFX.Physics.Ray.FromPoints*"></a>
+
+  <h3 id="LibGFX_Physics_Ray_FromPoints_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_" data-uid="LibGFX.Physics.Ray.FromPoints(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+  FromPoints(Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Ray.cs/#L73"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a ray from an origin point to a target point.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int hitTriangleIndex</code></pre>
+    <pre><code class="lang-csharp hljs">public static Ray FromPoints(Vector3 origin, Vector3 target)</code></pre>
   </div>
 
-
-
-
-  <h4 class="section">Field Value</h4>
+  <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>origin</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>target</code> <a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Physics.Ray.html">Ray</a></dt>
     <dd></dd>
   </dl>
 
@@ -324,56 +288,41 @@ Struct HitResult  <a class="header-action link-secondary" title="View source" hr
 
 
 
-  <h3 id="LibGFX_Physics_HitResult_rayEnd" data-uid="LibGFX.Physics.HitResult.rayEnd">
-  rayEnd
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/HitResult.cs/#L19"><i class="bi bi-code-slash"></i></a>
+
+  <a id="LibGFX_Physics_Ray_FromScreenPoint_" data-uid="LibGFX.Physics.Ray.FromScreenPoint*"></a>
+
+  <h3 id="LibGFX_Physics_Ray_FromScreenPoint_LibGFX_Graphics_Camera_LibGFX_Graphics_Viewport_System_Single_System_Single_" data-uid="LibGFX.Physics.Ray.FromScreenPoint(LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport,System.Single,System.Single)">
+  FromScreenPoint(Camera, Viewport, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Ray.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a ray from screen coordinates using the provided camera and viewport.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3 rayEnd</code></pre>
+    <pre><code class="lang-csharp hljs">public static Ray FromScreenPoint(Camera camera, Viewport viewport, float mouseX, float mouseY)</code></pre>
   </div>
 
-
-
-
-  <h4 class="section">Field Value</h4>
+  <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
+    <dt><code>camera</code> <a class="xref" href="LibGFX.Graphics.Camera.html">Camera</a></dt>
+    <dd></dd>
+    <dt><code>viewport</code> <a class="xref" href="LibGFX.Graphics.Viewport.html">Viewport</a></dt>
+    <dd></dd>
+    <dt><code>mouseX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+    <dt><code>mouseY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="LibGFX.Physics.Ray.html">Ray</a></dt>
     <dd></dd>
   </dl>
 
 
-
-
-
-
-
-
-
-
-  <h3 id="LibGFX_Physics_HitResult_rayStart" data-uid="LibGFX.Physics.HitResult.rayStart">
-  rayStart
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/HitResult.cs/#L18"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3 rayStart</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs">Vector3</a></dt>
-    <dd></dd>
-  </dl>
 
 
 
@@ -387,7 +336,7 @@ Struct HitResult  <a class="header-action link-secondary" title="View source" hr
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/HitResult.cs/#L15" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/Ray.cs/#L17" class="edit-link">Edit this page</a>
         </div>
 
 

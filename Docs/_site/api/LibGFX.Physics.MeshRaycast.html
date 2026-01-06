@@ -89,7 +89,7 @@
 
 
   <h1 id="LibGFX_Physics_MeshRaycast" data-uid="LibGFX.Physics.MeshRaycast" class="text-break">
-Class MeshRaycast  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/MeshRaycast.cs/#L42"><i class="bi bi-code-slash"></i></a>
+Class MeshRaycast  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/MeshRaycast.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -155,9 +155,9 @@ Class MeshRaycast  <a class="header-action link-secondary" title="View source" h
 
   <a id="LibGFX_Physics_MeshRaycast_IntersectsAABB_" data-uid="LibGFX.Physics.MeshRaycast.IntersectsAABB*"></a>
 
-  <h3 id="LibGFX_Physics_MeshRaycast_IntersectsAABB_LibGFX_Physics_MeshRay_LibGFX_Math_AABB_System_Single__System_Single__" data-uid="LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.MeshRay,LibGFX.Math.AABB,System.Single@,System.Single@)">
-  IntersectsAABB(MeshRay, AABB, out float, out float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/MeshRaycast.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  <h3 id="LibGFX_Physics_MeshRaycast_IntersectsAABB_LibGFX_Physics_Ray_LibGFX_Math_AABB_System_Single__System_Single__" data-uid="LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.Ray,LibGFX.Math.AABB,System.Single@,System.Single@)">
+  IntersectsAABB(Ray, AABB, out float, out float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/MeshRaycast.cs/#L92"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Checks if a ray intersects with an Axis-Aligned Bounding Box (AABB).</p>
@@ -165,12 +165,12 @@ Class MeshRaycast  <a class="header-action link-secondary" title="View source" h
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool IntersectsAABB(MeshRay ray, AABB aabb, out float tMin, out float tMax)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool IntersectsAABB(Ray ray, AABB aabb, out float tMin, out float tMax)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>ray</code> <a class="xref" href="LibGFX.Physics.MeshRay.html">MeshRay</a></dt>
+    <dt><code>ray</code> <a class="xref" href="LibGFX.Physics.Ray.html">Ray</a></dt>
     <dd></dd>
     <dt><code>aabb</code> <a class="xref" href="LibGFX.Math.AABB.html">AABB</a></dt>
     <dd></dd>
@@ -198,22 +198,22 @@ Class MeshRaycast  <a class="header-action link-secondary" title="View source" h
 
   <a id="LibGFX_Physics_MeshRaycast_IntersectsMesh_" data-uid="LibGFX.Physics.MeshRaycast.IntersectsMesh*"></a>
 
-  <h3 id="LibGFX_Physics_MeshRaycast_IntersectsMesh_LibGFX_Physics_MeshRay_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_" data-uid="LibGFX.Physics.MeshRaycast.IntersectsMesh(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)">
-  IntersectsMesh(MeshRay, Transform, Mesh)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/MeshRaycast.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  <h3 id="LibGFX_Physics_MeshRaycast_IntersectsMesh_LibGFX_Physics_Ray_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_" data-uid="LibGFX.Physics.MeshRaycast.IntersectsMesh(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)">
+  IntersectsMesh(Ray, Transform, Mesh)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/MeshRaycast.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Checks if a ray intersects with a mesh by transforming the mesh vertices and checking each triangle.</p>
+  <div class="markdown level1 summary"><p>Checks if a ray intersects with a mesh by testing each triangle.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static MeshRayHit IntersectsMesh(MeshRay ray, Transform transform, Mesh mesh)</code></pre>
+    <pre><code class="lang-csharp hljs">public static HitResult IntersectsMesh(Ray ray, Transform transform, Mesh mesh)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>ray</code> <a class="xref" href="LibGFX.Physics.MeshRay.html">MeshRay</a></dt>
+    <dt><code>ray</code> <a class="xref" href="LibGFX.Physics.Ray.html">Ray</a></dt>
     <dd></dd>
     <dt><code>transform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
     <dd></dd>
@@ -223,7 +223,7 @@ Class MeshRaycast  <a class="header-action link-secondary" title="View source" h
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="LibGFX.Physics.MeshRayHit.html">MeshRayHit</a></dt>
+    <dt><a class="xref" href="LibGFX.Physics.HitResult.html">HitResult</a></dt>
     <dd></dd>
   </dl>
 
@@ -239,22 +239,22 @@ Class MeshRaycast  <a class="header-action link-secondary" title="View source" h
 
   <a id="LibGFX_Physics_MeshRaycast_PerformRaycast_" data-uid="LibGFX.Physics.MeshRaycast.PerformRaycast*"></a>
 
-  <h3 id="LibGFX_Physics_MeshRaycast_PerformRaycast_LibGFX_Physics_MeshRay_LibGFX_Math_Transform_LibGFX_Math_AABB_LibGFX_Graphics_Mesh_" data-uid="LibGFX.Physics.MeshRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Math.AABB,LibGFX.Graphics.Mesh)">
-  PerformRaycast(MeshRay, Transform, AABB, Mesh)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/MeshRaycast.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <h3 id="LibGFX_Physics_MeshRaycast_PerformRaycast_LibGFX_Physics_Ray_LibGFX_Math_Transform_LibGFX_Math_AABB_LibGFX_Graphics_Mesh_" data-uid="LibGFX.Physics.MeshRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Math.AABB,LibGFX.Graphics.Mesh)">
+  PerformRaycast(Ray, Transform, AABB, Mesh)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/MeshRaycast.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Performs a raycast against a mesh, checking for intersection with an AABB first.</p>
+  <div class="markdown level1 summary"><p>Performs a raycast against a mesh, first checking the AABB for a quick rejection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static MeshRayHit PerformRaycast(MeshRay ray, Transform transform, AABB aabb, Mesh mesh)</code></pre>
+    <pre><code class="lang-csharp hljs">public static HitResult PerformRaycast(Ray ray, Transform transform, AABB aabb, Mesh mesh)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>ray</code> <a class="xref" href="LibGFX.Physics.MeshRay.html">MeshRay</a></dt>
+    <dt><code>ray</code> <a class="xref" href="LibGFX.Physics.Ray.html">Ray</a></dt>
     <dd></dd>
     <dt><code>transform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
     <dd></dd>
@@ -266,7 +266,7 @@ Class MeshRaycast  <a class="header-action link-secondary" title="View source" h
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="LibGFX.Physics.MeshRayHit.html">MeshRayHit</a></dt>
+    <dt><a class="xref" href="LibGFX.Physics.HitResult.html">HitResult</a></dt>
     <dd></dd>
   </dl>
 
@@ -284,15 +284,16 @@ Class MeshRaycast  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="LibGFX_Physics_MeshRaycast_ScreenPointToWorldRay_LibGFX_Graphics_PerspectiveCamera_LibGFX_Graphics_Viewport_System_Single_System_Single_" data-uid="LibGFX.Physics.MeshRaycast.ScreenPointToWorldRay(LibGFX.Graphics.PerspectiveCamera,LibGFX.Graphics.Viewport,System.Single,System.Single)">
   ScreenPointToWorldRay(PerspectiveCamera, Viewport, float, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/MeshRaycast.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/MeshRaycast.cs/#L174"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Converts screen coordinates to a world ray using the camera's projection and view matrices.</p>
+  <div class="markdown level1 summary"><p>Creates a world space ray from screen coordinates.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static MeshRay ScreenPointToWorldRay(PerspectiveCamera camera, Viewport viewport, float mouseX, float mouseY)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Ray.FromScreenPoint instead.&quot;)]
+public static Ray ScreenPointToWorldRay(PerspectiveCamera camera, Viewport viewport, float mouseX, float mouseY)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -309,7 +310,7 @@ Class MeshRaycast  <a class="header-action link-secondary" title="View source" h
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="LibGFX.Physics.MeshRay.html">MeshRay</a></dt>
+    <dt><a class="xref" href="LibGFX.Physics.Ray.html">Ray</a></dt>
     <dd></dd>
   </dl>
 
@@ -327,7 +328,7 @@ Class MeshRaycast  <a class="header-action link-secondary" title="View source" h
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/MeshRaycast.cs/#L42" class="edit-link">Edit this page</a>
+          <a href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/MeshRaycast.cs/#L15" class="edit-link">Edit this page</a>
         </div>
 
 

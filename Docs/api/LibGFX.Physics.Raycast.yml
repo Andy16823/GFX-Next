@@ -5,6 +5,7 @@ items:
   id: Raycast
   parent: LibGFX.Physics
   children:
+  - LibGFX.Physics.Raycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Physics.PhysicsHandler,System.Single)
   - LibGFX.Physics.Raycast.PerformRaycastFromScreen(LibGFX.Graphics.PerspectiveCamera,LibGFX.Graphics.Viewport,LibGFX.Physics.PhysicsHandler3D,System.Int32,System.Int32)
   langs:
   - csharp
@@ -20,7 +21,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: Raycast
     path: ../LibGFX/Physics/Raycast.cs
-    startLine: 26
+    startLine: 13
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
@@ -37,6 +38,44 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: LibGFX.Physics.Raycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Physics.PhysicsHandler,System.Single)
+  commentId: M:LibGFX.Physics.Raycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Physics.PhysicsHandler,System.Single)
+  id: PerformRaycast(LibGFX.Physics.Ray,LibGFX.Physics.PhysicsHandler,System.Single)
+  parent: LibGFX.Physics.Raycast
+  langs:
+  - csharp
+  - vb
+  name: PerformRaycast(Ray, PhysicsHandler, float)
+  nameWithType: Raycast.PerformRaycast(Ray, PhysicsHandler, float)
+  fullName: LibGFX.Physics.Raycast.PerformRaycast(LibGFX.Physics.Ray, LibGFX.Physics.PhysicsHandler, float)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/Raycast.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: PerformRaycast
+    path: ../LibGFX/Physics/Raycast.cs
+    startLine: 15
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  syntax:
+    content: public static HitResult PerformRaycast(Ray ray, PhysicsHandler physicsHandler, float maxDistance = 1000)
+    parameters:
+    - id: ray
+      type: LibGFX.Physics.Ray
+    - id: physicsHandler
+      type: LibGFX.Physics.PhysicsHandler
+    - id: maxDistance
+      type: System.Single
+    return:
+      type: LibGFX.Physics.HitResult
+    content.vb: Public Shared Function PerformRaycast(ray As Ray, physicsHandler As PhysicsHandler, maxDistance As Single = 1000) As HitResult
+  overload: LibGFX.Physics.Raycast.PerformRaycast*
+  nameWithType.vb: Raycast.PerformRaycast(Ray, PhysicsHandler, Single)
+  fullName.vb: LibGFX.Physics.Raycast.PerformRaycast(LibGFX.Physics.Ray, LibGFX.Physics.PhysicsHandler, Single)
+  name.vb: PerformRaycast(Ray, PhysicsHandler, Single)
 - uid: LibGFX.Physics.Raycast.PerformRaycastFromScreen(LibGFX.Graphics.PerspectiveCamera,LibGFX.Graphics.Viewport,LibGFX.Physics.PhysicsHandler3D,System.Int32,System.Int32)
   commentId: M:LibGFX.Physics.Raycast.PerformRaycastFromScreen(LibGFX.Graphics.PerspectiveCamera,LibGFX.Graphics.Viewport,LibGFX.Physics.PhysicsHandler3D,System.Int32,System.Int32)
   id: PerformRaycastFromScreen(LibGFX.Graphics.PerspectiveCamera,LibGFX.Graphics.Viewport,LibGFX.Physics.PhysicsHandler3D,System.Int32,System.Int32)
@@ -55,12 +94,15 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: PerformRaycastFromScreen
     path: ../LibGFX/Physics/Raycast.cs
-    startLine: 70
+    startLine: 82
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
   syntax:
-    content: public static HitResult PerformRaycastFromScreen(PerspectiveCamera camera, Viewport viewport, PhysicsHandler3D physicHandler, int posX, int posY)
+    content: >-
+      [Obsolete("Use PerformRaycast with Ray parameter instead.")]
+
+      public static HitResult PerformRaycastFromScreen(PerspectiveCamera camera, Viewport viewport, PhysicsHandler3D physicHandler, int posX, int posY)
     parameters:
     - id: camera
       type: LibGFX.Graphics.PerspectiveCamera
@@ -74,8 +116,17 @@ items:
       type: System.Int32
     return:
       type: LibGFX.Physics.HitResult
-    content.vb: Public Shared Function PerformRaycastFromScreen(camera As PerspectiveCamera, viewport As Viewport, physicHandler As PhysicsHandler3D, posX As Integer, posY As Integer) As HitResult
+    content.vb: >-
+      <Obsolete("Use PerformRaycast with Ray parameter instead.")>
+
+      Public Shared Function PerformRaycastFromScreen(camera As PerspectiveCamera, viewport As Viewport, physicHandler As PhysicsHandler3D, posX As Integer, posY As Integer) As HitResult
   overload: LibGFX.Physics.Raycast.PerformRaycastFromScreen*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use PerformRaycast with Ray parameter instead.
   nameWithType.vb: Raycast.PerformRaycastFromScreen(PerspectiveCamera, Viewport, PhysicsHandler3D, Integer, Integer)
   fullName.vb: LibGFX.Physics.Raycast.PerformRaycastFromScreen(LibGFX.Graphics.PerspectiveCamera, LibGFX.Graphics.Viewport, LibGFX.Physics.PhysicsHandler3D, Integer, Integer)
   name.vb: PerformRaycastFromScreen(PerspectiveCamera, Viewport, PhysicsHandler3D, Integer, Integer)
@@ -339,6 +390,44 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: LibGFX.Physics.Raycast.PerformRaycast*
+  commentId: Overload:LibGFX.Physics.Raycast.PerformRaycast
+  href: LibGFX.Physics.Raycast.html#LibGFX_Physics_Raycast_PerformRaycast_LibGFX_Physics_Ray_LibGFX_Physics_PhysicsHandler_System_Single_
+  name: PerformRaycast
+  nameWithType: Raycast.PerformRaycast
+  fullName: LibGFX.Physics.Raycast.PerformRaycast
+- uid: LibGFX.Physics.Ray
+  commentId: T:LibGFX.Physics.Ray
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.Ray.html
+  name: Ray
+  nameWithType: Ray
+  fullName: LibGFX.Physics.Ray
+- uid: LibGFX.Physics.PhysicsHandler
+  commentId: T:LibGFX.Physics.PhysicsHandler
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.PhysicsHandler.html
+  name: PhysicsHandler
+  nameWithType: PhysicsHandler
+  fullName: LibGFX.Physics.PhysicsHandler
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: LibGFX.Physics.HitResult
+  commentId: T:LibGFX.Physics.HitResult
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.HitResult.html
+  name: HitResult
+  nameWithType: HitResult
+  fullName: LibGFX.Physics.HitResult
 - uid: LibGFX.Physics.Raycast.PerformRaycastFromScreen*
   commentId: Overload:LibGFX.Physics.Raycast.PerformRaycastFromScreen
   href: LibGFX.Physics.Raycast.html#LibGFX_Physics_Raycast_PerformRaycastFromScreen_LibGFX_Graphics_PerspectiveCamera_LibGFX_Graphics_Viewport_LibGFX_Physics_PhysicsHandler3D_System_Int32_System_Int32_
@@ -377,13 +466,6 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: LibGFX.Physics.HitResult
-  commentId: T:LibGFX.Physics.HitResult
-  parent: LibGFX.Physics
-  href: LibGFX.Physics.HitResult.html
-  name: HitResult
-  nameWithType: HitResult
-  fullName: LibGFX.Physics.HitResult
 - uid: LibGFX.Graphics
   commentId: N:LibGFX.Graphics
   href: LibGFX.html

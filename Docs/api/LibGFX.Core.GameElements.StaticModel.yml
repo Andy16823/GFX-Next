@@ -332,7 +332,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: RenderShadow
     path: ../LibGFX/Core/GameElements/StaticModel.cs
-    startLine: 120
+    startLine: 123
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements
@@ -371,7 +371,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: ComputeAABB
     path: ../LibGFX/Core/GameElements/StaticModel.cs
-    startLine: 137
+    startLine: 142
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements
@@ -400,7 +400,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: GetMeshes
     path: ../LibGFX/Core/GameElements/StaticModel.cs
-    startLine: 159
+    startLine: 164
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements
@@ -434,7 +434,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: GetModel
     path: ../LibGFX/Core/GameElements/StaticModel.cs
-    startLine: 169
+    startLine: 174
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements
@@ -467,7 +467,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: Serialize
     path: ../LibGFX/Core/GameElements/StaticModel.cs
-    startLine: 180
+    startLine: 185
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements
@@ -507,7 +507,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: Deserialize
     path: ../LibGFX/Core/GameElements/StaticModel.cs
-    startLine: 198
+    startLine: 203
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements

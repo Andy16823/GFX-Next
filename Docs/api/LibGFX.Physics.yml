@@ -8,18 +8,16 @@ items:
   - LibGFX.Physics.CollisionGroup
   - LibGFX.Physics.CollisionGroupExtensions
   - LibGFX.Physics.CollisionPoint
-  - LibGFX.Physics.ComputeHitResult
   - LibGFX.Physics.ComputeRaycast
   - LibGFX.Physics.DebugDrawer
   - LibGFX.Physics.ElementIndex
   - LibGFX.Physics.HitResult
-  - LibGFX.Physics.MeshRay
-  - LibGFX.Physics.MeshRayHit
   - LibGFX.Physics.MeshRaycast
   - LibGFX.Physics.PhysicsBehavior
   - LibGFX.Physics.PhysicsHandler
   - LibGFX.Physics.PhysicsHandler2D
   - LibGFX.Physics.PhysicsHandler3D
+  - LibGFX.Physics.Ray
   - LibGFX.Physics.Raycast
   langs:
   - csharp
@@ -65,13 +63,6 @@ references:
   name: CollisionGroupExtensions
   nameWithType: CollisionGroupExtensions
   fullName: LibGFX.Physics.CollisionGroupExtensions
-- uid: LibGFX.Physics.ComputeHitResult
-  commentId: T:LibGFX.Physics.ComputeHitResult
-  parent: LibGFX.Physics
-  href: LibGFX.Physics.ComputeHitResult.html
-  name: ComputeHitResult
-  nameWithType: ComputeHitResult
-  fullName: LibGFX.Physics.ComputeHitResult
 - uid: LibGFX.Physics.ComputeRaycast
   commentId: T:LibGFX.Physics.ComputeRaycast
   href: LibGFX.Physics.ComputeRaycast.html
@@ -85,20 +76,13 @@ references:
   name: DebugDrawer
   nameWithType: DebugDrawer
   fullName: LibGFX.Physics.DebugDrawer
-- uid: LibGFX.Physics.MeshRayHit
-  commentId: T:LibGFX.Physics.MeshRayHit
+- uid: LibGFX.Physics.HitResult
+  commentId: T:LibGFX.Physics.HitResult
   parent: LibGFX.Physics
-  href: LibGFX.Physics.MeshRayHit.html
-  name: MeshRayHit
-  nameWithType: MeshRayHit
-  fullName: LibGFX.Physics.MeshRayHit
-- uid: LibGFX.Physics.MeshRay
-  commentId: T:LibGFX.Physics.MeshRay
-  parent: LibGFX.Physics
-  href: LibGFX.Physics.MeshRay.html
-  name: MeshRay
-  nameWithType: MeshRay
-  fullName: LibGFX.Physics.MeshRay
+  href: LibGFX.Physics.HitResult.html
+  name: HitResult
+  nameWithType: HitResult
+  fullName: LibGFX.Physics.HitResult
 - uid: LibGFX.Physics.MeshRaycast
   commentId: T:LibGFX.Physics.MeshRaycast
   href: LibGFX.Physics.MeshRaycast.html
@@ -132,13 +116,13 @@ references:
   name: PhysicsHandler3D
   nameWithType: PhysicsHandler3D
   fullName: LibGFX.Physics.PhysicsHandler3D
-- uid: LibGFX.Physics.HitResult
-  commentId: T:LibGFX.Physics.HitResult
+- uid: LibGFX.Physics.Ray
+  commentId: T:LibGFX.Physics.Ray
   parent: LibGFX.Physics
-  href: LibGFX.Physics.HitResult.html
-  name: HitResult
-  nameWithType: HitResult
-  fullName: LibGFX.Physics.HitResult
+  href: LibGFX.Physics.Ray.html
+  name: Ray
+  nameWithType: Ray
+  fullName: LibGFX.Physics.Ray
 - uid: LibGFX.Physics.Raycast
   commentId: T:LibGFX.Physics.Raycast
   href: LibGFX.Physics.Raycast.html

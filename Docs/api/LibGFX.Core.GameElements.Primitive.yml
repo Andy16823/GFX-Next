@@ -424,7 +424,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: RenderShadow
     path: ../LibGFX/Core/GameElements/Primitive.cs
-    startLine: 126
+    startLine: 129
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements
@@ -463,7 +463,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: Dispose
     path: ../LibGFX/Core/GameElements/Primitive.cs
-    startLine: 143
+    startLine: 149
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements
@@ -499,7 +499,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: GetMeshes
     path: ../LibGFX/Core/GameElements/Primitive.cs
-    startLine: 152
+    startLine: 158
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements
@@ -531,7 +531,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: ComputeAABB
     path: ../LibGFX/Core/GameElements/Primitive.cs
-    startLine: 160
+    startLine: 166
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements
@@ -560,7 +560,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: Serialize
     path: ../LibGFX/Core/GameElements/Primitive.cs
-    startLine: 191
+    startLine: 197
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements
@@ -602,7 +602,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: Deserialize
     path: ../LibGFX/Core/GameElements/Primitive.cs
-    startLine: 207
+    startLine: 213
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements
@@ -644,7 +644,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: CreatePrimitive
     path: ../LibGFX/Core/GameElements/Primitive.cs
-    startLine: 244
+    startLine: 250
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements

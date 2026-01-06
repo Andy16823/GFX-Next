@@ -12,6 +12,7 @@ items:
   - LibGFX.Physics.PhysicsHandler.HasDebugDrawer
   - LibGFX.Physics.PhysicsHandler.ManageElement(LibGFX.Physics.PhysicsBehavior,System.Int32,System.Int32)
   - LibGFX.Physics.PhysicsHandler.Process(LibGFX.Core.BaseScene)
+  - LibGFX.Physics.PhysicsHandler.RayTest(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
   - LibGFX.Physics.PhysicsHandler.RemoveElement(LibGFX.Physics.PhysicsBehavior)
   - LibGFX.Physics.PhysicsHandler.SetDebugDrawer(LibGFX.Physics.DebugDrawer)
   langs:
@@ -28,7 +29,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: PhysicsHandler
     path: ../LibGFX/Physics/PhysicsHandler.cs
-    startLine: 13
+    startLine: 14
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
@@ -68,7 +69,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: DebugPhysics
     path: ../LibGFX/Physics/PhysicsHandler.cs
-    startLine: 18
+    startLine: 19
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
@@ -99,7 +100,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: FixedTimeStep
     path: ../LibGFX/Physics/PhysicsHandler.cs
-    startLine: 23
+    startLine: 24
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
@@ -130,7 +131,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: Process
     path: ../LibGFX/Physics/PhysicsHandler.cs
-    startLine: 29
+    startLine: 30
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
@@ -144,6 +145,44 @@ items:
       description: ''
     content.vb: Public MustOverride Sub Process(scene As BaseScene)
   overload: LibGFX.Physics.PhysicsHandler.Process*
+- uid: LibGFX.Physics.PhysicsHandler.RayTest(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  commentId: M:LibGFX.Physics.PhysicsHandler.RayTest(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  id: RayTest(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  parent: LibGFX.Physics.PhysicsHandler
+  langs:
+  - csharp
+  - vb
+  name: RayTest(Vector3, Vector3)
+  nameWithType: PhysicsHandler.RayTest(Vector3, Vector3)
+  fullName: LibGFX.Physics.PhysicsHandler.RayTest(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Physics/PhysicsHandler.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: RayTest
+    path: ../LibGFX/Physics/PhysicsHandler.cs
+    startLine: 38
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Physics
+  summary: Performs a ray test and returns the hit result
+  example: []
+  syntax:
+    content: public abstract HitResult RayTest(Vector3 start, Vector3 end)
+    parameters:
+    - id: start
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    - id: end
+      type: OpenTK.Mathematics.Vector3
+      description: ''
+    return:
+      type: LibGFX.Physics.HitResult
+      description: ''
+    content.vb: Public MustOverride Function RayTest(start As Vector3, [end] As Vector3) As HitResult
+  overload: LibGFX.Physics.PhysicsHandler.RayTest*
 - uid: LibGFX.Physics.PhysicsHandler.ManageElement(LibGFX.Physics.PhysicsBehavior,System.Int32,System.Int32)
   commentId: M:LibGFX.Physics.PhysicsHandler.ManageElement(LibGFX.Physics.PhysicsBehavior,System.Int32,System.Int32)
   id: ManageElement(LibGFX.Physics.PhysicsBehavior,System.Int32,System.Int32)
@@ -162,7 +201,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: ManageElement
     path: ../LibGFX/Physics/PhysicsHandler.cs
-    startLine: 37
+    startLine: 46
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
@@ -203,7 +242,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: RemoveElement
     path: ../LibGFX/Physics/PhysicsHandler.cs
-    startLine: 43
+    startLine: 52
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
@@ -235,7 +274,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: HasDebugDrawer
     path: ../LibGFX/Physics/PhysicsHandler.cs
-    startLine: 49
+    startLine: 58
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
@@ -266,7 +305,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: DebugDraw
     path: ../LibGFX/Physics/PhysicsHandler.cs
-    startLine: 55
+    startLine: 64
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
@@ -298,7 +337,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: GetDebugDrawer
     path: ../LibGFX/Physics/PhysicsHandler.cs
-    startLine: 61
+    startLine: 70
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
@@ -329,7 +368,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: SetDebugDrawer
     path: ../LibGFX/Physics/PhysicsHandler.cs
-    startLine: 67
+    startLine: 76
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
@@ -672,6 +711,49 @@ references:
   - uid: LibGFX.Core
     name: Core
     href: LibGFX.Core.html
+- uid: LibGFX.Physics.PhysicsHandler.RayTest*
+  commentId: Overload:LibGFX.Physics.PhysicsHandler.RayTest
+  href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_RayTest_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  name: RayTest
+  nameWithType: PhysicsHandler.RayTest
+  fullName: LibGFX.Physics.PhysicsHandler.RayTest
+- uid: OpenTK.Mathematics.Vector3
+  commentId: T:OpenTK.Mathematics.Vector3
+  parent: OpenTK.Mathematics
+  isExternal: true
+  href: https://github.com/NogginBops/opentk/blob/8d1d462877936922a3989f56aac8c17add824919/src/OpenTK.Mathematics/Vector/Vector3.cs
+  name: Vector3
+  nameWithType: Vector3
+  fullName: OpenTK.Mathematics.Vector3
+- uid: LibGFX.Physics.HitResult
+  commentId: T:LibGFX.Physics.HitResult
+  parent: LibGFX.Physics
+  href: LibGFX.Physics.HitResult.html
+  name: HitResult
+  nameWithType: HitResult
+  fullName: LibGFX.Physics.HitResult
+- uid: OpenTK.Mathematics
+  commentId: N:OpenTK.Mathematics
+  isExternal: true
+  name: OpenTK.Mathematics
+  nameWithType: OpenTK.Mathematics
+  fullName: OpenTK.Mathematics
+  spec.csharp:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
+  spec.vb:
+  - uid: OpenTK
+    name: OpenTK
+    isExternal: true
+  - name: .
+  - uid: OpenTK.Mathematics
+    name: Mathematics
+    isExternal: true
 - uid: LibGFX.Physics.PhysicsHandler.ManageElement*
   commentId: Overload:LibGFX.Physics.PhysicsHandler.ManageElement
   href: LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_ManageElement_LibGFX_Physics_PhysicsBehavior_System_Int32_System_Int32_

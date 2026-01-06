@@ -458,7 +458,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: RenderShadow
     path: ../LibGFX/Core/GameElements/MeshInstancer.cs
-    startLine: 127
+    startLine: 130
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements
@@ -497,7 +497,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: Dispose
     path: ../LibGFX/Core/GameElements/MeshInstancer.cs
-    startLine: 141
+    startLine: 147
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements
@@ -533,7 +533,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: CreateInstanceHandle
     path: ../LibGFX/Core/GameElements/MeshInstancer.cs
-    startLine: 152
+    startLine: 158
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements
@@ -571,7 +571,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: BakeInstances
     path: ../LibGFX/Core/GameElements/MeshInstancer.cs
-    startLine: 169
+    startLine: 175
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements
@@ -613,7 +613,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: FindHiddenInstances
     path: ../LibGFX/Core/GameElements/MeshInstancer.cs
-    startLine: 191
+    startLine: 197
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements
@@ -651,7 +651,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: ComputeAABB
     path: ../LibGFX/Core/GameElements/MeshInstancer.cs
-    startLine: 208
+    startLine: 214
   assemblies:
   - LibGFX
   namespace: LibGFX.Core.GameElements

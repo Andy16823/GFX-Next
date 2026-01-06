@@ -21,6 +21,7 @@ items:
   - LibGFX.Core.Window.RequestClose
   - LibGFX.Core.Window.SetMousePosition(OpenTK.Mathematics.Vector2)
   - LibGFX.Core.Window.SetMousePosition(System.Single,System.Single)
+  - LibGFX.Core.Window.SetTitle(System.String)
   - LibGFX.Core.Window.ShowCursor
   langs:
   - csharp
@@ -580,6 +581,41 @@ items:
     content: public void ShowCursor()
     content.vb: Public Sub ShowCursor()
   overload: LibGFX.Core.Window.ShowCursor*
+- uid: LibGFX.Core.Window.SetTitle(System.String)
+  commentId: M:LibGFX.Core.Window.SetTitle(System.String)
+  id: SetTitle(System.String)
+  parent: LibGFX.Core.Window
+  langs:
+  - csharp
+  - vb
+  name: SetTitle(string)
+  nameWithType: Window.SetTitle(string)
+  fullName: LibGFX.Core.Window.SetTitle(string)
+  type: Method
+  source:
+    remote:
+      path: LibGFX/Core/Window.cs
+      branch: dev
+      repo: https://github.com/Andy16823/GFX-Next.git
+    id: SetTitle
+    path: ../LibGFX/Core/Window.cs
+    startLine: 189
+  assemblies:
+  - LibGFX
+  namespace: LibGFX.Core
+  summary: Sets the window title.
+  example: []
+  syntax:
+    content: public void SetTitle(string title)
+    parameters:
+    - id: title
+      type: System.String
+      description: ''
+    content.vb: Public Sub SetTitle(title As String)
+  overload: LibGFX.Core.Window.SetTitle*
+  nameWithType.vb: Window.SetTitle(String)
+  fullName.vb: LibGFX.Core.Window.SetTitle(String)
+  name.vb: SetTitle(String)
 - uid: LibGFX.Core.Window.Close
   commentId: M:LibGFX.Core.Window.Close
   id: Close
@@ -598,7 +634,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: Close
     path: ../LibGFX/Core/Window.cs
-    startLine: 188
+    startLine: 197
   assemblies:
   - LibGFX
   namespace: LibGFX.Core
@@ -1160,6 +1196,12 @@ references:
   name: ShowCursor
   nameWithType: Window.ShowCursor
   fullName: LibGFX.Core.Window.ShowCursor
+- uid: LibGFX.Core.Window.SetTitle*
+  commentId: Overload:LibGFX.Core.Window.SetTitle
+  href: LibGFX.Core.Window.html#LibGFX_Core_Window_SetTitle_System_String_
+  name: SetTitle
+  nameWithType: Window.SetTitle
+  fullName: LibGFX.Core.Window.SetTitle
 - uid: LibGFX.Core.Window.Close*
   commentId: Overload:LibGFX.Core.Window.Close
   href: LibGFX.Core.Window.html#LibGFX_Core_Window_Close

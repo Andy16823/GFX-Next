@@ -262,8 +262,8 @@ shader resources. After calling Dispose, the instance should not be used.</p>
 
   <a id="LibGFX_Physics_ComputeRaycast_PerformRaycast_" data-uid="LibGFX.Physics.ComputeRaycast.PerformRaycast*"></a>
 
-  <h3 id="LibGFX_Physics_ComputeRaycast_PerformRaycast_LibGFX_Physics_MeshRay_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_" data-uid="LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)">
-  PerformRaycast(MeshRay, Transform, Mesh)
+  <h3 id="LibGFX_Physics_ComputeRaycast_PerformRaycast_LibGFX_Physics_Ray_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_" data-uid="LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)">
+  PerformRaycast(Ray, Transform, Mesh)
   <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/ComputeRaycast.cs/#L104"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -273,12 +273,12 @@ intersection, if any.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ComputeHitResult PerformRaycast(MeshRay ray, Transform transform, Mesh mesh)</code></pre>
+    <pre><code class="lang-csharp hljs">public HitResult PerformRaycast(Ray ray, Transform transform, Mesh mesh)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>ray</code> <a class="xref" href="LibGFX.Physics.MeshRay.html">MeshRay</a></dt>
+    <dt><code>ray</code> <a class="xref" href="LibGFX.Physics.Ray.html">Ray</a></dt>
     <dd><p>The ray, in world space, to test for intersection with the mesh.</p>
 </dd>
     <dt><code>transform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
@@ -292,7 +292,7 @@ transform.</p>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="LibGFX.Physics.ComputeHitResult.html">ComputeHitResult</a></dt>
+    <dt><a class="xref" href="LibGFX.Physics.HitResult.html">HitResult</a></dt>
     <dd><p>A ComputeHitResult structure containing information about the intersection. If no intersection is found, the
 TriangleIndex property of the result is set to -1.</p>
 </dd>
@@ -304,7 +304,7 @@ TriangleIndex property of the result is set to -1.</p>
 
 
 
-  <h4 class="section" id="LibGFX_Physics_ComputeRaycast_PerformRaycast_LibGFX_Physics_MeshRay_LibGFX_Math_Transform_LibGFX_Graphics_Mesh__remarks">Remarks</h4>
+  <h4 class="section" id="LibGFX_Physics_ComputeRaycast_PerformRaycast_LibGFX_Physics_Ray_LibGFX_Math_Transform_LibGFX_Graphics_Mesh__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>This method uses GPU compute shaders to perform the raycast operation, which can
 efficiently handle complex meshes. The mesh's local transform is combined with the provided transform before
 testing. The result includes the hit position, normal, and triangle index if an intersection
@@ -322,9 +322,9 @@ occurs.</p>
 
   <a id="LibGFX_Physics_ComputeRaycast_PerformRaycast_" data-uid="LibGFX.Physics.ComputeRaycast.PerformRaycast*"></a>
 
-  <h3 id="LibGFX_Physics_ComputeRaycast_PerformRaycast_LibGFX_Physics_MeshRay_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_LibGFX_Graphics_IRenderDevice_LibGFX_Compute_ComputeShader_" data-uid="LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)">
-  PerformRaycast(MeshRay, Transform, Mesh, IRenderDevice, ComputeShader)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/ComputeRaycast.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  <h3 id="LibGFX_Physics_ComputeRaycast_PerformRaycast_LibGFX_Physics_Ray_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_LibGFX_Graphics_IRenderDevice_LibGFX_Compute_ComputeShader_" data-uid="LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)">
+  PerformRaycast(Ray, Transform, Mesh, IRenderDevice, ComputeShader)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Andy16823/GFX-Next/blob/dev/LibGFX/Physics/ComputeRaycast.cs/#L162"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Performs a raycast against the specified mesh using a compute shader and returns the result of the
@@ -333,12 +333,12 @@ intersection, if any.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ComputeHitResult PerformRaycast(MeshRay ray, Transform transform, Mesh mesh, IRenderDevice renderer, ComputeShader shader)</code></pre>
+    <pre><code class="lang-csharp hljs">public static HitResult PerformRaycast(Ray ray, Transform transform, Mesh mesh, IRenderDevice renderer, ComputeShader shader)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>ray</code> <a class="xref" href="LibGFX.Physics.MeshRay.html">MeshRay</a></dt>
+    <dt><code>ray</code> <a class="xref" href="LibGFX.Physics.Ray.html">Ray</a></dt>
     <dd><p>The ray, in world space, to test for intersection with the mesh.</p>
 </dd>
     <dt><code>transform</code> <a class="xref" href="LibGFX.Math.Transform.html">Transform</a></dt>
@@ -357,7 +357,7 @@ intersection, if any.</p>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="LibGFX.Physics.ComputeHitResult.html">ComputeHitResult</a></dt>
+    <dt><a class="xref" href="LibGFX.Physics.HitResult.html">HitResult</a></dt>
     <dd><p>A ComputeHitResult structure containing information about the intersection. If no intersection is found, the
 TriangleIndex field will be -1.</p>
 </dd>
@@ -369,7 +369,7 @@ TriangleIndex field will be -1.</p>
 
 
 
-  <h4 class="section" id="LibGFX_Physics_ComputeRaycast_PerformRaycast_LibGFX_Physics_MeshRay_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_LibGFX_Graphics_IRenderDevice_LibGFX_Compute_ComputeShader__remarks">Remarks</h4>
+  <h4 class="section" id="LibGFX_Physics_ComputeRaycast_PerformRaycast_LibGFX_Physics_Ray_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_LibGFX_Graphics_IRenderDevice_LibGFX_Compute_ComputeShader__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>This method uses GPU compute shaders to efficiently test for ray-mesh intersections.
 The mesh's local transform is combined with the provided world transform before the raycast. The caller is
 responsible for ensuring that the mesh and shader are compatible and properly initialized.</p>

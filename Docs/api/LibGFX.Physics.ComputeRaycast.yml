@@ -8,8 +8,8 @@ items:
   - LibGFX.Physics.ComputeRaycast.#ctor
   - LibGFX.Physics.ComputeRaycast.Dispose(LibGFX.Graphics.IRenderDevice)
   - LibGFX.Physics.ComputeRaycast.Init(LibGFX.Graphics.IRenderDevice)
-  - LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
-  - LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)
+  - LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
+  - LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)
   langs:
   - csharp
   - vb
@@ -149,16 +149,16 @@ items:
       description: The render device used to release GPU buffers and related resources. Cannot be null.
     content.vb: Public Sub Dispose(renderer As IRenderDevice)
   overload: LibGFX.Physics.ComputeRaycast.Dispose*
-- uid: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
-  commentId: M:LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
-  id: PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
+- uid: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
+  commentId: M:LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
+  id: PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
   parent: LibGFX.Physics.ComputeRaycast
   langs:
   - csharp
   - vb
-  name: PerformRaycast(MeshRay, Transform, Mesh)
-  nameWithType: ComputeRaycast.PerformRaycast(MeshRay, Transform, Mesh)
-  fullName: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay, LibGFX.Math.Transform, LibGFX.Graphics.Mesh)
+  name: PerformRaycast(Ray, Transform, Mesh)
+  nameWithType: ComputeRaycast.PerformRaycast(Ray, Transform, Mesh)
+  fullName: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.Ray, LibGFX.Math.Transform, LibGFX.Graphics.Mesh)
   type: Method
   source:
     remote:
@@ -182,10 +182,10 @@ items:
         occurs.
   example: []
   syntax:
-    content: public ComputeHitResult PerformRaycast(MeshRay ray, Transform transform, Mesh mesh)
+    content: public HitResult PerformRaycast(Ray ray, Transform transform, Mesh mesh)
     parameters:
     - id: ray
-      type: LibGFX.Physics.MeshRay
+      type: LibGFX.Physics.Ray
       description: The ray, in world space, to test for intersection with the mesh.
     - id: transform
       type: LibGFX.Math.Transform
@@ -196,26 +196,26 @@ items:
       type: LibGFX.Graphics.Mesh
       description: The mesh to test for intersection with the ray.
     return:
-      type: LibGFX.Physics.ComputeHitResult
+      type: LibGFX.Physics.HitResult
       description: >-
         A ComputeHitResult structure containing information about the intersection. If no intersection is found, the
             TriangleIndex property of the result is set to -1.
-    content.vb: Public Function PerformRaycast(ray As MeshRay, transform As Transform, mesh As Mesh) As ComputeHitResult
+    content.vb: Public Function PerformRaycast(ray As Ray, transform As Transform, mesh As Mesh) As HitResult
   overload: LibGFX.Physics.ComputeRaycast.PerformRaycast*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
     description: Thrown if the raycast system has not been initialized with a render device.
-- uid: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)
-  commentId: M:LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)
-  id: PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)
+- uid: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)
+  commentId: M:LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)
+  id: PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)
   parent: LibGFX.Physics.ComputeRaycast
   langs:
   - csharp
   - vb
-  name: PerformRaycast(MeshRay, Transform, Mesh, IRenderDevice, ComputeShader)
-  nameWithType: ComputeRaycast.PerformRaycast(MeshRay, Transform, Mesh, IRenderDevice, ComputeShader)
-  fullName: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay, LibGFX.Math.Transform, LibGFX.Graphics.Mesh, LibGFX.Graphics.IRenderDevice, LibGFX.Compute.ComputeShader)
+  name: PerformRaycast(Ray, Transform, Mesh, IRenderDevice, ComputeShader)
+  nameWithType: ComputeRaycast.PerformRaycast(Ray, Transform, Mesh, IRenderDevice, ComputeShader)
+  fullName: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.Ray, LibGFX.Math.Transform, LibGFX.Graphics.Mesh, LibGFX.Graphics.IRenderDevice, LibGFX.Compute.ComputeShader)
   type: Method
   source:
     remote:
@@ -224,7 +224,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: PerformRaycast
     path: ../LibGFX/Physics/ComputeRaycast.cs
-    startLine: 153
+    startLine: 161
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
@@ -238,10 +238,10 @@ items:
         responsible for ensuring that the mesh and shader are compatible and properly initialized.
   example: []
   syntax:
-    content: public static ComputeHitResult PerformRaycast(MeshRay ray, Transform transform, Mesh mesh, IRenderDevice renderer, ComputeShader shader)
+    content: public static HitResult PerformRaycast(Ray ray, Transform transform, Mesh mesh, IRenderDevice renderer, ComputeShader shader)
     parameters:
     - id: ray
-      type: LibGFX.Physics.MeshRay
+      type: LibGFX.Physics.Ray
       description: The ray, in world space, to test for intersection with the mesh.
     - id: transform
       type: LibGFX.Math.Transform
@@ -256,11 +256,11 @@ items:
       type: LibGFX.Compute.ComputeShader
       description: The compute shader used to perform the ray-mesh intersection test.
     return:
-      type: LibGFX.Physics.ComputeHitResult
+      type: LibGFX.Physics.HitResult
       description: >-
         A ComputeHitResult structure containing information about the intersection. If no intersection is found, the
             TriangleIndex field will be -1.
-    content.vb: Public Shared Function PerformRaycast(ray As MeshRay, transform As Transform, mesh As Mesh, renderer As IRenderDevice, shader As ComputeShader) As ComputeHitResult
+    content.vb: Public Shared Function PerformRaycast(ray As Ray, transform As Transform, mesh As Mesh, renderer As IRenderDevice, shader As ComputeShader) As HitResult
   overload: LibGFX.Physics.ComputeRaycast.PerformRaycast*
 references:
 - uid: LibGFX.Physics
@@ -581,17 +581,17 @@ references:
   fullName: System.InvalidOperationException
 - uid: LibGFX.Physics.ComputeRaycast.PerformRaycast*
   commentId: Overload:LibGFX.Physics.ComputeRaycast.PerformRaycast
-  href: LibGFX.Physics.ComputeRaycast.html#LibGFX_Physics_ComputeRaycast_PerformRaycast_LibGFX_Physics_MeshRay_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_
+  href: LibGFX.Physics.ComputeRaycast.html#LibGFX_Physics_ComputeRaycast_PerformRaycast_LibGFX_Physics_Ray_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_
   name: PerformRaycast
   nameWithType: ComputeRaycast.PerformRaycast
   fullName: LibGFX.Physics.ComputeRaycast.PerformRaycast
-- uid: LibGFX.Physics.MeshRay
-  commentId: T:LibGFX.Physics.MeshRay
+- uid: LibGFX.Physics.Ray
+  commentId: T:LibGFX.Physics.Ray
   parent: LibGFX.Physics
-  href: LibGFX.Physics.MeshRay.html
-  name: MeshRay
-  nameWithType: MeshRay
-  fullName: LibGFX.Physics.MeshRay
+  href: LibGFX.Physics.Ray.html
+  name: Ray
+  nameWithType: Ray
+  fullName: LibGFX.Physics.Ray
 - uid: LibGFX.Math.Transform
   commentId: T:LibGFX.Math.Transform
   parent: LibGFX.Math
@@ -606,13 +606,13 @@ references:
   name: Mesh
   nameWithType: Mesh
   fullName: LibGFX.Graphics.Mesh
-- uid: LibGFX.Physics.ComputeHitResult
-  commentId: T:LibGFX.Physics.ComputeHitResult
+- uid: LibGFX.Physics.HitResult
+  commentId: T:LibGFX.Physics.HitResult
   parent: LibGFX.Physics
-  href: LibGFX.Physics.ComputeHitResult.html
-  name: ComputeHitResult
-  nameWithType: ComputeHitResult
-  fullName: LibGFX.Physics.ComputeHitResult
+  href: LibGFX.Physics.HitResult.html
+  name: HitResult
+  nameWithType: HitResult
+  fullName: LibGFX.Physics.HitResult
 - uid: LibGFX.Math
   commentId: N:LibGFX.Math
   href: LibGFX.html

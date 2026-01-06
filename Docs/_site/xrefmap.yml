@@ -8050,6 +8050,22 @@ references:
   isSpec: "True"
   fullName: LibGFX.Core.Window.SetMousePosition
   nameWithType: Window.SetMousePosition
+- uid: LibGFX.Core.Window.SetTitle(System.String)
+  name: SetTitle(string)
+  href: api/LibGFX.Core.Window.html#LibGFX_Core_Window_SetTitle_System_String_
+  commentId: M:LibGFX.Core.Window.SetTitle(System.String)
+  name.vb: SetTitle(String)
+  fullName: LibGFX.Core.Window.SetTitle(string)
+  fullName.vb: LibGFX.Core.Window.SetTitle(String)
+  nameWithType: Window.SetTitle(string)
+  nameWithType.vb: Window.SetTitle(String)
+- uid: LibGFX.Core.Window.SetTitle*
+  name: SetTitle
+  href: api/LibGFX.Core.Window.html#LibGFX_Core_Window_SetTitle_
+  commentId: Overload:LibGFX.Core.Window.SetTitle
+  isSpec: "True"
+  fullName: LibGFX.Core.Window.SetTitle
+  nameWithType: Window.SetTitle
 - uid: LibGFX.Core.Window.ShowCursor
   name: ShowCursor()
   href: api/LibGFX.Core.Window.html#LibGFX_Core_Window_ShowCursor
@@ -32976,18 +32992,18 @@ references:
   isSpec: "True"
   fullName: LibGFX.Physics.ComputeRaycast.Init
   nameWithType: ComputeRaycast.Init
-- uid: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
-  name: PerformRaycast(MeshRay, Transform, Mesh)
-  href: api/LibGFX.Physics.ComputeRaycast.html#LibGFX_Physics_ComputeRaycast_PerformRaycast_LibGFX_Physics_MeshRay_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_
-  commentId: M:LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
-  fullName: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay, LibGFX.Math.Transform, LibGFX.Graphics.Mesh)
-  nameWithType: ComputeRaycast.PerformRaycast(MeshRay, Transform, Mesh)
-- uid: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)
-  name: PerformRaycast(MeshRay, Transform, Mesh, IRenderDevice, ComputeShader)
-  href: api/LibGFX.Physics.ComputeRaycast.html#LibGFX_Physics_ComputeRaycast_PerformRaycast_LibGFX_Physics_MeshRay_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_LibGFX_Graphics_IRenderDevice_LibGFX_Compute_ComputeShader_
-  commentId: M:LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)
-  fullName: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.MeshRay, LibGFX.Math.Transform, LibGFX.Graphics.Mesh, LibGFX.Graphics.IRenderDevice, LibGFX.Compute.ComputeShader)
-  nameWithType: ComputeRaycast.PerformRaycast(MeshRay, Transform, Mesh, IRenderDevice, ComputeShader)
+- uid: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
+  name: PerformRaycast(Ray, Transform, Mesh)
+  href: api/LibGFX.Physics.ComputeRaycast.html#LibGFX_Physics_ComputeRaycast_PerformRaycast_LibGFX_Physics_Ray_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_
+  commentId: M:LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
+  fullName: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.Ray, LibGFX.Math.Transform, LibGFX.Graphics.Mesh)
+  nameWithType: ComputeRaycast.PerformRaycast(Ray, Transform, Mesh)
+- uid: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)
+  name: PerformRaycast(Ray, Transform, Mesh, IRenderDevice, ComputeShader)
+  href: api/LibGFX.Physics.ComputeRaycast.html#LibGFX_Physics_ComputeRaycast_PerformRaycast_LibGFX_Physics_Ray_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_LibGFX_Graphics_IRenderDevice_LibGFX_Compute_ComputeShader_
+  commentId: M:LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh,LibGFX.Graphics.IRenderDevice,LibGFX.Compute.ComputeShader)
+  fullName: LibGFX.Physics.ComputeRaycast.PerformRaycast(LibGFX.Physics.Ray, LibGFX.Math.Transform, LibGFX.Graphics.Mesh, LibGFX.Graphics.IRenderDevice, LibGFX.Compute.ComputeShader)
+  nameWithType: ComputeRaycast.PerformRaycast(Ray, Transform, Mesh, IRenderDevice, ComputeShader)
 - uid: LibGFX.Physics.ComputeRaycast.PerformRaycast*
   name: PerformRaycast
   href: api/LibGFX.Physics.ComputeRaycast.html#LibGFX_Physics_ComputeRaycast_PerformRaycast_
@@ -33118,18 +33134,18 @@ references:
   commentId: T:LibGFX.Physics.HitResult
   fullName: LibGFX.Physics.HitResult
   nameWithType: HitResult
-- uid: LibGFX.Physics.HitResult.collisionObject
-  name: collisionObject
-  href: api/LibGFX.Physics.HitResult.html#LibGFX_Physics_HitResult_collisionObject
-  commentId: F:LibGFX.Physics.HitResult.collisionObject
-  fullName: LibGFX.Physics.HitResult.collisionObject
-  nameWithType: HitResult.collisionObject
 - uid: LibGFX.Physics.HitResult.hit
   name: hit
   href: api/LibGFX.Physics.HitResult.html#LibGFX_Physics_HitResult_hit
   commentId: F:LibGFX.Physics.HitResult.hit
   fullName: LibGFX.Physics.HitResult.hit
   nameWithType: HitResult.hit
+- uid: LibGFX.Physics.HitResult.hitDistance
+  name: hitDistance
+  href: api/LibGFX.Physics.HitResult.html#LibGFX_Physics_HitResult_hitDistance
+  commentId: F:LibGFX.Physics.HitResult.hitDistance
+  fullName: LibGFX.Physics.HitResult.hitDistance
+  nameWithType: HitResult.hitDistance
 - uid: LibGFX.Physics.HitResult.hitElement
   name: hitElement
   href: api/LibGFX.Physics.HitResult.html#LibGFX_Physics_HitResult_hitElement
@@ -33142,6 +33158,18 @@ references:
   commentId: F:LibGFX.Physics.HitResult.hitLocation
   fullName: LibGFX.Physics.HitResult.hitLocation
   nameWithType: HitResult.hitLocation
+- uid: LibGFX.Physics.HitResult.hitNormal
+  name: hitNormal
+  href: api/LibGFX.Physics.HitResult.html#LibGFX_Physics_HitResult_hitNormal
+  commentId: F:LibGFX.Physics.HitResult.hitNormal
+  fullName: LibGFX.Physics.HitResult.hitNormal
+  nameWithType: HitResult.hitNormal
+- uid: LibGFX.Physics.HitResult.hitTriangleIndex
+  name: hitTriangleIndex
+  href: api/LibGFX.Physics.HitResult.html#LibGFX_Physics_HitResult_hitTriangleIndex
+  commentId: F:LibGFX.Physics.HitResult.hitTriangleIndex
+  fullName: LibGFX.Physics.HitResult.hitTriangleIndex
+  nameWithType: HitResult.hitTriangleIndex
 - uid: LibGFX.Physics.HitResult.rayEnd
   name: rayEnd
   href: api/LibGFX.Physics.HitResult.html#LibGFX_Physics_HitResult_rayEnd
@@ -33233,15 +33261,15 @@ references:
   commentId: T:LibGFX.Physics.MeshRaycast
   fullName: LibGFX.Physics.MeshRaycast
   nameWithType: MeshRaycast
-- uid: LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.MeshRay,LibGFX.Math.AABB,System.Single@,System.Single@)
-  name: IntersectsAABB(MeshRay, AABB, out float, out float)
-  href: api/LibGFX.Physics.MeshRaycast.html#LibGFX_Physics_MeshRaycast_IntersectsAABB_LibGFX_Physics_MeshRay_LibGFX_Math_AABB_System_Single__System_Single__
-  commentId: M:LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.MeshRay,LibGFX.Math.AABB,System.Single@,System.Single@)
-  name.vb: IntersectsAABB(MeshRay, AABB, Single, Single)
-  fullName: LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.MeshRay, LibGFX.Math.AABB, out float, out float)
-  fullName.vb: LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.MeshRay, LibGFX.Math.AABB, Single, Single)
-  nameWithType: MeshRaycast.IntersectsAABB(MeshRay, AABB, out float, out float)
-  nameWithType.vb: MeshRaycast.IntersectsAABB(MeshRay, AABB, Single, Single)
+- uid: LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.Ray,LibGFX.Math.AABB,System.Single@,System.Single@)
+  name: IntersectsAABB(Ray, AABB, out float, out float)
+  href: api/LibGFX.Physics.MeshRaycast.html#LibGFX_Physics_MeshRaycast_IntersectsAABB_LibGFX_Physics_Ray_LibGFX_Math_AABB_System_Single__System_Single__
+  commentId: M:LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.Ray,LibGFX.Math.AABB,System.Single@,System.Single@)
+  name.vb: IntersectsAABB(Ray, AABB, Single, Single)
+  fullName: LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.Ray, LibGFX.Math.AABB, out float, out float)
+  fullName.vb: LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.Ray, LibGFX.Math.AABB, Single, Single)
+  nameWithType: MeshRaycast.IntersectsAABB(Ray, AABB, out float, out float)
+  nameWithType.vb: MeshRaycast.IntersectsAABB(Ray, AABB, Single, Single)
 - uid: LibGFX.Physics.MeshRaycast.IntersectsAABB*
   name: IntersectsAABB
   href: api/LibGFX.Physics.MeshRaycast.html#LibGFX_Physics_MeshRaycast_IntersectsAABB_
@@ -33249,12 +33277,12 @@ references:
   isSpec: "True"
   fullName: LibGFX.Physics.MeshRaycast.IntersectsAABB
   nameWithType: MeshRaycast.IntersectsAABB
-- uid: LibGFX.Physics.MeshRaycast.IntersectsMesh(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
-  name: IntersectsMesh(MeshRay, Transform, Mesh)
-  href: api/LibGFX.Physics.MeshRaycast.html#LibGFX_Physics_MeshRaycast_IntersectsMesh_LibGFX_Physics_MeshRay_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_
-  commentId: M:LibGFX.Physics.MeshRaycast.IntersectsMesh(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
-  fullName: LibGFX.Physics.MeshRaycast.IntersectsMesh(LibGFX.Physics.MeshRay, LibGFX.Math.Transform, LibGFX.Graphics.Mesh)
-  nameWithType: MeshRaycast.IntersectsMesh(MeshRay, Transform, Mesh)
+- uid: LibGFX.Physics.MeshRaycast.IntersectsMesh(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
+  name: IntersectsMesh(Ray, Transform, Mesh)
+  href: api/LibGFX.Physics.MeshRaycast.html#LibGFX_Physics_MeshRaycast_IntersectsMesh_LibGFX_Physics_Ray_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_
+  commentId: M:LibGFX.Physics.MeshRaycast.IntersectsMesh(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
+  fullName: LibGFX.Physics.MeshRaycast.IntersectsMesh(LibGFX.Physics.Ray, LibGFX.Math.Transform, LibGFX.Graphics.Mesh)
+  nameWithType: MeshRaycast.IntersectsMesh(Ray, Transform, Mesh)
 - uid: LibGFX.Physics.MeshRaycast.IntersectsMesh*
   name: IntersectsMesh
   href: api/LibGFX.Physics.MeshRaycast.html#LibGFX_Physics_MeshRaycast_IntersectsMesh_
@@ -33262,12 +33290,12 @@ references:
   isSpec: "True"
   fullName: LibGFX.Physics.MeshRaycast.IntersectsMesh
   nameWithType: MeshRaycast.IntersectsMesh
-- uid: LibGFX.Physics.MeshRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Math.AABB,LibGFX.Graphics.Mesh)
-  name: PerformRaycast(MeshRay, Transform, AABB, Mesh)
-  href: api/LibGFX.Physics.MeshRaycast.html#LibGFX_Physics_MeshRaycast_PerformRaycast_LibGFX_Physics_MeshRay_LibGFX_Math_Transform_LibGFX_Math_AABB_LibGFX_Graphics_Mesh_
-  commentId: M:LibGFX.Physics.MeshRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Math.AABB,LibGFX.Graphics.Mesh)
-  fullName: LibGFX.Physics.MeshRaycast.PerformRaycast(LibGFX.Physics.MeshRay, LibGFX.Math.Transform, LibGFX.Math.AABB, LibGFX.Graphics.Mesh)
-  nameWithType: MeshRaycast.PerformRaycast(MeshRay, Transform, AABB, Mesh)
+- uid: LibGFX.Physics.MeshRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Math.AABB,LibGFX.Graphics.Mesh)
+  name: PerformRaycast(Ray, Transform, AABB, Mesh)
+  href: api/LibGFX.Physics.MeshRaycast.html#LibGFX_Physics_MeshRaycast_PerformRaycast_LibGFX_Physics_Ray_LibGFX_Math_Transform_LibGFX_Math_AABB_LibGFX_Graphics_Mesh_
+  commentId: M:LibGFX.Physics.MeshRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Math.AABB,LibGFX.Graphics.Mesh)
+  fullName: LibGFX.Physics.MeshRaycast.PerformRaycast(LibGFX.Physics.Ray, LibGFX.Math.Transform, LibGFX.Math.AABB, LibGFX.Graphics.Mesh)
+  nameWithType: MeshRaycast.PerformRaycast(Ray, Transform, AABB, Mesh)
 - uid: LibGFX.Physics.MeshRaycast.PerformRaycast*
   name: PerformRaycast
   href: api/LibGFX.Physics.MeshRaycast.html#LibGFX_Physics_MeshRaycast_PerformRaycast_
@@ -33549,6 +33577,19 @@ references:
   isSpec: "True"
   fullName: LibGFX.Physics.PhysicsHandler.Process
   nameWithType: PhysicsHandler.Process
+- uid: LibGFX.Physics.PhysicsHandler.RayTest(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  name: RayTest(Vector3, Vector3)
+  href: api/LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_RayTest_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  commentId: M:LibGFX.Physics.PhysicsHandler.RayTest(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  fullName: LibGFX.Physics.PhysicsHandler.RayTest(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  nameWithType: PhysicsHandler.RayTest(Vector3, Vector3)
+- uid: LibGFX.Physics.PhysicsHandler.RayTest*
+  name: RayTest
+  href: api/LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_RayTest_
+  commentId: Overload:LibGFX.Physics.PhysicsHandler.RayTest
+  isSpec: "True"
+  fullName: LibGFX.Physics.PhysicsHandler.RayTest
+  nameWithType: PhysicsHandler.RayTest
 - uid: LibGFX.Physics.PhysicsHandler.RemoveElement(LibGFX.Physics.PhysicsBehavior)
   name: RemoveElement(PhysicsBehavior)
   href: api/LibGFX.Physics.PhysicsHandler.html#LibGFX_Physics_PhysicsHandler_RemoveElement_LibGFX_Physics_PhysicsBehavior_
@@ -33681,6 +33722,19 @@ references:
   isSpec: "True"
   fullName: LibGFX.Physics.PhysicsHandler2D.Process
   nameWithType: PhysicsHandler2D.Process
+- uid: LibGFX.Physics.PhysicsHandler2D.RayTest(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  name: RayTest(Vector3, Vector3)
+  href: api/LibGFX.Physics.PhysicsHandler2D.html#LibGFX_Physics_PhysicsHandler2D_RayTest_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  commentId: M:LibGFX.Physics.PhysicsHandler2D.RayTest(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  fullName: LibGFX.Physics.PhysicsHandler2D.RayTest(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  nameWithType: PhysicsHandler2D.RayTest(Vector3, Vector3)
+- uid: LibGFX.Physics.PhysicsHandler2D.RayTest*
+  name: RayTest
+  href: api/LibGFX.Physics.PhysicsHandler2D.html#LibGFX_Physics_PhysicsHandler2D_RayTest_
+  commentId: Overload:LibGFX.Physics.PhysicsHandler2D.RayTest
+  isSpec: "True"
+  fullName: LibGFX.Physics.PhysicsHandler2D.RayTest
+  nameWithType: PhysicsHandler2D.RayTest
 - uid: LibGFX.Physics.PhysicsHandler2D.RemoveElement(LibGFX.Physics.PhysicsBehavior)
   name: RemoveElement(PhysicsBehavior)
   href: api/LibGFX.Physics.PhysicsHandler2D.html#LibGFX_Physics_PhysicsHandler2D_RemoveElement_LibGFX_Physics_PhysicsBehavior_
@@ -33813,6 +33867,19 @@ references:
   isSpec: "True"
   fullName: LibGFX.Physics.PhysicsHandler3D.Process
   nameWithType: PhysicsHandler3D.Process
+- uid: LibGFX.Physics.PhysicsHandler3D.RayTest(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  name: RayTest(Vector3, Vector3)
+  href: api/LibGFX.Physics.PhysicsHandler3D.html#LibGFX_Physics_PhysicsHandler3D_RayTest_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  commentId: M:LibGFX.Physics.PhysicsHandler3D.RayTest(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  fullName: LibGFX.Physics.PhysicsHandler3D.RayTest(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  nameWithType: PhysicsHandler3D.RayTest(Vector3, Vector3)
+- uid: LibGFX.Physics.PhysicsHandler3D.RayTest*
+  name: RayTest
+  href: api/LibGFX.Physics.PhysicsHandler3D.html#LibGFX_Physics_PhysicsHandler3D_RayTest_
+  commentId: Overload:LibGFX.Physics.PhysicsHandler3D.RayTest
+  isSpec: "True"
+  fullName: LibGFX.Physics.PhysicsHandler3D.RayTest
+  nameWithType: PhysicsHandler3D.RayTest
 - uid: LibGFX.Physics.PhysicsHandler3D.RemoveElement(LibGFX.Physics.PhysicsBehavior)
   name: RemoveElement(PhysicsBehavior)
   href: api/LibGFX.Physics.PhysicsHandler3D.html#LibGFX_Physics_PhysicsHandler3D_RemoveElement_LibGFX_Physics_PhysicsBehavior_
@@ -33839,12 +33906,94 @@ references:
   isSpec: "True"
   fullName: LibGFX.Physics.PhysicsHandler3D.SetDebugDrawer
   nameWithType: PhysicsHandler3D.SetDebugDrawer
+- uid: LibGFX.Physics.Ray
+  name: Ray
+  href: api/LibGFX.Physics.Ray.html
+  commentId: T:LibGFX.Physics.Ray
+  fullName: LibGFX.Physics.Ray
+  nameWithType: Ray
+- uid: LibGFX.Physics.Ray.#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  name: Ray(Vector3, Vector3)
+  href: api/LibGFX.Physics.Ray.html#LibGFX_Physics_Ray__ctor_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  commentId: M:LibGFX.Physics.Ray.#ctor(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  name.vb: New(Vector3, Vector3)
+  fullName: LibGFX.Physics.Ray.Ray(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  fullName.vb: LibGFX.Physics.Ray.New(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  nameWithType: Ray.Ray(Vector3, Vector3)
+  nameWithType.vb: Ray.New(Vector3, Vector3)
+- uid: LibGFX.Physics.Ray.#ctor*
+  name: Ray
+  href: api/LibGFX.Physics.Ray.html#LibGFX_Physics_Ray__ctor_
+  commentId: Overload:LibGFX.Physics.Ray.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: LibGFX.Physics.Ray.Ray
+  fullName.vb: LibGFX.Physics.Ray.New
+  nameWithType: Ray.Ray
+  nameWithType.vb: Ray.New
+- uid: LibGFX.Physics.Ray.Direction
+  name: Direction
+  href: api/LibGFX.Physics.Ray.html#LibGFX_Physics_Ray_Direction
+  commentId: F:LibGFX.Physics.Ray.Direction
+  fullName: LibGFX.Physics.Ray.Direction
+  nameWithType: Ray.Direction
+- uid: LibGFX.Physics.Ray.FromPoints(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  name: FromPoints(Vector3, Vector3)
+  href: api/LibGFX.Physics.Ray.html#LibGFX_Physics_Ray_FromPoints_OpenTK_Mathematics_Vector3_OpenTK_Mathematics_Vector3_
+  commentId: M:LibGFX.Physics.Ray.FromPoints(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)
+  fullName: LibGFX.Physics.Ray.FromPoints(OpenTK.Mathematics.Vector3, OpenTK.Mathematics.Vector3)
+  nameWithType: Ray.FromPoints(Vector3, Vector3)
+- uid: LibGFX.Physics.Ray.FromPoints*
+  name: FromPoints
+  href: api/LibGFX.Physics.Ray.html#LibGFX_Physics_Ray_FromPoints_
+  commentId: Overload:LibGFX.Physics.Ray.FromPoints
+  isSpec: "True"
+  fullName: LibGFX.Physics.Ray.FromPoints
+  nameWithType: Ray.FromPoints
+- uid: LibGFX.Physics.Ray.FromScreenPoint(LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport,System.Single,System.Single)
+  name: FromScreenPoint(Camera, Viewport, float, float)
+  href: api/LibGFX.Physics.Ray.html#LibGFX_Physics_Ray_FromScreenPoint_LibGFX_Graphics_Camera_LibGFX_Graphics_Viewport_System_Single_System_Single_
+  commentId: M:LibGFX.Physics.Ray.FromScreenPoint(LibGFX.Graphics.Camera,LibGFX.Graphics.Viewport,System.Single,System.Single)
+  name.vb: FromScreenPoint(Camera, Viewport, Single, Single)
+  fullName: LibGFX.Physics.Ray.FromScreenPoint(LibGFX.Graphics.Camera, LibGFX.Graphics.Viewport, float, float)
+  fullName.vb: LibGFX.Physics.Ray.FromScreenPoint(LibGFX.Graphics.Camera, LibGFX.Graphics.Viewport, Single, Single)
+  nameWithType: Ray.FromScreenPoint(Camera, Viewport, float, float)
+  nameWithType.vb: Ray.FromScreenPoint(Camera, Viewport, Single, Single)
+- uid: LibGFX.Physics.Ray.FromScreenPoint*
+  name: FromScreenPoint
+  href: api/LibGFX.Physics.Ray.html#LibGFX_Physics_Ray_FromScreenPoint_
+  commentId: Overload:LibGFX.Physics.Ray.FromScreenPoint
+  isSpec: "True"
+  fullName: LibGFX.Physics.Ray.FromScreenPoint
+  nameWithType: Ray.FromScreenPoint
+- uid: LibGFX.Physics.Ray.Origin
+  name: Origin
+  href: api/LibGFX.Physics.Ray.html#LibGFX_Physics_Ray_Origin
+  commentId: F:LibGFX.Physics.Ray.Origin
+  fullName: LibGFX.Physics.Ray.Origin
+  nameWithType: Ray.Origin
 - uid: LibGFX.Physics.Raycast
   name: Raycast
   href: api/LibGFX.Physics.Raycast.html
   commentId: T:LibGFX.Physics.Raycast
   fullName: LibGFX.Physics.Raycast
   nameWithType: Raycast
+- uid: LibGFX.Physics.Raycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Physics.PhysicsHandler,System.Single)
+  name: PerformRaycast(Ray, PhysicsHandler, float)
+  href: api/LibGFX.Physics.Raycast.html#LibGFX_Physics_Raycast_PerformRaycast_LibGFX_Physics_Ray_LibGFX_Physics_PhysicsHandler_System_Single_
+  commentId: M:LibGFX.Physics.Raycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Physics.PhysicsHandler,System.Single)
+  name.vb: PerformRaycast(Ray, PhysicsHandler, Single)
+  fullName: LibGFX.Physics.Raycast.PerformRaycast(LibGFX.Physics.Ray, LibGFX.Physics.PhysicsHandler, float)
+  fullName.vb: LibGFX.Physics.Raycast.PerformRaycast(LibGFX.Physics.Ray, LibGFX.Physics.PhysicsHandler, Single)
+  nameWithType: Raycast.PerformRaycast(Ray, PhysicsHandler, float)
+  nameWithType.vb: Raycast.PerformRaycast(Ray, PhysicsHandler, Single)
+- uid: LibGFX.Physics.Raycast.PerformRaycast*
+  name: PerformRaycast
+  href: api/LibGFX.Physics.Raycast.html#LibGFX_Physics_Raycast_PerformRaycast_
+  commentId: Overload:LibGFX.Physics.Raycast.PerformRaycast
+  isSpec: "True"
+  fullName: LibGFX.Physics.Raycast.PerformRaycast
+  nameWithType: Raycast.PerformRaycast
 - uid: LibGFX.Physics.Raycast.PerformRaycastFromScreen(LibGFX.Graphics.PerspectiveCamera,LibGFX.Graphics.Viewport,LibGFX.Physics.PhysicsHandler3D,System.Int32,System.Int32)
   name: PerformRaycastFromScreen(PerspectiveCamera, Viewport, PhysicsHandler3D, int, int)
   href: api/LibGFX.Physics.Raycast.html#LibGFX_Physics_Raycast_PerformRaycastFromScreen_LibGFX_Graphics_PerspectiveCamera_LibGFX_Graphics_Viewport_LibGFX_Physics_PhysicsHandler3D_System_Int32_System_Int32_

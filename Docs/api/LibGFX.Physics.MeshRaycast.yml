@@ -5,9 +5,9 @@ items:
   id: MeshRaycast
   parent: LibGFX.Physics
   children:
-  - LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.MeshRay,LibGFX.Math.AABB,System.Single@,System.Single@)
-  - LibGFX.Physics.MeshRaycast.IntersectsMesh(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
-  - LibGFX.Physics.MeshRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Math.AABB,LibGFX.Graphics.Mesh)
+  - LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.Ray,LibGFX.Math.AABB,System.Single@,System.Single@)
+  - LibGFX.Physics.MeshRaycast.IntersectsMesh(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
+  - LibGFX.Physics.MeshRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Math.AABB,LibGFX.Graphics.Mesh)
   - LibGFX.Physics.MeshRaycast.ScreenPointToWorldRay(LibGFX.Graphics.PerspectiveCamera,LibGFX.Graphics.Viewport,System.Single,System.Single)
   langs:
   - csharp
@@ -23,7 +23,7 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: MeshRaycast
     path: ../LibGFX/Physics/MeshRaycast.cs
-    startLine: 41
+    startLine: 14
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
@@ -42,16 +42,16 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: LibGFX.Physics.MeshRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Math.AABB,LibGFX.Graphics.Mesh)
-  commentId: M:LibGFX.Physics.MeshRaycast.PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Math.AABB,LibGFX.Graphics.Mesh)
-  id: PerformRaycast(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Math.AABB,LibGFX.Graphics.Mesh)
+- uid: LibGFX.Physics.MeshRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Math.AABB,LibGFX.Graphics.Mesh)
+  commentId: M:LibGFX.Physics.MeshRaycast.PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Math.AABB,LibGFX.Graphics.Mesh)
+  id: PerformRaycast(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Math.AABB,LibGFX.Graphics.Mesh)
   parent: LibGFX.Physics.MeshRaycast
   langs:
   - csharp
   - vb
-  name: PerformRaycast(MeshRay, Transform, AABB, Mesh)
-  nameWithType: MeshRaycast.PerformRaycast(MeshRay, Transform, AABB, Mesh)
-  fullName: LibGFX.Physics.MeshRaycast.PerformRaycast(LibGFX.Physics.MeshRay, LibGFX.Math.Transform, LibGFX.Math.AABB, LibGFX.Graphics.Mesh)
+  name: PerformRaycast(Ray, Transform, AABB, Mesh)
+  nameWithType: MeshRaycast.PerformRaycast(Ray, Transform, AABB, Mesh)
+  fullName: LibGFX.Physics.MeshRaycast.PerformRaycast(LibGFX.Physics.Ray, LibGFX.Math.Transform, LibGFX.Math.AABB, LibGFX.Graphics.Mesh)
   type: Method
   source:
     remote:
@@ -60,17 +60,17 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: PerformRaycast
     path: ../LibGFX/Physics/MeshRaycast.cs
-    startLine: 52
+    startLine: 24
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
-  summary: Performs a raycast against a mesh, checking for intersection with an AABB first.
+  summary: Performs a raycast against a mesh, first checking the AABB for a quick rejection.
   example: []
   syntax:
-    content: public static MeshRayHit PerformRaycast(MeshRay ray, Transform transform, AABB aabb, Mesh mesh)
+    content: public static HitResult PerformRaycast(Ray ray, Transform transform, AABB aabb, Mesh mesh)
     parameters:
     - id: ray
-      type: LibGFX.Physics.MeshRay
+      type: LibGFX.Physics.Ray
       description: ''
     - id: transform
       type: LibGFX.Math.Transform
@@ -82,20 +82,20 @@ items:
       type: LibGFX.Graphics.Mesh
       description: ''
     return:
-      type: LibGFX.Physics.MeshRayHit
+      type: LibGFX.Physics.HitResult
       description: ''
-    content.vb: Public Shared Function PerformRaycast(ray As MeshRay, transform As Transform, aabb As AABB, mesh As Mesh) As MeshRayHit
+    content.vb: Public Shared Function PerformRaycast(ray As Ray, transform As Transform, aabb As AABB, mesh As Mesh) As HitResult
   overload: LibGFX.Physics.MeshRaycast.PerformRaycast*
-- uid: LibGFX.Physics.MeshRaycast.IntersectsMesh(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
-  commentId: M:LibGFX.Physics.MeshRaycast.IntersectsMesh(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
-  id: IntersectsMesh(LibGFX.Physics.MeshRay,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
+- uid: LibGFX.Physics.MeshRaycast.IntersectsMesh(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
+  commentId: M:LibGFX.Physics.MeshRaycast.IntersectsMesh(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
+  id: IntersectsMesh(LibGFX.Physics.Ray,LibGFX.Math.Transform,LibGFX.Graphics.Mesh)
   parent: LibGFX.Physics.MeshRaycast
   langs:
   - csharp
   - vb
-  name: IntersectsMesh(MeshRay, Transform, Mesh)
-  nameWithType: MeshRaycast.IntersectsMesh(MeshRay, Transform, Mesh)
-  fullName: LibGFX.Physics.MeshRaycast.IntersectsMesh(LibGFX.Physics.MeshRay, LibGFX.Math.Transform, LibGFX.Graphics.Mesh)
+  name: IntersectsMesh(Ray, Transform, Mesh)
+  nameWithType: MeshRaycast.IntersectsMesh(Ray, Transform, Mesh)
+  fullName: LibGFX.Physics.MeshRaycast.IntersectsMesh(LibGFX.Physics.Ray, LibGFX.Math.Transform, LibGFX.Graphics.Mesh)
   type: Method
   source:
     remote:
@@ -104,17 +104,17 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: IntersectsMesh
     path: ../LibGFX/Physics/MeshRaycast.cs
-    startLine: 74
+    startLine: 46
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
-  summary: Checks if a ray intersects with a mesh by transforming the mesh vertices and checking each triangle.
+  summary: Checks if a ray intersects with a mesh by testing each triangle.
   example: []
   syntax:
-    content: public static MeshRayHit IntersectsMesh(MeshRay ray, Transform transform, Mesh mesh)
+    content: public static HitResult IntersectsMesh(Ray ray, Transform transform, Mesh mesh)
     parameters:
     - id: ray
-      type: LibGFX.Physics.MeshRay
+      type: LibGFX.Physics.Ray
       description: ''
     - id: transform
       type: LibGFX.Math.Transform
@@ -123,20 +123,20 @@ items:
       type: LibGFX.Graphics.Mesh
       description: ''
     return:
-      type: LibGFX.Physics.MeshRayHit
+      type: LibGFX.Physics.HitResult
       description: ''
-    content.vb: Public Shared Function IntersectsMesh(ray As MeshRay, transform As Transform, mesh As Mesh) As MeshRayHit
+    content.vb: Public Shared Function IntersectsMesh(ray As Ray, transform As Transform, mesh As Mesh) As HitResult
   overload: LibGFX.Physics.MeshRaycast.IntersectsMesh*
-- uid: LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.MeshRay,LibGFX.Math.AABB,System.Single@,System.Single@)
-  commentId: M:LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.MeshRay,LibGFX.Math.AABB,System.Single@,System.Single@)
-  id: IntersectsAABB(LibGFX.Physics.MeshRay,LibGFX.Math.AABB,System.Single@,System.Single@)
+- uid: LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.Ray,LibGFX.Math.AABB,System.Single@,System.Single@)
+  commentId: M:LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.Ray,LibGFX.Math.AABB,System.Single@,System.Single@)
+  id: IntersectsAABB(LibGFX.Physics.Ray,LibGFX.Math.AABB,System.Single@,System.Single@)
   parent: LibGFX.Physics.MeshRaycast
   langs:
   - csharp
   - vb
-  name: IntersectsAABB(MeshRay, AABB, out float, out float)
-  nameWithType: MeshRaycast.IntersectsAABB(MeshRay, AABB, out float, out float)
-  fullName: LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.MeshRay, LibGFX.Math.AABB, out float, out float)
+  name: IntersectsAABB(Ray, AABB, out float, out float)
+  nameWithType: MeshRaycast.IntersectsAABB(Ray, AABB, out float, out float)
+  fullName: LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.Ray, LibGFX.Math.AABB, out float, out float)
   type: Method
   source:
     remote:
@@ -145,17 +145,17 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: IntersectsAABB
     path: ../LibGFX/Physics/MeshRaycast.cs
-    startLine: 113
+    startLine: 91
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
   summary: Checks if a ray intersects with an Axis-Aligned Bounding Box (AABB).
   example: []
   syntax:
-    content: public static bool IntersectsAABB(MeshRay ray, AABB aabb, out float tMin, out float tMax)
+    content: public static bool IntersectsAABB(Ray ray, AABB aabb, out float tMin, out float tMax)
     parameters:
     - id: ray
-      type: LibGFX.Physics.MeshRay
+      type: LibGFX.Physics.Ray
       description: ''
     - id: aabb
       type: LibGFX.Math.AABB
@@ -169,11 +169,11 @@ items:
     return:
       type: System.Boolean
       description: ''
-    content.vb: Public Shared Function IntersectsAABB(ray As MeshRay, aabb As AABB, tMin As Single, tMax As Single) As Boolean
+    content.vb: Public Shared Function IntersectsAABB(ray As Ray, aabb As AABB, tMin As Single, tMax As Single) As Boolean
   overload: LibGFX.Physics.MeshRaycast.IntersectsAABB*
-  nameWithType.vb: MeshRaycast.IntersectsAABB(MeshRay, AABB, Single, Single)
-  fullName.vb: LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.MeshRay, LibGFX.Math.AABB, Single, Single)
-  name.vb: IntersectsAABB(MeshRay, AABB, Single, Single)
+  nameWithType.vb: MeshRaycast.IntersectsAABB(Ray, AABB, Single, Single)
+  fullName.vb: LibGFX.Physics.MeshRaycast.IntersectsAABB(LibGFX.Physics.Ray, LibGFX.Math.AABB, Single, Single)
+  name.vb: IntersectsAABB(Ray, AABB, Single, Single)
 - uid: LibGFX.Physics.MeshRaycast.ScreenPointToWorldRay(LibGFX.Graphics.PerspectiveCamera,LibGFX.Graphics.Viewport,System.Single,System.Single)
   commentId: M:LibGFX.Physics.MeshRaycast.ScreenPointToWorldRay(LibGFX.Graphics.PerspectiveCamera,LibGFX.Graphics.Viewport,System.Single,System.Single)
   id: ScreenPointToWorldRay(LibGFX.Graphics.PerspectiveCamera,LibGFX.Graphics.Viewport,System.Single,System.Single)
@@ -192,14 +192,17 @@ items:
       repo: https://github.com/Andy16823/GFX-Next.git
     id: ScreenPointToWorldRay
     path: ../LibGFX/Physics/MeshRaycast.cs
-    startLine: 145
+    startLine: 173
   assemblies:
   - LibGFX
   namespace: LibGFX.Physics
-  summary: Converts screen coordinates to a world ray using the camera's projection and view matrices.
+  summary: Creates a world space ray from screen coordinates.
   example: []
   syntax:
-    content: public static MeshRay ScreenPointToWorldRay(PerspectiveCamera camera, Viewport viewport, float mouseX, float mouseY)
+    content: >-
+      [Obsolete("Use Ray.FromScreenPoint instead.")]
+
+      public static Ray ScreenPointToWorldRay(PerspectiveCamera camera, Viewport viewport, float mouseX, float mouseY)
     parameters:
     - id: camera
       type: LibGFX.Graphics.PerspectiveCamera
@@ -214,10 +217,19 @@ items:
       type: System.Single
       description: ''
     return:
-      type: LibGFX.Physics.MeshRay
+      type: LibGFX.Physics.Ray
       description: ''
-    content.vb: Public Shared Function ScreenPointToWorldRay(camera As PerspectiveCamera, viewport As Viewport, mouseX As Single, mouseY As Single) As MeshRay
+    content.vb: >-
+      <Obsolete("Use Ray.FromScreenPoint instead.")>
+
+      Public Shared Function ScreenPointToWorldRay(camera As PerspectiveCamera, viewport As Viewport, mouseX As Single, mouseY As Single) As Ray
   overload: LibGFX.Physics.MeshRaycast.ScreenPointToWorldRay*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use Ray.FromScreenPoint instead.
   nameWithType.vb: MeshRaycast.ScreenPointToWorldRay(PerspectiveCamera, Viewport, Single, Single)
   fullName.vb: LibGFX.Physics.MeshRaycast.ScreenPointToWorldRay(LibGFX.Graphics.PerspectiveCamera, LibGFX.Graphics.Viewport, Single, Single)
   name.vb: ScreenPointToWorldRay(PerspectiveCamera, Viewport, Single, Single)
@@ -483,17 +495,17 @@ references:
   fullName: System
 - uid: LibGFX.Physics.MeshRaycast.PerformRaycast*
   commentId: Overload:LibGFX.Physics.MeshRaycast.PerformRaycast
-  href: LibGFX.Physics.MeshRaycast.html#LibGFX_Physics_MeshRaycast_PerformRaycast_LibGFX_Physics_MeshRay_LibGFX_Math_Transform_LibGFX_Math_AABB_LibGFX_Graphics_Mesh_
+  href: LibGFX.Physics.MeshRaycast.html#LibGFX_Physics_MeshRaycast_PerformRaycast_LibGFX_Physics_Ray_LibGFX_Math_Transform_LibGFX_Math_AABB_LibGFX_Graphics_Mesh_
   name: PerformRaycast
   nameWithType: MeshRaycast.PerformRaycast
   fullName: LibGFX.Physics.MeshRaycast.PerformRaycast
-- uid: LibGFX.Physics.MeshRay
-  commentId: T:LibGFX.Physics.MeshRay
+- uid: LibGFX.Physics.Ray
+  commentId: T:LibGFX.Physics.Ray
   parent: LibGFX.Physics
-  href: LibGFX.Physics.MeshRay.html
-  name: MeshRay
-  nameWithType: MeshRay
-  fullName: LibGFX.Physics.MeshRay
+  href: LibGFX.Physics.Ray.html
+  name: Ray
+  nameWithType: Ray
+  fullName: LibGFX.Physics.Ray
 - uid: LibGFX.Math.Transform
   commentId: T:LibGFX.Math.Transform
   parent: LibGFX.Math
@@ -515,13 +527,13 @@ references:
   name: Mesh
   nameWithType: Mesh
   fullName: LibGFX.Graphics.Mesh
-- uid: LibGFX.Physics.MeshRayHit
-  commentId: T:LibGFX.Physics.MeshRayHit
+- uid: LibGFX.Physics.HitResult
+  commentId: T:LibGFX.Physics.HitResult
   parent: LibGFX.Physics
-  href: LibGFX.Physics.MeshRayHit.html
-  name: MeshRayHit
-  nameWithType: MeshRayHit
-  fullName: LibGFX.Physics.MeshRayHit
+  href: LibGFX.Physics.HitResult.html
+  name: HitResult
+  nameWithType: HitResult
+  fullName: LibGFX.Physics.HitResult
 - uid: LibGFX.Math
   commentId: N:LibGFX.Math
   href: LibGFX.html
@@ -568,13 +580,13 @@ references:
     href: LibGFX.Graphics.html
 - uid: LibGFX.Physics.MeshRaycast.IntersectsMesh*
   commentId: Overload:LibGFX.Physics.MeshRaycast.IntersectsMesh
-  href: LibGFX.Physics.MeshRaycast.html#LibGFX_Physics_MeshRaycast_IntersectsMesh_LibGFX_Physics_MeshRay_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_
+  href: LibGFX.Physics.MeshRaycast.html#LibGFX_Physics_MeshRaycast_IntersectsMesh_LibGFX_Physics_Ray_LibGFX_Math_Transform_LibGFX_Graphics_Mesh_
   name: IntersectsMesh
   nameWithType: MeshRaycast.IntersectsMesh
   fullName: LibGFX.Physics.MeshRaycast.IntersectsMesh
 - uid: LibGFX.Physics.MeshRaycast.IntersectsAABB*
   commentId: Overload:LibGFX.Physics.MeshRaycast.IntersectsAABB
-  href: LibGFX.Physics.MeshRaycast.html#LibGFX_Physics_MeshRaycast_IntersectsAABB_LibGFX_Physics_MeshRay_LibGFX_Math_AABB_System_Single__System_Single__
+  href: LibGFX.Physics.MeshRaycast.html#LibGFX_Physics_MeshRaycast_IntersectsAABB_LibGFX_Physics_Ray_LibGFX_Math_AABB_System_Single__System_Single__
   name: IntersectsAABB
   nameWithType: MeshRaycast.IntersectsAABB
   fullName: LibGFX.Physics.MeshRaycast.IntersectsAABB
