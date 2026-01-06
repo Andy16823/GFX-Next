@@ -107,31 +107,37 @@ namespace LibGFX.Core.GameElements
         /// <param name="camera"></param>
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            base.Render(scene, viewport, renderer, camera);
-
-            // Bind the shader program
-            renderer.BindShaderProgram(this.Shader);
-            renderer.PrepareShader("viewPos", camera.Transform.Position);
-            if(scene.LightManager != null)
+            if(this.Visible)
             {
-                scene.LightManager.BindLights(viewport, renderer, camera);
+                base.Render(scene, viewport, renderer, camera);
+
+                // Bind the shader program
+                renderer.BindShaderProgram(this.Shader);
+                renderer.PrepareShader("viewPos", camera.Transform.Position);
+                if (scene.LightManager != null)
+                {
+                    scene.LightManager.BindLights(viewport, renderer, camera);
+                }
+                renderer.DrawInstances(InstanceContainer, this.Material);
+
+                // Unbind the shader program
+                renderer.UnbindShaderProgram();
+
+                // Increment the draw calls for the scene
+                scene.RenderStats.IncrementDrawCalls();
             }
-            renderer.DrawInstances(InstanceContainer, this.Material);
-
-            // Unbind the shader program
-            renderer.UnbindShaderProgram();
-
-            // Increment the draw calls for the scene
-            scene.RenderStats.IncrementDrawCalls();
         }
 
         public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
-            base.RenderShadow(scene, viewport, renderer);
+            if(this.Visible)
+            {
+                base.RenderShadow(scene, viewport, renderer);
 
-            renderer.BindShaderProgram(renderer.GetRenderShader("DepthInstancedShader3D"));
-            renderer.DrawInstances(InstanceContainer, this.Material);
-            renderer.UnbindShaderProgram();
+                renderer.BindShaderProgram(renderer.GetRenderShader("DepthInstancedShader3D"));
+                renderer.DrawInstances(InstanceContainer, this.Material);
+                renderer.UnbindShaderProgram();
+            }
         }
 
         /// <summary>

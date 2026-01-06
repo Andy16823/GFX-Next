@@ -109,26 +109,29 @@ namespace LibGFX.Core.GameElements
         /// <param name="camera"></param>
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            base.Render(scene, viewport, renderer, camera);
-            var transform = this.GetWorldTransform();
-
-            // Bind and prepare shader uniforms
-            var shader = renderer.GetRenderShader("AnimatedMeshShader");
-            renderer.BindShaderProgram(shader);
-            renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
-            renderer.PrepareShader("viewPos", camera.Transform.Position);
-            if (scene.LightManager != null)
+            if(this.Visible)
             {
-                scene.LightManager.BindLights(viewport, renderer, camera);
-            }
+                base.Render(scene, viewport, renderer, camera);
+                var transform = this.GetWorldTransform();
 
-            foreach (var mesh in _model.Meshes)
-            {
-                renderer.DrawMesh(transform, mesh);
-                scene.RenderStats.IncrementDrawCalls();
-            }
+                // Bind and prepare shader uniforms
+                var shader = renderer.GetRenderShader("AnimatedMeshShader");
+                renderer.BindShaderProgram(shader);
+                renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
+                renderer.PrepareShader("viewPos", camera.Transform.Position);
+                if (scene.LightManager != null)
+                {
+                    scene.LightManager.BindLights(viewport, renderer, camera);
+                }
 
-            renderer.UnbindShaderProgram();
+                foreach (var mesh in _model.Meshes)
+                {
+                    renderer.DrawMesh(transform, mesh);
+                    scene.RenderStats.IncrementDrawCalls();
+                }
+
+                renderer.UnbindShaderProgram();
+            }
         }
 
         /// <summary>
@@ -139,17 +142,20 @@ namespace LibGFX.Core.GameElements
         /// <param name="renderer"></param>
         public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
-            base.RenderShadow(scene, viewport, renderer);
-            var transform = this.GetWorldTransform();
-            var shader = renderer.GetRenderShader("AnimatedDepthMeshShader");
-            renderer.BindShaderProgram(shader);
-            renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
-            foreach (var mesh in _model.Meshes)
+            if(this.Visible)
             {
-                renderer.DrawMesh(transform, mesh);
-                scene.RenderStats.IncrementDrawCalls();
+                base.RenderShadow(scene, viewport, renderer);
+                var transform = this.GetWorldTransform();
+                var shader = renderer.GetRenderShader("AnimatedDepthMeshShader");
+                renderer.BindShaderProgram(shader);
+                renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
+                foreach (var mesh in _model.Meshes)
+                {
+                    renderer.DrawMesh(transform, mesh);
+                    scene.RenderStats.IncrementDrawCalls();
+                }
+                renderer.UnbindShaderProgram();
             }
-            renderer.UnbindShaderProgram();
         }
 
         /// <summary>

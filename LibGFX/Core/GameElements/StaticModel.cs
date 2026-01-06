@@ -83,33 +83,36 @@ namespace LibGFX.Core.GameElements
         /// <param name="camera"></param>
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            base.Render(scene, viewport, renderer, camera);
-            var transform = this.GetWorldTransform();
-            var shader = renderer.GetRenderShader("MeshShader");
-
-            renderer.BindShaderProgram(shader);
-            renderer.PrepareShader("viewPos", camera.Transform.Position);
-            if (scene.LightManager != null)
+            if (this.Visible)
             {
-                scene.LightManager.BindLights(viewport, renderer, camera);
-            }
+                base.Render(scene, viewport, renderer, camera);
+                var transform = this.GetWorldTransform();
+                var shader = renderer.GetRenderShader("MeshShader");
 
-            foreach (var mesh in _model.Meshes)
-            {
-                if(mesh.Material.IsTransparent)
+                renderer.BindShaderProgram(shader);
+                renderer.PrepareShader("viewPos", camera.Transform.Position);
+                if (scene.LightManager != null)
                 {
-                    renderer.EnableBlend();
-                    renderer.SetBlendMode((int) BlendingFactor.SrcAlpha, (int) BlendingFactor.OneMinusSrcAlpha);
+                    scene.LightManager.BindLights(viewport, renderer, camera);
                 }
-                renderer.DrawMesh(transform, mesh);
-                if (mesh.Material.IsTransparent)
-                {
-                    renderer.DisableBlend();
-                }
-                scene.RenderStats.IncrementDrawCalls();
-            }
 
-            renderer.UnbindShaderProgram();
+                foreach (var mesh in _model.Meshes)
+                {
+                    if (mesh.Material.IsTransparent)
+                    {
+                        renderer.EnableBlend();
+                        renderer.SetBlendMode((int)BlendingFactor.SrcAlpha, (int)BlendingFactor.OneMinusSrcAlpha);
+                    }
+                    renderer.DrawMesh(transform, mesh);
+                    if (mesh.Material.IsTransparent)
+                    {
+                        renderer.DisableBlend();
+                    }
+                    scene.RenderStats.IncrementDrawCalls();
+                }
+
+                renderer.UnbindShaderProgram();
+            }
         }
 
         /// <summary>
@@ -120,16 +123,18 @@ namespace LibGFX.Core.GameElements
         /// <param name="renderer"></param>
         public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
-            base.RenderShadow(scene, viewport, renderer);
-            var transform = this.GetWorldTransform();
-            var shader = renderer.GetRenderShader("DepthMeshShader");
-            renderer.BindShaderProgram(shader);
-            foreach (var mesh in _model.Meshes)
-            {
-                renderer.DrawMesh(transform, mesh);
-                scene.RenderStats.IncrementDrawCalls();
+            if(this.Visible) {
+                base.RenderShadow(scene, viewport, renderer);
+                var transform = this.GetWorldTransform();
+                var shader = renderer.GetRenderShader("DepthMeshShader");
+                renderer.BindShaderProgram(shader);
+                foreach (var mesh in _model.Meshes)
+                {
+                    renderer.DrawMesh(transform, mesh);
+                    scene.RenderStats.IncrementDrawCalls();
+                }
+                renderer.UnbindShaderProgram();
             }
-            renderer.UnbindShaderProgram();
         }
 
         /// <summary>

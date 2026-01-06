@@ -104,18 +104,21 @@ namespace LibGFX.Core.GameElements
         /// <param name="camera"></param>
         public override void Render(BaseScene scene, Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            base.Render(scene, viewport, renderer, camera);
-            var transform = this.GetWorldTransform();
-
-            renderer.BindShaderProgram(this.Shader);
-            renderer.PrepareShader("viewPos", camera.Transform.Position);
-            if (scene.LightManager != null)
+            if(this.Visible)
             {
-                scene.LightManager.BindLights(viewport, renderer, camera);
+                base.Render(scene, viewport, renderer, camera);
+                var transform = this.GetWorldTransform();
+
+                renderer.BindShaderProgram(this.Shader);
+                renderer.PrepareShader("viewPos", camera.Transform.Position);
+                if (scene.LightManager != null)
+                {
+                    scene.LightManager.BindLights(viewport, renderer, camera);
+                }
+                renderer.DrawMesh(transform, Mesh, MaterialOverride);
+                scene.RenderStats.IncrementDrawCalls();
+                renderer.UnbindShaderProgram();
             }
-            renderer.DrawMesh(transform, Mesh, MaterialOverride);
-            scene.RenderStats.IncrementDrawCalls();
-            renderer.UnbindShaderProgram();
         }
 
         /// <summary>
@@ -126,14 +129,17 @@ namespace LibGFX.Core.GameElements
         /// <param name="renderer"></param>
         public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
-            base.RenderShadow(scene, viewport, renderer);
+            if (this.Visible)
+            {
+                base.RenderShadow(scene, viewport, renderer);
 
-            // Use the depth mesh shader for shadow rendering
-            var shader = renderer.GetRenderShader("DepthMeshShader");
-            renderer.BindShaderProgram(shader);
-            renderer.DrawMesh(Transform, Mesh, MaterialOverride);
-            scene.RenderStats.IncrementDrawCalls();
-            renderer.UnbindShaderProgram();
+                // Use the depth mesh shader for shadow rendering
+                var shader = renderer.GetRenderShader("DepthMeshShader");
+                renderer.BindShaderProgram(shader);
+                renderer.DrawMesh(Transform, Mesh, MaterialOverride);
+                scene.RenderStats.IncrementDrawCalls();
+                renderer.UnbindShaderProgram();
+            }
         }
 
         /// <summary>

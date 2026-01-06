@@ -95,5 +95,27 @@ namespace LibGFX.Physics
             }
             return result;
         }
+
+        public static HitResult PerformRaycast(Ray ray, PhysicsHandler3D physicsHandler, float maxDistance = 1000.0f)
+        {
+            HitResult result = new HitResult();
+            var rayStart = (System.Numerics.Vector3) ray.Origin;
+            var rayEnd = (System.Numerics.Vector3)(ray.Origin + ray.Direction * maxDistance);
+
+            result.rayStart = ray.Origin;
+            result.rayEnd = ray.Origin + ray.Direction * maxDistance;
+            using (var cb = new ClosestRayResultCallback(ref rayStart, ref rayEnd))
+            {
+                physicsHandler.PhysicsWorld.RayTest(rayStart, rayEnd, cb);
+                if (cb.HasHit)
+                {
+                    result.hit = true;
+                    result.collisionObject = cb.CollisionObject;
+                    result.hitLocation = (Vector3)cb.HitPointWorld;
+                    result.hitElement = (GameElement)cb.CollisionObject.UserObject;
+                }
+            }
+            return result;
+        }
     }
 }
