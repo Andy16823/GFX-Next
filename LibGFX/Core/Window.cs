@@ -184,6 +184,15 @@ namespace LibGFX.Core
         }
 
         /// <summary>
+        /// Sets the window title.
+        /// </summary>
+        /// <param name="title"></param>
+        public void SetTitle(string title)
+        {
+            _window.Title = title;
+        }
+
+        /// <summary>
         /// Closes the window.
         /// </summary>
         public void Close()

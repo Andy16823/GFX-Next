@@ -1,5 +1,6 @@
 ﻿using LibGFX.Core;
 using LibGFX.Graphics;
+using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,14 @@ namespace LibGFX.Physics
         /// </summary>
         /// <param name="scene"></param>
         public abstract void Process(BaseScene scene);
+
+        /// <summary>
+        /// Performs a ray test and returns the hit result
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public abstract HitResult RayTest(Vector3 start, Vector3 end);
 
         /// <summary>
         /// Manages a physics element

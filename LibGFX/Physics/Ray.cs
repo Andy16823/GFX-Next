@@ -18,13 +18,27 @@ namespace LibGFX.Physics
     {
         public Vector3 Origin;
         public Vector3 Direction;
+
+        /// <summary>
+        /// Creates a ray with the specified origin and direction.
+        /// </summary>
+        /// <param name="origin"></param>
+        /// <param name="direction"></param>
         public Ray(Vector3 origin, Vector3 direction)
         {
             this.Origin = origin;
             this.Direction = direction;
         }
 
-        public static Ray FromScreenPoint(PerspectiveCamera camera, Viewport viewport, float mouseX, float mouseY)
+        /// <summary>
+        /// Creates a ray from screen coordinates using the provided camera and viewport.
+        /// </summary>
+        /// <param name="camera"></param>
+        /// <param name="viewport"></param>
+        /// <param name="mouseX"></param>
+        /// <param name="mouseY"></param>
+        /// <returns></returns>
+        public static Ray FromScreenPoint(Camera camera, Viewport viewport, float mouseX, float mouseY)
         {
             // 1. Mauskoordinaten normalisieren (NDC: -1 bis +1)
             float x = (2.0f * mouseX) / viewport.Width - 1.0f;
@@ -48,6 +62,18 @@ namespace LibGFX.Physics
 
             // 6. Erstelle den Ray
             return new Ray(rayOrigin, rayDirWorld);
+        }
+
+        /// <summary>
+        /// Creates a ray from an origin point to a target point.
+        /// </summary>
+        /// <param name="origin"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static Ray FromPoints(Vector3 origin, Vector3 target)
+        {
+            Vector3 direction = Vector3.Normalize(target - origin);
+            return new Ray(origin, direction);
         }
     }
 }

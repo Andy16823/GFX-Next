@@ -11,21 +11,31 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Physics
 {
-    /// <summary>
-    /// Represents the result of a raycasting hit.
-    /// </summary>
-    public struct HitResult
-    {
-        public bool hit;
-        public Vector3 rayStart;
-        public Vector3 rayEnd;
-        public CollisionObject collisionObject;
-        public GameElement hitElement;
-        public Vector3 hitLocation;
-    }
-
     public class Raycast
     {
+        public static HitResult PerformRaycast(Ray ray, PhysicsHandler physicsHandler, float maxDistance = 1000.0f)
+        {
+            //HitResult result = new HitResult();
+            //var rayStart = (System.Numerics.Vector3)ray.Origin;
+            //var rayEnd = (System.Numerics.Vector3)(ray.Origin + ray.Direction * maxDistance);
+
+            //result.rayStart = ray.Origin;
+            //result.rayEnd = ray.Origin + ray.Direction * maxDistance;
+            //using (var cb = new ClosestRayResultCallback(ref rayStart, ref rayEnd))
+            //{
+            //    physicsHandler.PhysicsWorld.RayTest(rayStart, rayEnd, cb);
+            //    if (cb.HasHit)
+            //    {
+            //        result.hit = true;
+            //        result.hitLocation = (Vector3)cb.HitPointWorld;
+            //        result.hitElement = (GameElement)cb.CollisionObject.UserObject;
+            //    }
+            //}
+            //return result;
+            return physicsHandler.RayTest(ray.Origin, ray.Origin + ray.Direction * maxDistance);
+        }
+
+        [Obsolete("Use PerformRaycast with Ray parameter instead.")]
         private static Vector4 GetRayStart(PerspectiveCamera camera, Viewport vp, int posX, int posY)
         {
             var projectionMatrix = camera.GetProjectionMatrix(vp);
@@ -44,6 +54,7 @@ namespace LibGFX.Physics
             return lRayStart_world;
         }
 
+        [Obsolete("Use PerformRaycast with Ray parameter instead.")]
         private static Vector4 GetRayEnd(Camera camera, Viewport vp, int posX, int posY)
         {
             var projectionMatrix = camera.GetProjectionMatrix(vp);
@@ -61,6 +72,7 @@ namespace LibGFX.Physics
             return lRayEnd_world;
         }
 
+        [Obsolete("Use PerformRaycast with Ray parameter instead.")]
         private static Vector3 GetRayDir(Vector4 start, Vector4 end)
         {
             var lRayDir_world = (start - end).Xyz;
@@ -68,6 +80,7 @@ namespace LibGFX.Physics
             return lRayDir_world;
         }
 
+        [Obsolete("Use PerformRaycast with Ray parameter instead.")]
         public static HitResult PerformRaycastFromScreen(PerspectiveCamera camera, Viewport viewport, PhysicsHandler3D physicHandler, int posX, int posY)
         {
             HitResult result = new HitResult();
@@ -88,30 +101,7 @@ namespace LibGFX.Physics
                 if (cb.HasHit)
                 {
                     result.hit = true;
-                    result.collisionObject = cb.CollisionObject;
                     result.hitLocation = (Vector3) cb.HitPointWorld;
-                    result.hitElement = (GameElement)cb.CollisionObject.UserObject;
-                }
-            }
-            return result;
-        }
-
-        public static HitResult PerformRaycast(Ray ray, PhysicsHandler3D physicsHandler, float maxDistance = 1000.0f)
-        {
-            HitResult result = new HitResult();
-            var rayStart = (System.Numerics.Vector3) ray.Origin;
-            var rayEnd = (System.Numerics.Vector3)(ray.Origin + ray.Direction * maxDistance);
-
-            result.rayStart = ray.Origin;
-            result.rayEnd = ray.Origin + ray.Direction * maxDistance;
-            using (var cb = new ClosestRayResultCallback(ref rayStart, ref rayEnd))
-            {
-                physicsHandler.PhysicsWorld.RayTest(rayStart, rayEnd, cb);
-                if (cb.HasHit)
-                {
-                    result.hit = true;
-                    result.collisionObject = cb.CollisionObject;
-                    result.hitLocation = (Vector3)cb.HitPointWorld;
                     result.hitElement = (GameElement)cb.CollisionObject.UserObject;
                 }
             }

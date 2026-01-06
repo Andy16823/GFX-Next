@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static BulletSharp.DiscreteCollisionDetectorInterface;
 
 namespace LibGFX.Physics
 {
@@ -144,6 +145,36 @@ namespace LibGFX.Physics
         public override void SetDebugDrawer(DebugDrawer debugDrawer)
         {
             this.PhysicsWorld.DebugDrawer = debugDrawer;
+        }
+
+        /// <summary>
+        /// Performs a ray test in the physics world
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public override HitResult RayTest(Vector3 start, Vector3 end)
+        {
+            var _start = (System.Numerics.Vector3)start;
+            var _end = (System.Numerics.Vector3)end;
+
+            HitResult result = new HitResult();
+            using (var cb = new ClosestRayResultCallback(ref _start, ref _end))
+            {
+                this.PhysicsWorld.RayTest(_start, _end, cb);
+                if (cb.HasHit)
+                {
+                    result.hit = true;
+                    result.hitLocation = (Vector3)cb.HitPointWorld;
+                    result.hitElement = (GameElement)cb.CollisionObject.UserObject;
+                    result.hitNormal = (Vector3)cb.HitNormalWorld;
+                    result.rayStart = start;
+                    result.rayEnd = end;
+                    result.hitDistance = (cb.HitPointWorld - _start).Length();
+                    result.hitTriangleIndex = -1; // Not available in BulletSharp ray test
+                }
+            }
+            return result;
         }
     }
 }

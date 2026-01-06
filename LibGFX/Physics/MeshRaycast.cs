@@ -10,47 +10,19 @@ using System.Threading.Tasks;
 namespace LibGFX.Physics
 {
     /// <summary>
-    /// Represents a raycast hit result for a mesh.
-    /// </summary>
-    public struct MeshRayHit
-    {
-        public bool Hit;
-        public float Distance;
-        public Vector3 Position;
-        public Vector3 Normal;
-        public int TriangleIndex;
-    }
-
-    /// <summary>
-    /// Represents a ray in 3D space for mesh raycasting.
-    /// </summary>
-    public struct MeshRay
-    {
-        public Vector3 Origin;
-        public Vector3 Direction;
-
-        public MeshRay(Vector3 origin, Vector3 direction)
-        {
-            Origin = origin;
-            Direction = direction.Normalized();
-        }
-    }
-
-    /// <summary>
     /// Class for performing raycasts against a mesh without using a physics engine.
     /// </summary>
     public class MeshRaycast
     {
-
         /// <summary>
-        /// Performs a raycast against a mesh, checking for intersection with an AABB first.
+        /// Performs a raycast against a mesh, first checking the AABB for a quick rejection.
         /// </summary>
         /// <param name="ray"></param>
         /// <param name="transform"></param>
         /// <param name="aabb"></param>
         /// <param name="mesh"></param>
         /// <returns></returns>
-        public static MeshRayHit PerformRaycast(MeshRay ray, Transform transform, AABB aabb, Mesh mesh)
+        public static HitResult PerformRaycast(Ray ray, Transform transform, AABB aabb, Mesh mesh)
         {
             var intersectsAABB = IntersectsAABB(ray, aabb, out float tMin, out float tMax);
             if (intersectsAABB)
@@ -58,25 +30,28 @@ namespace LibGFX.Physics
                 return IntersectsMesh(ray, transform, mesh);
             }
 
-            return new MeshRayHit
+            return new HitResult
             {
-                Hit = false
-
+                hit = false
             };
         }
 
+
         /// <summary>
-        /// Checks if a ray intersects with a mesh by transforming the mesh vertices and checking each triangle.
+        /// Checks if a ray intersects with a mesh by testing each triangle.
         /// </summary>
         /// <param name="ray"></param>
         /// <param name="transform"></param>
         /// <param name="mesh"></param>
         /// <returns></returns>
-        public static MeshRayHit IntersectsMesh(MeshRay ray, Transform transform, Mesh mesh)
+        public static HitResult IntersectsMesh(Ray ray, Transform transform, Mesh mesh)
         {
             var finalMatrix = mesh.GetTransform() * transform.GetMatrix();
             float closestT = float.MaxValue;
-            MeshRayHit hit = new MeshRayHit { Hit = false };
+
+            HitResult hit = new HitResult { 
+                hit = false,
+            };
 
             for (int i = 0; i < mesh.Indices.Count; i += 3)
             {
@@ -89,19 +64,22 @@ namespace LibGFX.Physics
                     if (t < closestT)
                     {
                         closestT = t;
-                        hit = new MeshRayHit
+                        hit = new HitResult
                         {
-                            Hit = true,
-                            Distance = t,
-                            Position = ray.Origin + ray.Direction * t,
-                            Normal = normal,
-                            TriangleIndex = i / 3
+                            hit = true,
+                            hitLocation = ray.Origin + ray.Direction * t,
+                            hitNormal = normal,
+                            hitTriangleIndex = i / 3,
+                            rayStart = ray.Origin,
+                            rayEnd = ray.Origin + ray.Direction * t,
+                            hitDistance = t,
                         };
                     }
                 }
             }
             return hit;
         }
+
 
         /// <summary>
         /// Checks if a ray intersects with an Axis-Aligned Bounding Box (AABB).
@@ -111,7 +89,7 @@ namespace LibGFX.Physics
         /// <param name="tMin"></param>
         /// <param name="tMax"></param>
         /// <returns></returns>
-        public static bool IntersectsAABB(MeshRay ray, AABB aabb, out float tMin, out float tMax)
+        public static bool IntersectsAABB(Ray ray, AABB aabb, out float tMin, out float tMax)
         {
             tMin = float.MinValue;
             tMax = float.MaxValue;
@@ -136,41 +114,7 @@ namespace LibGFX.Physics
         }
 
         /// <summary>
-        /// Converts screen coordinates to a world ray using the camera's projection and view matrices.
-        /// </summary>
-        /// <param name="camera"></param>
-        /// <param name="viewport"></param>
-        /// <param name="mouseX"></param>
-        /// <param name="mouseY"></param>
-        /// <returns></returns>
-        public static MeshRay ScreenPointToWorldRay(PerspectiveCamera camera, Viewport viewport, float mouseX, float mouseY)
-        {
-            // 1. Mauskoordinaten normalisieren (NDC: -1 bis +1)
-            float x = (2.0f * mouseX) / viewport.Width - 1.0f;
-            float y = 1.0f - (2.0f * mouseY) / viewport.Height; // ACHTUNG: Y-Flip!
-
-            // 2. NDC → Clip Space
-            Vector4 rayClip = new Vector4(x, y, -1.0f, 1.0f);
-
-            // 3. Clip Space → Eye (Camera) Space
-            Matrix4 invProjection = Matrix4.Invert(camera.GetProjectionMatrix(viewport));
-            Vector4 rayEye = rayClip * invProjection;
-            rayEye = new Vector4(rayEye.X, rayEye.Y, -1.0f, 0.0f);
-
-            // 4. Eye → World Space
-            Matrix4 invView = Matrix4.Invert(camera.GetViewMatrix());
-            Vector4 rayWorld4 = rayEye * invView;
-            Vector3 rayDirWorld = Vector3.Normalize(rayWorld4.Xyz);
-
-            // 5. Ray origin ist Kamera-Position (im World Space)
-            Vector3 rayOrigin = camera.Transform.Position;
-
-            // 6. Erstelle den Ray
-            return new MeshRay(rayOrigin, rayDirWorld);
-        }
-
-        /// <summary>
-        /// Checks if a ray intersects with a triangle defined by three vertices.
+        /// Checks if a ray intersects with a triangle using the Möller–Trumbore algorithm.
         /// </summary>
         /// <param name="ray"></param>
         /// <param name="v0"></param>
@@ -179,7 +123,7 @@ namespace LibGFX.Physics
         /// <param name="t"></param>
         /// <param name="normal"></param>
         /// <returns></returns>
-        private static bool RayIntersectsTriangle(MeshRay ray, Vector3 v0, Vector3 v1, Vector3 v2, out float t, out Vector3 normal)
+        private static bool RayIntersectsTriangle(Ray ray, Vector3 v0, Vector3 v1, Vector3 v2, out float t, out Vector3 normal)
         {
             t = 0;
             normal = Vector3.Zero;
@@ -217,6 +161,41 @@ namespace LibGFX.Physics
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// Creates a world space ray from screen coordinates.
+        /// </summary>
+        /// <param name="camera"></param>
+        /// <param name="viewport"></param>
+        /// <param name="mouseX"></param>
+        /// <param name="mouseY"></param>
+        /// <returns></returns>
+        [Obsolete("Use Ray.FromScreenPoint instead.")]
+        public static Ray ScreenPointToWorldRay(PerspectiveCamera camera, Viewport viewport, float mouseX, float mouseY)
+        {
+            // 1. Mauskoordinaten normalisieren (NDC: -1 bis +1)
+            float x = (2.0f * mouseX) / viewport.Width - 1.0f;
+            float y = 1.0f - (2.0f * mouseY) / viewport.Height; // ACHTUNG: Y-Flip!
+
+            // 2. NDC → Clip Space
+            Vector4 rayClip = new Vector4(x, y, -1.0f, 1.0f);
+
+            // 3. Clip Space → Eye (Camera) Space
+            Matrix4 invProjection = Matrix4.Invert(camera.GetProjectionMatrix(viewport));
+            Vector4 rayEye = rayClip * invProjection;
+            rayEye = new Vector4(rayEye.X, rayEye.Y, -1.0f, 0.0f);
+
+            // 4. Eye → World Space
+            Matrix4 invView = Matrix4.Invert(camera.GetViewMatrix());
+            Vector4 rayWorld4 = rayEye * invView;
+            Vector3 rayDirWorld = Vector3.Normalize(rayWorld4.Xyz);
+
+            // 5. Ray origin ist Kamera-Position (im World Space)
+            Vector3 rayOrigin = camera.Transform.Position;
+
+            // 6. Erstelle den Ray
+            return new Ray(rayOrigin, rayDirWorld);
         }
     }
 }

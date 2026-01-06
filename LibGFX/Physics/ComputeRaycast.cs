@@ -23,7 +23,7 @@ namespace LibGFX.Physics
     /// hit, as well as the normal and position at the intersection point. The structure is laid out explicitly for
     /// interoperability with native or GPU code. The distance to the hit point is stored in the normal's w component.</remarks>
     [StructLayout(LayoutKind.Explicit, Size = 48)]
-    public struct ComputeHitResult
+    struct ComputeHitResult
     {
         [FieldOffset(0)]
         public int TriangleIndex;
@@ -101,7 +101,7 @@ namespace LibGFX.Physics
         /// <returns>A ComputeHitResult structure containing information about the intersection. If no intersection is found, the
         /// TriangleIndex property of the result is set to -1.</returns>
         /// <exception cref="InvalidOperationException">Thrown if the raycast system has not been initialized with a render device.</exception>
-        public ComputeHitResult PerformRaycast(MeshRay ray, Transform transform, Mesh mesh)
+        public HitResult PerformRaycast(Ray ray, Transform transform, Mesh mesh)
         {
             if (_renderer == null)
                 throw new InvalidOperationException("ComputeRaycast not initialized with a render device.");
@@ -128,13 +128,21 @@ namespace LibGFX.Physics
             ComputeHitResult hit = _renderer.GetBufferData<ComputeHitResult>(_resultBuffer, 1, RenderFlags.GFXBufferTarget.ShaderStorageBuffer)[0];
             if (hit.TriangleIndex == -1)
             {
-                Debug.WriteLine("No hit detected.");
+                // No hit detected
+                return new HitResult { hit = false };
             }
-            else
+
+            // Return positive hit result
+            return new HitResult
             {
-                Debug.WriteLine($"Hit detected: Triangle {hit.TriangleIndex}, Normal {hit.Normal}, Position {hit.Position}");
-            }
-            return hit;
+                hit = true,
+                rayStart = ray.Origin,
+                rayEnd = ray.Origin + ray.Direction * hit.Normal.W,
+                hitTriangleIndex = hit.TriangleIndex,
+                hitNormal = new Vector3(hit.Normal.X, hit.Normal.Y, hit.Normal.Z),
+                hitLocation = new Vector3(hit.Position.X, hit.Position.Y, hit.Position.Z),
+                hitDistance = hit.Normal.W
+            };
         }
 
         /// <summary>
@@ -151,7 +159,7 @@ namespace LibGFX.Physics
         /// <param name="shader">The compute shader used to perform the ray-mesh intersection test.</param>
         /// <returns>A ComputeHitResult structure containing information about the intersection. If no intersection is found, the
         /// TriangleIndex field will be -1.</returns>
-        public static ComputeHitResult PerformRaycast(MeshRay ray, Transform transform, Mesh mesh, IRenderDevice renderer, ComputeShader shader)
+        public static HitResult PerformRaycast(Ray ray, Transform transform, Mesh mesh, IRenderDevice renderer, ComputeShader shader)
         {
             // Combine mesh local transform with provided transform
             Matrix4 modelMatrix = mesh.GetTransform() * transform.GetMatrix();
@@ -177,20 +185,27 @@ namespace LibGFX.Physics
 
             // Retrieve hit result
             ComputeHitResult hit = renderer.GetBufferData<ComputeHitResult>(hitBuffer, 1, RenderFlags.GFXBufferTarget.ShaderStorageBuffer)[0];
-            if (hit.TriangleIndex == -1)
-            {
-                Debug.WriteLine("No hit detected.");
-            }
-            else
-            {
-                Debug.WriteLine($"Hit detected: Triangle {hit.TriangleIndex}, Normal {hit.Normal}, Position {hit.Position}");
-            }
 
             // Clean up temporary buffer
             renderer.DisposeBuffer(hitBuffer);
 
-            // Return hit result
-            return hit;
+            // Check for no hit
+            if (hit.TriangleIndex == -1)
+            {
+                return new HitResult { hit = false };
+            }
+
+            // Else , return positive hit result
+            return new HitResult
+            {
+                hit = true,
+                rayStart = ray.Origin,
+                rayEnd = ray.Origin + ray.Direction * hit.Normal.W,
+                hitTriangleIndex = hit.TriangleIndex,
+                hitNormal = new Vector3(hit.Normal.X, hit.Normal.Y, hit.Normal.Z),
+                hitLocation = new Vector3(hit.Position.X, hit.Position.Y, hit.Position.Z),
+                hitDistance = hit.Normal.W
+            };
         }
     }
 }
