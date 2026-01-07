@@ -30,6 +30,20 @@ namespace LibGFX.Graphics.Lights
             Lights = new List<PointLight3D>();
         }
 
+        /// <summary>
+        /// Tries to remove the specified light from the chunk.
+        /// </summary>
+        /// <param name="light"></param>
+        public bool TryRemoveLight(PointLight3D light)
+        {
+            if(Lights.Contains(light))
+            {
+                this.Lights.Remove(light);
+                return true;
+            }
+            return false;
+        }
+
         public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
             writer.WriteStartObject();
@@ -519,6 +533,36 @@ namespace LibGFX.Graphics.Lights
                 }
             }
             return false;
+        }
+
+        /// <summary>
+        /// Removes the specified light from the light manager.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="light"></param>
+        /// <exception cref="InvalidOperationException"></exception>
+        public void RemoveLight<T>(T light) where T : Light
+        {
+            if(light is DirectionalLight3D dirLight)
+            {
+                if(this.DirectionalLight == dirLight)
+                {
+                    this.DirectionalLight = null;
+                    return;
+                }
+            }
+            else if(light is PointLight3D pointLight)
+            {
+                foreach(var chunk in Chunks.Values)
+                {
+                    if(chunk.TryRemoveLight(pointLight))
+                    {
+                        return;
+                    }
+                }
+                throw new InvalidOperationException("The specified point light was not found in any chunk.");
+            }
+            throw new InvalidOperationException($"Light type {typeof(T).Name} not supported in Light3DManager.");
         }
     }
 }

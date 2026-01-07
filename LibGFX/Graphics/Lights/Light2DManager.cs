@@ -34,6 +34,20 @@ namespace LibGFX.Graphics.Lights
         }
 
         /// <summary>
+        /// Removes a point light from the chunk.
+        /// </summary>
+        /// <param name="light"></param>
+        public bool TryRemoveLight(PointLight2D light)
+        {
+            if (Lights.Contains(light))
+            {
+                Lights.Remove(light);
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
         /// Serializes the current object and its child lights into a JSON representation.
         /// </summary>
         /// <param name="serializationContext">The context to use during serialization, which may provide settings or state required for the serialization
@@ -483,6 +497,36 @@ namespace LibGFX.Graphics.Lights
                 Chunks[(chunkX, chunkY)] = lightChunk;
             }
             callback?.Invoke(obj);
+        }
+
+        /// <summary>
+        /// Removes the specified light from the scene.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="light"></param>
+        /// <exception cref="InvalidOperationException"></exception>
+        public void RemoveLight<T>(T light) where T : Light
+        {
+            if(light is DirectionalLight2D dirLight)
+            {
+                if (this.DirectionalLight == dirLight)
+                {
+                    this.DirectionalLight = null;
+                    return;
+                }
+            }
+            else if(light is PointLight2D pointLight)
+            {
+                foreach (var chunk in Chunks.Values)
+                {
+                    if (chunk.TryRemoveLight(pointLight))
+                    {
+                        return;
+                    }
+                }
+                throw new InvalidOperationException("The specified PointLight2D was not found in any chunk.");
+            }
+            throw new InvalidOperationException($"Light type {typeof(T).Name} not supported in Light2DManager.");
         }
     }
 }

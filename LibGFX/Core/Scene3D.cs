@@ -428,22 +428,7 @@ namespace LibGFX.Core
         /// <exception cref="NotSupportedException">Thrown if the specified light type is not supported by Scene3D.</exception>
         public override void RemoveLight<T>(T light)
         {
-            // TODO: Support removal of point lights
-            if (light is DirectionalLight3D directionalLight)
-            {
-                if (_lightManager.DirectionalLight == directionalLight)
-                {
-                    _lightManager.DirectionalLight = null;
-                }
-                else
-                {
-                    throw new InvalidOperationException("The specified directional light is not part of the scene.");
-                }
-            }
-            else
-            {
-                throw new NotSupportedException($"Light type {typeof(T).Name} is not supported in Scene3D.");
-            }
+            LightManager.RemoveLight(light);
         }
 
         /// <summary>

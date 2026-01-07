@@ -93,5 +93,12 @@ namespace LibGFX.Graphics.Lights
         /// <remarks>Call this method to reset the collection to an empty state. After calling this
         /// method, no lights will remain until new ones are added.</remarks>
         public void ClearLights();
+
+        /// <summary>
+        /// Removes the specified light from the collection.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="light"></param>
+        public void RemoveLight<T>(T light) where T : Light;
     }
 }
