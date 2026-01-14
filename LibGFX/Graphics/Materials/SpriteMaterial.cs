@@ -44,6 +44,11 @@ namespace LibGFX.Graphics.Materials
         public bool IsTransparent => this.Texture.HasAlpha;
 
         /// <summary>
+        /// Gets or sets the shader used for rendering operations.
+        /// </summary>
+        public RenderShader Shader { get; set; }
+
+        /// <summary>
         /// Default constructor for the SpriteMaterial class.
         /// </summary>
         public SpriteMaterial()
@@ -112,6 +117,7 @@ namespace LibGFX.Graphics.Materials
         /// <param name="renderDevice"></param>
         public void Use(IRenderDevice renderDevice)
         {
+            renderDevice.BindShaderProgram(Shader);
             renderDevice.PrepareShader("textureSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, Texture);
         }
 
@@ -121,7 +127,7 @@ namespace LibGFX.Graphics.Materials
         /// <param name="renderDevice">The render device to disable. Cannot be null.</param>
         public void Disable(IRenderDevice renderDevice)
         {
-            
+            renderDevice.UnbindShaderProgram();
         }
 
 

@@ -3,6 +3,7 @@ using Assimp.Configs;
 using LibGFX.Core;
 using LibGFX.Graphics.Animation3D;
 using LibGFX.Graphics.Materials;
+using LibGFX.Graphics.Shader;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
@@ -321,6 +322,10 @@ namespace LibGFX.Graphics
             foreach (var mesh in Meshes)
             {
                 mesh.Material.Init(renderer);
+                if(mesh.Material.Shader == null)
+                {
+                    mesh.Material.Shader = renderer.GetRenderShader("AnimatedMeshShader");
+                }
                 mesh.Init(renderer);
             }
             IsInitialized = true;

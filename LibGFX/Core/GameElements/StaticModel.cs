@@ -85,33 +85,29 @@ namespace LibGFX.Core.GameElements
         {
             if (this.Visible)
             {
+                // Call base render method
                 base.Render(scene, viewport, renderer, camera);
+
+                // Get world transform
                 var transform = this.GetWorldTransform();
-                var shader = renderer.GetRenderShader("MeshShader");
 
-                renderer.BindShaderProgram(shader);
-                renderer.PrepareShader("viewPos", camera.Transform.Position);
-                if (scene.LightManager != null)
-                {
-                    scene.LightManager.BindLights(viewport, renderer, camera);
-                }
-
+                // Render each mesh
                 foreach (var mesh in _model.Meshes)
                 {
-                    if (mesh.Material.IsTransparent)
-                    {
-                        renderer.EnableBlend();
-                        renderer.SetBlendMode((int)BlendingFactor.SrcAlpha, (int)BlendingFactor.OneMinusSrcAlpha);
-                    }
-                    renderer.DrawMesh(transform, mesh);
-                    if (mesh.Material.IsTransparent)
-                    {
-                        renderer.DisableBlend();
-                    }
-                    scene.RenderStats.IncrementDrawCalls();
-                }
+                    // Bind the material, which sets up the shader and textures
+                    mesh.Material.Use(renderer);
 
-                renderer.UnbindShaderProgram();
+                    // Prepare shader uniforms
+                    renderer.PrepareShader("viewPos", camera.Transform.Position);
+                    scene.LightManager?.BindLights(viewport, renderer, camera);
+
+                    // Draw the mesh and increment draw call count
+                    renderer.DrawMesh(transform, mesh);
+                    scene.RenderStats.IncrementDrawCalls();
+
+                    // Unbind the material after rendering
+                    mesh.Material.Disable(renderer);
+                }
             }
         }
 
@@ -124,15 +120,24 @@ namespace LibGFX.Core.GameElements
         public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             if(this.Visible) {
+                // Call base render shadow method
                 base.RenderShadow(scene, viewport, renderer);
+
+                // Get world transform
                 var transform = this.GetWorldTransform();
+
+                // Use the depth mesh shader for shadow rendering no materials needed
                 var shader = renderer.GetRenderShader("DepthMeshShader");
                 renderer.BindShaderProgram(shader);
+
+                // Render each mesh
                 foreach (var mesh in _model.Meshes)
                 {
                     renderer.DrawMesh(transform, mesh);
                     scene.RenderStats.IncrementDrawCalls();
                 }
+
+                // Unbind the shader program after rendering
                 renderer.UnbindShaderProgram();
             }
         }

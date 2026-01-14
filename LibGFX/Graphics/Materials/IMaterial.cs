@@ -19,6 +19,7 @@ namespace LibGFX.Graphics.Materials
     public interface IMaterial : IGraphicsResource, IIdentifier, ISerialization
     {
         public bool IsTransparent { get; }
+        public RenderShader Shader { get; set; }
 
         /// <summary>
         /// Configures the current instance to use the specified render device for rendering operations.

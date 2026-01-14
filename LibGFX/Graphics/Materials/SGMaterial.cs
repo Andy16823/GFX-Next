@@ -76,6 +76,11 @@ namespace LibGFX.Graphics.Materials
         public bool IsTransparent => (this.Opacity < 1.0f) || (DiffuseTexture.HasAlpha);
 
         /// <summary>
+        /// Gets or sets the shader used for rendering operations.
+        /// </summary>
+        public RenderShader Shader { get; set; }
+
+        /// <summary>
         /// Gets a value indicating whether the object has been initialized.
         /// </summary>
         public bool IsInitialized { get; private set; } = false;
@@ -98,7 +103,7 @@ namespace LibGFX.Graphics.Materials
         /// </summary>
         /// <param name="name"></param>
         /// <param name="color"></param>
-        public SGMaterial(string name, Vector4 color)
+        public SGMaterial(string name, Vector4 color, RenderShader shaderProgramm)
         {
             Name = name;
             Opacity = 1.0f;
@@ -106,6 +111,7 @@ namespace LibGFX.Graphics.Materials
             DiffuseTexture = new Texture(1, 1, new Vector4i(255, 255, 255, 255));
             NormalTexture = new Texture(1, 1, new Vector4i(128, 128, 255, 255));
             SpecularTexture = new Texture(1, 1, new Vector4i(0, 0, 0, 255));
+            Shader = shaderProgramm;
         }
 
         /// <summary>
@@ -115,13 +121,14 @@ namespace LibGFX.Graphics.Materials
         public void Init(IRenderDevice renderDevice)
         {
             Debug.WriteLine($"Loading material {Name}");
+
             if (this.IsInitialized)
             {
                 Debug.WriteLine($"Material {Name} is already loaded.");
                 return;
             }
 
-            if(DiffuseTexture != null)
+            if (DiffuseTexture != null)
             {
                 DiffuseTexture.TextureParameters = TextureParameters.Mipmapped;
                 DiffuseTexture.Init(renderDevice);
@@ -157,12 +164,22 @@ namespace LibGFX.Graphics.Materials
         /// <param name="renderDevice"></param>
         public void Use(IRenderDevice renderDevice)
         {
-            if(this.IsTransparent)
+            if(this.Shader == null)
+            {
+             throw new InvalidOperationException("Cannot use SGMaterial without a valid shader program.");
+            }
+
+            if(!this.Shader.IsInitialized)
+            {
+                throw new InvalidOperationException("Cannot use SGMaterial with an uninitialized shader program.");
+            }
+
+            if (this.IsTransparent)
             {
                 renderDevice.EnableBlend();
                 renderDevice.SetBlendMode((int) BlendingFactor.SrcAlpha, (int) BlendingFactor.OneMinusSrcAlpha);
             }
-
+            renderDevice.BindShaderProgram(Shader);
             renderDevice.PrepareShader("material.shininess", Shininess);
             renderDevice.PrepareShader("material.vertexColor", Color);
             renderDevice.PrepareShader("material.flipNormal", FlipNormal);
@@ -206,6 +223,7 @@ namespace LibGFX.Graphics.Materials
             {
                 renderDevice.DisableBlend();
             }
+            renderDevice.UnbindShaderProgram();
         }
 
         /// <summary>
@@ -215,6 +233,7 @@ namespace LibGFX.Graphics.Materials
         public void Dispose(IRenderDevice renderDevice)
         {
             Debug.WriteLine($"Disposing material {Name}");
+
             if (DiffuseTexture != null)
             {
                 DiffuseTexture.Dispose(renderDevice);

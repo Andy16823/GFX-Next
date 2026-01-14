@@ -3,6 +3,7 @@ using Assimp.Configs;
 using LibGFX.Core;
 using LibGFX.Graphics.Animation3D;
 using LibGFX.Graphics.Materials;
+using LibGFX.Graphics.Shader;
 using LibGFX.Math;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -238,7 +239,12 @@ namespace LibGFX.Graphics
             foreach (var mesh in Meshes)
             {
                 mesh.Material.Init(renderer);
+                if(mesh.Material.Shader == null)
+                {
+                    mesh.Material.Shader = renderer.GetRenderShader("MeshShader");
+                }
                 mesh.Init(renderer);
+
             }
             IsInitialized = true;
             Debug.WriteLine("Static Model import complete.");
@@ -272,8 +278,8 @@ namespace LibGFX.Graphics
             Debug.WriteLine("Disposing Static Model with " + Meshes.Count + " meshes.");
             foreach (var mesh in Meshes)
             {
-                mesh.Dispose(renderer);
-                mesh.Material.Dispose(renderer);
+                mesh.Dispose(renderer); // Dispose the mesh
+                mesh.Material.Dispose(renderer); // Dispose the material
             }
             IsInitialized = false;
             Debug.WriteLine("Static Model disposal complete.");

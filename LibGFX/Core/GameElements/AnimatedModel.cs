@@ -111,26 +111,26 @@ namespace LibGFX.Core.GameElements
         {
             if(this.Visible)
             {
+                // Call base render (for effects, etc.)
                 base.Render(scene, viewport, renderer, camera);
+
+                // Get the world transform of the element
                 var transform = this.GetWorldTransform();
 
-                // Bind and prepare shader uniforms
-                var shader = renderer.GetRenderShader("AnimatedMeshShader");
-                renderer.BindShaderProgram(shader);
-                renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
-                renderer.PrepareShader("viewPos", camera.Transform.Position);
-                if (scene.LightManager != null)
-                {
-                    scene.LightManager.BindLights(viewport, renderer, camera);
-                }
-
+                // Draw each mesh of the model
                 foreach (var mesh in _model.Meshes)
                 {
+                    // Bind material and set shader uniforms
+                    mesh.Material.Use(renderer);
+                    scene.LightManager?.BindLights(viewport, renderer, camera);
+                    renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
+                    renderer.PrepareShader("viewPos", camera.Transform.Position);
+
+                    // Draw the mesh and update stats and unbind material
                     renderer.DrawMesh(transform, mesh);
                     scene.RenderStats.IncrementDrawCalls();
+                    mesh.Material.Disable(renderer);
                 }
-
-                renderer.UnbindShaderProgram();
             }
         }
 

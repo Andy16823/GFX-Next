@@ -77,7 +77,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             RegisterRenderShader("InfiniteGridShader", new InfiniteGridShader());
             foreach (RenderShader program in _programs.Values)
             {
-                BuildRenderShader(program);
+                program.Init(this);
             }
 
             // Register default shapes
@@ -761,7 +761,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             // Dispose all shaders
             foreach (var shader in _programs)
             {
-                DisposeRenderShader(shader.Value);
+                shader.Value.Dispose(this);
             }
 
             // Dispose all shapes
@@ -1400,19 +1400,13 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         }
 
 
-        public void DrawMesh(Transform transform, Mesh mesh, IMaterial materialOverwrite = null)
+        public void DrawMesh(Transform transform, Mesh mesh)
         {
             if(!mesh.IsInitialized)
             {
                 throw new Exception("Mesh is not initialized");
             }
 
-            var material = materialOverwrite ?? mesh.Material;
-
-            // Create the model matrix
-            //var mt_mat = Matrix4.CreateTranslation(position);
-            //var mr_mat = Matrix4.CreateRotationX(Math.Math.ToRadians(rotation.X)) * Matrix4.CreateRotationY(Math.Math.ToRadians(rotation.Y)) * Matrix4.CreateRotationZ(Math.Math.ToRadians(rotation.Z));
-            //var ms_mat = Matrix4.CreateScale(scale);
             var m_mat = mesh.GetTransform() * transform.GetMatrix();
 
             // Bind the shader uniforms
@@ -1420,15 +1414,10 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
 
-            // Use the material
-            material.Use(this);
-
             // Draw the mesh    
             GL.BindVertexArray(mesh.RenderData.VertexArray);
             GL.DrawElements(BeginMode.Triangles, mesh.RenderData.IndexCount, DrawElementsType.UnsignedInt, 0);
 
-            // Unbind the material and vertex array
-            material.Disable(this);
             GL.BindVertexArray(0);
         }
 
@@ -1663,7 +1652,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
         }
 
-        public void DrawInstances(RenderInstanceContainer container, IMaterial material)
+        public void DrawInstances(RenderInstanceContainer container)
         {
             var meshMatrix = container.Mesh.GetTransform();
 
@@ -1671,9 +1660,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "mesh_matrix"), true, ref meshMatrix);
-
-            // Use the material
-            material.Use(this);
 
             // Bind the instance buffers
             GL.BindBufferBase(BufferRangeTarget.ShaderStorageBuffer, 0, container.TransformInstanceBuffer);
@@ -1684,8 +1670,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindVertexArray(container.InstanceVAO);
             GL.DrawElementsInstanced(PrimitiveType.Triangles, container.Mesh.RenderData.IndexCount, DrawElementsType.UnsignedInt, nint.Zero, container.Instances.Count);
 
-            // Unbind the material and vertex array
-            material.Disable(this);
             GL.BindVertexArray(0);
         }
 

@@ -1,4 +1,5 @@
 ﻿using LibGFX.Core;
+using LibGFX.Graphics.Shader;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
@@ -27,6 +28,11 @@ namespace LibGFX.Graphics.Materials
         public bool IsInitialized { get; private set; } = false;
 
         public bool IsTransparent => throw new NotImplementedException();
+
+        /// <summary>
+        /// Gets or sets the shader used for rendering operations.
+        /// </summary>
+        public RenderShader Shader { get; set; }
 
         public void Dispose(IRenderDevice renderDevice)
         {
@@ -96,6 +102,7 @@ namespace LibGFX.Graphics.Materials
 
         public void Use(IRenderDevice renderDevice)
         {
+            renderDevice.BindShaderProgram(Shader);
             renderDevice.PrepareShader("albedoMap", 0, AlbedoTexture);
             renderDevice.PrepareShader("normalMap", 1, NormalTexture);
             renderDevice.PrepareShader("metallicMap", 2, MetallicTexture);
@@ -105,11 +112,6 @@ namespace LibGFX.Graphics.Materials
             {
                 renderDevice.PrepareShader("aoMap", 4, OcclusionTexture);
             }
-
-            //renderDevice.PrepareShader("albedo", Albedo);
-            //renderDevice.PrepareShader("metallic", Metallic);
-            //renderDevice.PrepareShader("roughness", Roughness);
-            //renderDevice.PrepareShader("ao", Occlusion);
         }
 
         public static PBRMaterial LoadFromFile(string file)

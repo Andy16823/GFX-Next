@@ -114,7 +114,7 @@ namespace LibGFX.Graphics
         void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f, FontAlignment alignment = FontAlignment.BottomLeft);
         void DisposeFont(Font font);
         void LoadMesh(Mesh mesh);
-        void DrawMesh(Transform transform, Mesh mesh, IMaterial materialOverwrite = null);
+        void DrawMesh(Transform transform, Mesh mesh);
         void DisposeMesh(Mesh mesh);
         void DrawAABB(AABB aabb, Vector4 color);
         void DrawGrid(Camera camera, Vector4 color);
@@ -123,7 +123,7 @@ namespace LibGFX.Graphics
         void LoadInstances(RenderInstanceContainer container);
         int AddRenderInstance(RenderInstanceContainer container, Transform transform);
         void UpdateInstance(RenderInstanceContainer container, int instanceIndex);
-        void DrawInstances(RenderInstanceContainer container, IMaterial material);
+        void DrawInstances(RenderInstanceContainer container);
         void DisposeInstanceContainer(RenderInstanceContainer container);
         int CreateBuffer();
         int CreateVertexBuffer<T>(T[] data, bool dynamic = false) where T : unmanaged;
