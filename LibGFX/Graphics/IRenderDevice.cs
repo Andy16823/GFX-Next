@@ -83,6 +83,7 @@ namespace LibGFX.Graphics
         bool IsRenderShaderRegistered(String name);
         Mesh GetPrimitiveMesh(Primitives.PrimitiveType type);
         RenderShader GetRenderShader(String name);
+        T GetRenderShader<T>() where T : RenderShader;
         void BindShaderProgram(IShaderProgram shaderProgram);
         void UnbindShaderProgram();
         int GetUniformLocation(int program, String name);

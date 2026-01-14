@@ -576,6 +576,18 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return _programs[name];
         }
 
+        public T GetRenderShader<T>() where T : RenderShader
+        {
+            foreach(var shader in _programs.Values)
+            {
+                if(shader is T)
+                {
+                    return (T)shader;
+                }
+            }
+            throw new Exception($"RenderShader of type {typeof(T).ToString()} not found");
+        }
+
         public void BuildComputeShader(ComputeShader shader)
         {
             int shaderId = GL.CreateShader(ShaderType.ComputeShader);

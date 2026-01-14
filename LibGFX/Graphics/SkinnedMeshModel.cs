@@ -524,5 +524,17 @@ namespace LibGFX.Graphics
 
             serializationContext.SetValue<SkinnedMeshModel>(this.ID.ToString(), this);
         }
+
+        /// <summary>
+        /// Assigns the specified shader to all meshes in the model.
+        /// </summary>
+        /// <param name="shader"></param>
+        public void AssignShaderToMeshes(RenderShader shader)
+        {
+            this.Meshes.ForEach(m =>
+            {
+                m.Material.Shader = shader;
+            });
+        }
     }
 }

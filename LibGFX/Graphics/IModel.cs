@@ -1,6 +1,7 @@
 ﻿using LibGFX.Assets;
 using LibGFX.Core;
 using LibGFX.Graphics.Animation3D;
+using LibGFX.Graphics.Shader;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,5 +29,11 @@ namespace LibGFX.Graphics
         /// The node structure of this model
         /// </summary>
         public SceneNodeData NodeStructure { get; set; }
+
+        /// <summary>
+        /// Assigns the given shader to all meshes in this model
+        /// </summary>
+        /// <param name="shader"></param>
+        public void AssignShaderToMeshes(RenderShader shader);
     }
 }

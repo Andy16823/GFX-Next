@@ -298,6 +298,18 @@ namespace LibGFX.Graphics
         }
 
         /// <summary>
+        /// Assigns the specified shader to all meshes in this model.
+        /// </summary>
+        /// <param name="shader"></param>
+        public void AssignShaderToMeshes(RenderShader shader)
+        {
+            this.Meshes.ForEach(m =>
+            {
+                m.Material.Shader = shader;
+            });
+        }
+
+        /// <summary>
         /// Serializes the current static mesh model to a JSON object using the specified serialization context.
         /// </summary>
         /// <param name="serializationContext">The context that provides information and settings required for serialization.</param>
