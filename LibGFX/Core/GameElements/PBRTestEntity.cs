@@ -13,23 +13,27 @@ using LibGFX.Graphics.Lights;
 
 namespace LibGFX.Core.GameElements
 {
+    // TODO: Revive this element later for PBR testing
+    [Obsolete("Element is dead, will get revived later")]
     public class PBRTestEntity : GameElement
     {
         public Mesh Mesh { get; set; }
+        public PBRMaterial Material { get; set; }
         public RenderShader Shader { get; set; }
-        public override bool HasTransparency => Mesh.Material.IsTransparent;
+        public override bool HasTransparency => Material.IsTransparent;
 
         public PBRTestEntity(String name, PBRMaterial material) 
         {
             this.Name = name;
-            this.Mesh = Cube.GetMesh(material);
+            this.Mesh = Cube.GetMesh();
             this.Transform = new Transform();
+            this.Material = material;
         }
 
         public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             base.Init(scene, viewport, renderer);
-            this.Mesh.Material.Init(renderer);
+            this.Material.Init(renderer);
             this.Mesh.Init(renderer);
 
             if(this.Shader == null)

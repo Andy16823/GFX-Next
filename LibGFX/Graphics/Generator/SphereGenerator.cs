@@ -10,11 +10,10 @@ namespace LibGFX.Graphics.Generator
 {
     public class SphereGenerator
     {
-        public static Mesh CreateSphere(int latitudeBands = 20, int longitudeBands = 20, float radius = 0.5f, IMaterial material = null)
+        public static Mesh CreateSphere(int latitudeBands = 20, int longitudeBands = 20, float radius = 0.5f)
         {
             var mesh = new Mesh();
             mesh.Name = "Sphere";
-            mesh.Material = material;
 
             List<Vertex> vertices = new List<Vertex>();
             List<int> indices = new List<int>();

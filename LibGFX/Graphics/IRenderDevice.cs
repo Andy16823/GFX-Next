@@ -77,8 +77,10 @@ namespace LibGFX.Graphics
         void DisposeComputeShader(ComputeShader computeShader);
         void AddShape(Shape shape);
         Shape GetShape(String name);
+        T GetShape<T>() where T : Shape;
         void InitShape(Shape shape);
         void DrawShape(Shape shape);
+        void DrawShape(Transform transform, Shape shape);
         void DisposeShape(Shape shape);
         bool IsRenderShaderRegistered(String name);
         Mesh GetPrimitiveMesh(Primitives.PrimitiveType type);

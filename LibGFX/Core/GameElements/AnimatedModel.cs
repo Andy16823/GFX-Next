@@ -118,10 +118,10 @@ namespace LibGFX.Core.GameElements
                 var transform = this.GetWorldTransform();
 
                 // Draw each mesh of the model
-                foreach (var mesh in _model.Meshes)
+                foreach (var (mesh, material) in _model.Meshes)
                 {
                     // Bind material and set shader uniforms
-                    mesh.Material.Use(renderer);
+                    material.Use(renderer);
                     scene.LightManager?.BindLights(viewport, renderer, camera);
                     renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
                     renderer.PrepareShader("viewPos", camera.Transform.Position);
@@ -129,7 +129,7 @@ namespace LibGFX.Core.GameElements
                     // Draw the mesh and update stats and unbind material
                     renderer.DrawMesh(transform, mesh);
                     scene.RenderStats.IncrementDrawCalls();
-                    mesh.Material.Disable(renderer);
+                    material.Disable(renderer);
                 }
             }
         }
@@ -149,7 +149,7 @@ namespace LibGFX.Core.GameElements
                 var shader = renderer.GetRenderShader("AnimatedDepthMeshShader");
                 renderer.BindShaderProgram(shader);
                 renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
-                foreach (var mesh in _model.Meshes)
+                foreach (var (mesh, material) in _model.Meshes)
                 {
                     renderer.DrawMesh(transform, mesh);
                     scene.RenderStats.IncrementDrawCalls();
@@ -170,10 +170,10 @@ namespace LibGFX.Core.GameElements
                 return;
             }
 
-            AABB aabb = _model.Meshes[0].Bounds;
+            AABB aabb = _model.Meshes[0].Item1.Bounds;
             for (int i = 1; i < _model.Meshes.Count; i++)
             {
-                aabb = AABB.Combine(aabb, _model.Meshes[i].Bounds);
+                aabb = AABB.Combine(aabb, _model.Meshes[i].Item1.Bounds);
             }
             this.AABB = aabb;
         }

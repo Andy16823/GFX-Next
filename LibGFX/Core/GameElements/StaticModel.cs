@@ -92,10 +92,10 @@ namespace LibGFX.Core.GameElements
                 var transform = this.GetWorldTransform();
 
                 // Render each mesh
-                foreach (var mesh in _model.Meshes)
+                foreach (var (mesh, material) in _model.Meshes)
                 {
                     // Bind the material, which sets up the shader and textures
-                    mesh.Material.Use(renderer);
+                    material.Use(renderer);
 
                     // Prepare shader uniforms
                     renderer.PrepareShader("viewPos", camera.Transform.Position);
@@ -106,7 +106,7 @@ namespace LibGFX.Core.GameElements
                     scene.RenderStats.IncrementDrawCalls();
 
                     // Unbind the material after rendering
-                    mesh.Material.Disable(renderer);
+                    material.Disable(renderer);
                 }
             }
         }
@@ -131,7 +131,7 @@ namespace LibGFX.Core.GameElements
                 renderer.BindShaderProgram(shader);
 
                 // Render each mesh
-                foreach (var mesh in _model.Meshes)
+                foreach (var (mesh, material) in _model.Meshes)
                 {
                     renderer.DrawMesh(transform, mesh);
                     scene.RenderStats.IncrementDrawCalls();
@@ -154,10 +154,10 @@ namespace LibGFX.Core.GameElements
                 return;
             }
 
-            AABB aabb = _model.Meshes[0].Bounds;
+            AABB aabb = _model.Meshes[0].Item1.Bounds;
             for (int i = 1; i < _model.Meshes.Count; i++)
             {
-                aabb = AABB.Combine(aabb, _model.Meshes[i].Bounds);
+                aabb = AABB.Combine(aabb, _model.Meshes[i].Item1.Bounds);
             }
             this.AABB = aabb;
         }
@@ -169,7 +169,7 @@ namespace LibGFX.Core.GameElements
         /// meshes are available. The array will be empty if the model contains no meshes.</returns>
         public override Mesh[]? GetMeshes()
         {
-            return _model.Meshes.ToArray();
+            return _model.Meshes.Select(m => m.Item1).ToArray();
         }
 
         /// <summary>

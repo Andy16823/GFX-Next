@@ -1,6 +1,7 @@
 ﻿using LibGFX.Assets;
 using LibGFX.Core;
 using LibGFX.Graphics.Animation3D;
+using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Shader;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace LibGFX.Graphics
         /// <summary>
         /// The meshes contained in this model, indexed by their names
         /// </summary>
-        public List<Mesh> Meshes { get; set; }
+        public List<(Mesh, IMaterial)> Meshes { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether the content includes transparent regions.

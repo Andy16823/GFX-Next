@@ -32,7 +32,7 @@ namespace LibGFX.Core.GameElements
         /// <summary>
         /// Override to get or set the material associated with this primitive.
         /// </summary>
-        public IMaterial MaterialOverride { get; set; }
+        public IMaterial Material { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether the mesh's material includes transparency.
@@ -48,17 +48,6 @@ namespace LibGFX.Core.GameElements
         }
 
         /// <summary>
-        /// Initializes a new instance of the Primitive class with the specified name and mesh.
-        /// </summary>
-        /// <param name="name">The name to assign to the primitive. Cannot be null or empty.</param>
-        /// <param name="mesh">The mesh that defines the geometry of the primitive. Cannot be null.</param>
-        public Primitive(String name, Mesh mesh)
-        {
-            this.Name = name;
-            this.Mesh = mesh;
-        }
-
-        /// <summary>
         /// Initializes a new instance of the Primitive class with the specified name, mesh, and material.
         /// </summary>
         /// <remarks>This constructor uses an material override. The mesh material wont get replaced.</remarks>
@@ -69,7 +58,7 @@ namespace LibGFX.Core.GameElements
         {
             this.Name = name;
             this.Mesh = mesh;
-            this.MaterialOverride = material;
+            this.Material = material;
         }
 
         /// <summary>
@@ -102,8 +91,7 @@ namespace LibGFX.Core.GameElements
                 var transform = this.GetWorldTransform();
 
                 // Use the appropriate material (override or mesh material)
-                var material = MaterialOverride ?? Mesh.Material;
-                material.Use(renderer);
+                Material.Use(renderer);
 
                 // Prepare shader uniforms
                 renderer.PrepareShader("viewPos", camera.Transform.Position);
@@ -114,7 +102,7 @@ namespace LibGFX.Core.GameElements
                 scene.RenderStats.IncrementDrawCalls();
 
                 // Disable the material after rendering
-                material.Disable(renderer);
+                Material.Disable(renderer);
             }
         }
 
@@ -177,13 +165,8 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         /// <returns></returns>
         private bool hasTransparency()
-        {
-            if(this.MaterialOverride != null)
-            {
-                return this.MaterialOverride.IsTransparent;
-            }
-            
-            return this.Mesh?.Material.IsTransparent ?? false;
+        {            
+            return this.Material.IsTransparent;
         }
 
         /// <summary>
@@ -251,22 +234,22 @@ namespace LibGFX.Core.GameElements
             switch (type)
             {
                 case PrimitiveType.Quad:
-                    mesh = Quad.GetMesh(material);
+                    mesh = Quad.GetMesh();
                     break;
                 case PrimitiveType.Cube:
-                    mesh = Cube.GetMesh(material);
+                    mesh = Cube.GetMesh();
                     break;
                 case PrimitiveType.Sphere:
-                    mesh = Sphere.GetMesh(material);
+                    mesh = Sphere.GetMesh();
                     break;
                 default:
-                    mesh = Cube.GetMesh(material);
+                    mesh = Cube.GetMesh();
                     break;
             }
 
             mesh.Name = mesh.ID.ToString();
             assets.Add(mesh);
-            return new Primitive(name, mesh);
+            return new Primitive(name, mesh, material);
         }
     }
 }

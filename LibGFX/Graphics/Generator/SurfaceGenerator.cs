@@ -10,11 +10,10 @@ namespace LibGFX.Graphics.Generator
 {
     public class SurfaceGenerator
     {
-        public static Mesh CreateSurface(int resolution, float size, float uvtiling, IMaterial material = null)
+        public static Mesh CreateSurface(int resolution, float size, float uvtiling)
         {
             var mesh = new Mesh();
             mesh.Name = "SurfacePatch";
-            mesh.Material = material;
 
             float step = size / resolution;
             var halfSize = size / 2.0f;

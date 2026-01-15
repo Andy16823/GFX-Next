@@ -640,6 +640,18 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             }
         }
 
+        public T GetShape<T>() where T : Shape
+        {
+            foreach (var shape in _shapes.Values)
+            {
+                if (shape is T)
+                {
+                    return (T)shape;
+                }
+            }
+            throw new Exception($"Shape of type {typeof(T).ToString()} not found");
+        }
+
         public void InitShape(Shape shape)
         {
             shape.VertexArray = GL.GenVertexArray();
@@ -723,8 +735,27 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             if (shape.VertexArray != 0)
             {
                 GL.BindVertexArray(shape.VertexArray);
-                GL.DrawArrays(PrimitiveType.Triangles, 0, shape.GetIndexCount());
-                //GL.DrawElements(BeginMode.Triangles, shape.GetIndexCount(), DrawElementsType.UnsignedInt, 0);
+                GL.DrawElements(BeginMode.Triangles, shape.GetIndexCount(), DrawElementsType.UnsignedInt, 0);
+                GL.BindVertexArray(0);
+            }
+            else
+            {
+                Debug.WriteLine($"Shape {shape.GetShapeName()} is not initialized");
+            }
+        }
+
+        public void DrawShape(Transform transform, Shape shape)
+        {
+            if(shape.VertexArray != 0)
+            {
+                var m_mat = transform.GetMatrix();
+
+                GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
+                GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
+                GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
+
+                GL.BindVertexArray(shape.VertexArray);
+                GL.DrawElements(PrimitiveType.Triangles, shape.GetIndexCount(), DrawElementsType.UnsignedInt, 0);
                 GL.BindVertexArray(0);
             }
             else
@@ -914,7 +945,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindTexture(TextureTarget.TextureCubeMap, cubemap.TextureId);
             GL.Uniform1(GetUniformLocation(_currentProgram, "skybox"), 0);
             GL.BindVertexArray(shape.VertexArray);
-            GL.DrawArrays(PrimitiveType.Triangles, 0, 36);
+            GL.DrawElements(BeginMode.Triangles, shape.GetIndexCount(), DrawElementsType.UnsignedInt, 0);
             GL.BindVertexArray(0);
             GL.BindTexture(TextureTarget.Texture2D, 0);
             GL.DepthMask(true);

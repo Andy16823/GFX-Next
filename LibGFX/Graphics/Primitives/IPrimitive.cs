@@ -16,6 +16,6 @@ namespace LibGFX.Graphics.Primitives
 
     public interface IPrimitive<TSelf> where TSelf : IPrimitive<TSelf>
     {
-        static abstract Mesh GetMesh(IMaterial material = null);
+        static abstract Mesh GetMesh();
     }
 }
