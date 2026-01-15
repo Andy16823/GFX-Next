@@ -57,13 +57,13 @@ namespace LibGFX.Graphics.Materials
         }
 
         /// <summary>
-        /// Creates a new SpriteMaterial with the specified texture and shader.
+        /// Creates a new SpriteMaterial with the specified texture filename.
         /// </summary>
-        /// <param name="texture"></param>
-        /// <param name="shader"></param>
-        public SpriteMaterial(Texture texture)
+        /// <param name="filename"></param>
+        public SpriteMaterial(String filename, RenderShader renderShader)
         {
-            this.Texture = texture;
+            this.Texture = new Texture(filename);
+            this.Shader = renderShader;
         }
 
         /// <summary>
