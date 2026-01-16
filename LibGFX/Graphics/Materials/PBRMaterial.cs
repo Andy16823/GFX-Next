@@ -164,6 +164,8 @@ namespace LibGFX.Graphics.Materials
             writer.WriteValue(this.Name);
             writer.WritePropertyName("ID");
             writer.WriteValue(this.ID.ToString());
+            writer.WritePropertyName("Shader");
+            writer.WriteValue(this.Shader != null ? this.Shader.GetType().FullName : "null");
             writer.WritePropertyName("Albedo");
             Utils.SerializeVec3(this.Albedo, writer);
             writer.WritePropertyName("Metallic");
@@ -228,7 +230,7 @@ namespace LibGFX.Graphics.Materials
         /// <param name="jObject">The JSON object containing the data to deserialize into the current object. Cannot be null.</param>
         /// <param name="serializationContext">The context that provides information and services for the deserialization process. Cannot be null.</param>
         /// <exception cref="NotImplementedException">The method is not implemented.</exception>
-        public void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
+        public void Deserialize(JObject obj, SerializationContext context, Func<JObject, bool> callback = null)
         {
             // Ensure the material is not already initialized
             if (this.IsInitialized)
@@ -242,44 +244,55 @@ namespace LibGFX.Graphics.Materials
             this.Roughness = obj["Roughness"].Value<float>();
             this.Occlusion = obj["Occlusion"].Value<float>();
 
+            // Shader
+            var shaderType = obj.Value<string>("Shader");
+            if (shaderType != null)
+            {
+                this.Shader = (RenderShader)context.GetFirstOfType(shaderType);
+                if (this.Shader == null)
+                {
+                    throw new InvalidOperationException($"Could not find shader of type '{shaderType}' in the serialization context.");
+                }
+            }
+
             // Albedo Texture
             if (obj["AlbedoTexture"] != null && obj["AlbedoTexture"].Type != JTokenType.Null)
             {
                 this.AlbedoTexture = new Texture();
-                this.AlbedoTexture.Deserialize(obj["AlbedoTexture"] as JObject, serializationContext);
+                this.AlbedoTexture.Deserialize(obj["AlbedoTexture"] as JObject, context);
             }
 
             // Normal Texture
             if (obj["NormalTexture"] != null && obj["NormalTexture"].Type != JTokenType.Null)
             {
                 this.NormalTexture = new Texture();
-                this.NormalTexture.Deserialize(obj["NormalTexture"] as JObject, serializationContext);
+                this.NormalTexture.Deserialize(obj["NormalTexture"] as JObject, context);
             }
 
             // Metallic Texture
             if (obj["MetallicTexture"] != null && obj["MetallicTexture"].Type != JTokenType.Null)
             {
                 this.MetallicTexture = new Texture();
-                this.MetallicTexture.Deserialize(obj["MetallicTexture"] as JObject, serializationContext);
+                this.MetallicTexture.Deserialize(obj["MetallicTexture"] as JObject, context);
             }
             
             // Roughness Texture
             if (obj["RoughnessTexture"] != null && obj["RoughnessTexture"].Type != JTokenType.Null)
             {
                 this.RoughnessTexture = new Texture();
-                this.RoughnessTexture.Deserialize(obj["RoughnessTexture"] as JObject, serializationContext);
+                this.RoughnessTexture.Deserialize(obj["RoughnessTexture"] as JObject, context);
             }
 
             // Occlusion Texture
             if (obj["OcclusionTexture"] != null && obj["OcclusionTexture"].Type != JTokenType.Null)
             {
                 this.OcclusionTexture = new Texture();
-                this.OcclusionTexture.Deserialize(obj["OcclusionTexture"] as JObject, serializationContext);
+                this.OcclusionTexture.Deserialize(obj["OcclusionTexture"] as JObject, context);
             }
 
             // Invoke callback if provided
             callback?.Invoke(obj);
-            serializationContext.SetValue<IMaterial>(this.ID.ToString(), this);
+            context.SetValue<IMaterial>(this.ID.ToString(), this);
         }
 
         public void Disable(IRenderDevice renderDevice)

@@ -350,6 +350,8 @@ namespace LibGFX.Graphics.Materials
             writer.WriteValue(this.Name);
             writer.WritePropertyName("ID");
             writer.WriteValue(this.ID.ToString());
+            writer.WritePropertyName("Shader");
+            writer.WriteValue(this.Shader != null ? this.Shader.GetType().FullName : "null");
             writer.WritePropertyName("Color");
             Utils.SerializeVec4(this.Color, writer);
             writer.WritePropertyName("UVScale");
@@ -413,6 +415,16 @@ namespace LibGFX.Graphics.Materials
             this.FlipNormal = obj.Value<bool>("FlipNormal");
             this.Opacity = obj.Value<float>("Opacity");
             this.Shininess = obj.Value<float>("Shininess");
+
+            // Shader
+            var shaderType = obj.Value<string>("Shader");
+            if (shaderType != null)
+            {
+                this.Shader = (RenderShader)context.GetFirstOfType(shaderType);
+                if(this.Shader == null)                 {
+                    throw new InvalidOperationException($"Could not find shader of type '{shaderType}' in the serialization context.");
+                }
+            }
 
             // Texture objects
             var texturesObj = obj.Value<JObject>("textures");

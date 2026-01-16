@@ -576,6 +576,11 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return _programs[name];
         }
 
+        public Dictionary<String, RenderShader> GetAllRenderShaders()
+        {
+            return _programs;
+        }
+
         public T GetRenderShader<T>() where T : RenderShader
         {
             foreach(var shader in _programs.Values)

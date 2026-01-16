@@ -161,7 +161,10 @@ namespace LibGFX.Graphics.Materials
             writer.WriteValue(Name);
             writer.WritePropertyName("ID");
             writer.WriteValue(ID.ToString());
+            writer.WritePropertyName("Shader");
+            writer.WriteValue(this.Shader != null ? this.Shader.GetType().FullName : "null");
             writer.WritePropertyName("Texture");
+
             if (Texture != null)
             {
                 Texture.Serialize(writer, context);
@@ -185,6 +188,17 @@ namespace LibGFX.Graphics.Materials
             // Basic property deserialization
             this.Name = obj.Value<string>("Name");
             this.ID = Guid.Parse(obj.Value<string>("ID"));
+
+            // Deserialize Shader
+            var shaderType = obj.Value<string>("Shader");
+            if (shaderType != null)
+            {
+                this.Shader = (RenderShader)context.GetFirstOfType(shaderType);
+                if (this.Shader == null)
+                {
+                    throw new InvalidOperationException($"Could not find shader of type '{shaderType}' in the serialization context.");
+                }
+            }
 
             // Deserialize Texture
             var textureToken = obj.Value<JObject>("Texture");

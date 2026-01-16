@@ -181,6 +181,8 @@ namespace LibGFX.Core.GameElements
             {
                 w.WritePropertyName("Mesh");
                 w.WriteValue(Mesh.ID.ToString());
+                w.WritePropertyName("Material");
+                w.WriteValue(Material.ID.ToString());
                 callback?.Invoke(w);
             });
         }
@@ -207,6 +209,21 @@ namespace LibGFX.Core.GameElements
                     else
                     {
                         throw new Exception($"Failed to deserialize Primitive: Mesh with ID {meshId} not found in serialization context.");
+                    }
+                }
+
+                // Load the material
+                var materialId = refObj.Value<string>("Material");
+                if(materialId != null)
+                {
+                    var material = serializationContext.GetValue<IMaterial>(materialId);
+                    if(material != null)
+                    {
+                        this.Material = material;
+                    }
+                    else
+                    {
+                        throw new Exception($"Failed to deserialize Primitive: Material with ID {materialId} not found in serialization context.");
                     }
                 }
 
