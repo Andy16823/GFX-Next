@@ -890,10 +890,10 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             return textureId;
         }
 
-        public void SetArrayTextureData(int textureId, int layer, int mipLevel, Texture texture)
+        public void SetArrayTextureData(int textureId, int layer, int level, Texture texture)
         {
             GL.BindTexture(TextureTarget.Texture2DArray, textureId);
-            GL.TexSubImage3D(TextureTarget.Texture2DArray, mipLevel, 0, 0, layer, texture.Width, texture.Height, 1, PixelFormat.Rgba, PixelType.UnsignedByte, texture.TextureData);
+            GL.TexSubImage3D(TextureTarget.Texture2DArray, level, 0, 0, layer, texture.Width, texture.Height, 1, PixelFormat.Rgba, PixelType.UnsignedByte, texture.TextureData);
             GL.BindTexture(TextureTarget.Texture2DArray, 0);
         }
 

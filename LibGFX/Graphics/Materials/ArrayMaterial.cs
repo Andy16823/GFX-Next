@@ -95,7 +95,7 @@ namespace LibGFX.Graphics.Materials
         /// <param name="normal"></param>
         /// <param name="specular"></param>
         /// <exception cref="ArgumentException"></exception>
-        public void AddLayer(Texture albedo, Texture normal, Texture specular)
+        public int AddLayer(Texture albedo, Texture normal, Texture specular)
         {
             if(albedo.Width != TextureSize.X || albedo.Height != TextureSize.Y ||
                normal.Width != TextureSize.X || normal.Height != TextureSize.Y ||
@@ -107,6 +107,8 @@ namespace LibGFX.Graphics.Materials
             _albedoTextures.Add(albedo);
             _normalTextures.Add(normal);
             _specularTexture.Add(specular);
+
+            return _albedoTextures.Count - 1;
         }
 
         /// <summary>
@@ -193,9 +195,9 @@ namespace LibGFX.Graphics.Materials
             // Upload texture data for each layer
             for (int i = 0; i < _albedoTextures.Count; i++)
             {
-                renderer.SetArrayTextureData(_albedoTextureId, i, MipLevels, _albedoTextures[i]);
-                renderer.SetArrayTextureData(_normalTextureId, i, MipLevels, _normalTextures[i]);
-                renderer.SetArrayTextureData(_specularTextureId, i, MipLevels, _specularTexture[i]);
+                renderer.SetArrayTextureData(_albedoTextureId, i, 0, _albedoTextures[i]);
+                renderer.SetArrayTextureData(_normalTextureId, i, 0, _normalTextures[i]);
+                renderer.SetArrayTextureData(_specularTextureId, i, 0, _specularTexture[i]);
             }
 
             // Set texture parameters
