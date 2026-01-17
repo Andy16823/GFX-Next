@@ -75,6 +75,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             RegisterRenderShader("SolidMeshShader", new SolidMeshShader());
             RegisterRenderShader("AABBShader", new AABBShader());
             RegisterRenderShader("InfiniteGridShader", new InfiniteGridShader());
+            RegisterRenderShader("InstancedShader3DArray", new InstancedShader3DArray());
             foreach (RenderShader program in _programs.Values)
             {
                 program.Init(this);
@@ -2014,6 +2015,16 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             var unit = TextureUnit.Texture0 + textureUnit;
             GL.ActiveTexture(unit);
             GL.BindTexture(TextureTarget.Texture2D, texture);
+            GL.Uniform1(locationId, textureUnit);
+            GL.ActiveTexture(TextureUnit.Texture0);
+        }
+
+        public void PrepareShaderArrayTexture(String location, int textureUnit, int value)
+        {
+            var locationId = GetUniformLocation(_currentProgram, location);
+            var unit = TextureUnit.Texture0 + textureUnit;
+            GL.ActiveTexture(unit);
+            GL.BindTexture(TextureTarget.Texture2DArray, value);
             GL.Uniform1(locationId, textureUnit);
             GL.ActiveTexture(TextureUnit.Texture0);
         }

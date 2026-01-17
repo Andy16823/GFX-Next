@@ -73,6 +73,26 @@ namespace LibGFX.Graphics.Materials
         private int _specularTextureId = -1;
         private List<Texture> _specularTexture = new List<Texture>();
 
+
+        /// <summary>
+        /// Creates a new ArrayMaterial.
+        /// </summary>
+        public ArrayMaterial()
+        {
+            
+        }
+
+        /// <summary>
+        /// Creates a new ArrayMaterial with the given name and shader.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="shader"></param>
+        public ArrayMaterial(String name, RenderShader shader)
+        {
+            Name = name;
+            Shader = shader;
+        }
+
         /// <summary>
         /// Checks if any of the albedo textures have transparency.
         /// </summary>
@@ -123,9 +143,9 @@ namespace LibGFX.Graphics.Materials
 
             // Bind shader and set textures
             renderDevice.BindShaderProgram(this.Shader);
-            renderDevice.PrepareShader("albedoMap", 0, _albedoTextureId);
-            renderDevice.PrepareShader("normalMap", 1, _normalTextureId);
-            renderDevice.PrepareShader("specularMap", 2, _specularTextureId);
+            renderDevice.PrepareShaderArrayTexture("textureArraySampler", 0, _albedoTextureId);
+            renderDevice.PrepareShaderArrayTexture("normalArraySampler", 1, _normalTextureId);
+            renderDevice.PrepareShaderArrayTexture("specularArraySampler", 2, _specularTextureId);
         }
 
         /// <summary>
