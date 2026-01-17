@@ -913,11 +913,16 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             {
                 if (texture.IsInitialized)
                 {
-                    GL.DeleteTexture(texture.TextureId);
+                    this.DisposeTexture(texture.TextureId);
                     texture.TextureId = 0;
-                    Debug.WriteLine($"Disposed texture");
                 }
             }
+        }
+
+        public void DisposeTexture(int textureId)
+        {
+            GL.DeleteTexture(textureId);
+            Debug.WriteLine($"Disposed texture with ID {textureId}");
         }
 
         public void LoadCubemap(Cubemap cubemap)

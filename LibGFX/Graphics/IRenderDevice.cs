@@ -97,6 +97,7 @@ namespace LibGFX.Graphics
         void SetArrayTextureParameters(int textureId, TextureParameters textureParameters);
         void LoadCubemap(Cubemap cubemap);
         void DisposeTexture(Texture texture);
+        void DisposeTexture(int textureId);
         void DisposeCubemap(Cubemap cubemap);
         void DrawRenderTarget(RenderTarget2D renderTarget);
         void DrawRenderTarget(MSAARenderTarget2D renderTarget);
