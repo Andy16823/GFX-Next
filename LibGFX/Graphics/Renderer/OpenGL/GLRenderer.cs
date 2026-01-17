@@ -881,6 +881,32 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             Debug.WriteLine($"Texture loaded with error {GetError()}");
         }
 
+        public int CreateArrayTexture(int width, int height, int layers, int mipLevels)
+        {
+            int textureId = GL.GenTexture();
+            GL.BindTexture(TextureTarget.Texture2DArray, textureId);
+            GL.TexStorage3D(TextureTarget3d.Texture2DArray, mipLevels, SizedInternalFormat.Rgba8, width, height, layers);
+            GL.BindTexture(TextureTarget.Texture2DArray, 0);
+            return textureId;
+        }
+
+        public void SetArrayTextureData(int textureId, int layer, int mipLevel, Texture texture)
+        {
+            GL.BindTexture(TextureTarget.Texture2DArray, textureId);
+            GL.TexSubImage3D(TextureTarget.Texture2DArray, mipLevel, 0, 0, layer, texture.Width, texture.Height, 1, PixelFormat.Rgba, PixelType.UnsignedByte, texture.TextureData);
+            GL.BindTexture(TextureTarget.Texture2DArray, 0);
+        }
+
+        public void SetArrayTextureParameters(int textureId, TextureParameters textureParameters)
+        {
+            GL.BindTexture(TextureTarget.Texture2DArray, textureId);
+            GL.TexParameter(TextureTarget.Texture2DArray, TextureParameterName.TextureWrapS, GLMappings.ToGL(textureParameters.WrapS));
+            GL.TexParameter(TextureTarget.Texture2DArray, TextureParameterName.TextureWrapT, GLMappings.ToGL(textureParameters.WrapT));
+            GL.TexParameter(TextureTarget.Texture2DArray, TextureParameterName.TextureMinFilter, GLMappings.ToGL(textureParameters.MinFilter));
+            GL.TexParameter(TextureTarget.Texture2DArray, TextureParameterName.TextureMagFilter, GLMappings.ToGL(textureParameters.MagFilter));
+            GL.BindTexture(TextureTarget.Texture2DArray, 0);
+        }
+
         public void DisposeTexture(Texture texture)
         {
             if (texture != null)

@@ -92,6 +92,9 @@ namespace LibGFX.Graphics
         int GetUniformLocation(int program, String name);
         void LoadTexture(Texture texture);
         void LoadTexture(Texture texture, TextureParameters textureOptions);
+        int CreateArrayTexture(int width, int height, int layers, int mipLevels);
+        void SetArrayTextureData(int textureId, int layer, int mipLevel, Texture texture);
+        void SetArrayTextureParameters(int textureId, TextureParameters textureParameters);
         void LoadCubemap(Cubemap cubemap);
         void DisposeTexture(Texture texture);
         void DisposeCubemap(Cubemap cubemap);
