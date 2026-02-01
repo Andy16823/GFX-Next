@@ -86,6 +86,14 @@ namespace LibGFX.Graphics.Materials
         public bool IsInitialized { get; private set; } = false;
 
         /// <summary>
+        /// Gets or sets a collection of custom properties associated with the current instance.
+        /// </summary>
+        /// <remarks>Use this dictionary to store additional metadata or user-defined values that are not
+        /// represented by strongly typed properties. Keys are case-sensitive and must be unique within the
+        /// collection.</remarks>
+        public Dictionary<string, object> Properties { get; set; } = new Dictionary<string, object>();
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="SGMaterial"/> class.
         /// </summary>
         public SGMaterial()

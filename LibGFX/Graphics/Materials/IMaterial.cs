@@ -18,8 +18,23 @@ namespace LibGFX.Graphics.Materials
     /// external source. Implementers should ensure thread safety if materials are accessed concurrently.</remarks>
     public interface IMaterial : IGraphicsResource, IIdentifier, ISerialization
     {
+        /// <summary>
+        /// Determines whether the material is transparent.
+        /// </summary>
         public bool IsTransparent { get; }
+
+        /// <summary>
+        /// Shader associated with this material.
+        /// </summary>
         public RenderShader Shader { get; set; }
+
+        /// <summary>
+        /// Gets or sets a collection of custom properties associated with the object.
+        /// </summary>
+        /// <remarks>Use this dictionary to store additional metadata or user-defined values that are not
+        /// represented by other properties. Keys are case-sensitive. Modifying the collection does not trigger property
+        /// change notifications.</remarks>
+        public Dictionary<string, object> Properties { get; set; }
 
         /// <summary>
         /// Configures the current instance to use the specified render device for rendering operations.

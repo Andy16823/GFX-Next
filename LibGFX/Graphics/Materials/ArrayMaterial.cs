@@ -40,6 +40,14 @@ namespace LibGFX.Graphics.Materials
         public bool IsTransparent => HasTransparency();
 
         /// <summary>
+        /// Gets or sets a collection of custom properties associated with the object.  
+        /// </summary>
+        /// <remarks>Use this dictionary to store additional metadata or user-defined values that are not
+        /// represented by dedicated properties. Property names are case-sensitive. Modifying the collection affects the
+        /// properties available on the object.</remarks>
+        public Dictionary<string, object> Properties { get; set; } = new Dictionary<string, object>();
+
+        /// <summary>
         /// The shader used by the material.
         /// </summary>
         public RenderShader Shader { get; set; }

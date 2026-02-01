@@ -34,6 +34,14 @@ namespace LibGFX.Graphics.Materials
         /// </summary>
         public RenderShader Shader { get; set; }
 
+        /// <summary>
+        /// Gets or sets a collection of custom properties associated with the current instance.
+        /// </summary>
+        /// <remarks>Use this dictionary to store additional metadata or user-defined values that are not
+        /// represented by strongly-typed properties. Keys are case-sensitive. Modifying the collection does not trigger
+        /// change notifications.</remarks>
+        public Dictionary<string, object> Properties { get; set; } = new Dictionary<string, object>();
+
         public void Dispose(IRenderDevice renderDevice)
         {
             Debug.WriteLine($"Disposing material {Name}");
