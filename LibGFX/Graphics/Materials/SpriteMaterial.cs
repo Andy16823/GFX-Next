@@ -50,7 +50,7 @@ namespace LibGFX.Graphics.Materials
         /// <remarks>Use this dictionary to store additional metadata or user-defined values that are not
         /// represented by strongly typed properties. Keys are case-sensitive. Modifying the collection does not trigger
         /// change notifications.</remarks>
-        public Dictionary<string, object> Properties { get; set; } = new Dictionary<string, object>();
+        public Dictionary<string, object> Properties { get; set; }
 
         /// <summary>
         /// Gets or sets the shader used for rendering operations.
@@ -62,7 +62,7 @@ namespace LibGFX.Graphics.Materials
         /// </summary>
         public SpriteMaterial()
         {
-            
+            this.Properties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -73,6 +73,7 @@ namespace LibGFX.Graphics.Materials
         {
             this.Texture = new Texture(filename);
             this.Shader = renderShader;
+            this.Properties = new Dictionary<string, object>();
         }
 
         /// <summary>

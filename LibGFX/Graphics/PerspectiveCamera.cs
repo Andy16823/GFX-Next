@@ -66,6 +66,78 @@ namespace LibGFX.Graphics
             return Matrix4.LookAt(this.Transform.Position, frontPosition, new Vector3(0.0f, 1.0f, 0.0f));
         }
 
+        public override Frustum GetFrustum(Viewport viewport, bool normalize = true)
+        {
+            var viewMatrix = this.GetViewMatrix();
+            var projectionMatrix = this.GetProjectionMatrix(viewport);
+            var vp = viewMatrix * projectionMatrix;
+
+            // Left
+            var left = new Plane(
+                vp.M14 + vp.M11,
+                vp.M24 + vp.M21,
+                vp.M34 + vp.M31,
+                vp.M44 + vp.M41
+            );
+
+            // Right
+            var right = new Plane(
+                vp.M14 - vp.M11,
+                vp.M24 - vp.M21,
+                vp.M34 - vp.M31,
+                vp.M44 - vp.M41
+            );
+
+            // Bottom
+            var bottom = new Plane(
+                vp.M14 + vp.M12,
+                vp.M24 + vp.M22,
+                vp.M34 + vp.M32,
+                vp.M44 + vp.M42
+            );
+
+            // Top
+            var top = new Plane(
+                vp.M14 - vp.M12,
+                vp.M24 - vp.M22,
+                vp.M34 - vp.M32,
+                vp.M44 - vp.M42
+            );
+
+            // Near
+            var near = new Plane(
+                vp.M13,
+                vp.M23,
+                vp.M33,
+                vp.M43
+            );
+
+            // Far
+            var far = new Plane(
+                vp.M14 - vp.M13,
+                vp.M24 - vp.M23,
+                vp.M34 - vp.M33,
+                vp.M44 - vp.M43
+            );
+
+            var Frustum = new Frustum()
+            {
+                Left = left,
+                Right = right,
+                Bottom = bottom,
+                Top = top,
+                Near = near,
+                Far = far
+            };
+
+            if(normalize)
+            {
+                return Frustum.Normalized(Frustum);
+            }
+
+            return Frustum;
+        }
+
         /// <summary>
         /// Gets the front of the camera
         /// </summary>
@@ -115,6 +187,7 @@ namespace LibGFX.Graphics
         /// <param name="viewport"></param>
         /// <param name="point"></param>
         /// <returns></returns>
+        [Obsolete("Use Frustum.ContainsPoint instead for better performance")]
         public override bool IsPointInFrustum(Viewport viewport, Vector3 point)
         {
             var projectionMatrix = this.GetProjectionMatrix(viewport);
@@ -143,6 +216,7 @@ namespace LibGFX.Graphics
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
+        [Obsolete("Use Frustum.ContainsAABB instead for better performance")]
         public override bool IsAABBInFrustum(Viewport viewport, Vector3 min, Vector3 max)
         {
             var projectionMatrix = GetProjectionMatrix(viewport);
@@ -159,6 +233,7 @@ namespace LibGFX.Graphics
         /// </summary>
         /// <param name="vp"></param>
         /// <returns></returns>
+        [Obsolete("Use Frustum.GetPlanes instead for better performance")]
         public static Plane[] ExtractFrustumPlanes(Matrix4 vp)
         {
             Plane[] planes = new Plane[6];
@@ -229,6 +304,7 @@ namespace LibGFX.Graphics
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
+        [Obsolete("Use Frustum.ContainsAABB instead for better performance")]
         public static bool IntersectsFrustum(Plane[] planes, Vector3 min, Vector3 max)
         {
             foreach (var plane in planes)

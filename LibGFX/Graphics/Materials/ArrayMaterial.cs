@@ -45,7 +45,7 @@ namespace LibGFX.Graphics.Materials
         /// <remarks>Use this dictionary to store additional metadata or user-defined values that are not
         /// represented by dedicated properties. Property names are case-sensitive. Modifying the collection affects the
         /// properties available on the object.</remarks>
-        public Dictionary<string, object> Properties { get; set; } = new Dictionary<string, object>();
+        public Dictionary<string, object> Properties { get; set; }
 
         /// <summary>
         /// The shader used by the material.
@@ -87,7 +87,7 @@ namespace LibGFX.Graphics.Materials
         /// </summary>
         public ArrayMaterial()
         {
-            
+            this.Properties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -99,6 +99,7 @@ namespace LibGFX.Graphics.Materials
         {
             Name = name;
             Shader = shader;
+            Properties = new Dictionary<string, object>();
         }
 
         /// <summary>

@@ -55,17 +55,29 @@ namespace LibGFX.Graphics
         public abstract Matrix4 GetProjectionMatrix(Viewport viewport);
 
         /// <summary>
-        /// Checks if a point is in the frustum of the camera
+        /// Retrieves the viewing frustum associated with the specified viewport, with an option to normalize the
+        /// frustum coordinates.
         /// </summary>
-        /// <param name="viewport"></param>
-        /// <param name="point"></param>
-        /// <returns></returns>
-        public abstract bool IsPointInFrustum(Viewport viewport, Vector3 point);
+        /// <remarks>Normalizing the frustum can help ensure consistent behavior across different viewport
+        /// sizes and aspect ratios.</remarks>
+        /// <param name="viewport">The viewport that defines the visible area of the scene for which to retrieve the frustum.</param>
+        /// <param name="normalize">true to normalize the frustum coordinates to a standard range; otherwise, false.</param>
+        /// <returns>A Frustum object that represents the viewing frustum for the specified viewport.</returns>
+        public abstract Frustum GetFrustum(Viewport viewport, bool normalize = true);
 
         /// <summary>
         /// Computes the axis-aligned bounding box (AABB) of the camera based on its position and orientation
         /// </summary>
         public abstract void ComputeAABB();
+
+        /// <summary>
+        /// Checks if a point is in the frustum of the camera
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        [Obsolete("Use Frustum specific methods for point containment checks.")]
+        public abstract bool IsPointInFrustum(Viewport viewport, Vector3 point);
 
         /// <summary>
         /// Checks if a axis-aligned bounding box (AABB) is in the frustum of the camera
@@ -74,6 +86,7 @@ namespace LibGFX.Graphics
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
+        [Obsolete("Use Frustum specific methods for AABB containment checks.")]
         public abstract bool IsAABBInFrustum(Viewport viewport, Vector3 min, Vector3 max);
 
         /// <summary>
