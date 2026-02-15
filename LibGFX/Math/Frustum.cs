@@ -94,7 +94,7 @@ namespace LibGFX.Math
         /// <returns>true if the AABB intersects with or is contained within the frustum; otherwise, false.</returns>
         public static bool IntersectsAABB(Frustum frustum, Vector3 min, Vector3 max)
         {
-            Plane[] planes = new Plane[] { frustum.Left, frustum.Right, frustum.Bottom, frustum.Top, frustum.Near, frustum.Far };
+            var planes = frustum.GetPlanes();
             foreach (var plane in planes)
             {
                 Vector3 positiveVertex = new Vector3(
@@ -104,10 +104,10 @@ namespace LibGFX.Math
                 );
                 if (Vector3.Dot(plane.Normal, positiveVertex) + plane.D < 0)
                 {
-                    return false; 
+                    return false;
                 }
             }
-            return true; 
+            return true;
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace LibGFX.Math
         /// <returns>true if the point is within the frustum; otherwise, false.</returns>
         public static bool ContainsPoint(Frustum frustum, Vector3 point)
         {
-            Plane[] planes = new Plane[] { frustum.Left, frustum.Right, frustum.Bottom, frustum.Top, frustum.Near, frustum.Far };
+            var planes = frustum.GetPlanes();
             foreach (var plane in planes)
             {
                 if (Vector3.Dot(plane.Normal, point) + plane.D < 0)
@@ -154,7 +154,32 @@ namespace LibGFX.Math
                 );
                 if (Vector3.Dot(plane.Normal, positiveVertex) + plane.D < 0)
                 {
-                    return false; 
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Determines whether a sphere, specified by its center and radius, is fully contained within the given
+        /// frustum.
+        /// </summary>
+        /// <remarks>The method evaluates the sphere against each plane of the frustum. If any plane
+        /// excludes the sphere, the method returns false. This check is useful for culling or visibility determination
+        /// in 3D graphics applications.</remarks>
+        /// <param name="frustum">The frustum that defines the viewing volume against which the sphere is tested for containment.</param>
+        /// <param name="center">The center point of the sphere to check for containment within the frustum.</param>
+        /// <param name="radius">The radius of the sphere, which influences the containment check against the frustum's planes. Must be
+        /// non-negative.</param>
+        /// <returns>true if the sphere is completely contained within the frustum; otherwise, false.</returns>
+        public static bool ContainsSphere(Frustum frustum, Vector3 center, float radius)
+        {
+            var planes = frustum.GetPlanes();
+            foreach (var plane in planes)
+            {
+                if (Vector3.Dot(plane.Normal, center) + plane.D < -radius)
+                {
+                    return false;
                 }
             }
             return true;

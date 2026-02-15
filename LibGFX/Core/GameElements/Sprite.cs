@@ -105,8 +105,8 @@ namespace LibGFX.Core.GameElements
         /// <param name="renderer"></param>
         public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
-            base.Init(scene, viewport, renderer);
             _shape = renderer.GetShape<SpriteShape>();
+            base.Init(scene, viewport, renderer);
         }
 
         /// <summary>
@@ -300,15 +300,17 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         public override void ComputeAABB()
         {
-            var min = new Vector3(
-                this.Transform.Position.X - this.Transform.Scale.X / 2,
-                this.Transform.Position.Y - this.Transform.Scale.Y / 2,
-                0);
+            var vertices = _shape.GetVertices(); 
 
-            var max = new Vector3(
-                this.Transform.Position.X + this.Transform.Scale.X / 2,
-                this.Transform.Position.Y + this.Transform.Scale.Y / 2,
-                0);
+            var min = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+            var max = new Vector3(float.MinValue, float.MinValue, float.MinValue);
+
+            for (int i = 0; i < vertices.Length; i += 3)
+            {
+                var vertex = new Vector3(vertices[i], vertices[i + 1], vertices[i + 2]);
+                min = Vector3.ComponentMin(min, vertex);
+                max = Vector3.ComponentMax(max, vertex);
+            }
 
             this.AABB = new AABB(min, max);
         }

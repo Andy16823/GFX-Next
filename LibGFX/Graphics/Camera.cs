@@ -55,17 +55,6 @@ namespace LibGFX.Graphics
         public abstract Matrix4 GetProjectionMatrix(Viewport viewport);
 
         /// <summary>
-        /// Retrieves the viewing frustum associated with the specified viewport, with an option to normalize the
-        /// frustum coordinates.
-        /// </summary>
-        /// <remarks>Normalizing the frustum can help ensure consistent behavior across different viewport
-        /// sizes and aspect ratios.</remarks>
-        /// <param name="viewport">The viewport that defines the visible area of the scene for which to retrieve the frustum.</param>
-        /// <param name="normalize">true to normalize the frustum coordinates to a standard range; otherwise, false.</param>
-        /// <returns>A Frustum object that represents the viewing frustum for the specified viewport.</returns>
-        public abstract Frustum GetFrustum(Viewport viewport, bool normalize = true);
-
-        /// <summary>
         /// Computes the axis-aligned bounding box (AABB) of the camera based on its position and orientation
         /// </summary>
         public abstract void ComputeAABB();
@@ -110,6 +99,89 @@ namespace LibGFX.Graphics
         public void SetAsCurrent()
         {
             Current = this;
+        }
+
+        /// <summary>
+        /// Calculates and returns the view frustum for the camera using the specified viewport and normalization
+        /// option.
+        /// </summary>
+        /// <remarks>This method combines the camera's view and projection matrices to derive the frustum
+        /// planes. Normalizing the planes can improve the accuracy of subsequent geometric calculations, such as
+        /// intersection tests.</remarks>
+        /// <param name="viewport">The viewport that defines the visible area of the scene and is used to compute the projection matrix.</param>
+        /// <param name="normalize">true to normalize the frustum planes to unit length; otherwise, false.</param>
+        /// <returns>A Frustum object representing the six planes (left, right, bottom, top, near, and far) that define the
+        /// camera's view frustum.</returns>
+        public Frustum GetFrustum(Viewport viewport, bool normalize = true)
+        {
+            var viewMatrix = this.GetViewMatrix();
+            var projectionMatrix = this.GetProjectionMatrix(viewport);
+            var vp = viewMatrix * projectionMatrix;
+
+            // Left
+            var left = new Plane(
+                vp.M14 + vp.M11,
+                vp.M24 + vp.M21,
+                vp.M34 + vp.M31,
+                vp.M44 + vp.M41
+            );
+
+            // Right
+            var right = new Plane(
+                vp.M14 - vp.M11,
+                vp.M24 - vp.M21,
+                vp.M34 - vp.M31,
+                vp.M44 - vp.M41
+            );
+
+            // Bottom
+            var bottom = new Plane(
+                vp.M14 + vp.M12,
+                vp.M24 + vp.M22,
+                vp.M34 + vp.M32,
+                vp.M44 + vp.M42
+            );
+
+            // Top
+            var top = new Plane(
+                vp.M14 - vp.M12,
+                vp.M24 - vp.M22,
+                vp.M34 - vp.M32,
+                vp.M44 - vp.M42
+            );
+
+            // Near
+            var near = new Plane(
+                vp.M13,
+                vp.M23,
+                vp.M33,
+                vp.M43
+            );
+
+            // Far
+            var far = new Plane(
+                vp.M14 - vp.M13,
+                vp.M24 - vp.M23,
+                vp.M34 - vp.M33,
+                vp.M44 - vp.M43
+            );
+
+            var Frustum = new Frustum()
+            {
+                Left = left,
+                Right = right,
+                Bottom = bottom,
+                Top = top,
+                Near = near,
+                Far = far
+            };
+
+            if (normalize)
+            {
+                return Frustum.Normalized(Frustum);
+            }
+
+            return Frustum;
         }
     }
 }

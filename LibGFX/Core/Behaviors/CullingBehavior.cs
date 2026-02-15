@@ -10,10 +10,17 @@ using LibGFX.Physics;
 
 namespace LibGFX.Core.Behaviors
 {
+    /// <summary>
+    /// Provides behavior for culling game elements based on their visibility within the camera's frustum during scene
+    /// updates.
+    /// </summary>
+    /// <remarks>CullingBehavior is used to optimize rendering performance by automatically updating the
+    /// visibility of the associated game element each frame. If the element is outside the camera's view, it is culled
+    /// and not rendered. This behavior is typically attached to game elements that should only be visible when within
+    /// the player's viewport.</remarks>
     public class CullingBehavior : IGameBehavior
     {
         private GameElement _gameElement;
-
 
         public void SetElement(GameElement gameElement)
         {
@@ -50,10 +57,12 @@ namespace LibGFX.Core.Behaviors
                 var aabb = _gameElement.WorldAABB;
                 if(Frustum.IntersectsAABB(frustum, aabb.Min, aabb.Max))
                 {
+                    //Debug.WriteLine($"CullingBehavior: {_gameElement.Name} is visible.");
                     _gameElement.Visible = true;
                 }
                 else
                 {
+                    //Debug.WriteLine($"CullingBehavior: {_gameElement.Name} is culled.");
                     _gameElement.Visible = false;
                 }
             }

@@ -66,48 +66,6 @@ namespace LibGFX.Graphics
             this.AABB = new AABB(min, max);
         }
 
-        public override Frustum GetFrustum(Viewport viewport, bool normalize = true)
-        {
-            // Directions
-            var forward = Transform.Forward;
-            var right = Transform.Right;
-            var up = Transform.Up;
-
-            // Distances
-            var nearDist = Near;
-            var farDist = Far;
-
-            // Half dimensions of the near and far planes based on the viewport size and screen correction
-            var correction = this.CalculateScreenCorrection(viewport.Width, viewport.Height);
-            var halfWidth = (viewport.Width / 2) / correction;
-            var halfHeight = (viewport.Height / 2) / correction;
-
-            // Centers of the near and far planes
-            var center = Transform.Position;
-            var nearCenter = center + forward * nearDist;
-            var farCenter = center + forward * farDist;
-
-            // Normals for the frustum planes
-            var normalNear = forward;
-            var normalFar = -forward;
-            var normalLeft = Vector3.Cross(up, forward);
-            var normalRight = Vector3.Cross(forward, up);
-            var normalTop = Vector3.Cross(right, forward);
-            var normalBottom = Vector3.Cross(forward, right);
-
-            var frustum = new Frustum
-            {
-                Near = new Plane { Normal = normalNear, D = -Vector3.Dot(normalNear, nearCenter) },
-                Far = new Plane { Normal = normalFar, D = -Vector3.Dot(normalFar, farCenter) },
-                Left = new Plane { Normal = normalLeft, D = -Vector3.Dot(normalLeft, center - right * halfWidth) },
-                Right = new Plane { Normal = normalRight, D = -Vector3.Dot(normalRight, center + right * halfWidth) },
-                Top = new Plane { Normal = normalTop, D = -Vector3.Dot(normalTop, center + up * halfHeight) },
-                Bottom = new Plane { Normal = normalBottom, D = -Vector3.Dot(normalBottom, center - up * halfHeight) }
-            };
-
-            return frustum;
-        }
-
         /// <summary>
         /// Gets the projection matrix of the camera based on the viewport dimensions.
         /// </summary>
