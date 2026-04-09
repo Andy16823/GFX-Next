@@ -1,5 +1,6 @@
 ﻿using LibGFX.Core;
 using LibGFX.Graphics.Shader;
+using LibGFX.Types;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ namespace LibGFX.Graphics.Materials
         /// <remarks>Use this dictionary to store additional metadata or user-defined values that are not
         /// represented by other properties. Keys are case-sensitive. Modifying the collection does not trigger property
         /// change notifications.</remarks>
-        public Dictionary<string, object> Properties { get; set; }
+        public Dictionary<string, MetaValue> Metadata { get; set; }
 
         /// <summary>
         /// Configures the current instance to use the specified render device for rendering operations.

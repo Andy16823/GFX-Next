@@ -1,5 +1,6 @@
 ﻿using LibGFX.Core;
 using LibGFX.Graphics.Shader;
+using LibGFX.Types;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
@@ -40,7 +41,7 @@ namespace LibGFX.Graphics.Materials
         /// <remarks>Use this dictionary to store additional metadata or user-defined values that are not
         /// represented by strongly-typed properties. Keys are case-sensitive. Modifying the collection does not trigger
         /// change notifications.</remarks>
-        public Dictionary<string, object> Properties { get; set; } = new Dictionary<string, object>();
+        public Dictionary<string, MetaValue> Metadata { get; set; } = new Dictionary<string, MetaValue>();
 
         public void Dispose(IRenderDevice renderDevice)
         {

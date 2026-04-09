@@ -1,5 +1,6 @@
 ﻿using LibGFX.Core;
 using LibGFX.Graphics.Shader;
+using LibGFX.Types;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Graphics.OpenGL4;
@@ -91,7 +92,7 @@ namespace LibGFX.Graphics.Materials
         /// <remarks>Use this dictionary to store additional metadata or user-defined values that are not
         /// represented by strongly typed properties. Keys are case-sensitive and must be unique within the
         /// collection.</remarks>
-        public Dictionary<string, object> Properties { get; set; }
+        public Dictionary<string, MetaValue> Metadata { get; set; } = new Dictionary<string, MetaValue>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SGMaterial"/> class.
@@ -104,7 +105,6 @@ namespace LibGFX.Graphics.Materials
             DiffuseTexture = null;
             NormalTexture = null;
             SpecularTexture = null;
-            Properties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -121,7 +121,6 @@ namespace LibGFX.Graphics.Materials
             NormalTexture = new Texture(1, 1, new Vector4i(128, 128, 255, 255));
             SpecularTexture = new Texture(1, 1, new Vector4i(0, 0, 0, 255));
             Shader = shaderProgramm;
-            Properties = new Dictionary<string, object>();
         }
 
         /// <summary>

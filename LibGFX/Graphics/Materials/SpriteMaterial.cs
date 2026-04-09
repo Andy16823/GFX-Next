@@ -1,5 +1,6 @@
 ﻿using LibGFX.Core;
 using LibGFX.Graphics.Shader;
+using LibGFX.Types;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
@@ -50,7 +51,7 @@ namespace LibGFX.Graphics.Materials
         /// <remarks>Use this dictionary to store additional metadata or user-defined values that are not
         /// represented by strongly typed properties. Keys are case-sensitive. Modifying the collection does not trigger
         /// change notifications.</remarks>
-        public Dictionary<string, object> Properties { get; set; }
+        public Dictionary<string, MetaValue> Metadata { get; set; } = new Dictionary<string, MetaValue>();
 
         /// <summary>
         /// Gets or sets the shader used for rendering operations.
@@ -62,7 +63,7 @@ namespace LibGFX.Graphics.Materials
         /// </summary>
         public SpriteMaterial()
         {
-            this.Properties = new Dictionary<string, object>();
+
         }
 
         /// <summary>
@@ -73,7 +74,6 @@ namespace LibGFX.Graphics.Materials
         {
             this.Texture = new Texture(filename);
             this.Shader = renderShader;
-            this.Properties = new Dictionary<string, object>();
         }
 
         /// <summary>

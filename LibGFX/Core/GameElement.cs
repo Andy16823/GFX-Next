@@ -474,7 +474,7 @@ namespace LibGFX.Core
                 this.Tags.Add(tagToken.Value<string>()!);
             }
 
-            // Deserialize Properties
+            // Deserialize Metadata
             this.Properties.Clear();
             foreach (var property in obj.Value<JObject>("Properties")!)
             {
