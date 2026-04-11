@@ -1,5 +1,4 @@
 ﻿using LibGFX.Assets;
-using LibGFX.Assets.Loaders;
 using LibGFX.Audio;
 using LibGFX.Core;
 using LibGFX.Core.GameElements;

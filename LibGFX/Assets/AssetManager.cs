@@ -1,5 +1,4 @@
-﻿using LibGFX.Assets.Loaders;
-using LibGFX.Core;
+﻿using LibGFX.Core;
 using LibGFX.Graphics;
 using System;
 using System.Collections.Generic;
@@ -20,32 +19,11 @@ namespace LibGFX.Assets
         /// </summary>
         public String AssemblyPath { get => this.GetAssemblyPath(); }
 
-
-        private readonly Dictionary<object, IAssetLoader> _loaders = new();
-        private readonly Dictionary<(Type, string), object> _assets = new();
-
         /// <summary>
-        /// Loads an asset from the specified path.
+        /// The loaded assets which the asset manager is currently managing. 
+        /// The key is a tuple of the asset type and the asset name or path.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        public T Load<T>(string path, object? loadingArgs = null) where T : class
-        {
-            if (this.LooksLikeFilePath(path))
-            {
-                path = Path.IsPathRooted(path) ? path : Path.Combine(AssemblyPath, path);
-            }
-
-            var key = (typeof(T), path);
-            if (_assets.TryGetValue(key, out var asset))
-            {
-                return (T)asset;
-            }
-            asset = this.LoadAssetFromDisk<T>(path, loadingArgs);
-
-            return (T)asset;
-        }
+        private readonly Dictionary<(Type, string), object> _assets = new();
 
         /// <summary>
         /// Gets the asset count for a specific asset type.
@@ -55,28 +33,6 @@ namespace LibGFX.Assets
         public int GetAssetCount<T>() where T : class
         {
             return _assets.OfType<T>().Count();
-        }
-
-        /// <summary>
-        /// Registers a loader for a specific asset type.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="loader"></param>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="InvalidOperationException"></exception>
-        public void RegisterLoader<T>(IAssetLoader loader) where T : class
-        {
-            if (loader == null)
-            {
-                throw new ArgumentNullException(nameof(loader));
-            }
-
-            var assetType = typeof(T);
-            if (_loaders.ContainsKey(assetType))
-            {
-                throw new InvalidOperationException($"Loader for asset type '{assetType}' is already registered.");
-            }
-            _loaders.Add(assetType, loader);
         }
 
         /// <summary>
@@ -127,33 +83,6 @@ namespace LibGFX.Assets
             {
                 throw new InvalidOperationException($"Asset with name '{asset.Name}' already exists.");
             }
-            return (T)asset;
-        }
-
-        /// <summary>
-        /// Loads an asset from disk using the registered loader for the specified type.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        /// <exception cref="NotSupportedException"></exception>
-        /// <exception cref="InvalidOperationException"></exception>
-        private T LoadAssetFromDisk<T>(string path, object? loadingArgs = null) where T : class
-        {
-            if (!_loaders.TryGetValue(typeof(T), out var loader))
-            {
-                throw new NotSupportedException($"No loader found for asset type '{typeof(T)}'.");
-            }
-
-            var asset = loader.Load<T>(path, loadingArgs);
-            if (asset == null)
-            {
-                throw new InvalidOperationException($"Failed to load asset from path '{path}'.");
-            }
-
-            var key = (typeof(T), path);
-            _assets.Add(key, asset);
-
             return (T)asset;
         }
 
@@ -230,16 +159,6 @@ namespace LibGFX.Assets
             {
                 _assets.Remove(key);
             }
-        }
-
-        /// <summary>
-        /// Checks if the input string looks like a file path.
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        private bool LooksLikeFilePath(string input)
-        {
-            return input.Contains("/") || input.Contains("\\") || Path.HasExtension(input);
         }
 
         /// <summary>
