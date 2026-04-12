@@ -107,7 +107,7 @@ namespace LibGFX.Graphics
         /// Loads model data from a file using Assimp.
         /// </summary>
         /// <param name="file"></param>
-        private void LoadFromFile(string file)
+        public void LoadFromFile(string file)
         {
             // Set the file path
             FilePath = file;

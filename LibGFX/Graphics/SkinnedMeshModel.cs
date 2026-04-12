@@ -75,6 +75,15 @@ namespace LibGFX.Graphics
 
         }
 
+        public SkinnedMeshModel(string filePath, bool createBindPose = false)
+        {
+            LoadFromFile(filePath);
+            if (createBindPose)
+            {
+                CreateBindPose();
+            }
+        }
+
         /// <summary>
         /// Determines whether any mesh in the collection uses a transparent material.
         /// </summary>
@@ -109,7 +118,7 @@ namespace LibGFX.Graphics
         public SkinnedMeshModel(String file)
         {
             this.Skeleton = new Skeleton();
-            LoadModel(file);
+            LoadFromFile(file);
         }
 
         /// <summary>
@@ -117,7 +126,7 @@ namespace LibGFX.Graphics
         /// </summary>
         /// <param name="file"></param>
         /// <exception cref="Exception"></exception>
-        private void LoadModel(String file)
+        public void LoadFromFile(String file)
         {
             this.FilePath = file;
             var directory = Path.GetDirectoryName(file);
@@ -531,7 +540,7 @@ namespace LibGFX.Graphics
                 throw new Exception("FilePath is null or empty in the serialized data.");
             }
             this.FilePath = filepath;
-            LoadModel(this.FilePath);
+            LoadFromFile(this.FilePath);
             callback?.Invoke(obj);
 
             serializationContext.SetValue<SkinnedMeshModel>(this.ID.ToString(), this);
