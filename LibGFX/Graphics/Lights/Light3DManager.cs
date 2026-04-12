@@ -206,15 +206,6 @@ namespace LibGFX.Graphics.Lights
         }
 
         /// <summary>
-        /// Frees any CPU resources used by the light manager.
-        /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
-        public void FreeCPUResources()
-        {
-            // No CPU resources to free in the Light3DManager
-        }
-
-        /// <summary>
         /// Gets the chunk coordinates based on the given x, y, and z coordinates and chunk size.
         /// </summary>
         /// <param name="x"></param>

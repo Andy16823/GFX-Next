@@ -14,7 +14,7 @@ namespace LibGFX.Graphics
     /// Represents a container for render instances.#
     /// TODO: Why is this an IAsset? It doesn't have any asset-like properties or behaviors. Maybe it should be a regular class instead of implementing IAsset?
     /// </summary>
-    public class RenderInstanceContainer : IAsset
+    public class RenderInstanceContainer
     {
         /// <summary>
         /// The Vertex Array Object (VAO) for the instance container.
@@ -92,21 +92,24 @@ namespace LibGFX.Graphics
             return this.Instances.Count - 1;
         }
 
+        /// <summary>
+        /// Initializes the instance container by loading it into the render device. This typically involves creating the necessary buffers and setting up the vertex array object (VAO) for rendering the instances.
+        /// </summary>
+        /// <param name="renderer"></param>
         public void Init(IRenderDevice renderer)
         {
             renderer.LoadInstanceContainer(this);
             this.IsInitialized = true;
         }
 
+        /// <summary>
+        /// Disposes of the instance container by releasing any resources associated with it in the render device. This typically involves deleting the buffers and vertex array object (VAO) used for rendering the instances.
+        /// </summary>
+        /// <param name="renderer"></param>
         public void Dispose(IRenderDevice renderer)
         {
             renderer.DisposeInstanceContainer(this);
             this.IsInitialized = false;
-        }
-
-        public void FreeCPUResources()
-        {
-            // No CPU resources to free in the current implementation.
         }
     }
 }

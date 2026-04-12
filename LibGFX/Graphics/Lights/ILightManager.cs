@@ -11,9 +11,8 @@ namespace LibGFX.Graphics.Lights
 {
     /// <summary>
     /// Interface for managing lights in a scene.
-    /// TODO: Why is this an IAsset? It doesn't have any asset-like properties or behaviors. Maybe it should be a regular class instead of implementing IAsset?
     /// </summary>
-    public interface ILightManager : ISerialization, IAsset
+    public interface ILightManager : ISerialization
     {
         /// <summary>
         /// Initializes the light manager with the given render device.
