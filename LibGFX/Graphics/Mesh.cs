@@ -1,4 +1,5 @@
 ﻿using Assimp;
+using LibGFX.Assets;
 using LibGFX.Core;
 using LibGFX.Graphics.Materials;
 using LibGFX.Math;
@@ -38,7 +39,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a mesh for the rendering pipeline
     /// </summary>
-    public class Mesh : IGraphicsResource, IIdentifier, ISerialization
+    public class Mesh : IAsset, IIdentifier, ISerialization
     {
         /// <summary>
         /// The name of the mesh.

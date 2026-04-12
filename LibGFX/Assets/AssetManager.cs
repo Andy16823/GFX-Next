@@ -23,7 +23,7 @@ namespace LibGFX.Assets
         /// The loaded assets which the asset manager is currently managing. 
         /// The key is a tuple of the asset type and the asset name or path.
         /// </summary>
-        private readonly Dictionary<(Type, string), object> _assets = new();
+        private readonly Dictionary<(Type, string), IAsset> _assets = new();
 
         /// <summary>
         /// Gets the asset count for a specific asset type.
@@ -58,12 +58,13 @@ namespace LibGFX.Assets
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public T Add<T>(string name, T asset) where T : class
+        public T Add<T>(string name, T asset) where T : class, IAsset
         {
             if (string.IsNullOrEmpty(name))
             {
                 throw new ArgumentException("Asset name cannot be null or empty.", nameof(name));
             }
+
             if (asset == null)
             {
                 throw new ArgumentNullException(nameof(asset));
@@ -85,7 +86,7 @@ namespace LibGFX.Assets
         /// <returns>The added asset of type <typeparamref name="T"/>.</returns>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="asset"/> is <see langword="null"/>.</exception>
         /// <exception cref="InvalidOperationException">Thrown if an asset with the same name already exists in the collection.</exception>
-        public T Add<T>(T asset) where T : class, IIdentifier
+        public T Add<T>(T asset) where T : class, IAsset, IIdentifier
         {
             if (asset == null)
             {
@@ -207,14 +208,7 @@ namespace LibGFX.Assets
         {
             foreach (var asset in _assets.Values)
             {
-                if (asset is IGraphicsResource renderResource)
-                {
-                    renderResource.Init(renderer);
-                }
-                else
-                {
-                    Debug.WriteLine($"Asset of type '{asset.GetType()}' does not implement IRenderResource. Skipping initialization.");
-                }
+                asset?.Init(renderer);
             }
         }
 
@@ -225,14 +219,7 @@ namespace LibGFX.Assets
         {
             foreach (var asset in _assets.Values)
             {
-                if (asset is IGraphicsResource renderResource)
-                {
-                    renderResource.FreeCPUResources();
-                }
-                else
-                {
-                    Debug.WriteLine($"Asset of type '{asset.GetType()}' does not implement IRenderResource. Skipping FreeCPURessources.");
-                }
+                asset?.FreeCPUResources();
             }
         }
 
@@ -247,9 +234,9 @@ namespace LibGFX.Assets
         {
             foreach (var asset in _assets.Values)
             {
-                if (asset is T && asset is IGraphicsResource renderResource)
+                if (asset is T)
                 {
-                    renderResource.FreeCPUResources();
+                    asset?.FreeCPUResources();
                 }
                 else
                 {
@@ -268,14 +255,7 @@ namespace LibGFX.Assets
         {
             foreach (var asset in _assets.Values)
             {
-                if (asset is IGraphicsResource renderResource)
-                {
-                    renderResource.Dispose(renderer);
-                }
-                else
-                {
-                    Debug.WriteLine($"Asset of type '{asset.GetType()}' does not implement IRenderResource. Skipping disposal.");
-                }
+                asset?.Dispose(renderer);
             }
         }
 

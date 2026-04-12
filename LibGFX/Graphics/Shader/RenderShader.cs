@@ -1,4 +1,5 @@
-﻿using LibGFX.Core;
+﻿using LibGFX.Assets;
+using LibGFX.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace LibGFX.Graphics.Shader
     /// <summary>
     /// Represents a shader program that consists of a vertex shader and a fragment shader.
     /// </summary>
-    public class RenderShader : IShaderProgram, IGraphicsResource
+    public class RenderShader : IShaderProgram, IAsset
     {
         /// <summary>
         /// Gets or sets the ID of the shader program.

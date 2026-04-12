@@ -1,4 +1,5 @@
-﻿using LibGFX.Core;
+﻿using LibGFX.Assets;
+using LibGFX.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics.Shapes
 {
-    public abstract class Shape : IGraphicsResource
+    public abstract class Shape : IAsset
     {
         public int VertexArray { get; set; }
         public int VertexBuffer { get; set; }

@@ -1,4 +1,5 @@
-﻿using LibGFX.Core;
+﻿using LibGFX.Assets;
+using LibGFX.Core;
 using LibGFX.Graphics.Shader;
 using LibGFX.Types;
 using OpenTK.Mathematics;
@@ -17,7 +18,7 @@ namespace LibGFX.Graphics.Materials
     /// <remarks>Implementations of this interface represent materials that can be initialized, used, and
     /// disposed of with a rendering device. The interface also provides a static method for loading a material from an
     /// external source. Implementers should ensure thread safety if materials are accessed concurrently.</remarks>
-    public interface IMaterial : IGraphicsResource, IIdentifier, ISerialization
+    public interface IMaterial : IAsset, IIdentifier, ISerialization
     {
         /// <summary>
         /// Determines whether the material is transparent.

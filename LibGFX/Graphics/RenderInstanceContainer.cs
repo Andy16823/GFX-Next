@@ -1,4 +1,5 @@
-﻿using LibGFX.Core;
+﻿using LibGFX.Assets;
+using LibGFX.Core;
 using LibGFX.Math;
 using OpenTK.Mathematics;
 using System;
@@ -10,9 +11,10 @@ using System.Threading.Tasks;
 namespace LibGFX.Graphics
 {
     /// <summary>
-    /// Represents a container for render instances.
+    /// Represents a container for render instances.#
+    /// TODO: Why is this an IAsset? It doesn't have any asset-like properties or behaviors. Maybe it should be a regular class instead of implementing IAsset?
     /// </summary>
-    public class RenderInstanceContainer : IGraphicsResource
+    public class RenderInstanceContainer : IAsset
     {
         /// <summary>
         /// The Vertex Array Object (VAO) for the instance container.
