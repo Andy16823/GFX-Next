@@ -521,10 +521,18 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         {
             CompileShader(shaderProgram.VertexShader, ShaderType.VertexShader);
             CompileShader(shaderProgram.FragmentShader, ShaderType.FragmentShader);
+            if (shaderProgram.GeometryShader != null)
+            {
+                CompileShader(shaderProgram.GeometryShader, ShaderType.GeometryShader);
+            }
 
             shaderProgram.ProgramID = GL.CreateProgram();
             GL.AttachShader(shaderProgram.ProgramID, shaderProgram.VertexShader.ShaderID);
             GL.AttachShader(shaderProgram.ProgramID, shaderProgram.FragmentShader.ShaderID);
+            if (shaderProgram.GeometryShader != null)
+            {
+                GL.AttachShader(shaderProgram.ProgramID, shaderProgram.GeometryShader.ShaderID);
+            }
             GL.LinkProgram(shaderProgram.ProgramID);
 
             GL.GetProgram(shaderProgram.ProgramID, GetProgramParameterName.LinkStatus, out int success);
@@ -540,6 +548,10 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             }
             GL.DeleteShader(shaderProgram.VertexShader.ShaderID);
             GL.DeleteShader(shaderProgram.FragmentShader.ShaderID);
+            if (shaderProgram.GeometryShader != null)
+            {
+                GL.DeleteShader(shaderProgram.GeometryShader.ShaderID);
+            }
         }
 
         public void CompileShader(Shader.Shader shader, ShaderType type)
@@ -1792,6 +1804,13 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindBuffer(GLMappings.ToBufferTarget(target), buffer);
         }
 
+        public void SetBufferSize(int buffer, int size, RenderFlags.GFXBufferTarget target, RenderFlags.GFXBufferUsageHint bufferUsageHint)
+        {
+            GL.BindBuffer(GLMappings.ToBufferTarget(target), buffer);
+            GL.BufferData(GLMappings.ToBufferTarget(target), size, nint.Zero, GLMappings.ToBufferUsageHint(bufferUsageHint));
+            GL.BindBuffer(GLMappings.ToBufferTarget(target), 0);
+        }
+
         public void BindVertexBuffer(int buffer)
         {
             GL.BindBuffer(BufferTarget.ArrayBuffer, buffer);
@@ -1875,6 +1894,16 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         public void UnbindShaderStorageBuffer(int binding)
         {
             GL.BindBufferBase(BufferRangeTarget.ShaderStorageBuffer, binding, 0);
+        }
+
+        public void BindBufferBase(RenderFlags.GFXBufferTarget target, int binding, int buffer)
+        {
+            GL.BindBufferBase(GLMappings.ToBufferRangeTarget(target), binding, buffer);
+        }
+
+        public void UnbindBufferBase(RenderFlags.GFXBufferTarget target, int binding)
+        {
+            GL.BindBufferBase(GLMappings.ToBufferRangeTarget(target), binding, 0);
         }
 
         public int CreateVertexArray()

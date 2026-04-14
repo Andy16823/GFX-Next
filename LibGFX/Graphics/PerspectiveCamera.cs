@@ -42,6 +42,42 @@ namespace LibGFX.Graphics
         }
 
         /// <summary>
+        /// Sets the near and far planes of the camera
+        /// </summary>
+        /// <param name="near"></param>
+        /// <param name="far"></param>
+        public void SetNearFar(float near, float far)
+        {
+            this.Near = near;
+            this.Far = far;
+        }
+
+        /// <summary>
+        /// Gets the near and far planes of the camera
+        /// </summary>
+        /// <returns></returns>
+        public (float, float) GetNearFar()
+        {
+            return (this.Near, this.Far);
+        }
+
+        /// <summary>
+        /// Clones the camera
+        /// </summary>
+        /// <returns></returns>
+        public Camera Clone()
+        {
+            var clone = new PerspectiveCamera();
+            clone.Transform.Position = this.Transform.Position;
+            clone.Transform.Rotation = this.Transform.Rotation;
+            clone.Transform.Scale = this.Transform.Scale;
+            clone.Fov = this.Fov;
+            clone.Near = this.Near;
+            clone.Far = this.Far;
+            return clone;
+        }
+
+        /// <summary>
         /// Gets the projection matrix of the camera
         /// </summary>
         /// <param name="viewport"></param>

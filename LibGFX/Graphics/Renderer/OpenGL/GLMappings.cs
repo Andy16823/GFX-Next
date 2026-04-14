@@ -475,6 +475,15 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
         };
 
+        internal static BufferRangeTarget ToBufferRangeTarget(RenderFlags.GFXBufferTarget target) => target switch
+        {
+            RenderFlags.GFXBufferTarget.AtomicCounterBuffer => BufferRangeTarget.AtomicCounterBuffer,
+            RenderFlags.GFXBufferTarget.ShaderStorageBuffer => BufferRangeTarget.ShaderStorageBuffer,
+            RenderFlags.GFXBufferTarget.TransformFeedbackBuffer => BufferRangeTarget.TransformFeedbackBuffer,
+            RenderFlags.GFXBufferTarget.UniformBuffer => BufferRangeTarget.UniformBuffer,
+            _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
+        };
+
         internal static BufferUsageHint ToBufferUsageHint(RenderFlags.GFXBufferUsageHint hint) => hint switch
         {
             RenderFlags.GFXBufferUsageHint.StreamDraw => BufferUsageHint.StreamDraw,

@@ -137,6 +137,7 @@ namespace LibGFX.Graphics
         int CreateVertexBuffer<T>(T[] data, bool dynamic = false) where T : unmanaged;
         int CreateElementBuffer(int[] data, bool dynamic = false);
         void BindBuffer(RenderFlags.GFXBufferTarget target, int buffer);
+        void SetBufferSize(int buffer, int size, RenderFlags.GFXBufferTarget target, RenderFlags.GFXBufferUsageHint bufferUsageHint);
         void BindVertexBuffer(int buffer);
         void BindElementBuffer(int buffer);
         void SetBufferData<T>(int buffer, T[] data, RenderFlags.GFXBufferTarget target, RenderFlags.GFXBufferUsageHint bufferUsageHint) where T : unmanaged;
@@ -147,8 +148,12 @@ namespace LibGFX.Graphics
         void UpdateElementBufferData(int buffer, int[] data, int offset);
         T[] GetBufferData<T>(int buffer, int length, RenderFlags.GFXBufferTarget target) where T : unmanaged;
         void DisposeBuffer(int buffer);
+        [Obsolete("Use BindBufferBase with RenderFlags.GFXBufferTarget.ShaderStorageBuffer instead.")]
         void BindShaderStorageBuffer(int binding, int buffer);
+        [Obsolete("Use UnbindBufferBase with RenderFlags.GFXBufferTarget.ShaderStorageBuffer instead.")]
         void UnbindShaderStorageBuffer(int binding);
+        void BindBufferBase(RenderFlags.GFXBufferTarget target, int binding, int buffer);
+        void UnbindBufferBase(RenderFlags.GFXBufferTarget target, int binding);
         int CreateVertexArray();
         void DisposeVertexArray(int value);
         void BindVertexArray(int value);

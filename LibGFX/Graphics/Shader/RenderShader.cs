@@ -29,6 +29,11 @@ namespace LibGFX.Graphics.Shader
         public Shader FragmentShader { get; set; }
 
         /// <summary>
+        /// Gets or sets the geometry shader associated with the program. This property is optional and can be null if no geometry shader is used.
+        /// </summary>
+        public Shader? GeometryShader { get; set; }
+
+        /// <summary>
         /// Gets a value indicating whether the object has been initialized.
         /// </summary>
         public bool IsInitialized { get; private set; } = false;

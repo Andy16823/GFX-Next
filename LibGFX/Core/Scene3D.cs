@@ -1,10 +1,14 @@
-﻿using LibGFX.Graphics;
+﻿using LibGFX.Core.GameElements;
+using LibGFX.Graphics;
 using LibGFX.Graphics.Enviroment;
 using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.PostProcessing;
+using LibGFX.Graphics.Renderer.OpenGL;
+using LibGFX.Graphics.Shader;
 using LibGFX.Math;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using OpenTK.Graphics.OpenGL;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using System;
@@ -112,6 +116,10 @@ namespace LibGFX.Core
         private Light3DManager _lightManager;
         private float _physicsAccumulator = 0.0f;
 
+        // Test Cascaded Shadow Map
+        private CascadedShadowMap _shaowMap;
+        private int _lightMatrixBuffer;
+
         /// <summary>
         /// Creates a new 3D scene
         /// </summary>
@@ -152,6 +160,8 @@ namespace LibGFX.Core
 
             // On dispose end event
             OnDisposeEnd?.Invoke(this, renderer);
+
+            _shaowMap.Dispose(renderer);
         }
 
         /// <summary>
@@ -194,6 +204,13 @@ namespace LibGFX.Core
 
             // OnStart the render stats
             this.RenderStats.Start();
+
+            _shaowMap = new CascadedShadowMap(8192, 8192, 4);
+            _shaowMap.Create();
+
+            _lightMatrixBuffer = renderer.CreateBuffer();
+            var matrixSize = 16 * sizeof(float);
+            renderer.SetBufferSize(_lightMatrixBuffer, 16 * matrixSize, RenderFlags.GFXBufferTarget.UniformBuffer, RenderFlags.GFXBufferUsageHint.DynamicDraw);
         }
 
         /// <summary>
@@ -286,9 +303,6 @@ namespace LibGFX.Core
         /// <param name="camera"></param>
         public override void RenderShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            // On shadow pass start event
-            OnShadowPassStart?.Invoke(this, viewport, renderer, camera);
-
             // Get the directional light for the scene
             var light = this.LightManager.GetLight<DirectionalLight3D>();
             if (light == null)
@@ -296,44 +310,103 @@ namespace LibGFX.Core
                 Debug.WriteLine("No directional light found for shadow pass.");
                 return;
             }
-
-            // Render the shadow map for the directional light
-            var shadowMap = light.ShadowMap;
-            var depthTest = renderer.IsDepthTestEnabled();
-            renderer.EnableDepthTest();
-
             var lightDir = light.Direction.Normalized();
-            var cameraXZ = camera.Transform.Position;
-            var lightOffset = new Vector3(0f, 10.0f, 0f);
-            var lightPos = cameraXZ + lightOffset;
-            var lightTarget = lightPos - (light.Direction.Normalized() * 20.0f);
 
-            float near_plane = 0.1f, far_plane = 20.0f;
-            var lightView = Matrix4.LookAt(lightPos, lightTarget, new Vector3(0, 1, 0));
-            var lightProjection = Matrix4.CreateOrthographic(60, 60, near_plane, far_plane);
-            var lightSpaceMatrix = lightView * lightProjection;
+            var perspectiveCamera = camera as PerspectiveCamera;
+            var (near, far) = perspectiveCamera.GetNearFar();
 
-            renderer.SetViewport((Viewport) light.ShadowMapSize);
-            renderer.SetProjectionMatrix(lightProjection);
-            renderer.SetViewMatrix(lightView);
+            List<Matrix4> lightSpaceMatrices = new List<Matrix4>();
+            float[] cascadeLevels = new float[]
+            {
+                10.0f,
+                30.0f,
+                100.0f,
+                perspectiveCamera.Far
+            };
+            float lastSplitDist = perspectiveCamera.Near;
+            
+            foreach (var cascadeLevel in cascadeLevels)
+            {
+                perspectiveCamera.SetNearFar(lastSplitDist, cascadeLevel);
+                var mat = Utils.ComputeLightViewProjectionMatrix(perspectiveCamera, viewport, lightDir);
+                lightSpaceMatrices.Add(mat);
+                Debug.WriteLine($"Cascade split: {lastSplitDist} - {cascadeLevel}");
+                Debug.WriteLine($"Light Space Matrix:\n{mat}");
+                lastSplitDist = cascadeLevel;
+            }
+            perspectiveCamera.SetNearFar(near, far);
 
-            renderer.BindRenderTarget(shadowMap);
-            renderer.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            var shader = renderer.GetRenderShader<DepthMeshShader>();
+            renderer.BindShaderProgram(shader);
+            renderer.BindBuffer(RenderFlags.GFXBufferTarget.UniformBuffer, _lightMatrixBuffer);
+            renderer.UpdateBufferData(_lightMatrixBuffer, lightSpaceMatrices.ToArray(), 0, RenderFlags.GFXBufferTarget.UniformBuffer);
+            renderer.BindBufferBase(RenderFlags.GFXBufferTarget.UniformBuffer, 0, _lightMatrixBuffer);
+
+            renderer.BindRenderTarget(_shaowMap);
+            renderer.SetViewport(viewport);
             renderer.Clear(RenderFlags.ClearFlags.Depth);
-
             renderer.SetCullMode(CullMode.Front);
             this.Elements.ForEach(e =>
             {
-                e.RenderShadow(this, viewport, renderer);
+                if(e is Primitive primive)
+                {
+                    var transform = primive.Transform;
+                    var mesh = primive.Mesh;
+                    renderer.DrawMesh(transform, mesh);
+                }
+                else if(e is StaticModel model) {
+                    var transform = model.Transform;
+                    var meshes = model.GetMeshes();
+                    foreach (var mesh in meshes)
+                    {
+                        renderer.DrawMesh(transform, mesh);
+                    }
+                }
             });
             renderer.SetCullMode(CullMode.Back);
-
             renderer.UnbindRenderTarget();
-            renderer.SetDepthTest(depthTest);
-            LightManager.SetLightSpaceMatrix(lightSpaceMatrix);
 
-            // On shadow pass end event
-            OnShadowPassEnd?.Invoke(this, viewport, renderer, camera);
+
+            // On shadow pass start event
+            OnShadowPassStart?.Invoke(this, viewport, renderer, camera);
+
+
+            //// Render the shadow map for the directional light
+            //var shadowMap = light.ShadowMap;
+            //var depthTest = renderer.IsDepthTestEnabled();
+            //renderer.EnableDepthTest();
+
+            //var cameraXZ = camera.Transform.Position;
+            //var lightOffset = new Vector3(0f, 10.0f, 0f);
+            //var lightPos = cameraXZ + lightOffset;
+            //var lightTarget = lightPos - (light.Direction.Normalized() * 20.0f);
+
+            //float near_plane = 0.1f, far_plane = 20.0f;
+            //var lightView = Matrix4.LookAt(lightPos, lightTarget, new Vector3(0, 1, 0));
+            //var lightProjection = Matrix4.CreateOrthographic(60, 60, near_plane, far_plane);
+            //var lightSpaceMatrix = lightView * lightProjection;
+
+            //renderer.SetViewport((Viewport) light.ShadowMapSize);
+            //renderer.SetProjectionMatrix(lightProjection);
+            //renderer.SetViewMatrix(lightView);
+
+            //renderer.BindRenderTarget(shadowMap);
+            //renderer.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            //renderer.Clear(RenderFlags.ClearFlags.Depth);
+
+            //renderer.SetCullMode(CullMode.Front);
+            //this.Elements.ForEach(e =>
+            //{
+            //    e.RenderShadow(this, viewport, renderer);
+            //});
+            //renderer.SetCullMode(CullMode.Back);
+
+            //renderer.UnbindRenderTarget();
+            //renderer.SetDepthTest(depthTest);
+            //LightManager.SetLightSpaceMatrix(lightSpaceMatrix);
+
+            //// On shadow pass end event
+            //OnShadowPassEnd?.Invoke(this, viewport, renderer, camera);
         }
 
         /// <summary>
