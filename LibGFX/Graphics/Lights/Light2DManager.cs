@@ -320,7 +320,12 @@ namespace LibGFX.Graphics.Lights
         /// </summary>
         /// <param name="lightViewMatrix"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public void SetLightSpaceMatrix(Matrix4 lightViewMatrix)
+        public void ComputeLightSpaceMatrix(Camera camera, Viewport viewport)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void BindLightSpaceMatrix(IRenderDevice renderer, int binding = 0)
         {
             throw new NotImplementedException();
         }

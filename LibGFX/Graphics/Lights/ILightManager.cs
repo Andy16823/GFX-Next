@@ -72,8 +72,16 @@ namespace LibGFX.Graphics.Lights
         /// <summary>
         /// Sets the light view matrix for the light manager, which is used to transform the light's perspective in the scene.
         /// </summary>
-        /// <param name="lightViewMatrix"></param>
-        public void SetLightSpaceMatrix(Matrix4 lightViewMatrix);
+        /// <param name="camera"></param>
+        /// <param name="viewport"></param>
+        public void ComputeLightSpaceMatrix(Camera camera, Viewport viewport);
+
+        /// <summary>
+        /// Binds the computed light space matrix to the shader program for rendering shadows. This method should be called after ComputeLightSpaceMatrix to ensure that the latest light space matrix is used in the shader.
+        /// </summary>
+        /// <param name="renderDevice"></param>
+        /// <param name="binding"></param>
+        public void BindLightSpaceMatrix(IRenderDevice renderDevice, int binding = 0);
 
         /// <summary>
         /// Releases all light resources associated with the specified render device.

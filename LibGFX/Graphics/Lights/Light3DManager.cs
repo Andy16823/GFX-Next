@@ -1,4 +1,5 @@
 ﻿using LibGFX.Core;
+using LibGFX.Graphics.Renderer.OpenGL;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
@@ -106,10 +107,11 @@ namespace LibGFX.Graphics.Lights
         // the shadow map ID
         private int _shadowMapId;
 
-        /// <summary>
-        /// The light view matrix used for shadow mapping. 
-        /// </summary>
-        private Matrix4 _lightViewMatrix;
+        // the light view matrix for shadow mapping
+        private List<Matrix4> _lightViewMatrix = new List<Matrix4>();
+
+        // the buffer for the light space matrices
+        private int _lightMatrixBuffer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Light3DManager"/> class.
@@ -141,9 +143,9 @@ namespace LibGFX.Graphics.Lights
         /// <param name="camera"></param>
         public void BindLights(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            // Bind the shadow data
-            renderer.PrepareShader("shadowMap", 6, this.DirectionalLight.ShadowMap.DepthTextureId);
-            renderer.PrepareShader("lightSpaceMatrix", true, _lightViewMatrix);
+            // Bind the shadow data TODO: Implement shadow mapping for directional light
+            //renderer.PrepareShader("shadowMap", 6, this.DirectionalLight.ShadowMap.DepthTextureId);
+            //renderer.PrepareShader("lightSpaceMatrix", true, _lightViewMatrix);
 
             // Bind the lightning data
             renderer.PrepareShader("dirLight.direction", DirectionalLight.Direction);
@@ -178,6 +180,7 @@ namespace LibGFX.Graphics.Lights
             renderDevice.DisposeBuffer(_pointLightsSSBO);
             _pointLightsSSBO = 0;
             this.DisposeLights(renderDevice);
+            renderDevice.DisposeBuffer(_lightMatrixBuffer);
             this.IsInitialized = false;
         }
 
@@ -203,6 +206,10 @@ namespace LibGFX.Graphics.Lights
                 light.Init(renderDevice);
             });
             this.IsInitialized = true;
+
+            _lightMatrixBuffer = renderDevice.CreateBuffer();
+            var matrixSize = 16 * sizeof(float);
+            renderDevice.SetBufferSize(_lightMatrixBuffer, 16 * matrixSize, RenderFlags.GFXBufferTarget.UniformBuffer, RenderFlags.GFXBufferUsageHint.DynamicDraw);
         }
 
         /// <summary>
@@ -337,9 +344,52 @@ namespace LibGFX.Graphics.Lights
         /// Sets the light space matrix for the light manager, which is used to transform the light's perspective in the scene.
         /// </summary>
         /// <param name="lightViewMatrix"></param>
-        public void SetLightSpaceMatrix(Matrix4 lightViewMatrix)
+        public void ComputeLightSpaceMatrix(Camera camera, Viewport viewport)
         {
-            _lightViewMatrix = lightViewMatrix;
+            // Clear the previous light view matrix
+            _lightViewMatrix.Clear();
+
+            // Get the ligt direction from the directional light
+            if (this.DirectionalLight == null)
+            {
+                Debug.WriteLine("No directional light found in Light3DManager. Cannot compute light space matrix.");
+                return;
+            }
+            var lightDir = this.DirectionalLight.Direction.Normalized();
+
+            // Compute the light space matrix for each cascade level
+            var perspectiveCamera = camera as PerspectiveCamera;
+            if (perspectiveCamera == null)
+            {
+                Debug.WriteLine("Camera is not a PerspectiveCamera. Cannot compute light space matrix.");
+                return;
+            }
+            
+            var (near, far) = perspectiveCamera.GetNearFar();
+            float[] cascadeLevels = new float[]
+            {
+                10.0f,
+                30.0f,
+                100.0f,
+                perspectiveCamera.Far
+            };
+
+            float lastSplitDist = perspectiveCamera.Near;
+            foreach (var cascadeLevel in cascadeLevels)
+            {
+                perspectiveCamera.SetNearFar(lastSplitDist, cascadeLevel);
+                var mat = Utils.ComputeLightViewProjectionMatrix(perspectiveCamera, viewport, lightDir);
+                _lightViewMatrix.Add(mat);
+                lastSplitDist = cascadeLevel;
+            }
+            perspectiveCamera.SetNearFar(near, far);
+        }
+
+        public void BindLightSpaceMatrix(IRenderDevice renderDevice, int binding = 0)
+        {
+            renderDevice.BindBuffer(RenderFlags.GFXBufferTarget.UniformBuffer, _lightMatrixBuffer);
+            renderDevice.UpdateBufferData(_lightMatrixBuffer, _lightViewMatrix.ToArray(), 0, RenderFlags.GFXBufferTarget.UniformBuffer);
+            renderDevice.BindBufferBase(RenderFlags.GFXBufferTarget.UniformBuffer, binding, _lightMatrixBuffer);
         }
 
         /// <summary>

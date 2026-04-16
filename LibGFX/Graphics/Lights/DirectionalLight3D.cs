@@ -73,7 +73,9 @@ namespace LibGFX.Graphics.Lights
         public override void Init(IRenderDevice renderer)
         {
             Debug.WriteLine($"Creating Shadow Map for Directional Light: {this.GetType().Name} at {Position} with size {ShadowMapSize}");
-            this.ShadowMap = renderer.CreateDepthRenderTarget2D(ShadowMapSize.X, ShadowMapSize.Y);
+            var csm = new CascadedShadowMap(8192, 8192, 4);
+            csm.Create();
+            this.ShadowMap = csm;
         }
 
         /// <summary>
