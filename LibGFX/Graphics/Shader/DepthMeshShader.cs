@@ -29,7 +29,7 @@ namespace LibGFX.Graphics.Shader
                 layout (triangles, invocations = 4) in;
                 layout (triangle_strip, max_vertices = 3) out;
 
-                layout (std140, binding = 0, row_major) uniform LightSpaceMatrices
+                layout (std140, binding = 3, row_major) uniform LightSpaceMatrices
                 {
                     mat4 lightSpaceMatrices[16];
                 };

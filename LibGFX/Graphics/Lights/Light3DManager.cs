@@ -144,6 +144,26 @@ namespace LibGFX.Graphics.Lights
         public void BindLights(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             // Bind the shadow data TODO: Implement shadow mapping for directional light
+            var csm = this.DirectionalLight.ShadowMap as CascadedShadowMap;
+            if (csm == null)
+            {
+                throw new Exception("Directional light shadow map is not a CascadedShadowMap. Shadow mapping for directional lights requires a CascadedShadowMap.");
+            }
+            renderer.PrepareShaderArrayTexture("shadowMap", 6, csm.TextureId);
+            renderer.PrepareShader("cascadeCount", csm.CascadeCount);
+            renderer.PrepareShader("lightSpaceMatrices", true, _lightViewMatrix.ToArray());
+            float[] cascadeLevels = new float[]
+            {
+                10.0f,
+                30.0f,
+                100.0f,
+                camera.Far
+            };
+            renderer.PrepareShader("cascadePlaneDistances", cascadeLevels.Length, cascadeLevels);
+            renderer.PrepareShader("cameraFar", camera.Far);
+
+
+
             //renderer.PrepareShader("shadowMap", 6, this.DirectionalLight.ShadowMap.DepthTextureId);
             //renderer.PrepareShader("lightSpaceMatrix", true, _lightViewMatrix);
 

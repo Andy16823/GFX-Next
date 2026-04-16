@@ -668,14 +668,9 @@ namespace LibGFX.Core
             float minY = float.MaxValue, maxY = float.MinValue;
             float minZ = float.MaxValue, maxZ = float.MinValue;
 
-            Debug.WriteLine($"Center: {center}");
-            Debug.WriteLine($"LightDir: {lightDir}");
-            Debug.WriteLine($"LightEye: {center + lightDir}");
-
             foreach (var corner in corners)
             {
                 var trf = Vector4.TransformRow(corner, lightView); // ✅
-                Debug.WriteLine($"LightSpace Corner: {trf.Xyz}");
 
                 minX = System.Math.Min(minX, trf.X);
                 maxX = System.Math.Max(maxX, trf.X);
@@ -685,9 +680,6 @@ namespace LibGFX.Core
                 maxZ = System.Math.Max(maxZ, trf.Z);
             }
 
-            Debug.WriteLine($"minX={minX} maxX={maxX}");
-            Debug.WriteLine($"minY={minY} maxY={maxY}");
-            Debug.WriteLine($"minZ={minZ} maxZ={maxZ}");
 
             float zMult = 10.0f;
             if(minZ < 0)

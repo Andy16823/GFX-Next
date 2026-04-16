@@ -311,35 +311,22 @@ namespace LibGFX.Core
             // Bind the depth shader and set the light space matrix uniform
             var shader = renderer.GetRenderShader<DepthMeshShader>();
             renderer.BindShaderProgram(shader);
-            this.LightManager.BindLightSpaceMatrix(renderer);
+            this.LightManager.BindLightSpaceMatrix(renderer, 3);
 
             // Bind the shadow map render target and clear the depth buffer
             renderer.BindRenderTarget(light.ShadowMap);
             renderer.SetViewport(new Viewport(csm.Width, csm.Height));
             renderer.Clear(RenderFlags.ClearFlags.Depth);
             renderer.EnableDepthTest();
-            GL.Enable(EnableCap.CullFace);
+            //GL.Enable(EnableCap.CullFace);
             renderer.SetCullMode(CullMode.Front);
             this.Elements.ForEach(e =>
             {
                 if(!e.Visible) return;
-                if(e is Primitive primive)
-                {
-                    var transform = primive.Transform;
-                    var mesh = primive.Mesh;
-                    renderer.DrawMesh(transform, mesh);
-                }
-                else if(e is StaticModel model) {
-                    var transform = model.Transform;
-                    var meshes = model.GetMeshes();
-                    foreach (var mesh in meshes)
-                    {
-                        renderer.DrawMesh(transform, mesh);
-                    }
-                }
+                e.RenderShadow(this, viewport, renderer);
             });
             renderer.SetCullMode(CullMode.Back);
-            GL.Disable(EnableCap.CullFace);
+            //GL.Disable(EnableCap.CullFace);
             renderer.DisableDepthTest();
             renderer.UnbindRenderTarget();
 
