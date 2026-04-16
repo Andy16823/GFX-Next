@@ -8,7 +8,6 @@ using LibGFX.Graphics.Shader;
 using LibGFX.Math;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using OpenTK.Graphics.OpenGL;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using System;
@@ -311,6 +310,11 @@ namespace LibGFX.Core
                 return;
             }
             var lightDir = light.Direction.Normalized();
+            //var lightDir = -light.Direction.Normalized(); // ← negieren!
+            Debug.WriteLine($"LightDir: {lightDir}, Length: {lightDir.Length}");
+            Debug.WriteLine($"Camera Projection: {camera.GetProjectionMatrix(viewport)}");
+            Debug.WriteLine($"Camera View: {camera.GetViewMatrix()}");
+
 
             var perspectiveCamera = camera as PerspectiveCamera;
             var (near, far) = perspectiveCamera.GetNearFar();
@@ -330,8 +334,6 @@ namespace LibGFX.Core
                 perspectiveCamera.SetNearFar(lastSplitDist, cascadeLevel);
                 var mat = Utils.ComputeLightViewProjectionMatrix(perspectiveCamera, viewport, lightDir);
                 lightSpaceMatrices.Add(mat);
-                Debug.WriteLine($"Cascade split: {lastSplitDist} - {cascadeLevel}");
-                Debug.WriteLine($"Light Space Matrix:\n{mat}");
                 lastSplitDist = cascadeLevel;
             }
             perspectiveCamera.SetNearFar(near, far);
@@ -341,13 +343,18 @@ namespace LibGFX.Core
             renderer.BindBuffer(RenderFlags.GFXBufferTarget.UniformBuffer, _lightMatrixBuffer);
             renderer.UpdateBufferData(_lightMatrixBuffer, lightSpaceMatrices.ToArray(), 0, RenderFlags.GFXBufferTarget.UniformBuffer);
             renderer.BindBufferBase(RenderFlags.GFXBufferTarget.UniformBuffer, 0, _lightMatrixBuffer);
+            renderer.SetProjectionMatrix(camera.GetProjectionMatrix(viewport));
+            renderer.SetViewMatrix(camera.GetViewMatrix());
 
             renderer.BindRenderTarget(_shaowMap);
-            renderer.SetViewport(viewport);
+            renderer.SetViewport(new Viewport(_shaowMap.Width, _shaowMap.Height));
             renderer.Clear(RenderFlags.ClearFlags.Depth);
+            renderer.EnableDepthTest();
+            GL.Enable(EnableCap.CullFace);
             renderer.SetCullMode(CullMode.Front);
             this.Elements.ForEach(e =>
             {
+                if(!e.Visible) return;
                 if(e is Primitive primive)
                 {
                     var transform = primive.Transform;
@@ -364,6 +371,8 @@ namespace LibGFX.Core
                 }
             });
             renderer.SetCullMode(CullMode.Back);
+            GL.Disable(EnableCap.CullFace);
+            renderer.DisableDepthTest();
             renderer.UnbindRenderTarget();
 
 

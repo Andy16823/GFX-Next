@@ -26,7 +26,7 @@ namespace LibGFX.Graphics.Shader
 
             this.GeometryShader = new Shader(@"
                 #version 460 core
-                layout (triangles, invocations = 5) in;
+                layout (triangles, invocations = 4) in;
                 layout (triangle_strip, max_vertices = 3) out;
 
                 layout (std140, binding = 0, row_major) uniform LightSpaceMatrices
@@ -38,7 +38,7 @@ namespace LibGFX.Graphics.Shader
                 {
                     for(int i = 0; i < 3; ++i)
                     {
-                        gl_Position = gl_in[i].gl_Position * lightSpaceMatrices[gl_InvocationID];
+                        gl_Position = gl_in[i].gl_Position * lightSpaceMatrices[gl_InvocationID]; // ✅
                         gl_Layer = gl_InvocationID; // Set the layer for the current invocation
                         EmitVertex();
                     }

@@ -10,6 +10,7 @@ using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Globalization;
@@ -666,9 +667,16 @@ namespace LibGFX.Core
             float minX = float.MaxValue, maxX = float.MinValue;
             float minY = float.MaxValue, maxY = float.MinValue;
             float minZ = float.MaxValue, maxZ = float.MinValue;
+
+            Debug.WriteLine($"Center: {center}");
+            Debug.WriteLine($"LightDir: {lightDir}");
+            Debug.WriteLine($"LightEye: {center + lightDir}");
+
             foreach (var corner in corners)
             {
                 var trf = Vector4.TransformRow(corner, lightView); // ✅
+                Debug.WriteLine($"LightSpace Corner: {trf.Xyz}");
+
                 minX = System.Math.Min(minX, trf.X);
                 maxX = System.Math.Max(maxX, trf.X);
                 minY = System.Math.Min(minY, trf.Y);
@@ -676,6 +684,10 @@ namespace LibGFX.Core
                 minZ = System.Math.Min(minZ, trf.Z);
                 maxZ = System.Math.Max(maxZ, trf.Z);
             }
+
+            Debug.WriteLine($"minX={minX} maxX={maxX}");
+            Debug.WriteLine($"minY={minY} maxY={maxY}");
+            Debug.WriteLine($"minZ={minZ} maxZ={maxZ}");
 
             float zMult = 10.0f;
             if(minZ < 0)
