@@ -7,15 +7,42 @@ using OpenTK.Graphics.OpenGL4;
 
 namespace LibGFX.Graphics
 {
+    /// <summary>
+    /// Render target for cascaded shadow mapping. It uses a texture array to store depth maps for multiple cascades in a single texture.
+    /// </summary>
     public class CascadedShadowMap : IRenderTarget
     {
+        /// <summary>
+        /// Frambuffer ID for rendering to the cascaded shadow map.
+        /// </summary>
         public int FramebufferId { get; set; }
-        public int TextureId { get; set; }
 
+        /// <summary>
+        /// Texture ID for the depth texture array that stores the shadow maps for each cascade.
+        /// </summary>
+        public int TextureId { get; set; }
+        
+        /// <summary>
+        /// Width of each shadow map in the cascaded shadow map.
+        /// </summary>
         public int Width { get; set; }
+
+        /// <summary>
+        /// Height of each shadow map in the cascaded shadow map.
+        /// </summary>
         public int Height { get; set; }
+
+        /// <summary>
+        /// Cascade count
+        /// </summary>
         public int CascadeCount { get; set; }
 
+        /// <summary>
+        /// Creates a new cascaded shadow map with the specified width, height, and cascade count. 
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="cascadeCount"></param>
         public CascadedShadowMap(int width, int height, int cascadeCount)
         {
             this.Width = width;
@@ -23,6 +50,10 @@ namespace LibGFX.Graphics
             this.CascadeCount = cascadeCount;
         }
 
+        /// <summary>
+        /// Creates the framebuffer and texture array for the cascaded shadow map.
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         public void Create()
         {
             var framebuffer = GL.GenFramebuffer();
@@ -55,21 +86,43 @@ namespace LibGFX.Graphics
             this.TextureId = lightDepthMaps;
         }
 
+        /// <summary>
+        /// Disposes of the framebuffer and texture resources used by the cascaded shadow map.
+        /// </summary>
         public void Dispose()
         {
             GL.DeleteFramebuffer(this.FramebufferId);
             GL.DeleteTexture(this.TextureId);
         }
 
+        /// <summary>
+        /// Gets the pixel data from the depth texture array of the cascaded shadow map. This can be used for debugging or analysis purposes.
+        /// </summary>
+        /// <returns>A byte array containing the pixel data of the depth texture array.</returns>
         public byte[] GetPixelData()
         {
-            throw new NotImplementedException();
+            GL.BindFramebuffer(FramebufferTarget.Framebuffer, this.FramebufferId);
+            byte[] pixelData = new byte[this.Width * this.Height * this.CascadeCount * sizeof(float)];
+            GL.ReadPixels(0, 0, this.Width, this.Height, PixelFormat.DepthComponent, PixelType.Float, pixelData);
+            GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
+            return pixelData;
         }
 
+        /// <summary>
+        /// Resizes the cascaded shadow map by updating the dimensions of the depth texture array. This is useful when the shadow map resolution needs to be changed dynamically.
+        /// </summary>
+        /// <param name="width">The new width of the shadow map.</param>
+        /// <param name="height">The new height of the shadow map.</param>
         public void Resize(int width, int height)
         {
-            // TODO: Implement resizing logic for cascaded shadow map. This may involve recreating the framebuffer and texture with the new dimensions.
-            throw new NotImplementedException();
+            if (width == this.Width && height == this.Height)
+            {
+                return;
+            }
+
+            GL.BindTexture(TextureTarget.Texture2DArray, this.TextureId);
+            GL.TexImage3D(TextureTarget.Texture2DArray, 0, PixelInternalFormat.DepthComponent, width, height, this.CascadeCount, 0, PixelFormat.DepthComponent, PixelType.Float, IntPtr.Zero);
+            GL.BindTexture(TextureTarget.Texture2DArray, 0);
         }
     }
 }
