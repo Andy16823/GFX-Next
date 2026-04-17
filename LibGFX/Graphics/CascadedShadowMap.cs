@@ -55,10 +55,21 @@ namespace LibGFX.Graphics
             this.TextureId = lightDepthMaps;
         }
 
-        public void Dispose(IRenderDevice renderer)
+        public void Dispose()
         {
             GL.DeleteFramebuffer(this.FramebufferId);
             GL.DeleteTexture(this.TextureId);
+        }
+
+        public byte[] GetPixelData()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Resize(int width, int height)
+        {
+            // TODO: Implement resizing logic for cascaded shadow map. This may involve recreating the framebuffer and texture with the new dimensions.
+            throw new NotImplementedException();
         }
     }
 }

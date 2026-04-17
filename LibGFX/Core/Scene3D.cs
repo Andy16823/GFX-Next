@@ -148,7 +148,7 @@ namespace LibGFX.Core
             OnDispose?.Invoke(this, renderer);
 
             // Dispose the render target
-            _renderTarget.Dispose(renderer);
+            _renderTarget.Dispose();
 
             // Dispose the light manager
             _lightManager.Dispose(renderer);
@@ -168,7 +168,8 @@ namespace LibGFX.Core
             OnInitStart?.Invoke(this, viewport, renderer);
 
             // Create the render target for the scene
-            _renderTarget = renderer.CreateMSAARenderTarget2D(viewport.Width, viewport.Height, (int)this.Samples);
+            _renderTarget = new MSAARenderTarget2D(viewport.Width, viewport.Height, (int)this.Samples);
+            _renderTarget.Create();
 
             // After render target creation event
             AfterRenderTargetCreation?.Invoke(this, viewport, renderer);
@@ -232,7 +233,7 @@ namespace LibGFX.Core
             renderer.SetViewMatrix(camera.GetViewMatrix());
 
             // Render the scene to the render target
-            renderer.ResizeRenderTarget(_renderTarget, viewport.Width, viewport.Height);
+            _renderTarget.Resize(viewport.Width, viewport.Height);
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
@@ -274,7 +275,7 @@ namespace LibGFX.Core
 
             // Unbind the render target and set the depth test state back to the original state
             renderer.UnbindRenderTarget();
-            renderer.ResolveRenderTarget(_renderTarget);
+            _renderTarget.ResolveMultisample();
             renderer.SetDepthTest(dephTest);
 
             // On render end.

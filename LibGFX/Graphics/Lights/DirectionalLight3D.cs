@@ -85,7 +85,7 @@ namespace LibGFX.Graphics.Lights
         public override void Dispose(IRenderDevice renderer)
         {
             Debug.WriteLine($"Disposing Shadow Map for Directional Light: {this.GetType().Name} at {Position}");
-            this.ShadowMap.Dispose(renderer);
+            this.ShadowMap.Dispose();
         }
 
         /// <summary>

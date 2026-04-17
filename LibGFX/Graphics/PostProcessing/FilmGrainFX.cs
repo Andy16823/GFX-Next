@@ -59,19 +59,20 @@ namespace LibGFX.Graphics.PostProcessing
         public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)
         {
             _shader = new FilmGrainFXShader();
-            this.RenderTarget = renderer.CreateRenderTarget2D(viewport.Width, viewport.Height);
+            this.RenderTarget = new RenderTarget2D(viewport.Width, viewport.Height);
+            this.RenderTarget.Create();
             renderer.BuildRenderShader(_shader);
         }
 
         public void Dispose(PostProcessStack stack, IRenderDevice renderer)
         {
-            this.RenderTarget.Dispose(renderer);
+            this.RenderTarget.Dispose();
             renderer.DisposeRenderShader(_shader);
         }
 
         public void Resize(Viewport viewport, IRenderDevice renderer)
         {
-            renderer.ResizeRenderTarget(this.RenderTarget, viewport.Width, viewport.Height);
+            this.RenderTarget.Resize(viewport.Width, viewport.Height);
             _resolution = new Vector2(viewport.Width, viewport.Height);
         }
 
