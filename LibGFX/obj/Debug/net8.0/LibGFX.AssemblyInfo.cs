@@ -13,11 +13,11 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("Andy16823")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.2.3")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.2.3+2a076f34048dd846e44f14bd4c4478691412c7fa")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.2.4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.2.4+d3f504fa3729b0fcf5f5613a43c2b826b30324ad")]
 [assembly: System.Reflection.AssemblyProductAttribute("LibGFX")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LibGFX")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.1.2.3")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.1.2.4")]
 
 // Von der MSBuild WriteCodeFragment-Klasse generiert.
 
