@@ -200,7 +200,7 @@ namespace LibGFX.Graphics.Shader
 
                     float shadow = 0.0;
                     if (castsShadows == 1) {
-                        shadow = ShadowCalculation(position, fragPosViewSpace, normal, dirLight);
+                        shadow = ShadowCalculation(position, fragPosViewSpace, norm, dirLight);
                     }
                     vec3 result = CalcDirLight(dirLight, norm, viewDir, shadow, localUV);
                     for (int i = 0; i < pointLights.length(); i++) {
