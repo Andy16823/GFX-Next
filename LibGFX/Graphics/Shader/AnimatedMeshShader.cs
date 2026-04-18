@@ -23,7 +23,6 @@ namespace LibGFX.Graphics.Shader
                 uniform mat4 p_mat;
                 uniform mat4 v_mat;
                 uniform mat4 m_mat;
-                uniform mat4 lightSpaceMatrix;
 	
                 const int MAX_BONES = 100;
                 const int MAX_BONE_INFLUENCE = 4;
@@ -33,7 +32,7 @@ namespace LibGFX.Graphics.Shader
                 out vec4 tangent;  
                 out vec3 position;
                 out vec3 normal;
-                out vec4 fragPosLightSpace;
+                out vec4 fragPosViewSpace;
 	
                 void main()
                 {
@@ -58,7 +57,7 @@ namespace LibGFX.Graphics.Shader
                     normal = norm * transpose(inverse(mat3(m_mat)));
                     texCoord = tex;
                     tangent = tan;
-                    fragPosLightSpace = vec4(position, 1.0) * lightSpaceMatrix;
+                    fragPosViewSpace = vec4(position, 1.0) * v_mat;
                 }
             ");
 
@@ -70,11 +69,16 @@ namespace LibGFX.Graphics.Shader
                 in vec3 normal;
                 in vec2 texCoord;
                 in vec4 tangent;
-                in vec4 fragPosLightSpace;
+                in vec4 fragPosViewSpace;
 
                 out vec4 fragColor;
                 uniform vec3 viewPos;
-                uniform sampler2D shadowMap;
+
+                uniform sampler2DArray shadowMap;
+                uniform int cascadeCount;
+                uniform float cascadePlaneDistances[16];
+                uniform mat4 lightSpaceMatrices[16];
+                uniform float farPlane;
 
                 struct DirLight {
                     vec3 direction;
@@ -164,28 +168,46 @@ namespace LibGFX.Graphics.Shader
                     return (ambient + diffuse + specular);
                 } 
 
-                float ShadowCalculation(vec4 fragPosLightSpace, vec3 normal, DirLight light) {
-                    vec3 lightDir = normalize(-light.direction);
+                float ShadowCalculation(vec3 fragPosWorldSpace, vec4 fragPosViewSpace, vec3 normal, DirLight light) {
+    
+                    float depthValue = abs(fragPosViewSpace.z);
+    
+                    // ✅ Default = letzter Layer (nie out of bounds)
+                    int layer = cascadeCount - 1;
+                    for (int i = 0; i < cascadeCount; ++i) {
+                        if (depthValue < cascadePlaneDistances[i]) {
+                            layer = i;
+                            break;
+                        }
+                    }
+
+                    vec4 fragPosLightSpace = vec4(fragPosWorldSpace, 1.0) * lightSpaceMatrices[layer];
+    
                     vec3 projCoords = fragPosLightSpace.xyz / fragPosLightSpace.w;
                     projCoords = projCoords * 0.5 + 0.5;
-                    float closestDepth = texture(shadowMap, projCoords.xy).r; 
+
                     float currentDepth = projCoords.z;
-                    float bias = max(0.05 * (1.0 - dot(normal, lightDir)), 0.005);  
+                    if(currentDepth > 1.0) return 0.0;
+
+                    vec3 lightDir = normalize(-light.direction);
+                    float bias = max(0.05 * (1.0 - dot(normal, lightDir)), 0.005);
+                    // ✅ Kein cascadeCount-Vergleich mehr nötig
+                    bias *= 1.0 / (cascadePlaneDistances[layer] * 0.5);
+
                     float shadow = 0.0;
-                    vec2 texelSize = 1.0 / textureSize(shadowMap, 0);
-                    for(int x = -1; x <= 1; ++x)
-                    {
-                        for(int y = -1; y <= 1; ++y)
-                        {
-                            float pcfDepth = texture(shadowMap, projCoords.xy + vec2(x, y) * texelSize).r; 
-                            shadow += currentDepth - bias > pcfDepth ? 1.0 : 0.0;        
-                        }    
+                    vec2 texelSize = 1.0 / vec2(textureSize(shadowMap, 0));
+                    for (int x = -1; x <= 1; ++x) {
+                        for (int y = -1; y <= 1; ++y) {
+                            float pcfDepth = texture(
+                                shadowMap,
+                                vec3(projCoords.xy + vec2(x, y) * texelSize, layer)
+                            ).r;
+                            shadow += (currentDepth - bias) > pcfDepth ? 1.0 : 0.0;
+                        }
                     }
                     shadow /= 9.0;
-                    
-                    if(projCoords.z > 1.0)
-                            shadow = 0.0;
 
+                    if (projCoords.z > 1.0) shadow = 0.0;
                     return shadow;
                 }
 
@@ -198,7 +220,7 @@ namespace LibGFX.Graphics.Shader
                     vec3 norm = normalize(TBN*normalMap);
                     vec3 viewDir = normalize(viewPos-position);
 
-                    float shadow = ShadowCalculation(fragPosLightSpace, normal, dirLight);
+                    float shadow = ShadowCalculation(position, fragPosViewSpace, normal, dirLight);
                     vec3 result = CalcDirLight(dirLight, norm, viewDir, shadow, localUV);
                     for (int i = 0; i < pointLights.length(); i++) {
                         result += CalcPointLight(pointLights[i], norm, position, viewDir, localUV);
