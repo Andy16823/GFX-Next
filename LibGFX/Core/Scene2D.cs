@@ -551,7 +551,7 @@ namespace LibGFX.Core
             OnRenderEnd?.Invoke(this, viewport, renderer, camera);
         }
 
-        public override void RenderShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera)
+        public override void BuildShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             throw new NotImplementedException("Shadow mapping is not implemented for 2D scenes.");
         }
