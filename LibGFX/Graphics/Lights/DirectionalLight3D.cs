@@ -38,9 +38,9 @@ namespace LibGFX.Graphics.Lights
         public float Bias { get; set; } = 0.005f;
 
         /// <summary>
-        /// Gets a value indicating whether this object supports a shadow map.
+        /// Gets or sets a value indicating whether the object casts shadows in the scene.
         /// </summary>
-        public override bool HasShadowMap => true;
+        public override bool CastsShadows { get; set; } = true;
 
         /// <summary>
         /// Initializes a new instance of the DirectionalLight3D class.
@@ -64,6 +64,7 @@ namespace LibGFX.Graphics.Lights
             Intensity = intensity;
             Ambient = new Vector3(0.2f, 0.2f, 0.2f);
             Specular = new Vector3(1.0f, 1.0f, 1.0f);
+            ShadowMapSize = new Vector2i(8192, 8192);
         }
 
         /// <summary>
@@ -73,9 +74,8 @@ namespace LibGFX.Graphics.Lights
         public override void Init(IRenderDevice renderer)
         {
             Debug.WriteLine($"Creating Shadow Map for Directional Light: {this.GetType().Name} at {Position} with size {ShadowMapSize}");
-            var csm = new CascadedShadowMap(8192, 8192, 4);
-            csm.Create();
-            this.ShadowMap = csm;
+            this.ShadowMap = new CascadedShadowMap(this.ShadowMapSize.X, this.ShadowMapSize.Y, 4); // 4 Cascades because the shaders are hardcoded to 4 invokations, this can be changed in the future to be more flexible
+            this.ShadowMap.Create();
         }
 
         /// <summary>

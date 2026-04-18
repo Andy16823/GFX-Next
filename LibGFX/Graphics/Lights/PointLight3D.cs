@@ -67,9 +67,9 @@ namespace LibGFX.Graphics.Lights
         public override float Intensity { get => _intensity; set => SetIntensity(value); }
 
         /// <summary>
-        /// Determines if the light has a shadow map.
+        /// Determines whether this light casts shadows. If true, the light will contribute to shadow rendering and will require a shadow map to be generated.
         /// </summary>
-        public override bool HasShadowMap => false;
+        public override bool CastsShadows { get; set; }
 
         // light intensity
         private float _intensity;

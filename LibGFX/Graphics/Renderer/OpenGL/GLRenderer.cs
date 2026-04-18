@@ -1780,6 +1780,10 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void PrepareShader(string uniformName, bool transpose, Matrix4[] matrices)
         {
+            if(matrices.Length == 0)
+            {
+                throw new ArgumentException("Matrix array cannot be empty.", nameof(matrices));
+            }
             var locationId = GetUniformLocation(_currentProgram, uniformName);
             GL.ProgramUniformMatrix4(_currentProgram, locationId, matrices.Length, transpose, ref matrices[0].Row0.X);
         }

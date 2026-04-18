@@ -292,10 +292,11 @@ namespace LibGFX.Core
         {
             // Get the directional light and its shadow map. 
             var light = this.DirectionalLight as DirectionalLight3D;
-            if(light == null || !light.HasShadowMap || !this.PerformShadowPass)
+            if(light == null || light.ShadowMap == null || !light.CastsShadows || !this.PerformShadowPass)
             {
                 return;
             }
+
             // Ensure the shadow map is a cascaded shadow map since only that type is supported for directional lights in this implementation
             var csm = light.ShadowMap as CascadedShadowMap;
             if(csm == null)

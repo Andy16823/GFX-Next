@@ -104,11 +104,8 @@ namespace LibGFX.Graphics.Lights
         // the point light SSBO
         private int _pointLightsSSBO;
 
-        // the shadow map ID
-        private int _shadowMapId;
-
         // the light view matrix for shadow mapping
-        private List<Matrix4> _lightViewMatrix = new List<Matrix4>();
+        private List<Matrix4> _lightViewMatrix = new List<Matrix4>(new Matrix4[16]);
 
         // the buffer for the light space matrices
         private int _lightMatrixBuffer;
@@ -149,6 +146,8 @@ namespace LibGFX.Graphics.Lights
             {
                 throw new Exception("Directional light shadow map is not a CascadedShadowMap. Shadow mapping for directional lights requires a CascadedShadowMap.");
             }
+
+            // Bind the shadow map texture and light space matrices for each cascade level
             renderer.PrepareShaderArrayTexture("shadowMap", 6, csm.TextureId);
             renderer.PrepareShader("cascadeCount", csm.CascadeCount);
             renderer.PrepareShader("lightSpaceMatrices", true, _lightViewMatrix.ToArray());
@@ -161,11 +160,7 @@ namespace LibGFX.Graphics.Lights
             };
             renderer.PrepareShader("cascadePlaneDistances", cascadeLevels.Length, cascadeLevels);
             renderer.PrepareShader("cameraFar", camera.Far);
-
-
-
-            //renderer.PrepareShader("shadowMap", 6, this.DirectionalLight.ShadowMap.DepthTextureId);
-            //renderer.PrepareShader("lightSpaceMatrix", true, _lightViewMatrix);
+            renderer.PrepareShader("castsShadows", this.DirectionalLight.CastsShadows ? 1 : 0);
 
             // Bind the lightning data
             renderer.PrepareShader("dirLight.direction", DirectionalLight.Direction);
@@ -227,6 +222,7 @@ namespace LibGFX.Graphics.Lights
             });
             this.IsInitialized = true;
 
+            // Initialize the buffer for the light space matrices
             _lightMatrixBuffer = renderDevice.CreateBuffer();
             var matrixSize = 16 * sizeof(float);
             renderDevice.SetBufferSize(_lightMatrixBuffer, 16 * matrixSize, RenderFlags.GFXBufferTarget.UniformBuffer, RenderFlags.GFXBufferUsageHint.DynamicDraw);

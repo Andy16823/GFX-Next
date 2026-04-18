@@ -34,9 +34,9 @@ namespace LibGFX.Graphics.Lights
         public float Radius { get; set; }
 
         /// <summary>
-        /// Determines if the light has a shadow map.
+        /// Determines whether this light casts shadows. If true, the light will contribute to shadow rendering and will require a shadow map to be generated.
         /// </summary>
-        public override bool HasShadowMap => false;
+        public override bool CastsShadows { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the PointLight2D class.

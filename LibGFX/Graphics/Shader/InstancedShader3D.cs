@@ -68,6 +68,7 @@ namespace LibGFX.Graphics.Shader
                 uniform float cascadePlaneDistances[16];
                 uniform mat4 lightSpaceMatrices[16];
                 uniform float farPlane;
+                uniform int castsShadows;
 
                 struct DirLight {
                     vec3 direction;
@@ -207,8 +208,11 @@ namespace LibGFX.Graphics.Shader
                     normalMap = normalMap*2.0-1.0;
                     vec3 norm = normalize(TBN*normalMap);
                     vec3 viewDir = normalize(viewPos-position);
-
-                    float shadow = ShadowCalculation(position, fragPosViewSpace, normal, dirLight);
+                    
+                    float shadow = 0.0;
+                    if (castsShadows == 1) {
+                        shadow = ShadowCalculation(position, fragPosViewSpace, normal, dirLight);
+                    }
                     vec3 result = CalcDirLight(dirLight, norm, shadow, viewDir);
                     for (int i = 0; i < pointLights.length(); i++) {
                         result += CalcPointLight(pointLights[i], norm, position, viewDir);
