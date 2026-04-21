@@ -44,6 +44,14 @@ namespace LibGFX.Assets
         public T Load<T>(string filePath) where T : class, IFileAsset, new()
         {
             var fileName = System.IO.Path.GetFileName(filePath);
+
+            // Check if the asset is already loaded
+            if (_assets.ContainsKey((typeof(T), fileName)))
+            {
+                return (T)_assets[(typeof(T), fileName)];
+            }
+
+            // Load the asset from the file and add it to the asset manager
             T asset = new T();
             asset.LoadFromFile(filePath);
             return this.Add(fileName,asset);
@@ -160,6 +168,35 @@ namespace LibGFX.Assets
                 {
                     action(asset as T);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Executes an action for each asset of a specific type in the asset manager, providing both the asset name and the asset instance to the action.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="action"></param>
+        public void ForeachAsset<T>(Action<string, T> action) where T : class
+        {
+            Type targetType = typeof(T);
+            foreach (var kvp in _assets)
+            {
+                if (targetType.IsAssignableFrom(kvp.Value.GetType()))
+                {
+                    action(kvp.Key.Item2, kvp.Value as T);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Executes an action for each asset in the asset manager, providing both the asset name and the asset instance to the action.
+        /// </summary>
+        /// <param name="action"></param>
+        public void ForeachAsset(Action<string, IAsset> action)
+        {
+            foreach (var kvp in _assets)
+            {
+                action(kvp.Key.Item2, kvp.Value);
             }
         }
 
