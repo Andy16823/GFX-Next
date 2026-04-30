@@ -176,5 +176,23 @@ namespace LibGFX.Core.GameElements
             this.Transform.Position = LightSource.Position;
             this.Transform.Changed += Transform_Changed;
         }
+
+        /// <summary>
+        /// Returns a deep copy of the current PointLight3DHandle instance, including its transform and behaviors.
+        /// </summary>
+        /// <returns>A new instance of <see cref="PointLight3DHandle"/> that is a deep copy of the current instance.</returns>
+        public override GameElement Clone()
+        {
+            var clone = new PointLight3DHandle(this.Name, this.LightSource.Position, this.LightSource.Color, this.LightSource.Range, this.LightSource.Intensity);
+            clone.Transform = this.Transform.Clone();
+
+            foreach (var behavior in this.Behaviors)
+            {
+                var clonedBehavior = behavior.Clone();
+                clone.AddBehavior(clonedBehavior);
+            }
+
+            return clone;
+        }
     }
 }

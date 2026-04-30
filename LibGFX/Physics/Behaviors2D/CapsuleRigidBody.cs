@@ -49,5 +49,16 @@ namespace LibGFX.Physics.Behaviors2D
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
             info.Dispose();
         }
+
+        /// <summary>
+        /// Returns a clone of the CapsuleRigidBody
+        /// </summary>
+        /// <returns></returns>
+        public override CapsuleRigidBody Clone()
+        {
+            var clone = new CapsuleRigidBody(this.PhysicsHandler);
+            clone.Offset = this.Offset;
+            return clone;
+        }
     }
 }

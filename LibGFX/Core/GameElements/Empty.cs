@@ -32,5 +32,23 @@ namespace LibGFX.Core.GameElements
         {
             this.AABB = new Math.AABB(Vector3.Zero, Vector3.Zero);
         }
+
+        /// <summary>
+        /// Returns a new instance of the Empty class that is a copy of the current instance.
+        /// </summary>
+        /// <returns></returns>
+        public override GameElement Clone()
+        {
+            var clone = new Empty(this.Name, this.Transform.Position);
+            clone.Transform = this.Transform.Clone();
+
+            foreach (var behavior in this.Behaviors)
+            {
+                var cloneBehavior = behavior.Clone();
+                clone.AddBehavior(cloneBehavior);
+            }
+
+            return clone;
+        }
     }
 }

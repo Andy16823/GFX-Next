@@ -327,5 +327,22 @@ namespace LibGFX.Core.GameElements
                 this.Transform.Scale.X,
                 this.Transform.Scale.Y);
         }
+
+        /// <summary>
+        /// Returns a new instance of the Sprite class that is a copy of the current instance.
+        /// </summary>
+        /// <returns></returns>
+        public override GameElement Clone()
+        {
+            var clone = new Sprite(this.Name, this.Transform.Position, this.Transform.Scale, this.Material);
+            clone.Name = this.Name;
+
+            foreach (var behavior in this.Behaviors)
+            {
+                clone.AddBehavior(behavior.Clone());
+            }
+
+            return clone;
+        }
     }
 }

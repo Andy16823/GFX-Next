@@ -304,5 +304,18 @@ namespace LibGFX.Audio
                 }
             }
         }
+
+        /// <summary>
+        /// Returns a clone of the audio source with the same parameters
+        /// </summary>
+        /// <returns></returns>
+        public IGameBehavior Clone()
+        {
+            var clone = new AudioSource(_audioDevice, _playMode);
+            clone.SetAudioClip(_audioClip);
+            clone.SetGain(_gain);
+            clone.SetRange(_range);
+            return clone;
+        }
     }
 }

@@ -71,5 +71,16 @@ namespace LibGFX.Physics.Behaviors2D
         {
             CreateRigidBody(mass, new Vector3(0.5f, 0.5f, 0.0f), collisionGroup, collisionMask);
         }
+
+        /// <summary>
+        /// Returns a clone of the BoxRigidBody
+        /// </summary>
+        /// <returns></returns>
+        public override BoxRigidBody Clone()
+        {
+            var clone = new BoxRigidBody(this.PhysicsHandler);
+            clone.Offset = this.Offset;
+            return clone;
+        }
     }
 }

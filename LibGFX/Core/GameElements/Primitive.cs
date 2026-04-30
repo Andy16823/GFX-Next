@@ -268,5 +268,24 @@ namespace LibGFX.Core.GameElements
             assets.Add(mesh);
             return new Primitive(name, mesh, material);
         }
+
+        /// <summary>
+        /// Creates a deep copy of the primitive, including its mesh, material, transform, and behaviors.
+        /// </summary>
+        /// <returns></returns>
+        public override GameElement Clone()
+        {
+            // TODO: Add tags to the clone if needed
+            var clone = new Primitive(this.Name, this.Mesh, this.Material);
+            clone.Transform = this.Transform.Clone();
+
+            foreach (var behavior in this.Behaviors)
+            {
+                var bhvClone = behavior.Clone();
+                clone.AddBehavior(bhvClone);
+            }
+
+            return clone;
+        }
     }
 }

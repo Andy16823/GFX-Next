@@ -45,5 +45,16 @@ namespace LibGFX.Physics.Behaviors3D
             Collider.CollisionShape.LocalScaling = (System.Numerics.Vector3)element.Transform.Scale;
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
         }
+
+        /// <summary>
+        /// Returns a clone of the BoxCollider
+        /// </summary>
+        /// <returns></returns>
+        public override BoxCollider Clone()
+        {
+            var clone = new BoxCollider(this.PhysicsHandler);
+            clone.Offset = this.Offset;
+            return clone;
+        }
     }
 }

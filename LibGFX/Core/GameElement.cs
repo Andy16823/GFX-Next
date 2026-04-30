@@ -16,7 +16,7 @@ namespace LibGFX.Core
     /// <summary>
     /// Represents a game element
     /// </summary>
-    public abstract class GameElement : IIdentifier, IPropertyTable, ISerialization
+    public abstract class GameElement : IIdentifier, IPropertyTable, ISerialization, ICloneable<GameElement>
     {
         /// <summary>
         /// The name of the game element
@@ -368,6 +368,12 @@ namespace LibGFX.Core
         {
             return this.Children.OfType<T>().Where(c => c.Name == name).ToArray();
         }
+
+        /// <summary>
+        /// Clones the current game element, creating a new instance with the same properties and hierarchy.
+        /// </summary>
+        /// <returns></returns>
+        public abstract GameElement Clone();
 
         /// <summary>
         /// Serializes the current object and its hierarchy into a JSON representation.

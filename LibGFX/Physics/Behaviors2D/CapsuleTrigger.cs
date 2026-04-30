@@ -41,5 +41,16 @@ namespace LibGFX.Physics.Behaviors2D
             Trigger.CollisionFlags = CollisionFlags.NoContactResponse;
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
         }
+
+        /// <summary>
+        /// Returns a clone of the CapsuleTrigger
+        /// </summary>
+        /// <returns></returns>
+        public override CapsuleTrigger Clone()
+        {
+            var clone = new CapsuleTrigger(this.PhysicsHandler);
+            clone.Offset = this.Offset;
+            return clone;
+        }
     }
 }

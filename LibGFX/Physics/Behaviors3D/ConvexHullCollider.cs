@@ -1,4 +1,5 @@
 ﻿using BulletSharp;
+using LibGFX.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,17 @@ namespace LibGFX.Physics.Behaviors3D
             Collider.CollisionShape = collisionShape;
             Collider.WorldTransform = btStartTransform;
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
+        }
+
+        /// <summary>
+        /// Returns a clone of the ConvexHullCollider
+        /// </summary>
+        /// <returns></returns>
+        public override ConvexHullCollider Clone()
+        {
+            var clone = new ConvexHullCollider(this.PhysicsHandler);
+            clone.Offset = this.Offset;
+            return clone;
         }
     }
 }

@@ -45,5 +45,16 @@ namespace LibGFX.Physics.Behaviors3D
             Trigger.CollisionFlags = CollisionFlags.NoContactResponse;
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
         }
+
+        /// <summary>
+        /// Returns a clone of the BoxTrigger
+        /// </summary>
+        /// <returns></returns>
+        public override BoxTrigger Clone()
+        {
+            var clone = new BoxTrigger(this.PhysicsHandler);
+            clone.Offset = this.Offset;
+            return clone;
+        }
     }
 }

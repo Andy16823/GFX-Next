@@ -13,7 +13,7 @@ namespace LibGFX.Physics.Behaviors2D
     /// <summary>
     /// Represents a 2D trigger collider behavior
     /// </summary>
-    public class TriggerBehavior : PhysicsBehavior
+    public abstract class TriggerBehavior : PhysicsBehavior
     {
         /// <summary>
         /// The trigger object

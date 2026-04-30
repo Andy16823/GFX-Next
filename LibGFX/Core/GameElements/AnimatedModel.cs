@@ -220,5 +220,25 @@ namespace LibGFX.Core.GameElements
         {
             return _model;
         }
+
+        /// <summary>
+        /// Clones the current AnimatedModel instance, creating a new instance with the same properties and state.
+        /// </summary>
+        /// <returns></returns>
+        override public GameElement Clone()
+        {
+            var clone = new AnimatedModel(this.Name, this.Transform.Position, this.Transform.Scale, this._model);
+            clone.Transform = this.Transform.Clone();
+            clone.AnimationSpeed = this.AnimationSpeed;
+            clone.Animator.CurrentAnimation = this.Animator.CurrentAnimation;
+
+            foreach (var behavior in this.Behaviors)
+            {
+                var clonedBehavior = behavior.Clone();
+                clone.AddBehavior(clonedBehavior);
+            }
+
+            return clone;
+        }
     }
 }

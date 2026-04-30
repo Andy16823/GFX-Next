@@ -46,5 +46,16 @@ namespace LibGFX.Physics.Behaviors2D
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
             info.Dispose();
         }
+
+        /// <summary>
+        /// Returns a clone of the SphereRigidBody
+        /// </summary>
+        /// <returns></returns>
+        public override SphereRigidBody Clone()
+        {
+            var clone = new SphereRigidBody(this.PhysicsHandler);
+            clone.Offset = this.Offset;
+            return clone;
+        }
     }
 }

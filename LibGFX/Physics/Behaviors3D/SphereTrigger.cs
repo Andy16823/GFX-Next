@@ -44,5 +44,16 @@ namespace LibGFX.Physics.Behaviors3D
             Trigger.CollisionFlags = CollisionFlags.NoContactResponse;
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
         }
+
+        /// <summary>
+        /// Returns a clone of the current SphereTrigger
+        /// </summary>
+        /// <returns></returns>
+        public override SphereTrigger Clone()
+        {
+            var clone = new SphereTrigger(this.PhysicsHandler);
+            clone.Offset = this.Offset;
+            return clone;
+        }
     }
 }

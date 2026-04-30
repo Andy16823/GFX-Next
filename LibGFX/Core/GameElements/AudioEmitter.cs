@@ -126,5 +126,11 @@ namespace LibGFX.Core.GameElements
 
             this.AABB = new AABB(min, max);
         }
+
+        public override GameElement Clone()
+        {
+            // TODO: Implement Clone method for AudioEmitter
+            throw new NotImplementedException();
+        }
     }
 }

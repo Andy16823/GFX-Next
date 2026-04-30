@@ -14,7 +14,7 @@ namespace LibGFX.Math
     /// <summary>
     /// Represents a 3D transformation.
     /// </summary>
-    public class Transform : ISerialization
+    public class Transform : ISerialization, ICloneable<Transform>
     {
         private Vector3 _position;
         /// <summary>
@@ -127,6 +127,19 @@ namespace LibGFX.Math
             this.Position = matrix.ExtractTranslation();
             this.Scale = matrix.ExtractScale();
             this.Rotation = matrix.ExtractRotation();  
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Transform"/> class with position, rotation as a quaternion, and scale.
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="rotation"></param>
+        /// <param name="scale"></param>
+        public Transform(Vector3 position, Quaternion rotation, Vector3 scale)
+        {
+            this.Position = position;
+            this.Rotation = rotation;
+            this.Scale = scale;
         }
 
         /// <summary>
@@ -503,6 +516,15 @@ namespace LibGFX.Math
             this.Scale = Utils.DeserializeVec3(obj.Value<JObject>("Scale"));
 
             callback?.Invoke(obj);
+        }
+
+        /// <summary>
+        /// Returns a new instance of the Transform class that is a copy of the current instance.
+        /// </summary>
+        /// <returns></returns>
+        public Transform Clone()
+        {
+            return new Transform(this.Position, this.Rotation, this.Scale);
         }
     }
 }

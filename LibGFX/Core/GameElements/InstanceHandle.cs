@@ -125,5 +125,11 @@ namespace LibGFX.Core.GameElements
             // Same AABB as the mesh since instancing uses the same geometry
             this.AABB = mesh.Bounds;
         }
+
+        public override GameElement Clone()
+        {
+            // TODO: Implement cloning logic for InstanceHandle
+            throw new NotImplementedException();
+        }
     }
 }
