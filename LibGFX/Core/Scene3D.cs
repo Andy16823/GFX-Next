@@ -258,8 +258,6 @@ namespace LibGFX.Core
             OnDisposeEnd?.Invoke(this, renderer);
         }
 
-        
-
         /// <summary>
         /// Renders the scene and all its layers
         /// </summary>
@@ -557,7 +555,7 @@ namespace LibGFX.Core
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public override ICollection<GameElement> FindElementsWithBehavior<T>()
+        public override ICollection<GameElement> GetElementsWithBehavior<T>()
         {
             return this.Elements.Where(e => e.GetBehavior<T>() != null).ToList();
         }
@@ -567,9 +565,9 @@ namespace LibGFX.Core
         /// </summary>
         /// <param name="tag"></param>
         /// <returns></returns>
-        public override ICollection<GameElement> FindElementsWithTag(string tag)
+        public override ICollection<GameElement> GetElementsWithProperty(string key)
         {
-            return this.Elements.Where(e => e.Tags.Contains(tag)).ToList();
+            return this.Elements.Where(e => e.HasProperty(key)).ToList();
         }
 
         /// <summary>

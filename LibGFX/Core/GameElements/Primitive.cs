@@ -275,7 +275,6 @@ namespace LibGFX.Core.GameElements
         /// <returns></returns>
         public override GameElement Clone()
         {
-            // TODO: Add tags to the clone if needed
             var clone = new Primitive(this.Name, this.Mesh, this.Material);
             clone.Transform = this.Transform.Clone();
 
@@ -283,6 +282,17 @@ namespace LibGFX.Core.GameElements
             {
                 var bhvClone = behavior.Clone();
                 clone.AddBehavior(bhvClone);
+            }
+
+            foreach (var property in this.Properties)
+            {
+                clone.AddProperty(property.Key, property.Value);
+            }
+
+            foreach (var child in this.Children)
+            {
+                var childClone = child.Clone();
+                clone.AddChild(childClone);
             }
 
             return clone;

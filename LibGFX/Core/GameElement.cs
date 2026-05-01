@@ -59,11 +59,6 @@ namespace LibGFX.Core
         public List<IGameBehavior> Behaviors { get; set; }
 
         /// <summary>
-        /// A set of tags associated with the game element, used for categorization or filtering.
-        /// </summary>
-        public HashSet<string> Tags { get; private set; }
-
-        /// <summary>
         /// The axis-aligned bounding box (AABB) of the game element.
         /// </summary>
         public AABB AABB { get; set; }
@@ -99,7 +94,6 @@ namespace LibGFX.Core
         protected GameElement()
         {
             this.Behaviors = new List<IGameBehavior>();
-            this.Tags = new HashSet<string>();
             this.ID = Guid.NewGuid();
         }
 
@@ -254,29 +248,30 @@ namespace LibGFX.Core
         /// <summary>
         /// Adds a tag to the game element.
         /// </summary>
-        /// <param name="tag"></param>
-        public void AddTag(string tag)
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        public void AddProperty(string key, object value)
         {
-            this.Tags.Add(tag);
+            this.Properties.TryAdd(key, value);
         }
 
         /// <summary>
         /// Removes a tag from the game element.
         /// </summary>
-        /// <param name="tag"></param>
-        public void RemoveTag(string tag)
+        /// <param name="key"></param>
+        public bool RemoveProperty(string key)
         {
-            this.Tags.Remove(tag);
+            return this.Properties.Remove(key);
         }
 
         /// <summary>
-        /// Checks if the game element has a specific tag.
+        /// Checks if the game element has a specific property.
         /// </summary>
-        /// <param name="tag"></param>
+        /// <param name="key"></param>
         /// <returns></returns>
-        public bool HasTag(string tag)
+        public bool HasProperty(string key)
         {
-            return this.Tags.Contains(tag);
+            return this.Properties.ContainsKey(key);
         }
 
         /// <summary>
@@ -410,13 +405,6 @@ namespace LibGFX.Core
             writer.WriteStartArray();
             // Empty for now TODO: Serialize behaviors
             writer.WriteEndArray();
-            writer.WritePropertyName("Tags");
-            writer.WriteStartArray();
-            foreach (var tag in this.Tags)
-            {
-                writer.WriteValue(tag);
-            }
-            writer.WriteEndArray();
             writer.WritePropertyName("AABB");
             Utils.SerializeAABB(this.AABB, writer);
             writer.WritePropertyName("WorldAABB");
@@ -471,13 +459,6 @@ namespace LibGFX.Core
                 {
                     throw new Exception("Parent GameElement not found during deserialization.");
                 }
-            }
-
-            // Deserialize Tags
-            this.Tags = new HashSet<string>();
-            foreach (var tagToken in obj.Value<JArray>("Tags")!)
-            {
-                this.Tags.Add(tagToken.Value<string>()!);
             }
 
             // Deserialize Metadata

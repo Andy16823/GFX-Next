@@ -241,13 +241,13 @@ namespace LibGFX.Core
         /// <typeparam name="T">The type of behavior to search for. Must be implemented by the game elements to be included in the results.</typeparam>
         /// <returns>A collection of game elements that implement the specified behavior type. The collection is empty if no
         /// elements with the behavior are found.</returns>
-        public override ICollection<GameElement> FindElementsWithBehavior<T>()
+        public override ICollection<GameElement> GetElementsWithBehavior<T>()
         {
             List<GameElement> elements = new List<GameElement>();
 
             this.Layers.AsParallel().ForAll(layer =>
             {
-                elements.AddRange(layer.FindElementsWithBehavior<T>());
+                elements.AddRange(layer.GetElementsWithBehavior<T>());
             });
 
             return elements;
@@ -261,9 +261,9 @@ namespace LibGFX.Core
         /// <param name="tag">The tag to search for. Only elements with this tag will be included in the results. Cannot be null.</param>
         /// <returns>A collection of game elements that have the specified tag. The collection is empty if no elements with the
         /// tag are found.</returns>
-        public override ICollection<GameElement> FindElementsWithTag(string tag)
+        public override ICollection<GameElement> GetElementsWithProperty(string key)
         {
-            return this.Layers.AsParallel().SelectMany(layer => layer.FindElementsWithTag(tag)).ToList();
+            return this.Layers.AsParallel().SelectMany(layer => layer.GetElementsWithProperty(key)).ToList();
         }
 
         /// <summary>

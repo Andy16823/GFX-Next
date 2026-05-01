@@ -172,13 +172,13 @@ namespace LibGFX.Core
         }
 
         /// <summary>
-        /// Finds all elements with a specific tag
+        /// Finds all elements with a specific property key
         /// </summary>
-        /// <param name="tag"></param>
-        /// <returns></returns>
-        public ICollection<GameElement> FindElementsWithTag(String tag)
+        /// <param name="key">The key of the property to search for.</param>
+        /// <returns>A collection of game elements that have the specified property key.</returns>
+        public ICollection<GameElement> GetElementsWithProperty(String key)
         {
-            return this.Elements.Where(e => e.Tags.Contains(tag)).ToList();
+            return this.Elements.Where(e => e.HasProperty(key)).ToList();
         }
 
         /// <summary>
@@ -196,7 +196,7 @@ namespace LibGFX.Core
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public ICollection<GameElement> FindElementsWithBehavior<T>() where T : IGameBehavior
+        public ICollection<GameElement> GetElementsWithBehavior<T>() where T : IGameBehavior
         {
             return this.Elements.Where(e => e.Behaviors.Any(b => b is T)).ToList();
         }

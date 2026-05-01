@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Andy16823")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.2.4")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.2.4+1d8c06d848fd8a8409e799103afd60a9a1da0d46")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.2.4+4b585b612c8dfc372c56403f86a0d7e1cda3e90c")]
 [assembly: System.Reflection.AssemblyProductAttribute("LibGFX")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LibGFX")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.1.2.4")]
