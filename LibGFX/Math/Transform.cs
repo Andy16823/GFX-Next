@@ -14,7 +14,7 @@ namespace LibGFX.Math
     /// <summary>
     /// Represents a 3D transformation.
     /// </summary>
-    public class Transform : ISerialization, ICloneable<Transform>
+    public class Transform : ISerialization
     {
         private Vector3 _position;
         /// <summary>
@@ -516,15 +516,6 @@ namespace LibGFX.Math
             this.Scale = Utils.DeserializeVec3(obj.Value<JObject>("Scale"));
 
             callback?.Invoke(obj);
-        }
-
-        /// <summary>
-        /// Returns a new instance of the Transform class that is a copy of the current instance.
-        /// </summary>
-        /// <returns></returns>
-        public Transform Clone()
-        {
-            return new Transform(this.Position, this.Rotation, this.Scale);
         }
     }
 }

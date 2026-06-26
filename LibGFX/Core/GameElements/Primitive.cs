@@ -19,7 +19,6 @@ using System.Threading.Tasks;
 namespace LibGFX.Core.GameElements
 {
     /// <summary>
-    /// TODO REWORK!
     /// Represents a primitive game element that can be rendered with a material and shader.
     /// </summary>
     public class Primitive : GameElement
@@ -267,35 +266,6 @@ namespace LibGFX.Core.GameElements
             mesh.Name = mesh.ID.ToString();
             assets.Add(mesh);
             return new Primitive(name, mesh, material);
-        }
-
-        /// <summary>
-        /// Creates a deep copy of the primitive, including its mesh, material, transform, and behaviors.
-        /// </summary>
-        /// <returns></returns>
-        public override GameElement Clone()
-        {
-            var clone = new Primitive(this.Name, this.Mesh, this.Material);
-            clone.Transform = this.Transform.Clone();
-
-            foreach (var behavior in this.Behaviors)
-            {
-                var bhvClone = behavior.Clone();
-                clone.AddBehavior(bhvClone);
-            }
-
-            foreach (var property in this.Properties)
-            {
-                clone.AddProperty(property.Key, property.Value);
-            }
-
-            foreach (var child in this.Children)
-            {
-                var childClone = child.Clone();
-                clone.AddChild(childClone);
-            }
-
-            return clone;
         }
     }
 }

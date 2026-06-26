@@ -77,10 +77,5 @@ namespace LibGFX.Core.Behaviors
         {
 
         }
-
-        public IGameBehavior Clone()
-        {
-            return new CullingBehavior();
-        }
     }
 }

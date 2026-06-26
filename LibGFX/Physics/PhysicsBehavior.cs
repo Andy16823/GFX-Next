@@ -90,14 +90,5 @@ namespace LibGFX.Physics
         /// </summary>
         /// <param name="collision"></param>
         public abstract void OnCollide(Collision collision);
-
-        /// <summary>
-        /// Creates a new copy of the current game behavior instance.
-        /// </summary>
-        /// <remarks>The returned object is a deep copy, allowing modifications without affecting the
-        /// original instance. Implementations should ensure that all relevant state is duplicated
-        /// appropriately.</remarks>
-        /// <returns>A new <see cref="IGameBehavior"/> object that is a copy of this instance.</returns>
-        public abstract IGameBehavior Clone();
     }
 }

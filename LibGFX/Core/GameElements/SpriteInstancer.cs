@@ -170,16 +170,5 @@ namespace LibGFX.Core.GameElements
         {
             this.AABB = AABB.Zero;
         }
-
-        /// <summary>
-        /// Clones the sprite instancer. This method is not implemented and will throw a NotImplementedException.
-        /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public override GameElement Clone()
-        {
-            // TODO: Implement cloning logic for SpriteInstancer
-            throw new NotImplementedException();
-        }
     }
 }

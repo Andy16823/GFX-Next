@@ -204,11 +204,5 @@ namespace LibGFX.Core.GameElements
         {
             this.AABB = AABB.Zero;
         }
-
-        public override GameElement Clone()
-        {
-            // TODO: Implement a proper clone method for MeshInstancer
-            throw new NotImplementedException();
-        }
     }
 }

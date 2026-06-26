@@ -230,34 +230,5 @@ namespace LibGFX.Core.GameElements
                 return true;
             });
         }
-
-        /// <summary>
-        /// Clones the current StaticModel instance, creating a new instance with the same properties and model reference.
-        /// </summary>
-        /// <returns></returns>
-        public override GameElement Clone()
-        {
-            var clone = new StaticModel(this.Name, _model);
-            clone.Transform = this.Transform.Clone();
-
-            foreach (var behavior in this.Behaviors)
-            {
-                var clonedBehavior = behavior.Clone();
-                clone.AddBehavior(clonedBehavior);
-            }
-
-            foreach (var property in this.Properties)
-            {
-                clone.AddProperty(property.Key, property.Value);
-            }
-
-            foreach (var child in this.Children)
-            {
-                var clonedChild = child.Clone();
-                clone.AddChild(clonedChild);
-            }
-
-            return clone;
-        }
     }
 }

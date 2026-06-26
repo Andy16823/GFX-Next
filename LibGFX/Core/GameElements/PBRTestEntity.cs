@@ -82,11 +82,5 @@ namespace LibGFX.Core.GameElements
 
             this.AABB = new AABB(min, max);
         }
-
-        public override GameElement Clone()
-        {
-            // TODO: Implement a proper clone method for PBRTestEntity
-            throw new NotImplementedException();
-        }
     }
 }

@@ -124,5 +124,21 @@ namespace LibGFX.Graphics
             GL.TexImage3D(TextureTarget.Texture2DArray, 0, PixelInternalFormat.DepthComponent, width, height, this.CascadeCount, 0, PixelFormat.DepthComponent, PixelType.Float, IntPtr.Zero);
             GL.BindTexture(TextureTarget.Texture2DArray, 0);
         }
+
+        /// <summary>
+        /// Returns the cascade levels for the cascaded shadow map based on the camera's far plane.
+        /// </summary>
+        /// <param name="camera"></param>
+        /// <returns></returns>
+        public float[] GetCascadeLevels(Camera camera)
+        {
+            return new float[]
+            {
+                10.0f,
+                30.0f,
+                100.0f,
+                camera.Far
+            };
+        }
     }
 }

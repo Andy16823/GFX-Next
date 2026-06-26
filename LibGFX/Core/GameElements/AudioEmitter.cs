@@ -30,6 +30,8 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         public override bool HasTransparency => false;
 
+        private IAudioDevice _audioDevice;
+
         /// <summary>
         /// Creates a new audio emitter
         /// </summary>
@@ -37,6 +39,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="playMode"></param>
         public AudioEmitter(IAudioDevice audioDevice, PlayMode playMode = PlayMode.Loop)
         {
+            _audioDevice = audioDevice;
             _source = new AudioSource(audioDevice);
             _source.SetRange(new Vector3(10, 10, 10));
         }
@@ -49,6 +52,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="playMode"></param>
         public AudioEmitter(IAudioDevice audioDevice, AudioClip clip, PlayMode playMode = PlayMode.Loop) 
         {
+            _audioDevice = audioDevice;
             _source = new AudioSource(audioDevice);
             _source.SetAudioClip(clip);
         }
@@ -125,12 +129,6 @@ namespace LibGFX.Core.GameElements
             var max = this.Transform.Position + (_source.Range / 2);
 
             this.AABB = new AABB(min, max);
-        }
-
-        public override GameElement Clone()
-        {
-            // TODO: Implement Clone method for AudioEmitter
-            throw new NotImplementedException();
         }
     }
 }

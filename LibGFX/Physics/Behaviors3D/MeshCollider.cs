@@ -51,16 +51,5 @@ namespace LibGFX.Physics.Behaviors3D
             Collider.WorldTransform = btStartTransform;
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
         }
-
-        /// <summary>
-        /// Returns a clone of this MeshCollider
-        /// </summary>
-        /// <returns></returns>
-        public override MeshCollider Clone()
-        {
-            var clone = new MeshCollider(this.PhysicsHandler);
-            clone.Offset = this.Offset;
-            return clone;
-        }
     }
 }

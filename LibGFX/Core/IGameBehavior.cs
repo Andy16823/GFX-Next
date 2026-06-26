@@ -11,7 +11,7 @@ namespace LibGFX.Core
     /// <summary>
     /// Represents a game behavior interface
     /// </summary>
-    public interface IGameBehavior : ICloneable<IGameBehavior>
+    public interface IGameBehavior
     {
         /// <summary>
         /// Sets the game element

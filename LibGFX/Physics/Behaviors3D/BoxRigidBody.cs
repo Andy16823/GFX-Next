@@ -49,16 +49,5 @@ namespace LibGFX.Physics.Behaviors3D
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
             info.Dispose();
         }
-
-        /// <summary>
-        /// Returns a clone of the BoxRigidBody
-        /// </summary>
-        /// <returns></returns>
-        public override BoxRigidBody Clone()
-        {
-            var clone = new BoxRigidBody(this.PhysicsHandler);
-            clone.Offset = this.Offset;
-            return clone;
-        }
     }
 }

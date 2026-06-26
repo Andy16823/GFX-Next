@@ -16,7 +16,7 @@ namespace LibGFX.Graphics.Lights
     /// <summary>
     /// Represents a chunk of lights in the scene.
     /// </summary>
-    public class Light3DChunk : ISerialization
+    public class Light3DChunk
     {
         /// <summary>
         /// Gets or sets the collection of point lights used in the 3D scene.
@@ -43,36 +43,6 @@ namespace LibGFX.Graphics.Lights
                 return true;
             }
             return false;
-        }
-
-        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
-        {
-            writer.WriteStartObject();
-            writer.WritePropertyName("Type");
-            writer.WriteValue(this.GetType().FullName);
-            writer.WritePropertyName("Lights");
-            writer.WriteStartArray();
-            foreach (var light in Lights)
-            {
-                light.Serialize(writer, serializationContext);
-            }
-            writer.WriteEndArray();
-            callback?.Invoke(writer);
-            writer.WriteEndObject();
-        }
-
-        public void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
-        {
-            var lightsArray = obj["Lights"] as JArray;
-            Lights.Clear();
-            foreach (var lightToken in lightsArray)
-            {
-                var lightObj = lightToken as JObject;
-                var light = new PointLight3D();
-                light.Deserialize(lightObj, serializationContext);
-                Lights.Add(light);
-            }
-            callback?.Invoke(obj);
         }
     }
 
@@ -151,13 +121,8 @@ namespace LibGFX.Graphics.Lights
             renderer.PrepareShaderArrayTexture("shadowMap", 6, csm.TextureId);
             renderer.PrepareShader("cascadeCount", csm.CascadeCount);
             renderer.PrepareShader("lightSpaceMatrices", true, _lightViewMatrix.ToArray());
-            float[] cascadeLevels = new float[]
-            {
-                10.0f,
-                30.0f,
-                100.0f,
-                camera.Far
-            };
+
+            var cascadeLevels = csm.GetCascadeLevels(camera);
             renderer.PrepareShader("cascadePlaneDistances", cascadeLevels.Length, cascadeLevels);
             renderer.PrepareShader("cameraFar", camera.Far);
             renderer.PrepareShader("castsShadows", this.DirectionalLight.CastsShadows ? 1 : 0);
@@ -168,7 +133,7 @@ namespace LibGFX.Graphics.Lights
             renderer.PrepareShader("dirLight.lightIntensity", DirectionalLight.Intensity);
             renderer.PrepareShader("dirLight.ambient", DirectionalLight.Ambient);
             renderer.PrepareShader("dirLight.specular", DirectionalLight.Specular);
-            renderer.BindShaderStorageBuffer(4, _pointLightsSSBO);
+            renderer.BindBufferBase(RenderFlags.GFXBufferTarget.ShaderStorageBuffer, 4, _pointLightsSSBO);
         }
 
         /// <summary>
@@ -357,9 +322,10 @@ namespace LibGFX.Graphics.Lights
         }
 
         /// <summary>
-        /// Sets the light space matrix for the light manager, which is used to transform the light's perspective in the scene.
+        /// Computes the light space matrix for the directional light based on the camera and viewport.
         /// </summary>
-        /// <param name="lightViewMatrix"></param>
+        /// <param name="camera"></param>
+        /// <param name="viewport"></param>
         public void ComputeLightSpaceMatrix(Camera camera, Viewport viewport)
         {
             // Clear the previous light view matrix
@@ -371,6 +337,14 @@ namespace LibGFX.Graphics.Lights
                 Debug.WriteLine("No directional light found in Light3DManager. Cannot compute light space matrix.");
                 return;
             }
+
+            var csm = this.DirectionalLight.ShadowMap as CascadedShadowMap;
+            if (csm == null)
+            {
+                Debug.WriteLine("Directional light shadow map is not a CascadedShadowMap. Cannot compute light space matrix.");
+                return;
+            }
+
             var lightDir = this.DirectionalLight.Direction.Normalized();
 
             // Compute the light space matrix for each cascade level
@@ -382,13 +356,7 @@ namespace LibGFX.Graphics.Lights
             }
             
             var (near, far) = perspectiveCamera.GetNearFar();
-            float[] cascadeLevels = new float[]
-            {
-                10.0f,
-                30.0f,
-                100.0f,
-                perspectiveCamera.Far
-            };
+            var cascadeLevels = csm.GetCascadeLevels(perspectiveCamera);
 
             float lastSplitDist = perspectiveCamera.Near;
             foreach (var cascadeLevel in cascadeLevels)
@@ -401,6 +369,11 @@ namespace LibGFX.Graphics.Lights
             perspectiveCamera.SetNearFar(near, far);
         }
 
+        /// <summary>
+        /// Binds the light space matrix to the shader for use in shadow mapping.
+        /// </summary>
+        /// <param name="renderDevice"></param>
+        /// <param name="binding"></param>
         public void BindLightSpaceMatrix(IRenderDevice renderDevice, int binding = 0)
         {
             renderDevice.BindBuffer(RenderFlags.GFXBufferTarget.UniformBuffer, _lightMatrixBuffer);
@@ -457,81 +430,9 @@ namespace LibGFX.Graphics.Lights
         }
 
         /// <summary>
-        /// Serializes the current object and its associated data into a JSON representation.
+        /// Disposes of all lights in the light manager, including directional and chunk-based lights.
         /// </summary>
-        /// <param name="serializationContext">The context to use during serialization, which may provide settings or state required for the serialization
-        /// process.</param>
-        /// <returns>A <see cref="JObject"/> containing the serialized representation of the object, including its type,
-        /// directional light, and chunk data.</returns>
-        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
-        {
-            writer.WriteStartObject();
-            writer.WritePropertyName("Type");
-            writer.WriteValue(this.GetType().FullName);
-            writer.WritePropertyName("DirectionalLight");
-            if (DirectionalLight != null)
-            {
-                DirectionalLight.Serialize(writer, serializationContext);
-            }
-            else
-            {
-                writer.WriteNull();
-            }
-            writer.WritePropertyName("Chunks");
-            writer.WriteStartArray();
-            foreach (var kvp in Chunks)
-            {
-                writer.WriteStartObject();
-                writer.WritePropertyName("ChunkX");
-                writer.WriteValue(kvp.Key.Item1);
-                writer.WritePropertyName("ChunkY");
-                writer.WriteValue(kvp.Key.Item2);
-                writer.WritePropertyName("ChunkZ");
-                writer.WriteValue(kvp.Key.Item3);
-                writer.WritePropertyName("LightChunk");
-                kvp.Value.Serialize(writer, serializationContext);
-                writer.WriteEndObject();
-            }
-            writer.WriteEndArray();
-            callback?.Invoke(writer);
-            writer.WriteEndObject();
-        }
-
-        public void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
-        {
-            // Deserialize directional light
-            var directionalLightToken = obj["DirectionalLight"] as JObject;
-            if (directionalLightToken != null)
-            {
-                var directionalLight = new DirectionalLight3D();
-                directionalLight.Deserialize(directionalLightToken, serializationContext);
-                DirectionalLight = directionalLight;
-            }
-            else
-            {
-                DirectionalLight = null;
-            }
-
-            // Deserialize chunks
-            var chunksArray = obj["Chunks"] as JArray;
-            Chunks.Clear();
-            foreach (var chunkToken in chunksArray)
-            {
-                var chunkObj = chunkToken as JObject;
-                int chunkX = chunkObj["ChunkX"] != null ? chunkObj["ChunkX"].Value<int>() : 0;
-                int chunkY = chunkObj["ChunkY"] != null ? chunkObj["ChunkY"].Value<int>() : 0;
-                int chunkZ = chunkObj["ChunkZ"] != null ? chunkObj["ChunkZ"].Value<int>() : 0;
-                var lightChunkToken = chunkObj["LightChunk"] as JObject;
-                if (lightChunkToken != null)
-                {
-                    var lightChunk = new Light3DChunk();
-                    lightChunk.Deserialize(lightChunkToken, serializationContext);
-                    Chunks[(chunkX, chunkY, chunkZ)] = lightChunk;
-                }
-            }
-            callback?.Invoke(obj);
-        }
-
+        /// <param name="renderDevice"></param>
         public void DisposeLights(IRenderDevice renderDevice)
         {
             // Dispose directional light
@@ -620,6 +521,73 @@ namespace LibGFX.Graphics.Lights
                 throw new InvalidOperationException("The specified point light was not found in any chunk.");
             }
             throw new InvalidOperationException($"Light type {typeof(T).Name} not supported in Light3DManager.");
+        }
+
+        /// <summary>
+        /// Serializes the light manager to JSON format, including the directional light and all point lights in their respective chunks.
+        /// </summary>
+        /// <param name="writer">The JSON writer to use for serialization.</param>
+        /// <param name="serializationContext">The context for serialization, providing additional information or settings.</param>
+        /// <param name="callback">An optional callback to invoke after serialization is complete.</param>
+        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
+        {
+            writer.WriteStartObject();
+            writer.WritePropertyName("Type");
+            writer.WriteValue(this.GetType().FullName);
+            writer.WritePropertyName("DirectionalLight");
+            if (DirectionalLight != null)
+            {
+                DirectionalLight.Serialize(writer, serializationContext);
+            }
+            else
+            {
+                writer.WriteNull();
+            }
+            writer.WritePropertyName("Lights");
+            writer.WriteStartArray();
+            this.ForEachLight(light =>
+            {
+                light.Serialize(writer, serializationContext);
+            });
+            writer.WriteEndArray();
+            callback?.Invoke(writer);
+            writer.WriteEndObject();
+        }
+
+        /// <summary>
+        /// Deserializes the light manager from a JSON object, reconstructing the directional light and all point lights in their respective chunks.
+        /// </summary>
+        /// <param name="obj">The JSON object containing the serialized light manager data.</param>
+        /// <param name="serializationContext">The context for deserialization, providing additional information or settings.</param>
+        /// <param name="callback">An optional callback to invoke after deserialization is complete.</param>
+        public void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
+        {
+            var directionalLightToken = obj["DirectionalLight"] as JObject;
+            if (directionalLightToken != null)
+            {
+                var directionalLight = new DirectionalLight3D();
+                directionalLight.Deserialize(directionalLightToken, serializationContext);
+                DirectionalLight = directionalLight;
+            }
+            else
+            {
+                DirectionalLight = null;
+            }
+
+            // Deserialize lights from the "Lights" array in the JSON object
+            var lightsArr = obj["Lights"] as JArray;
+            Chunks.Clear();
+            foreach (var lightToken in lightsArr)
+            {
+                var lightObj = lightToken as JObject;
+                if (lightObj != null)
+                {
+                    var pointLight = new PointLight3D();
+                    pointLight.Deserialize(lightObj, serializationContext);
+                    AddPointLight(pointLight);
+                }
+            }
+            callback?.Invoke(obj);
         }
     }
 }
