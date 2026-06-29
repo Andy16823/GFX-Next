@@ -10,11 +10,10 @@ namespace LibGFX.Graphics.Primitives
 {
     public class Cube : IPrimitive<Cube>
     {
-        public static Mesh GetMesh(IMaterial material = null)
+        public static Mesh GetMesh()
         {
             var mesh = new Mesh();
             mesh.Name = "Cube";
-            mesh.Material = material;
 
             mesh.Positions = new List<Vector3>
             {

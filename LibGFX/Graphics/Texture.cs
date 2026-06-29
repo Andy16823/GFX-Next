@@ -1,4 +1,5 @@
-﻿using LibGFX.Core;
+﻿using LibGFX.Assets;
+using LibGFX.Core;
 using LibGFX.Math;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -34,7 +35,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a texture that can be used in rendering.
     /// </summary>
-    public class Texture : IGraphicsResource, ISerialization, IIdentifier
+    public class Texture : IAsset, ISerialization, IIdentifier
     {
         /// <summary>
         /// 
@@ -309,7 +310,6 @@ namespace LibGFX.Graphics
         /// <param name="renderer"></param>
         public void Init(IRenderDevice renderer)
         {
-            // TODO: Think about if the texture data should be kept in memory after initialization or not.
             renderer.LoadTexture(this, _parameters);
             this.IsInitialized = true;
         }

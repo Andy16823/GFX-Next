@@ -45,7 +45,7 @@ namespace LibGFX.Graphics.Lights
         /// <summary>
         /// The range of the light.
         /// </summary>
-        public DepthOnlyRenderTarget ShadowMap { get; set; }
+        public IRenderTarget ShadowMap { get; set; }
 
         /// <summary>
         /// The size of the shadow map in pixels.
@@ -53,9 +53,9 @@ namespace LibGFX.Graphics.Lights
         public Vector2i ShadowMapSize { get; set; } = new Vector2i(2048);
 
         /// <summary>
-        /// Indicates whether the light has a shadow map.
+        /// Determines whether this light casts shadows. If true, the light will contribute to shadow rendering and will require a shadow map to be generated.
         /// </summary>
-        public abstract bool HasShadowMap { get; }
+        public abstract bool CastsShadows { get; set; }
 
         /// <summary>
         /// Initializes the light with the given renderer.

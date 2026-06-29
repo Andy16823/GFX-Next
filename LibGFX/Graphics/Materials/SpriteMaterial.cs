@@ -1,11 +1,13 @@
 ﻿using LibGFX.Core;
 using LibGFX.Graphics.Shader;
+using LibGFX.Types;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,21 +46,34 @@ namespace LibGFX.Graphics.Materials
         public bool IsTransparent => this.Texture.HasAlpha;
 
         /// <summary>
+        /// Gets or sets a collection of custom properties associated with the current instance.
+        /// </summary>
+        /// <remarks>Use this dictionary to store additional metadata or user-defined values that are not
+        /// represented by strongly typed properties. Keys are case-sensitive. Modifying the collection does not trigger
+        /// change notifications.</remarks>
+        public Dictionary<string, MetaValue> Metadata { get; set; } = new Dictionary<string, MetaValue>();
+
+        /// <summary>
+        /// Gets or sets the shader used for rendering operations.
+        /// </summary>
+        public RenderShader Shader { get; set; }
+
+        /// <summary>
         /// Default constructor for the SpriteMaterial class.
         /// </summary>
         public SpriteMaterial()
         {
-            
+
         }
 
         /// <summary>
-        /// Creates a new SpriteMaterial with the specified texture and shader.
+        /// Creates a new SpriteMaterial with the specified texture filename.
         /// </summary>
-        /// <param name="texture"></param>
-        /// <param name="shader"></param>
-        public SpriteMaterial(Texture texture)
+        /// <param name="filename"></param>
+        public SpriteMaterial(String filename, RenderShader renderShader)
         {
-            this.Texture = texture;
+            this.Texture = new Texture(filename);
+            this.Shader = renderShader;
         }
 
         /// <summary>
@@ -112,6 +127,7 @@ namespace LibGFX.Graphics.Materials
         /// <param name="renderDevice"></param>
         public void Use(IRenderDevice renderDevice)
         {
+            renderDevice.BindShaderProgram(Shader);
             renderDevice.PrepareShader("textureSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, Texture);
         }
 
@@ -121,7 +137,7 @@ namespace LibGFX.Graphics.Materials
         /// <param name="renderDevice">The render device to disable. Cannot be null.</param>
         public void Disable(IRenderDevice renderDevice)
         {
-            
+            renderDevice.UnbindShaderProgram();
         }
 
 
@@ -154,7 +170,10 @@ namespace LibGFX.Graphics.Materials
             writer.WriteValue(Name);
             writer.WritePropertyName("ID");
             writer.WriteValue(ID.ToString());
+            writer.WritePropertyName("Shader");
+            writer.WriteValue(this.Shader != null ? this.Shader.GetType().FullName : "null");
             writer.WritePropertyName("Texture");
+
             if (Texture != null)
             {
                 Texture.Serialize(writer, context);
@@ -178,6 +197,17 @@ namespace LibGFX.Graphics.Materials
             // Basic property deserialization
             this.Name = obj.Value<string>("Name");
             this.ID = Guid.Parse(obj.Value<string>("ID"));
+
+            // Deserialize Shader
+            var shaderType = obj.Value<string>("Shader");
+            if (shaderType != null)
+            {
+                this.Shader = (RenderShader)context.GetFirstOfType(shaderType);
+                if (this.Shader == null)
+                {
+                    throw new InvalidOperationException($"Could not find shader of type '{shaderType}' in the serialization context.");
+                }
+            }
 
             // Deserialize Texture
             var textureToken = obj.Value<JObject>("Texture");

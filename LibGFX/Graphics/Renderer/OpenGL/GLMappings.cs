@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// TODO: Change to ToDrawBuffer()
 namespace LibGFX.Graphics.Renderer.OpenGL
 {
     /// <summary>
@@ -472,6 +471,15 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             RenderFlags.GFXBufferTarget.TextureBuffer => BufferTarget.TextureBuffer,
             RenderFlags.GFXBufferTarget.TransformFeedbackBuffer => BufferTarget.TransformFeedbackBuffer,
             RenderFlags.GFXBufferTarget.UniformBuffer => BufferTarget.UniformBuffer,
+            _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
+        };
+
+        internal static BufferRangeTarget ToBufferRangeTarget(RenderFlags.GFXBufferTarget target) => target switch
+        {
+            RenderFlags.GFXBufferTarget.AtomicCounterBuffer => BufferRangeTarget.AtomicCounterBuffer,
+            RenderFlags.GFXBufferTarget.ShaderStorageBuffer => BufferRangeTarget.ShaderStorageBuffer,
+            RenderFlags.GFXBufferTarget.TransformFeedbackBuffer => BufferRangeTarget.TransformFeedbackBuffer,
+            RenderFlags.GFXBufferTarget.UniformBuffer => BufferRangeTarget.UniformBuffer,
             _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
         };
 

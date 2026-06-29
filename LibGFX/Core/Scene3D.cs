@@ -1,7 +1,10 @@
-﻿using LibGFX.Graphics;
+﻿using LibGFX.Core.GameElements;
+using LibGFX.Graphics;
 using LibGFX.Graphics.Enviroment;
 using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.PostProcessing;
+using LibGFX.Graphics.Renderer.OpenGL;
+using LibGFX.Graphics.Shader;
 using LibGFX.Math;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -81,31 +84,89 @@ namespace LibGFX.Core
         /// </summary>
         public bool PerformShadowPass { get; set; } = true;
 
-        // Init events
+        /// <summary>
+        /// OnInit start event which gets triggered at the beginning of the scene initialization process.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice> OnInitStart;
+
+        /// <summary>
+        /// AfterRenderTargetCreation event which gets triggered after the render target for the scene has been created during initialization.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice> AfterRenderTargetCreation;
+
+        /// <summary>
+        /// OnInit end event which gets triggered at the end of the scene initialization process.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice> OnInitEnd;
 
-        // Render events
+        /// <summary>
+        /// OnRender start event which gets triggered at the beginning of the scene rendering process.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderStart;
+
+        /// <summary>
+        /// AfterLightCulling event which gets triggered after the light culling process during rendering.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> AfterLightCulling;
+
+        /// <summary>
+        /// OnRenderPassBegin event which gets triggered at the beginning of the main render pass for the scene.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassBegin;
+
+        /// <summary>
+        /// OnRenderPassEnd event which gets triggered at the end of the main render pass for the scene.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassEnd;
+
+        /// <summary>
+        /// OnRender end event which gets triggered at the end of the scene rendering process.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderEnd;
+
+        /// <summary>
+        /// OnShadowPassStart event which gets triggered at the beginning of the shadow map rendering process for the scene.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassStart;
+
+        /// <summary>
+        /// OnShadowPassEnd event which gets triggered at the end of the shadow map rendering process for the scene.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassEnd;
 
-        // Update events
+        /// <summary>
+        /// OnUpdate start event which gets triggered at the beginning of the scene update process.
+        /// </summary>
         public override event Action<BaseScene, float> OnUpdateStart;
+
+        /// <summary>
+        /// OnUpdate end event which gets triggered at the end of the scene update process.
+        /// </summary>
         public override event Action<BaseScene, float> OnUpdateEnd;
 
-        // Physics update events
+        /// <summary>
+        /// OnPhysicsUpdate start event which gets triggered at the beginning of the physics update process for the scene.
+        /// </summary>
         public override event Action<BaseScene, float> OnPhysicsUpdateStart;
+
+        /// <summary>
+        /// OnPhysicsUpdate end event which gets triggered at the end of the physics update process for the scene.
+        /// </summary>
         public override event Action<BaseScene, float> OnPhysicsUpdateEnd;
 
-        // Dispose events
+        /// <summary>
+        /// OnDispose start event which gets triggered at the beginning of the scene disposal process.
+        /// </summary>
         public override event Action<BaseScene, IRenderDevice> OnDisposeStart;
+
+        /// <summary>
+        /// OnDispose event which gets triggered during the scene disposal process, after the main disposal logic has been executed but before the render target and light manager are disposed.
+        /// </summary>
         public override event Action<BaseScene, IRenderDevice> OnDispose;
+
+        /// <summary>
+        /// OnDispose end event which gets triggered at the end of the scene disposal process, after all resources have been released.
+        /// </summary>
         public override event Action<BaseScene, IRenderDevice> OnDisposeEnd;
 
         // Private members
@@ -118,6 +179,49 @@ namespace LibGFX.Core
         public Scene3D() : base()
         {
             _lightManager = new Light3DManager();
+        }
+
+        /// <summary>
+        /// Initializes the scene and all its layers
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        public override void Init(Viewport viewport, IRenderDevice renderer)
+        {
+            // On init start event
+            OnInitStart?.Invoke(this, viewport, renderer);
+
+            // Create the render target for the scene
+            _renderTarget = new MSAARenderTarget2D(viewport.Width, viewport.Height, (int)this.Samples);
+            _renderTarget.Create();
+
+            // After render target creation event
+            AfterRenderTargetCreation?.Invoke(this, viewport, renderer);
+
+            // Load the enviroment texture if available
+            if (this.Enviroment != null)
+            {
+                this.Enviroment.Init(renderer);
+            }
+
+            // Init all layers and there elements
+            this.Elements.ForEach(e =>
+            {
+                e.Init(this, viewport, renderer);
+            });
+
+            // Initialize the light manager
+            var lightManager = this.LightManager as Light3DManager;
+            if (lightManager != null)
+            {
+                lightManager.Init(renderer);
+            }
+
+            // Initialize the scene behaviors
+            OnInitEnd?.Invoke(this, viewport, renderer);
+
+            // OnStart the render stats
+            this.RenderStats.Start();
         }
 
         /// <summary>
@@ -145,55 +249,13 @@ namespace LibGFX.Core
             OnDispose?.Invoke(this, renderer);
 
             // Dispose the render target
-            _renderTarget.Dispose(renderer);
+            _renderTarget.Dispose();
 
             // Dispose the light manager
             _lightManager.Dispose(renderer);
 
             // On dispose end event
             OnDisposeEnd?.Invoke(this, renderer);
-        }
-
-        /// <summary>
-        /// Initializes the scene and all its layers
-        /// </summary>
-        /// <param name="viewport"></param>
-        /// <param name="renderer"></param>
-        public override void Init(Viewport viewport, IRenderDevice renderer)
-        {
-            // On init start event
-            OnInitStart?.Invoke(this, viewport, renderer);
-
-            // Create the render target for the scene
-            _renderTarget = renderer.CreateMSAARenderTarget2D(viewport.Width, viewport.Height, (int)this.Samples);
-
-            // After render target creation event
-            AfterRenderTargetCreation?.Invoke(this, viewport, renderer);
-
-            // Load the enviroment texture if available
-            if (this.Enviroment != null)
-            {
-                this.Enviroment.Init(renderer);
-            }
-
-            // Init all layers and there elements
-            this.Elements.ForEach(e =>
-            {
-                e.Init(this, viewport, renderer);
-            });
-
-            // Initialize the light manager
-            var lightManager = this.LightManager as Light3DManager;
-            if(lightManager != null)
-            {
-                lightManager.Init(renderer);
-            }
-
-            // Initialize the scene behaviors
-            OnInitEnd?.Invoke(this, viewport, renderer);
-
-            // OnStart the render stats
-            this.RenderStats.Start();
         }
 
         /// <summary>
@@ -229,7 +291,7 @@ namespace LibGFX.Core
             renderer.SetViewMatrix(camera.GetViewMatrix());
 
             // Render the scene to the render target
-            renderer.ResizeRenderTarget(_renderTarget, viewport.Width, viewport.Height);
+            _renderTarget.Resize(viewport.Width, viewport.Height);
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
@@ -271,7 +333,7 @@ namespace LibGFX.Core
 
             // Unbind the render target and set the depth test state back to the original state
             renderer.UnbindRenderTarget();
-            renderer.ResolveRenderTarget(_renderTarget);
+            _renderTarget.ResolveMultisample();
             renderer.SetDepthTest(dephTest);
 
             // On render end.
@@ -284,53 +346,49 @@ namespace LibGFX.Core
         /// <param name="viewport"></param>
         /// <param name="renderer"></param>
         /// <param name="camera"></param>
-        public override void RenderShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera)
+        public override void BuildShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            // On shadow pass start event
-            OnShadowPassStart?.Invoke(this, viewport, renderer, camera);
-
-            // Get the directional light for the scene
-            var light = this.LightManager.GetLight<DirectionalLight3D>();
-            if (light == null)
+            // Get the directional light and its shadow map. 
+            var light = this.DirectionalLight as DirectionalLight3D;
+            if(light == null || light.ShadowMap == null || !light.CastsShadows || !this.PerformShadowPass)
             {
-                Debug.WriteLine("No directional light found for shadow pass.");
                 return;
             }
 
-            // Render the shadow map for the directional light
-            var shadowMap = light.ShadowMap;
-            var depthTest = renderer.IsDepthTestEnabled();
-            renderer.EnableDepthTest();
+            // Ensure the shadow map is a cascaded shadow map since only that type is supported for directional lights in this implementation
+            var csm = light.ShadowMap as CascadedShadowMap;
+            if(csm == null)
+            {
+                return;
+            }
 
-            var lightDir = light.Direction.Normalized();
-            var cameraXZ = camera.Transform.Position;
-            var lightOffset = new Vector3(0f, 10.0f, 0f);
-            var lightPos = cameraXZ + lightOffset;
-            var lightTarget = lightPos - (light.Direction.Normalized() * 20.0f);
+            // On shadow pass start event
+            OnShadowPassStart?.Invoke(this, viewport, renderer, camera);
 
-            float near_plane = 0.1f, far_plane = 20.0f;
-            var lightView = Matrix4.LookAt(lightPos, lightTarget, new Vector3(0, 1, 0));
-            var lightProjection = Matrix4.CreateOrthographic(60, 60, near_plane, far_plane);
-            var lightSpaceMatrix = lightView * lightProjection;
+            // Compute the light space matrix for the directional light
+            this.LightManager.ComputeLightSpaceMatrix(camera, viewport);
 
-            renderer.SetViewport((Viewport) light.ShadowMapSize);
-            renderer.SetProjectionMatrix(lightProjection);
-            renderer.SetViewMatrix(lightView);
+            // Bind the depth shader and set the light space matrix uniform
+            var shader = renderer.GetRenderShader<DepthMeshShader>();
+            renderer.BindShaderProgram(shader);
+            this.LightManager.BindLightSpaceMatrix(renderer, 3);
 
-            renderer.BindRenderTarget(shadowMap);
-            renderer.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            // Bind the shadow map render target and clear the depth buffer
+            renderer.BindRenderTarget(light.ShadowMap);
+            renderer.SetViewport(new Viewport(csm.Width, csm.Height));
             renderer.Clear(RenderFlags.ClearFlags.Depth);
-
+            renderer.EnableDepthTest();
+            //GL.Enable(EnableCap.CullFace);
             renderer.SetCullMode(CullMode.Front);
             this.Elements.ForEach(e =>
             {
+                if(!e.Visible) return;
                 e.RenderShadow(this, viewport, renderer);
             });
             renderer.SetCullMode(CullMode.Back);
-
+            //GL.Disable(EnableCap.CullFace);
+            renderer.DisableDepthTest();
             renderer.UnbindRenderTarget();
-            renderer.SetDepthTest(depthTest);
-            LightManager.SetLightSpaceMatrix(lightSpaceMatrix);
 
             // On shadow pass end event
             OnShadowPassEnd?.Invoke(this, viewport, renderer, camera);
@@ -428,22 +486,7 @@ namespace LibGFX.Core
         /// <exception cref="NotSupportedException">Thrown if the specified light type is not supported by Scene3D.</exception>
         public override void RemoveLight<T>(T light)
         {
-            // TODO: Support removal of point lights
-            if (light is DirectionalLight3D directionalLight)
-            {
-                if (_lightManager.DirectionalLight == directionalLight)
-                {
-                    _lightManager.DirectionalLight = null;
-                }
-                else
-                {
-                    throw new InvalidOperationException("The specified directional light is not part of the scene.");
-                }
-            }
-            else
-            {
-                throw new NotSupportedException($"Light type {typeof(T).Name} is not supported in Scene3D.");
-            }
+            LightManager.RemoveLight(light);
         }
 
         /// <summary>
@@ -512,7 +555,7 @@ namespace LibGFX.Core
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public override ICollection<GameElement> FindElementsWithBehavior<T>()
+        public override ICollection<GameElement> GetElementsWithBehavior<T>()
         {
             return this.Elements.Where(e => e.GetBehavior<T>() != null).ToList();
         }
@@ -522,9 +565,9 @@ namespace LibGFX.Core
         /// </summary>
         /// <param name="tag"></param>
         /// <returns></returns>
-        public override ICollection<GameElement> FindElementsWithTag(string tag)
+        public override ICollection<GameElement> GetElementsWithProperty(string key)
         {
-            return this.Elements.Where(e => e.Tags.Contains(tag)).ToList();
+            return this.Elements.Where(e => e.HasProperty(key)).ToList();
         }
 
         /// <summary>

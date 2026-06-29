@@ -85,33 +85,29 @@ namespace LibGFX.Core.GameElements
         {
             if (this.Visible)
             {
+                // Call base render method
                 base.Render(scene, viewport, renderer, camera);
+
+                // Get world transform
                 var transform = this.GetWorldTransform();
-                var shader = renderer.GetRenderShader("MeshShader");
 
-                renderer.BindShaderProgram(shader);
-                renderer.PrepareShader("viewPos", camera.Transform.Position);
-                if (scene.LightManager != null)
+                // Render each mesh
+                foreach (var (mesh, material) in _model.Meshes)
                 {
-                    scene.LightManager.BindLights(viewport, renderer, camera);
-                }
+                    // Bind the material, which sets up the shader and textures
+                    material.Use(renderer);
 
-                foreach (var mesh in _model.Meshes)
-                {
-                    if (mesh.Material.IsTransparent)
-                    {
-                        renderer.EnableBlend();
-                        renderer.SetBlendMode((int)BlendingFactor.SrcAlpha, (int)BlendingFactor.OneMinusSrcAlpha);
-                    }
+                    // Prepare shader uniforms
+                    renderer.PrepareShader("viewPos", camera.Transform.Position);
+                    scene.LightManager?.BindLights(viewport, renderer, camera);
+
+                    // Draw the mesh and increment draw call count
                     renderer.DrawMesh(transform, mesh);
-                    if (mesh.Material.IsTransparent)
-                    {
-                        renderer.DisableBlend();
-                    }
                     scene.RenderStats.IncrementDrawCalls();
-                }
 
-                renderer.UnbindShaderProgram();
+                    // Unbind the material after rendering
+                    material.Disable(renderer);
+                }
             }
         }
 
@@ -124,15 +120,24 @@ namespace LibGFX.Core.GameElements
         public override void RenderShadow(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             if(this.Visible) {
+                // Call base render shadow method
                 base.RenderShadow(scene, viewport, renderer);
+
+                // Get world transform
                 var transform = this.GetWorldTransform();
+
+                // Use the depth mesh shader for shadow rendering no materials needed
                 var shader = renderer.GetRenderShader("DepthMeshShader");
                 renderer.BindShaderProgram(shader);
-                foreach (var mesh in _model.Meshes)
+
+                // Render each mesh
+                foreach (var (mesh, material) in _model.Meshes)
                 {
                     renderer.DrawMesh(transform, mesh);
                     scene.RenderStats.IncrementDrawCalls();
                 }
+
+                // Unbind the shader program after rendering
                 renderer.UnbindShaderProgram();
             }
         }
@@ -149,10 +154,10 @@ namespace LibGFX.Core.GameElements
                 return;
             }
 
-            AABB aabb = _model.Meshes[0].Bounds;
+            AABB aabb = _model.Meshes[0].Item1.Bounds;
             for (int i = 1; i < _model.Meshes.Count; i++)
             {
-                aabb = AABB.Combine(aabb, _model.Meshes[i].Bounds);
+                aabb = AABB.Combine(aabb, _model.Meshes[i].Item1.Bounds);
             }
             this.AABB = aabb;
         }
@@ -164,7 +169,7 @@ namespace LibGFX.Core.GameElements
         /// meshes are available. The array will be empty if the model contains no meshes.</returns>
         public override Mesh[]? GetMeshes()
         {
-            return _model.Meshes.ToArray();
+            return _model.Meshes.Select(m => m.Item1).ToArray();
         }
 
         /// <summary>

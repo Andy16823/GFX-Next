@@ -1,4 +1,5 @@
-﻿using LibGFX.Core;
+﻿using LibGFX.Assets;
+using LibGFX.Core;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace LibGFX.Graphics.Lights
     /// <summary>
     /// Interface for managing lights in a scene.
     /// </summary>
-    public interface ILightManager : ISerialization, IGraphicsResource
+    public interface ILightManager : ISerialization
     {
         /// <summary>
         /// Initializes the light manager with the given render device.
@@ -71,8 +72,16 @@ namespace LibGFX.Graphics.Lights
         /// <summary>
         /// Sets the light view matrix for the light manager, which is used to transform the light's perspective in the scene.
         /// </summary>
-        /// <param name="lightViewMatrix"></param>
-        public void SetLightSpaceMatrix(Matrix4 lightViewMatrix);
+        /// <param name="camera"></param>
+        /// <param name="viewport"></param>
+        public void ComputeLightSpaceMatrix(Camera camera, Viewport viewport);
+
+        /// <summary>
+        /// Binds the computed light space matrix to the shader program for rendering shadows. This method should be called after ComputeLightSpaceMatrix to ensure that the latest light space matrix is used in the shader.
+        /// </summary>
+        /// <param name="renderDevice"></param>
+        /// <param name="binding"></param>
+        public void BindLightSpaceMatrix(IRenderDevice renderDevice, int binding = 0);
 
         /// <summary>
         /// Releases all light resources associated with the specified render device.
@@ -93,5 +102,12 @@ namespace LibGFX.Graphics.Lights
         /// <remarks>Call this method to reset the collection to an empty state. After calling this
         /// method, no lights will remain until new ones are added.</remarks>
         public void ClearLights();
+
+        /// <summary>
+        /// Removes the specified light from the collection.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="light"></param>
+        public void RemoveLight<T>(T light) where T : Light;
     }
 }

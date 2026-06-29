@@ -14,7 +14,7 @@ namespace LibGFX.Physics.Behaviors3D
     /// <summary>
     /// Represents a 3D collider base behavior
     /// </summary>
-    public class CollisionBehavior : PhysicsBehavior
+    public abstract class CollisionBehavior : PhysicsBehavior
     {
         /// <summary>
         /// The collider object

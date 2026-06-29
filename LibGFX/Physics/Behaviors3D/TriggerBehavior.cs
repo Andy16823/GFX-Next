@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Physics.Behaviors3D
 {
-    public class TriggerBehavior : PhysicsBehavior
+    public abstract class TriggerBehavior : PhysicsBehavior
     {
 
         /// <summary>

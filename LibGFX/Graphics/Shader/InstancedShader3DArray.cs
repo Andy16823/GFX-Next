@@ -1,0 +1,229 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LibGFX.Graphics.Shader
+{
+    public class InstancedShader3DArray : RenderShader
+    {
+        public InstancedShader3DArray()
+        {
+            this.VertexShader = new Shader(@"
+                #version 430 core
+
+                layout(location = 0) in vec3 inPosition;
+                layout(location = 1) in vec2 inTexCoord;
+                layout(location = 2) in vec3 inNormal;
+                layout(location = 3) in vec4 inTangent;
+
+                layout(binding = 0, std430, row_major) buffer matrixBuffer {
+                    mat4 modelMatrices[];
+                };
+
+                layout(std430, binding = 1) buffer extrasBuffer {
+                    vec4 extraBuffer[];
+                };
+
+                out vec3 position;
+                out vec3 normal;
+                out vec2 texCoord;
+                out vec4 tangent; 
+                flat out vec4 extras;
+                out vec4 fragPosViewSpace;
+
+                uniform mat4 p_mat;
+                uniform mat4 v_mat;
+                uniform mat4 mesh_matrix;
+
+                void main() {
+                    mat4 m_mat = mesh_matrix * modelMatrices[gl_InstanceID]; 
+                    mat4 mvp = m_mat * v_mat * p_mat;
+                    position = vec3(vec4(inPosition, 1.0) * m_mat);
+                    normal = inNormal * transpose(inverse(mat3(m_mat)));
+                    texCoord = inTexCoord;
+                    tangent = inTangent;
+                    extras = extraBuffer[gl_InstanceID];
+                    fragPosViewSpace = vec4(position, 1.0) * v_mat;
+                    gl_Position = vec4(inPosition, 1.0) * mvp;
+                }
+            ");
+
+            this.FragmentShader = new Shader(@"
+                #version 430 core
+
+                in vec3 position;
+                in vec3 normal;
+                in vec2 texCoord;
+                in vec4 tangent;
+                flat in vec4 extras;
+                in vec4 fragPosViewSpace;
+
+                out vec4 fragColor;
+                uniform vec3 viewPos;
+
+                uniform sampler2DArray shadowMap;
+                uniform int cascadeCount;
+                uniform float cascadePlaneDistances[16];
+                uniform mat4 lightSpaceMatrices[16];
+                uniform float farPlane;
+                uniform int castsShadows;
+
+                struct DirLight {
+                    vec3 direction;
+                    vec3 lightColor;
+                    float lightIntensity;
+                    vec3 ambient;
+                    vec3 specular;
+                };
+                uniform DirLight dirLight;
+
+                struct PointLight {
+                    vec4 position;
+                    vec4 constantLinearQuadratic;
+                    vec4 ambient;
+                    vec4 diffuse;
+                    vec4 specular;
+                };
+                layout(std430, binding = 4) buffer PointLightsBuffer {
+                    PointLight pointLights[];
+                };
+    
+                uniform sampler2DArray textureArraySampler;
+                uniform sampler2DArray normalArraySampler;
+                uniform sampler2DArray specularArraySampler;
+                uniform vec4 vertexColor = vec4(1.0);
+                uniform float shininess = 32.0;
+                uniform bool flipNormal = false;
+
+                mat3 getTBN(vec4 tangent, vec3 normal, bool flipnormal) {
+                   if (flipnormal == false) {
+                        normal = -normal;
+                    }
+                    vec3 T = normalize(tangent.xyz);
+                    vec3 N = normalize(normal);
+                    vec3 B = cross(N, T)*tangent.w;
+                    mat3 TBN = mat3(T, B, N);
+                    return TBN;
+                }
+
+                vec3 CalcDirLight(DirLight light, vec3 normal, float shadow, vec3 viewDir, int textureIndex)
+                {
+                    vec3 lightDir = normalize(-light.direction);
+                    float diff = max(dot(normal, lightDir), 0.0);
+                    vec3 reflectDir = reflect(lightDir, normal);
+                    float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
+                    vec3 ambient  = light.ambient * vec3(texture(textureArraySampler, vec3(texCoord, textureIndex)));
+                    vec3 diffuse  = light.lightColor * diff * vec3(texture(textureArraySampler, vec3(texCoord, textureIndex)));
+                    vec3 specular = light.specular * spec * vec3(texture(specularArraySampler, vec3(texCoord, textureIndex)));
+
+                    vec3 lightning = (ambient + (1.0 -shadow) * (diffuse + specular));
+                    return lightning;
+                }  
+
+                vec3 CalcPointLight(PointLight light, vec3 normal, vec3 fragPos, vec3 viewDir, int textureIndex)
+                {
+                    vec3 lightPos = light.position.xyz;
+                    float constant = light.constantLinearQuadratic.x;
+                    float linear = light.constantLinearQuadratic.y;
+                    float quadratic = light.constantLinearQuadratic.z;
+                    vec3 lambient = light.ambient.xyz;
+                    vec3 ldiffuse = light.diffuse.xyz;
+                    vec3 lspecular = light.specular.xyz;
+
+                    vec3 lightDir = normalize(-(lightPos - fragPos));
+                    // diffuse shading
+                    float diff = max(dot(normal, lightDir), 0.0);
+                    // specular shading
+                    vec3 reflectDir = reflect(lightDir, normal);
+                    float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
+                    // attenuation
+                    float distance = length(lightPos - fragPos);
+                    float attenuation = 1.0 / (constant + linear * distance + quadratic * (distance * distance));    
+                    // combine results
+                    vec3 ambient  = lambient * vec3(texture(textureArraySampler, vec3(texCoord, textureIndex)));
+                    vec3 diffuse  = ldiffuse  * diff * vec3(texture(textureArraySampler, vec3(texCoord, textureIndex)));
+                    vec3 specular = lspecular * spec * vec3(texture(specularArraySampler, vec3(texCoord, textureIndex)));
+                    ambient  *= attenuation;
+                    diffuse  *= attenuation;
+                    specular *= attenuation;
+                    return (ambient + diffuse + specular);
+                } 
+
+                float ShadowCalculation(vec3 fragPosWorldSpace, vec4 fragPosViewSpace, vec3 normal, DirLight light) {
+    
+                    float depthValue = abs(fragPosViewSpace.z);
+    
+                    // ✅ Default = letzter Layer (nie out of bounds)
+                    int layer = cascadeCount - 1;
+                    for (int i = 0; i < cascadeCount; ++i) {
+                        if (depthValue < cascadePlaneDistances[i]) {
+                            layer = i;
+                            break;
+                        }
+                    }
+
+                    vec4 fragPosLightSpace = vec4(fragPosWorldSpace, 1.0) * lightSpaceMatrices[layer];
+    
+                    vec3 projCoords = fragPosLightSpace.xyz / fragPosLightSpace.w;
+                    projCoords = projCoords * 0.5 + 0.5;
+
+                    float currentDepth = projCoords.z;
+                    if(currentDepth > 1.0) return 0.0;
+
+                    vec3 lightDir = normalize(-light.direction);
+                    float bias = max(0.05 * (1.0 - dot(normal, lightDir)), 0.005);
+                    // ✅ Kein cascadeCount-Vergleich mehr nötig
+                    bias *= 1.0 / (cascadePlaneDistances[layer] * 0.5);
+
+                    float shadow = 0.0;
+                    vec2 texelSize = 1.0 / vec2(textureSize(shadowMap, 0));
+                    for (int x = -1; x <= 1; ++x) {
+                        for (int y = -1; y <= 1; ++y) {
+                            float pcfDepth = texture(
+                                shadowMap,
+                                vec3(projCoords.xy + vec2(x, y) * texelSize, layer)
+                            ).r;
+                            shadow += (currentDepth - bias) > pcfDepth ? 1.0 : 0.0;
+                        }
+                    }
+                    shadow /= 9.0;
+
+                    if (projCoords.z > 1.0) shadow = 0.0;
+                    return shadow;
+                }
+
+                void main() {
+
+                    if(extras.x == 0.0) {
+                        discard;
+                    }
+
+                    int textureIndex = int(extras.y);
+    
+                    mat3 TBN = getTBN(tangent, normal, flipNormal);
+                    vec3 normalMap = texture(normalArraySampler, vec3(texCoord, textureIndex)).rgb;
+                    normalMap = normalMap*2.0-1.0;
+                    vec3 norm = normalize(TBN*normalMap);
+                    vec3 viewDir = normalize(viewPos-position);
+
+                    float shadow = 0.0;
+                    if (castsShadows == 1) {
+                        shadow = ShadowCalculation(position, fragPosViewSpace, norm, dirLight);
+                    }
+                    vec3 result = CalcDirLight(dirLight, norm, shadow, viewDir, textureIndex);
+                    for (int i = 0; i < pointLights.length(); i++) {
+                        result += CalcPointLight(pointLights[i], norm, position, viewDir, textureIndex);
+                    } 
+
+                    float alpha = texture(textureArraySampler, vec3(texCoord, textureIndex)).a;
+                    result *= vertexColor.rgb;
+                    alpha *= vertexColor.a;
+
+                    fragColor = vec4(result, alpha);
+                }
+            ");
+        }
+    }
+}

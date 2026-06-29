@@ -65,18 +65,19 @@ namespace LibGFX.Graphics.PostProcessing
         public void Dispose(PostProcessStack stack, IRenderDevice renderer)
         {
             renderer.DisposeRenderShader(_shader);
-            RenderTarget.Dispose(renderer);
+            RenderTarget.Dispose();
         }
 
         public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)
         {
-            this.RenderTarget = renderer.CreateRenderTarget2D(viewport.Width, viewport.Height);
+            this.RenderTarget = new RenderTarget2D(viewport.Width, viewport.Height);
+            this.RenderTarget.Create();
             renderer.BuildRenderShader(_shader);
         }
 
         public void Resize(Viewport viewport, IRenderDevice renderer)
         {
-            renderer.ResizeRenderTarget(this.RenderTarget, viewport.Width, viewport.Height);
+            RenderTarget.Resize(viewport.Width, viewport.Height);
         }
 
         public void Update(float deltaTime)

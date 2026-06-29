@@ -13,7 +13,7 @@ namespace LibGFX.Physics.Behaviors2D
     /// <summary>
     /// Represents a 2D collision behavior
     /// </summary>
-    public class CollisionBehavior : PhysicsBehavior
+    public abstract class CollisionBehavior : PhysicsBehavior
     {
         /// <summary>
         /// The collision object

@@ -19,16 +19,10 @@ using System.Threading.Tasks;
 namespace LibGFX.Core.GameElements
 {
     /// <summary>
-    /// TODO REWORK!
     /// Represents a primitive game element that can be rendered with a material and shader.
     /// </summary>
     public class Primitive : GameElement
     {
-        /// <summary>
-        /// the shader program used for rendering the primitive.
-        /// </summary>
-        public RenderShader Shader { get; set; }
-
         /// <summary>
         /// Gets or sets the mesh geometry associated with this object.
         /// </summary>
@@ -37,7 +31,7 @@ namespace LibGFX.Core.GameElements
         /// <summary>
         /// Override to get or set the material associated with this primitive.
         /// </summary>
-        public IMaterial MaterialOverride { get; set; }
+        public IMaterial Material { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether the mesh's material includes transparency.
@@ -53,17 +47,6 @@ namespace LibGFX.Core.GameElements
         }
 
         /// <summary>
-        /// Initializes a new instance of the Primitive class with the specified name and mesh.
-        /// </summary>
-        /// <param name="name">The name to assign to the primitive. Cannot be null or empty.</param>
-        /// <param name="mesh">The mesh that defines the geometry of the primitive. Cannot be null.</param>
-        public Primitive(String name, Mesh mesh)
-        {
-            this.Name = name;
-            this.Mesh = mesh;
-        }
-
-        /// <summary>
         /// Initializes a new instance of the Primitive class with the specified name, mesh, and material.
         /// </summary>
         /// <remarks>This constructor uses an material override. The mesh material wont get replaced.</remarks>
@@ -74,7 +57,7 @@ namespace LibGFX.Core.GameElements
         {
             this.Name = name;
             this.Mesh = mesh;
-            this.MaterialOverride = material;
+            this.Material = material;
         }
 
         /// <summary>
@@ -87,12 +70,6 @@ namespace LibGFX.Core.GameElements
         {
             // Get the primitive mesh based on the primitive type
             base.Init(scene, viewport, renderer);
-
-            // Get the default shader if none is assigned
-            if (this.Shader == null)
-            {
-                this.Shader = renderer.GetRenderShader("MeshShader");
-            }
         }
 
         /// <summary>
@@ -106,18 +83,25 @@ namespace LibGFX.Core.GameElements
         {
             if(this.Visible)
             {
+                // Call base render method
                 base.Render(scene, viewport, renderer, camera);
+
+                // Get the world transform matrix
                 var transform = this.GetWorldTransform();
 
-                renderer.BindShaderProgram(this.Shader);
+                // Use the appropriate material (override or mesh material)
+                Material.Use(renderer);
+
+                // Prepare shader uniforms
                 renderer.PrepareShader("viewPos", camera.Transform.Position);
-                if (scene.LightManager != null)
-                {
-                    scene.LightManager.BindLights(viewport, renderer, camera);
-                }
-                renderer.DrawMesh(transform, Mesh, MaterialOverride);
+                scene.LightManager?.BindLights(viewport, renderer, camera);
+
+                // Draw the mesh and update render statistics
+                renderer.DrawMesh(transform, Mesh);
                 scene.RenderStats.IncrementDrawCalls();
-                renderer.UnbindShaderProgram();
+
+                // Disable the material after rendering
+                Material.Disable(renderer);
             }
         }
 
@@ -136,7 +120,7 @@ namespace LibGFX.Core.GameElements
                 // Use the depth mesh shader for shadow rendering
                 var shader = renderer.GetRenderShader("DepthMeshShader");
                 renderer.BindShaderProgram(shader);
-                renderer.DrawMesh(Transform, Mesh, MaterialOverride);
+                renderer.DrawMesh(Transform, Mesh);
                 scene.RenderStats.IncrementDrawCalls();
                 renderer.UnbindShaderProgram();
             }
@@ -180,13 +164,8 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         /// <returns></returns>
         private bool hasTransparency()
-        {
-            if(this.MaterialOverride != null)
-            {
-                return this.MaterialOverride.IsTransparent;
-            }
-            
-            return this.Mesh?.Material.IsTransparent ?? false;
+        {            
+            return this.Material.IsTransparent;
         }
 
         /// <summary>
@@ -201,6 +180,8 @@ namespace LibGFX.Core.GameElements
             {
                 w.WritePropertyName("Mesh");
                 w.WriteValue(Mesh.ID.ToString());
+                w.WritePropertyName("Material");
+                w.WriteValue(Material.ID.ToString());
                 callback?.Invoke(w);
             });
         }
@@ -230,6 +211,21 @@ namespace LibGFX.Core.GameElements
                     }
                 }
 
+                // Load the material
+                var materialId = refObj.Value<string>("Material");
+                if(materialId != null)
+                {
+                    var material = serializationContext.GetValue<IMaterial>(materialId);
+                    if(material != null)
+                    {
+                        this.Material = material;
+                    }
+                    else
+                    {
+                        throw new Exception($"Failed to deserialize Primitive: Material with ID {materialId} not found in serialization context.");
+                    }
+                }
+
                 // Invoke the callback if provided
                 if (callback != null)
                 {
@@ -254,22 +250,22 @@ namespace LibGFX.Core.GameElements
             switch (type)
             {
                 case PrimitiveType.Quad:
-                    mesh = Quad.GetMesh(material);
+                    mesh = Quad.GetMesh();
                     break;
                 case PrimitiveType.Cube:
-                    mesh = Cube.GetMesh(material);
+                    mesh = Cube.GetMesh();
                     break;
                 case PrimitiveType.Sphere:
-                    mesh = Sphere.GetMesh(material);
+                    mesh = Sphere.GetMesh();
                     break;
                 default:
-                    mesh = Cube.GetMesh(material);
+                    mesh = Cube.GetMesh();
                     break;
             }
 
             mesh.Name = mesh.ID.ToString();
             assets.Add(mesh);
-            return new Primitive(name, mesh);
+            return new Primitive(name, mesh, material);
         }
     }
 }

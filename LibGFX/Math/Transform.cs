@@ -130,6 +130,19 @@ namespace LibGFX.Math
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Transform"/> class with position, rotation as a quaternion, and scale.
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="rotation"></param>
+        /// <param name="scale"></param>
+        public Transform(Vector3 position, Quaternion rotation, Vector3 scale)
+        {
+            this.Position = position;
+            this.Rotation = rotation;
+            this.Scale = scale;
+        }
+
+        /// <summary>
         /// Sets the rotation in degrees using a 2D vector.
         /// </summary>
         /// <param name="rotation">The rotation vector in degrees.</param>

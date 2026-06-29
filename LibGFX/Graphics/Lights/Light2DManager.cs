@@ -16,7 +16,7 @@ namespace LibGFX.Graphics.Lights
     /// <summary>
     /// Represents an chunk of lights in the scene.
     /// </summary>
-    public class Light2DChunk : ISerialization
+    public class Light2DChunk
     {
         /// <summary>
         /// Gets or sets the collection of 2D point lights used in the scene.
@@ -34,48 +34,17 @@ namespace LibGFX.Graphics.Lights
         }
 
         /// <summary>
-        /// Serializes the current object and its child lights into a JSON representation.
+        /// Removes a point light from the chunk.
         /// </summary>
-        /// <param name="serializationContext">The context to use during serialization, which may provide settings or state required for the serialization
-        /// process.</param>
-        /// <returns>A <see cref="JObject"/> containing the serialized data for this object, including its type information and
-        /// an array of serialized child lights.</returns>
-        public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
+        /// <param name="light"></param>
+        public bool TryRemoveLight(PointLight2D light)
         {
-            writer.WriteStartObject();
-            writer.WritePropertyName("Type");
-            writer.WriteValue(this.GetType().FullName);
-            writer.WritePropertyName("Lights");
-            writer.WriteStartArray();
-            foreach (var light in Lights)
+            if (Lights.Contains(light))
             {
-                light.Serialize(writer, serializationContext);
+                Lights.Remove(light);
+                return true;
             }
-            writer.WriteEndArray();
-            callback?.Invoke(writer);
-            writer.WriteEndObject();
-        }
-
-        /// <summary>
-        /// Populates the collection of point lights from the specified JSON object using the provided serialization
-        /// context.
-        /// </summary>
-        /// <remarks>This method clears the existing collection of point lights before adding the
-        /// deserialized lights from the JSON object. Any existing lights will be removed.</remarks>
-        /// <param name="jObject">A <see cref="JObject"/> containing the serialized data for the point lights. Must include a "Lights" array
-        /// property.</param>
-        /// <param name="serializationContext">The <see cref="SerializationContext"/> to use during deserialization. Provides context or settings required
-        /// for the operation.</param>
-        public void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
-        {
-            var lightsArray = obj["Lights"] as JArray;
-            foreach (var lightToken in lightsArray)
-            {
-                var lightObject = lightToken as JObject;
-                var light = new PointLight2D();
-                light.Deserialize(lightObject, serializationContext);
-                Lights.Add(light);
-            }
+            return false;
         }
     }
 
@@ -180,7 +149,6 @@ namespace LibGFX.Graphics.Lights
             var cullRadius = camera.Transform.Scale.X / 2.0f;
 
             var nearbyChunks = FindNearbyChunks(camera.Transform.Position.X, camera.Transform.Position.Y, chunkSize);
-            //Debug.WriteLine($"Nearby chunks: {nearbyChunks.Count()}");
 
             var culledLights = new List<Point2DLightData>();
             Parallel.ForEach(nearbyChunks, chunk =>
@@ -200,7 +168,6 @@ namespace LibGFX.Graphics.Lights
                 }
             });
 
-            //Debug.WriteLine($"Culled lights: {culledLights.Count}");
             return culledLights;
         }
 
@@ -216,14 +183,6 @@ namespace LibGFX.Graphics.Lights
                 light.Init(renderDevice);
             });
             this.IsInitialized = true;
-        }
-
-        /// <summary>
-        /// Frees any CPU resources used by the light manager.
-        /// </summary>
-        public void FreeCPUResources()
-        {
-            // No CPU resources to free in the Light2DManager
         }
 
         /// <summary>
@@ -245,15 +204,12 @@ namespace LibGFX.Graphics.Lights
         /// <param name="renderer"></param>
         /// <param name="camera"></param>
         public void BindLights(Viewport viewport, IRenderDevice renderer, Camera camera)
-        {       
-            if (this.DirectionalLight == null)
-            {
-                return;
-            }
+        {
+            if (this.DirectionalLight == null) return;
             
             renderer.PrepareShader("dirLightColor", DirectionalLight.Color.Xyz);
             renderer.PrepareShader("dirLightIntensity", DirectionalLight.Intensity);
-            renderer.BindShaderStorageBuffer(4, this.LightSSBO);
+            renderer.BindBufferBase(RenderFlags.GFXBufferTarget.ShaderStorageBuffer, 4, this.LightSSBO);
         }
 
         /// <summary>
@@ -314,7 +270,12 @@ namespace LibGFX.Graphics.Lights
         /// </summary>
         /// <param name="lightViewMatrix"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public void SetLightSpaceMatrix(Matrix4 lightViewMatrix)
+        public void ComputeLightSpaceMatrix(Camera camera, Viewport viewport)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void BindLightSpaceMatrix(IRenderDevice renderer, int binding = 0)
         {
             throw new NotImplementedException();
         }
@@ -431,6 +392,42 @@ namespace LibGFX.Graphics.Lights
             return false;
         }
 
+        /// <summary>
+        /// Removes the specified light from the scene.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="light"></param>
+        /// <exception cref="InvalidOperationException"></exception>
+        public void RemoveLight<T>(T light) where T : Light
+        {
+            if (light is DirectionalLight2D dirLight)
+            {
+                if (this.DirectionalLight == dirLight)
+                {
+                    this.DirectionalLight = null;
+                    return;
+                }
+            }
+            else if (light is PointLight2D pointLight)
+            {
+                foreach (var chunk in Chunks.Values)
+                {
+                    if (chunk.TryRemoveLight(pointLight))
+                    {
+                        return;
+                    }
+                }
+                throw new InvalidOperationException("The specified PointLight2D was not found in any chunk.");
+            }
+            throw new InvalidOperationException($"Light type {typeof(T).Name} not supported in Light2DManager.");
+        }
+
+        /// <summary>
+        /// Serializes the light manager to a JSON object representation, including its directional light and point lights.
+        /// </summary>
+        /// <param name="writer">The JSON writer to use for serialization.</param>
+        /// <param name="serializationContext">The context for serialization, providing additional information or settings.</param>
+        /// <param name="callback">An optional callback to invoke after serialization is complete.</param>
         public void Serialize(JsonWriter writer, SerializationContext serializationContext, Action<JsonWriter> callback = null)
         {
             writer.WriteStartObject();
@@ -445,43 +442,41 @@ namespace LibGFX.Graphics.Lights
             {
                 writer.WriteNull();
             }
-            writer.WritePropertyName("Chunks");
+            writer.WritePropertyName("Lights");
             writer.WriteStartArray();
-            foreach (var kvp in Chunks)
+            this.ForEachLight((light) =>
             {
-                writer.WriteStartObject();
-                writer.WritePropertyName("ChunkX");
-                writer.WriteValue(kvp.Key.Item1);
-                writer.WritePropertyName("ChunkY");
-                writer.WriteValue(kvp.Key.Item2);
-                writer.WritePropertyName("LightChunk");
-                kvp.Value.Serialize(writer, serializationContext);
-                writer.WriteEndObject();
-            }
+                light.Serialize(writer, serializationContext);
+            });
             writer.WriteEndArray();
             callback?.Invoke(writer);
             writer.WriteEndObject();
         }
 
+        /// <summary>
+        /// Deserializes the light manager from a JSON object representation, restoring its state and contained lights.
+        /// </summary>
+        /// <param name="obj">The JSON object to deserialize from.</param>
+        /// <param name="serializationContext">The context for serialization, providing additional information or settings.</param>
+        /// <param name="callback">An optional callback to invoke after deserialization is complete.</param>
         public void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
             var directionalLightToken = obj["DirectionalLight"];
             this.DirectionalLight = new DirectionalLight2D();
             this.DirectionalLight.Deserialize(directionalLightToken as JObject, serializationContext);
 
-            var chunksArray = obj["Chunks"] as JArray;
-            Chunks.Clear();
-            foreach (var chunkToken in chunksArray)
+            var lightsArray = obj["Lights"] as JArray;
+            foreach(var lightToken in lightsArray)
             {
-                var chunkObject = chunkToken as JObject;
-                int chunkX = chunkObject["ChunkX"] != null ? chunkObject["ChunkX"].Value<int>() : 0;
-                int chunkY = chunkObject["ChunkY"] != null ? chunkObject["ChunkY"].Value<int>() : 0;
-
-                var lightChunkToken = chunkObject["LightChunk"];
-                var lightChunk = new Light2DChunk();
-                lightChunk.Deserialize(lightChunkToken as JObject, serializationContext);
-                Chunks[(chunkX, chunkY)] = lightChunk;
+                var lightObject = lightToken as JObject;
+                if (lightObject != null)
+                {
+                    var pointLight2D = new PointLight2D();
+                    pointLight2D.Deserialize(lightObject, serializationContext);
+                    this.AddPointLight(pointLight2D);
+                }
             }
+
             callback?.Invoke(obj);
         }
     }

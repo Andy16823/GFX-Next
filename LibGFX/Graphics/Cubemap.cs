@@ -1,4 +1,5 @@
-﻿using LibGFX.Core;
+﻿using LibGFX.Assets;
+using LibGFX.Core;
 using LibGFX.Math;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -16,7 +17,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a cubemap texture
     /// </summary>
-    public class Cubemap : IGraphicsResource, ISerialization
+    public class Cubemap : IAsset, ISerialization
     {
         /// <summary>
         /// The faces of the cubemap

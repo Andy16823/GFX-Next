@@ -1,5 +1,4 @@
 ﻿using LibGFX.Assets;
-using LibGFX.Assets.Loaders;
 using LibGFX.Audio;
 using LibGFX.Core.GameElements;
 using LibGFX.Graphics.Animation3D;
@@ -66,7 +65,7 @@ namespace LibGFX.Core
         /// </summary>
         protected Game()
         {
-            this.AssetManager = Utils.CreateDefaultAssetManager();
+            this.AssetManager = new AssetManager();
             this.Services = GFX.Instance.Services;
         }
 

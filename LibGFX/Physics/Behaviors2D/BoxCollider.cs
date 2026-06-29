@@ -53,6 +53,5 @@ namespace LibGFX.Physics.Behaviors2D
             Collider.CollisionShape.LocalScaling = (System.Numerics.Vector3)Parent.Transform.Scale;
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
         }
-
     }
 }

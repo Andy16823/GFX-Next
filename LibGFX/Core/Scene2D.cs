@@ -241,13 +241,13 @@ namespace LibGFX.Core
         /// <typeparam name="T">The type of behavior to search for. Must be implemented by the game elements to be included in the results.</typeparam>
         /// <returns>A collection of game elements that implement the specified behavior type. The collection is empty if no
         /// elements with the behavior are found.</returns>
-        public override ICollection<GameElement> FindElementsWithBehavior<T>()
+        public override ICollection<GameElement> GetElementsWithBehavior<T>()
         {
             List<GameElement> elements = new List<GameElement>();
 
             this.Layers.AsParallel().ForAll(layer =>
             {
-                elements.AddRange(layer.FindElementsWithBehavior<T>());
+                elements.AddRange(layer.GetElementsWithBehavior<T>());
             });
 
             return elements;
@@ -261,9 +261,9 @@ namespace LibGFX.Core
         /// <param name="tag">The tag to search for. Only elements with this tag will be included in the results. Cannot be null.</param>
         /// <returns>A collection of game elements that have the specified tag. The collection is empty if no elements with the
         /// tag are found.</returns>
-        public override ICollection<GameElement> FindElementsWithTag(string tag)
+        public override ICollection<GameElement> GetElementsWithProperty(string key)
         {
-            return this.Layers.AsParallel().SelectMany(layer => layer.FindElementsWithTag(tag)).ToList();
+            return this.Layers.AsParallel().SelectMany(layer => layer.GetElementsWithProperty(key)).ToList();
         }
 
         /// <summary>
@@ -466,7 +466,8 @@ namespace LibGFX.Core
             // Call the on init start event
             OnInitStart?.Invoke(this, viewport, renderer);
 
-            _renderTarget = renderer.CreateRenderTarget2D(viewport.Width, viewport.Height);
+            _renderTarget = new RenderTarget2D(viewport.Width, viewport.Height);
+            _renderTarget.Create();
 
             // Call the after render target creation event
             AfterRenderTargetCreation?.Invoke(this, viewport, renderer);
@@ -516,7 +517,7 @@ namespace LibGFX.Core
             renderer.SetProjectionMatrix(camera.GetProjectionMatrix(viewport));
             renderer.SetViewMatrix(camera.GetViewMatrix());
 
-            renderer.ResizeRenderTarget(_renderTarget, viewport.Width, viewport.Height);
+            _renderTarget.Resize(viewport.Width, viewport.Height);
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
@@ -550,7 +551,7 @@ namespace LibGFX.Core
             OnRenderEnd?.Invoke(this, viewport, renderer, camera);
         }
 
-        public override void RenderShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera)
+        public override void BuildShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
             throw new NotImplementedException("Shadow mapping is not implemented for 2D scenes.");
         }
@@ -591,7 +592,7 @@ namespace LibGFX.Core
             OnDispose?.Invoke(this, renderer);
 
             // Dispose the render target of the scene
-            _renderTarget.Dispose(renderer);
+            _renderTarget.Dispose();
 
             // Dispose the light manager
             this.LightManager.Dispose(renderer);

@@ -10,9 +10,9 @@ namespace LibGFX.Graphics.Primitives
 {
     public class Sphere : IPrimitive<Sphere>
     {
-        public static Mesh GetMesh(IMaterial material = null)
+        public static Mesh GetMesh()
         {
-            return Generator.SphereGenerator.CreateSphere(20, 20, 0.5f, material);
+            return Generator.SphereGenerator.CreateSphere(20, 20, 0.5f);
         }
     }
 }

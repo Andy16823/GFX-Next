@@ -108,8 +108,7 @@ namespace LibGFX.Core.GameElements
             {
                 this.Transform.Changed -= Transform_Changed;
             }
-            // TODO: Add light removal from scene
-            //scene.RemoveLight<PointLight3D>(LightSource);
+            scene.RemoveLight<PointLight3D>(LightSource);
         }
 
         /// <summary>

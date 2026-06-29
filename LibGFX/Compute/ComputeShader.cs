@@ -1,4 +1,5 @@
-﻿using LibGFX.Core;
+﻿using LibGFX.Assets;
+using LibGFX.Core;
 using LibGFX.Graphics;
 using LibGFX.Graphics.Shader;
 using System;
@@ -15,7 +16,7 @@ namespace LibGFX.Compute
     /// <remarks>Use this class to manage the source and configuration of a compute shader for GPU-based
     /// parallel processing tasks. The properties provide access to the shader's source code, the number of invocations,
     /// and the program identifier required for execution within a graphics or compute API.</remarks>
-    public class ComputeShader : IShaderProgram, IIdentifier, IGraphicsResource
+    public class ComputeShader : IShaderProgram, IIdentifier, IAsset
     {
         /// <summary>
         /// Name of the compute shader.

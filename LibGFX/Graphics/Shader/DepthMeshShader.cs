@@ -11,7 +11,7 @@ namespace LibGFX.Graphics.Shader
         public DepthMeshShader()
         {
             this.VertexShader = new Shader(@"
-                #version 330 core
+                #version 460 core
                 layout (location = 0) in vec3 inPosition;
 
                 uniform mat4 p_mat;
@@ -20,21 +20,40 @@ namespace LibGFX.Graphics.Shader
 
                 void main()
                 {
-                    mat4 mvp = m_mat*v_mat*p_mat;
-                    gl_Position = vec4(inPosition, 1.0) * mvp;
+                    gl_Position = vec4(inPosition, 1.0) * m_mat;
+                }
+            ");
+
+            this.GeometryShader = new Shader(@"
+                #version 460 core
+                layout (triangles, invocations = 4) in;
+                layout (triangle_strip, max_vertices = 3) out;
+
+                layout (std140, binding = 3, row_major) uniform LightSpaceMatrices
+                {
+                    mat4 lightSpaceMatrices[16];
+                };
+
+                void main()
+                {
+                    for(int i = 0; i < 3; ++i)
+                    {
+                        gl_Position = gl_in[i].gl_Position * lightSpaceMatrices[gl_InvocationID]; // ✅
+                        gl_Layer = gl_InvocationID; // Set the layer for the current invocation
+                        EmitVertex();
+                    }
+                    EndPrimitive();
                 }
             ");
 
             this.FragmentShader = new Shader(@"
-                #version 330 core
+                #version 460 core
 
                 out vec4 fragColor;
 
                 void main()
                 { 
-                    // Debug
-                    // fragColor = vec4(1.0, 1.0, 1.0, 1.0); // Uncomment for debugging
-                    // gl_FragDepth = gl_FragCoord.z;
+
                 }
             ");
         }

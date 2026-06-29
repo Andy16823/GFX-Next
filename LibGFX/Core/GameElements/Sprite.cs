@@ -3,11 +3,13 @@ using LibGFX.Graphics.Animation2D;
 using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.Shader;
+using LibGFX.Graphics.Shapes;
 using LibGFX.Math;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,11 +42,6 @@ namespace LibGFX.Core.GameElements
         public SpriteMaterial Material { get; set; }
 
         /// <summary>
-        /// The shader program used for rendering the sprite
-        /// </summary>
-        public RenderShader Shader { get; set; }
-
-        /// <summary>
         /// The animator of the sprite
         /// </summary>
         public Animator Animator { get; set; }
@@ -63,6 +60,9 @@ namespace LibGFX.Core.GameElements
         /// Gets a value indicating whether the object uses a material with transparency.
         /// </summary>
         public override bool HasTransparency => this.Material.IsTransparent;
+
+
+        private SpriteShape _shape;
 
 
         /// <summary>
@@ -105,12 +105,8 @@ namespace LibGFX.Core.GameElements
         /// <param name="renderer"></param>
         public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
+            _shape = renderer.GetShape<SpriteShape>();
             base.Init(scene, viewport, renderer);
-
-            if (this.Shader == null)
-            {
-                this.Shader = renderer.GetRenderShader("LitSpriteShader");
-            }
         }
 
         /// <summary>
@@ -125,23 +121,29 @@ namespace LibGFX.Core.GameElements
             base.Render(scene, viewport, renderer, camera);
             if (this.Visible)
             {
-                var transform = this.GetWorldTransform(); // Get the world transform of the sprite
-                renderer.BindShaderProgram(this.Shader);
-
-
-                if (scene.LightManager != null)
-                {
-                    scene.LightManager.BindLights(viewport, renderer, camera);
-                }
-
+                // Compute the UV transform with mirroring if needed
                 var uvTransform = this.UVTransform;
                 if (this.MirrorMode != TextureMirrorMode.None)
                 {
                     uvTransform = Texture.MirrorUVTransform(uvTransform, this.MirrorMode);
                 }
-                renderer.DrawTexture(transform, this.Material.Texture.TextureId, Color, uvTransform, UVScale);
+
+                // Get the world transform matrix
+                var transform = this.GetWorldTransform();
+
+                // Bind the material and set shader uniforms
+                this.Material.Use(renderer);
+                renderer.PrepareShader("uvTransform", uvTransform);
+                renderer.PrepareShader("uvScale", UVScale);
+                renderer.PrepareShader("vertexColor", Color);
+                scene.LightManager?.BindLights(viewport, renderer, camera);
+
+                // Draw the shape
+                renderer.DrawShape(transform, _shape);
+
+                // Update render stats and unbind the material
                 scene.RenderStats.IncrementDrawCalls();
-                renderer.UnbindShaderProgram();
+                this.Material.Disable(renderer);
             }
         }
 
@@ -298,15 +300,17 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         public override void ComputeAABB()
         {
-            var min = new Vector3(
-                this.Transform.Position.X - this.Transform.Scale.X / 2,
-                this.Transform.Position.Y - this.Transform.Scale.Y / 2,
-                0);
+            var vertices = _shape.GetVertices(); 
 
-            var max = new Vector3(
-                this.Transform.Position.X + this.Transform.Scale.X / 2,
-                this.Transform.Position.Y + this.Transform.Scale.Y / 2,
-                0);
+            var min = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+            var max = new Vector3(float.MinValue, float.MinValue, float.MinValue);
+
+            for (int i = 0; i < vertices.Length; i += 3)
+            {
+                var vertex = new Vector3(vertices[i], vertices[i + 1], vertices[i + 2]);
+                min = Vector3.ComponentMin(min, vertex);
+                max = Vector3.ComponentMax(max, vertex);
+            }
 
             this.AABB = new AABB(min, max);
         }

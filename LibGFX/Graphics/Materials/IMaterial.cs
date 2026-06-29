@@ -1,5 +1,7 @@
-﻿using LibGFX.Core;
+﻿using LibGFX.Assets;
+using LibGFX.Core;
 using LibGFX.Graphics.Shader;
+using LibGFX.Types;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -16,9 +18,25 @@ namespace LibGFX.Graphics.Materials
     /// <remarks>Implementations of this interface represent materials that can be initialized, used, and
     /// disposed of with a rendering device. The interface also provides a static method for loading a material from an
     /// external source. Implementers should ensure thread safety if materials are accessed concurrently.</remarks>
-    public interface IMaterial : IGraphicsResource, IIdentifier, ISerialization
+    public interface IMaterial : IAsset, IIdentifier, ISerialization
     {
+        /// <summary>
+        /// Determines whether the material is transparent.
+        /// </summary>
         public bool IsTransparent { get; }
+
+        /// <summary>
+        /// Shader associated with this material.
+        /// </summary>
+        public RenderShader Shader { get; set; }
+
+        /// <summary>
+        /// Gets or sets a collection of custom properties associated with the object.
+        /// </summary>
+        /// <remarks>Use this dictionary to store additional metadata or user-defined values that are not
+        /// represented by other properties. Keys are case-sensitive. Modifying the collection does not trigger property
+        /// change notifications.</remarks>
+        public Dictionary<string, MetaValue> Metadata { get; set; }
 
         /// <summary>
         /// Configures the current instance to use the specified render device for rendering operations.

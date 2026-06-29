@@ -75,7 +75,7 @@ namespace LibGFX.UI
         {
             Debug.WriteLine($"Disposing {this.Name} Label");
             this.DisposeEvents();
-            this.RenderTarget.Dispose(renderer);
+            this.RenderTarget.Dispose();
         }
 
         /// <summary>
@@ -85,7 +85,8 @@ namespace LibGFX.UI
         /// <param name="canvas"></param>
         public override void Init(IRenderDevice renderer, Canvas canvas)
         {
-            this.RenderTarget = renderer.CreateRenderTarget2D((int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
+            this.RenderTarget = new RenderTarget2D((int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
+            this.RenderTarget.Create();
         }
 
         /// <summary>
@@ -100,7 +101,7 @@ namespace LibGFX.UI
             // Set the camera to the size of the label
             _camera.Transform.Scale = new Vector3(this.Transform.Scale.X, this.Transform.Scale.Y, 0);
             _viewport = new Viewport((int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
-            renderer.ResizeRenderTarget(RenderTarget, _viewport.Width, _viewport.Height);
+            this.RenderTarget.Resize(_viewport.Width, _viewport.Height);
 
             // Set the camera to the size of the label
             renderer.SetViewport(_viewport);

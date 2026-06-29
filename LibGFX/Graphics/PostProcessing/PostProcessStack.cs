@@ -21,7 +21,8 @@ namespace LibGFX.Graphics.PostProcessing
         {
             int width = (int)viewport.Width;
             int height = (int)viewport.Height;
-            _bufferA = renderer.CreateRenderTarget2D(width, height);
+            _bufferA = new RenderTarget2D(width, height);
+            _bufferA.Create();
             this.Filter.ForEach(f => f.Init(this, viewport, renderer));
         }
 
@@ -44,7 +45,7 @@ namespace LibGFX.Graphics.PostProcessing
 
         public void Dispose(IRenderDevice renderer)
         {
-            _bufferA.Dispose(renderer);
+            _bufferA.Dispose();
             this.Filter.ForEach(f => f.Dispose(this, renderer));
         }
 
@@ -52,7 +53,7 @@ namespace LibGFX.Graphics.PostProcessing
         {
             int width = (int)viewport.Width;
             int height = (int)viewport.Height;
-            renderer.ResizeRenderTarget(_bufferA, width, height);
+            _bufferA.Resize(width, height);
             this.Filter.ForEach(f => f.Resize(viewport, renderer));
         }
 

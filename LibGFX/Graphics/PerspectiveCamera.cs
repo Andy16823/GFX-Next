@@ -42,6 +42,42 @@ namespace LibGFX.Graphics
         }
 
         /// <summary>
+        /// Sets the near and far planes of the camera
+        /// </summary>
+        /// <param name="near"></param>
+        /// <param name="far"></param>
+        public void SetNearFar(float near, float far)
+        {
+            this.Near = near;
+            this.Far = far;
+        }
+
+        /// <summary>
+        /// Gets the near and far planes of the camera
+        /// </summary>
+        /// <returns></returns>
+        public (float, float) GetNearFar()
+        {
+            return (this.Near, this.Far);
+        }
+
+        /// <summary>
+        /// Clones the camera
+        /// </summary>
+        /// <returns></returns>
+        public Camera Clone()
+        {
+            var clone = new PerspectiveCamera();
+            clone.Transform.Position = this.Transform.Position;
+            clone.Transform.Rotation = this.Transform.Rotation;
+            clone.Transform.Scale = this.Transform.Scale;
+            clone.Fov = this.Fov;
+            clone.Near = this.Near;
+            clone.Far = this.Far;
+            return clone;
+        }
+
+        /// <summary>
         /// Gets the projection matrix of the camera
         /// </summary>
         /// <param name="viewport"></param>
@@ -107,145 +143,6 @@ namespace LibGFX.Graphics
         public override void LookAt(Vector3 target)
         {
             this.Transform.Towards(target);
-        }
-
-        /// <summary>
-        /// Checks if a point is in the frustum of the camera
-        /// </summary>
-        /// <param name="viewport"></param>
-        /// <param name="point"></param>
-        /// <returns></returns>
-        public override bool IsPointInFrustum(Viewport viewport, Vector3 point)
-        {
-            var projectionMatrix = this.GetProjectionMatrix(viewport);
-            var viewMatrix = this.GetViewMatrix();
-
-            Matrix4 viewProjection = viewMatrix * projectionMatrix;
-            Vector4 clipSpacePos = new Vector4(point, 1.0f) * viewProjection;
-
-            if (clipSpacePos.W == 0.0f)
-                return false;
-
-            clipSpacePos.X /= clipSpacePos.W;
-            clipSpacePos.Y /= clipSpacePos.W;
-            clipSpacePos.Z /= clipSpacePos.W;
-
-            return
-                clipSpacePos.X >= -1.0f && clipSpacePos.X <= 1.0f &&
-                clipSpacePos.Y >= -1.0f && clipSpacePos.Y <= 1.0f &&
-                clipSpacePos.Z >= -1.0f && clipSpacePos.Z <= 1.0f;
-        }
-
-        /// <summary>
-        /// Checks if a axis-aligned bounding box (AABB) is in the frustum of the camera
-        /// </summary>
-        /// <param name="viewport"></param>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
-        /// <returns></returns>
-        public override bool IsAABBInFrustum(Viewport viewport, Vector3 min, Vector3 max)
-        {
-            var projectionMatrix = GetProjectionMatrix(viewport);
-            var viewMatrix = GetViewMatrix();
-            Matrix4 viewProjection = viewMatrix * projectionMatrix;
-
-            var planes = ExtractFrustumPlanes(viewProjection);
-
-            return IntersectsFrustum(planes, min, max);
-        }
-
-        /// <summary>
-        /// Extracts the frustum planes from the view-projection matrix
-        /// </summary>
-        /// <param name="vp"></param>
-        /// <returns></returns>
-        public static Plane[] ExtractFrustumPlanes(Matrix4 vp)
-        {
-            Plane[] planes = new Plane[6];
-
-            // Left
-            planes[0] = new Plane(
-                vp.M14 + vp.M11,
-                vp.M24 + vp.M21,
-                vp.M34 + vp.M31,
-                vp.M44 + vp.M41
-            );
-
-            // Right
-            planes[1] = new Plane(
-                vp.M14 - vp.M11,
-                vp.M24 - vp.M21,
-                vp.M34 - vp.M31,
-                vp.M44 - vp.M41
-            );
-
-            // Bottom
-            planes[2] = new Plane(
-                vp.M14 + vp.M12,
-                vp.M24 + vp.M22,
-                vp.M34 + vp.M32,
-                vp.M44 + vp.M42
-            );
-
-            // Top
-            planes[3] = new Plane(
-                vp.M14 - vp.M12,
-                vp.M24 - vp.M22,
-                vp.M34 - vp.M32,
-                vp.M44 - vp.M42
-            );
-
-            // Near
-            planes[4] = new Plane(
-                vp.M13,
-                vp.M23,
-                vp.M33,
-                vp.M43
-            );
-
-            // Far
-            planes[5] = new Plane(
-                vp.M14 - vp.M13,
-                vp.M24 - vp.M23,
-                vp.M34 - vp.M33,
-                vp.M44 - vp.M43
-            );
-
-            // Normalize planes
-            for (int i = 0; i < 6; i++)
-            {
-                float length = planes[i].Normal.Length;
-                planes[i].Normal /= length;
-                planes[i].D /= length;
-            }
-
-            return planes;
-        }
-
-        /// <summary>
-        /// Checks if a bounding box intersects with the frustum defined by the planes
-        /// </summary>
-        /// <param name="planes"></param>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
-        /// <returns></returns>
-        public static bool IntersectsFrustum(Plane[] planes, Vector3 min, Vector3 max)
-        {
-            foreach (var plane in planes)
-            {
-                Vector3 positiveVertex = new Vector3(
-                    plane.Normal.X >= 0 ? max.X : min.X,
-                    plane.Normal.Y >= 0 ? max.Y : min.Y,
-                    plane.Normal.Z >= 0 ? max.Z : min.Z
-                );
-
-                if (Vector3.Dot(plane.Normal, positiveVertex) + plane.D < 0)
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
 
         /// <summary>

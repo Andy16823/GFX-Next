@@ -33,11 +33,6 @@ namespace LibGFX.Core.GameElements
         public RenderInstanceContainer InstanceContainer { get; set; }
 
         /// <summary>
-        /// The shader program used for rendering the sprite instances.
-        /// </summary>
-        public RenderShader Shader { get; set; }
-
-        /// <summary>
         /// Gets a value indicating whether the image contains any transparent pixels.
         /// </summary>
         public override bool HasTransparency => false;
@@ -83,11 +78,6 @@ namespace LibGFX.Core.GameElements
             {
                 renderer.LoadInstances(this.InstanceContainer);
             }
-
-            if (this.Shader == null)
-            {
-                this.Shader = renderer.GetRenderShader("InstancedShader2D");
-            }
         }
 
         /// <summary>
@@ -117,10 +107,10 @@ namespace LibGFX.Core.GameElements
             base.Render(scene, viewport, renderer, camera);
 
             // Bind the shader program
-            renderer.BindShaderProgram(this.Shader);
-            renderer.DrawInstances(InstanceContainer, this.Material);
+            this.Material.Use(renderer);
+            renderer.DrawInstances(InstanceContainer);
             scene.RenderStats.IncrementDrawCalls();
-            renderer.UnbindShaderProgram();
+            this.Material.Disable(renderer);
         }
 
         /// <summary>
@@ -173,6 +163,9 @@ namespace LibGFX.Core.GameElements
             }
         }
 
+        /// <summary>
+        /// Computes the axis-aligned bounding box (AABB) for the sprite instancer. Since this is an instancer, the AABB is set to zero.
+        /// </summary>
         public override void ComputeAABB()
         {
             this.AABB = AABB.Zero;

@@ -1,4 +1,5 @@
 ﻿using Assimp;
+using LibGFX.Assets;
 using LibGFX.Core;
 using LibGFX.Graphics.Materials;
 using LibGFX.Math;
@@ -38,7 +39,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents a mesh for the rendering pipeline
     /// </summary>
-    public class Mesh : IGraphicsResource, IIdentifier, ISerialization
+    public class Mesh : IAsset, IIdentifier, ISerialization
     {
         /// <summary>
         /// The name of the mesh.
@@ -84,11 +85,6 @@ namespace LibGFX.Graphics
         /// The render data associated with the mesh.
         /// </summary>
         public RenderData RenderData { get; set; }
-
-        /// <summary>
-        /// Material used by the mesh.
-        /// </summary>
-        public IMaterial Material { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether the object has been initialized.
@@ -233,9 +229,6 @@ namespace LibGFX.Graphics
             writer.WritePropertyName("LocalScale");
             Utils.SerializeVec3(LocalScale, writer);
 
-            // Write Material reference
-            writer.WritePropertyName("Material");
-            writer.WriteValue(Material.ID.ToString());
             writer.WriteEndObject();
         }
 
@@ -278,13 +271,6 @@ namespace LibGFX.Graphics
             this.LocalTranslation = Utils.DeserializeVec3(obj.Value<JObject>("LocalTranslation"));
             this.LocalRotation = Utils.DeserializeQuat(obj.Value<JObject>("LocalRotation"));
             this.LocalScale = Utils.DeserializeVec3(obj.Value<JObject>("LocalScale"));
-
-            // Read Material reference
-            var materialID = obj.Value<string>("Material");
-            if(materialID != null)
-            {
-                this.Material = serializationContext.GetValue<IMaterial>(materialID);
-            }
 
             // Invoke callback if provided
             callback?.Invoke(obj);

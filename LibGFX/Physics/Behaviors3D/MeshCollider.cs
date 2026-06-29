@@ -1,5 +1,6 @@
 ﻿using BulletSharp;
 using BulletSharp.SoftBody;
+using LibGFX.Core;
 using LibGFX.Core.GameElements;
 using LibGFX.Math;
 using OpenTK.Core;

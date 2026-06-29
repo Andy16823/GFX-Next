@@ -47,7 +47,7 @@ namespace LibGFX.UI
         public override void Dispose(IRenderDevice renderer)
         {
             Debug.WriteLine($"Disposing {this.Name} Canvas2D");
-            this.RenderTarget.Dispose(renderer);
+            this.RenderTarget.Dispose();
             foreach (var control in this.Controls.Values)
             {
                 control.Dispose(renderer, this);
@@ -60,7 +60,8 @@ namespace LibGFX.UI
         /// <param name="renderer"></param>
         public override void Init(IRenderDevice renderer)
         {
-            _renderTarget = renderer.CreateRenderTarget2D((int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
+            _renderTarget = new RenderTarget2D((int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
+            _renderTarget.Create();
             foreach (var control in this.Controls.Values)
             {
                 control.Init(renderer, this);
@@ -86,7 +87,7 @@ namespace LibGFX.UI
             renderer.SetViewMatrix(this.Camera.GetViewMatrix());
 
             // Render the canvas to the render target
-            renderer.ResizeRenderTarget(_renderTarget, (int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
+            _renderTarget.Resize((int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);

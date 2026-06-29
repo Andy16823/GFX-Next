@@ -1,5 +1,4 @@
-﻿using LibGFX.Assets.Loaders;
-using LibGFX.Core;
+﻿using LibGFX.Core;
 using LibGFX.Graphics;
 using System;
 using System.Collections.Generic;
@@ -20,32 +19,11 @@ namespace LibGFX.Assets
         /// </summary>
         public String AssemblyPath { get => this.GetAssemblyPath(); }
 
-
-        private readonly Dictionary<object, IAssetLoader> _loaders = new();
-        private readonly Dictionary<(Type, string), object> _assets = new();
-
         /// <summary>
-        /// Loads an asset from the specified path.
+        /// The loaded assets which the asset manager is currently managing. 
+        /// The key is a tuple of the asset type and the asset name or path.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        public T Load<T>(string path, object? loadingArgs = null) where T : class
-        {
-            if (this.LooksLikeFilePath(path))
-            {
-                path = Path.IsPathRooted(path) ? path : Path.Combine(AssemblyPath, path);
-            }
-
-            var key = (typeof(T), path);
-            if (_assets.TryGetValue(key, out var asset))
-            {
-                return (T)asset;
-            }
-            asset = this.LoadAssetFromDisk<T>(path, loadingArgs);
-
-            return (T)asset;
-        }
+        private readonly Dictionary<(Type, string), IAsset> _assets = new();
 
         /// <summary>
         /// Gets the asset count for a specific asset type.
@@ -58,25 +36,25 @@ namespace LibGFX.Assets
         }
 
         /// <summary>
-        /// Registers a loader for a specific asset type.
+        /// Loads an asset of type T from the specified file path and adds it to the asset manager.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="loader"></param>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="InvalidOperationException"></exception>
-        public void RegisterLoader<T>(IAssetLoader loader) where T : class
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public T Load<T>(string filePath) where T : class, IFileAsset, new()
         {
-            if (loader == null)
+            var fileName = System.IO.Path.GetFileName(filePath);
+
+            // Check if the asset is already loaded
+            if (_assets.ContainsKey((typeof(T), fileName)))
             {
-                throw new ArgumentNullException(nameof(loader));
+                return (T)_assets[(typeof(T), fileName)];
             }
 
-            var assetType = typeof(T);
-            if (_loaders.ContainsKey(assetType))
-            {
-                throw new InvalidOperationException($"Loader for asset type '{assetType}' is already registered.");
-            }
-            _loaders.Add(assetType, loader);
+            // Load the asset from the file and add it to the asset manager
+            T asset = new T();
+            asset.LoadFromFile(filePath);
+            return this.Add(fileName,asset);
         }
 
         /// <summary>
@@ -88,12 +66,13 @@ namespace LibGFX.Assets
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public T Add<T>(string name, T asset) where T : class
+        public T Add<T>(string name, T asset) where T : class, IAsset
         {
             if (string.IsNullOrEmpty(name))
             {
                 throw new ArgumentException("Asset name cannot be null or empty.", nameof(name));
             }
+
             if (asset == null)
             {
                 throw new ArgumentNullException(nameof(asset));
@@ -115,7 +94,7 @@ namespace LibGFX.Assets
         /// <returns>The added asset of type <typeparamref name="T"/>.</returns>
         /// <exception cref="ArgumentNullException">Thrown if <paramref name="asset"/> is <see langword="null"/>.</exception>
         /// <exception cref="InvalidOperationException">Thrown if an asset with the same name already exists in the collection.</exception>
-        public T Add<T>(T asset) where T : class, IIdentifier
+        public T Add<T>(T asset) where T : class, IAsset, IIdentifier
         {
             if (asset == null)
             {
@@ -127,33 +106,6 @@ namespace LibGFX.Assets
             {
                 throw new InvalidOperationException($"Asset with name '{asset.Name}' already exists.");
             }
-            return (T)asset;
-        }
-
-        /// <summary>
-        /// Loads an asset from disk using the registered loader for the specified type.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        /// <exception cref="NotSupportedException"></exception>
-        /// <exception cref="InvalidOperationException"></exception>
-        private T LoadAssetFromDisk<T>(string path, object? loadingArgs = null) where T : class
-        {
-            if (!_loaders.TryGetValue(typeof(T), out var loader))
-            {
-                throw new NotSupportedException($"No loader found for asset type '{typeof(T)}'.");
-            }
-
-            var asset = loader.Load<T>(path, loadingArgs);
-            if (asset == null)
-            {
-                throw new InvalidOperationException($"Failed to load asset from path '{path}'.");
-            }
-
-            var key = (typeof(T), path);
-            _assets.Add(key, asset);
-
             return (T)asset;
         }
 
@@ -220,6 +172,35 @@ namespace LibGFX.Assets
         }
 
         /// <summary>
+        /// Executes an action for each asset of a specific type in the asset manager, providing both the asset name and the asset instance to the action.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="action"></param>
+        public void ForeachAsset<T>(Action<string, T> action) where T : class
+        {
+            Type targetType = typeof(T);
+            foreach (var kvp in _assets)
+            {
+                if (targetType.IsAssignableFrom(kvp.Value.GetType()))
+                {
+                    action(kvp.Key.Item2, kvp.Value as T);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Executes an action for each asset in the asset manager, providing both the asset name and the asset instance to the action.
+        /// </summary>
+        /// <param name="action"></param>
+        public void ForeachAsset(Action<string, IAsset> action)
+        {
+            foreach (var kvp in _assets)
+            {
+                action(kvp.Key.Item2, kvp.Value);
+            }
+        }
+
+        /// <summary>
         /// Unloads an asset from the asset manager.
         /// </summary>
         /// <param name="path"></param>
@@ -230,16 +211,6 @@ namespace LibGFX.Assets
             {
                 _assets.Remove(key);
             }
-        }
-
-        /// <summary>
-        /// Checks if the input string looks like a file path.
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        private bool LooksLikeFilePath(string input)
-        {
-            return input.Contains("/") || input.Contains("\\") || Path.HasExtension(input);
         }
 
         /// <summary>
@@ -274,14 +245,7 @@ namespace LibGFX.Assets
         {
             foreach (var asset in _assets.Values)
             {
-                if (asset is IGraphicsResource renderResource)
-                {
-                    renderResource.Init(renderer);
-                }
-                else
-                {
-                    Debug.WriteLine($"Asset of type '{asset.GetType()}' does not implement IRenderResource. Skipping initialization.");
-                }
+                asset?.Init(renderer);
             }
         }
 
@@ -292,14 +256,7 @@ namespace LibGFX.Assets
         {
             foreach (var asset in _assets.Values)
             {
-                if (asset is IGraphicsResource renderResource)
-                {
-                    renderResource.FreeCPUResources();
-                }
-                else
-                {
-                    Debug.WriteLine($"Asset of type '{asset.GetType()}' does not implement IRenderResource. Skipping FreeCPURessources.");
-                }
+                asset?.FreeCPUResources();
             }
         }
 
@@ -314,9 +271,9 @@ namespace LibGFX.Assets
         {
             foreach (var asset in _assets.Values)
             {
-                if (asset is T && asset is IGraphicsResource renderResource)
+                if (asset is T)
                 {
-                    renderResource.FreeCPUResources();
+                    asset?.FreeCPUResources();
                 }
                 else
                 {
@@ -335,14 +292,7 @@ namespace LibGFX.Assets
         {
             foreach (var asset in _assets.Values)
             {
-                if (asset is IGraphicsResource renderResource)
-                {
-                    renderResource.Dispose(renderer);
-                }
-                else
-                {
-                    Debug.WriteLine($"Asset of type '{asset.GetType()}' does not implement IRenderResource. Skipping disposal.");
-                }
+                asset?.Dispose(renderer);
             }
         }
 

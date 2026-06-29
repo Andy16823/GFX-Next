@@ -111,26 +111,26 @@ namespace LibGFX.Core.GameElements
         {
             if(this.Visible)
             {
+                // Call base render (for effects, etc.)
                 base.Render(scene, viewport, renderer, camera);
+
+                // Get the world transform of the element
                 var transform = this.GetWorldTransform();
 
-                // Bind and prepare shader uniforms
-                var shader = renderer.GetRenderShader("AnimatedMeshShader");
-                renderer.BindShaderProgram(shader);
-                renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
-                renderer.PrepareShader("viewPos", camera.Transform.Position);
-                if (scene.LightManager != null)
+                // Draw each mesh of the model
+                foreach (var (mesh, material) in _model.Meshes)
                 {
-                    scene.LightManager.BindLights(viewport, renderer, camera);
-                }
+                    // Bind material and set shader uniforms
+                    material.Use(renderer);
+                    scene.LightManager?.BindLights(viewport, renderer, camera);
+                    renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
+                    renderer.PrepareShader("viewPos", camera.Transform.Position);
 
-                foreach (var mesh in _model.Meshes)
-                {
+                    // Draw the mesh and update stats and unbind material
                     renderer.DrawMesh(transform, mesh);
                     scene.RenderStats.IncrementDrawCalls();
+                    material.Disable(renderer);
                 }
-
-                renderer.UnbindShaderProgram();
             }
         }
 
@@ -149,7 +149,7 @@ namespace LibGFX.Core.GameElements
                 var shader = renderer.GetRenderShader("AnimatedDepthMeshShader");
                 renderer.BindShaderProgram(shader);
                 renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
-                foreach (var mesh in _model.Meshes)
+                foreach (var (mesh, material) in _model.Meshes)
                 {
                     renderer.DrawMesh(transform, mesh);
                     scene.RenderStats.IncrementDrawCalls();
@@ -170,10 +170,10 @@ namespace LibGFX.Core.GameElements
                 return;
             }
 
-            AABB aabb = _model.Meshes[0].Bounds;
+            AABB aabb = _model.Meshes[0].Item1.Bounds;
             for (int i = 1; i < _model.Meshes.Count; i++)
             {
-                aabb = AABB.Combine(aabb, _model.Meshes[i].Bounds);
+                aabb = AABB.Combine(aabb, _model.Meshes[i].Item1.Bounds);
             }
             this.AABB = aabb;
         }

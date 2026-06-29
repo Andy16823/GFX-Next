@@ -10,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// ToDo: Add nested instances support, add throw if user tries to add transparent material
 namespace LibGFX.Core.GameElements
 {
     /// <summary>
@@ -32,11 +31,6 @@ namespace LibGFX.Core.GameElements
         /// The container that holds the instances of the mesh.
         /// </summary>
         public RenderInstanceContainer InstanceContainer { get; set; }
-
-        /// <summary>
-        /// The shader program used for rendering the mesh instances.
-        /// </summary>
-        public RenderShader Shader { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether the image contains any transparent pixels.
@@ -72,11 +66,6 @@ namespace LibGFX.Core.GameElements
             {
                 renderer.LoadInstances(this.InstanceContainer);
             }
-
-            if (this.Shader == null)
-            {
-                this.Shader = renderer.GetRenderShader("InstancedShader3D");
-            }
         }
 
         /// <summary>
@@ -109,22 +98,20 @@ namespace LibGFX.Core.GameElements
         {
             if(this.Visible)
             {
+                // Call the base render method
                 base.Render(scene, viewport, renderer, camera);
 
                 // Bind the shader program
-                renderer.BindShaderProgram(this.Shader);
+                this.Material.Use(renderer);
                 renderer.PrepareShader("viewPos", camera.Transform.Position);
-                if (scene.LightManager != null)
-                {
-                    scene.LightManager.BindLights(viewport, renderer, camera);
-                }
-                renderer.DrawInstances(InstanceContainer, this.Material);
-
-                // Unbind the shader program
-                renderer.UnbindShaderProgram();
+                scene.LightManager?.BindLights(viewport, renderer, camera);
+                renderer.DrawInstances(InstanceContainer);
 
                 // Increment the draw calls for the scene
                 scene.RenderStats.IncrementDrawCalls();
+
+                // Unbind the shader program
+                this.Material.Disable(renderer);
             }
         }
 
@@ -135,7 +122,7 @@ namespace LibGFX.Core.GameElements
                 base.RenderShadow(scene, viewport, renderer);
 
                 renderer.BindShaderProgram(renderer.GetRenderShader("DepthInstancedShader3D"));
-                renderer.DrawInstances(InstanceContainer, this.Material);
+                renderer.DrawInstances(InstanceContainer);
                 renderer.UnbindShaderProgram();
             }
         }

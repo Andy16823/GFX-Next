@@ -3,6 +3,7 @@ using Assimp.Configs;
 using LibGFX.Core;
 using LibGFX.Graphics.Animation3D;
 using LibGFX.Graphics.Materials;
+using LibGFX.Graphics.Shader;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
@@ -33,7 +34,7 @@ namespace LibGFX.Graphics
         /// <summary>
         /// The meshes that make up the skinned mesh model.
         /// </summary>
-        public List<Mesh> Meshes { get; set; }
+        public List<(Mesh, IMaterial)> Meshes { get; set; }
 
         /// <summary>
         /// The node structure of the model as imported from Assimp.
@@ -74,13 +75,22 @@ namespace LibGFX.Graphics
 
         }
 
+        public SkinnedMeshModel(string filePath, bool createBindPose = false)
+        {
+            LoadFromFile(filePath);
+            if (createBindPose)
+            {
+                CreateBindPose();
+            }
+        }
+
         /// <summary>
         /// Determines whether any mesh in the collection uses a transparent material.
         /// </summary>
         /// <returns>true if at least one mesh has a transparent material; otherwise, false.</returns>
         private bool HasTransparencyCheck()
         {
-            return Meshes.Any(mesh => mesh.Material.IsTransparent);
+            return Meshes.Any(mesh => mesh.Item2.IsTransparent);
         }
 
         /// <summary>
@@ -90,8 +100,8 @@ namespace LibGFX.Graphics
         {
             this.Meshes.Sort((meshA, meshB) =>
             {
-                bool isTransparentA = meshA.Material.IsTransparent;
-                bool isTransparentB = meshB.Material.IsTransparent;
+                bool isTransparentA = meshA.Item2.IsTransparent;
+                bool isTransparentB = meshB.Item2.IsTransparent;
                 if (isTransparentA && !isTransparentB)
                     return 1; // A is transparent, B is opaque -> A after B
                 else if (!isTransparentA && isTransparentB)
@@ -108,7 +118,7 @@ namespace LibGFX.Graphics
         public SkinnedMeshModel(String file)
         {
             this.Skeleton = new Skeleton();
-            LoadModel(file);
+            LoadFromFile(file);
         }
 
         /// <summary>
@@ -116,7 +126,7 @@ namespace LibGFX.Graphics
         /// </summary>
         /// <param name="file"></param>
         /// <exception cref="Exception"></exception>
-        private void LoadModel(String file)
+        public void LoadFromFile(String file)
         {
             this.FilePath = file;
             var directory = Path.GetDirectoryName(file);
@@ -140,13 +150,13 @@ namespace LibGFX.Graphics
                 }
 
                 // Extract materials and meshes
-                this.Meshes = new List<Mesh>();
+                this.Meshes = new List<(Mesh, IMaterial)>();
                 foreach (var asmesh in assimpScene.Meshes)
                 {
                     var mesh = new Graphics.Mesh();
                     mesh.Name = asmesh.Name;
-                    mesh.Material = new SGMaterial();
-                    mesh.Material.LoadMaterial(assimpScene.Materials[asmesh.MaterialIndex], directory);
+                    var material = new SGMaterial();
+                    material.LoadMaterial(assimpScene.Materials[asmesh.MaterialIndex], directory);
 
                     for (int i = 0; i < asmesh.VertexCount; i++)
                     {
@@ -163,7 +173,7 @@ namespace LibGFX.Graphics
 
                     mesh.Indices.AddRange(asmesh.GetIndices());
                     ExtractBoneWeightForVertices(asmesh, assimpScene, mesh);
-                    this.Meshes.Add(mesh);
+                    this.Meshes.Add((mesh, material));
                 }
 
                 this.ExtractAnimations(assimpScene);
@@ -217,7 +227,7 @@ namespace LibGFX.Graphics
 
             foreach (var meshIndex in node.MeshIndices)
             {
-                var mesh = this.Meshes[meshIndex];
+                var (mesh, material) = this.Meshes[meshIndex];
                 System.Numerics.Matrix4x4.Decompose(currentTransform, out System.Numerics.Vector3 scale, out System.Numerics.Quaternion rotation, out System.Numerics.Vector3 translation);
                 mesh.LocalTranslation = new Vector3(translation.X, translation.Y, translation.Z);
                 mesh.LocalRotation = new OpenTK.Mathematics.Quaternion(rotation.X, rotation.Y, rotation.Z, rotation.W);
@@ -318,9 +328,13 @@ namespace LibGFX.Graphics
             // Order meshes by transparency
             this.OrderMeshTransparency();
 
-            foreach (var mesh in Meshes)
+            foreach (var (mesh, material) in Meshes)
             {
-                mesh.Material.Init(renderer);
+                material.Init(renderer);
+                if(material.Shader == null)
+                {
+                    material.Shader = renderer.GetRenderShader<AnimatedMeshShader>();
+                }
                 mesh.Init(renderer);
             }
             IsInitialized = true;
@@ -331,10 +345,10 @@ namespace LibGFX.Graphics
         /// </summary>
         public void FreeCPUResources()
         {
-            this.Meshes.ForEach(m =>
+            this.Meshes.ForEach(pair =>
             {
-                m.FreeCPUResources();
-                m.Material?.FreeCPUResources();
+                pair.Item1.FreeCPUResources();
+                pair.Item2.FreeCPUResources();
             });
         }
 
@@ -349,10 +363,10 @@ namespace LibGFX.Graphics
                 throw new InvalidOperationException("Model is not initialized.");
             }
 
-            foreach (var mesh in Meshes)
+            foreach (var (mesh, material) in Meshes)
             {
                 mesh.Dispose(renderer);
-                mesh.Material.Dispose(renderer);
+                material.Dispose(renderer);
             }
 
             IsInitialized = false;
@@ -477,6 +491,18 @@ namespace LibGFX.Graphics
         }
 
         /// <summary>
+        /// Assigns the specified shader to all meshes in the model.
+        /// </summary>
+        /// <param name="shader"></param>
+        public void AssignShaderToMeshes(RenderShader shader)
+        {
+            this.Meshes.ForEach(pair =>
+            {
+                pair.Item2.Shader = shader;
+            });
+        }
+
+        /// <summary>
         /// Serializes the current object to a JSON representation using the specified serialization context.
         /// </summary>
         /// <param name="serializationContext">The context that provides configuration and state information for the serialization process.</param>
@@ -514,7 +540,7 @@ namespace LibGFX.Graphics
                 throw new Exception("FilePath is null or empty in the serialized data.");
             }
             this.FilePath = filepath;
-            LoadModel(this.FilePath);
+            LoadFromFile(this.FilePath);
             callback?.Invoke(obj);
 
             serializationContext.SetValue<SkinnedMeshModel>(this.ID.ToString(), this);

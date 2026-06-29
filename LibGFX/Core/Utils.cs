@@ -1,5 +1,4 @@
 ﻿using LibGFX.Assets;
-using LibGFX.Assets.Loaders;
 using LibGFX.Audio;
 using LibGFX.Compute;
 using LibGFX.Graphics;
@@ -11,6 +10,7 @@ using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Globalization;
@@ -30,28 +30,6 @@ namespace LibGFX.Core
     /// </summary>
     public class Utils
     {
-        /// <summary>
-        /// Creates a new instance of the default asset manager configured with loaders for common asset types.
-        /// </summary>
-        /// <remarks>Use this method to obtain an asset manager that is ready to load standard asset types
-        /// without additional configuration. Custom loaders can be registered with the returned manager if
-        /// needed.</remarks>
-        /// <returns>An <see cref="AssetManager"/> instance pre-registered with loaders for textures, audio clips, materials,
-        /// cubemaps, sprite materials, skinned mesh models, and static mesh models.</returns>
-        public static AssetManager CreateDefaultAssetManager()
-        {
-            var manager = new AssetManager();
-            manager.RegisterLoader<Texture>(new TextureLoader());
-            manager.RegisterLoader<AudioClip>(new AudioLoader());
-            manager.RegisterLoader<SGMaterial>(new SGMaterialLoader());
-            manager.RegisterLoader<Cubemap>(new CubemapLoader());
-            manager.RegisterLoader<SpriteMaterial>(new SpriteMaterialLoader());
-            manager.RegisterLoader<SkinnedMeshModel>(new SkinnedMeshModelLoader());
-            manager.RegisterLoader<StaticMeshModel>(new StaticMeshModelLoader());
-            manager.RegisterLoader<ComputeShader>(new ComputeShaderLoader());
-            return manager;
-        }
-
         /// <summary>
         /// Creates an empty normal map with the given width and height.
         /// </summary>
@@ -647,6 +625,84 @@ namespace LibGFX.Core
             vertex.BoneIDs = DeserializeVec4i(value.Value<JObject>("BoneIDs")!);
             vertex.BoneWeights = DeserializeVec4(value.Value<JObject>("BoneWeights")!);
             return vertex;
+        }
+
+        public static List<Vector4> GetFrustumCorners(Matrix4 projection, Matrix4 view)
+        {
+            Matrix4 inverse = Matrix4.Invert(view * projection); // Row-Major: View dann Projection
+            List<Vector4> corners = new List<Vector4>();
+            for (int x = 0; x <= 1; x++)
+            {
+                for (int y = 0; y <= 1; y++)
+                {
+                    for (int z = 0; z <= 1; z++)
+                    {
+                        Vector4 corner = new Vector4(
+                            x * 2 - 1,
+                            y * 2 - 1,
+                            z * 2 - 1,
+                            1);
+                        Vector4 worldCorner = Vector4.TransformRow(corner, inverse); // ✅ Row-Major
+                        worldCorner /= worldCorner.W;
+                        corners.Add(worldCorner);
+                    }
+                }
+            }
+            return corners;
+        }
+
+        public static Matrix4 ComputeLightViewProjectionMatrix(PerspectiveCamera camera, Viewport viewport, Vector3 lightDir)
+        {
+            var corners = GetFrustumCorners(camera.GetProjectionMatrix(viewport), camera.GetViewMatrix());
+
+            var center = Vector3.Zero;
+            foreach (var corner in corners)
+            {
+                center += corner.Xyz;
+            }
+            center /= corners.Count;
+
+            var lightView = Matrix4.LookAt(center + lightDir, center, Vector3.UnitY);
+
+            float minX = float.MaxValue, maxX = float.MinValue;
+            float minY = float.MaxValue, maxY = float.MinValue;
+            float minZ = float.MaxValue, maxZ = float.MinValue;
+
+            foreach (var corner in corners)
+            {
+                var trf = Vector4.TransformRow(corner, lightView); // ✅
+
+                minX = System.Math.Min(minX, trf.X);
+                maxX = System.Math.Max(maxX, trf.X);
+                minY = System.Math.Min(minY, trf.Y);
+                maxY = System.Math.Max(maxY, trf.Y);
+                minZ = System.Math.Min(minZ, trf.Z);
+                maxZ = System.Math.Max(maxZ, trf.Z);
+            }
+
+
+            float zMult = 10.0f;
+            if(minZ < 0)
+            {
+                minZ *= zMult;
+            }
+            else
+            {
+                minZ /= zMult;
+            }
+
+            if (maxZ < 0)
+            {
+                maxZ /= zMult;
+            }
+            else
+            {
+                maxZ *= zMult;
+            }
+
+            var lightProjection = Matrix4.CreateOrthographicOffCenter(minX, maxX, minY, maxY, minZ, maxZ);
+
+            return lightView * lightProjection; // ✅
         }
     }
 }

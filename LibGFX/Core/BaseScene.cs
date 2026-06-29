@@ -219,14 +219,14 @@ namespace LibGFX.Core
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public abstract ICollection<GameElement> FindElementsWithBehavior<T>() where T : IGameBehavior;
+        public abstract ICollection<GameElement> GetElementsWithBehavior<T>() where T : IGameBehavior;
 
         /// <summary>
-        /// Finds all elements with a specific tag
+        /// Finds all elements with a specific property key
         /// </summary>
-        /// <param name="tag"></param>
-        /// <returns></returns>
-        public abstract ICollection<GameElement> FindElementsWithTag(String tag);
+        /// <param name="key">The key of the property to search for.</param>
+        /// <returns>A collection of game elements that have the specified property key.</returns>
+        public abstract ICollection<GameElement> GetElementsWithProperty(String key);
 
         /// <summary>
         /// Removes an element from the scene
@@ -285,7 +285,7 @@ namespace LibGFX.Core
         /// </summary>
         /// <param name="viewport"></param>
         /// <param name="renderer"></param>
-        public abstract void RenderShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera);
+        public abstract void BuildShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera);
 
         /// <summary>
         /// Updates the scene

@@ -45,6 +45,59 @@ namespace LibGFX.Core
         }
 
         /// <summary>
+        /// Gets the first value in the context data that matches the specified type T, or returns a default value if no such value is found.
+        /// Usefull when you accept any instance of a type in the context data without knowing the key. E.g. RenderShaders
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public T GetFirstOfType<T>(T defaultValue = default!)
+        {
+            foreach (var value in ContextData.Values)
+            {
+                if (value is T typedValue)
+                {
+                    return typedValue;
+                }
+            }
+            return defaultValue;
+        }
+
+        /// <summary>
+        /// Gets the first value in the context data that matches the specified type, or returns null if no such value is found.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public object? GetFirstOfType(Type type)
+        {
+            foreach (var value in ContextData.Values)
+            {
+                if (type.IsInstanceOfType(value))
+                {
+                    return value;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Gets the first value in the context data that matches the specified type full name, or returns null if no such value is found.
+        /// </summary>
+        /// <param name="typeFullName"></param>
+        /// <returns></returns>
+        public object? GetFirstOfType(string typeFullName)
+        {
+            foreach (var value in ContextData.Values)
+            {
+                if (value.GetType().FullName == typeFullName)
+                {
+                    return value;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Sets the value associated with the specified key in the context data.
         /// </summary>
         /// <typeparam name="T">The type of the value to store.</typeparam>
@@ -55,5 +108,16 @@ namespace LibGFX.Core
             ContextData[key] = value!;
         }
 
+        /// <summary>
+        /// Sets multiple key-value pairs in the context data from the provided dictionary.
+        /// </summary>
+        /// <param name="values"></param>
+        public void SetValues(Dictionary<String, Object> values)
+        {
+            foreach (var kvp in values)
+            {
+                ContextData[kvp.Key] = kvp.Value;
+            }
+        }
     }
 }
