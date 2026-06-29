@@ -1,5 +1,6 @@
 ﻿using LibGFX.Core;
 using LibGFX.Graphics.Renderer.OpenGL;
+using LibGFX.Math;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
@@ -258,6 +259,7 @@ namespace LibGFX.Graphics.Lights
         {
             var nearbyChunkks = this.FindNearbyChunks(camera.Transform.Position.X, camera.Transform.Position.Y, camera.Transform.Position.Z, chunkSize);
             var culledLights = new List<PointLight3DData>();
+            var frustum = camera.GetFrustum(viewport);
             foreach (var chunk in nearbyChunkks)
             {
                 if (Chunks.ContainsKey(chunk))
@@ -265,7 +267,7 @@ namespace LibGFX.Graphics.Lights
                     foreach (var light in Chunks[chunk].Lights)
                     {
                         var lightAABB = light.GetAABB();
-                        if (camera.IsAABBInFrustum(viewport, lightAABB.min, lightAABB.max))
+                        if (Frustum.ContainsAABB(frustum, lightAABB.min, lightAABB.max))
                         {
                             culledLights.Add(light.ToStruct());
                         }

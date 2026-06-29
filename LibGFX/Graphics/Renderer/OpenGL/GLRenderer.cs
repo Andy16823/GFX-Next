@@ -66,7 +66,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             RegisterRenderShader("InstancedShader3D", new InstancedShader3D());
             RegisterRenderShader("ProceduralSkyShader", new ProceduralSkyShader());
             RegisterRenderShader("InstancedShader2D", new InstancedShader2D());
-            RegisterRenderShader("PBRMeshShader", new PBRMeshShader());
             RegisterRenderShader("LitSpriteShader", new LitSpriteShader());
             RegisterRenderShader("ShadowMapTest", new ShadowMapTest());
             RegisterRenderShader("DepthMeshShader", new DepthMeshShader());
@@ -723,7 +722,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void DrawPrimitive(Transform tansform, Primitives.PrimitiveType type, Vector4 color)
         {
-            //TODO: Currently we are using an mesh for the rendering, maybe we can optimize this later since the mesh for this dont have an material
             var shader = _programs["SolidMeshShader"];
             var mesh = _primitives[type];
             if(shader != null && mesh != null)
@@ -1697,14 +1695,14 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.DispatchCompute(numGroupsX, numGroupsY, numGroupsZ);
         }
 
-        public void MemoryBarrier(MemoryBarrierFlags barriers)
+        public void MemoryBarrier(RenderFlags.GFXMemoryBarrierFlags barriers)
         {
-            GL.MemoryBarrier(barriers);
+            GL.MemoryBarrier((MemoryBarrierFlags)barriers);
         }
 
-        public IntPtr MapBufferRange(RenderFlags.GFXBufferTarget target, int offset, int length, MapBufferAccessMask access)
+        public IntPtr MapBufferRange(RenderFlags.GFXBufferTarget target, int offset, int length, RenderFlags.GFXMapBufferAccessMask access)
         {
-            return GL.MapBufferRange(GLMappings.ToBufferTarget(target), offset, length, access);
+            return GL.MapBufferRange(GLMappings.ToBufferTarget(target), offset, length, (MapBufferAccessMask)access);
         }
 
         public void UnmapBuffer(RenderFlags.GFXBufferTarget target)

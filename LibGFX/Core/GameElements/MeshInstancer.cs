@@ -10,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// ToDo: Add nested instances support, add throw if user tries to add transparent material
 namespace LibGFX.Core.GameElements
 {
     /// <summary>

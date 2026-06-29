@@ -96,33 +96,6 @@ namespace LibGFX.Graphics
         }
 
         /// <summary>
-        /// Checks if an axis-aligned bounding box (AABB) is within the frustum of the camera.
-        /// Not implemented yet.
-        /// ToDo: Implement proper frustum culling for orthographic camera.
-        /// </summary>
-        /// <param name="viewport"></param>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
-        /// <returns></returns>
-        public override bool IsAABBInFrustum(Viewport viewport, Vector3 min, Vector3 max)
-        {
-            return true;
-        }
-
-        /// <summary>
-        /// Checks if a point is within the frustum of the camera.
-        /// Not implemented yet.
-        /// ToDo: Implement proper frustum culling for orthographic camera.
-        /// </summary>
-        /// <param name="viewport"></param>
-        /// <param name="point"></param>
-        /// <returns></returns>
-        public override bool IsPointInFrustum(Viewport viewport, Vector3 point)
-        {
-            return true;
-        }
-
-        /// <summary>
         /// Looks at a target point in 3D space by setting the camera's position to the target.
         /// </summary>
         /// <param name="target"></param>

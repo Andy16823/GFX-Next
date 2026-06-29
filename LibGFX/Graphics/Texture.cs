@@ -310,7 +310,6 @@ namespace LibGFX.Graphics
         /// <param name="renderer"></param>
         public void Init(IRenderDevice renderer)
         {
-            // TODO: Think about if the texture data should be kept in memory after initialization or not.
             renderer.LoadTexture(this, _parameters);
             this.IsInitialized = true;
         }

@@ -12,7 +12,6 @@ namespace LibGFX.Graphics
 {
     /// <summary>
     /// Represents a container for render instances.#
-    /// TODO: Why is this an IAsset? It doesn't have any asset-like properties or behaviors. Maybe it should be a regular class instead of implementing IAsset?
     /// </summary>
     public class RenderInstanceContainer
     {

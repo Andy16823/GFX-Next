@@ -60,25 +60,6 @@ namespace LibGFX.Graphics
         public abstract void ComputeAABB();
 
         /// <summary>
-        /// Checks if a point is in the frustum of the camera
-        /// </summary>
-        /// <param name="viewport"></param>
-        /// <param name="point"></param>
-        /// <returns></returns>
-        [Obsolete("Use Frustum specific methods for point containment checks.")]
-        public abstract bool IsPointInFrustum(Viewport viewport, Vector3 point);
-
-        /// <summary>
-        /// Checks if a axis-aligned bounding box (AABB) is in the frustum of the camera
-        /// </summary>
-        /// <param name="viewport"></param>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
-        /// <returns></returns>
-        [Obsolete("Use Frustum specific methods for AABB containment checks.")]
-        public abstract bool IsAABBInFrustum(Viewport viewport, Vector3 min, Vector3 max);
-
-        /// <summary>
         /// Looks at a target point in 3D space
         /// </summary>
         /// <param name="target"></param>

@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// TODO: Change to ToDrawBuffer()
 namespace LibGFX.Graphics.Renderer.OpenGL
 {
     /// <summary>

@@ -122,7 +122,7 @@ namespace LibGFX.Physics
 
             // Dispatch compute shader and set memory barrier to ensure completion
             _renderer.DispatchCompute(1, 1, 1);
-            _renderer.MemoryBarrier(MemoryBarrierFlags.ShaderStorageBarrierBit);
+            _renderer.MemoryBarrier(RenderFlags.GFXMemoryBarrierFlags.ShaderStorageBarrierBit);
 
             // Retrieve hit result
             ComputeHitResult hit = _renderer.GetBufferData<ComputeHitResult>(_resultBuffer, 1, RenderFlags.GFXBufferTarget.ShaderStorageBuffer)[0];
@@ -181,7 +181,7 @@ namespace LibGFX.Physics
 
             // Dispatch compute shader and set memory barrier to ensure completion
             renderer.DispatchCompute(1, 1, 1);
-            renderer.MemoryBarrier(MemoryBarrierFlags.ShaderStorageBarrierBit);
+            renderer.MemoryBarrier(RenderFlags.GFXMemoryBarrierFlags.ShaderStorageBarrierBit);
 
             // Retrieve hit result
             ComputeHitResult hit = renderer.GetBufferData<ComputeHitResult>(hitBuffer, 1, RenderFlags.GFXBufferTarget.ShaderStorageBuffer)[0];

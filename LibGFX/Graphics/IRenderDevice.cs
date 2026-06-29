@@ -150,8 +150,8 @@ namespace LibGFX.Graphics
         void EnableVertexArrayAttribute(int index);
         void SetVertexArrayAttribute(int index, int size, RenderFlags.RenderDataTypes type, bool normalized, int stride, nint pointer);
         void DispatchCompute(int numGroupsX, int numGroupsY, int numGroupsZ);
-        void MemoryBarrier(MemoryBarrierFlags barriers); // TODO: Change to internal render flags
-        IntPtr MapBufferRange(RenderFlags.GFXBufferTarget target, int offset, int length, MapBufferAccessMask access); // TODO: Change to internal render flags
+        void MemoryBarrier(RenderFlags.GFXMemoryBarrierFlags barriers);
+        IntPtr MapBufferRange(RenderFlags.GFXBufferTarget target, int offset, int length, RenderFlags.GFXMapBufferAccessMask access);
         void UnmapBuffer(RenderFlags.GFXBufferTarget target);
         void PrepareShader(String location, bool value);
         void PrepareShader(String location, float value);

@@ -362,5 +362,47 @@ namespace LibGFX.Graphics
             FramebufferIncompleteMultisample,
             FramebufferIncompleteLayerTargets
         }
+
+        [Flags]
+        public enum GFXMemoryBarrierFlags
+        {
+            VertexAttribArrayBarrierBit = 1,
+            ElementArrayBarrierBit = 2,
+            UniformBarrierBit = 4,
+            TextureFetchBarrierBit = 8,
+            ShaderImageAccessBarrierBit = 32,
+            CommandBarrierBit = 64,
+            PixelBufferBarrierBit = 128,
+            TextureUpdateBarrierBit = 256,
+            BufferUpdateBarrierBit = 512,
+            FramebufferBarrierBit = 1024,
+            TransformFeedbackBarrierBit = 2048,
+            AtomicCounterBarrierBit = 4096,
+            ShaderStorageBarrierBit = 8192,
+            ClientMappedBufferBarrierBit = 16384,
+            QueryBufferBarrierBit = 32768,
+            AllBarrierBits = -1
+        }
+
+        [Flags]
+        public enum GFXMapBufferAccessMask 
+        {
+            MapReadBit = 1,
+            MapReadBitExt = 1,
+            MapWriteBit = 2,
+            MapWriteBitExt = 2,
+            MapInvalidateRangeBit = 4,
+            MapInvalidateRangeBitExt = 4,
+            MapInvalidateBufferBit = 8,
+            MapInvalidateBufferBitExt = 8,
+            MapFlushExplicitBit = 0x10,
+            MapFlushExplicitBitExt = 0x10,
+            MapUnsynchronizedBit = 0x20,
+            MapUnsynchronizedBitExt = 0x20,
+            MapPersistentBit = 0x40,
+            MapPersistentBitExt = 0x40,
+            MapCoherentBit = 0x80,
+            MapCoherentBitExt = 0x80
+        }
     }
 }
