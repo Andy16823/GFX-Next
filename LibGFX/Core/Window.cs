@@ -152,6 +152,7 @@ namespace LibGFX.Core
         /// Sets the mouse position to the specified coordinates.
         /// </summary>
         /// <param name="position"></param>
+        [Obsolete("Use GrabCursor() instead.")]
         public void SetMousePosition(Vector2 position)
         {
             _window.MousePosition = position;
@@ -162,6 +163,7 @@ namespace LibGFX.Core
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
+        [Obsolete("Use GrabCursor() instead.")]
         public void SetMousePosition(float x, float y)
         {
             this.SetMousePosition(new Vector2(x, y));
@@ -170,6 +172,7 @@ namespace LibGFX.Core
         /// <summary>
         /// Hides the mouse cursor.
         /// </summary>
+        [Obsolete("Use GrabCursor() instead.")]
         public void HideCursor()
         {
             _window.CursorState = CursorState.Hidden;
@@ -178,9 +181,41 @@ namespace LibGFX.Core
         /// <summary>
         /// Shows the mouse cursor.
         /// </summary>
+        [Obsolete("Use ReleaseCursor() instead.")]
         public void ShowCursor()
         {
             _window.CursorState = CursorState.Normal;
+        }
+
+        /// <summary>
+        /// Grabs the mouse cursor, confining it to the window.
+        /// </summary>
+        /// <remarks>
+        /// This is useful for first-person camera controls or when you want to lock the cursor to the window.
+        /// </remarks>
+        public void GrabCursor()
+        {
+            _window.CursorState = CursorState.Grabbed;
+        }
+
+        /// <summary>
+        /// Releases the mouse cursor, allowing it to move freely.
+        /// </summary>
+        /// <remarks>
+        /// This is useful when you want to allow the user to move the cursor outside of the window after it has been grabbed.
+        /// </remarks>
+        public void ReleaseCursor()
+        {
+            _window.CursorState = CursorState.Normal;
+        }
+
+        /// <summary>
+        /// Gets the mouse delta (change in position) since the last frame.
+        /// </summary>
+        /// <returns>The change in mouse position since the last frame.</returns>
+        public Vector2 GetMouseDelta()
+        {
+            return new Vector2(_window.MouseState.Delta.X, _window.MouseState.Delta.Y);
         }
 
         /// <summary>
