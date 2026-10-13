@@ -9,7 +9,7 @@ using OpenTK.Graphics.Egl;
 using LibGFX.Graphics.Renderer.OpenGL;
 using LibGFX.Core;
 
-namespace LibGFX.Graphics
+namespace LibGFX.Graphics.RenderTarget
 {
     /// <summary>
     /// A 2D render target that encapsulates a framebuffer, texture, and optional renderbuffer for depth/stencil.

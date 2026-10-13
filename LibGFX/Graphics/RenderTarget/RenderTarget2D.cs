@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using OpenTK.Mathematics;
 using OpenTK.Graphics.OpenGL4;
 
-namespace LibGFX.Graphics
+namespace LibGFX.Graphics.RenderTarget
 {
     /// <summary>
     /// Represents a 2D render target such as a framebuffer with a texture attachment.

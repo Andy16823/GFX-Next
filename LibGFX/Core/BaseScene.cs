@@ -1,6 +1,7 @@
 ﻿using LibGFX.Core.GameElements;
 using LibGFX.Graphics;
 using LibGFX.Graphics.Lights;
+using LibGFX.Graphics.RenderTarget;
 using LibGFX.Physics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;

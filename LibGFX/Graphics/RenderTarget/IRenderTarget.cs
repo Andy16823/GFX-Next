@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibGFX.Graphics
+namespace LibGFX.Graphics.RenderTarget
 {
     /// <summary>
     /// Interface for render targets such as framebuffers and the default framebuffer (screen).

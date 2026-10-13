@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenTK.Graphics.OpenGL4;
 
-namespace LibGFX.Graphics
+namespace LibGFX.Graphics.RenderTarget
 {
     /// <summary>
     /// Render target for cascaded shadow mapping. It uses a texture array to store depth maps for multiple cascades in a single texture.

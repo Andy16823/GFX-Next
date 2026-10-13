@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using OpenTK.Mathematics;
 using OpenTK.Graphics.OpenGL4;
 
-namespace LibGFX.Graphics
+namespace LibGFX.Graphics.RenderTarget
 {
     /// <summary>
     /// Represents a render target that only contains a depth texture.

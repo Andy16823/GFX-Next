@@ -4,6 +4,7 @@ using LibGFX.Graphics.Enviroment;
 using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.PostProcessing;
 using LibGFX.Graphics.Renderer.OpenGL;
+using LibGFX.Graphics.RenderTarget;
 using LibGFX.Graphics.Shader;
 using LibGFX.Math;
 using Newtonsoft.Json;
