@@ -521,7 +521,7 @@ namespace LibGFX.Core
             _renderTarget.Resize(viewport.Width, viewport.Height);
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            renderer.Clear(ClearFlags.Color | ClearFlags.Depth);
+            renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
 
             // Call the on render pass begin event
             OnRenderPassBegin?.Invoke(this, viewport, renderer, camera);

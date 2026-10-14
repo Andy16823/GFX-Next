@@ -183,7 +183,7 @@ namespace GFXNugetTest3D
                 // Render the scene
                 renderer.MakeCurrent();
                 renderer.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-                renderer.Clear(ClearFlags.Color | ClearFlags.Depth);
+                renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
 
                 scene.Render(viewport, renderer, Camera.Current);
                 renderer.Flush();

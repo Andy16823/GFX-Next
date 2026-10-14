@@ -10,7 +10,7 @@ namespace LibGFX.Graphics
     /// Flags to specify which buffers to clear before rendering.
     /// </summary>
     [Flags] 
-    public enum ClearFlags
+    public enum GFXClearFlags
     {
         None = 0,
         Color = 1,
@@ -37,7 +37,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Texture filtering modes used for texture sampling.
     /// </summary>
-    public enum TextureFilterMode
+    public enum GFXTextureFilterMode
     {
         Nearest,
         Linear,
@@ -48,7 +48,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Texture wrapping modes used to determine how textures are sampled outside their normal range.
     /// </summary>
-    public enum TextureWrapMode
+    public enum GFXTextureWrapMode
     {
         ClampToEdge,
         Repeat,
@@ -59,7 +59,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Hints for color formats used in textures and render targets.
     /// </summary>
-    public enum ColorFormatHint
+    public enum GFXColorFormatHint
     {
         R8,
         RG8,
@@ -89,7 +89,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents the layout of color formats used in textures and render targets.
     /// </summary>
-    public enum ColorFormatLayout
+    public enum GFXColorFormatLayout
     {
         R,
         RG,
@@ -102,7 +102,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Represents the type of color format used in textures and render targets.
     /// </summary>
-    public enum ColorFormatType
+    public enum GFXColorFormatType
     {
         UnsignedByte,
         Float,
@@ -133,7 +133,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Modes for rendering buffers, specifying which buffer to use for rendering operations.
     /// </summary>
-    public enum RenderBufferMode
+    public enum GFXRenderBufferMode
     {
         None,
         FrontLeft,
@@ -179,7 +179,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Data types used for rendering operations, specifying the type of data being processed.
     /// </summary>
-    public enum RenderDataTypes
+    public enum GFXRenderDataTypes
     {
         Byte,
         UnsignedByte,
@@ -196,7 +196,7 @@ namespace LibGFX.Graphics
     /// <summary>
     /// Primitive types used for rendering geometric shapes.
     /// </summary>
-    public enum PrimitiveTypes
+    public enum GFXPrimitiveTypes
     {
         Points,
         Lines,

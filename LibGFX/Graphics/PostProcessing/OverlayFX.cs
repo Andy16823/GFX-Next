@@ -27,7 +27,7 @@ namespace LibGFX.Graphics.PostProcessing
         {
             // Set the render target to our internal render target
             renderer.BindRenderTarget(_renderTarget);
-            renderer.Clear(ClearFlags.Color | ClearFlags.Depth);
+            renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
 
             // Apply new visual effect
             renderer.BindShaderProgram(_shader);

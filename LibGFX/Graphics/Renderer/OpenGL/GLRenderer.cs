@@ -132,7 +132,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.DepthMask(value);
         }
 
-        public void Clear(ClearFlags clearFlags)
+        public void Clear(GFXClearFlags clearFlags)
         {
             GL.Clear(GLMappings.ToGL(clearFlags));
         }
@@ -709,9 +709,9 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindTexture(TextureTarget.TextureCubeMap, cubemap.TextureId);
             GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
             GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
-            GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToEdge);
-            GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToEdge);
-            GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureWrapR, (int)TextureWrapMode.ClampToEdge);
+            GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureWrapS, (int)GFXTextureWrapMode.ClampToEdge);
+            GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureWrapT, (int)GFXTextureWrapMode.ClampToEdge);
+            GL.TexParameter(TextureTarget.TextureCubeMap, TextureParameterName.TextureWrapR, (int)GFXTextureWrapMode.ClampToEdge);
 
             for (int i = 0; i < 6; i++)
             {
@@ -759,7 +759,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.DepthMask(true);
         }
 
-        public void DrawVertexArray(Transform transform, int vertexBuffer, int vertexCount, PrimitiveTypes primitiveTypes)
+        public void DrawVertexArray(Transform transform, int vertexBuffer, int vertexCount, GFXPrimitiveTypes primitiveTypes)
         {
             var m_mat = transform.GetMatrix();
             GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
@@ -1018,8 +1018,8 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                 int arrayTextureId = GL.GenTexture();
                 GL.BindTexture(TextureTarget.Texture2DArray, arrayTextureId);
                 GL.TexStorage3D(TextureTarget3d.Texture2DArray, 1, SizedInternalFormat.R8, cellWidth, cellHeight, numGlyphes);
-                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToEdge);
-                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.ClampToEdge);
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)GFXTextureWrapMode.ClampToEdge);
+                GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)GFXTextureWrapMode.ClampToEdge);
                 GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
                 GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
 
@@ -1686,7 +1686,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.EnableVertexAttribArray(index);
         }
 
-        public void SetVertexArrayAttribute(int index, int size, RenderDataTypes type, bool normalized, int stride, nint pointer)
+        public void SetVertexArrayAttribute(int index, int size, GFXRenderDataTypes type, bool normalized, int stride, nint pointer)
         {
             GL.VertexAttribPointer(index, size, GLMappings.GetVertexAttribPointerType(type), normalized, stride, pointer);
         }

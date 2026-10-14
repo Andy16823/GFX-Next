@@ -12,36 +12,36 @@ namespace LibGFX.Graphics
     /// </summary>
     public struct TextureParameters
     {
-        public TextureFilterMode MinFilter;
-        public TextureFilterMode MagFilter;
-        public TextureWrapMode WrapS;
-        public TextureWrapMode WrapT;
+        public GFXTextureFilterMode MinFilter;
+        public GFXTextureFilterMode MagFilter;
+        public GFXTextureWrapMode WrapS;
+        public GFXTextureWrapMode WrapT;
         public bool GenerateMipmaps;
 
         public static readonly TextureParameters Default = new TextureParameters
         {
-            MinFilter = TextureFilterMode.Linear,
-            MagFilter = TextureFilterMode.Linear,
-            WrapS = TextureWrapMode.Repeat,
-            WrapT = TextureWrapMode.Repeat,
+            MinFilter = GFXTextureFilterMode.Linear,
+            MagFilter = GFXTextureFilterMode.Linear,
+            WrapS = GFXTextureWrapMode.Repeat,
+            WrapT = GFXTextureWrapMode.Repeat,
             GenerateMipmaps = false
         };
 
         public static readonly TextureParameters PixelPerfect = new TextureParameters
         {
-            MinFilter = TextureFilterMode.Nearest,
-            MagFilter = TextureFilterMode.Nearest,
-            WrapS = TextureWrapMode.ClampToEdge,
-            WrapT = TextureWrapMode.ClampToEdge,
+            MinFilter = GFXTextureFilterMode.Nearest,
+            MagFilter = GFXTextureFilterMode.Nearest,
+            WrapS = GFXTextureWrapMode.ClampToEdge,
+            WrapT = GFXTextureWrapMode.ClampToEdge,
             GenerateMipmaps = false
         };
 
         public static readonly TextureParameters Mipmapped = new TextureParameters
         {
-            MinFilter = TextureFilterMode.MipmapLinear,
-            MagFilter = TextureFilterMode.Linear,
-            WrapS = TextureWrapMode.Repeat,
-            WrapT = TextureWrapMode.Repeat,
+            MinFilter = GFXTextureFilterMode.MipmapLinear,
+            MagFilter = GFXTextureFilterMode.Linear,
+            WrapS = GFXTextureWrapMode.Repeat,
+            WrapT = GFXTextureWrapMode.Repeat,
             GenerateMipmaps = true
         };
     }

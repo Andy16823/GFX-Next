@@ -441,10 +441,10 @@ namespace LibGFX.Graphics
             JObject texParamsObj = obj.Value<JObject>("TextureParameters");
             TextureParameters texParams = new TextureParameters
             {
-                MinFilter = (TextureFilterMode) texParamsObj.Value<int>("MinFilter"),
-                MagFilter = (TextureFilterMode) texParamsObj.Value<int>("MagFilter"),
-                WrapS = (TextureWrapMode) texParamsObj.Value<int>("WrapS"),
-                WrapT = (TextureWrapMode) texParamsObj.Value<int>("WrapT"),
+                MinFilter = (GFXTextureFilterMode) texParamsObj.Value<int>("MinFilter"),
+                MagFilter = (GFXTextureFilterMode) texParamsObj.Value<int>("MagFilter"),
+                WrapS = (GFXTextureWrapMode) texParamsObj.Value<int>("WrapS"),
+                WrapT = (GFXTextureWrapMode) texParamsObj.Value<int>("WrapT"),
                 GenerateMipmaps = texParamsObj.Value<bool>("GenerateMipmaps")
             };
             this.TextureParameters = texParams;

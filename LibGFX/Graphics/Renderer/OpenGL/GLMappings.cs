@@ -15,178 +15,178 @@ namespace LibGFX.Graphics.Renderer.OpenGL
     internal class GLMappings
     {
         /// <summary>
-        /// Converts a TextureFilterMode to OpenGL TextureMinFilter.
+        /// Converts a GFXTextureFilterMode to OpenGL TextureMinFilter.
         /// </summary>
         /// <param name="mode"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        internal static int ToGL(TextureFilterMode mode) => mode switch
+        internal static int ToGL(GFXTextureFilterMode mode) => mode switch
         {
-            TextureFilterMode.Nearest => (int)TextureMinFilter.Nearest,
-            TextureFilterMode.Linear => (int)TextureMinFilter.Linear,
-            TextureFilterMode.MipmapNearest => (int)TextureMinFilter.NearestMipmapNearest,
-            TextureFilterMode.MipmapLinear => (int)TextureMinFilter.LinearMipmapLinear,
+            GFXTextureFilterMode.Nearest => (int)TextureMinFilter.Nearest,
+            GFXTextureFilterMode.Linear => (int)TextureMinFilter.Linear,
+            GFXTextureFilterMode.MipmapNearest => (int)TextureMinFilter.NearestMipmapNearest,
+            GFXTextureFilterMode.MipmapLinear => (int)TextureMinFilter.LinearMipmapLinear,
             _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
         };
 
-        internal static DrawBufferMode ToDrawBuffer(RenderBufferMode access) => access switch
+        internal static DrawBufferMode ToDrawBuffer(GFXRenderBufferMode access) => access switch
         {
-            RenderBufferMode.None => DrawBufferMode.None,
-            RenderBufferMode.FrontLeft => DrawBufferMode.FrontLeft,
-            RenderBufferMode.FrontRight => DrawBufferMode.FrontRight,
-            RenderBufferMode.BackLeft => DrawBufferMode.BackLeft,
-            RenderBufferMode.BackRight => DrawBufferMode.BackRight,
-            RenderBufferMode.Left => DrawBufferMode.Left,
-            RenderBufferMode.Right => DrawBufferMode.Right,
-            RenderBufferMode.Color0 => DrawBufferMode.ColorAttachment0,
-            RenderBufferMode.Color1 => DrawBufferMode.ColorAttachment1,
-            RenderBufferMode.Color2 => DrawBufferMode.ColorAttachment2,
-            RenderBufferMode.Color3 => DrawBufferMode.ColorAttachment3,
-            RenderBufferMode.Color4 => DrawBufferMode.ColorAttachment4,
-            RenderBufferMode.Color5 => DrawBufferMode.ColorAttachment5,
-            RenderBufferMode.Color6 => DrawBufferMode.ColorAttachment6,
-            RenderBufferMode.Color7 => DrawBufferMode.ColorAttachment7,
-            RenderBufferMode.Color8 => DrawBufferMode.ColorAttachment8,
-            RenderBufferMode.Color9 => DrawBufferMode.ColorAttachment9,
-            RenderBufferMode.Color10 => DrawBufferMode.ColorAttachment10,
-            RenderBufferMode.Color11 => DrawBufferMode.ColorAttachment11,
-            RenderBufferMode.Color12 => DrawBufferMode.ColorAttachment12,
-            RenderBufferMode.Color13 => DrawBufferMode.ColorAttachment13,
-            RenderBufferMode.Color14 => DrawBufferMode.ColorAttachment14,
-            RenderBufferMode.Color15 => DrawBufferMode.ColorAttachment15,
-            RenderBufferMode.Color16 => DrawBufferMode.ColorAttachment16,
-            RenderBufferMode.Color17 => DrawBufferMode.ColorAttachment17,
-            RenderBufferMode.Color18 => DrawBufferMode.ColorAttachment18,
-            RenderBufferMode.Color19 => DrawBufferMode.ColorAttachment19,
-            RenderBufferMode.Color20 => DrawBufferMode.ColorAttachment20,
-            RenderBufferMode.Color21 => DrawBufferMode.ColorAttachment21,
-            RenderBufferMode.Color22 => DrawBufferMode.ColorAttachment22,
-            RenderBufferMode.Color23 => DrawBufferMode.ColorAttachment23,
-            RenderBufferMode.Color24 => DrawBufferMode.ColorAttachment24,
-            RenderBufferMode.Color25 => DrawBufferMode.ColorAttachment25,
-            RenderBufferMode.Color26 => DrawBufferMode.ColorAttachment26,
-            RenderBufferMode.Color27 => DrawBufferMode.ColorAttachment27,
-            RenderBufferMode.Color28 => DrawBufferMode.ColorAttachment28,
-            RenderBufferMode.Color29 => DrawBufferMode.ColorAttachment29,
-            RenderBufferMode.Color30 => DrawBufferMode.ColorAttachment30,
-            RenderBufferMode.Color31 => DrawBufferMode.ColorAttachment31,
+            GFXRenderBufferMode.None => DrawBufferMode.None,
+            GFXRenderBufferMode.FrontLeft => DrawBufferMode.FrontLeft,
+            GFXRenderBufferMode.FrontRight => DrawBufferMode.FrontRight,
+            GFXRenderBufferMode.BackLeft => DrawBufferMode.BackLeft,
+            GFXRenderBufferMode.BackRight => DrawBufferMode.BackRight,
+            GFXRenderBufferMode.Left => DrawBufferMode.Left,
+            GFXRenderBufferMode.Right => DrawBufferMode.Right,
+            GFXRenderBufferMode.Color0 => DrawBufferMode.ColorAttachment0,
+            GFXRenderBufferMode.Color1 => DrawBufferMode.ColorAttachment1,
+            GFXRenderBufferMode.Color2 => DrawBufferMode.ColorAttachment2,
+            GFXRenderBufferMode.Color3 => DrawBufferMode.ColorAttachment3,
+            GFXRenderBufferMode.Color4 => DrawBufferMode.ColorAttachment4,
+            GFXRenderBufferMode.Color5 => DrawBufferMode.ColorAttachment5,
+            GFXRenderBufferMode.Color6 => DrawBufferMode.ColorAttachment6,
+            GFXRenderBufferMode.Color7 => DrawBufferMode.ColorAttachment7,
+            GFXRenderBufferMode.Color8 => DrawBufferMode.ColorAttachment8,
+            GFXRenderBufferMode.Color9 => DrawBufferMode.ColorAttachment9,
+            GFXRenderBufferMode.Color10 => DrawBufferMode.ColorAttachment10,
+            GFXRenderBufferMode.Color11 => DrawBufferMode.ColorAttachment11,
+            GFXRenderBufferMode.Color12 => DrawBufferMode.ColorAttachment12,
+            GFXRenderBufferMode.Color13 => DrawBufferMode.ColorAttachment13,
+            GFXRenderBufferMode.Color14 => DrawBufferMode.ColorAttachment14,
+            GFXRenderBufferMode.Color15 => DrawBufferMode.ColorAttachment15,
+            GFXRenderBufferMode.Color16 => DrawBufferMode.ColorAttachment16,
+            GFXRenderBufferMode.Color17 => DrawBufferMode.ColorAttachment17,
+            GFXRenderBufferMode.Color18 => DrawBufferMode.ColorAttachment18,
+            GFXRenderBufferMode.Color19 => DrawBufferMode.ColorAttachment19,
+            GFXRenderBufferMode.Color20 => DrawBufferMode.ColorAttachment20,
+            GFXRenderBufferMode.Color21 => DrawBufferMode.ColorAttachment21,
+            GFXRenderBufferMode.Color22 => DrawBufferMode.ColorAttachment22,
+            GFXRenderBufferMode.Color23 => DrawBufferMode.ColorAttachment23,
+            GFXRenderBufferMode.Color24 => DrawBufferMode.ColorAttachment24,
+            GFXRenderBufferMode.Color25 => DrawBufferMode.ColorAttachment25,
+            GFXRenderBufferMode.Color26 => DrawBufferMode.ColorAttachment26,
+            GFXRenderBufferMode.Color27 => DrawBufferMode.ColorAttachment27,
+            GFXRenderBufferMode.Color28 => DrawBufferMode.ColorAttachment28,
+            GFXRenderBufferMode.Color29 => DrawBufferMode.ColorAttachment29,
+            GFXRenderBufferMode.Color30 => DrawBufferMode.ColorAttachment30,
+            GFXRenderBufferMode.Color31 => DrawBufferMode.ColorAttachment31,
             _ => throw new ArgumentOutOfRangeException(nameof(access), access, null)
         };
 
-        internal static ReadBufferMode ToReadBuffer(RenderBufferMode access) => access switch
+        internal static ReadBufferMode ToReadBuffer(GFXRenderBufferMode access) => access switch
         {
-            RenderBufferMode.None => ReadBufferMode.None,
-            RenderBufferMode.FrontLeft => ReadBufferMode.FrontLeft,
-            RenderBufferMode.FrontRight => ReadBufferMode.FrontRight,
-            RenderBufferMode.BackLeft => ReadBufferMode.BackLeft,
-            RenderBufferMode.BackRight => ReadBufferMode.BackRight,
-            RenderBufferMode.Left => ReadBufferMode.Left,
-            RenderBufferMode.Right => ReadBufferMode.Right,
-            RenderBufferMode.Color0 => ReadBufferMode.ColorAttachment0,
-            RenderBufferMode.Color1 => ReadBufferMode.ColorAttachment1,
-            RenderBufferMode.Color2 => ReadBufferMode.ColorAttachment2,
-            RenderBufferMode.Color3 => ReadBufferMode.ColorAttachment3,
-            RenderBufferMode.Color4 => ReadBufferMode.ColorAttachment4,
-            RenderBufferMode.Color5 => ReadBufferMode.ColorAttachment5,
-            RenderBufferMode.Color6 => ReadBufferMode.ColorAttachment6,
-            RenderBufferMode.Color7 => ReadBufferMode.ColorAttachment7,
-            RenderBufferMode.Color8 => ReadBufferMode.ColorAttachment8,
-            RenderBufferMode.Color9 => ReadBufferMode.ColorAttachment9,
-            RenderBufferMode.Color10 => ReadBufferMode.ColorAttachment10,
-            RenderBufferMode.Color11 => ReadBufferMode.ColorAttachment11,
-            RenderBufferMode.Color12 => ReadBufferMode.ColorAttachment12,
-            RenderBufferMode.Color13 => ReadBufferMode.ColorAttachment13,
-            RenderBufferMode.Color14 => ReadBufferMode.ColorAttachment14,
-            RenderBufferMode.Color15 => ReadBufferMode.ColorAttachment15,
+            GFXRenderBufferMode.None => ReadBufferMode.None,
+            GFXRenderBufferMode.FrontLeft => ReadBufferMode.FrontLeft,
+            GFXRenderBufferMode.FrontRight => ReadBufferMode.FrontRight,
+            GFXRenderBufferMode.BackLeft => ReadBufferMode.BackLeft,
+            GFXRenderBufferMode.BackRight => ReadBufferMode.BackRight,
+            GFXRenderBufferMode.Left => ReadBufferMode.Left,
+            GFXRenderBufferMode.Right => ReadBufferMode.Right,
+            GFXRenderBufferMode.Color0 => ReadBufferMode.ColorAttachment0,
+            GFXRenderBufferMode.Color1 => ReadBufferMode.ColorAttachment1,
+            GFXRenderBufferMode.Color2 => ReadBufferMode.ColorAttachment2,
+            GFXRenderBufferMode.Color3 => ReadBufferMode.ColorAttachment3,
+            GFXRenderBufferMode.Color4 => ReadBufferMode.ColorAttachment4,
+            GFXRenderBufferMode.Color5 => ReadBufferMode.ColorAttachment5,
+            GFXRenderBufferMode.Color6 => ReadBufferMode.ColorAttachment6,
+            GFXRenderBufferMode.Color7 => ReadBufferMode.ColorAttachment7,
+            GFXRenderBufferMode.Color8 => ReadBufferMode.ColorAttachment8,
+            GFXRenderBufferMode.Color9 => ReadBufferMode.ColorAttachment9,
+            GFXRenderBufferMode.Color10 => ReadBufferMode.ColorAttachment10,
+            GFXRenderBufferMode.Color11 => ReadBufferMode.ColorAttachment11,
+            GFXRenderBufferMode.Color12 => ReadBufferMode.ColorAttachment12,
+            GFXRenderBufferMode.Color13 => ReadBufferMode.ColorAttachment13,
+            GFXRenderBufferMode.Color14 => ReadBufferMode.ColorAttachment14,
+            GFXRenderBufferMode.Color15 => ReadBufferMode.ColorAttachment15,
             _ => throw new ArgumentOutOfRangeException(nameof(access), access, null)
         };
 
         /// <summary>
-        /// Converts a TextureWrapMode to OpenGL TextureWrapMode.
+        /// Converts a GFXTextureWrapMode to OpenGL GFXTextureWrapMode.
         /// </summary>
         /// <param name="mode"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        internal static int ToGL(TextureWrapMode mode) => mode switch
+        internal static int ToGL(GFXTextureWrapMode mode) => mode switch
         {
-            TextureWrapMode.ClampToEdge => (int)TextureWrapMode.ClampToEdge,
-            TextureWrapMode.Repeat => (int)TextureWrapMode.Repeat,
-            TextureWrapMode.MirroredRepeat => (int)TextureWrapMode.MirroredRepeat,
-            TextureWrapMode.ClampToBorder => (int)TextureWrapMode.ClampToBorder,
+            GFXTextureWrapMode.ClampToEdge => (int)GFXTextureWrapMode.ClampToEdge,
+            GFXTextureWrapMode.Repeat => (int)GFXTextureWrapMode.Repeat,
+            GFXTextureWrapMode.MirroredRepeat => (int)GFXTextureWrapMode.MirroredRepeat,
+            GFXTextureWrapMode.ClampToBorder => (int)GFXTextureWrapMode.ClampToBorder,
             _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
         };
 
         /// <summary>
-        /// Converts a ColorFormatLayout to OpenGL PixelFormat.
+        /// Converts a GFXColorFormatLayout to OpenGL PixelFormat.
         /// </summary>
         /// <param name="hint"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        internal static PixelFormat ToGL(ColorFormatLayout hint) => hint switch
+        internal static PixelFormat ToGL(GFXColorFormatLayout hint) => hint switch
         {
-            ColorFormatLayout.R => PixelFormat.Red,
-            ColorFormatLayout.RG => PixelFormat.Rg,
-            ColorFormatLayout.RGB => PixelFormat.Rgb,
-            ColorFormatLayout.RGBA => PixelFormat.Rgba,
-            ColorFormatLayout.Depth => PixelFormat.DepthComponent,
-            ColorFormatLayout.DepthStencil => PixelFormat.DepthStencil,
+            GFXColorFormatLayout.R => PixelFormat.Red,
+            GFXColorFormatLayout.RG => PixelFormat.Rg,
+            GFXColorFormatLayout.RGB => PixelFormat.Rgb,
+            GFXColorFormatLayout.RGBA => PixelFormat.Rgba,
+            GFXColorFormatLayout.Depth => PixelFormat.DepthComponent,
+            GFXColorFormatLayout.DepthStencil => PixelFormat.DepthStencil,
             _ => throw new ArgumentOutOfRangeException(nameof(hint), hint, null)
         };
 
         /// <summary>
-        /// Converts a ColorFormatHint to OpenGL PixelInternalFormat.
+        /// Converts a GFXColorFormatHint to OpenGL PixelInternalFormat.
         /// </summary>
         /// <param name="hint"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        internal static PixelInternalFormat ToGL(ColorFormatHint hint) => hint switch
+        internal static PixelInternalFormat ToGL(GFXColorFormatHint hint) => hint switch
         {
-            ColorFormatHint.R8 => PixelInternalFormat.R8,
-            ColorFormatHint.RG8 => PixelInternalFormat.Rg8,
-            ColorFormatHint.RGB8 => PixelInternalFormat.Rgb8,
-            ColorFormatHint.RGBA8 => PixelInternalFormat.Rgba8,
+            GFXColorFormatHint.R8 => PixelInternalFormat.R8,
+            GFXColorFormatHint.RG8 => PixelInternalFormat.Rg8,
+            GFXColorFormatHint.RGB8 => PixelInternalFormat.Rgb8,
+            GFXColorFormatHint.RGBA8 => PixelInternalFormat.Rgba8,
 
-            ColorFormatHint.R16F => PixelInternalFormat.R16f,
-            ColorFormatHint.RG16F => PixelInternalFormat.Rg16f,
-            ColorFormatHint.RGB16F => PixelInternalFormat.Rgb16f,
-            ColorFormatHint.RGBA16F => PixelInternalFormat.Rgba16f,
+            GFXColorFormatHint.R16F => PixelInternalFormat.R16f,
+            GFXColorFormatHint.RG16F => PixelInternalFormat.Rg16f,
+            GFXColorFormatHint.RGB16F => PixelInternalFormat.Rgb16f,
+            GFXColorFormatHint.RGBA16F => PixelInternalFormat.Rgba16f,
 
-            ColorFormatHint.R32F => PixelInternalFormat.R32f,
-            ColorFormatHint.RG32F => PixelInternalFormat.Rg32f,
-            ColorFormatHint.RGB32F => PixelInternalFormat.Rgb32f,
-            ColorFormatHint.RGBA32F => PixelInternalFormat.Rgba32f,
+            GFXColorFormatHint.R32F => PixelInternalFormat.R32f,
+            GFXColorFormatHint.RG32F => PixelInternalFormat.Rg32f,
+            GFXColorFormatHint.RGB32F => PixelInternalFormat.Rgb32f,
+            GFXColorFormatHint.RGBA32F => PixelInternalFormat.Rgba32f,
 
-            ColorFormatHint.RGBA8UI => PixelInternalFormat.Rgba8ui,
-            ColorFormatHint.RGB10A2 => PixelInternalFormat.Rgb10A2,
+            GFXColorFormatHint.RGBA8UI => PixelInternalFormat.Rgba8ui,
+            GFXColorFormatHint.RGB10A2 => PixelInternalFormat.Rgb10A2,
 
-            ColorFormatHint.Depth16 => PixelInternalFormat.DepthComponent16,
-            ColorFormatHint.Depth24 => PixelInternalFormat.DepthComponent24,
-            ColorFormatHint.Depth32 => PixelInternalFormat.DepthComponent32,
-            ColorFormatHint.Depth24Stencil8 => PixelInternalFormat.Depth24Stencil8,
-            ColorFormatHint.Depth32FStencil8 => PixelInternalFormat.Depth32fStencil8,
+            GFXColorFormatHint.Depth16 => PixelInternalFormat.DepthComponent16,
+            GFXColorFormatHint.Depth24 => PixelInternalFormat.DepthComponent24,
+            GFXColorFormatHint.Depth32 => PixelInternalFormat.DepthComponent32,
+            GFXColorFormatHint.Depth24Stencil8 => PixelInternalFormat.Depth24Stencil8,
+            GFXColorFormatHint.Depth32FStencil8 => PixelInternalFormat.Depth32fStencil8,
 
-            ColorFormatHint.RGBA => PixelInternalFormat.Rgba,
-            ColorFormatHint.RGB => PixelInternalFormat.Rgb,
-            ColorFormatHint.Depth => PixelInternalFormat.DepthComponent,
-            ColorFormatHint.DepthStencil => PixelInternalFormat.DepthStencil,
+            GFXColorFormatHint.RGBA => PixelInternalFormat.Rgba,
+            GFXColorFormatHint.RGB => PixelInternalFormat.Rgb,
+            GFXColorFormatHint.Depth => PixelInternalFormat.DepthComponent,
+            GFXColorFormatHint.DepthStencil => PixelInternalFormat.DepthStencil,
 
             _ => throw new ArgumentOutOfRangeException(nameof(hint), hint, null)
         };
 
         /// <summary>
-        /// Converts a ColorFormatType to OpenGL PixelType.
+        /// Converts a GFXColorFormatType to OpenGL PixelType.
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        internal static PixelType ToGL(ColorFormatType type) => type switch
+        internal static PixelType ToGL(GFXColorFormatType type) => type switch
         {
-            ColorFormatType.UnsignedByte => PixelType.UnsignedByte,
-            ColorFormatType.UnsignedShort => PixelType.UnsignedShort,
-            ColorFormatType.UnsignedInt => PixelType.UnsignedInt,
-            ColorFormatType.UnsignedInt24_8 => PixelType.UnsignedInt248,
-            ColorFormatType.Float => PixelType.Float,
-            ColorFormatType.HalfFloat => PixelType.HalfFloat,
+            GFXColorFormatType.UnsignedByte => PixelType.UnsignedByte,
+            GFXColorFormatType.UnsignedShort => PixelType.UnsignedShort,
+            GFXColorFormatType.UnsignedInt => PixelType.UnsignedInt,
+            GFXColorFormatType.UnsignedInt24_8 => PixelType.UnsignedInt248,
+            GFXColorFormatType.Float => PixelType.Float,
+            GFXColorFormatType.HalfFloat => PixelType.HalfFloat,
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
         };
 
@@ -207,21 +207,21 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         };
 
         /// <summary>
-        /// Converts ClearFlags to OpenGL ClearBufferMask.
+        /// Converts GFXClearFlags to OpenGL ClearBufferMask.
         /// </summary>
         /// <param name="flags"></param>
         /// <returns></returns>
-        internal static ClearBufferMask ToGL(ClearFlags flags)
+        internal static ClearBufferMask ToGL(GFXClearFlags flags)
         {
             ClearBufferMask mask = 0;
 
-            if ((flags & ClearFlags.Color) != 0)
+            if ((flags & GFXClearFlags.Color) != 0)
                 mask |= ClearBufferMask.ColorBufferBit;
 
-            if ((flags & ClearFlags.Depth) != 0)
+            if ((flags & GFXClearFlags.Depth) != 0)
                 mask |= ClearBufferMask.DepthBufferBit;
 
-            if ((flags & ClearFlags.Stencil) != 0)
+            if ((flags & GFXClearFlags.Stencil) != 0)
                 mask |= ClearBufferMask.StencilBufferBit;
 
             return mask;
@@ -246,59 +246,59 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         }
 
         /// <summary>
-        /// Maps RenderDataTypes to OpenGL VertexAttribPointerType.
+        /// Maps GFXRenderDataTypes to OpenGL VertexAttribPointerType.
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        internal static VertexAttribPointerType GetVertexAttribPointerType(RenderDataTypes type) => type switch
+        internal static VertexAttribPointerType GetVertexAttribPointerType(GFXRenderDataTypes type) => type switch
         {
-            RenderDataTypes.Byte => VertexAttribPointerType.Byte,
-            RenderDataTypes.UnsignedByte => VertexAttribPointerType.UnsignedByte,
-            RenderDataTypes.Short => VertexAttribPointerType.Short,
-            RenderDataTypes.UnsignedShort => VertexAttribPointerType.UnsignedShort,
-            RenderDataTypes.Int => VertexAttribPointerType.Int,
-            RenderDataTypes.UnsignedInt => VertexAttribPointerType.UnsignedInt,
-            RenderDataTypes.Float => VertexAttribPointerType.Float,
-            RenderDataTypes.Double => VertexAttribPointerType.Double,
-            RenderDataTypes.Fixed => VertexAttribPointerType.Fixed,
-            RenderDataTypes.HalfFloat => VertexAttribPointerType.HalfFloat,
+            GFXRenderDataTypes.Byte => VertexAttribPointerType.Byte,
+            GFXRenderDataTypes.UnsignedByte => VertexAttribPointerType.UnsignedByte,
+            GFXRenderDataTypes.Short => VertexAttribPointerType.Short,
+            GFXRenderDataTypes.UnsignedShort => VertexAttribPointerType.UnsignedShort,
+            GFXRenderDataTypes.Int => VertexAttribPointerType.Int,
+            GFXRenderDataTypes.UnsignedInt => VertexAttribPointerType.UnsignedInt,
+            GFXRenderDataTypes.Float => VertexAttribPointerType.Float,
+            GFXRenderDataTypes.Double => VertexAttribPointerType.Double,
+            GFXRenderDataTypes.Fixed => VertexAttribPointerType.Fixed,
+            GFXRenderDataTypes.HalfFloat => VertexAttribPointerType.HalfFloat,
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
         };
 
         /// <summary>
-        /// Maps PrimitiveTypes to OpenGL PrimitiveType.
+        /// Maps GFXPrimitiveTypes to OpenGL PrimitiveType.
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        internal static PrimitiveType ToPrimitiveType(PrimitiveTypes type) => type switch
+        internal static PrimitiveType ToPrimitiveType(GFXPrimitiveTypes type) => type switch
         {
-            PrimitiveTypes.Points => PrimitiveType.Points,
-            PrimitiveTypes.Lines => PrimitiveType.Lines,
-            PrimitiveTypes.LineLoop => PrimitiveType.LineLoop,
-            PrimitiveTypes.LineStrip => PrimitiveType.LineStrip,
-            PrimitiveTypes.Triangles => PrimitiveType.Triangles,
-            PrimitiveTypes.TriangleStrip => PrimitiveType.TriangleStrip,
-            PrimitiveTypes.TriangleFan => PrimitiveType.TriangleFan,
+            GFXPrimitiveTypes.Points => PrimitiveType.Points,
+            GFXPrimitiveTypes.Lines => PrimitiveType.Lines,
+            GFXPrimitiveTypes.LineLoop => PrimitiveType.LineLoop,
+            GFXPrimitiveTypes.LineStrip => PrimitiveType.LineStrip,
+            GFXPrimitiveTypes.Triangles => PrimitiveType.Triangles,
+            GFXPrimitiveTypes.TriangleStrip => PrimitiveType.TriangleStrip,
+            GFXPrimitiveTypes.TriangleFan => PrimitiveType.TriangleFan,
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
         };
 
         /// <summary>
-        /// Maps PrimitiveTypes to OpenGL BeginMode.
+        /// Maps GFXPrimitiveTypes to OpenGL BeginMode.
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        internal static BeginMode ToBeginMode(PrimitiveTypes type) => type switch
+        internal static BeginMode ToBeginMode(GFXPrimitiveTypes type) => type switch
         {
-            PrimitiveTypes.Points => BeginMode.Points,
-            PrimitiveTypes.Lines => BeginMode.Lines,
-            PrimitiveTypes.LineLoop => BeginMode.LineLoop,
-            PrimitiveTypes.LineStrip => BeginMode.LineStrip,
-            PrimitiveTypes.Triangles => BeginMode.Triangles,
-            PrimitiveTypes.TriangleStrip => BeginMode.TriangleStrip,
-            PrimitiveTypes.TriangleFan => BeginMode.TriangleFan,
+            GFXPrimitiveTypes.Points => BeginMode.Points,
+            GFXPrimitiveTypes.Lines => BeginMode.Lines,
+            GFXPrimitiveTypes.LineLoop => BeginMode.LineLoop,
+            GFXPrimitiveTypes.LineStrip => BeginMode.LineStrip,
+            GFXPrimitiveTypes.Triangles => BeginMode.Triangles,
+            GFXPrimitiveTypes.TriangleStrip => BeginMode.TriangleStrip,
+            GFXPrimitiveTypes.TriangleFan => BeginMode.TriangleFan,
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
         };
 

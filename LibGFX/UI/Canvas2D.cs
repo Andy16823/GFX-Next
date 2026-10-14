@@ -91,7 +91,7 @@ namespace LibGFX.UI
             _renderTarget.Resize((int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            renderer.Clear(ClearFlags.Color | ClearFlags.Depth);
+            renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
 
             foreach (var control in this.Controls.Values)
             {

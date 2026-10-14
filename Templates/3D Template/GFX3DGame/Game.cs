@@ -111,7 +111,7 @@ namespace GFX3DGame
             // Clear the screen
             _renderer.MakeCurrent();
             _renderer.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-            _renderer.Clear(ClearFlags.Color | ClearFlags.Depth);
+            _renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
 
             // Render game graphics here
             _scene.Render(viewport, _renderer, _camera);

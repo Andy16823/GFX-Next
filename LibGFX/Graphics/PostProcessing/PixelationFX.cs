@@ -35,7 +35,7 @@ namespace LibGFX.Graphics.PostProcessing
         public void Apply(PostProcessStack stack, IRenderDevice renderer, int sourceTexture)
         {
             renderer.BindRenderTarget(RenderTarget);
-            renderer.Clear(ClearFlags.Color | ClearFlags.Depth);
+            renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
             renderer.BindShaderProgram(_shader);
             renderer.PrepareShader("sourceTexture", 0, sourceTexture);
             renderer.PrepareShader("resolution", _resolution);

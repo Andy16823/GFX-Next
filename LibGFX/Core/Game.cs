@@ -132,7 +132,7 @@ namespace LibGFX.Core
                     // Render the current frame
                     this.RenderDevice.MakeCurrent();
                     this.RenderDevice.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-                    this.RenderDevice.Clear(ClearFlags.Color | ClearFlags.Depth);
+                    this.RenderDevice.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
 
                     // Invoke the render method
                     this.Render();

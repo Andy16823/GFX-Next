@@ -134,7 +134,7 @@ namespace LibGFX.UI
             renderer.BindRenderTarget(this.RenderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             //renderer.Clear((int)(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit));
-            renderer.Clear(ClearFlags.Color | ClearFlags.Depth);
+            renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
 
             renderer.BindShaderProgram(renderer.GetRenderShader("RectShader"));
             renderer.FillRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), _color);

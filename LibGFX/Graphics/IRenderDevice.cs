@@ -54,7 +54,7 @@ namespace LibGFX.Graphics
         void SetProjectionMatrix(Matrix4 matrix);
         Matrix4 GetViewMatrix();
         Matrix4 GetProjectionMatrix();
-        void Clear(ClearFlags clearFlags);
+        void Clear(GFXClearFlags clearFlags);
         void ClearColor(float r, float g, float b, float a);
         void Flush();
         void BindRenderTarget(IRenderTarget renderTarget); 
@@ -108,7 +108,7 @@ namespace LibGFX.Graphics
         void DrawTexture(Transform transform, int textureId, Vector4 color, Vector4 uvTransform, Vector2 uvScale);
         void DrawPrimitive(Transform tansform, Primitives.PrimitiveType type, Vector4 color);
         void DrawCubemap(Transform transform, Cubemap cubemap, Vector4 color);
-        void DrawVertexArray(Transform transform, int vertexBuffer, int vertexCount, PrimitiveTypes primitiveTypes);
+        void DrawVertexArray(Transform transform, int vertexBuffer, int vertexCount, GFXPrimitiveTypes primitiveTypes);
         Font LoadFont(String path, int fontsize = 48);
         void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f, FontAlignment alignment = FontAlignment.BottomLeft);
         void DisposeFont(Font font);
@@ -149,7 +149,7 @@ namespace LibGFX.Graphics
         void DisposeVertexArray(int value);
         void BindVertexArray(int value);
         void EnableVertexArrayAttribute(int index);
-        void SetVertexArrayAttribute(int index, int size, RenderDataTypes type, bool normalized, int stride, nint pointer);
+        void SetVertexArrayAttribute(int index, int size, GFXRenderDataTypes type, bool normalized, int stride, nint pointer);
         void DispatchCompute(int numGroupsX, int numGroupsY, int numGroupsZ);
         void MemoryBarrier(GFXMemoryBarrierFlags barriers);
         IntPtr MapBufferRange(GFXBufferTarget target, int offset, int length, GFXMapBufferAccessMask access);
