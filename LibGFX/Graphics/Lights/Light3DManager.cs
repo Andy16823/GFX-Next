@@ -135,7 +135,7 @@ namespace LibGFX.Graphics.Lights
             renderer.PrepareShader("dirLight.lightIntensity", DirectionalLight.Intensity);
             renderer.PrepareShader("dirLight.ambient", DirectionalLight.Ambient);
             renderer.PrepareShader("dirLight.specular", DirectionalLight.Specular);
-            renderer.BindBufferBase(RenderFlags.GFXBufferTarget.ShaderStorageBuffer, 4, _pointLightsSSBO);
+            renderer.BindBufferBase(GFXBufferTarget.ShaderStorageBuffer, 4, _pointLightsSSBO);
         }
 
         /// <summary>
@@ -192,7 +192,7 @@ namespace LibGFX.Graphics.Lights
             // Initialize the buffer for the light space matrices
             _lightMatrixBuffer = renderDevice.CreateBuffer();
             var matrixSize = 16 * sizeof(float);
-            renderDevice.SetBufferSize(_lightMatrixBuffer, 16 * matrixSize, RenderFlags.GFXBufferTarget.UniformBuffer, RenderFlags.GFXBufferUsageHint.DynamicDraw);
+            renderDevice.SetBufferSize(_lightMatrixBuffer, 16 * matrixSize, GFXBufferTarget.UniformBuffer, GFXBufferUsageHint.DynamicDraw);
         }
 
         /// <summary>
@@ -379,9 +379,9 @@ namespace LibGFX.Graphics.Lights
         /// <param name="binding"></param>
         public void BindLightSpaceMatrix(IRenderDevice renderDevice, int binding = 0)
         {
-            renderDevice.BindBuffer(RenderFlags.GFXBufferTarget.UniformBuffer, _lightMatrixBuffer);
-            renderDevice.UpdateBufferData(_lightMatrixBuffer, _lightViewMatrix.ToArray(), 0, RenderFlags.GFXBufferTarget.UniformBuffer);
-            renderDevice.BindBufferBase(RenderFlags.GFXBufferTarget.UniformBuffer, binding, _lightMatrixBuffer);
+            renderDevice.BindBuffer(GFXBufferTarget.UniformBuffer, _lightMatrixBuffer);
+            renderDevice.UpdateBufferData(_lightMatrixBuffer, _lightViewMatrix.ToArray(), 0, GFXBufferTarget.UniformBuffer);
+            renderDevice.BindBufferBase(GFXBufferTarget.UniformBuffer, binding, _lightMatrixBuffer);
         }
 
         /// <summary>

@@ -39,7 +39,7 @@ namespace LibGFX.Graphics.PostProcessing
 
             // Finally, render the result to the main buffer
             renderer.BindRenderTarget(_bufferA);
-            renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
+            renderer.Clear(ClearFlags.Color | ClearFlags.Depth);
             renderer.DrawRenderTarget(lastTexture, _bufferA.FramebufferId);
             renderer.UnbindRenderTarget();
         }

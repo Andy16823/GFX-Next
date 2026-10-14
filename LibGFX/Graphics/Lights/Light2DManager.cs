@@ -209,7 +209,7 @@ namespace LibGFX.Graphics.Lights
             
             renderer.PrepareShader("dirLightColor", DirectionalLight.Color.Xyz);
             renderer.PrepareShader("dirLightIntensity", DirectionalLight.Intensity);
-            renderer.BindBufferBase(RenderFlags.GFXBufferTarget.ShaderStorageBuffer, 4, this.LightSSBO);
+            renderer.BindBufferBase(GFXBufferTarget.ShaderStorageBuffer, 4, this.LightSSBO);
         }
 
         /// <summary>

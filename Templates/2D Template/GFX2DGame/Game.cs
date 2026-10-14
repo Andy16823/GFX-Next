@@ -97,7 +97,7 @@ namespace GFX2DGame
             // Clear the screen
             _renderer.MakeCurrent();
             _renderer.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-            _renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
+            _renderer.Clear(ClearFlags.Color | ClearFlags.Depth);
 
             // Render game graphics here
             _scene.Render(viewport, _renderer, _camera);

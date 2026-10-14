@@ -295,7 +295,7 @@ namespace LibGFX.Core
             _renderTarget.Resize(viewport.Width, viewport.Height);
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
+            renderer.Clear(ClearFlags.Color | ClearFlags.Depth);
 
             // On render start event
             OnRenderPassBegin?.Invoke(this, viewport, renderer, camera);
@@ -377,7 +377,7 @@ namespace LibGFX.Core
             // Bind the shadow map render target and clear the depth buffer
             renderer.BindRenderTarget(light.ShadowMap);
             renderer.SetViewport(new Viewport(csm.Width, csm.Height));
-            renderer.Clear(RenderFlags.ClearFlags.Depth);
+            renderer.Clear(ClearFlags.Depth);
             renderer.EnableDepthTest();
             //GL.Enable(EnableCap.CullFace);
             renderer.SetCullMode(CullMode.Front);

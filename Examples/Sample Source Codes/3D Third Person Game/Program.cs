@@ -1,4 +1,4 @@
-using LibGFX;
+﻿using LibGFX;
 using LibGFX.Audio;
 using LibGFX.Core;
 using LibGFX.Core.GameElements;
@@ -183,7 +183,7 @@ namespace GFXNugetTest3D
                 // Render the scene
                 renderer.MakeCurrent();
                 renderer.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-                renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
+                renderer.Clear(ClearFlags.Color | ClearFlags.Depth);
 
                 scene.Render(viewport, renderer, Camera.Current);
                 renderer.Flush();

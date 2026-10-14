@@ -21,7 +21,6 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using static BulletSharp.Dbvt;
-using static LibGFX.Graphics.RenderFlags;
 
 namespace LibGFX.Core
 {

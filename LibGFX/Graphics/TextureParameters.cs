@@ -12,36 +12,36 @@ namespace LibGFX.Graphics
     /// </summary>
     public struct TextureParameters
     {
-        public RenderFlags.TextureFilterMode MinFilter;
-        public RenderFlags.TextureFilterMode MagFilter;
-        public RenderFlags.TextureWrapMode WrapS;
-        public RenderFlags.TextureWrapMode WrapT;
+        public TextureFilterMode MinFilter;
+        public TextureFilterMode MagFilter;
+        public TextureWrapMode WrapS;
+        public TextureWrapMode WrapT;
         public bool GenerateMipmaps;
 
         public static readonly TextureParameters Default = new TextureParameters
         {
-            MinFilter = RenderFlags.TextureFilterMode.Linear,
-            MagFilter = RenderFlags.TextureFilterMode.Linear,
-            WrapS = RenderFlags.TextureWrapMode.Repeat,
-            WrapT = RenderFlags.TextureWrapMode.Repeat,
+            MinFilter = TextureFilterMode.Linear,
+            MagFilter = TextureFilterMode.Linear,
+            WrapS = TextureWrapMode.Repeat,
+            WrapT = TextureWrapMode.Repeat,
             GenerateMipmaps = false
         };
 
         public static readonly TextureParameters PixelPerfect = new TextureParameters
         {
-            MinFilter = RenderFlags.TextureFilterMode.Nearest,
-            MagFilter = RenderFlags.TextureFilterMode.Nearest,
-            WrapS = RenderFlags.TextureWrapMode.ClampToEdge,
-            WrapT = RenderFlags.TextureWrapMode.ClampToEdge,
+            MinFilter = TextureFilterMode.Nearest,
+            MagFilter = TextureFilterMode.Nearest,
+            WrapS = TextureWrapMode.ClampToEdge,
+            WrapT = TextureWrapMode.ClampToEdge,
             GenerateMipmaps = false
         };
 
         public static readonly TextureParameters Mipmapped = new TextureParameters
         {
-            MinFilter = RenderFlags.TextureFilterMode.MipmapLinear,
-            MagFilter = RenderFlags.TextureFilterMode.Linear,
-            WrapS = RenderFlags.TextureWrapMode.Repeat,
-            WrapT = RenderFlags.TextureWrapMode.Repeat,
+            MinFilter = TextureFilterMode.MipmapLinear,
+            MagFilter = TextureFilterMode.Linear,
+            WrapS = TextureWrapMode.Repeat,
+            WrapT = TextureWrapMode.Repeat,
             GenerateMipmaps = true
         };
     }

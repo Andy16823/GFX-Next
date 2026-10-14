@@ -53,7 +53,7 @@ namespace LibGFX.Graphics.PostProcessing
         public void Apply(PostProcessStack stack, IRenderDevice renderer, int sourceTexture)
         {
             renderer.BindRenderTarget(this.RenderTarget);
-            renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
+            renderer.Clear(ClearFlags.Color | ClearFlags.Depth);
             renderer.BindShaderProgram(_shader);
             renderer.PrepareShader("sourceTexture", 0, sourceTexture);
             renderer.PrepareShader("intensity", Intensity);

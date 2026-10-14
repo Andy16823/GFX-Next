@@ -67,7 +67,7 @@ namespace LibGFX.Physics
 
             Debug.WriteLine("Creating result buffer...");
             _resultBuffer = renderDevice.CreateBuffer();
-            renderDevice.SetBufferData<ComputeHitResult>(_resultBuffer, new ComputeHitResult[1], RenderFlags.GFXBufferTarget.ShaderStorageBuffer, RenderFlags.GFXBufferUsageHint.DynamicRead);
+            renderDevice.SetBufferData<ComputeHitResult>(_resultBuffer, new ComputeHitResult[1], GFXBufferTarget.ShaderStorageBuffer, GFXBufferUsageHint.DynamicRead);
             Debug.WriteLine($"Compute Raycast initialized. Result Buffer ID: {_resultBuffer} Error: {renderDevice.GetError()}");
         }
 
@@ -122,10 +122,10 @@ namespace LibGFX.Physics
 
             // Dispatch compute shader and set memory barrier to ensure completion
             _renderer.DispatchCompute(1, 1, 1);
-            _renderer.MemoryBarrier(RenderFlags.GFXMemoryBarrierFlags.ShaderStorageBarrierBit);
+            _renderer.MemoryBarrier(GFXMemoryBarrierFlags.ShaderStorageBarrierBit);
 
             // Retrieve hit result
-            ComputeHitResult hit = _renderer.GetBufferData<ComputeHitResult>(_resultBuffer, 1, RenderFlags.GFXBufferTarget.ShaderStorageBuffer)[0];
+            ComputeHitResult hit = _renderer.GetBufferData<ComputeHitResult>(_resultBuffer, 1, GFXBufferTarget.ShaderStorageBuffer)[0];
             if (hit.TriangleIndex == -1)
             {
                 // No hit detected
@@ -166,7 +166,7 @@ namespace LibGFX.Physics
 
             // Create temporary buffer for hit result
             int hitBuffer = renderer.CreateBuffer();
-            renderer.SetBufferData<ComputeHitResult>(hitBuffer, new ComputeHitResult[1], RenderFlags.GFXBufferTarget.ShaderStorageBuffer, RenderFlags.GFXBufferUsageHint.DynamicRead);
+            renderer.SetBufferData<ComputeHitResult>(hitBuffer, new ComputeHitResult[1], GFXBufferTarget.ShaderStorageBuffer, GFXBufferUsageHint.DynamicRead);
 
             // Bind and set up compute shader
             renderer.BindShaderProgram(shader);
@@ -181,10 +181,10 @@ namespace LibGFX.Physics
 
             // Dispatch compute shader and set memory barrier to ensure completion
             renderer.DispatchCompute(1, 1, 1);
-            renderer.MemoryBarrier(RenderFlags.GFXMemoryBarrierFlags.ShaderStorageBarrierBit);
+            renderer.MemoryBarrier(GFXMemoryBarrierFlags.ShaderStorageBarrierBit);
 
             // Retrieve hit result
-            ComputeHitResult hit = renderer.GetBufferData<ComputeHitResult>(hitBuffer, 1, RenderFlags.GFXBufferTarget.ShaderStorageBuffer)[0];
+            ComputeHitResult hit = renderer.GetBufferData<ComputeHitResult>(hitBuffer, 1, GFXBufferTarget.ShaderStorageBuffer)[0];
 
             // Clean up temporary buffer
             renderer.DisposeBuffer(hitBuffer);
