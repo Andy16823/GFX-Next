@@ -136,7 +136,7 @@ namespace LibGFX.Graphics.Enviroment
             renderer.PrepareShader("coverage", Coverage);
             if(CoverageTexture != null)
             {
-                renderer.PrepareShader("coverageTexture", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, CoverageTexture);
+                renderer.PrepareShader("coverageTexture", 0, CoverageTexture);
             }
             renderer.PrepareShader("coverageFactor", CoverageFactor);
             renderer.PrepareShader("cloudColor", CloudColor);

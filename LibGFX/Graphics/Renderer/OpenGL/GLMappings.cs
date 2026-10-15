@@ -1,11 +1,4 @@
-﻿using BulletSharp;
-using OpenTK.Audio.OpenAL;
-using OpenTK.Graphics.OpenGL4;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OpenTK.Graphics.OpenGL4;
 
 namespace LibGFX.Graphics.Renderer.OpenGL
 {
@@ -29,78 +22,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
         };
 
-        internal static DrawBufferMode ToDrawBuffer(GFXRenderBufferMode access) => access switch
-        {
-            GFXRenderBufferMode.None => DrawBufferMode.None,
-            GFXRenderBufferMode.FrontLeft => DrawBufferMode.FrontLeft,
-            GFXRenderBufferMode.FrontRight => DrawBufferMode.FrontRight,
-            GFXRenderBufferMode.BackLeft => DrawBufferMode.BackLeft,
-            GFXRenderBufferMode.BackRight => DrawBufferMode.BackRight,
-            GFXRenderBufferMode.Left => DrawBufferMode.Left,
-            GFXRenderBufferMode.Right => DrawBufferMode.Right,
-            GFXRenderBufferMode.Color0 => DrawBufferMode.ColorAttachment0,
-            GFXRenderBufferMode.Color1 => DrawBufferMode.ColorAttachment1,
-            GFXRenderBufferMode.Color2 => DrawBufferMode.ColorAttachment2,
-            GFXRenderBufferMode.Color3 => DrawBufferMode.ColorAttachment3,
-            GFXRenderBufferMode.Color4 => DrawBufferMode.ColorAttachment4,
-            GFXRenderBufferMode.Color5 => DrawBufferMode.ColorAttachment5,
-            GFXRenderBufferMode.Color6 => DrawBufferMode.ColorAttachment6,
-            GFXRenderBufferMode.Color7 => DrawBufferMode.ColorAttachment7,
-            GFXRenderBufferMode.Color8 => DrawBufferMode.ColorAttachment8,
-            GFXRenderBufferMode.Color9 => DrawBufferMode.ColorAttachment9,
-            GFXRenderBufferMode.Color10 => DrawBufferMode.ColorAttachment10,
-            GFXRenderBufferMode.Color11 => DrawBufferMode.ColorAttachment11,
-            GFXRenderBufferMode.Color12 => DrawBufferMode.ColorAttachment12,
-            GFXRenderBufferMode.Color13 => DrawBufferMode.ColorAttachment13,
-            GFXRenderBufferMode.Color14 => DrawBufferMode.ColorAttachment14,
-            GFXRenderBufferMode.Color15 => DrawBufferMode.ColorAttachment15,
-            GFXRenderBufferMode.Color16 => DrawBufferMode.ColorAttachment16,
-            GFXRenderBufferMode.Color17 => DrawBufferMode.ColorAttachment17,
-            GFXRenderBufferMode.Color18 => DrawBufferMode.ColorAttachment18,
-            GFXRenderBufferMode.Color19 => DrawBufferMode.ColorAttachment19,
-            GFXRenderBufferMode.Color20 => DrawBufferMode.ColorAttachment20,
-            GFXRenderBufferMode.Color21 => DrawBufferMode.ColorAttachment21,
-            GFXRenderBufferMode.Color22 => DrawBufferMode.ColorAttachment22,
-            GFXRenderBufferMode.Color23 => DrawBufferMode.ColorAttachment23,
-            GFXRenderBufferMode.Color24 => DrawBufferMode.ColorAttachment24,
-            GFXRenderBufferMode.Color25 => DrawBufferMode.ColorAttachment25,
-            GFXRenderBufferMode.Color26 => DrawBufferMode.ColorAttachment26,
-            GFXRenderBufferMode.Color27 => DrawBufferMode.ColorAttachment27,
-            GFXRenderBufferMode.Color28 => DrawBufferMode.ColorAttachment28,
-            GFXRenderBufferMode.Color29 => DrawBufferMode.ColorAttachment29,
-            GFXRenderBufferMode.Color30 => DrawBufferMode.ColorAttachment30,
-            GFXRenderBufferMode.Color31 => DrawBufferMode.ColorAttachment31,
-            _ => throw new ArgumentOutOfRangeException(nameof(access), access, null)
-        };
-
-        internal static ReadBufferMode ToReadBuffer(GFXRenderBufferMode access) => access switch
-        {
-            GFXRenderBufferMode.None => ReadBufferMode.None,
-            GFXRenderBufferMode.FrontLeft => ReadBufferMode.FrontLeft,
-            GFXRenderBufferMode.FrontRight => ReadBufferMode.FrontRight,
-            GFXRenderBufferMode.BackLeft => ReadBufferMode.BackLeft,
-            GFXRenderBufferMode.BackRight => ReadBufferMode.BackRight,
-            GFXRenderBufferMode.Left => ReadBufferMode.Left,
-            GFXRenderBufferMode.Right => ReadBufferMode.Right,
-            GFXRenderBufferMode.Color0 => ReadBufferMode.ColorAttachment0,
-            GFXRenderBufferMode.Color1 => ReadBufferMode.ColorAttachment1,
-            GFXRenderBufferMode.Color2 => ReadBufferMode.ColorAttachment2,
-            GFXRenderBufferMode.Color3 => ReadBufferMode.ColorAttachment3,
-            GFXRenderBufferMode.Color4 => ReadBufferMode.ColorAttachment4,
-            GFXRenderBufferMode.Color5 => ReadBufferMode.ColorAttachment5,
-            GFXRenderBufferMode.Color6 => ReadBufferMode.ColorAttachment6,
-            GFXRenderBufferMode.Color7 => ReadBufferMode.ColorAttachment7,
-            GFXRenderBufferMode.Color8 => ReadBufferMode.ColorAttachment8,
-            GFXRenderBufferMode.Color9 => ReadBufferMode.ColorAttachment9,
-            GFXRenderBufferMode.Color10 => ReadBufferMode.ColorAttachment10,
-            GFXRenderBufferMode.Color11 => ReadBufferMode.ColorAttachment11,
-            GFXRenderBufferMode.Color12 => ReadBufferMode.ColorAttachment12,
-            GFXRenderBufferMode.Color13 => ReadBufferMode.ColorAttachment13,
-            GFXRenderBufferMode.Color14 => ReadBufferMode.ColorAttachment14,
-            GFXRenderBufferMode.Color15 => ReadBufferMode.ColorAttachment15,
-            _ => throw new ArgumentOutOfRangeException(nameof(access), access, null)
-        };
-
         /// <summary>
         /// Converts a GFXTextureWrapMode to OpenGL GFXTextureWrapMode.
         /// </summary>
@@ -109,28 +30,11 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         internal static int ToGL(GFXTextureWrapMode mode) => mode switch
         {
-            GFXTextureWrapMode.ClampToEdge => (int)GFXTextureWrapMode.ClampToEdge,
-            GFXTextureWrapMode.Repeat => (int)GFXTextureWrapMode.Repeat,
-            GFXTextureWrapMode.MirroredRepeat => (int)GFXTextureWrapMode.MirroredRepeat,
-            GFXTextureWrapMode.ClampToBorder => (int)GFXTextureWrapMode.ClampToBorder,
+            GFXTextureWrapMode.ClampToEdge => (int)TextureWrapMode.ClampToEdge,
+            GFXTextureWrapMode.Repeat => (int)TextureWrapMode.Repeat,
+            GFXTextureWrapMode.MirroredRepeat => (int)TextureWrapMode.MirroredRepeat,
+            GFXTextureWrapMode.ClampToBorder => (int)TextureWrapMode.ClampToBorder,
             _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
-        };
-
-        /// <summary>
-        /// Converts a GFXColorFormatLayout to OpenGL PixelFormat.
-        /// </summary>
-        /// <param name="hint"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        internal static PixelFormat ToGL(GFXColorFormatLayout hint) => hint switch
-        {
-            GFXColorFormatLayout.R => PixelFormat.Red,
-            GFXColorFormatLayout.RG => PixelFormat.Rg,
-            GFXColorFormatLayout.RGB => PixelFormat.Rgb,
-            GFXColorFormatLayout.RGBA => PixelFormat.Rgba,
-            GFXColorFormatLayout.Depth => PixelFormat.DepthComponent,
-            GFXColorFormatLayout.DepthStencil => PixelFormat.DepthStencil,
-            _ => throw new ArgumentOutOfRangeException(nameof(hint), hint, null)
         };
 
         /// <summary>
@@ -174,36 +78,84 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         };
 
         /// <summary>
-        /// Converts a GFXColorFormatType to OpenGL PixelType.
+        /// Derives the OpenGL PixelType (data type of the pixel components) from a GFXColorFormatHint.
         /// </summary>
-        /// <param name="type"></param>
+        /// <param name="hint"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        internal static PixelType ToGL(GFXColorFormatType type) => type switch
+        internal static PixelType ToPixelType(GFXColorFormatHint hint) => hint switch
         {
-            GFXColorFormatType.UnsignedByte => PixelType.UnsignedByte,
-            GFXColorFormatType.UnsignedShort => PixelType.UnsignedShort,
-            GFXColorFormatType.UnsignedInt => PixelType.UnsignedInt,
-            GFXColorFormatType.UnsignedInt24_8 => PixelType.UnsignedInt248,
-            GFXColorFormatType.Float => PixelType.Float,
-            GFXColorFormatType.HalfFloat => PixelType.HalfFloat,
-            _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+            GFXColorFormatHint.R8 or
+            GFXColorFormatHint.RG8 or
+            GFXColorFormatHint.RGB8 or
+            GFXColorFormatHint.RGBA8 or
+            GFXColorFormatHint.RGBA8UI or
+            GFXColorFormatHint.RGB or
+            GFXColorFormatHint.RGBA => PixelType.UnsignedByte,
+
+            GFXColorFormatHint.R16F or
+            GFXColorFormatHint.RG16F or
+            GFXColorFormatHint.RGB16F or
+            GFXColorFormatHint.RGBA16F => PixelType.HalfFloat,
+
+            GFXColorFormatHint.R32F or
+            GFXColorFormatHint.RG32F or
+            GFXColorFormatHint.RGB32F or
+            GFXColorFormatHint.RGBA32F or
+            GFXColorFormatHint.Depth => PixelType.Float,
+
+            GFXColorFormatHint.RGB10A2 => PixelType.UnsignedInt1010102,
+
+            GFXColorFormatHint.Depth16 => PixelType.UnsignedShort,
+            GFXColorFormatHint.Depth24 or
+            GFXColorFormatHint.Depth32 => PixelType.UnsignedInt,
+
+            GFXColorFormatHint.Depth24Stencil8 or
+            GFXColorFormatHint.DepthStencil => PixelType.UnsignedInt248,
+            GFXColorFormatHint.Depth32FStencil8 => PixelType.Float32UnsignedInt248Rev,
+
+            _ => throw new ArgumentOutOfRangeException(nameof(hint), hint, null)
         };
 
-        internal static FramebufferAttachment ToGL(GFXFramebufferAttachment attachment) => attachment switch
+        /// <summary>
+        /// Derives the OpenGL PixelFormat (channel layout) from a GFXColorFormatHint.
+        /// </summary>
+        /// <param name="hint"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        internal static PixelFormat ToPixelFormat(GFXColorFormatHint hint) => hint switch
         {
-            GFXFramebufferAttachment.Color0 => FramebufferAttachment.ColorAttachment0,
-            GFXFramebufferAttachment.Color1 => FramebufferAttachment.ColorAttachment1,
-            GFXFramebufferAttachment.Color2 => FramebufferAttachment.ColorAttachment2,
-            GFXFramebufferAttachment.Color3 => FramebufferAttachment.ColorAttachment3,
-            GFXFramebufferAttachment.Color4 => FramebufferAttachment.ColorAttachment4,
-            GFXFramebufferAttachment.Color5 => FramebufferAttachment.ColorAttachment5,
-            GFXFramebufferAttachment.Color6 => FramebufferAttachment.ColorAttachment6,
-            GFXFramebufferAttachment.Color7 => FramebufferAttachment.ColorAttachment7,
-            GFXFramebufferAttachment.Depth => FramebufferAttachment.DepthAttachment,
-            GFXFramebufferAttachment.DepthStencil => FramebufferAttachment.DepthStencilAttachment,
-            GFXFramebufferAttachment.Stencil => FramebufferAttachment.StencilAttachment,
-            _ => throw new ArgumentOutOfRangeException(nameof(attachment), attachment, null)
+            GFXColorFormatHint.R8 or
+            GFXColorFormatHint.R16F or
+            GFXColorFormatHint.R32F => PixelFormat.Red,
+
+            GFXColorFormatHint.RG8 or
+            GFXColorFormatHint.RG16F or
+            GFXColorFormatHint.RG32F => PixelFormat.Rg,
+
+            GFXColorFormatHint.RGB8 or
+            GFXColorFormatHint.RGB16F or
+            GFXColorFormatHint.RGB32F or
+            GFXColorFormatHint.RGB => PixelFormat.Rgb,
+
+            GFXColorFormatHint.RGBA8 or
+            GFXColorFormatHint.RGBA16F or
+            GFXColorFormatHint.RGBA32F or
+            GFXColorFormatHint.RGB10A2 or
+            GFXColorFormatHint.RGBA => PixelFormat.Rgba,
+
+            GFXColorFormatHint.RGBA8UI => PixelFormat.RgbaInteger,
+
+            GFXColorFormatHint.Depth16 or
+            GFXColorFormatHint.Depth24 or
+            GFXColorFormatHint.Depth32 or
+            GFXColorFormatHint.Depth => PixelFormat.DepthComponent,
+
+            GFXColorFormatHint.Depth24Stencil8 or
+            GFXColorFormatHint.Depth32FStencil8 or
+            GFXColorFormatHint.DepthStencil => PixelFormat.DepthStencil,
+
+            _ => throw new ArgumentOutOfRangeException(nameof(hint), hint, null)
         };
 
         /// <summary>
@@ -228,24 +180,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         }
 
         /// <summary>
-        /// Returns the best depth-stencil format based on the specified flags.
-        /// </summary>
-        /// <param name="depth"></param>
-        /// <param name="stencil"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
-        internal static RenderbufferStorage GetBestDepthStencilFormat(bool depth, bool stencil)
-        {
-            return (depth, stencil) switch
-            {
-                (true, true) => RenderbufferStorage.Depth24Stencil8,
-                (true, false) => RenderbufferStorage.DepthComponent24,
-                (false, true) => RenderbufferStorage.StencilIndex8,
-                _ => throw new ArgumentException("At least one of depth or stencil must be true.")
-            };
-        }
-
-        /// <summary>
         /// Maps GFXRenderDataTypes to OpenGL VertexAttribPointerType.
         /// </summary>
         /// <param name="type"></param>
@@ -267,24 +201,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         };
 
         /// <summary>
-        /// Maps GFXPrimitiveTypes to OpenGL PrimitiveType.
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
-        internal static PrimitiveType ToPrimitiveType(GFXPrimitiveTypes type) => type switch
-        {
-            GFXPrimitiveTypes.Points => PrimitiveType.Points,
-            GFXPrimitiveTypes.Lines => PrimitiveType.Lines,
-            GFXPrimitiveTypes.LineLoop => PrimitiveType.LineLoop,
-            GFXPrimitiveTypes.LineStrip => PrimitiveType.LineStrip,
-            GFXPrimitiveTypes.Triangles => PrimitiveType.Triangles,
-            GFXPrimitiveTypes.TriangleStrip => PrimitiveType.TriangleStrip,
-            GFXPrimitiveTypes.TriangleFan => PrimitiveType.TriangleFan,
-            _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
-        };
-
-        /// <summary>
         /// Maps GFXPrimitiveTypes to OpenGL BeginMode.
         /// </summary>
         /// <param name="type"></param>
@@ -300,159 +216,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GFXPrimitiveTypes.TriangleStrip => BeginMode.TriangleStrip,
             GFXPrimitiveTypes.TriangleFan => BeginMode.TriangleFan,
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
-        };
-
-        internal static FramebufferTarget ToFramebufferTarget(GFXFramebufferTarget target) => target switch
-        {
-            GFXFramebufferTarget.ReadFramebuffer => FramebufferTarget.ReadFramebuffer,
-            GFXFramebufferTarget.DrawFramebuffer => FramebufferTarget.DrawFramebuffer,
-            GFXFramebufferTarget.Framebuffer => FramebufferTarget.Framebuffer,
-            _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
-        };
-
-        internal static TextureTarget ToTextureTarget(GFXTextureTarget target) => target switch
-        {
-            GFXTextureTarget.Texture1D => TextureTarget.Texture1D,
-            GFXTextureTarget.Texture2D => TextureTarget.Texture2D,
-            GFXTextureTarget.Texture3D => TextureTarget.Texture3D,
-            GFXTextureTarget.TextureCubeMap => TextureTarget.TextureCubeMap,
-            GFXTextureTarget.Texture1DArray => TextureTarget.Texture1DArray,
-            GFXTextureTarget.Texture2DArray => TextureTarget.Texture2DArray,
-            GFXTextureTarget.TextureRectangle => TextureTarget.TextureRectangle,
-            GFXTextureTarget.TextureCubeMapArray => TextureTarget.TextureCubeMapArray,
-            GFXTextureTarget.TextureBuffer => TextureTarget.TextureBuffer,
-            GFXTextureTarget.Texture2DMultisample => TextureTarget.Texture2DMultisample,
-            GFXTextureTarget.Texture2DMultisampleArray => TextureTarget.Texture2DMultisampleArray,
-            _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
-        };
-
-        internal static TextureParameterName ToTextureParameterName(GFXTextureParameterName target) => target switch
-        {
-            GFXTextureParameterName.TextureMinFilter => TextureParameterName.TextureMinFilter,
-            GFXTextureParameterName.TextureMagFilter => TextureParameterName.TextureMagFilter,
-            GFXTextureParameterName.TextureWrapS => TextureParameterName.TextureWrapS,
-            GFXTextureParameterName.TextureWrapT => TextureParameterName.TextureWrapT,
-            GFXTextureParameterName.TextureWrapR => TextureParameterName.TextureWrapR,
-            GFXTextureParameterName.TextureBorderColor => TextureParameterName.TextureBorderColor,
-            GFXTextureParameterName.TextureBaseLevel => TextureParameterName.TextureBaseLevel,
-            GFXTextureParameterName.TextureMaxLevel => TextureParameterName.TextureMaxLevel,
-            GFXTextureParameterName.TextureLodBias => TextureParameterName.TextureLodBias,
-            GFXTextureParameterName.TextureCompareMode => TextureParameterName.TextureCompareMode,
-            GFXTextureParameterName.TextureCompareFunc => TextureParameterName.TextureCompareFunc,
-            GFXTextureParameterName.GenerateMipmap => TextureParameterName.GenerateMipmap,
-            _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
-        };
-
-        internal static RenderbufferTarget ToRenderbufferTarget(GFXRenderbufferTarget target) => target switch
-        {
-            GFXRenderbufferTarget.Renderbuffer => RenderbufferTarget.Renderbuffer,
-            GFXRenderbufferTarget.RenderbufferExt => RenderbufferTarget.RenderbufferExt,
-            _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
-        };
-
-        internal static RenderbufferStorage ToRenderBufferStorage(GFXRenderbufferStorage target) => target switch
-        {
-            GFXRenderbufferStorage.R3G3B2 => RenderbufferStorage.R3G3B2,
-            GFXRenderbufferStorage.Alpha4 => RenderbufferStorage.Alpha4,
-            GFXRenderbufferStorage.Alpha8 => RenderbufferStorage.Alpha8,
-            GFXRenderbufferStorage.Alpha12 => RenderbufferStorage.Alpha12,
-            GFXRenderbufferStorage.Alpha16 => RenderbufferStorage.Alpha16,
-            GFXRenderbufferStorage.Rgb4 => RenderbufferStorage.Rgb4,
-            GFXRenderbufferStorage.Rgb5 => RenderbufferStorage.Rgb5,
-            GFXRenderbufferStorage.Rgb8 => RenderbufferStorage.Rgb8,
-            GFXRenderbufferStorage.Rgb10 => RenderbufferStorage.Rgb10,
-            GFXRenderbufferStorage.Rgb12 => RenderbufferStorage.Rgb12,
-            GFXRenderbufferStorage.Rgb16 => RenderbufferStorage.Rgb16,
-            GFXRenderbufferStorage.Rgba2 => RenderbufferStorage.Rgba2,
-            GFXRenderbufferStorage.Rgba4 => RenderbufferStorage.Rgba4,
-            GFXRenderbufferStorage.Rgba8 => RenderbufferStorage.Rgba8,
-            GFXRenderbufferStorage.Rgb10A2 => RenderbufferStorage.Rgb10A2,
-            GFXRenderbufferStorage.Rgba12 => RenderbufferStorage.Rgba12,
-            GFXRenderbufferStorage.Rgba16 => RenderbufferStorage.Rgba16,
-            GFXRenderbufferStorage.DepthComponent16 => RenderbufferStorage.DepthComponent16,
-            GFXRenderbufferStorage.DepthComponent24 => RenderbufferStorage.DepthComponent24,
-            GFXRenderbufferStorage.DepthComponent32 => RenderbufferStorage.DepthComponent32,
-            GFXRenderbufferStorage.R8 => RenderbufferStorage.R8,
-            GFXRenderbufferStorage.R16 => RenderbufferStorage.R16,
-            GFXRenderbufferStorage.Rg8 => RenderbufferStorage.Rg8,
-            GFXRenderbufferStorage.Rg16 => RenderbufferStorage.Rg16,
-            GFXRenderbufferStorage.R16f => RenderbufferStorage.R16f,
-            GFXRenderbufferStorage.R32f => RenderbufferStorage.R32f,
-            GFXRenderbufferStorage.Rg16f => RenderbufferStorage.Rg16f,
-            GFXRenderbufferStorage.Rg32f => RenderbufferStorage.Rg32f,
-            GFXRenderbufferStorage.R8i => RenderbufferStorage.R8i,
-            GFXRenderbufferStorage.R8ui => RenderbufferStorage.R8ui,
-            GFXRenderbufferStorage.R16i => RenderbufferStorage.R16i,
-            GFXRenderbufferStorage.R16ui => RenderbufferStorage.R16ui,
-            GFXRenderbufferStorage.R32i => RenderbufferStorage.R32i,
-            GFXRenderbufferStorage.R32ui => RenderbufferStorage.R32ui,
-            GFXRenderbufferStorage.Rg8i => RenderbufferStorage.Rg8i,
-            GFXRenderbufferStorage.Rg8ui => RenderbufferStorage.Rg8ui,
-            GFXRenderbufferStorage.Rg16i => RenderbufferStorage.Rg16i,
-            GFXRenderbufferStorage.Rg16ui => RenderbufferStorage.Rg16ui,
-            GFXRenderbufferStorage.Rg32i => RenderbufferStorage.Rg32i,
-            GFXRenderbufferStorage.Rg32ui => RenderbufferStorage.Rg32ui,
-            GFXRenderbufferStorage.Rgba32f => RenderbufferStorage.Rgba32f,
-            GFXRenderbufferStorage.Rgb32f => RenderbufferStorage.Rgb32f,
-            GFXRenderbufferStorage.Rgba16f => RenderbufferStorage.Rgba16f,
-            GFXRenderbufferStorage.Rgb16f => RenderbufferStorage.Rgb16f,
-            GFXRenderbufferStorage.Depth24Stencil8 => RenderbufferStorage.Depth24Stencil8,
-            GFXRenderbufferStorage.R11fG11fB10f => RenderbufferStorage.R11fG11fB10f,
-            GFXRenderbufferStorage.Rgb9E5 => RenderbufferStorage.Rgb9E5,
-            GFXRenderbufferStorage.Srgb8 => RenderbufferStorage.Srgb8,
-            GFXRenderbufferStorage.Srgb8Alpha8 => RenderbufferStorage.Srgb8Alpha8,
-            GFXRenderbufferStorage.DepthComponent32f => RenderbufferStorage.DepthComponent32f,
-            GFXRenderbufferStorage.Depth32fStencil8 => RenderbufferStorage.Depth32fStencil8,
-            GFXRenderbufferStorage.StencilIndex1 => RenderbufferStorage.StencilIndex1,
-            GFXRenderbufferStorage.StencilIndex1Ext => RenderbufferStorage.StencilIndex1Ext,
-            GFXRenderbufferStorage.StencilIndex4 => RenderbufferStorage.StencilIndex4,
-            GFXRenderbufferStorage.StencilIndex4Ext => RenderbufferStorage.StencilIndex4Ext,
-            GFXRenderbufferStorage.StencilIndex8 => RenderbufferStorage.StencilIndex8,
-            GFXRenderbufferStorage.StencilIndex8Ext => RenderbufferStorage.StencilIndex8Ext,
-            GFXRenderbufferStorage.StencilIndex16 => RenderbufferStorage.StencilIndex16,
-            GFXRenderbufferStorage.StencilIndex16Ext => RenderbufferStorage.StencilIndex16Ext,
-            GFXRenderbufferStorage.Rgba32ui => RenderbufferStorage.Rgba32ui,
-            GFXRenderbufferStorage.Rgb32ui => RenderbufferStorage.Rgb32ui,
-            GFXRenderbufferStorage.Rgba16ui => RenderbufferStorage.Rgba16ui,
-            GFXRenderbufferStorage.Rgb16ui => RenderbufferStorage.Rgb16ui,
-            GFXRenderbufferStorage.Rgba8ui => RenderbufferStorage.Rgba8ui,
-            GFXRenderbufferStorage.Rgb8ui => RenderbufferStorage.Rgb8ui,
-            GFXRenderbufferStorage.Rgba32i => RenderbufferStorage.Rgba32i,
-            GFXRenderbufferStorage.Rgb32i => RenderbufferStorage.Rgb32i,
-            GFXRenderbufferStorage.Rgba16i => RenderbufferStorage.Rgba16i,
-            GFXRenderbufferStorage.Rgb16i => RenderbufferStorage.Rgb16i,
-            GFXRenderbufferStorage.Rgba8i => RenderbufferStorage.Rgba8i,
-            GFXRenderbufferStorage.Rgb8i => RenderbufferStorage.Rgb8i,
-            GFXRenderbufferStorage.Rgb10A2ui => RenderbufferStorage.Rgb10A2ui,
-            _ => throw new ArgumentOutOfRangeException(nameof(target), target, null)
-        };
-
-        internal static FramebufferErrorCode ToFramebufferErrorCode(GFXFramebufferErrorCode code) => code switch
-        {
-            GFXFramebufferErrorCode.FramebufferComplete => FramebufferErrorCode.FramebufferComplete,
-            GFXFramebufferErrorCode.FramebufferUndefined => FramebufferErrorCode.FramebufferUndefined,
-            GFXFramebufferErrorCode.FramebufferIncompleteAttachment => FramebufferErrorCode.FramebufferIncompleteAttachment,
-            GFXFramebufferErrorCode.FramebufferIncompleteMissingAttachment => FramebufferErrorCode.FramebufferIncompleteMissingAttachment,
-            GFXFramebufferErrorCode.FramebufferIncompleteDrawBuffer => FramebufferErrorCode.FramebufferIncompleteDrawBuffer,
-            GFXFramebufferErrorCode.FramebufferIncompleteReadBuffer => FramebufferErrorCode.FramebufferIncompleteReadBuffer,
-            GFXFramebufferErrorCode.FramebufferUnsupported => FramebufferErrorCode.FramebufferUnsupported,
-            GFXFramebufferErrorCode.FramebufferIncompleteMultisample => FramebufferErrorCode.FramebufferIncompleteMultisample,
-            GFXFramebufferErrorCode.FramebufferIncompleteLayerTargets => FramebufferErrorCode.FramebufferIncompleteLayerTargets,
-            _ => throw new ArgumentOutOfRangeException(nameof(code), code, null)
-        };
-
-        internal static GFXFramebufferErrorCode ToGFXFramebufferErrorCode(FramebufferErrorCode code) => code switch
-        {
-            FramebufferErrorCode.FramebufferComplete => GFXFramebufferErrorCode.FramebufferComplete,
-            FramebufferErrorCode.FramebufferUndefined => GFXFramebufferErrorCode.FramebufferUndefined,
-            FramebufferErrorCode.FramebufferIncompleteAttachment => GFXFramebufferErrorCode.FramebufferIncompleteAttachment,
-            FramebufferErrorCode.FramebufferIncompleteMissingAttachment => GFXFramebufferErrorCode.FramebufferIncompleteMissingAttachment,
-            FramebufferErrorCode.FramebufferIncompleteDrawBuffer => GFXFramebufferErrorCode.FramebufferIncompleteDrawBuffer,
-            FramebufferErrorCode.FramebufferIncompleteReadBuffer => GFXFramebufferErrorCode.FramebufferIncompleteReadBuffer,
-            FramebufferErrorCode.FramebufferUnsupported => GFXFramebufferErrorCode.FramebufferUnsupported,
-            FramebufferErrorCode.FramebufferIncompleteMultisample => GFXFramebufferErrorCode.FramebufferIncompleteMultisample,
-            FramebufferErrorCode.FramebufferIncompleteLayerTargets => GFXFramebufferErrorCode.FramebufferIncompleteLayerTargets,
-            _ => throw new ArgumentOutOfRangeException(nameof(code), code, null)
         };
 
         internal static BufferTarget ToBufferTarget(GFXBufferTarget target) => target switch
@@ -496,6 +259,5 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GFXBufferUsageHint.DynamicCopy => BufferUsageHint.DynamicCopy,
             _ => throw new ArgumentOutOfRangeException(nameof(hint), hint, null)
         };
-
     }
 }

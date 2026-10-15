@@ -66,18 +66,18 @@ namespace LibGFX.Graphics.PostProcessing
             _shader = new ChromaticAberrationFXShader();
             renderer.BuildRenderShader(_shader);
             this.RenderTarget = new RenderTarget2D(viewport.Width, viewport.Height);
-            this.RenderTarget.Create();
+            renderer.CreateRenderTarget(this.RenderTarget);
         }
 
         public void Dispose(PostProcessStack stack, IRenderDevice renderer)
         {
             renderer.DisposeRenderShader(_shader);
-            this.RenderTarget.Dispose();
+            renderer.DisposeRenderTarget(this.RenderTarget);
         }
 
         public void Resize(Viewport viewport, IRenderDevice renderer)
         {
-            this.RenderTarget.Resize(viewport.Width, viewport.Height);
+            renderer.ResizeRenderTarget(this.RenderTarget, viewport.Width, viewport.Height);
         }
 
         public void Update(float deltaTime)

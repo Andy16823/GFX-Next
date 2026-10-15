@@ -128,7 +128,7 @@ namespace LibGFX.Graphics.Materials
         public void Use(IRenderDevice renderDevice)
         {
             renderDevice.BindShaderProgram(Shader);
-            renderDevice.PrepareShader("textureSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, Texture);
+            renderDevice.PrepareShader("textureSampler", 0, Texture);
         }
 
         /// <summary>

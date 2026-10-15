@@ -195,29 +195,29 @@ namespace LibGFX.Graphics.Materials
             renderDevice.PrepareShader("material.uvScale", UVScale);
             if (DiffuseTexture != null)
             {
-                renderDevice.PrepareShader("material.textureSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, DiffuseTexture);
+                renderDevice.PrepareShader("material.textureSampler", 0, DiffuseTexture);
             }
             else
             {
-                renderDevice.PrepareShader("material.textureSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, 0);
+                renderDevice.PrepareShader("material.textureSampler", 0, 0);
             }
 
             if (NormalTexture != null)
             {
-                renderDevice.PrepareShader("material.normalSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture1, NormalTexture);
+                renderDevice.PrepareShader("material.normalSampler", 1, NormalTexture);
             }
             else
             {
-                renderDevice.PrepareShader("material.normalSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture1, 0);
+                renderDevice.PrepareShader("material.normalSampler", 1, 0);
             }
 
             if (SpecularTexture != null)
             {
-                renderDevice.PrepareShader("material.specularSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture2, SpecularTexture);
+                renderDevice.PrepareShader("material.specularSampler", 2, SpecularTexture);
             }
             else
             {
-                renderDevice.PrepareShader("material.specularSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture2, 0);
+                renderDevice.PrepareShader("material.specularSampler", 2, 0);
             }
 
         }

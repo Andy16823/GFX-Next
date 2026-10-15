@@ -76,7 +76,7 @@ namespace LibGFX.Graphics.Lights
         {
             Debug.WriteLine($"Creating Shadow Map for Directional Light: {this.GetType().Name} at {Position} with size {ShadowMapSize}");
             this.ShadowMap = new CascadedShadowMap(this.ShadowMapSize.X, this.ShadowMapSize.Y, 4); // 4 Cascades because the shaders are hardcoded to 4 invokations, this can be changed in the future to be more flexible
-            this.ShadowMap.Create();
+            renderer.CreateRenderTarget(this.ShadowMap as CascadedShadowMap);
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace LibGFX.Graphics.Lights
         public override void Dispose(IRenderDevice renderer)
         {
             Debug.WriteLine($"Disposing Shadow Map for Directional Light: {this.GetType().Name} at {Position}");
-            this.ShadowMap.Dispose();
+            renderer.DisposeRenderTarget(this.ShadowMap as CascadedShadowMap);
         }
 
         /// <summary>

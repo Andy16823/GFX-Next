@@ -58,7 +58,7 @@ namespace LibGFX.Graphics.PostProcessing
 
         public void Dispose(PostProcessStack stack, IRenderDevice renderer)
         {
-            this.RenderTarget.Dispose();
+            renderer.DisposeRenderTarget(this.RenderTarget);
             renderer.DisposeRenderShader(_shader);
         }
 
@@ -67,12 +67,12 @@ namespace LibGFX.Graphics.PostProcessing
             _shader = new ScanlinesFXShader();
             renderer.BuildRenderShader(_shader);
             this.RenderTarget = new RenderTarget2D(viewport.Width, viewport.Height);
-            this.RenderTarget.Create();
+            renderer.CreateRenderTarget(this.RenderTarget);
         }
 
         public void Resize(Viewport viewport, IRenderDevice renderer)
         {
-            RenderTarget.Resize(viewport.Width, viewport.Height);
+            renderer.ResizeRenderTarget(this.RenderTarget, viewport.Width, viewport.Height);
         }
 
         public void Update(float deltaTime)

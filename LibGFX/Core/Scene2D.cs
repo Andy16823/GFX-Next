@@ -468,7 +468,7 @@ namespace LibGFX.Core
             OnInitStart?.Invoke(this, viewport, renderer);
 
             _renderTarget = new RenderTarget2D(viewport.Width, viewport.Height);
-            _renderTarget.Create();
+            renderer.CreateRenderTarget(_renderTarget);
 
             // Call the after render target creation event
             AfterRenderTargetCreation?.Invoke(this, viewport, renderer);
@@ -518,7 +518,7 @@ namespace LibGFX.Core
             renderer.SetProjectionMatrix(camera.GetProjectionMatrix(viewport));
             renderer.SetViewMatrix(camera.GetViewMatrix());
 
-            _renderTarget.Resize(viewport.Width, viewport.Height);
+            renderer.ResizeRenderTarget(_renderTarget, viewport.Width, viewport.Height);
             renderer.BindRenderTarget(_renderTarget);
             renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
@@ -593,7 +593,7 @@ namespace LibGFX.Core
             OnDispose?.Invoke(this, renderer);
 
             // Dispose the render target of the scene
-            _renderTarget.Dispose();
+            renderer.DisposeRenderTarget(_renderTarget);
 
             // Dispose the light manager
             this.LightManager.Dispose(renderer);

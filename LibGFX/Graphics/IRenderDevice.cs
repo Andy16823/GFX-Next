@@ -1,20 +1,11 @@
 ﻿using LibGFX.Compute;
 using LibGFX.Core;
-using LibGFX.Graphics.Lights;
-using LibGFX.Graphics.Materials;
 using LibGFX.Graphics.RenderTarget;
 using LibGFX.Graphics.Shader;
 using LibGFX.Graphics.Shapes;
 using LibGFX.Math;
-using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Desktop;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rect = LibGFX.Math.Rect;
 
 namespace LibGFX.Graphics
 {
@@ -81,6 +72,11 @@ namespace LibGFX.Graphics
         void BindShaderProgram(IShaderProgram shaderProgram);
         void UnbindShaderProgram();
         int GetUniformLocation(int program, String name);
+        void CreateRenderTarget(IRenderTarget renderTarget);
+        void ResizeRenderTarget(IRenderTarget renderTarget, int width, int height);
+        void BlitRenderTarget(MSAARenderTarget2D source);
+        byte[] ReadPixels(IRenderTarget renderTarget);
+        void DisposeRenderTarget(IRenderTarget renderTarget);
         void LoadTexture(Texture texture);
         void LoadTexture(Texture texture, TextureParameters textureOptions);
         int CreateArrayTexture(int width, int height, int layers, int mipLevels);
@@ -166,15 +162,10 @@ namespace LibGFX.Graphics
         void PrepareShaderVec3Array(String location, int count, float[] value);
         void PrepareShaderVec4Array(String location, int count, float[] value);
         void PrepareShader(String uniformName, bool transpose, Matrix4[] matrices);
-        void PrepareShader(String location, TextureUnit textureUnit, int value);
-        void PrepareShader(String location, TextureUnit textureUnit, Texture texture);
         void PrepareShader(String location, int textureUnit, int value);
         void PrepareShaderArrayTexture(String location, int textureUnit, int value);
         void PrepareShader(String location, int textureUnit, Texture texture);
         void PrepareShader(String location, int textureUnit, Cubemap cubemap);
-        public void DeleteFramebuffer(int framebuffer);
-        public void DeleteTexture(int texture);
-        public void DeleteRenderbuffer(int renderbuffer);
         int GetError();
     }
 }

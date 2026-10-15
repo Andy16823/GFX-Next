@@ -47,14 +47,14 @@ namespace LibGFX.Graphics.PostProcessing
 
         public void Dispose(PostProcessStack stack, IRenderDevice renderer)
         {
-            this.RenderTarget.Dispose();
+            renderer.DisposeRenderTarget(this.RenderTarget);
             renderer.DisposeRenderShader(_shader);
         }
 
         public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)
         {
             this.RenderTarget = new RenderTarget2D(viewport.Width, viewport.Height);
-            this.RenderTarget.Create();
+            renderer.CreateRenderTarget(this.RenderTarget);
 
             _shader = new SharpenFXShader();
             renderer.BuildRenderShader(_shader);
@@ -64,7 +64,7 @@ namespace LibGFX.Graphics.PostProcessing
 
         public void Resize(Viewport viewport, IRenderDevice renderer)
         {
-            this.RenderTarget.Resize(viewport.Width, viewport.Height);
+            renderer.ResizeRenderTarget(this.RenderTarget, viewport.Width, viewport.Height);
             _texelSize = new Vector2(1.0f / viewport.Width, 1.0f / viewport.Height);
         }
 
