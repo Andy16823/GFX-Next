@@ -722,6 +722,7 @@ namespace LibGFX.Core
                     e.Serialize(w, serializationContext);
                 });
                 w.WriteEndArray();
+                callback?.Invoke(w);
             });
         }
 

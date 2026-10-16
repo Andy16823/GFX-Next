@@ -436,6 +436,7 @@ namespace LibGFX.Core
         {
             // Deserialize basic properties
             this.ID = Guid.Parse(obj.Value<string>("ID")!);
+            serializationContext.SetValue<GameElement>(this.ID.ToString(), this);
             this.Name = obj.Value<string>("Name")!;
             this.Visible = obj.Value<bool>("Visible");
             this.Enabled = obj.Value<bool>("Enabled");
@@ -457,7 +458,7 @@ namespace LibGFX.Core
 
             // Deserialize Metadata
             this.Properties.Clear();
-            foreach (var property in obj.Value<JObject>("Properties")!)
+            foreach (var property in obj.Value<JObject>("Properties") ?? new JObject())
             {
                 var key = property.Key;
                 var value = property.Value.ToObject<object>();
@@ -468,7 +469,7 @@ namespace LibGFX.Core
             }
 
             // Deserialize Children
-            foreach (var childToken in obj.Value<JArray>("Children")!)
+            foreach (var childToken in obj.Value<JArray>("Children") ?? new JArray())
             {
                 var element = Utils.DeserializeGameElement(childToken as JObject, serializationContext);
                 if(element == null)

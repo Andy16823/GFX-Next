@@ -449,6 +449,8 @@ namespace LibGFX.Graphics
             };
             this.TextureParameters = texParams;
 
+            context.SetValue<Texture>(this.ID.ToString(), this);
+
             // Callback
             callback?.Invoke(obj);
         }

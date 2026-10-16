@@ -580,7 +580,7 @@ namespace LibGFX.Graphics.Lights
             // Deserialize lights from the "Lights" array in the JSON object
             var lightsArr = obj["Lights"] as JArray;
             Chunks.Clear();
-            foreach (var lightToken in lightsArr)
+            foreach (var lightToken in lightsArr ?? new JArray())
             {
                 var lightObj = lightToken as JObject;
                 if (lightObj != null)

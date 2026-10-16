@@ -461,12 +461,18 @@ namespace LibGFX.Graphics.Lights
         /// <param name="callback">An optional callback to invoke after deserialization is complete.</param>
         public void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
-            var directionalLightToken = obj["DirectionalLight"];
-            this.DirectionalLight = new DirectionalLight2D();
-            this.DirectionalLight.Deserialize(directionalLightToken as JObject, serializationContext);
+            if (obj["DirectionalLight"] is JObject directionalLightToken)
+            {
+                this.DirectionalLight = new DirectionalLight2D();
+                this.DirectionalLight.Deserialize(directionalLightToken, serializationContext);
+            }
+            else
+            {
+                this.DirectionalLight = null;
+            }
 
             var lightsArray = obj["Lights"] as JArray;
-            foreach(var lightToken in lightsArray)
+            foreach(var lightToken in lightsArray ?? new JArray())
             {
                 var lightObject = lightToken as JObject;
                 if (lightObject != null)

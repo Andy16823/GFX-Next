@@ -554,6 +554,7 @@ namespace LibGFX.Core
                 ?? throw new JsonException("Missing Type");
 
             Type type = Type.GetType(typeName)
+                            ?? AppDomain.CurrentDomain.GetAssemblies().Select(a => a.GetType(typeName)).FirstOrDefault(t => t != null)
                 ?? throw new Exception($"Type '{typeName}' not found.");
 
             var element = (GameElement)Activator.CreateInstance(type);

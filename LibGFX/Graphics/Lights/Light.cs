@@ -99,8 +99,8 @@ namespace LibGFX.Graphics.Lights
         public virtual void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
             // Read properties
-            this.Name = obj.Value<string>("Name") ?? ID.ToString();
             this.ID = Guid.Parse(obj.Value<string>("ID") ?? Guid.NewGuid().ToString());
+            this.Name = obj.Value<string>("Name") ?? ID.ToString();
             this.Color = Utils.DeserializeVec4(obj.Value<JObject>("Color"));
             this.Position = Utils.DeserializeVec3(obj.Value<JObject>("Position"));
             this.Intensity = obj.Value<float?>("Intensity") ?? 1.0f;
