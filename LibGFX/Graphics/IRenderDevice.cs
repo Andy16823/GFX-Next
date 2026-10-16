@@ -9,14 +9,6 @@ using OpenTK.Windowing.Desktop;
 
 namespace LibGFX.Graphics
 {
-    public enum CullMode
-    {
-        Front,
-        Back,
-        None,
-        FrontAndBack
-    }
-
     public interface IRenderDevice
     {
         void Init(IGLFWGraphicsContext context);
@@ -37,8 +29,8 @@ namespace LibGFX.Graphics
         (int srcFactor, int dstFactor) GetCurrentBlendMode();
         void SetBlendMode(int srcFactor, int dstFactor);
         void DisableBlend();
-        CullMode GetCullMode();
-        void SetCullMode(CullMode mode);
+        GFXCullMode GetCullMode();
+        void SetCullMode(GFXCullMode mode);
         void SetViewport(Viewport viewport);
         Viewport GetViewport();
         void SetViewMatrix(Matrix4 matrix);

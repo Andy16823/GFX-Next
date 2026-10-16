@@ -35,7 +35,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
     {
         public static int Backbuffer = 0;
 
-        private CullMode _cullMode = CullMode.Back;
+        private GFXCullMode _cullMode = GFXCullMode.Back;
         private Dictionary<string, RenderShader> _programs;
         private Dictionary<string, Shape> _shapes;
         private Dictionary<Primitives.PrimitiveType, Mesh> _primitives;
@@ -2214,23 +2214,23 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.ActiveTexture(TextureUnit.Texture0);
         }
 
-        public CullMode GetCullMode()
+        public GFXCullMode GetCullMode()
         {
             return _cullMode;
         }
 
-        public void SetCullMode(CullMode mode)
+        public void SetCullMode(GFXCullMode mode)
         {
             _cullMode = mode;
             switch (mode)
             {
-                case CullMode.Front:
+                case GFXCullMode.Front:
                     GL.CullFace(TriangleFace.Front);
                     break;
-                case CullMode.Back:
+                case GFXCullMode.Back:
                     GL.CullFace(TriangleFace.Back);
                     break;
-                case CullMode.FrontAndBack:
+                case GFXCullMode.FrontAndBack:
                     GL.CullFace(TriangleFace.FrontAndBack);
                     break;
                 default:

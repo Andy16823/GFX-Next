@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace LibGFX.Graphics
 {
+    public enum GFXCullMode
+    {
+        Front,
+        Back,
+        None,
+        FrontAndBack
+    }
+
     /// <summary>
     /// Flags to specify which buffers to clear before rendering.
     /// </summary>

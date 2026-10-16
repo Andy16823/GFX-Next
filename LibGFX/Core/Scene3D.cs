@@ -380,13 +380,13 @@ namespace LibGFX.Core
             renderer.Clear(GFXClearFlags.Depth);
             renderer.EnableDepthTest();
             //GL.Enable(EnableCap.CullFace);
-            renderer.SetCullMode(CullMode.Front);
+            renderer.SetCullMode(GFXCullMode.Front);
             this.Elements.ForEach(e =>
             {
                 if(!e.Visible) return;
                 e.RenderShadow(this, viewport, renderer);
             });
-            renderer.SetCullMode(CullMode.Back);
+            renderer.SetCullMode(GFXCullMode.Back);
             //GL.Disable(EnableCap.CullFace);
             renderer.DisableDepthTest();
             renderer.UnbindRenderTarget();
