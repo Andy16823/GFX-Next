@@ -50,6 +50,20 @@ namespace LibGFX.Core.GameElements
         }
 
         /// <summary>
+        /// Creates a new instance of the MeshInstancer class with the specified name, mesh, and material.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="mesh"></param>
+        /// <param name="material"></param>
+        public MeshInstancer(string name, Mesh mesh, IMaterial material)
+        {
+            this.Name = name;
+            this.Mesh = mesh;
+            this.Material = material;
+            this.InstanceContainer = new RenderInstanceContainer();
+        }
+
+        /// <summary>
         /// Initializes the mesh instancer with the specified scene, viewport, and renderer.
         /// </summary>
         /// <param name="scene"></param>

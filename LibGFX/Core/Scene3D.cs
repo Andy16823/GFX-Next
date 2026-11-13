@@ -174,12 +174,10 @@ namespace LibGFX.Core
         private Light3DManager _lightManager;
         private float _physicsAccumulator = 0.0f;
 
-        /// <summary>
-        /// Creates a new 3D scene
-        /// </summary>
-        public Scene3D() : base()
+        public Scene3D(uint samples = 16) : base()
         {
             _lightManager = new Light3DManager();
+            this.Samples = samples;
         }
 
         /// <summary>
