@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibGFX.Graphics.RenderTarget;
+using LibGFX.Graphics.Shader;
 
 namespace LibGFX.UI
 {
@@ -135,12 +136,19 @@ namespace LibGFX.UI
             {
                 renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                 renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
-                renderer.BindShaderProgram(renderer.GetRenderShader("RectShader"));
-                renderer.FillRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), _color);
-                renderer.DrawRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), this.BorderColor, 0.25f);
-                renderer.BindShaderProgram(renderer.GetRenderShader("FontShader"));
-                renderer.DrawString2D(this.Text, new Vector2(0, 0), this.Font, new Vector4(1, 1, 1, 1), this.FontScale, this.Alignment);
-                renderer.UnbindShaderProgram();
+
+                var shader = renderer.GetRenderShader<RectShader>();
+                using (shader.Begin(renderer))
+                {
+                    renderer.FillRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), _color);
+                    renderer.DrawRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), this.BorderColor, 0.25f);
+                }
+
+                var fontShader = renderer.GetRenderShader<FontShader>();
+                using (fontShader.Begin(renderer))
+                {
+                    renderer.DrawString2D(this.Text, new Vector2(0, 0), this.Font, new Vector4(1, 1, 1, 1), this.FontScale, this.Alignment);
+                }
             }
         }
 

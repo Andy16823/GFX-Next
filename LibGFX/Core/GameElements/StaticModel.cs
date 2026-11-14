@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibGFX.Graphics;
+using LibGFX.Graphics.Shader;
 using LibGFX.Math;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -17,6 +18,11 @@ namespace LibGFX.Core.GameElements
     /// </summary>
     public class StaticModel : GameElement
     {
+        /// <summary>
+        /// Shader used for rendering the static model. If not set, the default shader will be used.
+        /// </summary>
+        public RenderShader Shader { get; set; }
+
         /// <summary>
         /// The static mesh model
         /// </summary>
@@ -74,6 +80,15 @@ namespace LibGFX.Core.GameElements
             _model = model;
         }
 
+        public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+        {
+            base.Init(scene, viewport, renderer);
+            if (this.Shader == null)
+            {
+                this.Shader = renderer.GetRenderShader<MeshShader>();
+            }
+        }
+
         /// <summary>
         /// Renders the static model
         /// </summary>
@@ -91,18 +106,22 @@ namespace LibGFX.Core.GameElements
                 // Get world transform
                 var transform = this.GetWorldTransform();
 
-                // Render each mesh
-                foreach (var (mesh, material) in _model.Meshes)
+                using (Shader.Begin(renderer))
                 {
-                    using (var scope = material.Begin(renderer))
+                    renderer.PrepareShader("viewPos", camera.Transform.Position);
+                    scene.LightManager?.BindLights(viewport, renderer, camera);
+
+                    foreach (var meshMaterialPair in _model.Meshes)
                     {
-                        scene.LightManager?.BindLights(viewport, renderer, camera);
-                        renderer.PrepareShader("viewPos", camera.Transform.Position);
-                        // Draw the mesh and update stats
-                        renderer.DrawMesh(transform, mesh);
-                        scene.RenderStats.IncrementDrawCalls();
+                        var mesh = meshMaterialPair.Mesh;
+                        var material = meshMaterialPair.Material;
+                        using (var scope = material.Begin(renderer))
+                        {
+                            renderer.DrawMesh(transform, mesh);
+                            scene.RenderStats.IncrementDrawCalls();
+                        }
                     }
-                }
+                }   
             }
         }
 
@@ -123,17 +142,14 @@ namespace LibGFX.Core.GameElements
 
                 // Use the depth mesh shader for shadow rendering no materials needed
                 var shader = renderer.GetRenderShader("DepthMeshShader");
-                renderer.BindShaderProgram(shader);
-
-                // Render each mesh
-                foreach (var (mesh, material) in _model.Meshes)
+                using (shader.Begin(renderer))
                 {
-                    renderer.DrawMesh(transform, mesh);
-                    scene.RenderStats.IncrementDrawCalls();
+                    foreach (var meshMaterialPair in _model.Meshes)
+                    {
+                        renderer.DrawMesh(transform, meshMaterialPair.Mesh);
+                        scene.RenderStats.IncrementDrawCalls();
+                    }
                 }
-
-                // Unbind the shader program after rendering
-                renderer.UnbindShaderProgram();
             }
         }
 
@@ -149,10 +165,10 @@ namespace LibGFX.Core.GameElements
                 return;
             }
 
-            AABB aabb = _model.Meshes[0].Item1.Bounds;
+            AABB aabb = _model.Meshes[0].Mesh.Bounds;
             for (int i = 1; i < _model.Meshes.Count; i++)
             {
-                aabb = AABB.Combine(aabb, _model.Meshes[i].Item1.Bounds);
+                aabb = AABB.Combine(aabb, _model.Meshes[i].Mesh.Bounds);
             }
             this.AABB = aabb;
         }
@@ -164,7 +180,7 @@ namespace LibGFX.Core.GameElements
         /// meshes are available. The array will be empty if the model contains no meshes.</returns>
         public override Mesh[]? GetMeshes()
         {
-            return _model.Meshes.Select(m => m.Item1).ToArray();
+            return _model.Meshes.Select(m => m.Mesh).ToArray();
         }
 
         /// <summary>

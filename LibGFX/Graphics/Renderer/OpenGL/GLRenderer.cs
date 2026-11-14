@@ -610,18 +610,27 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void BindShaderProgram(IShaderProgram shaderProgram)
         {
-            if (_currentProgram == shaderProgram.ProgramID)
+            this.BindShaderProgram(shaderProgram.ProgramID);
+        }
+
+        public void BindShaderProgram(int shaderProgramId)
+        {
+            if (_currentProgram == shaderProgramId)
             {
                 return;
             }
-            GL.UseProgram(shaderProgram.ProgramID);
-            _currentProgram = shaderProgram.ProgramID;
+            GL.UseProgram(shaderProgramId);
+            _currentProgram = shaderProgramId;
+        }
+
+        public int GetCurrentShaderProgramId()
+        {
+            return _currentProgram;
         }
 
         public void UnbindShaderProgram()
         {
-            GL.UseProgram(0);
-            _currentProgram = 0;
+            this.BindShaderProgram(0);
         }
 
         public int GetUniformLocation(int program, string name)
@@ -1129,16 +1138,17 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             var mesh = _primitives[type];
             if(shader != null && mesh != null)
             {
-                this.BindShaderProgram(shader);
-                var m_mat = tansform.GetMatrix();
-                GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
-                GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
-                GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
-                GL.Uniform4(GetUniformLocation(_currentProgram, "solidColor"), color);
-                GL.BindVertexArray(mesh.RenderData.VertexArray);
-                GL.DrawElements(BeginMode.Triangles, mesh.RenderData.IndexCount, DrawElementsType.UnsignedInt, 0);
-                GL.BindVertexArray(0);
-                this.UnbindShaderProgram();
+                using(shader.Begin(this))
+                {
+                    var m_mat = tansform.GetMatrix();
+                    GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
+                    GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
+                    GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
+                    GL.Uniform4(GetUniformLocation(_currentProgram, "solidColor"), color);
+                    GL.BindVertexArray(mesh.RenderData.VertexArray);
+                    GL.DrawElements(BeginMode.Triangles, mesh.RenderData.IndexCount, DrawElementsType.UnsignedInt, 0);
+                    GL.BindVertexArray(0);
+                }
             }
         }
 
@@ -1183,14 +1193,38 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             Debug.WriteLine($"Disposed cubemap");
         }
 
-        public void DrawRenderTarget(RenderTarget2D renderTarget)
+        public void DrawFullScreenQuad()
         {
-            this.DrawRenderTarget(renderTarget.TextureId);
+            var shape = _shapes["FramebufferShape"];
+            if (shape != null)
+            {
+                GL.BindVertexArray(shape.VertexArray);
+                GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);
+                GL.BindVertexArray(0);
+            }
         }
 
-        public void DrawRenderTarget(MSAARenderTarget2D renderTarget)
+        public void DrawRenderTarget(RenderTarget2D renderTarget, int framebuffer)
         {
-            this.DrawRenderTarget(renderTarget.TextureId);
+            this.DrawRenderTarget(renderTarget.TextureId, framebuffer);
+        }
+
+        public void DrawRenderTarget(MSAARenderTarget2D renderTarget, int framebuffer)
+        {
+            this.DrawRenderTarget(renderTarget.TextureId, framebuffer);
+        }
+
+        public void DrawRenderTarget(int textureId, int framebuffer)
+        {
+            var currentFramebuffer = this.GetCurrentRenderTargetID();
+
+            this.BindRenderTarget(framebuffer);
+            var shader = this.GetRenderShader<ScreenShader>();
+            using (shader.Begin(this))
+            {
+                this.DrawRenderTarget(textureId);
+            }
+            this.BindRenderTarget(currentFramebuffer);
         }
 
         public void DrawRenderTarget(int textureId)
@@ -1217,35 +1251,6 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
             // Disable blending if it was disabled
             this.DisableBlend();
-        }
-
-        public void DrawFullScreenQuad()
-        {
-            var shape = _shapes["FramebufferShape"];
-            if (shape != null)
-            {
-                GL.BindVertexArray(shape.VertexArray);
-                GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);
-                GL.BindVertexArray(0);
-            }
-        }
-
-        public void DrawRenderTarget(RenderTarget2D renderTarget, int framebuffer)
-        {
-            this.DrawRenderTarget(renderTarget.TextureId, framebuffer);
-        }
-
-        public void DrawRenderTarget(MSAARenderTarget2D renderTarget, int framebuffer)
-        {
-            this.DrawRenderTarget(renderTarget.TextureId, framebuffer);
-        }
-
-        public void DrawRenderTarget(int textureId, int framebuffer)
-        {
-            this.BindShaderProgram(this.GetRenderShader("ScreenShader"));
-            //this.BindRenderTarget(framebuffer);
-            this.DrawRenderTarget(textureId);
-            this.UnbindShaderProgram();
         }
 
         public void DrawLine(Vector3 start, Vector3 end, Vector4 color)
@@ -1682,17 +1687,20 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             var m_mat = Matrix4.Identity;
 
             this.DisableDepthTest();
-            this.BindShaderProgram(shader);
-            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
-            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
-            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
-            GL.Uniform3(GetUniformLocation(_currentProgram, "min"), aabb.Min);
-            GL.Uniform3(GetUniformLocation(_currentProgram, "max"), aabb.Max);
-            GL.Uniform4(GetUniformLocation(_currentProgram, "solidColor"), color);
-            GL.BindVertexArray(shape.VertexArray);
-            GL.DrawElements(BeginMode.Lines, shape.GetIndexCount(), DrawElementsType.UnsignedInt, 0);
-            GL.BindVertexArray(0);
-            this.SetDepthTest(depthTest);
+
+            using (shader.Begin(this))
+            {
+                GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
+                GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
+                GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
+                GL.Uniform3(GetUniformLocation(_currentProgram, "min"), aabb.Min);
+                GL.Uniform3(GetUniformLocation(_currentProgram, "max"), aabb.Max);
+                GL.Uniform4(GetUniformLocation(_currentProgram, "solidColor"), color);
+                GL.BindVertexArray(shape.VertexArray);
+                GL.DrawElements(BeginMode.Lines, shape.GetIndexCount(), DrawElementsType.UnsignedInt, 0);
+                GL.BindVertexArray(0);
+                this.SetDepthTest(depthTest);
+            }            
         }
 
         public void DrawGrid(Camera camera, Vector4 color)
@@ -1710,37 +1718,38 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             var m_mat = scale;
 
             var shader = this.GetRenderShader("InfiniteGridShader");
-            this.BindShaderProgram(shader);
 
-            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
-            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
-            GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
+            using(shader.Begin(this))
+            {
+                GL.UniformMatrix4(GetUniformLocation(_currentProgram, "p_mat"), true, ref _projectionMatrix);
+                GL.UniformMatrix4(GetUniformLocation(_currentProgram, "v_mat"), true, ref _viewMatrix);
+                GL.UniformMatrix4(GetUniformLocation(_currentProgram, "m_mat"), true, ref m_mat);
 
-            GL.Uniform3(GetUniformLocation(_currentProgram, "u_CameraPos"), camera.Transform.Position);
-            GL.Uniform1(GetUniformLocation(_currentProgram, "u_GridSize"), gridSize);
-            GL.Uniform1(GetUniformLocation(_currentProgram, "u_MainStep"), System.Math.Max(1, majorStep));
-            GL.Uniform1(GetUniformLocation(_currentProgram, "u_FadeStart"), fadeStart);
-            GL.Uniform1(GetUniformLocation(_currentProgram, "u_FadeEnd"), fadeEnd);
-            GL.Uniform1(GetUniformLocation(_currentProgram, "u_LineWidth"), lineWidthWorld);
+                GL.Uniform3(GetUniformLocation(_currentProgram, "u_CameraPos"), camera.Transform.Position);
+                GL.Uniform1(GetUniformLocation(_currentProgram, "u_GridSize"), gridSize);
+                GL.Uniform1(GetUniformLocation(_currentProgram, "u_MainStep"), System.Math.Max(1, majorStep));
+                GL.Uniform1(GetUniformLocation(_currentProgram, "u_FadeStart"), fadeStart);
+                GL.Uniform1(GetUniformLocation(_currentProgram, "u_FadeEnd"), fadeEnd);
+                GL.Uniform1(GetUniformLocation(_currentProgram, "u_LineWidth"), lineWidthWorld);
 
-            GL.Uniform4(GetUniformLocation(_currentProgram, "u_GridColor"), color);
-            GL.Uniform4(GetUniformLocation(_currentProgram, "u_AxisColorX"), 1f, 0.3f, 0.3f, 1f);
-            GL.Uniform4(GetUniformLocation(_currentProgram, "u_AxisColorZ"), 0.3f, 0.3f, 1f, 1f);
+                GL.Uniform4(GetUniformLocation(_currentProgram, "u_GridColor"), color);
+                GL.Uniform4(GetUniformLocation(_currentProgram, "u_AxisColorX"), 1f, 0.3f, 0.3f, 1f);
+                GL.Uniform4(GetUniformLocation(_currentProgram, "u_AxisColorZ"), 0.3f, 0.3f, 1f, 1f);
 
-            this.EnableBlend();
-            this.SetBlendMode((int)BlendingFactor.SrcAlpha, (int)BlendingFactor.OneMinusSrcAlpha);
-            GL.Enable(EnableCap.DepthTest);
-            GL.DepthMask(false);
+                this.EnableBlend();
+                this.SetBlendMode((int)BlendingFactor.SrcAlpha, (int)BlendingFactor.OneMinusSrcAlpha);
+                GL.Enable(EnableCap.DepthTest);
+                GL.DepthMask(false);
 
-            var shape = _shapes["PlaneShape"];
-            GL.BindVertexArray(shape.VertexArray);
-            GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);
-            GL.BindVertexArray(0);
+                var shape = _shapes["PlaneShape"];
+                GL.BindVertexArray(shape.VertexArray);
+                GL.DrawElements(BeginMode.Triangles, 6, DrawElementsType.UnsignedInt, 0);
+                GL.BindVertexArray(0);
 
-            // restore states
-            GL.DepthMask(true);
-            this.DisableBlend();
-            GL.UseProgram(0);
+                // restore states
+                GL.DepthMask(true);
+                this.DisableBlend();
+            }
         }
 
         public void DisposeMesh(Mesh mesh)

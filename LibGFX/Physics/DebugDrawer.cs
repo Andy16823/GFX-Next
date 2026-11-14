@@ -60,9 +60,10 @@ namespace LibGFX.Physics
         public override void DrawLine(ref Vector3 from, ref Vector3 to, ref Vector3 color)
         {
             var shader = _renderer.GetRenderShader("LineShader");
-            _renderer.BindShaderProgram(shader);
-            _renderer.DrawLine((OpenTK.Mathematics.Vector3) from, (OpenTK.Mathematics.Vector3) to, DebugColor);
-            _renderer.UnbindShaderProgram();
+            using (shader.Begin(_renderer))
+            {
+                _renderer.DrawLine((OpenTK.Mathematics.Vector3)from, (OpenTK.Mathematics.Vector3)to, DebugColor);
+            }
         }
 
         /// <summary>

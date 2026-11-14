@@ -26,11 +26,6 @@ namespace LibGFX.Graphics.Materials
         public bool IsTransparent { get; }
 
         /// <summary>
-        /// Shader associated with this material.
-        /// </summary>
-        public RenderShader Shader { get; set; }
-
-        /// <summary>
         /// Gets or sets a collection of custom properties associated with the object.
         /// </summary>
         /// <remarks>Use this dictionary to store additional metadata or user-defined values that are not

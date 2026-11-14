@@ -48,14 +48,16 @@ namespace LibGFX.Graphics.PostProcessing
             using (RenderTarget.Begin(renderer))
             {
                 renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
-                renderer.BindShaderProgram(_shader);
-                renderer.PrepareShader("sourceTexture", 0, sourceTexture);
-                renderer.PrepareShader("intensity", this.Intensity);
-                renderer.PrepareShader("time", this.Time);
-                renderer.PrepareShader("resolution", _resolution);
-                renderer.PrepareShader("filmResolution", this.FilmResolution);
-                renderer.DrawFullScreenQuad();
-                renderer.UnbindShaderProgram();
+
+                using(_shader.Begin(renderer))
+                {
+                    renderer.PrepareShader("sourceTexture", 0, sourceTexture);
+                    renderer.PrepareShader("intensity", this.Intensity);
+                    renderer.PrepareShader("time", this.Time);
+                    renderer.PrepareShader("resolution", _resolution);
+                    renderer.PrepareShader("filmResolution", this.FilmResolution);
+                    renderer.DrawFullScreenQuad();
+                }
             }            
         }
 

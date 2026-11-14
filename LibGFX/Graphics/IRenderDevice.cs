@@ -63,7 +63,9 @@ namespace LibGFX.Graphics
         Dictionary<String, RenderShader> GetAllRenderShaders();
         T GetRenderShader<T>() where T : RenderShader;
         void BindShaderProgram(IShaderProgram shaderProgram);
+        void BindShaderProgram(int shaderProgramId);
         void UnbindShaderProgram();
+        int GetCurrentShaderProgramId();
         int GetUniformLocation(int program, String name);
         void CreateRenderTarget(IRenderTarget renderTarget);
         void ResizeRenderTarget(IRenderTarget renderTarget, int width, int height);
@@ -79,8 +81,6 @@ namespace LibGFX.Graphics
         void DisposeTexture(Texture texture);
         void DisposeTexture(int textureId);
         void DisposeCubemap(Cubemap cubemap);
-        void DrawRenderTarget(RenderTarget2D renderTarget);
-        void DrawRenderTarget(MSAARenderTarget2D renderTarget);
         void DrawRenderTarget(int textureId);
         void DrawFullScreenQuad();
         void DrawRenderTarget(RenderTarget2D renderTarget, int framebuffer);

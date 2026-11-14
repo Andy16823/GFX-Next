@@ -22,6 +22,11 @@ namespace LibGFX.Core.GameElements
     public class Sprite : GameElement
     {
         /// <summary>
+        /// Shader used for rendering the sprite. If not set, the default shader will be used.
+        /// </summary>
+        public RenderShader Shader { get; set; }
+
+        /// <summary>
         /// The color of the sprite
         /// </summary>
         public Vector4 Color { get; set; }
@@ -107,6 +112,11 @@ namespace LibGFX.Core.GameElements
         {
             _shape = renderer.GetShape<SpriteShape>();
             base.Init(scene, viewport, renderer);
+
+            if (this.Shader == null)
+            {
+                this.Shader = renderer.GetRenderShader<SpriteShader>();
+            }
         }
 
         /// <summary>
@@ -127,19 +137,19 @@ namespace LibGFX.Core.GameElements
                 {
                     uvTransform = Texture.MirrorUVTransform(uvTransform, this.MirrorMode);
                 }
-
-                // Get the world transform matrix
                 var transform = this.GetWorldTransform();
 
-                // Draw the sprite using the material and update render stats
-                using (var scope = this.Material.Begin(renderer))
+                using (Shader.Begin(renderer))
                 {
-                    renderer.PrepareShader("uvTransform", uvTransform);
-                    renderer.PrepareShader("uvScale", UVScale);
-                    renderer.PrepareShader("vertexColor", Color);
-                    scene.LightManager?.BindLights(viewport, renderer, camera);
-                    renderer.DrawShape(transform, _shape);
-                    scene.RenderStats.IncrementDrawCalls();
+                    using (var scope = this.Material.Begin(renderer))
+                    {
+                        renderer.PrepareShader("uvTransform", uvTransform);
+                        renderer.PrepareShader("uvScale", UVScale);
+                        renderer.PrepareShader("vertexColor", Color);
+                        scene.LightManager?.BindLights(viewport, renderer, camera);
+                        renderer.DrawShape(transform, _shape);
+                        scene.RenderStats.IncrementDrawCalls();
+                    }
                 }
             }
         }

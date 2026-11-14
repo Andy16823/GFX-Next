@@ -19,7 +19,7 @@ namespace LibGFX.Graphics
         /// <summary>
         /// The meshes contained in this model, indexed by their names
         /// </summary>
-        public List<(Mesh, IMaterial)> Meshes { get; set; }
+        public List<MeshMaterialPair> Meshes { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether the content includes transparent regions.
@@ -30,11 +30,5 @@ namespace LibGFX.Graphics
         /// The node structure of this model
         /// </summary>
         public SceneNodeData NodeStructure { get; set; }
-
-        /// <summary>
-        /// Assigns the given shader to all meshes in this model
-        /// </summary>
-        /// <param name="shader"></param>
-        public void AssignShaderToMeshes(RenderShader shader);
     }
 }

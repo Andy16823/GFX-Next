@@ -49,11 +49,6 @@ namespace LibGFX.Graphics.Materials
         public Dictionary<string, MetaValue> Metadata { get; set; } = new Dictionary<string, MetaValue>();
 
         /// <summary>
-        /// The shader used by the material.
-        /// </summary>
-        public RenderShader Shader { get; set; }
-
-        /// <summary>
         /// The size of each texture in the array.
         /// Default is 1024x1024.
         /// </summary>
@@ -92,14 +87,12 @@ namespace LibGFX.Graphics.Materials
         }
 
         /// <summary>
-        /// Creates a new ArrayMaterial with the given name and shader.
+        /// Creates a new ArrayMaterial with the given name.
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="shader"></param>
-        public ArrayMaterial(String name, RenderShader shader)
+        public ArrayMaterial(String name)
         {
             Name = name;
-            Shader = shader;
         }
 
         /// <summary>
@@ -151,7 +144,6 @@ namespace LibGFX.Graphics.Materials
                 throw new InvalidOperationException("Material must be initialized before use.");
 
             // Bind shader and set textures
-            renderDevice.BindShaderProgram(this.Shader);
             renderDevice.PrepareShaderArrayTexture("textureArraySampler", 0, _albedoTextureId);
             renderDevice.PrepareShaderArrayTexture("normalArraySampler", 1, _normalTextureId);
             renderDevice.PrepareShaderArrayTexture("specularArraySampler", 2, _specularTextureId);
@@ -163,7 +155,7 @@ namespace LibGFX.Graphics.Materials
         /// <param name="renderDevice"></param>
         public void Disable(IRenderDevice renderDevice)
         {
-            renderDevice.UnbindShaderProgram();
+            // No specific disable actions needed for this material type.
         }
 
         /// <summary>

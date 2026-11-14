@@ -1,6 +1,7 @@
 ﻿using LibGFX.Core;
 using LibGFX.Graphics;
 using LibGFX.Graphics.RenderTarget;
+using LibGFX.Graphics.Shader;
 using LibGFX.Math;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
@@ -105,9 +106,11 @@ namespace LibGFX.UI
                     renderer.SetViewport(viewport);
 
                     // Draw the render target to the screen
-                    renderer.BindShaderProgram(renderer.GetRenderShader("SpriteShader"));
-                    renderer.DrawTexture(control.Transform, control.RenderTarget.TextureId, new Vector4(1, 1, 1, 1), new Vector4(1, 1, 0, 0), Vector2.One);
-                    renderer.UnbindShaderProgram();
+                    var shader = renderer.GetRenderShader<SpriteShader>();
+                    using(shader.Begin(renderer))
+                    {
+                        renderer.DrawTexture(control.Transform, control.RenderTarget.TextureId, new Vector4(1, 1, 1, 1), new Vector4(1, 1, 0, 0), Vector2.One);
+                    }
                 }
 
                 this.ProcessRenderActions(viewport, renderer);

@@ -18,6 +18,11 @@ namespace LibGFX.Core.GameElements
     public class MeshInstancer : GameElement
     {
         /// <summary>
+        /// The shader used for rendering the mesh instances.
+        /// </summary>
+        public RenderShader Shader { get; set; }
+
+        /// <summary>
         /// The material used for rendering the mesh instances.
         /// </summary>
         public IMaterial Material { get; set; }
@@ -80,6 +85,11 @@ namespace LibGFX.Core.GameElements
             {
                 renderer.LoadInstances(this.InstanceContainer);
             }
+
+            if (this.Shader == null)
+            {
+                this.Shader = renderer.GetRenderShader<InstancedShader3D>();
+            }
         }
 
         /// <summary>
@@ -115,13 +125,15 @@ namespace LibGFX.Core.GameElements
                 // Call the base render method
                 base.Render(scene, viewport, renderer, camera);
 
-                using(var scope = this.Material.Begin(renderer))
+                using (Shader.Begin(renderer))
                 {
-                    renderer.PrepareShader("viewPos", camera.Transform.Position);
-                    scene.LightManager?.BindLights(viewport, renderer, camera);
-                    renderer.DrawInstances(InstanceContainer);
-                    // Increment the draw calls for the scene
-                    scene.RenderStats.IncrementDrawCalls();
+                    using (var scope = this.Material.Begin(renderer))
+                    {
+                        renderer.PrepareShader("viewPos", camera.Transform.Position);
+                        scene.LightManager?.BindLights(viewport, renderer, camera);
+                        renderer.DrawInstances(InstanceContainer);
+                        scene.RenderStats.IncrementDrawCalls();
+                    }
                 }
             }
         }
@@ -131,10 +143,11 @@ namespace LibGFX.Core.GameElements
             if(this.Visible)
             {
                 base.RenderShadow(scene, viewport, renderer);
-
-                renderer.BindShaderProgram(renderer.GetRenderShader("DepthInstancedShader3D"));
-                renderer.DrawInstances(InstanceContainer);
-                renderer.UnbindShaderProgram();
+                var shader = renderer.GetRenderShader<DepthInstancedShader3D>();
+                using (shader.Begin(renderer))
+                {
+                    renderer.DrawInstances(InstanceContainer);
+                }
             }
         }
 

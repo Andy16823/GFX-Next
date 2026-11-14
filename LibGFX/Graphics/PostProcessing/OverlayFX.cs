@@ -28,10 +28,12 @@ namespace LibGFX.Graphics.PostProcessing
             using (RenderTarget.Begin(renderer))
             {
                 renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
-                renderer.BindShaderProgram(_shader);
-                renderer.PrepareShader("overlayColor", Color);
-                renderer.PrepareShader("sourceTexture", 0, sourceTexture);
-                renderer.DrawFullScreenQuad();
+                using(_shader.Begin(renderer))
+                {
+                    renderer.PrepareShader("overlayColor", Color);
+                    renderer.PrepareShader("sourceTexture", 0, sourceTexture);
+                    renderer.DrawFullScreenQuad();
+                }                
             }            
         }
 

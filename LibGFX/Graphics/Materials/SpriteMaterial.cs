@@ -54,11 +54,6 @@ namespace LibGFX.Graphics.Materials
         public Dictionary<string, MetaValue> Metadata { get; set; } = new Dictionary<string, MetaValue>();
 
         /// <summary>
-        /// Gets or sets the shader used for rendering operations.
-        /// </summary>
-        public RenderShader Shader { get; set; }
-
-        /// <summary>
         /// Default constructor for the SpriteMaterial class.
         /// </summary>
         public SpriteMaterial()
@@ -70,10 +65,9 @@ namespace LibGFX.Graphics.Materials
         /// Creates a new SpriteMaterial with the specified texture filename.
         /// </summary>
         /// <param name="filename"></param>
-        public SpriteMaterial(String filename, RenderShader renderShader)
+        public SpriteMaterial(String filename)
         {
             this.Texture = new Texture(filename);
-            this.Shader = renderShader;
         }
 
         /// <summary>
@@ -127,7 +121,6 @@ namespace LibGFX.Graphics.Materials
         /// <param name="renderDevice"></param>
         public void Use(IRenderDevice renderDevice)
         {
-            renderDevice.BindShaderProgram(Shader);
             renderDevice.PrepareShader("textureSampler", 0, Texture);
         }
 
@@ -137,7 +130,7 @@ namespace LibGFX.Graphics.Materials
         /// <param name="renderDevice">The render device to disable. Cannot be null.</param>
         public void Disable(IRenderDevice renderDevice)
         {
-            renderDevice.UnbindShaderProgram();
+            // No specific disable actions needed for this material type.
         }
 
 
@@ -170,8 +163,6 @@ namespace LibGFX.Graphics.Materials
             writer.WriteValue(Name);
             writer.WritePropertyName("ID");
             writer.WriteValue(ID.ToString());
-            writer.WritePropertyName("Shader");
-            writer.WriteValue(this.Shader != null ? this.Shader.GetType().FullName : "null");
             writer.WritePropertyName("Texture");
 
             if (Texture != null)
@@ -197,17 +188,6 @@ namespace LibGFX.Graphics.Materials
             // Basic property deserialization
             this.Name = obj.Value<string>("Name");
             this.ID = Guid.Parse(obj.Value<string>("ID"));
-
-            // Deserialize Shader
-            var shaderType = obj.Value<string>("Shader");
-            if (shaderType != null)
-            {
-                this.Shader = (RenderShader)context.GetFirstOfType(shaderType);
-                if (this.Shader == null)
-                {
-                    throw new InvalidOperationException($"Could not find shader of type '{shaderType}' in the serialization context.");
-                }
-            }
 
             // Deserialize Texture
             var textureToken = obj.Value<JObject>("Texture");

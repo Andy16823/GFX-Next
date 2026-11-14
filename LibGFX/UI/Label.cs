@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibGFX.Graphics.RenderTarget;
+using LibGFX.Graphics.Shader;
 
 namespace LibGFX.UI
 {
@@ -115,9 +116,11 @@ namespace LibGFX.UI
                 renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                 renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
 
-                renderer.BindShaderProgram(renderer.GetRenderShader("FontShader"));
-                renderer.DrawString2D(this.Text, new Vector2(0, 0), this.Font, new Vector4(1, 1, 1, 1), this.FontScale, this.Alignment);
-                renderer.UnbindShaderProgram();
+                var shader = renderer.GetRenderShader<FontShader>();
+                using (shader.Begin(renderer))
+                {
+                    renderer.DrawString2D(this.Text, new Vector2(0, 0), this.Font, new Vector4(1, 1, 1, 1), this.FontScale, this.Alignment);
+                }
             }
         }
 

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibGFX.Graphics.RenderTarget;
+using LibGFX.Graphics.Shader;
 
 namespace LibGFX.UI
 {
@@ -195,11 +196,13 @@ namespace LibGFX.UI
                 renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                 renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
 
-                renderer.BindShaderProgram(renderer.GetRenderShader("RectShader"));
-                renderer.FillRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), this.BackgroundColor);
-                renderer.FillRect(new Rect(-progressOffset.X, progressOffset.Y, progressSize.X, progressSize.Y), this.ProgressColor);
-                renderer.DrawRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), this.BorderColor, 0.25f);
-                renderer.UnbindShaderProgram();
+                var shader = renderer.GetRenderShader<RectShader>();
+                using (shader.Begin(renderer))
+                {
+                    renderer.FillRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), this.BackgroundColor);
+                    renderer.FillRect(new Rect(-progressOffset.X, progressOffset.Y, progressSize.X, progressSize.Y), this.ProgressColor);
+                    renderer.DrawRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), this.BorderColor, 0.25f);
+                }
             }
         }
 

@@ -350,25 +350,27 @@ namespace LibGFX.Core
             this.LightManager.ComputeLightSpaceMatrix(camera, viewport);
 
             var shader = renderer.GetRenderShader<DepthMeshShader>();
-            renderer.BindShaderProgram(shader);
-            this.LightManager.BindLightSpaceMatrix(renderer, 3);
-
-            using(light.ShadowMap.Begin(renderer))
+            using(shader.Begin(renderer))
             {
-                renderer.SetViewport(new Viewport(csm.Width, csm.Height));
-                renderer.Clear(GFXClearFlags.Depth);
-                renderer.EnableDepthTest();
-                renderer.SetCullMode(GFXCullMode.Front);
-                this.Elements.ForEach(e =>
-                {
-                    if (!e.Visible) return;
-                    e.RenderShadow(this, viewport, renderer);
-                });
-                renderer.SetCullMode(GFXCullMode.Back);
-                renderer.DisableDepthTest();
-            }
+                this.LightManager.BindLightSpaceMatrix(renderer, 3);
 
-            OnShadowPassEnd?.Invoke(this, viewport, renderer, camera);
+                using (light.ShadowMap.Begin(renderer))
+                {
+                    renderer.SetViewport(new Viewport(csm.Width, csm.Height));
+                    renderer.Clear(GFXClearFlags.Depth);
+                    renderer.EnableDepthTest();
+                    renderer.SetCullMode(GFXCullMode.Front);
+                    this.Elements.ForEach(e =>
+                    {
+                        if (!e.Visible) return;
+                        e.RenderShadow(this, viewport, renderer);
+                    });
+                    renderer.SetCullMode(GFXCullMode.Back);
+                    renderer.DisableDepthTest();
+                }
+
+                OnShadowPassEnd?.Invoke(this, viewport, renderer, camera);
+            }
         }
 
         /// <summary>

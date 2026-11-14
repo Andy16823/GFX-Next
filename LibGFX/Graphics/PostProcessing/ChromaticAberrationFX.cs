@@ -53,13 +53,15 @@ namespace LibGFX.Graphics.PostProcessing
             using (RenderTarget.Begin(renderer))
             {
                 renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
-                renderer.BindShaderProgram(_shader);
-                renderer.PrepareShader("sourceTexture", 0, sourceTexture);
-                renderer.PrepareShader("intensity", this.Intensity);
-                renderer.PrepareShader("radialAmount", this.RadialAmount);
-                renderer.PrepareShader("direction", this.Direction);
-                renderer.DrawFullScreenQuad();
-                renderer.UnbindShaderProgram();
+
+                using (_shader.Begin(renderer))
+                {
+                    renderer.PrepareShader("sourceTexture", 0, sourceTexture);
+                    renderer.PrepareShader("intensity", this.Intensity);
+                    renderer.PrepareShader("radialAmount", this.RadialAmount);
+                    renderer.PrepareShader("direction", this.Direction);
+                    renderer.DrawFullScreenQuad();
+                }
             }            
         }
 

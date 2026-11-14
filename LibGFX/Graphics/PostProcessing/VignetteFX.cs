@@ -55,13 +55,14 @@ namespace LibGFX.Graphics.PostProcessing
             using(RenderTarget.Begin(renderer))
             {
                 renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
-                renderer.BindShaderProgram(_shader);
-                renderer.PrepareShader("sourceTexture", 0, sourceTexture);
-                renderer.PrepareShader("intensity", Intensity);
-                renderer.PrepareShader("smoothness", Smoothness);
-                renderer.PrepareShader("vignetteColor", VignetteColor);
-                renderer.DrawFullScreenQuad();
-                renderer.UnbindShaderProgram();
+                using (_shader.Begin(renderer))
+                {
+                    renderer.PrepareShader("sourceTexture", 0, sourceTexture);
+                    renderer.PrepareShader("intensity", Intensity);
+                    renderer.PrepareShader("smoothness", Smoothness);
+                    renderer.PrepareShader("vignetteColor", VignetteColor);
+                    renderer.DrawFullScreenQuad();
+                }
             }            
         }
 
