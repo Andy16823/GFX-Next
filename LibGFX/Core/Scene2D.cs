@@ -519,36 +519,34 @@ namespace LibGFX.Core
             renderer.SetViewMatrix(camera.GetViewMatrix());
 
             renderer.ResizeRenderTarget(_renderTarget, viewport.Width, viewport.Height);
-            renderer.BindRenderTarget(_renderTarget);
-            renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
 
-            // Call the on render pass begin event
-            OnRenderPassBegin?.Invoke(this, viewport, renderer, camera);
-
-            this.Layers.ForEach(layer => { 
-                layer.RenderLayer(this, viewport, renderer, camera); 
-            });
-
-            if (this.PhysicsHandler.DebugPhysics)
+            using(this._renderTarget.Begin(renderer))
             {
-                if (this.PhysicsHandler.HasDebugDrawer())
+                renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+                renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
+
+                OnRenderPassBegin?.Invoke(this, viewport, renderer, camera);
+
+                this.Layers.ForEach(layer => {
+                    layer.RenderLayer(this, viewport, renderer, camera);
+                });
+
+                if (this.PhysicsHandler.DebugPhysics)
                 {
-                    this.PhysicsHandler.DebugDraw(renderer);
+                    if (this.PhysicsHandler.HasDebugDrawer())
+                    {
+                        this.PhysicsHandler.DebugDraw(renderer);
+                    }
+                    else
+                    {
+                        Debug.Assert(this.PhysicsHandler.DebugPhysics, "DebugPhysics is enabled but no debug drawer is set");
+                    }
                 }
-                else
-                {
-                    Debug.Assert(this.PhysicsHandler.DebugPhysics, "DebugPhysics is enabled but no debug drawer is set");
-                }
+
+                OnRenderPassEnd?.Invoke(this, viewport, renderer, camera);
             }
 
-            // Call the on render pass end event
-            OnRenderPassEnd?.Invoke(this, viewport, renderer, camera);
-
-            renderer.UnbindRenderTarget();
             renderer.SetDepthTest(depthTest);
-
-            // Call the on render end event
             OnRenderEnd?.Invoke(this, viewport, renderer, camera);
         }
 

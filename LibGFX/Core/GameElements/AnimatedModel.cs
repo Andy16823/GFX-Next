@@ -121,15 +121,16 @@ namespace LibGFX.Core.GameElements
                 foreach (var (mesh, material) in _model.Meshes)
                 {
                     // Bind material and set shader uniforms
-                    material.Use(renderer);
-                    scene.LightManager?.BindLights(viewport, renderer, camera);
-                    renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
-                    renderer.PrepareShader("viewPos", camera.Transform.Position);
+                    using (var scope = material.Begin(renderer))
+                    {
+                        scene.LightManager?.BindLights(viewport, renderer, camera);
+                        renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
+                        renderer.PrepareShader("viewPos", camera.Transform.Position);
 
-                    // Draw the mesh and update stats and unbind material
-                    renderer.DrawMesh(transform, mesh);
-                    scene.RenderStats.IncrementDrawCalls();
-                    material.Disable(renderer);
+                        // Draw the mesh and update stats and unbind material
+                        renderer.DrawMesh(transform, mesh);
+                        scene.RenderStats.IncrementDrawCalls();
+                    }
                 }
             }
         }

@@ -466,5 +466,10 @@ namespace LibGFX.Graphics.Materials
 
             callback?.Invoke(obj);
         }
+
+        public MaterialScope Begin(IRenderDevice renderDevice)
+        {
+            return new MaterialScope(this, renderDevice);
+        }
     }
 }

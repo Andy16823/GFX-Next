@@ -48,6 +48,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         private bool _blendEnabled = false;
         private int _srcBlendMode = (int) BlendingFactor.Zero;
         private int _destBlendMode = (int) BlendingFactor.Zero;
+        private int _currentFramebuffer = 0;
         private Viewport _viewport;
 
         public void Init(IGLFWGraphicsContext context)
@@ -254,19 +255,28 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void BindRenderTarget(IRenderTarget renderTarget)
         {
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.FramebufferId);
+            this.BindRenderTarget(renderTarget.FramebufferId);
+        }
+
+        public void BindRenderTarget(int framebuffer)
+        {
+            if (_currentFramebuffer == framebuffer)
+            {
+                return;
+            }
+
+            GL.BindFramebuffer(FramebufferTarget.Framebuffer, framebuffer);
+            _currentFramebuffer = framebuffer;
         }
 
         public void UnbindRenderTarget()
         {
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
+            this.BindRenderTarget(0);
         }
 
         public int GetCurrentRenderTargetID()
         {
-            int currentFramebuffer;
-            GL.GetInteger(GetPName.FramebufferBinding, out currentFramebuffer);
-            return currentFramebuffer;
+            return _currentFramebuffer;
         }
 
         public int GetFramebufferIndex()
@@ -643,7 +653,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         private void CreateRenderTarget(RenderTarget2D renderTarget)
         {
             renderTarget.FramebufferId = GL.GenFramebuffer();
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.FramebufferId);
+            this.BindRenderTarget(renderTarget.FramebufferId);
 
             renderTarget.TextureId = GL.GenTexture();
             GL.BindTexture(TextureTarget.Texture2D, renderTarget.TextureId);
@@ -662,7 +672,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                 throw new Exception("Failed to create framebuffer for render target.");
             }
 
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
+            this.BindRenderTarget(0);
             GL.BindTexture(TextureTarget.Texture2D, 0);
             GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, 0);
         }
@@ -671,7 +681,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         {
             // Create the Texture Framebuffer for the sampling result
             renderTarget.TextureFbo = GL.GenFramebuffer();
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.TextureFbo);
+            this.BindRenderTarget(renderTarget.TextureFbo);
 
             renderTarget.TextureId = GL.GenTexture();
             GL.BindTexture(TextureTarget.Texture2D, renderTarget.TextureId);
@@ -682,7 +692,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
             // Create the main Framebuffer for rendering
             renderTarget.FramebufferId = GL.GenFramebuffer();
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.FramebufferId);
+            this.BindRenderTarget(renderTarget.FramebufferId);
 
             if (renderTarget.Samples == 0)
             {
@@ -714,7 +724,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
                 throw new Exception("Failed to create framebuffer for render target.");
             }
 
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
+            this.BindRenderTarget(0);
             GL.BindTexture(TextureTarget.Texture2D, 0);
             GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, 0);
         }
@@ -731,7 +741,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.TexParameter(TextureTarget.Texture2DArray, TextureParameterName.TextureWrapT, (int)GFXTextureWrapMode.ClampToBorder);
             float[] borderColor = new float[] { 1.0f, 1.0f, 1.0f, 1.0f };
             GL.TexParameter(TextureTarget.Texture2DArray, TextureParameterName.TextureBorderColor, borderColor);
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, framebuffer);
+            this.BindRenderTarget(framebuffer);
             GL.FramebufferTexture(FramebufferTarget.Framebuffer, FramebufferAttachment.DepthAttachment, lightDepthMaps, 0);
             GL.DrawBuffer(DrawBufferMode.None);
             GL.ReadBuffer(ReadBufferMode.None);
@@ -745,7 +755,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             {
                 System.Diagnostics.Debug.WriteLine("Successfully created framebuffer for cascaded shadow map.");
             }
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
+            this.BindRenderTarget(0);
 
             renderTarget.FramebufferId = framebuffer;
             renderTarget.TextureId = lightDepthMaps;
@@ -754,7 +764,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         private void CreateRenderTarget(DepthOnlyRenderTarget renderTarget)
         {
             renderTarget.FramebufferId = GL.GenFramebuffer();
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.FramebufferId);
+            this.BindRenderTarget(renderTarget.FramebufferId);
 
             renderTarget.DepthTextureId = GL.GenTexture();
             GL.BindTexture(TextureTarget.Texture2D, renderTarget.DepthTextureId);
@@ -773,7 +783,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             {
                 throw new Exception("Failed to create framebuffer for depth render target.");
             }
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
+            this.BindRenderTarget(0);
             GL.BindTexture(TextureTarget.Texture2D, 0);
         }
 
@@ -894,7 +904,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindFramebuffer(FramebufferTarget.ReadFramebuffer, renderTarget.FramebufferId);
             GL.BindFramebuffer(FramebufferTarget.DrawFramebuffer, renderTarget.TextureFbo);
             GL.BlitFramebuffer(0, 0, renderTarget.Width, renderTarget.Height, 0, 0, renderTarget.Width, renderTarget.Height, ClearBufferMask.ColorBufferBit, BlitFramebufferFilter.Nearest);
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
+            this.BindRenderTarget(0);
         }
 
         public byte[] ReadPixels(IRenderTarget renderTarget)
@@ -916,37 +926,37 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         private byte[] ReadPixels(RenderTarget2D renderTarget)
         {
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.FramebufferId);
+            this.BindRenderTarget(renderTarget.FramebufferId);
             byte[] pixelData = new byte[renderTarget.Width * renderTarget.Height * 4];
             GL.ReadPixels(0, 0, renderTarget.Width, renderTarget.Height, PixelFormat.Rgba, PixelType.UnsignedByte, pixelData);
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
+            this.BindRenderTarget(0);
             return pixelData;
         }
 
         private byte[] ReadPixels(MSAARenderTarget2D renderTarget)
         {
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.FramebufferId);
+            this.BindRenderTarget(renderTarget.FramebufferId);
             byte[] pixelData = new byte[renderTarget.Width * renderTarget.Height * 4];
             GL.ReadPixels(0, 0, renderTarget.Width, renderTarget.Height, PixelFormat.Rgba, PixelType.UnsignedByte, pixelData);
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
+            this.BindRenderTarget(0);
             return pixelData;
         }
 
         private byte[] ReadPixels(CascadedShadowMap renderTarget)
         {
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.FramebufferId);
+            this.BindRenderTarget(renderTarget.FramebufferId);
             byte[] pixelData = new byte[renderTarget.Width * renderTarget.Height * renderTarget.CascadeCount * sizeof(float)];
             GL.ReadPixels(0, 0, renderTarget.Width, renderTarget.Height, PixelFormat.DepthComponent, PixelType.Float, pixelData);
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
+            this.BindRenderTarget(0);
             return pixelData;
         }
 
         private byte[] ReadPixels(DepthOnlyRenderTarget renderTarget)
         {
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, renderTarget.FramebufferId);
+            this.BindRenderTarget(renderTarget.FramebufferId);
             byte[] pixelData = new byte[renderTarget.Width * renderTarget.Height * sizeof(float)];
             GL.ReadPixels(0, 0, renderTarget.Width, renderTarget.Height, PixelFormat.DepthComponent, PixelType.Float, pixelData);
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
+            this.BindRenderTarget(0);
             return pixelData;
         }
 
@@ -1233,7 +1243,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         public void DrawRenderTarget(int textureId, int framebuffer)
         {
             this.BindShaderProgram(this.GetRenderShader("ScreenShader"));
-            GL.BindFramebuffer(FramebufferTarget.Framebuffer, framebuffer);
+            //this.BindRenderTarget(framebuffer);
             this.DrawRenderTarget(textureId);
             this.UnbindShaderProgram();
         }

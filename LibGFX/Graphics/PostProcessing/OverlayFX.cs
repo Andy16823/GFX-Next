@@ -25,15 +25,14 @@ namespace LibGFX.Graphics.PostProcessing
 
         public void Apply(PostProcessStack stack, IRenderDevice renderer, int sourceTexture)
         {
-            // Set the render target to our internal render target
-            renderer.BindRenderTarget(_renderTarget);
-            renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
-
-            // Apply new visual effect
-            renderer.BindShaderProgram(_shader);
-            renderer.PrepareShader("overlayColor", Color);
-            renderer.PrepareShader("sourceTexture", 0, sourceTexture);
-            renderer.DrawFullScreenQuad();
+            using (RenderTarget.Begin(renderer))
+            {
+                renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
+                renderer.BindShaderProgram(_shader);
+                renderer.PrepareShader("overlayColor", Color);
+                renderer.PrepareShader("sourceTexture", 0, sourceTexture);
+                renderer.DrawFullScreenQuad();
+            }            
         }
 
         public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)

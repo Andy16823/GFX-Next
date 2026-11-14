@@ -94,19 +94,14 @@ namespace LibGFX.Core.GameElements
                 // Render each mesh
                 foreach (var (mesh, material) in _model.Meshes)
                 {
-                    // Bind the material, which sets up the shader and textures
-                    material.Use(renderer);
-
-                    // Prepare shader uniforms
-                    renderer.PrepareShader("viewPos", camera.Transform.Position);
-                    scene.LightManager?.BindLights(viewport, renderer, camera);
-
-                    // Draw the mesh and increment draw call count
-                    renderer.DrawMesh(transform, mesh);
-                    scene.RenderStats.IncrementDrawCalls();
-
-                    // Unbind the material after rendering
-                    material.Disable(renderer);
+                    using (var scope = material.Begin(renderer))
+                    {
+                        scene.LightManager?.BindLights(viewport, renderer, camera);
+                        renderer.PrepareShader("viewPos", camera.Transform.Position);
+                        // Draw the mesh and update stats
+                        renderer.DrawMesh(transform, mesh);
+                        scene.RenderStats.IncrementDrawCalls();
+                    }
                 }
             }
         }

@@ -265,77 +265,63 @@ namespace LibGFX.Core
         /// <param name="camera"></param>
         public override void Render(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            // OnStart new frame for the render stats
             this.RenderStats.NewFrame();
 
-            // On render start event
             OnRenderStart?.Invoke(this, viewport, renderer, camera);
 
-            // Cull the lights in the scene
             if (this.LightManager != null)
             {
                 this.LightManager.CullLights(viewport, renderer, camera);
             }
-
-            // After light culling event
             AfterLightCulling?.Invoke(this, viewport, renderer, camera);
 
-            // Get the current depth test state
             var dephTest = renderer.IsDepthTestEnabled();
 
-            // Enable depth test and set the viewport, projection and view matrix
             renderer.EnableDepthTest();
             renderer.SetViewport(viewport);
             renderer.SetProjectionMatrix(camera.GetProjectionMatrix(viewport));
             renderer.SetViewMatrix(camera.GetViewMatrix());
 
-            // Render the scene to the render target
             renderer.ResizeRenderTarget(_renderTarget, viewport.Width, viewport.Height);
-            renderer.BindRenderTarget(_renderTarget);
-            renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
 
-            // On render start event
-            OnRenderPassBegin?.Invoke(this, viewport, renderer, camera);
-
-            // Render the enviroment texture if available
-            if (this.Enviroment != null && this.RenderEnviromentTexture)
+            using(_renderTarget.Begin(renderer))
             {
-                this.Enviroment.Render(renderer, camera, viewport);
-            }
+                renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+                renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
 
-            // Order the scene elements based on transparency and distance to camera
-            OrderScene(camera);
+                OnRenderPassBegin?.Invoke(this, viewport, renderer, camera);
 
-            // Render all layers in the scene
-            this.Elements.ForEach(e =>
-            {
-                e.Render(this, viewport, renderer, camera);
-            });
-
-            // Debug draw the physics if enabled
-            if (this.PhysicsHandler != null && this.PhysicsHandler.DebugPhysics)
-            {
-                if(this.PhysicsHandler.HasDebugDrawer())
+                if (this.Enviroment != null && this.RenderEnviromentTexture)
                 {
-                    renderer.DisableDepthTest();
-                    this.PhysicsHandler.DebugDraw(renderer);    
-                    renderer.EnableDepthTest();
+                    this.Enviroment.Render(renderer, camera, viewport);
                 }
-                else {
-                    Debug.Assert(this.PhysicsHandler.DebugPhysics, "DebugPhysics is enabled but no debug drawer is set");
+
+                OrderScene(camera);
+
+                this.Elements.ForEach(e =>
+                {
+                    e.Render(this, viewport, renderer, camera);
+                });
+
+                if (this.PhysicsHandler != null && this.PhysicsHandler.DebugPhysics)
+                {
+                    if (this.PhysicsHandler.HasDebugDrawer())
+                    {
+                        renderer.DisableDepthTest();
+                        this.PhysicsHandler.DebugDraw(renderer);
+                        renderer.EnableDepthTest();
+                    }
+                    else
+                    {
+                        Debug.Assert(this.PhysicsHandler.DebugPhysics, "DebugPhysics is enabled but no debug drawer is set");
+                    }
                 }
+
+                OnRenderPassEnd?.Invoke(this, viewport, renderer, camera);
             }
-
-            // Process the scene behaviors after rendering
-            OnRenderPassEnd?.Invoke(this, viewport, renderer, camera);
-
-            // Unbind the render target and set the depth test state back to the original state
-            renderer.UnbindRenderTarget();
             renderer.BlitRenderTarget(_renderTarget);
             renderer.SetDepthTest(dephTest);
 
-            // On render end.
             OnRenderEnd?.Invoke(this, viewport, renderer, camera);
         }
 
@@ -347,49 +333,41 @@ namespace LibGFX.Core
         /// <param name="camera"></param>
         public override void BuildShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            // Get the directional light and its shadow map. 
             var light = this.DirectionalLight as DirectionalLight3D;
             if(light == null || light.ShadowMap == null || !light.CastsShadows || !this.PerformShadowPass)
             {
                 return;
             }
 
-            // Ensure the shadow map is a cascaded shadow map since only that type is supported for directional lights in this implementation
             var csm = light.ShadowMap as CascadedShadowMap;
             if(csm == null)
             {
                 return;
             }
 
-            // On shadow pass start event
             OnShadowPassStart?.Invoke(this, viewport, renderer, camera);
 
-            // Compute the light space matrix for the directional light
             this.LightManager.ComputeLightSpaceMatrix(camera, viewport);
 
-            // Bind the depth shader and set the light space matrix uniform
             var shader = renderer.GetRenderShader<DepthMeshShader>();
             renderer.BindShaderProgram(shader);
             this.LightManager.BindLightSpaceMatrix(renderer, 3);
 
-            // Bind the shadow map render target and clear the depth buffer
-            renderer.BindRenderTarget(light.ShadowMap);
-            renderer.SetViewport(new Viewport(csm.Width, csm.Height));
-            renderer.Clear(GFXClearFlags.Depth);
-            renderer.EnableDepthTest();
-            //GL.Enable(EnableCap.CullFace);
-            renderer.SetCullMode(GFXCullMode.Front);
-            this.Elements.ForEach(e =>
+            using(light.ShadowMap.Begin(renderer))
             {
-                if(!e.Visible) return;
-                e.RenderShadow(this, viewport, renderer);
-            });
-            renderer.SetCullMode(GFXCullMode.Back);
-            //GL.Disable(EnableCap.CullFace);
-            renderer.DisableDepthTest();
-            renderer.UnbindRenderTarget();
+                renderer.SetViewport(new Viewport(csm.Width, csm.Height));
+                renderer.Clear(GFXClearFlags.Depth);
+                renderer.EnableDepthTest();
+                renderer.SetCullMode(GFXCullMode.Front);
+                this.Elements.ForEach(e =>
+                {
+                    if (!e.Visible) return;
+                    e.RenderShadow(this, viewport, renderer);
+                });
+                renderer.SetCullMode(GFXCullMode.Back);
+                renderer.DisableDepthTest();
+            }
 
-            // On shadow pass end event
             OnShadowPassEnd?.Invoke(this, viewport, renderer, camera);
         }
 

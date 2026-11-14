@@ -34,14 +34,16 @@ namespace LibGFX.Graphics.PostProcessing
 
         public void Apply(PostProcessStack stack, IRenderDevice renderer, int sourceTexture)
         {
-            renderer.BindRenderTarget(RenderTarget);
-            renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
-            renderer.BindShaderProgram(_shader);
-            renderer.PrepareShader("sourceTexture", 0, sourceTexture);
-            renderer.PrepareShader("resolution", _resolution);
-            renderer.PrepareShader("pixelSize", PixelSize);
-            renderer.DrawFullScreenQuad();
-            renderer.UnbindShaderProgram();
+            using (RenderTarget.Begin(renderer))
+            {
+                renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
+                renderer.BindShaderProgram(_shader);
+                renderer.PrepareShader("sourceTexture", 0, sourceTexture);
+                renderer.PrepareShader("resolution", _resolution);
+                renderer.PrepareShader("pixelSize", PixelSize);
+                renderer.DrawFullScreenQuad();
+                renderer.UnbindShaderProgram();
+            }            
         }
 
         public void Dispose(PostProcessStack stack, IRenderDevice renderer)

@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AssimpNetter" Version="6.0.4" />
+    <PackageReference Include="AssimpNetter" Version="6.0.5" />
     <PackageReference Include="FreeTypeSharp" Version="3.1.0" />
     <PackageReference Include="Gfx.BulletSharp" Version="1.0.1" />
     <PackageReference Include="NAudio" Version="2.3.0" />
@@ -29,8 +29,8 @@
     <PackageReference Include="OpenTK" Version="4.9.4">
       <PrivateAssets></PrivateAssets>
     </PackageReference>
-    <PackageReference Include="StbImageSharp" Version="2.30.15" />
-    <PackageReference Include="System.Drawing.Common" Version="10.0.5" />
+    <PackageReference Include="StbImageSharp" Version="2.30.16" />
+    <PackageReference Include="System.Drawing.Common" Version="11.0.0" />
   </ItemGroup>
 
   <ItemGroup>

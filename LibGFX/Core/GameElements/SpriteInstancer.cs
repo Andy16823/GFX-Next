@@ -107,10 +107,11 @@ namespace LibGFX.Core.GameElements
             base.Render(scene, viewport, renderer, camera);
 
             // Bind the shader program
-            this.Material.Use(renderer);
-            renderer.DrawInstances(InstanceContainer);
-            scene.RenderStats.IncrementDrawCalls();
-            this.Material.Disable(renderer);
+            using (var scope = Material.Begin(renderer))
+            {
+                renderer.DrawInstances(InstanceContainer);
+                scene.RenderStats.IncrementDrawCalls();
+            }
         }
 
         /// <summary>

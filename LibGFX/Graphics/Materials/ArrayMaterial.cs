@@ -271,5 +271,10 @@ namespace LibGFX.Graphics.Materials
         {
             
         }
+
+        public MaterialScope Begin(IRenderDevice renderDevice)
+        {
+            return new MaterialScope(this, renderDevice);
+        }
     }
 }

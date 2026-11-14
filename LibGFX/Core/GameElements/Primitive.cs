@@ -89,19 +89,14 @@ namespace LibGFX.Core.GameElements
                 // Get the world transform matrix
                 var transform = this.GetWorldTransform();
 
-                // Use the appropriate material (override or mesh material)
-                Material.Use(renderer);
-
-                // Prepare shader uniforms
-                renderer.PrepareShader("viewPos", camera.Transform.Position);
-                scene.LightManager?.BindLights(viewport, renderer, camera);
-
-                // Draw the mesh and update render statistics
-                renderer.DrawMesh(transform, Mesh);
-                scene.RenderStats.IncrementDrawCalls();
-
-                // Disable the material after rendering
-                Material.Disable(renderer);
+                using(var scope = Material.Begin(renderer))
+                {
+                    scene.LightManager?.BindLights(viewport, renderer, camera);
+                    renderer.PrepareShader("viewPos", camera.Transform.Position);
+                    // Draw the mesh and update render statistics
+                    renderer.DrawMesh(transform, Mesh);
+                    scene.RenderStats.IncrementDrawCalls();
+                }
             }
         }
 

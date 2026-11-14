@@ -38,10 +38,11 @@ namespace LibGFX.Graphics.PostProcessing
             });
 
             // Finally, render the result to the main buffer
-            renderer.BindRenderTarget(_bufferA);
-            renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
-            renderer.DrawRenderTarget(lastTexture, _bufferA.FramebufferId);
-            renderer.UnbindRenderTarget();
+            using (_bufferA.Begin(renderer))
+            {
+                renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
+                renderer.DrawRenderTarget(lastTexture, _bufferA.FramebufferId);
+            }
         }
 
         public void Dispose(IRenderDevice renderer)

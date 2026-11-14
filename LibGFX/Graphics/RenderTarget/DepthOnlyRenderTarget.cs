@@ -17,5 +17,10 @@ namespace LibGFX.Graphics.RenderTarget
             this.Width = width;
             this.Height = height;
         }
+
+        public RenderTargetScope Begin(IRenderDevice renderDevice)
+        {
+            return new RenderTargetScope(this, renderDevice);
+        }
     }
 }

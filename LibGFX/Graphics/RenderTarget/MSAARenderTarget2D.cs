@@ -24,6 +24,11 @@
         public bool HasRenderBuffer()
         {
             return this.DepthAttachmentId != -1;
-        }        
+        }
+
+        public RenderTargetScope Begin(IRenderDevice renderDevice)
+        {
+            return new RenderTargetScope(this, renderDevice);
+        }
     }
 }

@@ -59,5 +59,10 @@ namespace LibGFX.Graphics.RenderTarget
                 camera.Far
             };
         }
+
+        public RenderTargetScope Begin(IRenderDevice renderDevice)
+        {
+            return new RenderTargetScope(this, renderDevice);
+        }
     }
 }

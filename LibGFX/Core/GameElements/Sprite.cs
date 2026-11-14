@@ -131,19 +131,16 @@ namespace LibGFX.Core.GameElements
                 // Get the world transform matrix
                 var transform = this.GetWorldTransform();
 
-                // Bind the material and set shader uniforms
-                this.Material.Use(renderer);
-                renderer.PrepareShader("uvTransform", uvTransform);
-                renderer.PrepareShader("uvScale", UVScale);
-                renderer.PrepareShader("vertexColor", Color);
-                scene.LightManager?.BindLights(viewport, renderer, camera);
-
-                // Draw the shape
-                renderer.DrawShape(transform, _shape);
-
-                // Update render stats and unbind the material
-                scene.RenderStats.IncrementDrawCalls();
-                this.Material.Disable(renderer);
+                // Draw the sprite using the material and update render stats
+                using (var scope = this.Material.Begin(renderer))
+                {
+                    renderer.PrepareShader("uvTransform", uvTransform);
+                    renderer.PrepareShader("uvScale", UVScale);
+                    renderer.PrepareShader("vertexColor", Color);
+                    scene.LightManager?.BindLights(viewport, renderer, camera);
+                    renderer.DrawShape(transform, _shape);
+                    scene.RenderStats.IncrementDrawCalls();
+                }
             }
         }
 

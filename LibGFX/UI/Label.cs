@@ -110,14 +110,15 @@ namespace LibGFX.UI
             renderer.SetViewMatrix(_camera.GetViewMatrix());
 
             // Render the text to the render target
-            renderer.BindRenderTarget(this.RenderTarget);
-            renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
+            using (this.RenderTarget.Begin(renderer))
+            {
+                renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+                renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
 
-            renderer.BindShaderProgram(renderer.GetRenderShader("FontShader"));
-            renderer.DrawString2D(this.Text, new Vector2(0, 0), this.Font, new Vector4(1, 1, 1, 1), this.FontScale, this.Alignment);
-            renderer.UnbindShaderProgram();
-            renderer.UnbindRenderTarget();
+                renderer.BindShaderProgram(renderer.GetRenderShader("FontShader"));
+                renderer.DrawString2D(this.Text, new Vector2(0, 0), this.Font, new Vector4(1, 1, 1, 1), this.FontScale, this.Alignment);
+                renderer.UnbindShaderProgram();
+            }
         }
 
         /// <summary>

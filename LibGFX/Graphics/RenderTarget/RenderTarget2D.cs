@@ -21,5 +21,10 @@
         {
             throw new NotImplementedException();
         }
+
+        public RenderTargetScope Begin(IRenderDevice renderDevice)
+        {
+            return new RenderTargetScope(this, renderDevice);
+        }
     }
 }

@@ -42,6 +42,7 @@ namespace LibGFX.Graphics
         void Flush();
         void BindRenderTarget(IRenderTarget renderTarget); 
         void UnbindRenderTarget();
+        void BindRenderTarget(int framebuffer);
         int GetCurrentRenderTargetID();
         int GetFramebufferIndex();
         void BuildRenderShader(RenderShader shaderProgram);

@@ -51,6 +51,13 @@ namespace LibGFX.Graphics.Materials
         public void Disable(IRenderDevice renderDevice);
 
         /// <summary>
+        /// Begins a material scope for rendering operations, returning a MaterialScope instance that manages the lifecycle of the material usage.
+        /// </summary>
+        /// <param name="renderDevice">The render device to be used. Cannot be null.</param>
+        /// <returns>A MaterialScope instance that manages the lifecycle of the material usage.</returns>
+        public MaterialScope Begin(IRenderDevice renderDevice);
+
+        /// <summary>
         /// Creates an IMaterial instance from the specified Assimp material and associated resource directory.
         /// </summary>
         /// <remarks>Use this method to convert materials imported via Assimp into the application's

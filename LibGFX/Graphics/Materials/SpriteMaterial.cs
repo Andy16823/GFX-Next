@@ -224,5 +224,10 @@ namespace LibGFX.Graphics.Materials
             // Invoke the callback if provided
             callback?.Invoke(obj);
         }
+
+        public MaterialScope Begin(IRenderDevice renderDevice)
+        {
+            return new MaterialScope(this, renderDevice);
+        }
     }
 }

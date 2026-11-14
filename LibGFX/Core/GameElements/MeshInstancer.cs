@@ -115,17 +115,14 @@ namespace LibGFX.Core.GameElements
                 // Call the base render method
                 base.Render(scene, viewport, renderer, camera);
 
-                // Bind the shader program
-                this.Material.Use(renderer);
-                renderer.PrepareShader("viewPos", camera.Transform.Position);
-                scene.LightManager?.BindLights(viewport, renderer, camera);
-                renderer.DrawInstances(InstanceContainer);
-
-                // Increment the draw calls for the scene
-                scene.RenderStats.IncrementDrawCalls();
-
-                // Unbind the shader program
-                this.Material.Disable(renderer);
+                using(var scope = this.Material.Begin(renderer))
+                {
+                    renderer.PrepareShader("viewPos", camera.Transform.Position);
+                    scene.LightManager?.BindLights(viewport, renderer, camera);
+                    renderer.DrawInstances(InstanceContainer);
+                    // Increment the draw calls for the scene
+                    scene.RenderStats.IncrementDrawCalls();
+                }
             }
         }
 

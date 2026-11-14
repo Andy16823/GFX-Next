@@ -190,16 +190,17 @@ namespace LibGFX.UI
             renderer.SetViewMatrix(_camera.GetViewMatrix());
 
             // Render the text to the render target
-            renderer.BindRenderTarget(this.RenderTarget);
-            renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
+            using(this.RenderTarget.Begin(renderer))
+            {
+                renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+                renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
 
-            renderer.BindShaderProgram(renderer.GetRenderShader("RectShader"));
-            renderer.FillRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), this.BackgroundColor);
-            renderer.FillRect(new Rect(-progressOffset.X, progressOffset.Y, progressSize.X, progressSize.Y), this.ProgressColor);
-            renderer.DrawRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), this.BorderColor, 0.25f);
-            renderer.UnbindShaderProgram();
-            renderer.UnbindRenderTarget();
+                renderer.BindShaderProgram(renderer.GetRenderShader("RectShader"));
+                renderer.FillRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), this.BackgroundColor);
+                renderer.FillRect(new Rect(-progressOffset.X, progressOffset.Y, progressSize.X, progressSize.Y), this.ProgressColor);
+                renderer.DrawRect(new Rect(0, 0, this.Transform.Scale.X, this.Transform.Scale.Y), this.BorderColor, 0.25f);
+                renderer.UnbindShaderProgram();
+            }
         }
 
         /// <summary>
