@@ -258,13 +258,19 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             this.BindRenderTarget(renderTarget.FramebufferId);
         }
 
-        public void BindRenderTarget(int framebuffer)
+        public void BindRenderTarget(int framebuffer, bool force = false)
         {
-            if (_currentFramebuffer == framebuffer)
+            if (framebuffer == _currentFramebuffer && !force)
             {
+#if DEBUG
+                GL.GetInteger(GetPName.DrawFramebufferBinding, out var actualFbo);
+                if (actualFbo != framebuffer)
+                {
+                    throw new Exception($"Warning: Current framebuffer {_currentFramebuffer} does not match actual framebuffer {actualFbo}");
+                }
+#endif
                 return;
             }
-
             GL.BindFramebuffer(FramebufferTarget.Framebuffer, framebuffer);
             _currentFramebuffer = framebuffer;
         }
@@ -906,6 +912,8 @@ namespace LibGFX.Graphics.Renderer.OpenGL
 
         public void BlitRenderTarget(MSAARenderTarget2D renderTarget)
         {
+            var currentFramebuffer = GetCurrentRenderTargetID();
+
             if (renderTarget.Samples == 0)
             {
                 return;
@@ -913,7 +921,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             GL.BindFramebuffer(FramebufferTarget.ReadFramebuffer, renderTarget.FramebufferId);
             GL.BindFramebuffer(FramebufferTarget.DrawFramebuffer, renderTarget.TextureFbo);
             GL.BlitFramebuffer(0, 0, renderTarget.Width, renderTarget.Height, 0, 0, renderTarget.Width, renderTarget.Height, ClearBufferMask.ColorBufferBit, BlitFramebufferFilter.Nearest);
-            this.BindRenderTarget(0);
+            this.BindRenderTarget(currentFramebuffer, true);
         }
 
         public byte[] ReadPixels(IRenderTarget renderTarget)
