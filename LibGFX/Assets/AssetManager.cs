@@ -36,6 +36,22 @@ namespace LibGFX.Assets
         }
 
         /// <summary>
+        /// Loads an asset from a file, reusing an existing asset with the same type and filename.
+        /// </summary>
+        public T Load<T>(string filePath) where T : class, IFileAsset, new()
+        {
+            var fileName = System.IO.Path.GetFileName(filePath);
+            if (_assets.TryGetValue((typeof(T), fileName), out var existing))
+            {
+                return (T)existing;
+            }
+
+            T asset = new T();
+            asset.LoadFromFile(filePath);
+            return this.Add(fileName, asset);
+        }
+
+        /// <summary>
         /// Adds an asset to the asset manager.
         /// </summary>
         /// <typeparam name="T"></typeparam>
