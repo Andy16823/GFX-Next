@@ -26,11 +26,6 @@ namespace LibGFX.Graphics.Materials
         public bool IsTransparent { get; }
 
         /// <summary>
-        /// Shader associated with this material.
-        /// </summary>
-        public RenderShader Shader { get; set; }
-
-        /// <summary>
         /// Gets or sets a collection of custom properties associated with the object.
         /// </summary>
         /// <remarks>Use this dictionary to store additional metadata or user-defined values that are not
@@ -49,6 +44,13 @@ namespace LibGFX.Graphics.Materials
         /// </summary>
         /// <param name="renderDevice"></param>
         public void Disable(IRenderDevice renderDevice);
+
+        /// <summary>
+        /// Begins a material scope for rendering operations, returning a MaterialScope instance that manages the lifecycle of the material usage.
+        /// </summary>
+        /// <param name="renderDevice">The render device to be used. Cannot be null.</param>
+        /// <returns>A MaterialScope instance that manages the lifecycle of the material usage.</returns>
+        public MaterialScope Begin(IRenderDevice renderDevice);
 
         /// <summary>
         /// Creates an IMaterial instance from the specified Assimp material and associated resource directory.

@@ -1,5 +1,6 @@
 ﻿using LibGFX.Graphics;
 using LibGFX.Graphics.Lights;
+using LibGFX.Graphics.RenderTarget;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Graphics.OpenGL4;
@@ -467,7 +468,7 @@ namespace LibGFX.Core
             OnInitStart?.Invoke(this, viewport, renderer);
 
             _renderTarget = new RenderTarget2D(viewport.Width, viewport.Height);
-            _renderTarget.Create();
+            renderer.CreateRenderTarget(_renderTarget);
 
             // Call the after render target creation event
             AfterRenderTargetCreation?.Invoke(this, viewport, renderer);
@@ -517,37 +518,35 @@ namespace LibGFX.Core
             renderer.SetProjectionMatrix(camera.GetProjectionMatrix(viewport));
             renderer.SetViewMatrix(camera.GetViewMatrix());
 
-            _renderTarget.Resize(viewport.Width, viewport.Height);
-            renderer.BindRenderTarget(_renderTarget);
-            renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
+            renderer.ResizeRenderTarget(_renderTarget, viewport.Width, viewport.Height);
 
-            // Call the on render pass begin event
-            OnRenderPassBegin?.Invoke(this, viewport, renderer, camera);
-
-            this.Layers.ForEach(layer => { 
-                layer.RenderLayer(this, viewport, renderer, camera); 
-            });
-
-            if (this.PhysicsHandler.DebugPhysics)
+            using(this._renderTarget.Begin(renderer))
             {
-                if (this.PhysicsHandler.HasDebugDrawer())
+                renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+                renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
+
+                OnRenderPassBegin?.Invoke(this, viewport, renderer, camera);
+
+                this.Layers.ForEach(layer => {
+                    layer.RenderLayer(this, viewport, renderer, camera);
+                });
+
+                if (this.PhysicsHandler.DebugPhysics)
                 {
-                    this.PhysicsHandler.DebugDraw(renderer);
+                    if (this.PhysicsHandler.HasDebugDrawer())
+                    {
+                        this.PhysicsHandler.DebugDraw(renderer);
+                    }
+                    else
+                    {
+                        Debug.Assert(this.PhysicsHandler.DebugPhysics, "DebugPhysics is enabled but no debug drawer is set");
+                    }
                 }
-                else
-                {
-                    Debug.Assert(this.PhysicsHandler.DebugPhysics, "DebugPhysics is enabled but no debug drawer is set");
-                }
+
+                OnRenderPassEnd?.Invoke(this, viewport, renderer, camera);
             }
 
-            // Call the on render pass end event
-            OnRenderPassEnd?.Invoke(this, viewport, renderer, camera);
-
-            renderer.UnbindRenderTarget();
             renderer.SetDepthTest(depthTest);
-
-            // Call the on render end event
             OnRenderEnd?.Invoke(this, viewport, renderer, camera);
         }
 
@@ -592,7 +591,7 @@ namespace LibGFX.Core
             OnDispose?.Invoke(this, renderer);
 
             // Dispose the render target of the scene
-            _renderTarget.Dispose();
+            renderer.DisposeRenderTarget(_renderTarget);
 
             // Dispose the light manager
             this.LightManager.Dispose(renderer);
@@ -650,6 +649,7 @@ namespace LibGFX.Core
                     layer.Serialize(w, serializationContext);
                 }
                 w.WriteEndArray();
+                callback?.Invoke(w);
             });
         }
 

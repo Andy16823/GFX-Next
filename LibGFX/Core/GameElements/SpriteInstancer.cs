@@ -18,6 +18,11 @@ namespace LibGFX.Core.GameElements
     public class SpriteInstancer : GameElement
     {
         /// <summary>
+        /// Shader used for rendering the sprite instances. If not set, the default shader will be used.
+        /// </summary>
+        public RenderShader Shader { get; set; }
+
+        /// <summary>
         /// The material used for rendering the sprite instances.
         /// </summary>
         public IMaterial Material { get; set; }
@@ -78,6 +83,11 @@ namespace LibGFX.Core.GameElements
             {
                 renderer.LoadInstances(this.InstanceContainer);
             }
+
+            if (this.Shader == null)
+            {
+                this.Shader = renderer.GetRenderShader<InstancedShader2D>();
+            }
         }
 
         /// <summary>
@@ -106,11 +116,14 @@ namespace LibGFX.Core.GameElements
         {
             base.Render(scene, viewport, renderer, camera);
 
-            // Bind the shader program
-            this.Material.Use(renderer);
-            renderer.DrawInstances(InstanceContainer);
-            scene.RenderStats.IncrementDrawCalls();
-            this.Material.Disable(renderer);
+            using (Shader.Begin(renderer))
+            {
+                using (var scope = Material.Begin(renderer))
+                {
+                    renderer.DrawInstances(InstanceContainer);
+                    scene.RenderStats.IncrementDrawCalls();
+                }
+            }
         }
 
         /// <summary>

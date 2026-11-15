@@ -1,5 +1,6 @@
 ﻿using Assimp;
 using LibGFX.Core;
+using LibGFX.Graphics.Shader;
 using LibGFX.Math;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -67,9 +68,12 @@ namespace LibGFX.Graphics.Enviroment
         public void Render(IRenderDevice renderer, Camera camera, Viewport viewport)
         {
             this.Transform.Position = camera.Transform.Position;
-            renderer.BindShaderProgram(renderer.GetRenderShader("EnviromentShader"));
-            renderer.DrawCubemap(this.Transform, this.Cubemap, Vector4.Zero);
-            renderer.UnbindShaderProgram();
+            var shader = renderer.GetRenderShader<EnviromentShader>();
+
+            using(shader.Begin(renderer))
+            {
+                renderer.DrawCubemap(this.Transform, this.Cubemap, Vector4.Zero);
+            }
         }
 
         /// <summary>

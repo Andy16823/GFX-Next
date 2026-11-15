@@ -35,7 +35,7 @@ namespace LibGFX.Graphics
         /// <summary>
         /// Meshes that make up the static model.
         /// </summary>
-        public List<(Mesh, IMaterial)> Meshes { get; set; }
+        public List<MeshMaterialPair> Meshes { get; set; }
 
         /// <summary>
         /// Node structure of the model as imported from Assimp.
@@ -82,7 +82,7 @@ namespace LibGFX.Graphics
         /// <returns>true if at least one mesh has a transparent material; otherwise, false.</returns>
         private bool HasTransparencyCheck()
         {
-            return Meshes.Any(pair => pair.Item2.IsTransparent);
+            return Meshes.Any(pair => pair.Material.IsTransparent);
         }
 
         /// <summary>
@@ -92,8 +92,8 @@ namespace LibGFX.Graphics
         {
             this.Meshes.Sort((pairA, pairB) =>
             {
-                bool isTransparentA = pairA.Item2.IsTransparent;
-                bool isTransparentB = pairB.Item2.IsTransparent;
+                bool isTransparentA = pairA.Material.IsTransparent;
+                bool isTransparentB = pairB.Material.IsTransparent;
                 if (isTransparentA && !isTransparentB)
                     return 1; // A is transparent, B is opaque -> A after B
                 else if (!isTransparentA && isTransparentB)
@@ -129,7 +129,7 @@ namespace LibGFX.Graphics
                 var assimpScene = importer.ImportFile(file, steps);
 
                 // Load the meshes from the Assimp scene
-                Meshes = new List<(Mesh, IMaterial)>();
+                Meshes = new List<MeshMaterialPair>();
                 foreach (var asmesh in assimpScene.Meshes)
                 {
                     var mesh = new Mesh();
@@ -151,7 +151,7 @@ namespace LibGFX.Graphics
                     }
 
                     mesh.Indices.AddRange(asmesh.GetIndices());
-                    this.Meshes.Add((mesh, material));
+                    this.Meshes.Add(new MeshMaterialPair(mesh, material));
                 }
 
                 // Load the transforms of the model
@@ -180,7 +180,10 @@ namespace LibGFX.Graphics
 
             foreach (var meshIndex in node.MeshIndices)
             {
-                var (mesh, material) = Meshes[meshIndex];
+                var meshMaterialPair = this.Meshes[meshIndex];
+                var mesh = meshMaterialPair.Mesh;
+                var material = meshMaterialPair.Material;
+
                 System.Numerics.Matrix4x4.Decompose(currentTransform, out System.Numerics.Vector3 scale, out System.Numerics.Quaternion rotation, out System.Numerics.Vector3 translation);
                 mesh.LocalTranslation = new Vector3(translation.X, translation.Y, translation.Z);
                 mesh.LocalRotation = new OpenTK.Mathematics.Quaternion(rotation.X, rotation.Y, rotation.Z, rotation.W);
@@ -236,13 +239,11 @@ namespace LibGFX.Graphics
             this.OrderMeshTransparency();
 
             Debug.WriteLine("Importing Static Model with " + Meshes.Count + " meshes.");
-            foreach (var (mesh, material) in Meshes)
+            foreach (var meshMaterialPair in Meshes)
             {
+                var mesh = meshMaterialPair.Mesh;
+                var material = meshMaterialPair.Material;
                 material.Init(renderer);
-                if(material.Shader == null)
-                {
-                    material.Shader = renderer.GetRenderShader<MeshShader>();
-                }
                 mesh.Init(renderer);
 
             }
@@ -257,8 +258,8 @@ namespace LibGFX.Graphics
         {
             this.Meshes.ForEach(pair =>
             {
-                pair.Item1.FreeCPUResources();
-                pair.Item2.FreeCPUResources();
+                pair.Mesh.FreeCPUResources();
+                pair.Material.FreeCPUResources();
             });
         }
 
@@ -276,10 +277,10 @@ namespace LibGFX.Graphics
             }
 
             Debug.WriteLine("Disposing Static Model with " + Meshes.Count + " meshes.");
-            foreach (var (mesh, material) in Meshes)
+            foreach (var meshMaterialPair in Meshes)
             {
-                mesh.Dispose(renderer); // Dispose the mesh
-                material.Dispose(renderer); // Dispose the material
+                meshMaterialPair.Mesh.Dispose(renderer); // Dispose the mesh
+                meshMaterialPair.Material.Dispose(renderer); // Dispose the material
             }
             IsInitialized = false;
             Debug.WriteLine("Static Model disposal complete.");
@@ -295,18 +296,6 @@ namespace LibGFX.Graphics
         public bool FindNodeByName(string name, out SceneNodeData node)
         {
             return Utils.FindNodeByNameRecursive(NodeStructure, name, out node);
-        }
-
-        /// <summary>
-        /// Assigns the specified shader to all meshes in this model.
-        /// </summary>
-        /// <param name="shader"></param>
-        public void AssignShaderToMeshes(RenderShader shader)
-        {
-            this.Meshes.ForEach(pair =>
-            {
-                pair.Item2.Shader = shader;
-            });
         }
 
         /// <summary>

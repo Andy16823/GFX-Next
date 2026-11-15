@@ -34,7 +34,7 @@ namespace LibGFX.Graphics
         /// <summary>
         /// The meshes that make up the skinned mesh model.
         /// </summary>
-        public List<(Mesh, IMaterial)> Meshes { get; set; }
+        public List<MeshMaterialPair> Meshes { get; set; }
 
         /// <summary>
         /// The node structure of the model as imported from Assimp.
@@ -90,7 +90,7 @@ namespace LibGFX.Graphics
         /// <returns>true if at least one mesh has a transparent material; otherwise, false.</returns>
         private bool HasTransparencyCheck()
         {
-            return Meshes.Any(mesh => mesh.Item2.IsTransparent);
+            return Meshes.Any(meshmat => meshmat.Material.IsTransparent);
         }
 
         /// <summary>
@@ -100,8 +100,8 @@ namespace LibGFX.Graphics
         {
             this.Meshes.Sort((meshA, meshB) =>
             {
-                bool isTransparentA = meshA.Item2.IsTransparent;
-                bool isTransparentB = meshB.Item2.IsTransparent;
+                bool isTransparentA = meshA.Material.IsTransparent;
+                bool isTransparentB = meshB.Material.IsTransparent;
                 if (isTransparentA && !isTransparentB)
                     return 1; // A is transparent, B is opaque -> A after B
                 else if (!isTransparentA && isTransparentB)
@@ -150,7 +150,7 @@ namespace LibGFX.Graphics
                 }
 
                 // Extract materials and meshes
-                this.Meshes = new List<(Mesh, IMaterial)>();
+                this.Meshes = new List<MeshMaterialPair>();
                 foreach (var asmesh in assimpScene.Meshes)
                 {
                     var mesh = new Graphics.Mesh();
@@ -173,7 +173,7 @@ namespace LibGFX.Graphics
 
                     mesh.Indices.AddRange(asmesh.GetIndices());
                     ExtractBoneWeightForVertices(asmesh, assimpScene, mesh);
-                    this.Meshes.Add((mesh, material));
+                    this.Meshes.Add(new MeshMaterialPair(mesh, material));
                 }
 
                 this.ExtractAnimations(assimpScene);
@@ -227,7 +227,9 @@ namespace LibGFX.Graphics
 
             foreach (var meshIndex in node.MeshIndices)
             {
-                var (mesh, material) = this.Meshes[meshIndex];
+                var meshMaterialPair = this.Meshes[meshIndex];
+                var mesh = meshMaterialPair.Mesh;
+                var material = meshMaterialPair.Material;
                 System.Numerics.Matrix4x4.Decompose(currentTransform, out System.Numerics.Vector3 scale, out System.Numerics.Quaternion rotation, out System.Numerics.Vector3 translation);
                 mesh.LocalTranslation = new Vector3(translation.X, translation.Y, translation.Z);
                 mesh.LocalRotation = new OpenTK.Mathematics.Quaternion(rotation.X, rotation.Y, rotation.Z, rotation.W);
@@ -328,14 +330,10 @@ namespace LibGFX.Graphics
             // Order meshes by transparency
             this.OrderMeshTransparency();
 
-            foreach (var (mesh, material) in Meshes)
+            foreach (var meshMaterialPair in Meshes)
             {
-                material.Init(renderer);
-                if(material.Shader == null)
-                {
-                    material.Shader = renderer.GetRenderShader<AnimatedMeshShader>();
-                }
-                mesh.Init(renderer);
+                meshMaterialPair.Material.Init(renderer);
+                meshMaterialPair.Mesh.Init(renderer);
             }
             IsInitialized = true;
         }
@@ -347,8 +345,8 @@ namespace LibGFX.Graphics
         {
             this.Meshes.ForEach(pair =>
             {
-                pair.Item1.FreeCPUResources();
-                pair.Item2.FreeCPUResources();
+                pair.Mesh.FreeCPUResources();
+                pair.Material.FreeCPUResources();
             });
         }
 
@@ -363,10 +361,10 @@ namespace LibGFX.Graphics
                 throw new InvalidOperationException("Model is not initialized.");
             }
 
-            foreach (var (mesh, material) in Meshes)
+            foreach (var meshMaterialPair in Meshes)
             {
-                mesh.Dispose(renderer);
-                material.Dispose(renderer);
+                meshMaterialPair.Mesh.Dispose(renderer);
+                meshMaterialPair.Material.Dispose(renderer);
             }
 
             IsInitialized = false;
@@ -488,18 +486,6 @@ namespace LibGFX.Graphics
         public bool FindNodeByName(string name, out SceneNodeData node)
         {
             return Utils.FindNodeByNameRecursive(NodeStructure, name, out node);
-        }
-
-        /// <summary>
-        /// Assigns the specified shader to all meshes in the model.
-        /// </summary>
-        /// <param name="shader"></param>
-        public void AssignShaderToMeshes(RenderShader shader)
-        {
-            this.Meshes.ForEach(pair =>
-            {
-                pair.Item2.Shader = shader;
-            });
         }
 
         /// <summary>

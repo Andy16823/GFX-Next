@@ -124,29 +124,30 @@ namespace LibGFX.Graphics.Enviroment
             var projectionMatrix = renderer.GetProjectionMatrix();
             var viewMatrix = renderer.GetViewMatrix();
 
-            renderer.BindShaderProgram(shader);
-            renderer.PrepareShader("skyTopColor", SkyTopColor);
-            renderer.PrepareShader("skyBottomColor", SkyBottomColor);
-            renderer.PrepareShader("sunDirection", SunDirection);
-            renderer.PrepareShader("sunColor", SunColor);
-            renderer.PrepareShader("sunSize", SunSize);
-            renderer.PrepareShader("sunIntensity", SunIntensity);
-            renderer.PrepareShader("skylineOffset", SkylineOffset);
-            renderer.PrepareShader("skylineScale", SkylineScale);
-            renderer.PrepareShader("coverage", Coverage);
-            if(CoverageTexture != null)
+            using (shader.Begin(renderer))
             {
-                renderer.PrepareShader("coverageTexture", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, CoverageTexture);
+                renderer.PrepareShader("skyTopColor", SkyTopColor);
+                renderer.PrepareShader("skyBottomColor", SkyBottomColor);
+                renderer.PrepareShader("sunDirection", SunDirection);
+                renderer.PrepareShader("sunColor", SunColor);
+                renderer.PrepareShader("sunSize", SunSize);
+                renderer.PrepareShader("sunIntensity", SunIntensity);
+                renderer.PrepareShader("skylineOffset", SkylineOffset);
+                renderer.PrepareShader("skylineScale", SkylineScale);
+                renderer.PrepareShader("coverage", Coverage);
+                if (CoverageTexture != null)
+                {
+                    renderer.PrepareShader("coverageTexture", 0, CoverageTexture);
+                }
+                renderer.PrepareShader("coverageFactor", CoverageFactor);
+                renderer.PrepareShader("cloudColor", CloudColor);
+                renderer.PrepareShader("p_mat", true, projectionMatrix);
+                renderer.PrepareShader("v_mat", true, viewMatrix);
+                renderer.PrepareShader("m_mat", true, Transform.GetMatrix());
+                renderer.SetDepthMask(false);
+                renderer.DrawShape(renderer.GetShape("CubeShape"));
+                renderer.SetDepthMask(true);
             }
-            renderer.PrepareShader("coverageFactor", CoverageFactor);
-            renderer.PrepareShader("cloudColor", CloudColor);
-            renderer.PrepareShader("p_mat", true, projectionMatrix);
-            renderer.PrepareShader("v_mat", true, viewMatrix);
-            renderer.PrepareShader("m_mat", true, Transform.GetMatrix());
-            renderer.SetDepthMask(false);
-            renderer.DrawShape(renderer.GetShape("CubeShape"));
-            renderer.SetDepthMask(true);
-            renderer.UnbindShaderProgram();
         }
 
         /// <summary>

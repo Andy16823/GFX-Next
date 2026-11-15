@@ -155,7 +155,6 @@ namespace LibGFX.Graphics.Shader
     
                     float depthValue = abs(fragPosViewSpace.z);
     
-                    // ✅ Default = letzter Layer (nie out of bounds)
                     int layer = cascadeCount - 1;
                     for (int i = 0; i < cascadeCount; ++i) {
                         if (depthValue < cascadePlaneDistances[i]) {
@@ -174,7 +173,6 @@ namespace LibGFX.Graphics.Shader
 
                     vec3 lightDir = normalize(-light.direction);
                     float bias = max(0.05 * (1.0 - dot(normal, lightDir)), 0.005);
-                    // ✅ Kein cascadeCount-Vergleich mehr nötig
                     bias *= 1.0 / (cascadePlaneDistances[layer] * 0.5);
 
                     float shadow = 0.0;

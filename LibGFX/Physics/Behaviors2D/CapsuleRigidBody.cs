@@ -35,6 +35,11 @@ namespace LibGFX.Physics.Behaviors2D
             CapsuleShape capsuleShape = new CapsuleShape(radius, height);
             var shape = new Convex2DShape(capsuleShape);
 
+            if (MotionType == BodyMotionType.Kinematic || MotionType == BodyMotionType.Static)
+            {
+                mass = 0f;
+            }
+
             RigidBodyConstructionInfo info = new RigidBodyConstructionInfo(mass, null, shape, shape.CalculateLocalInertia(mass));
             var btStartTransform = Utils.GetBtTransform(Parent, this.Offset);
 
@@ -45,6 +50,12 @@ namespace LibGFX.Physics.Behaviors2D
             RigidBody.LinearFactor = new System.Numerics.Vector3(1, 1, 0);
             RigidBody.ApplyGravity();
             RigidBody.CollisionShape.LocalScaling = (System.Numerics.Vector3)Parent.Transform.Scale;
+
+            if (MotionType == BodyMotionType.Kinematic)
+            {
+                RigidBody.ActivationState = ActivationState.DisableDeactivation;
+                RigidBody.CollisionFlags |= CollisionFlags.KinematicObject;
+            }
 
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
             info.Dispose();

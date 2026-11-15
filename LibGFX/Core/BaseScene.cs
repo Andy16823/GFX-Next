@@ -1,6 +1,7 @@
 ﻿using LibGFX.Core.GameElements;
 using LibGFX.Graphics;
 using LibGFX.Graphics.Lights;
+using LibGFX.Graphics.RenderTarget;
 using LibGFX.Physics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -342,7 +343,7 @@ namespace LibGFX.Core
             this.ID = Guid.Parse(obj.Value<string>("ID") ?? this.ID.ToString());
 
             // Light manager
-            this.LightManager.Deserialize(obj.Value<JObject>("LightManager")!, serializationContext);
+            // LightManager wird von Scene2D/Scene3D deserialisiert (konkreter Typ)
 
             // Invoke the callback for additional deserialization
             callback?.Invoke(obj);

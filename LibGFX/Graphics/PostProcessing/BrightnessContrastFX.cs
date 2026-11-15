@@ -1,4 +1,5 @@
 ﻿using LibGFX.Graphics.Shader;
+using LibGFX.Graphics.RenderTarget;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,26 +37,29 @@ namespace LibGFX.Graphics.PostProcessing
 
         public void Apply(PostProcessStack stack, IRenderDevice renderer, int sourceTexture)
         {
-            renderer.BindRenderTarget(RenderTarget);
-            renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
-            renderer.BindShaderProgram(_shader);
-            renderer.PrepareShader("sourceTexture", 0, sourceTexture);
-            renderer.PrepareShader("brightness", Brightness);
-            renderer.PrepareShader("contrast", Contrast);
-            renderer.DrawFullScreenQuad();
-            renderer.UnbindShaderProgram();
+            using (RenderTarget.Begin(renderer))
+            {
+                renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
+                using (_shader.Begin(renderer))
+                {
+                    renderer.PrepareShader("sourceTexture", 0, sourceTexture);
+                    renderer.PrepareShader("brightness", Brightness);
+                    renderer.PrepareShader("contrast", Contrast);
+                    renderer.DrawFullScreenQuad();
+                }
+            }
         }
 
         public void Dispose(PostProcessStack stack, IRenderDevice renderer)
         {
-            this.RenderTarget.Dispose();
+            renderer.DisposeRenderTarget(RenderTarget);
             renderer.DisposeRenderShader(_shader);
         }
 
         public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)
         {
             this.RenderTarget = new RenderTarget2D(viewport.Width, viewport.Height);
-            this.RenderTarget.Create();
+            renderer.CreateRenderTarget(this.RenderTarget);
 
             _shader = new BrightnessContrastFXShader();
             renderer.BuildRenderShader(_shader);
@@ -63,7 +67,7 @@ namespace LibGFX.Graphics.PostProcessing
 
         public void Resize(Viewport viewport, IRenderDevice renderer)
         {
-            this.RenderTarget.Resize(viewport.Width, viewport.Height);
+            renderer.ResizeRenderTarget(this.RenderTarget, viewport.Width, viewport.Height);
         }
 
         public void Update(float deltaTime)

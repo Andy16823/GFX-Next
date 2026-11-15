@@ -12,36 +12,36 @@ namespace LibGFX.Graphics
     /// </summary>
     public struct TextureParameters
     {
-        public RenderFlags.TextureFilterMode MinFilter;
-        public RenderFlags.TextureFilterMode MagFilter;
-        public RenderFlags.TextureWrapMode WrapS;
-        public RenderFlags.TextureWrapMode WrapT;
+        public GFXTextureFilterMode MinFilter;
+        public GFXTextureFilterMode MagFilter;
+        public GFXTextureWrapMode WrapS;
+        public GFXTextureWrapMode WrapT;
         public bool GenerateMipmaps;
 
         public static readonly TextureParameters Default = new TextureParameters
         {
-            MinFilter = RenderFlags.TextureFilterMode.Linear,
-            MagFilter = RenderFlags.TextureFilterMode.Linear,
-            WrapS = RenderFlags.TextureWrapMode.Repeat,
-            WrapT = RenderFlags.TextureWrapMode.Repeat,
+            MinFilter = GFXTextureFilterMode.Linear,
+            MagFilter = GFXTextureFilterMode.Linear,
+            WrapS = GFXTextureWrapMode.Repeat,
+            WrapT = GFXTextureWrapMode.Repeat,
             GenerateMipmaps = false
         };
 
         public static readonly TextureParameters PixelPerfect = new TextureParameters
         {
-            MinFilter = RenderFlags.TextureFilterMode.Nearest,
-            MagFilter = RenderFlags.TextureFilterMode.Nearest,
-            WrapS = RenderFlags.TextureWrapMode.ClampToEdge,
-            WrapT = RenderFlags.TextureWrapMode.ClampToEdge,
+            MinFilter = GFXTextureFilterMode.Nearest,
+            MagFilter = GFXTextureFilterMode.Nearest,
+            WrapS = GFXTextureWrapMode.ClampToEdge,
+            WrapT = GFXTextureWrapMode.ClampToEdge,
             GenerateMipmaps = false
         };
 
         public static readonly TextureParameters Mipmapped = new TextureParameters
         {
-            MinFilter = RenderFlags.TextureFilterMode.MipmapLinear,
-            MagFilter = RenderFlags.TextureFilterMode.Linear,
-            WrapS = RenderFlags.TextureWrapMode.Repeat,
-            WrapT = RenderFlags.TextureWrapMode.Repeat,
+            MinFilter = GFXTextureFilterMode.MipmapLinear,
+            MagFilter = GFXTextureFilterMode.Linear,
+            WrapS = GFXTextureWrapMode.Repeat,
+            WrapT = GFXTextureWrapMode.Repeat,
             GenerateMipmaps = true
         };
     }

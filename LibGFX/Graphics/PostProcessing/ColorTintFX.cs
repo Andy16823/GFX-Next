@@ -1,4 +1,5 @@
 ﻿using LibGFX.Graphics.Shader;
+using LibGFX.Graphics.RenderTarget;
 using OpenTK.Mathematics;
 using System;
 
@@ -44,32 +45,35 @@ namespace LibGFX.Graphics.PostProcessing
 
         public void Apply(PostProcessStack stack, IRenderDevice renderer, int sourceTexture)
         {
-            renderer.BindRenderTarget(this.RenderTarget);
-            renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
-            renderer.BindShaderProgram(_shader);
-            renderer.PrepareShader("sourceTexture", 0, sourceTexture);
-            renderer.PrepareShader("tintColor", TintColor);
-            renderer.DrawFullScreenQuad();
-            renderer.UnbindShaderProgram();
+            using (RenderTarget.Begin(renderer))
+            {
+                renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
+                using (_shader.Begin(renderer))
+                {
+                    renderer.PrepareShader("sourceTexture", 0, sourceTexture);
+                    renderer.PrepareShader("tintColor", TintColor);
+                    renderer.DrawFullScreenQuad();
+                }
+            }            
         }
 
         public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)
         {
             this._shader = new ColorTintFXShader();
             this.RenderTarget = new RenderTarget2D(viewport.Width, viewport.Height);
-            this.RenderTarget.Create();
+            renderer.CreateRenderTarget(this.RenderTarget);
             renderer.BuildRenderShader(_shader);
         }
 
         public void Dispose(PostProcessStack stack, IRenderDevice renderer)
         {
-            this.RenderTarget?.Dispose();
+            renderer.DisposeRenderTarget(this.RenderTarget);
             renderer.DisposeRenderShader(_shader);
         }
 
         public void Resize(Viewport viewport, IRenderDevice renderer)
         {
-            this.RenderTarget.Resize(viewport.Width, viewport.Height);
+            renderer.ResizeRenderTarget(this.RenderTarget, viewport.Width, viewport.Height);
         }
 
         public void Update(float deltaTime)

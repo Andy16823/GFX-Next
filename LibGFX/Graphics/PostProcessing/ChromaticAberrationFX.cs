@@ -1,4 +1,5 @@
 ﻿using LibGFX.Graphics.Shader;
+using LibGFX.Graphics.RenderTarget;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
@@ -49,15 +50,19 @@ namespace LibGFX.Graphics.PostProcessing
 
         public void Apply(PostProcessStack stack, IRenderDevice renderer, int sourceTexture)
         {
-            renderer.BindRenderTarget(this.RenderTarget);
-            renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
-            renderer.BindShaderProgram(_shader);
-            renderer.PrepareShader("sourceTexture", 0, sourceTexture);
-            renderer.PrepareShader("intensity", this.Intensity);
-            renderer.PrepareShader("radialAmount", this.RadialAmount);
-            renderer.PrepareShader("direction", this.Direction);
-            renderer.DrawFullScreenQuad();
-            renderer.UnbindShaderProgram();
+            using (RenderTarget.Begin(renderer))
+            {
+                renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
+
+                using (_shader.Begin(renderer))
+                {
+                    renderer.PrepareShader("sourceTexture", 0, sourceTexture);
+                    renderer.PrepareShader("intensity", this.Intensity);
+                    renderer.PrepareShader("radialAmount", this.RadialAmount);
+                    renderer.PrepareShader("direction", this.Direction);
+                    renderer.DrawFullScreenQuad();
+                }
+            }            
         }
 
         public void Init(PostProcessStack stack, Viewport viewport, IRenderDevice renderer)
@@ -65,18 +70,18 @@ namespace LibGFX.Graphics.PostProcessing
             _shader = new ChromaticAberrationFXShader();
             renderer.BuildRenderShader(_shader);
             this.RenderTarget = new RenderTarget2D(viewport.Width, viewport.Height);
-            this.RenderTarget.Create();
+            renderer.CreateRenderTarget(this.RenderTarget);
         }
 
         public void Dispose(PostProcessStack stack, IRenderDevice renderer)
         {
             renderer.DisposeRenderShader(_shader);
-            this.RenderTarget.Dispose();
+            renderer.DisposeRenderTarget(this.RenderTarget);
         }
 
         public void Resize(Viewport viewport, IRenderDevice renderer)
         {
-            this.RenderTarget.Resize(viewport.Width, viewport.Height);
+            renderer.ResizeRenderTarget(this.RenderTarget, viewport.Width, viewport.Height);
         }
 
         public void Update(float deltaTime)

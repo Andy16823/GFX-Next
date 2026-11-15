@@ -268,7 +268,8 @@ namespace LibGFX.Core
             this.ID = Guid.Parse(obj.Value<string>("ID"));
             this.Visible = obj.Value<bool>("Visible");
             this.Enabled = obj.Value<bool>("Enabled");
-            var elementsArray = obj.Value<JArray>("Elements");
+            this.Elements.Clear();
+                        var elementsArray = obj.Value<JArray>("Elements") ?? new JArray();
             foreach (var elementToken in elementsArray)
             {
                 var elementObj = (JObject)elementToken;

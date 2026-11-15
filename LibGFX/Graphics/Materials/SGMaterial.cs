@@ -77,11 +77,6 @@ namespace LibGFX.Graphics.Materials
         public bool IsTransparent => (this.Opacity < 1.0f) || (DiffuseTexture.HasAlpha);
 
         /// <summary>
-        /// Gets or sets the shader used for rendering operations.
-        /// </summary>
-        public RenderShader Shader { get; set; }
-
-        /// <summary>
         /// Gets a value indicating whether the object has been initialized.
         /// </summary>
         public bool IsInitialized { get; private set; } = false;
@@ -112,7 +107,7 @@ namespace LibGFX.Graphics.Materials
         /// </summary>
         /// <param name="name"></param>
         /// <param name="color"></param>
-        public SGMaterial(string name, Vector4 color, RenderShader shaderProgramm)
+        public SGMaterial(string name, Vector4 color)
         {
             Name = name;
             Opacity = 1.0f;
@@ -120,7 +115,6 @@ namespace LibGFX.Graphics.Materials
             DiffuseTexture = new Texture(1, 1, new Vector4i(255, 255, 255, 255));
             NormalTexture = new Texture(1, 1, new Vector4i(128, 128, 255, 255));
             SpecularTexture = new Texture(1, 1, new Vector4i(0, 0, 0, 255));
-            Shader = shaderProgramm;
         }
 
         /// <summary>
@@ -173,51 +167,42 @@ namespace LibGFX.Graphics.Materials
         /// <param name="renderDevice"></param>
         public void Use(IRenderDevice renderDevice)
         {
-            if(this.Shader == null)
-            {
-             throw new InvalidOperationException("Cannot use SGMaterial without a valid shader program.");
-            }
-
-            if(!this.Shader.IsInitialized)
-            {
-                throw new InvalidOperationException("Cannot use SGMaterial with an uninitialized shader program.");
-            }
-
             if (this.IsTransparent)
             {
                 renderDevice.EnableBlend();
                 renderDevice.SetBlendMode((int) BlendingFactor.SrcAlpha, (int) BlendingFactor.OneMinusSrcAlpha);
             }
-            renderDevice.BindShaderProgram(Shader);
+
             renderDevice.PrepareShader("material.shininess", Shininess);
             renderDevice.PrepareShader("material.vertexColor", Color);
             renderDevice.PrepareShader("material.flipNormal", FlipNormal);
             renderDevice.PrepareShader("material.uvScale", UVScale);
+
             if (DiffuseTexture != null)
             {
-                renderDevice.PrepareShader("material.textureSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, DiffuseTexture);
+                renderDevice.PrepareShader("material.textureSampler", 0, DiffuseTexture);
             }
             else
             {
-                renderDevice.PrepareShader("material.textureSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture0, 0);
+                renderDevice.PrepareShader("material.textureSampler", 0, 0);
             }
 
             if (NormalTexture != null)
             {
-                renderDevice.PrepareShader("material.normalSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture1, NormalTexture);
+                renderDevice.PrepareShader("material.normalSampler", 1, NormalTexture);
             }
             else
             {
-                renderDevice.PrepareShader("material.normalSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture1, 0);
+                renderDevice.PrepareShader("material.normalSampler", 1, 0);
             }
 
             if (SpecularTexture != null)
             {
-                renderDevice.PrepareShader("material.specularSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture2, SpecularTexture);
+                renderDevice.PrepareShader("material.specularSampler", 2, SpecularTexture);
             }
             else
             {
-                renderDevice.PrepareShader("material.specularSampler", OpenTK.Graphics.OpenGL4.TextureUnit.Texture2, 0);
+                renderDevice.PrepareShader("material.specularSampler", 2, 0);
             }
 
         }
@@ -232,7 +217,6 @@ namespace LibGFX.Graphics.Materials
             {
                 renderDevice.DisableBlend();
             }
-            renderDevice.UnbindShaderProgram();
         }
 
         /// <summary>
@@ -359,8 +343,6 @@ namespace LibGFX.Graphics.Materials
             writer.WriteValue(this.Name);
             writer.WritePropertyName("ID");
             writer.WriteValue(this.ID.ToString());
-            writer.WritePropertyName("Shader");
-            writer.WriteValue(this.Shader != null ? this.Shader.GetType().FullName : "null");
             writer.WritePropertyName("Color");
             Utils.SerializeVec4(this.Color, writer);
             writer.WritePropertyName("UVScale");
@@ -425,16 +407,6 @@ namespace LibGFX.Graphics.Materials
             this.Opacity = obj.Value<float>("Opacity");
             this.Shininess = obj.Value<float>("Shininess");
 
-            // Shader
-            var shaderType = obj.Value<string>("Shader");
-            if (shaderType != null)
-            {
-                this.Shader = (RenderShader)context.GetFirstOfType(shaderType);
-                if(this.Shader == null)                 {
-                    throw new InvalidOperationException($"Could not find shader of type '{shaderType}' in the serialization context.");
-                }
-            }
-
             // Texture objects
             var texturesObj = obj.Value<JObject>("textures");
             if (texturesObj != null) {
@@ -465,6 +437,11 @@ namespace LibGFX.Graphics.Materials
             }
 
             callback?.Invoke(obj);
+        }
+
+        public MaterialScope Begin(IRenderDevice renderDevice)
+        {
+            return new MaterialScope(this, renderDevice);
         }
     }
 }

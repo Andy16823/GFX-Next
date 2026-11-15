@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibGFX.Graphics.RenderTarget;
 
 namespace LibGFX.Graphics.PostProcessing
 {
@@ -22,7 +23,7 @@ namespace LibGFX.Graphics.PostProcessing
             int width = (int)viewport.Width;
             int height = (int)viewport.Height;
             _bufferA = new RenderTarget2D(width, height);
-            _bufferA.Create();
+            renderer.CreateRenderTarget(_bufferA);
             this.Filter.ForEach(f => f.Init(this, viewport, renderer));
         }
 
@@ -37,15 +38,16 @@ namespace LibGFX.Graphics.PostProcessing
             });
 
             // Finally, render the result to the main buffer
-            renderer.BindRenderTarget(_bufferA);
-            renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
-            renderer.DrawRenderTarget(lastTexture, _bufferA.FramebufferId);
-            renderer.UnbindRenderTarget();
+            using (_bufferA.Begin(renderer))
+            {
+                renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
+                renderer.DrawRenderTarget(lastTexture, _bufferA.FramebufferId);
+            }
         }
 
         public void Dispose(IRenderDevice renderer)
         {
-            _bufferA.Dispose();
+            renderer.DisposeRenderTarget(_bufferA);
             this.Filter.ForEach(f => f.Dispose(this, renderer));
         }
 
@@ -53,7 +55,7 @@ namespace LibGFX.Graphics.PostProcessing
         {
             int width = (int)viewport.Width;
             int height = (int)viewport.Height;
-            _bufferA.Resize(width, height);
+            renderer.ResizeRenderTarget(_bufferA, width, height);
             this.Filter.ForEach(f => f.Resize(viewport, renderer));
         }
 

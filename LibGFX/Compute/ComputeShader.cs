@@ -16,7 +16,7 @@ namespace LibGFX.Compute
     /// <remarks>Use this class to manage the source and configuration of a compute shader for GPU-based
     /// parallel processing tasks. The properties provide access to the shader's source code, the number of invocations,
     /// and the program identifier required for execution within a graphics or compute API.</remarks>
-    public class ComputeShader : IShaderProgram, IIdentifier, IAsset
+    public abstract class ComputeShader : IShaderProgram, IIdentifier, IAsset
     {
         /// <summary>
         /// Name of the compute shader.
@@ -71,6 +71,11 @@ namespace LibGFX.Compute
         public void FreeCPUResources()
         {
             // Nothing to free for now.
+        }
+
+        public ShaderScope Begin(IRenderDevice renderDevice)
+        {
+            return new ShaderScope(this, renderDevice);
         }
     }
 }

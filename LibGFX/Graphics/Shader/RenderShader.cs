@@ -11,7 +11,7 @@ namespace LibGFX.Graphics.Shader
     /// <summary>
     /// Represents a shader program that consists of a vertex shader and a fragment shader.
     /// </summary>
-    public class RenderShader : IShaderProgram, IAsset
+    public abstract class RenderShader : IShaderProgram, IAsset
     {
         /// <summary>
         /// Gets or sets the ID of the shader program.
@@ -91,6 +91,11 @@ namespace LibGFX.Graphics.Shader
         public void FreeCPUResources()
         {
             // No CPU resources to free in the ShaderProgram class.
+        }
+
+        public ShaderScope Begin(IRenderDevice renderDevice)
+        {
+            return new ShaderScope(this, renderDevice);
         }
     }
 }

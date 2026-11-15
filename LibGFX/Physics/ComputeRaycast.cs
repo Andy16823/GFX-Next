@@ -67,7 +67,7 @@ namespace LibGFX.Physics
 
             Debug.WriteLine("Creating result buffer...");
             _resultBuffer = renderDevice.CreateBuffer();
-            renderDevice.SetBufferData<ComputeHitResult>(_resultBuffer, new ComputeHitResult[1], RenderFlags.GFXBufferTarget.ShaderStorageBuffer, RenderFlags.GFXBufferUsageHint.DynamicRead);
+            renderDevice.SetBufferData<ComputeHitResult>(_resultBuffer, new ComputeHitResult[1], GFXBufferTarget.ShaderStorageBuffer, GFXBufferUsageHint.DynamicRead);
             Debug.WriteLine($"Compute Raycast initialized. Result Buffer ID: {_resultBuffer} Error: {renderDevice.GetError()}");
         }
 
@@ -109,40 +109,41 @@ namespace LibGFX.Physics
             // Combine mesh local transform with provided transform
             Matrix4 modelMatrix = mesh.GetTransform() * transform.GetMatrix();
 
-            // Bind and set up compute shader
-            _renderer.BindShaderProgram(_raytestShader);
-            _renderer.PrepareShader("rayOrigin", ray.Origin);
-            _renderer.PrepareShader("rayDir", ray.Direction);
-            _renderer.PrepareShader("modelMatrix", true, modelMatrix);
-
-            // Bind buffers
-            _renderer.BindShaderStorageBuffer(0, mesh.RenderData.PositionBuffer);
-            _renderer.BindShaderStorageBuffer(1, mesh.RenderData.IndexBuffer);
-            _renderer.BindShaderStorageBuffer(2, _resultBuffer);
-
-            // Dispatch compute shader and set memory barrier to ensure completion
-            _renderer.DispatchCompute(1, 1, 1);
-            _renderer.MemoryBarrier(RenderFlags.GFXMemoryBarrierFlags.ShaderStorageBarrierBit);
-
-            // Retrieve hit result
-            ComputeHitResult hit = _renderer.GetBufferData<ComputeHitResult>(_resultBuffer, 1, RenderFlags.GFXBufferTarget.ShaderStorageBuffer)[0];
-            if (hit.TriangleIndex == -1)
+            using (_raytestShader.Begin(_renderer))
             {
-                // No hit detected
-                return new HitResult { hit = false };
-            }
+                _renderer.PrepareShader("rayOrigin", ray.Origin);
+                _renderer.PrepareShader("rayDir", ray.Direction);
+                _renderer.PrepareShader("modelMatrix", true, modelMatrix);
 
-            // Return positive hit result
-            return new HitResult
-            {
-                hit = true,
-                rayStart = ray.Origin,
-                rayEnd = ray.Origin + ray.Direction * hit.Normal.W,
-                hitTriangleIndex = hit.TriangleIndex,
-                hitNormal = new Vector3(hit.Normal.X, hit.Normal.Y, hit.Normal.Z),
-                hitLocation = new Vector3(hit.Position.X, hit.Position.Y, hit.Position.Z),
-                hitDistance = hit.Normal.W
-            };
+                // Bind buffers
+                _renderer.BindShaderStorageBuffer(0, mesh.RenderData.PositionBuffer);
+                _renderer.BindShaderStorageBuffer(1, mesh.RenderData.IndexBuffer);
+                _renderer.BindShaderStorageBuffer(2, _resultBuffer);
+
+                // Dispatch compute shader and set memory barrier to ensure completion
+                _renderer.DispatchCompute(1, 1, 1);
+                _renderer.MemoryBarrier(GFXMemoryBarrierFlags.ShaderStorageBarrierBit);
+
+                // Retrieve hit result
+                ComputeHitResult hit = _renderer.GetBufferData<ComputeHitResult>(_resultBuffer, 1, GFXBufferTarget.ShaderStorageBuffer)[0];
+                if (hit.TriangleIndex == -1)
+                {
+                    // No hit detected
+                    return new HitResult { hit = false };
+                }
+
+                // Return positive hit result
+                return new HitResult
+                {
+                    hit = true,
+                    rayStart = ray.Origin,
+                    rayEnd = ray.Origin + ray.Direction * hit.Normal.W,
+                    hitTriangleIndex = hit.TriangleIndex,
+                    hitNormal = new Vector3(hit.Normal.X, hit.Normal.Y, hit.Normal.Z),
+                    hitLocation = new Vector3(hit.Position.X, hit.Position.Y, hit.Position.Z),
+                    hitDistance = hit.Normal.W
+                };
+            }           
         }
 
         /// <summary>
@@ -166,46 +167,48 @@ namespace LibGFX.Physics
 
             // Create temporary buffer for hit result
             int hitBuffer = renderer.CreateBuffer();
-            renderer.SetBufferData<ComputeHitResult>(hitBuffer, new ComputeHitResult[1], RenderFlags.GFXBufferTarget.ShaderStorageBuffer, RenderFlags.GFXBufferUsageHint.DynamicRead);
+            renderer.SetBufferData<ComputeHitResult>(hitBuffer, new ComputeHitResult[1], GFXBufferTarget.ShaderStorageBuffer, GFXBufferUsageHint.DynamicRead);
 
             // Bind and set up compute shader
-            renderer.BindShaderProgram(shader);
-            renderer.PrepareShader("rayOrigin", ray.Origin);
-            renderer.PrepareShader("rayDir", ray.Direction);
-            renderer.PrepareShader("modelMatrix", true, modelMatrix);
-
-            // Bind buffers
-            renderer.BindShaderStorageBuffer(0, mesh.RenderData.PositionBuffer);
-            renderer.BindShaderStorageBuffer(1, mesh.RenderData.IndexBuffer);
-            renderer.BindShaderStorageBuffer(2, hitBuffer);
-
-            // Dispatch compute shader and set memory barrier to ensure completion
-            renderer.DispatchCompute(1, 1, 1);
-            renderer.MemoryBarrier(RenderFlags.GFXMemoryBarrierFlags.ShaderStorageBarrierBit);
-
-            // Retrieve hit result
-            ComputeHitResult hit = renderer.GetBufferData<ComputeHitResult>(hitBuffer, 1, RenderFlags.GFXBufferTarget.ShaderStorageBuffer)[0];
-
-            // Clean up temporary buffer
-            renderer.DisposeBuffer(hitBuffer);
-
-            // Check for no hit
-            if (hit.TriangleIndex == -1)
+            using(shader.Begin(renderer))
             {
-                return new HitResult { hit = false };
-            }
+                renderer.PrepareShader("rayOrigin", ray.Origin);
+                renderer.PrepareShader("rayDir", ray.Direction);
+                renderer.PrepareShader("modelMatrix", true, modelMatrix);
 
-            // Else , return positive hit result
-            return new HitResult
-            {
-                hit = true,
-                rayStart = ray.Origin,
-                rayEnd = ray.Origin + ray.Direction * hit.Normal.W,
-                hitTriangleIndex = hit.TriangleIndex,
-                hitNormal = new Vector3(hit.Normal.X, hit.Normal.Y, hit.Normal.Z),
-                hitLocation = new Vector3(hit.Position.X, hit.Position.Y, hit.Position.Z),
-                hitDistance = hit.Normal.W
-            };
+                // Bind buffers
+                renderer.BindShaderStorageBuffer(0, mesh.RenderData.PositionBuffer);
+                renderer.BindShaderStorageBuffer(1, mesh.RenderData.IndexBuffer);
+                renderer.BindShaderStorageBuffer(2, hitBuffer);
+
+                // Dispatch compute shader and set memory barrier to ensure completion
+                renderer.DispatchCompute(1, 1, 1);
+                renderer.MemoryBarrier(GFXMemoryBarrierFlags.ShaderStorageBarrierBit);
+
+                // Retrieve hit result
+                ComputeHitResult hit = renderer.GetBufferData<ComputeHitResult>(hitBuffer, 1, GFXBufferTarget.ShaderStorageBuffer)[0];
+
+                // Clean up temporary buffer
+                renderer.DisposeBuffer(hitBuffer);
+
+                // Check for no hit
+                if (hit.TriangleIndex == -1)
+                {
+                    return new HitResult { hit = false };
+                }
+
+                // Else , return positive hit result
+                return new HitResult
+                {
+                    hit = true,
+                    rayStart = ray.Origin,
+                    rayEnd = ray.Origin + ray.Direction * hit.Normal.W,
+                    hitTriangleIndex = hit.TriangleIndex,
+                    hitNormal = new Vector3(hit.Normal.X, hit.Normal.Y, hit.Normal.Z),
+                    hitLocation = new Vector3(hit.Position.X, hit.Position.Y, hit.Position.Z),
+                    hitDistance = hit.Normal.W
+                };
+            }            
         }
     }
 }

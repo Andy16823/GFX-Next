@@ -36,6 +36,11 @@ namespace LibGFX.Physics.Behaviors3D
             var halfExtends = new System.Numerics.Vector3(0.5f, 0.5f, 0.5f);
             var element = this.Parent;
 
+            if (MotionType == BodyMotionType.Kinematic || MotionType == BodyMotionType.Static)
+            {
+                mass = 0f;
+            }
+
             BoxShape boxShape = new BoxShape(halfExtends);
             RigidBodyConstructionInfo info = new RigidBodyConstructionInfo(mass, null, boxShape, boxShape.CalculateLocalInertia(mass));
             var btStartTransform = Utils.GetBtTransform(element, this.Offset);
@@ -45,6 +50,12 @@ namespace LibGFX.Physics.Behaviors3D
             RigidBody.UserObject = element;
             RigidBody.ApplyGravity();
             RigidBody.CollisionShape.LocalScaling = (System.Numerics.Vector3)element.Transform.Scale;
+
+            if (MotionType == BodyMotionType.Kinematic)
+            {
+                RigidBody.ActivationState = ActivationState.DisableDeactivation;
+                RigidBody.CollisionFlags |= CollisionFlags.KinematicObject;
+            }
 
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
             info.Dispose();

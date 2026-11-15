@@ -21,7 +21,6 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using static BulletSharp.Dbvt;
-using static LibGFX.Graphics.RenderFlags;
 
 namespace LibGFX.Core
 {
@@ -274,27 +273,6 @@ namespace LibGFX.Core
             var localPosition = Vector3.TransformPosition(worldPosition, inverseModelMatrix);
             return localPosition;
         }
-
-        /// <summary>
-        /// Selects the most appropriate depth and/or stencil renderbuffer storage format based on the specified
-        /// requirements.
-        /// </summary>
-        /// <param name="depth">true to request a format that supports depth buffering; otherwise, false.</param>
-        /// <param name="stencil">true to request a format that supports stencil buffering; otherwise, false.</param>
-        /// <returns>A GFXRenderbufferStorage value representing the best matching format for the requested depth and stencil
-        /// support.</returns>
-        /// <exception cref="ArgumentException">Thrown if both depth and stencil are false, as at least one must be requested.</exception>
-        public static GFXRenderbufferStorage GetBestDepthStencilFormat(bool depth, bool stencil)
-        {
-            return (depth, stencil) switch
-            {
-                (true, true) => GFXRenderbufferStorage.Depth24Stencil8,
-                (true, false) => GFXRenderbufferStorage.DepthComponent24,
-                (false, true) => GFXRenderbufferStorage.StencilIndex8,
-                _ => throw new ArgumentException("At least one of depth or stencil must be true.")
-            };
-        }
-
 
         /// <summary>
         /// Recursively searches the scene graph starting from the specified node for a node with the given name.
@@ -576,6 +554,7 @@ namespace LibGFX.Core
                 ?? throw new JsonException("Missing Type");
 
             Type type = Type.GetType(typeName)
+                            ?? AppDomain.CurrentDomain.GetAssemblies().Select(a => a.GetType(typeName)).FirstOrDefault(t => t != null)
                 ?? throw new Exception($"Type '{typeName}' not found.");
 
             var element = (GameElement)Activator.CreateInstance(type);

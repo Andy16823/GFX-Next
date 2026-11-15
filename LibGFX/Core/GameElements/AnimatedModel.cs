@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using LibGFX.Math;
 using OpenTK.Mathematics;
 using System.Diagnostics;
+using LibGFX.Graphics.Shader;
 
 namespace LibGFX.Core.GameElements
 {
@@ -17,9 +18,14 @@ namespace LibGFX.Core.GameElements
     public class AnimatedModel : GameElement
     {
         /// <summary>
+        /// Shader used for rendering the animated model
+        /// </summary>
+        public RenderShader Shader { get; set; }
+
+        /// <summary>
         /// The skinned mesh model
         /// </summary>
-        private Graphics.SkinnedMeshModel _model;
+        private SkinnedMeshModel _model;
 
         /// <summary>
         /// The animator for this model
@@ -47,7 +53,7 @@ namespace LibGFX.Core.GameElements
         /// </summary>
         /// <param name="name"></param>
         /// <param name="model"></param>
-        public AnimatedModel(String name, Graphics.SkinnedMeshModel model)
+        public AnimatedModel(String name, SkinnedMeshModel model)
         {
             this.Name = name;
             this.Animator = new Animator();
@@ -60,7 +66,7 @@ namespace LibGFX.Core.GameElements
         /// <param name="name"></param>
         /// <param name="position"></param>
         /// <param name="model"></param>
-        public AnimatedModel(String name, Vector3 position, Graphics.SkinnedMeshModel model)
+        public AnimatedModel(String name, Vector3 position, SkinnedMeshModel model)
         {
             this.Name = name;
             this.Transform.Position = position;
@@ -75,13 +81,28 @@ namespace LibGFX.Core.GameElements
         /// <param name="position"></param>
         /// <param name="scale"></param>
         /// <param name="model"></param>
-        public AnimatedModel(String name, Vector3 position, Vector3 scale, Graphics.SkinnedMeshModel model)
+        public AnimatedModel(String name, Vector3 position, Vector3 scale, SkinnedMeshModel model)
         {
             this.Name = name;
             this.Transform.Position = position;
             this.Transform.Scale = scale;
             this.Animator = new Animator();
             _model = model;
+        }
+
+        /// <summary>
+        /// Initializes the animated model, setting up its shader and preparing it for rendering.
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
+        {
+            base.Init(scene, viewport, renderer);
+            if (this.Shader == null)
+            {
+                this.Shader = renderer.GetRenderShader("AnimatedMeshShader");
+            }
         }
 
         /// <summary>
@@ -118,18 +139,23 @@ namespace LibGFX.Core.GameElements
                 var transform = this.GetWorldTransform();
 
                 // Draw each mesh of the model
-                foreach (var (mesh, material) in _model.Meshes)
+                foreach (var meshMaterialPair in _model.Meshes)
                 {
-                    // Bind material and set shader uniforms
-                    material.Use(renderer);
-                    scene.LightManager?.BindLights(viewport, renderer, camera);
-                    renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
-                    renderer.PrepareShader("viewPos", camera.Transform.Position);
+                    var mesh = meshMaterialPair.Mesh;
+                    var material = meshMaterialPair.Material;
+                    using (Shader.Begin(renderer))
+                    {
+                        using (var scope = material.Begin(renderer))
+                        {
+                            scene.LightManager?.BindLights(viewport, renderer, camera);
+                            renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
+                            renderer.PrepareShader("viewPos", camera.Transform.Position);
 
-                    // Draw the mesh and update stats and unbind material
-                    renderer.DrawMesh(transform, mesh);
-                    scene.RenderStats.IncrementDrawCalls();
-                    material.Disable(renderer);
+                            // Draw the mesh and update stats and unbind material
+                            renderer.DrawMesh(transform, mesh);
+                            scene.RenderStats.IncrementDrawCalls();
+                        }
+                    }                    
                 }
             }
         }
@@ -147,14 +173,17 @@ namespace LibGFX.Core.GameElements
                 base.RenderShadow(scene, viewport, renderer);
                 var transform = this.GetWorldTransform();
                 var shader = renderer.GetRenderShader("AnimatedDepthMeshShader");
-                renderer.BindShaderProgram(shader);
-                renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
-                foreach (var (mesh, material) in _model.Meshes)
+
+                using(shader.Begin(renderer))
                 {
-                    renderer.DrawMesh(transform, mesh);
-                    scene.RenderStats.IncrementDrawCalls();
+                    renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
+                    foreach (var meshMaterialPair in _model.Meshes)
+                    {
+                        var mesh = meshMaterialPair.Mesh;
+                        renderer.DrawMesh(transform, mesh);
+                        scene.RenderStats.IncrementDrawCalls();
+                    }
                 }
-                renderer.UnbindShaderProgram();
             }
         }
 
@@ -170,10 +199,10 @@ namespace LibGFX.Core.GameElements
                 return;
             }
 
-            AABB aabb = _model.Meshes[0].Item1.Bounds;
+            AABB aabb = _model.Meshes[0].Mesh.Bounds;
             for (int i = 1; i < _model.Meshes.Count; i++)
             {
-                aabb = AABB.Combine(aabb, _model.Meshes[i].Item1.Bounds);
+                aabb = AABB.Combine(aabb, _model.Meshes[i].Mesh.Bounds);
             }
             this.AABB = aabb;
         }

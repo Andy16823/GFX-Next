@@ -9,6 +9,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibGFX.Graphics.RenderTarget;
+using LibGFX.Graphics.Shader;
 
 namespace LibGFX.UI
 {
@@ -75,7 +77,7 @@ namespace LibGFX.UI
         {
             Debug.WriteLine($"Disposing {this.Name} Label");
             this.DisposeEvents();
-            this.RenderTarget.Dispose();
+            renderer.DisposeRenderTarget(this.RenderTarget);
         }
 
         /// <summary>
@@ -86,7 +88,7 @@ namespace LibGFX.UI
         public override void Init(IRenderDevice renderer, Canvas canvas)
         {
             this.RenderTarget = new RenderTarget2D((int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
-            this.RenderTarget.Create();
+            renderer.CreateRenderTarget(this.RenderTarget);
         }
 
         /// <summary>
@@ -101,7 +103,7 @@ namespace LibGFX.UI
             // Set the camera to the size of the label
             _camera.Transform.Scale = new Vector3(this.Transform.Scale.X, this.Transform.Scale.Y, 0);
             _viewport = new Viewport((int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
-            this.RenderTarget.Resize(_viewport.Width, _viewport.Height);
+            renderer.ResizeRenderTarget(this.RenderTarget, _viewport.Width, _viewport.Height);
 
             // Set the camera to the size of the label
             renderer.SetViewport(_viewport);
@@ -109,14 +111,17 @@ namespace LibGFX.UI
             renderer.SetViewMatrix(_camera.GetViewMatrix());
 
             // Render the text to the render target
-            renderer.BindRenderTarget(this.RenderTarget);
-            renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
+            using (this.RenderTarget.Begin(renderer))
+            {
+                renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+                renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
 
-            renderer.BindShaderProgram(renderer.GetRenderShader("FontShader"));
-            renderer.DrawString2D(this.Text, new Vector2(0, 0), this.Font, new Vector4(1, 1, 1, 1), this.FontScale, this.Alignment);
-            renderer.UnbindShaderProgram();
-            renderer.UnbindRenderTarget();
+                var shader = renderer.GetRenderShader<FontShader>();
+                using (shader.Begin(renderer))
+                {
+                    renderer.DrawString2D(this.Text, new Vector2(0, 0), this.Font, new Vector4(1, 1, 1, 1), this.FontScale, this.Alignment);
+                }
+            }
         }
 
         /// <summary>

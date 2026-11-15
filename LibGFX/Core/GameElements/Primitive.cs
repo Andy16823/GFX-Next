@@ -24,6 +24,10 @@ namespace LibGFX.Core.GameElements
     public class Primitive : GameElement
     {
         /// <summary>
+        /// Shader used for rendering the primitive. If not set, the default shader will be used.
+        /// </summary>
+        public RenderShader Shader { get; set; }
+        /// <summary>
         /// Gets or sets the mesh geometry associated with this object.
         /// </summary>
         public Mesh Mesh { get; set; }
@@ -70,6 +74,10 @@ namespace LibGFX.Core.GameElements
         {
             // Get the primitive mesh based on the primitive type
             base.Init(scene, viewport, renderer);
+            if (this.Shader == null)
+            {
+                this.Shader = renderer.GetRenderShader<MeshShader>();
+            }
         }
 
         /// <summary>
@@ -88,20 +96,16 @@ namespace LibGFX.Core.GameElements
 
                 // Get the world transform matrix
                 var transform = this.GetWorldTransform();
-
-                // Use the appropriate material (override or mesh material)
-                Material.Use(renderer);
-
-                // Prepare shader uniforms
-                renderer.PrepareShader("viewPos", camera.Transform.Position);
-                scene.LightManager?.BindLights(viewport, renderer, camera);
-
-                // Draw the mesh and update render statistics
-                renderer.DrawMesh(transform, Mesh);
-                scene.RenderStats.IncrementDrawCalls();
-
-                // Disable the material after rendering
-                Material.Disable(renderer);
+                using (Shader.Begin(renderer))
+                {
+                    using (var scope = Material.Begin(renderer))
+                    {
+                        renderer.PrepareShader("viewPos", camera.Transform.Position);
+                        scene.LightManager?.BindLights(viewport, renderer, camera);
+                        renderer.DrawMesh(transform, Mesh);
+                        scene.RenderStats.IncrementDrawCalls();
+                    }
+                }
             }
         }
 
@@ -118,11 +122,12 @@ namespace LibGFX.Core.GameElements
                 base.RenderShadow(scene, viewport, renderer);
 
                 // Use the depth mesh shader for shadow rendering
-                var shader = renderer.GetRenderShader("DepthMeshShader");
-                renderer.BindShaderProgram(shader);
-                renderer.DrawMesh(Transform, Mesh);
-                scene.RenderStats.IncrementDrawCalls();
-                renderer.UnbindShaderProgram();
+                var shader = renderer.GetRenderShader<DepthMeshShader>();
+                using (shader.Begin(renderer))
+                {
+                    renderer.DrawMesh(Transform, Mesh);
+                    scene.RenderStats.IncrementDrawCalls();
+                }
             }
         }
 

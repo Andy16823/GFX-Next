@@ -52,6 +52,11 @@ namespace LibGFX.Physics.Behaviors
         public float Friction { get => RigidBody.Friction; set => RigidBody.Friction = value; }
 
         /// <summary>
+        /// Sets the motion type of the rigid body. This determines how the rigid body behaves in the physics simulation.
+        /// </summary>
+        public BodyMotionType MotionType { get; set; } = BodyMotionType.Dynamic;
+
+        /// <summary>
         /// Creates a new 3D rigid body
         /// </summary>
         /// <param name="physicsHandler"></param>
@@ -165,8 +170,11 @@ namespace LibGFX.Physics.Behaviors
         /// </summary>
         public void Sync()
         {
-            var btTransform = Utils.GetBtTransform(Parent, Offset);
-            RigidBody.WorldTransform = btTransform;
+            var transform = Utils.GetBtTransform(Parent, Offset);
+
+            RigidBody.WorldTransform = transform;
+            RigidBody.MotionState.SetWorldTransform(ref transform);
+            RigidBody.Activate();
         }
 
         /// <summary>
@@ -175,7 +183,10 @@ namespace LibGFX.Physics.Behaviors
         /// <param name="translation"></param>
         public void Translate(Vector3 translation)
         {
-            RigidBody.Translate((System.Numerics.Vector3)translation);
+            var transform = RigidBody.WorldTransform;
+            transform.Translation += (System.Numerics.Vector3)translation;
+
+            SetWorldTransform(transform);
         }
 
         /// <summary>
@@ -185,7 +196,9 @@ namespace LibGFX.Physics.Behaviors
         public void Rotate(Vector3 rotation)
         {
             var radRotation = Utils.ToRadians(rotation);
-            this.Rotate(Quaternion.FromEulerAngles(radRotation));
+            var quaternion = Quaternion.FromEulerAngles(radRotation);
+
+            Rotate(quaternion);
         }
 
         /// <summary>
@@ -194,17 +207,40 @@ namespace LibGFX.Physics.Behaviors
         /// <param name="rotation"></param>
         public void Rotate(Quaternion rotation)
         {
-            System.Numerics.Matrix4x4 transform = this.RigidBody.WorldTransform;
-            transform.SetRotation((System.Numerics.Quaternion) rotation, out transform);
-            this.RigidBody.WorldTransform = transform;
+            var transform = RigidBody.WorldTransform;
+            transform.SetRotation(
+                (System.Numerics.Quaternion)rotation,
+                out transform
+            );
+
+            SetWorldTransform(transform);
         }
 
+        /// <summary>
+        /// Sets the world transform of the rigid body
+        /// </summary>
+        /// <param name="transform"></param>
+        public void SetWorldTransform(System.Numerics.Matrix4x4 transform)
+        {
+            RigidBody.WorldTransform = transform;
+            RigidBody.MotionState.SetWorldTransform(ref transform);
+            RigidBody.Activate();
+        }
+
+        /// <summary>
+        /// Returns the current rotation of the rigid body as a quaternion
+        /// </summary>
+        /// <returns></returns>
         public Quaternion GetRotation()
         {
             var rotation = RigidBody.WorldTransform.GetBasis();
             return (Quaternion) System.Numerics.Quaternion.CreateFromRotationMatrix(rotation);
         }
 
+        /// <summary>
+        /// Returns the current location of the rigid body
+        /// </summary>
+        /// <returns></returns>
         public Vector3 GetLocation()
         {
             return (Vector3) RigidBody.WorldTransform.Translation;

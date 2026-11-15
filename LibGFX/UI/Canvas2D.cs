@@ -1,5 +1,7 @@
 ﻿using LibGFX.Core;
 using LibGFX.Graphics;
+using LibGFX.Graphics.RenderTarget;
+using LibGFX.Graphics.Shader;
 using LibGFX.Math;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
@@ -47,7 +49,7 @@ namespace LibGFX.UI
         public override void Dispose(IRenderDevice renderer)
         {
             Debug.WriteLine($"Disposing {this.Name} Canvas2D");
-            this.RenderTarget.Dispose();
+            renderer.DisposeRenderTarget(_renderTarget);
             foreach (var control in this.Controls.Values)
             {
                 control.Dispose(renderer, this);
@@ -61,7 +63,7 @@ namespace LibGFX.UI
         public override void Init(IRenderDevice renderer)
         {
             _renderTarget = new RenderTarget2D((int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
-            _renderTarget.Create();
+            renderer.CreateRenderTarget(_renderTarget);
             foreach (var control in this.Controls.Values)
             {
                 control.Init(renderer, this);
@@ -87,35 +89,32 @@ namespace LibGFX.UI
             renderer.SetViewMatrix(this.Camera.GetViewMatrix());
 
             // Render the canvas to the render target
-            _renderTarget.Resize((int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
-            renderer.BindRenderTarget(_renderTarget);
-            renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-            renderer.Clear(RenderFlags.ClearFlags.Color | RenderFlags.ClearFlags.Depth);
-
-            foreach (var control in this.Controls.Values)
+            renderer.ResizeRenderTarget(_renderTarget, (int)this.Transform.Scale.X, (int)this.Transform.Scale.Y);
+            using (_renderTarget.Begin(renderer))
             {
-                // Render the control to the render target
-                control.Render(renderer, this);
+                renderer.ClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+                renderer.Clear(GFXClearFlags.Color | GFXClearFlags.Depth);
 
-                // Bind the canvas render target
-                renderer.BindRenderTarget(this.RenderTarget);
+                foreach (var control in this.Controls.Values)
+                {
+                    // Render the control to the render target
+                    control.Render(renderer, this);
 
-                // Reset the camera and viewport
-                renderer.SetProjectionMatrix(this.Camera.GetProjectionMatrix(viewport));
-                renderer.SetViewMatrix(this.Camera.GetViewMatrix());
-                renderer.SetViewport(viewport);
+                    // Reset the camera and viewport
+                    renderer.SetProjectionMatrix(this.Camera.GetProjectionMatrix(viewport));
+                    renderer.SetViewMatrix(this.Camera.GetViewMatrix());
+                    renderer.SetViewport(viewport);
 
-                // Draw the render target to the screen
-                renderer.BindShaderProgram(renderer.GetRenderShader("SpriteShader"));
-                renderer.DrawTexture(control.Transform, control.RenderTarget.TextureId, new Vector4(1, 1, 1, 1), new Vector4(1, 1, 0, 0), Vector2.One);
-                renderer.UnbindShaderProgram();
+                    // Draw the render target to the screen
+                    var shader = renderer.GetRenderShader<SpriteShader>();
+                    using(shader.Begin(renderer))
+                    {
+                        renderer.DrawTexture(control.Transform, control.RenderTarget.TextureId, new Vector4(1, 1, 1, 1), new Vector4(1, 1, 0, 0), Vector2.One);
+                    }
+                }
+
+                this.ProcessRenderActions(viewport, renderer);
             }
-
-            // Process any registered render scopes
-            this.ProcessRenderActions(viewport, renderer);
-
-            // Unbind the render target and set the depth test state back to the original state
-            renderer.UnbindRenderTarget();
             renderer.SetDepthTest(depthTest);
         }
 

@@ -1,30 +1,14 @@
 ﻿using LibGFX.Compute;
 using LibGFX.Core;
-using LibGFX.Graphics.Lights;
-using LibGFX.Graphics.Materials;
+using LibGFX.Graphics.RenderTarget;
 using LibGFX.Graphics.Shader;
 using LibGFX.Graphics.Shapes;
 using LibGFX.Math;
-using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Desktop;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rect = LibGFX.Math.Rect;
 
 namespace LibGFX.Graphics
 {
-    public enum CullMode
-    {
-        Front,
-        Back,
-        None,
-        FrontAndBack
-    }
-
     public interface IRenderDevice
     {
         void Init(IGLFWGraphicsContext context);
@@ -45,19 +29,20 @@ namespace LibGFX.Graphics
         (int srcFactor, int dstFactor) GetCurrentBlendMode();
         void SetBlendMode(int srcFactor, int dstFactor);
         void DisableBlend();
-        CullMode GetCullMode();
-        void SetCullMode(CullMode mode);
+        GFXCullMode GetCullMode();
+        void SetCullMode(GFXCullMode mode);
         void SetViewport(Viewport viewport);
         Viewport GetViewport();
         void SetViewMatrix(Matrix4 matrix);
         void SetProjectionMatrix(Matrix4 matrix);
         Matrix4 GetViewMatrix();
         Matrix4 GetProjectionMatrix();
-        void Clear(RenderFlags.ClearFlags clearFlags);
+        void Clear(GFXClearFlags clearFlags);
         void ClearColor(float r, float g, float b, float a);
         void Flush();
         void BindRenderTarget(IRenderTarget renderTarget); 
         void UnbindRenderTarget();
+        void BindRenderTarget(int framebuffer, bool force = false);
         int GetCurrentRenderTargetID();
         int GetFramebufferIndex();
         void BuildRenderShader(RenderShader shaderProgram);
@@ -78,8 +63,15 @@ namespace LibGFX.Graphics
         Dictionary<String, RenderShader> GetAllRenderShaders();
         T GetRenderShader<T>() where T : RenderShader;
         void BindShaderProgram(IShaderProgram shaderProgram);
+        void BindShaderProgram(int shaderProgramId);
         void UnbindShaderProgram();
+        int GetCurrentShaderProgramId();
         int GetUniformLocation(int program, String name);
+        void CreateRenderTarget(IRenderTarget renderTarget);
+        void ResizeRenderTarget(IRenderTarget renderTarget, int width, int height);
+        void BlitRenderTarget(MSAARenderTarget2D source);
+        byte[] ReadPixels(IRenderTarget renderTarget);
+        void DisposeRenderTarget(IRenderTarget renderTarget);
         void LoadTexture(Texture texture);
         void LoadTexture(Texture texture, TextureParameters textureOptions);
         int CreateArrayTexture(int width, int height, int layers, int mipLevels);
@@ -89,8 +81,6 @@ namespace LibGFX.Graphics
         void DisposeTexture(Texture texture);
         void DisposeTexture(int textureId);
         void DisposeCubemap(Cubemap cubemap);
-        void DrawRenderTarget(RenderTarget2D renderTarget);
-        void DrawRenderTarget(MSAARenderTarget2D renderTarget);
         void DrawRenderTarget(int textureId);
         void DrawFullScreenQuad();
         void DrawRenderTarget(RenderTarget2D renderTarget, int framebuffer);
@@ -107,7 +97,7 @@ namespace LibGFX.Graphics
         void DrawTexture(Transform transform, int textureId, Vector4 color, Vector4 uvTransform, Vector2 uvScale);
         void DrawPrimitive(Transform tansform, Primitives.PrimitiveType type, Vector4 color);
         void DrawCubemap(Transform transform, Cubemap cubemap, Vector4 color);
-        void DrawVertexArray(Transform transform, int vertexBuffer, int vertexCount, RenderFlags.PrimitiveTypes primitiveTypes);
+        void DrawVertexArray(Transform transform, int vertexBuffer, int vertexCount, GFXPrimitiveTypes primitiveTypes);
         Font LoadFont(String path, int fontsize = 48);
         void DrawString2D(String text, Vector2 position, Font font, Vector4 color, float scale = 1.0f, FontAlignment alignment = FontAlignment.BottomLeft);
         void DisposeFont(Font font);
@@ -126,33 +116,33 @@ namespace LibGFX.Graphics
         int CreateBuffer();
         int CreateVertexBuffer<T>(T[] data, bool dynamic = false) where T : unmanaged;
         int CreateElementBuffer(int[] data, bool dynamic = false);
-        void BindBuffer(RenderFlags.GFXBufferTarget target, int buffer);
-        void SetBufferSize(int buffer, int size, RenderFlags.GFXBufferTarget target, RenderFlags.GFXBufferUsageHint bufferUsageHint);
+        void BindBuffer(GFXBufferTarget target, int buffer);
+        void SetBufferSize(int buffer, int size, GFXBufferTarget target, GFXBufferUsageHint bufferUsageHint);
         void BindVertexBuffer(int buffer);
         void BindElementBuffer(int buffer);
-        void SetBufferData<T>(int buffer, T[] data, RenderFlags.GFXBufferTarget target, RenderFlags.GFXBufferUsageHint bufferUsageHint) where T : unmanaged;
+        void SetBufferData<T>(int buffer, T[] data, GFXBufferTarget target, GFXBufferUsageHint bufferUsageHint) where T : unmanaged;
         void SetVertexBufferData<T>(int buffer, T[] data, bool dynamic = false) where T : unmanaged;
         void SetElementBufferData(int buffer, int[] data, bool dynamic = false);
-        void UpdateBufferData<T>(int buffer, T[] data, int offset, RenderFlags.GFXBufferTarget target) where T : unmanaged;
+        void UpdateBufferData<T>(int buffer, T[] data, int offset, GFXBufferTarget target) where T : unmanaged;
         void UpdateVertexBufferData<T>(int buffer, T[] data, int offset) where T : unmanaged;
         void UpdateElementBufferData(int buffer, int[] data, int offset);
-        T[] GetBufferData<T>(int buffer, int length, RenderFlags.GFXBufferTarget target) where T : unmanaged;
+        T[] GetBufferData<T>(int buffer, int length, GFXBufferTarget target) where T : unmanaged;
         void DisposeBuffer(int buffer);
-        [Obsolete("Use BindBufferBase with RenderFlags.GFXBufferTarget.ShaderStorageBuffer instead.")]
+        [Obsolete("Use BindBufferBase with GFXBufferTarget.ShaderStorageBuffer instead.")]
         void BindShaderStorageBuffer(int binding, int buffer);
-        [Obsolete("Use UnbindBufferBase with RenderFlags.GFXBufferTarget.ShaderStorageBuffer instead.")]
+        [Obsolete("Use UnbindBufferBase with GFXBufferTarget.ShaderStorageBuffer instead.")]
         void UnbindShaderStorageBuffer(int binding);
-        void BindBufferBase(RenderFlags.GFXBufferTarget target, int binding, int buffer);
-        void UnbindBufferBase(RenderFlags.GFXBufferTarget target, int binding);
+        void BindBufferBase(GFXBufferTarget target, int binding, int buffer);
+        void UnbindBufferBase(GFXBufferTarget target, int binding);
         int CreateVertexArray();
         void DisposeVertexArray(int value);
         void BindVertexArray(int value);
         void EnableVertexArrayAttribute(int index);
-        void SetVertexArrayAttribute(int index, int size, RenderFlags.RenderDataTypes type, bool normalized, int stride, nint pointer);
+        void SetVertexArrayAttribute(int index, int size, GFXRenderDataTypes type, bool normalized, int stride, nint pointer);
         void DispatchCompute(int numGroupsX, int numGroupsY, int numGroupsZ);
-        void MemoryBarrier(RenderFlags.GFXMemoryBarrierFlags barriers);
-        IntPtr MapBufferRange(RenderFlags.GFXBufferTarget target, int offset, int length, RenderFlags.GFXMapBufferAccessMask access);
-        void UnmapBuffer(RenderFlags.GFXBufferTarget target);
+        void MemoryBarrier(GFXMemoryBarrierFlags barriers);
+        IntPtr MapBufferRange(GFXBufferTarget target, int offset, int length, GFXMapBufferAccessMask access);
+        void UnmapBuffer(GFXBufferTarget target);
         void PrepareShader(String location, bool value);
         void PrepareShader(String location, float value);
         void PrepareShader(String location, int value);
@@ -165,15 +155,10 @@ namespace LibGFX.Graphics
         void PrepareShaderVec3Array(String location, int count, float[] value);
         void PrepareShaderVec4Array(String location, int count, float[] value);
         void PrepareShader(String uniformName, bool transpose, Matrix4[] matrices);
-        void PrepareShader(String location, TextureUnit textureUnit, int value);
-        void PrepareShader(String location, TextureUnit textureUnit, Texture texture);
         void PrepareShader(String location, int textureUnit, int value);
         void PrepareShaderArrayTexture(String location, int textureUnit, int value);
         void PrepareShader(String location, int textureUnit, Texture texture);
         void PrepareShader(String location, int textureUnit, Cubemap cubemap);
-        public void DeleteFramebuffer(int framebuffer);
-        public void DeleteTexture(int texture);
-        public void DeleteRenderbuffer(int renderbuffer);
         int GetError();
     }
 }
