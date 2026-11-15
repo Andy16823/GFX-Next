@@ -34,6 +34,11 @@ namespace LibGFX.Physics.Behaviors2D
         {
             var boxShape = new Box2DShape((System.Numerics.Vector3)halfExtends);
 
+            if (MotionType == BodyMotionType.Kinematic || MotionType == BodyMotionType.Static)
+            {
+                mass = 0f;
+            }
+
             RigidBodyConstructionInfo info = new RigidBodyConstructionInfo(mass, null, boxShape, boxShape.CalculateLocalInertia(mass));
             var btStartTransform = Utils.GetBtTransform(Parent, (OpenTK.Mathematics.Vector3)this.Offset);
 
@@ -44,6 +49,12 @@ namespace LibGFX.Physics.Behaviors2D
             RigidBody.AngularFactor = (System.Numerics.Vector3) new Vector3(0, 0, 1);
             RigidBody.LinearFactor = (System.Numerics.Vector3) new Vector3(1, 1, 0);
             RigidBody.CollisionShape.LocalScaling = (System.Numerics.Vector3)Parent.Transform.Scale;
+            
+            if (MotionType == BodyMotionType.Kinematic)
+            {
+                RigidBody.ActivationState = ActivationState.DisableDeactivation;
+                RigidBody.CollisionFlags |= CollisionFlags.KinematicObject;
+            }
 
             PhysicsHandler.ManageElement(this, collisionGroup, collisionMask);
             info.Dispose();

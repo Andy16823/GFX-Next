@@ -52,6 +52,11 @@ namespace LibGFX.Physics.Behaviors2D
         public float Friction { get => RigidBody.Friction; set => RigidBody.Friction = value; }
 
         /// <summary>
+        /// Sets the motion type of the rigid body. This determines how the rigid body behaves in the physics simulation.
+        /// </summary>
+        public BodyMotionType MotionType { get; set; } = BodyMotionType.Dynamic;
+
+        /// <summary>
         /// Creates a new 2D rigid body behavior
         /// </summary>
         /// <param name="physicsHandler"></param>
@@ -65,8 +70,11 @@ namespace LibGFX.Physics.Behaviors2D
         /// </summary>
         public void Sync()
         {
-            var btTransform = Utils.GetBtTransform(Parent, Offset);
-            RigidBody.WorldTransform = btTransform;
+            var transform = Utils.GetBtTransform(Parent, Offset);
+
+            RigidBody.WorldTransform = transform;
+            RigidBody.MotionState.SetWorldTransform(ref transform);
+            RigidBody.Activate();
         }
 
         /// <summary>

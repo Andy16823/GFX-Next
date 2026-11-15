@@ -52,6 +52,11 @@ namespace LibGFX.Physics.Behaviors
         public float Friction { get => RigidBody.Friction; set => RigidBody.Friction = value; }
 
         /// <summary>
+        /// Sets the motion type of the rigid body. This determines how the rigid body behaves in the physics simulation.
+        /// </summary>
+        public BodyMotionType MotionType { get; set; } = BodyMotionType.Dynamic;
+
+        /// <summary>
         /// Creates a new 3D rigid body
         /// </summary>
         /// <param name="physicsHandler"></param>
@@ -165,8 +170,11 @@ namespace LibGFX.Physics.Behaviors
         /// </summary>
         public void Sync()
         {
-            var btTransform = Utils.GetBtTransform(Parent, Offset);
-            RigidBody.WorldTransform = btTransform;
+            var transform = Utils.GetBtTransform(Parent, Offset);
+
+            RigidBody.WorldTransform = transform;
+            RigidBody.MotionState.SetWorldTransform(ref transform);
+            RigidBody.Activate();
         }
 
         /// <summary>
@@ -199,12 +207,20 @@ namespace LibGFX.Physics.Behaviors
             this.RigidBody.WorldTransform = transform;
         }
 
+        /// <summary>
+        /// Returns the current rotation of the rigid body as a quaternion
+        /// </summary>
+        /// <returns></returns>
         public Quaternion GetRotation()
         {
             var rotation = RigidBody.WorldTransform.GetBasis();
             return (Quaternion) System.Numerics.Quaternion.CreateFromRotationMatrix(rotation);
         }
 
+        /// <summary>
+        /// Returns the current location of the rigid body
+        /// </summary>
+        /// <returns></returns>
         public Vector3 GetLocation()
         {
             return (Vector3) RigidBody.WorldTransform.Translation;
