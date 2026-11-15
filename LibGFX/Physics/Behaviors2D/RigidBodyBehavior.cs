@@ -77,6 +77,28 @@ namespace LibGFX.Physics.Behaviors2D
             RigidBody.Activate();
         }
 
+
+        /// <summary>
+        /// Translates the rigid body by the given value
+        /// </summary>
+        /// <param name="translation"></param>
+        public void Translate(Vector2 translation)
+        {
+            this.Translate(new Vector3(translation.X, translation.Y, 0));
+        }
+
+        /// <summary>
+        /// Translates the rigid body by the given value
+        /// </summary>
+        /// <param name="translation"></param>
+        public void Translate(Vector3 translation)
+        {
+            var transform = RigidBody.WorldTransform;
+            transform.Translation += (System.Numerics.Vector3)translation;
+
+            SetWorldTransform(transform);
+        }
+
         /// <summary>
         /// Rotates the rigid body by the given angle in degrees
         /// </summary>
@@ -103,9 +125,24 @@ namespace LibGFX.Physics.Behaviors2D
         /// <param name="rotation"></param>
         public virtual void Rotate(Quaternion rotation)
         {
-            System.Numerics.Matrix4x4 transform = this.RigidBody.WorldTransform;
-            transform.SetRotation((System.Numerics.Quaternion) rotation, out transform);
-            this.RigidBody.WorldTransform = transform;
+            var transform = RigidBody.WorldTransform;
+            transform.SetRotation(
+                (System.Numerics.Quaternion)rotation,
+                out transform
+            );
+
+            SetWorldTransform(transform);
+        }
+
+        /// <summary>
+        /// Sets the world transform of the rigid body
+        /// </summary>
+        /// <param name="transform"></param>
+        public void SetWorldTransform(System.Numerics.Matrix4x4 transform)
+        {
+            RigidBody.WorldTransform = transform;
+            RigidBody.MotionState.SetWorldTransform(ref transform);
+            RigidBody.Activate();
         }
 
         /// <summary>
@@ -125,24 +162,6 @@ namespace LibGFX.Physics.Behaviors2D
         public Vector3 GetLocation()
         {
             return (Vector3) RigidBody.WorldTransform.Translation;
-        }
-
-        /// <summary>
-        /// Translates the rigid body by the given value
-        /// </summary>
-        /// <param name="translation"></param>
-        public void Translate(Vector2 translation)
-        {
-            RigidBody.Translate(new System.Numerics.Vector3(translation.X, translation.Y, 0));
-        }
-
-        /// <summary>
-        /// Translates the rigid body by the given value
-        /// </summary>
-        /// <param name="translation"></param>
-        public void Translate(Vector3 translation)
-        {
-            RigidBody.Translate((System.Numerics.Vector3) translation);
         }
 
         /// <summary>
@@ -277,7 +296,7 @@ namespace LibGFX.Physics.Behaviors2D
         /// <param name="force"></param>
         public void ApplyCentralForce(Vector2 force)
         {
-            this.ApplyCentralForce(force);
+            RigidBody.ApplyCentralForce((System.Numerics.Vector3)new Vector3(force.X, force.Y, 0));
         }
 
         /// <summary>

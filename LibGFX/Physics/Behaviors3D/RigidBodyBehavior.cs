@@ -183,7 +183,10 @@ namespace LibGFX.Physics.Behaviors
         /// <param name="translation"></param>
         public void Translate(Vector3 translation)
         {
-            RigidBody.Translate((System.Numerics.Vector3)translation);
+            var transform = RigidBody.WorldTransform;
+            transform.Translation += (System.Numerics.Vector3)translation;
+
+            SetWorldTransform(transform);
         }
 
         /// <summary>
@@ -193,7 +196,9 @@ namespace LibGFX.Physics.Behaviors
         public void Rotate(Vector3 rotation)
         {
             var radRotation = Utils.ToRadians(rotation);
-            this.Rotate(Quaternion.FromEulerAngles(radRotation));
+            var quaternion = Quaternion.FromEulerAngles(radRotation);
+
+            Rotate(quaternion);
         }
 
         /// <summary>
@@ -202,9 +207,24 @@ namespace LibGFX.Physics.Behaviors
         /// <param name="rotation"></param>
         public void Rotate(Quaternion rotation)
         {
-            System.Numerics.Matrix4x4 transform = this.RigidBody.WorldTransform;
-            transform.SetRotation((System.Numerics.Quaternion) rotation, out transform);
-            this.RigidBody.WorldTransform = transform;
+            var transform = RigidBody.WorldTransform;
+            transform.SetRotation(
+                (System.Numerics.Quaternion)rotation,
+                out transform
+            );
+
+            SetWorldTransform(transform);
+        }
+
+        /// <summary>
+        /// Sets the world transform of the rigid body
+        /// </summary>
+        /// <param name="transform"></param>
+        public void SetWorldTransform(System.Numerics.Matrix4x4 transform)
+        {
+            RigidBody.WorldTransform = transform;
+            RigidBody.MotionState.SetWorldTransform(ref transform);
+            RigidBody.Activate();
         }
 
         /// <summary>
