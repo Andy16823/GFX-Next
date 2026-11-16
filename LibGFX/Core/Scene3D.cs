@@ -41,22 +41,89 @@ namespace LibGFX.Core
     public class Scene3D : BaseScene
     {
         #region Actions
+        /// <summary>
+        /// OnInitStart is triggered at the beginning of the scene initialization process, allowing for custom setup before any rendering or physics updates occur.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice> OnInitStart;
+
+        /// <summary>
+        /// AfterRenderTargetCreation is triggered after the render target has been created, allowing for custom actions to be performed with the render target.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice> AfterRenderTargetCreation;
+
+        /// <summary>
+        /// OnInitEnd is triggered at the end of the scene initialization process, allowing for custom setup after all rendering and physics updates have been initialized.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice> OnInitEnd;
+
+        /// <summary>
+        /// OnRenderStart is triggered at the beginning of the scene rendering process, allowing for custom actions to be performed before any rendering occurs.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderStart;
+
+        /// <summary>
+        /// AfterLightCulling is triggered after the light culling process has completed, allowing for custom actions to be performed with the culled lights.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> AfterLightCulling;
+
+        /// <summary>
+        /// OnRenderPassBegin is triggered at the beginning of the scene render pass, allowing for custom actions to be performed before any rendering occurs.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassBegin;
+
+        /// <summary>
+        /// OnRenderPassEnd is triggered at the end of the scene render pass, allowing for custom actions to be performed after all rendering has completed. 
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassEnd;
+
+        /// <summary>
+        /// OnRenderEnd is triggered at the end of the scene rendering process, allowing for custom actions to be performed after all rendering has completed.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderEnd;
+
+        /// <summary>
+        /// OnShadowPassStart is triggered at the beginning of the shadow pass rendering process, allowing for custom actions to be performed before any shadow rendering occurs.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassStart;
+
+        /// <summary>
+        /// OnShadowPassEnd is triggered at the end of the shadow pass rendering process, allowing for custom actions to be performed after all shadow rendering has completed.
+        /// </summary>
         public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassEnd;
+
+        /// <summary>
+        /// OnUpdateStart is triggered at the beginning of the scene update process, allowing for custom actions to be performed before any updates occur.
+        /// </summary>
         public override event Action<BaseScene, float> OnUpdateStart;
+
+        /// <summary>
+        /// OnUpdateEnd is triggered at the end of the scene update process, allowing for custom actions to be performed after all updates have completed.
+        /// </summary>
         public override event Action<BaseScene, float> OnUpdateEnd;
+
+        /// <summary>
+        /// OnPhysicsUpdateStart is triggered at the beginning of the physics update process, allowing for custom actions to be performed before any physics updates occur.
+        /// </summary>
         public override event Action<BaseScene, float> OnPhysicsUpdateStart;
+
+        /// <summary>
+        /// OnPhysicsUpdateEnd is triggered at the end of the physics update process, allowing for custom actions to be performed after all physics updates have completed.
+        /// </summary>
         public override event Action<BaseScene, float> OnPhysicsUpdateEnd;
+
+        /// <summary>
+        /// OnDisposeStart is triggered at the beginning of the scene disposal process, allowing for custom actions to be performed before any resources are released.
+        /// </summary>
         public override event Action<BaseScene, IRenderDevice> OnDisposeStart;
+
+        /// <summary>
+        /// OnDispose is triggered during the scene disposal process, allowing for custom actions to be performed while resources are being released.
+        /// </summary>
         public override event Action<BaseScene, IRenderDevice> OnDispose;
+
+        /// <summary>
+        /// OnDisposeEnd is triggered at the end of the scene disposal process, allowing for custom actions to be performed after all resources have been released.
+        /// </summary>
         public override event Action<BaseScene, IRenderDevice> OnDisposeEnd;
         #endregion
 
@@ -128,25 +195,16 @@ namespace LibGFX.Core
 
             _renderTarget = new MSAARenderTarget2D(viewport.Width, viewport.Height, (int)this.Samples);
             renderer.CreateRenderTarget(_renderTarget);
-
             AfterRenderTargetCreation?.Invoke(this, viewport, renderer);
 
-            // Initialize the Enviroment if available
             this.Enviroment?.Init(renderer);
-
-            // Initialize all elements in the scene
             this.Elements.ForEach(e =>
             {
                 e.Init(this, viewport, renderer);
             });
-
-            // Initialize the light manager
             this.InitLights(renderer);
 
-            // Initialize the scene behaviors
             OnInitEnd?.Invoke(this, viewport, renderer);
-
-            // OnStart the render stats
             this.RenderStats.Start();
         }
 
@@ -156,28 +214,19 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public override void DisposeScene(IRenderDevice renderer)
         {
-            // On dispose start event
             OnDisposeStart?.Invoke(this, renderer);
 
-            // Dispose the enviroment texture if available
             this.Enviroment?.Dispose(renderer);
-
-            // Dispose all layers and their elements
             this.Elements.ForEach(e =>
             {
                 e.Dispose(this, renderer);
             });
 
-            // On dispose event
             OnDispose?.Invoke(this, renderer);
 
-            // Dispose the render target
             renderer.DisposeRenderTarget(_renderTarget);
-
-            // Dispose the light manager
             this.DisposeLights(renderer);
 
-            // On dispose end event
             OnDisposeEnd?.Invoke(this, renderer);
         }
 
