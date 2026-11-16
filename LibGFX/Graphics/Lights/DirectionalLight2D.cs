@@ -40,20 +40,32 @@ namespace LibGFX.Graphics.Lights
         }
 
         /// <summary>
-        /// Releases all resources used by the object and performs any necessary cleanup using the specified render
-        /// device.
+        /// Initializes the object using the specified render device.
         /// </summary>
-        /// <param name="renderer">The render device to use for releasing graphics resources. Cannot be null.</param>
-        public override void Dispose(IRenderDevice renderer)
+        /// <param name="renderer">The render device to use for initialization. Cannot be null.</param>
+        public override void Init(IRenderDevice renderer)
         {
 
         }
 
         /// <summary>
-        /// Initializes the object using the specified render device.
+        /// Binds the light to the specified render device, preparing it for rendering in the context of the given viewport and camera.
         /// </summary>
-        /// <param name="renderer">The render device to use for initialization. Cannot be null.</param>
-        public override void Init(IRenderDevice renderer)
+        /// <param name="renderer"></param>
+        /// <param name="viewport"></param>
+        /// <param name="camera"></param>
+        public void Bind(IRenderDevice renderer, Viewport viewport, Camera camera)
+        {
+            renderer.PrepareShader("dirLightColor", this.Color.Xyz);
+            renderer.PrepareShader("dirLightIntensity", this.Intensity);
+        }
+
+        /// <summary>
+        /// Releases all resources used by the object and performs any necessary cleanup using the specified render
+        /// device.
+        /// </summary>
+        /// <param name="renderer">The render device to use for releasing graphics resources. Cannot be null.</param>
+        public override void Dispose(IRenderDevice renderer)
         {
 
         }

@@ -1,4 +1,7 @@
-﻿using LibGFX.Core;
+﻿using Assimp;
+using LibGFX.Core;
+using LibGFX.Graphics.Renderer.OpenGL;
+using LibGFX.Graphics.RenderTarget;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Mathematics;
@@ -6,9 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using LibGFX.Graphics.RenderTarget;
 
 namespace LibGFX.Graphics.Lights
 {
@@ -43,6 +46,9 @@ namespace LibGFX.Graphics.Lights
         /// </summary>
         public override bool CastsShadows { get; set; } = true;
 
+        private List<Matrix4> _lightViewMatrix = new List<Matrix4>();
+        private int _lightMatrixBuffer = -1;
+
         /// <summary>
         /// Initializes a new instance of the DirectionalLight3D class.
         /// </summary>
@@ -74,9 +80,90 @@ namespace LibGFX.Graphics.Lights
         /// <param name="renderer">The render device used to create the shadow map render target. Cannot be null.</param>
         public override void Init(IRenderDevice renderer)
         {
-            Debug.WriteLine($"Creating Shadow Map for Directional Light: {this.GetType().Name} at {Position} with size {ShadowMapSize}");
-            this.ShadowMap = new CascadedShadowMap(this.ShadowMapSize.X, this.ShadowMapSize.Y, 4); // 4 Cascades because the shaders are hardcoded to 4 invokations, this can be changed in the future to be more flexible
+            // Create a shadow map render target for the directional light
+            var csm = new CascadedShadowMap(this.ShadowMapSize.X, this.ShadowMapSize.Y);
+            this.ShadowMap = csm;
             renderer.CreateRenderTarget(this.ShadowMap as CascadedShadowMap);
+
+            // Create a uniform buffer to hold the light space matrices for each cascade level
+            _lightMatrixBuffer = renderer.CreateBuffer();
+            var matrixSize = csm.GetCascadeCount() * Marshal.SizeOf<Matrix4>();
+            renderer.SetBufferSize(_lightMatrixBuffer, matrixSize, GFXBufferTarget.UniformBuffer, GFXBufferUsageHint.DynamicDraw);
+        }
+
+        /// <summary>
+        /// Computes the light space matrix for the directional light based on the provided camera and viewport. This matrix is used to transform the scene from world space to light space for shadow mapping.
+        /// </summary>
+        /// <param name="camera"></param>
+        /// <param name="viewport"></param>
+        public void ComputeLightSpaceMatrix(Camera camera, Viewport viewport)
+        {
+            // Clear the previous light view matrix
+            _lightViewMatrix.Clear();
+
+            var csm = this.ShadowMap as CascadedShadowMap;
+            if (csm == null)
+            {
+                Debug.WriteLine("Directional light shadow map is not a CascadedShadowMap. Cannot compute light space matrix.");
+                return;
+            }
+
+            var lightDir = this.Direction.Normalized();
+
+            // Compute the light space matrix for each cascade level
+            var perspectiveCamera = camera as PerspectiveCamera;
+            if (perspectiveCamera == null)
+            {
+                Debug.WriteLine("Camera is not a PerspectiveCamera. Cannot compute light space matrix.");
+                return;
+            }
+
+            var (near, far) = perspectiveCamera.GetNearFar();
+            var cascadeLevels = csm.GetCascadeLevels(perspectiveCamera);
+
+            float lastSplitDist = perspectiveCamera.Near;
+            foreach (var cascadeLevel in cascadeLevels)
+            {
+                perspectiveCamera.SetNearFar(lastSplitDist, cascadeLevel);
+                var mat = Utils.ComputeLightViewProjectionMatrix(perspectiveCamera, viewport, lightDir);
+                _lightViewMatrix.Add(mat);
+                lastSplitDist = cascadeLevel;
+            }
+            perspectiveCamera.SetNearFar(near, far);
+        }
+
+        public void Bind(IRenderDevice renderer, Viewport viewport, Camera camera)
+        {
+            var csm = this.ShadowMap as CascadedShadowMap;
+
+            // Bind the shadow map texture and light space matrices for each cascade level
+            renderer.PrepareShaderArrayTexture("shadowMap", 6, csm!.TextureId);
+            renderer.PrepareShader("cascadeCount", csm.GetCascadeCount());
+            renderer.PrepareShader("lightSpaceMatrices", true, _lightViewMatrix.ToArray());
+
+            var cascadeLevels = csm.GetCascadeLevels(camera);
+            renderer.PrepareShader("cascadePlaneDistances", cascadeLevels.Length, cascadeLevels);
+            renderer.PrepareShader("cameraFar", camera.Far);
+            renderer.PrepareShader("castsShadows", this.CastsShadows ? 1 : 0);
+
+            // Bind the lightning data
+            renderer.PrepareShader("dirLight.direction", this.Direction);
+            renderer.PrepareShader("dirLight.lightColor", this.Color.Xyz);
+            renderer.PrepareShader("dirLight.lightIntensity", this.Intensity);
+            renderer.PrepareShader("dirLight.ambient", this.Ambient);
+            renderer.PrepareShader("dirLight.specular", this.Specular);
+        }
+
+        /// <summary>
+        /// Binds the computed light space matrix to the shader program for rendering shadows. This method should be called after ComputeLightSpaceMatrix to ensure that the latest light space matrix is used in the shader.
+        /// </summary>
+        /// <param name="renderDevice"></param>
+        /// <param name="binding"></param>
+        public void BindLightSpaceMatrix(IRenderDevice renderDevice, int binding = 0)
+        {
+            renderDevice.BindBuffer(GFXBufferTarget.UniformBuffer, _lightMatrixBuffer);
+            renderDevice.UpdateBufferData(_lightMatrixBuffer, _lightViewMatrix.ToArray(), 0, GFXBufferTarget.UniformBuffer);
+            renderDevice.BindBufferBase(GFXBufferTarget.UniformBuffer, binding, _lightMatrixBuffer);
         }
 
         /// <summary>
@@ -87,6 +174,7 @@ namespace LibGFX.Graphics.Lights
         {
             Debug.WriteLine($"Disposing Shadow Map for Directional Light: {this.GetType().Name} at {Position}");
             renderer.DisposeRenderTarget(this.ShadowMap as CascadedShadowMap);
+            renderer.DisposeBuffer(_lightMatrixBuffer);
         }
 
         /// <summary>

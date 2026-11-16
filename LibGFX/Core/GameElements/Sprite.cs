@@ -146,7 +146,7 @@ namespace LibGFX.Core.GameElements
                         renderer.PrepareShader("uvTransform", uvTransform);
                         renderer.PrepareShader("uvScale", UVScale);
                         renderer.PrepareShader("vertexColor", Color);
-                        scene.LightManager?.BindLights(viewport, renderer, camera);
+                        scene.BindLights(viewport, renderer, camera);
                         renderer.DrawShape(transform, _shape);
                         scene.RenderStats.IncrementDrawCalls();
                     }

@@ -749,7 +749,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             var framebuffer = GL.GenFramebuffer();
             var lightDepthMaps = GL.GenTexture();
             GL.BindTexture(TextureTarget.Texture2DArray, lightDepthMaps);
-            GL.TexImage3D(TextureTarget.Texture2DArray, 0, PixelInternalFormat.DepthComponent, renderTarget.Width, renderTarget.Height, renderTarget.CascadeCount, 0, PixelFormat.DepthComponent, PixelType.Float, IntPtr.Zero);
+            GL.TexImage3D(TextureTarget.Texture2DArray, 0, PixelInternalFormat.DepthComponent, renderTarget.Width, renderTarget.Height, renderTarget.GetCascadeCount(), 0, PixelFormat.DepthComponent, PixelType.Float, IntPtr.Zero);
             GL.TexParameter(TextureTarget.Texture2DArray, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
             GL.TexParameter(TextureTarget.Texture2DArray, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Nearest);
             GL.TexParameter(TextureTarget.Texture2DArray, TextureParameterName.TextureWrapS, (int)TextureWrapMode.ClampToBorder);
@@ -893,7 +893,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
             }
 
             GL.BindTexture(TextureTarget.Texture2DArray, renderTarget.TextureId);
-            GL.TexImage3D(TextureTarget.Texture2DArray, 0, PixelInternalFormat.DepthComponent, width, height, renderTarget.CascadeCount, 0, PixelFormat.DepthComponent, PixelType.Float, IntPtr.Zero);
+            GL.TexImage3D(TextureTarget.Texture2DArray, 0, PixelInternalFormat.DepthComponent, width, height, renderTarget.GetCascadeCount(), 0, PixelFormat.DepthComponent, PixelType.Float, IntPtr.Zero);
             GL.BindTexture(TextureTarget.Texture2DArray, 0);
         }
 
@@ -962,7 +962,7 @@ namespace LibGFX.Graphics.Renderer.OpenGL
         private byte[] ReadPixels(CascadedShadowMap renderTarget)
         {
             this.BindRenderTarget(renderTarget.FramebufferId);
-            byte[] pixelData = new byte[renderTarget.Width * renderTarget.Height * renderTarget.CascadeCount * sizeof(float)];
+            byte[] pixelData = new byte[renderTarget.Width * renderTarget.Height * renderTarget.GetCascadeCount() * sizeof(float)];
             GL.ReadPixels(0, 0, renderTarget.Width, renderTarget.Height, PixelFormat.DepthComponent, PixelType.Float, pixelData);
             this.BindRenderTarget(0);
             return pixelData;

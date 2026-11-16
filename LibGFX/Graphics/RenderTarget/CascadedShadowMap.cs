@@ -27,21 +27,15 @@ namespace LibGFX.Graphics.RenderTarget
         public int Height { get; internal set; }
 
         /// <summary>
-        /// Cascade count
-        /// </summary>
-        public int CascadeCount { get; set; }
-
-        /// <summary>
         /// Creates a new cascaded shadow map with the specified width, height, and cascade count. 
         /// </summary>
         /// <param name="width"></param>
         /// <param name="height"></param>
         /// <param name="cascadeCount"></param>
-        public CascadedShadowMap(int width, int height, int cascadeCount)
+        public CascadedShadowMap(int width, int height)
         {
             this.Width = width;
             this.Height = height;
-            this.CascadeCount = cascadeCount;
         }
 
         /// <summary>
@@ -58,6 +52,11 @@ namespace LibGFX.Graphics.RenderTarget
                 100.0f,
                 camera.Far
             };
+        }
+
+        public int GetCascadeCount()
+        {
+            return 4;
         }
 
         public RenderTargetScope Begin(IRenderDevice renderDevice)

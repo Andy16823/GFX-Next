@@ -109,7 +109,7 @@ namespace LibGFX.Core.GameElements
                 using (Shader.Begin(renderer))
                 {
                     renderer.PrepareShader("viewPos", camera.Transform.Position);
-                    scene.LightManager?.BindLights(viewport, renderer, camera);
+                    scene.BindLights(viewport, renderer, camera);
 
                     foreach (var meshMaterialPair in _model.Meshes)
                     {

@@ -147,7 +147,7 @@ namespace LibGFX.Core.GameElements
                     {
                         using (var scope = material.Begin(renderer))
                         {
-                            scene.LightManager?.BindLights(viewport, renderer, camera);
+                            scene.BindLights(viewport, renderer, camera);
                             renderer.PrepareShader("finalBonesMatrices", true, Animator.FinalBoneMatrices.ToArray());
                             renderer.PrepareShader("viewPos", camera.Transform.Position);
 

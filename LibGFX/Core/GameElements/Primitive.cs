@@ -101,7 +101,7 @@ namespace LibGFX.Core.GameElements
                     using (var scope = Material.Begin(renderer))
                     {
                         renderer.PrepareShader("viewPos", camera.Transform.Position);
-                        scene.LightManager?.BindLights(viewport, renderer, camera);
+                        scene.BindLights(viewport, renderer, camera);
                         renderer.DrawMesh(transform, Mesh);
                         scene.RenderStats.IncrementDrawCalls();
                     }

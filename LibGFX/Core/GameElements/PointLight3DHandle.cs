@@ -85,14 +85,7 @@ namespace LibGFX.Core.GameElements
         public override void Init(BaseScene scene, Viewport viewport, IRenderDevice renderer)
         {
             base.Init(scene, viewport, renderer);
-            if(!scene.LightManager.ContainsLight(LightSource))
-            {
-                scene.AddLight<PointLight3D>(LightSource);
-            }
-            else
-            {
-                Debug.WriteLine($"LightSource with ID {LightSource.ID} is already present in the scene.");
-            }
+            scene.AddLight<PointLight3D>(LightSource);
         }
 
         /// <summary>

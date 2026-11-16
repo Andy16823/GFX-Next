@@ -130,7 +130,7 @@ namespace LibGFX.Core.GameElements
                     using (var scope = this.Material.Begin(renderer))
                     {
                         renderer.PrepareShader("viewPos", camera.Transform.Position);
-                        scene.LightManager?.BindLights(viewport, renderer, camera);
+                        scene.BindLights(viewport, renderer, camera);
                         renderer.DrawInstances(InstanceContainer);
                         scene.RenderStats.IncrementDrawCalls();
                     }

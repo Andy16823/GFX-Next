@@ -46,20 +46,16 @@ namespace LibGFX.Core
         /// <summary>
         /// Sets the main light manager for the scene
         /// </summary>
-        public DirectionalLight2D SceneLight { get => _lightManager.DirectionalLight; set => _lightManager.DirectionalLight = value; }
+        public DirectionalLight2D DirectionalLight { get; set; }
 
         /// <summary>
-        /// The light manager of the scene
+        /// The collection of point lights in the scene. This list is managed by the scene and should be used to access or modify point lights.
         /// </summary>
-        public override ILightManager LightManager { get => _lightManager; }
-
-        /// <summary>
-        /// The light manager for 2D lights
-        /// </summary>
-        private Light2DManager _lightManager;
+        public List<PointLight2D> PointLights { get; set; } = new List<PointLight2D>();
 
         private RenderTarget2D _renderTarget;
         private float _physicsAccumulator = 0.0f;
+        private int _pointLightBuffer = -1;
 
         // Init events
         public override event Action<BaseScene, Viewport, IRenderDevice> OnInitStart;
@@ -94,7 +90,7 @@ namespace LibGFX.Core
         /// </summary>
         public Scene2D() : base()
         {
-            _lightManager = new Light2DManager();
+
         }
 
         /// <summary>
@@ -103,7 +99,6 @@ namespace LibGFX.Core
         /// <param name="layers"></param>
         public Scene2D(params String[] layers) : base()
         {
-            _lightManager = new Light2DManager();
             foreach (var item in layers)
             {
                 this.Layers.Add(new Layer(item));
@@ -400,15 +395,15 @@ namespace LibGFX.Core
         {
             if(light is DirectionalLight2D dirLight)
             {
-                _lightManager.DirectionalLight = dirLight;
+                this.DirectionalLight = dirLight;
             }
             else if (light is PointLight2D pointLight)
             {
-                _lightManager.AddPointLight(pointLight);
+                this.PointLights.Add(pointLight);
             }
             else
             {
-                throw new ArgumentException("Invalid light type for Scene2D. Only PointLight2D is supported.");
+                throw new ArgumentException("Invalid light type for Scene2D. Only DirectionalLight2D and PointLight2D are supported.");
             }
         }
 
@@ -424,7 +419,7 @@ namespace LibGFX.Core
         {
             if(typeof(T) == typeof(DirectionalLight2D))
             {
-                return (T)(object)_lightManager.DirectionalLight;
+                return (T)(object)this.DirectionalLight;
             }
             else
             {
@@ -445,15 +440,15 @@ namespace LibGFX.Core
         {
             if(light is DirectionalLight2D)
             {
-                _lightManager.DirectionalLight = null;
+                this.DirectionalLight = null;
             }
             else if (light is PointLight2D pointLight)
             {
-                _lightManager.RemovePointLight(pointLight);
+                this.PointLights.Remove(pointLight);
             }
             else
             {
-                throw new ArgumentException("Invalid light type for Scene2D. Only PointLight2D is supported.");
+                throw new ArgumentException("Invalid light type for Scene2D. Only DirectionalLight2D and PointLight2D are supported.");
             }
         }
 
@@ -480,13 +475,48 @@ namespace LibGFX.Core
             });
 
             // Initialize the light manager
-            this.LightManager.Init(renderer);
+            this.InitLights(renderer);
 
             // Call the on init end event
             OnInitEnd?.Invoke(this, viewport, renderer);
 
             // OnStart the render stats for the scene
             this.RenderStats.Start();
+        }
+
+        private void InitLights(IRenderDevice renderer)
+        {
+            this.DirectionalLight?.Init(renderer);
+
+            _pointLightBuffer = renderer.CreateBuffer();
+            var lightData = new List<Point2DLightData>();
+            foreach (var pointLight in this.PointLights)
+            {
+                pointLight.Init(renderer);
+                lightData.Add(pointLight.ToStruct());
+            }
+            renderer.SetVertexBufferData<Point2DLightData>(_pointLightBuffer, lightData.ToArray(), true);
+        }
+
+        private void DisposeLights(IRenderDevice renderer)
+        {
+            this.DirectionalLight?.Dispose(renderer);
+            foreach (var pointLight in this.PointLights)
+            {
+                pointLight.Dispose(renderer);
+            }
+            renderer.DisposeBuffer(_pointLightBuffer);
+        }
+
+        public override void CullLights(Viewport viewport, IRenderDevice renderer, Camera camera)
+        {
+            // TODO: call light culling
+        }
+
+        public override void BindLights(Viewport viewport, IRenderDevice renderer, Camera camera)
+        {
+            this.DirectionalLight?.Bind(renderer, viewport, camera);
+            renderer.BindBufferBase(GFXBufferTarget.ShaderStorageBuffer, 4, _pointLightBuffer);
         }
 
         /// <summary>
@@ -503,12 +533,7 @@ namespace LibGFX.Core
             // Call the before render behaviors for the scene
             OnRenderStart?.Invoke(this, viewport, renderer, camera);
 
-            if (this.LightManager != null)
-            {
-                this.LightManager.CullLights(viewport, renderer, camera);
-            }
-
-            // Call the after light culling event
+            this.CullLights(viewport, renderer, camera);
             AfterLightCulling?.Invoke(this, viewport, renderer, camera);
 
             var depthTest = renderer.IsDepthTestEnabled();
@@ -594,7 +619,7 @@ namespace LibGFX.Core
             renderer.DisposeRenderTarget(_renderTarget);
 
             // Dispose the light manager
-            this.LightManager.Dispose(renderer);
+            this.DisposeLights(renderer);
 
             // Call the on dispose end event
             OnDisposeEnd?.Invoke(this, renderer);
@@ -663,14 +688,7 @@ namespace LibGFX.Core
         {
             base.Deserialize(obj, serializationContext, (refObj) =>
             {
-                // Deserialize the light manager
-                var lightManagerToken = refObj.Value<JObject>("LightManager");
-                if (lightManagerToken != null)
-                {
-                    this.LightManager = new Light2DManager();
-                    this.LightManager.Deserialize(lightManagerToken, serializationContext);
-                }
-
+                // TODO: Serialize the lights
                 // Deserialize the layers
                 var layersToken = refObj.Value<JArray>("Layers");
                 if (layersToken != null)

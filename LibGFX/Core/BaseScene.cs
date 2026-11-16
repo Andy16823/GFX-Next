@@ -41,11 +41,6 @@ namespace LibGFX.Core
         public virtual PhysicsHandler PhysicsHandler { get; set; }
 
         /// <summary>
-        /// The light handler of the scene
-        /// </summary>
-        public virtual ILightManager LightManager { get; set; }
-
-        /// <summary>
         /// The render stats of the scene. 
         /// It contain the fps, delta time.
         /// </summary>
@@ -289,6 +284,22 @@ namespace LibGFX.Core
         public abstract void BuildShadowMaps(Viewport viewport, IRenderDevice renderer, Camera camera);
 
         /// <summary>
+        /// Culls the lights in the scene based on the specified viewport, render device, and camera.
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        /// <param name="camera"></param>
+        public abstract void CullLights(Viewport viewport, IRenderDevice renderer, Camera camera);
+
+        /// <summary>
+        /// Binds the lights in the scene to the specified render device, preparing them for rendering in the context of the given viewport and camera.
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        /// <param name="camera"></param>
+        public abstract void BindLights(Viewport viewport, IRenderDevice renderer, Camera camera);
+
+        /// <summary>
         /// Updates the scene
         /// </summary>
         public abstract void Update(float dt);
@@ -320,8 +331,6 @@ namespace LibGFX.Core
             writer.WriteValue(!String.IsNullOrEmpty(Name) ? this.Name : this.ID.ToString());
             writer.WritePropertyName("ID");
             writer.WriteValue(this.ID.ToString());
-            writer.WritePropertyName("LightManager");
-            LightManager.Serialize(writer, serializationContext);
 
             // Invoke the callback for additional serialization
             callback?.Invoke(writer);

@@ -40,6 +40,27 @@ namespace LibGFX.Core
     /// </summary>
     public class Scene3D : BaseScene
     {
+        #region Actions
+        public override event Action<BaseScene, Viewport, IRenderDevice> OnInitStart;
+        public override event Action<BaseScene, Viewport, IRenderDevice> AfterRenderTargetCreation;
+        public override event Action<BaseScene, Viewport, IRenderDevice> OnInitEnd;
+        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderStart;
+        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> AfterLightCulling;
+        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassBegin;
+        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassEnd;
+        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderEnd;
+        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassStart;
+        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassEnd;
+        public override event Action<BaseScene, float> OnUpdateStart;
+        public override event Action<BaseScene, float> OnUpdateEnd;
+        public override event Action<BaseScene, float> OnPhysicsUpdateStart;
+        public override event Action<BaseScene, float> OnPhysicsUpdateEnd;
+        public override event Action<BaseScene, IRenderDevice> OnDisposeStart;
+        public override event Action<BaseScene, IRenderDevice> OnDispose;
+        public override event Action<BaseScene, IRenderDevice> OnDisposeEnd;
+        #endregion
+
+        #region Properties
         /// <summary>
         /// Gets the render target associated with this scene instance.
         /// </summary>
@@ -66,14 +87,14 @@ namespace LibGFX.Core
         private MSAARenderTarget2D _renderTarget;
 
         /// <summary>
-        /// The light manager for the 3D scene
-        /// </summary>
-        public override ILightManager LightManager { get => _lightManager; }
-
-        /// <summary>
         /// Sets the directional light for the scene
         /// </summary>
-        public DirectionalLight3D DirectionalLight { get => _lightManager.DirectionalLight; set => _lightManager.DirectionalLight = value; }
+        public DirectionalLight3D DirectionalLight { get; set; }
+
+        /// <summary>
+        /// The point lights of the scene. The scene supports multiple point lights.
+        /// </summary>
+        public List<PointLight3D> PointLights { get; set; } = new List<PointLight3D>();
 
         /// <summary>
         /// The number of samples for the scene rendering
@@ -84,99 +105,15 @@ namespace LibGFX.Core
         /// Determines if the scene should perform a shadow pass
         /// </summary>
         public bool PerformShadowPass { get; set; } = true;
+        #endregion
 
-        /// <summary>
-        /// OnInit start event which gets triggered at the beginning of the scene initialization process.
-        /// </summary>
-        public override event Action<BaseScene, Viewport, IRenderDevice> OnInitStart;
-
-        /// <summary>
-        /// AfterRenderTargetCreation event which gets triggered after the render target for the scene has been created during initialization.
-        /// </summary>
-        public override event Action<BaseScene, Viewport, IRenderDevice> AfterRenderTargetCreation;
-
-        /// <summary>
-        /// OnInit end event which gets triggered at the end of the scene initialization process.
-        /// </summary>
-        public override event Action<BaseScene, Viewport, IRenderDevice> OnInitEnd;
-
-        /// <summary>
-        /// OnRender start event which gets triggered at the beginning of the scene rendering process.
-        /// </summary>
-        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderStart;
-
-        /// <summary>
-        /// AfterLightCulling event which gets triggered after the light culling process during rendering.
-        /// </summary>
-        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> AfterLightCulling;
-
-        /// <summary>
-        /// OnRenderPassBegin event which gets triggered at the beginning of the main render pass for the scene.
-        /// </summary>
-        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassBegin;
-
-        /// <summary>
-        /// OnRenderPassEnd event which gets triggered at the end of the main render pass for the scene.
-        /// </summary>
-        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderPassEnd;
-
-        /// <summary>
-        /// OnRender end event which gets triggered at the end of the scene rendering process.
-        /// </summary>
-        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnRenderEnd;
-
-        /// <summary>
-        /// OnShadowPassStart event which gets triggered at the beginning of the shadow map rendering process for the scene.
-        /// </summary>
-        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassStart;
-
-        /// <summary>
-        /// OnShadowPassEnd event which gets triggered at the end of the shadow map rendering process for the scene.
-        /// </summary>
-        public override event Action<BaseScene, Viewport, IRenderDevice, Camera> OnShadowPassEnd;
-
-        /// <summary>
-        /// OnUpdate start event which gets triggered at the beginning of the scene update process.
-        /// </summary>
-        public override event Action<BaseScene, float> OnUpdateStart;
-
-        /// <summary>
-        /// OnUpdate end event which gets triggered at the end of the scene update process.
-        /// </summary>
-        public override event Action<BaseScene, float> OnUpdateEnd;
-
-        /// <summary>
-        /// OnPhysicsUpdate start event which gets triggered at the beginning of the physics update process for the scene.
-        /// </summary>
-        public override event Action<BaseScene, float> OnPhysicsUpdateStart;
-
-        /// <summary>
-        /// OnPhysicsUpdate end event which gets triggered at the end of the physics update process for the scene.
-        /// </summary>
-        public override event Action<BaseScene, float> OnPhysicsUpdateEnd;
-
-        /// <summary>
-        /// OnDispose start event which gets triggered at the beginning of the scene disposal process.
-        /// </summary>
-        public override event Action<BaseScene, IRenderDevice> OnDisposeStart;
-
-        /// <summary>
-        /// OnDispose event which gets triggered during the scene disposal process, after the main disposal logic has been executed but before the render target and light manager are disposed.
-        /// </summary>
-        public override event Action<BaseScene, IRenderDevice> OnDispose;
-
-        /// <summary>
-        /// OnDispose end event which gets triggered at the end of the scene disposal process, after all resources have been released.
-        /// </summary>
-        public override event Action<BaseScene, IRenderDevice> OnDisposeEnd;
-
-        // Private members
-        private Light3DManager _lightManager;
+        #region Private Fields
         private float _physicsAccumulator = 0.0f;
+        private int _pointLightBuffer = -1;
+        #endregion
 
         public Scene3D(uint samples = 4) : base()
         {
-            _lightManager = new Light3DManager();
             this.Samples = samples;
         }
 
@@ -187,34 +124,24 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public override void Init(Viewport viewport, IRenderDevice renderer)
         {
-            // On init start event
             OnInitStart?.Invoke(this, viewport, renderer);
 
-            // Create the render target for the scene
             _renderTarget = new MSAARenderTarget2D(viewport.Width, viewport.Height, (int)this.Samples);
             renderer.CreateRenderTarget(_renderTarget);
 
-            // After render target creation event
             AfterRenderTargetCreation?.Invoke(this, viewport, renderer);
 
-            // Load the enviroment texture if available
-            if (this.Enviroment != null)
-            {
-                this.Enviroment.Init(renderer);
-            }
+            // Initialize the Enviroment if available
+            this.Enviroment?.Init(renderer);
 
-            // Init all layers and there elements
+            // Initialize all elements in the scene
             this.Elements.ForEach(e =>
             {
                 e.Init(this, viewport, renderer);
             });
 
             // Initialize the light manager
-            var lightManager = this.LightManager as Light3DManager;
-            if (lightManager != null)
-            {
-                lightManager.Init(renderer);
-            }
+            this.InitLights(renderer);
 
             // Initialize the scene behaviors
             OnInitEnd?.Invoke(this, viewport, renderer);
@@ -233,10 +160,7 @@ namespace LibGFX.Core
             OnDisposeStart?.Invoke(this, renderer);
 
             // Dispose the enviroment texture if available
-            if (this.Enviroment != null)
-            {
-                this.Enviroment.Dispose(renderer);
-            }
+            this.Enviroment?.Dispose(renderer);
 
             // Dispose all layers and their elements
             this.Elements.ForEach(e =>
@@ -251,10 +175,71 @@ namespace LibGFX.Core
             renderer.DisposeRenderTarget(_renderTarget);
 
             // Dispose the light manager
-            _lightManager.Dispose(renderer);
+            this.DisposeLights(renderer);
 
             // On dispose end event
             OnDisposeEnd?.Invoke(this, renderer);
+        }
+
+        /// <summary>
+        /// Initializes the lights in the scene and prepares their associated resources using the specified render device.
+        /// </summary>
+        /// <param name="renderer">The render device used to initialize the lights.</param>
+        private void InitLights(IRenderDevice renderer)
+        {
+            this.DirectionalLight?.Init(renderer);
+
+            _pointLightBuffer = renderer.CreateBuffer();
+            var lightData = new List<PointLight3DData>();
+            foreach (var pointLight in this.PointLights)
+            {
+                pointLight.Init(renderer);
+                lightData.Add(pointLight.ToStruct());
+            }
+            renderer.SetVertexBufferData<PointLight3DData>(_pointLightBuffer, lightData.ToArray(), true);
+        }
+
+        /// <summary>
+        /// Disposes the lights in the scene and releases their associated resources using the specified render device.
+        /// </summary>
+        /// <param name="renderer"></param>
+        private void DisposeLights(IRenderDevice renderer)
+        {
+            this.DirectionalLight?.Dispose(renderer);
+            foreach (var pointLight in this.PointLights)
+            {
+                pointLight.Dispose(renderer);
+            }
+            renderer.DisposeBuffer(_pointLightBuffer);
+        }
+
+        /// <summary>
+        /// Culls the lights in the scene based on the camera's view frustum and updates the point light buffer for rendering.
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        /// <param name="camera"></param>
+        public override void CullLights(Viewport viewport, IRenderDevice renderer, Camera camera)
+        {
+            // TODO: Implement real light culling based on camera frustum and light positions
+            List<PointLight3DData> lightData = new List<PointLight3DData>();
+            foreach (var pointLight in this.PointLights)
+            {
+                lightData.Add(pointLight.ToStruct());
+            }
+            renderer.SetVertexBufferData<PointLight3DData>(_pointLightBuffer, lightData.ToArray(), true);
+        }
+
+        /// <summary>
+        /// Bind the lights to the shader for rendering. This method prepares the shader with the directional light and point lights data.
+        /// </summary>
+        /// <param name="viewport"></param>
+        /// <param name="renderer"></param>
+        /// <param name="camera"></param>
+        public override void BindLights(Viewport viewport, IRenderDevice renderer, Camera camera)
+        {
+            this.DirectionalLight?.Bind(renderer, viewport, camera);
+            renderer.BindBufferBase(GFXBufferTarget.ShaderStorageBuffer, 4, _pointLightBuffer);
         }
 
         /// <summary>
@@ -269,10 +254,7 @@ namespace LibGFX.Core
 
             OnRenderStart?.Invoke(this, viewport, renderer, camera);
 
-            if (this.LightManager != null)
-            {
-                this.LightManager.CullLights(viewport, renderer, camera);
-            }
+            this.CullLights(viewport, renderer, camera);
             AfterLightCulling?.Invoke(this, viewport, renderer, camera);
 
             var dephTest = renderer.IsDepthTestEnabled();
@@ -347,12 +329,12 @@ namespace LibGFX.Core
 
             OnShadowPassStart?.Invoke(this, viewport, renderer, camera);
 
-            this.LightManager.ComputeLightSpaceMatrix(camera, viewport);
+            light.ComputeLightSpaceMatrix(camera, viewport);
 
             var shader = renderer.GetRenderShader<DepthMeshShader>();
             using(shader.Begin(renderer))
             {
-                this.LightManager.BindLightSpaceMatrix(renderer, 3);
+                light.BindLightSpaceMatrix(renderer, 3);
 
                 using (light.ShadowMap.Begin(renderer))
                 {
@@ -422,11 +404,11 @@ namespace LibGFX.Core
         {
             if (light is PointLight3D pointLight)
             {
-                _lightManager.AddPointLight(pointLight);
+                this.PointLights.Add(pointLight);
             }
             else if (light is DirectionalLight3D directionalLight)
             {
-                _lightManager.DirectionalLight = directionalLight;
+                this.DirectionalLight = directionalLight;
             }
             else
             {
@@ -446,7 +428,7 @@ namespace LibGFX.Core
         {
             if(typeof(T) == typeof(DirectionalLight3D))
             {
-                return (T)(object)_lightManager.DirectionalLight;
+                return (T)(object)this.DirectionalLight;
             }
             else
             {
@@ -465,7 +447,14 @@ namespace LibGFX.Core
         /// <exception cref="NotSupportedException">Thrown if the specified light type is not supported by Scene3D.</exception>
         public override void RemoveLight<T>(T light)
         {
-            LightManager.RemoveLight(light);
+            if (light is PointLight3D pointLight)
+            {
+                this.PointLights.Remove(pointLight);
+            }
+            else
+            {
+                throw new NotSupportedException($"Light type {typeof(T).Name} is not supported in Scene3D.");
+            }
         }
 
         /// <summary>
@@ -713,16 +702,9 @@ namespace LibGFX.Core
         /// <exception cref="Exception"></exception>
         public override void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
+            // TODO: Implement light deserialization
             base.Deserialize(obj, serializationContext, (refObj) =>
             {
-                // Deserialize the light manager
-                var lightManagerToken = refObj.Value<JObject>("LightManager");
-                if (lightManagerToken != null)
-                {
-                    this.LightManager = new Light3DManager();
-                    this.LightManager.Deserialize(lightManagerToken, serializationContext);
-                }
-
                 // Deserialize the scene elements
                 var elementsToken = refObj.Value<JArray>("Elements");
                 if (elementsToken != null)
