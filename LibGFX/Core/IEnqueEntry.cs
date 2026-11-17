@@ -14,7 +14,14 @@ namespace LibGFX.Core
         /// </summary>
         public GameElement Element { get; set; }
 
+        /// <summary>
+        /// Action delegate that defines the behavior to be executed when this instance is processed in the scene's update loop.
+        /// </summary>
         public Action<BaseScene, GameElement, Dictionary<string, object>>? EnqueAction { get; set; }
+
+        /// <summary>
+        /// Extra data that can be associated with this instance, allowing for additional information to be passed to the EnqueAction when it is executed.
+        /// </summary>
         public Dictionary<string, object>? ExtraData { get; set; }
     }
 }

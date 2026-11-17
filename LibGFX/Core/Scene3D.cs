@@ -22,25 +22,11 @@ using System.Threading.Tasks;
 namespace LibGFX.Core
 {
     /// <summary>
-    /// Represents an entry for enqueuing a 3D scene element, including the element, an optional action to perform, and
-    /// any additional data required for processing.
-    /// </summary>
-    /// <remarks>Use this class to encapsulate all information needed to enqueue a 3D scene element for
-    /// processing or rendering. The associated action and extra data allow for flexible handling of scene-specific
-    /// logic.</remarks>
-    public class EnqueScene3DEntry : IEnqueEntry
-    {
-        public GameElement Element { get; set; }
-        public Action<BaseScene, GameElement, Dictionary<string, object>>? EnqueAction { get; set; }
-        public Dictionary<string, object>? ExtraData { get; set; }
-    }
-
-    /// <summary>
     /// Represents a 3D scene for rendering 3D objects and lights.
     /// </summary>
     public class Scene3D : BaseScene
     {
-        #region Actions
+#region Actions
         /// <summary>
         /// OnInitStart is triggered at the beginning of the scene initialization process, allowing for custom setup before any rendering or physics updates occur.
         /// </summary>
@@ -125,9 +111,9 @@ namespace LibGFX.Core
         /// OnDisposeEnd is triggered at the end of the scene disposal process, allowing for custom actions to be performed after all resources have been released.
         /// </summary>
         public override event Action<BaseScene, IRenderDevice> OnDisposeEnd;
-        #endregion
+#endregion
 
-        #region Properties
+#region Properties
         /// <summary>
         /// Gets the render target associated with this scene instance.
         /// </summary>
@@ -172,12 +158,12 @@ namespace LibGFX.Core
         /// Determines if the scene should perform a shadow pass
         /// </summary>
         public bool PerformShadowPass { get; set; } = true;
-        #endregion
+#endregion
 
-        #region Private Fields
+#region Private Fields
         private float _physicsAccumulator = 0.0f;
         private int _pointLightBuffer = -1;
-        #endregion
+#endregion
 
         public Scene3D(uint samples = 4) : base()
         {
@@ -270,11 +256,15 @@ namespace LibGFX.Core
         /// <param name="camera"></param>
         public override void CullLights(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            // TODO: Implement real light culling based on camera frustum and light positions
+            var frustum = camera.GetFrustum(viewport);
             List<PointLight3DData> lightData = new List<PointLight3DData>();
             foreach (var pointLight in this.PointLights)
             {
-                lightData.Add(pointLight.ToStruct());
+                var lightAABB = pointLight.GetAABB();
+                if (Frustum.ContainsAABB(frustum, lightAABB.min, lightAABB.max))
+                {
+                    lightData.Add(pointLight.ToStruct());
+                }
             }
             renderer.SetVertexBufferData<PointLight3DData>(_pointLightBuffer, lightData.ToArray(), true);
         }
