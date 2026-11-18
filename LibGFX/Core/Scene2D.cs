@@ -1,6 +1,7 @@
 ﻿using LibGFX.Graphics;
 using LibGFX.Graphics.Lights;
 using LibGFX.Graphics.RenderTarget;
+using LibGFX.Math;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Graphics.OpenGL4;
@@ -510,7 +511,17 @@ namespace LibGFX.Core
 
         public override void CullLights(Viewport viewport, IRenderDevice renderer, Camera camera)
         {
-            // TODO: call light culling
+            var frustum = camera.GetFrustum(viewport);
+            var pointLightsData = new List<Point2DLightData>();
+            foreach (var pointLight in this.PointLights)
+            {
+                var aabb = pointLight.GetAABB();
+                if(Frustum.ContainsAABB(frustum, aabb.Min, aabb.Max))
+                {
+                    pointLightsData.Add(pointLight.ToStruct());
+                }
+            }
+            renderer.SetVertexBufferData<Point2DLightData>(_pointLightBuffer, pointLightsData.ToArray(), true);
         }
 
         public override void BindLights(Viewport viewport, IRenderDevice renderer, Camera camera)
@@ -667,6 +678,21 @@ namespace LibGFX.Core
         {
             base.Serialize(writer, serializationContext, (w) =>
             {
+                if(this.DirectionalLight != null)
+                {
+                    w.WritePropertyName("DirectionalLight");
+                    this.DirectionalLight.Serialize(w, serializationContext);
+                }
+                if (this.PointLights.Count > 0)
+                {
+                    w.WritePropertyName("PointLights");
+                    w.WriteStartArray();
+                    foreach (var pointLight in this.PointLights)
+                    {
+                        pointLight.Serialize(w, serializationContext);
+                    }
+                    w.WriteEndArray();
+                }
                 w.WritePropertyName("Layers");
                 w.WriteStartArray();
                 foreach (var layer in Layers)
@@ -688,7 +714,25 @@ namespace LibGFX.Core
         {
             base.Deserialize(obj, serializationContext, (refObj) =>
             {
-                // TODO: Serialize the lights
+                if (refObj.TryGetValue("DirectionalLight", out JToken dirLightToken) && dirLightToken is JObject dirLightObj)
+                {
+                    this.DirectionalLight = new DirectionalLight2D();
+                    this.DirectionalLight.Deserialize(dirLightObj, serializationContext);
+                }
+                // Deserialize the point lights
+                if (refObj.TryGetValue("PointLights", out JToken pointLightsToken) && pointLightsToken is JArray pointLightsArray)
+                {
+                    this.PointLights.Clear();
+                    foreach (var pointLightToken in pointLightsArray)
+                    {
+                        if (pointLightToken is JObject pointLightObj)
+                        {
+                            var pointLight = new PointLight2D();
+                            pointLight.Deserialize(pointLightObj, serializationContext);
+                            this.PointLights.Add(pointLight);
+                        }
+                    }
+                }
                 // Deserialize the layers
                 var layersToken = refObj.Value<JArray>("Layers");
                 if (layersToken != null)

@@ -163,8 +163,12 @@ namespace LibGFX.Core
 #region Private Fields
         private float _physicsAccumulator = 0.0f;
         private int _pointLightBuffer = -1;
-#endregion
+        #endregion
 
+        /// <summary>
+        /// Initializes a new instance of the Scene3D class with the specified number of samples for rendering.
+        /// </summary>
+        /// <param name="samples">The number of samples for rendering.</param>
         public Scene3D(uint samples = 4) : base()
         {
             this.Samples = samples;
@@ -721,6 +725,21 @@ namespace LibGFX.Core
         {
             base.Serialize(writer, serializationContext, (w) =>
             {
+                if(this.DirectionalLight != null)
+                {
+                    w.WritePropertyName("DirectionalLight");
+                    this.DirectionalLight.Serialize(w, serializationContext);
+                }
+                if(this.PointLights.Count > 0)
+                {
+                    w.WritePropertyName("PointLights");
+                    w.WriteStartArray();
+                    this.PointLights.ForEach(l =>
+                    {
+                        l.Serialize(w, serializationContext);
+                    });
+                    w.WriteEndArray();
+                }
                 w.WritePropertyName("Elements");
                 w.WriteStartArray();
                 this.Elements.ForEach(e =>
@@ -741,9 +760,30 @@ namespace LibGFX.Core
         /// <exception cref="Exception"></exception>
         public override void Deserialize(JObject obj, SerializationContext serializationContext, Func<JObject, bool> callback = null)
         {
-            // TODO: Implement light deserialization
             base.Deserialize(obj, serializationContext, (refObj) =>
             {
+                // Deserialize the directional light
+                if (refObj.TryGetValue("DirectionalLight", out JToken directionalLightToken) && directionalLightToken is JObject directionalLightObj)
+                {
+                    this.DirectionalLight = new DirectionalLight3D();
+                    this.DirectionalLight.Deserialize(directionalLightObj, serializationContext);
+                }
+
+                // Deserialize the point lights
+                if (refObj.TryGetValue("PointLights", out JToken pointLightsToken) && pointLightsToken is JArray pointLightsArray)
+                {
+                    this.PointLights.Clear();
+                    foreach (var pointLightToken in pointLightsArray)
+                    {
+                        if (pointLightToken is JObject pointLightObj)
+                        {
+                            var pointLight = new PointLight3D();
+                            pointLight.Deserialize(pointLightObj, serializationContext);
+                            this.PointLights.Add(pointLight);
+                        }
+                    }
+                }
+
                 // Deserialize the scene elements
                 var elementsToken = refObj.Value<JArray>("Elements");
                 if (elementsToken != null)

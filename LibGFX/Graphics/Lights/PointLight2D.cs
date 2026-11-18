@@ -1,4 +1,5 @@
 ﻿using LibGFX.Core;
+using LibGFX.Math;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenTK.Graphics.OpenGL;
@@ -73,6 +74,16 @@ namespace LibGFX.Graphics.Lights
                 Color = Color,
                 RadiusIntensity = new Vector4(Radius, Intensity, 0.0f, 0.0f)
             };
+        }
+
+        /// <summary>
+        /// Returns the Axis-Aligned Bounding Box (AABB) that encompasses the light's area of influence based on its position and radius. 
+        /// This AABB can be used for spatial queries, collision detection, or culling operations in the rendering pipeline.
+        /// </summary>
+        /// <returns></returns>
+        public AABB GetAABB()
+        {
+            return new AABB(new Vector3(Position.X - Radius, Position.Y - Radius, Position.Z), new Vector3(Position.X + Radius, Position.Y + Radius, Position.Z));
         }
 
         /// <summary>
