@@ -224,9 +224,14 @@ namespace LibGFX.Core
         /// Initializes the lights in the scene and prepares their associated resources using the specified render device.
         /// </summary>
         /// <param name="renderer">The render device used to initialize the lights.</param>
-        private void InitLights(IRenderDevice renderer)
+        public void InitLights(IRenderDevice renderer)
         {
             this.DirectionalLight?.Init(renderer);
+
+            if (_pointLightBuffer != -1)
+            {
+                renderer.DisposeBuffer(_pointLightBuffer);
+            }
 
             _pointLightBuffer = renderer.CreateBuffer();
             var lightData = new List<PointLight3DData>();
@@ -447,7 +452,11 @@ namespace LibGFX.Core
         {
             if (light is PointLight3D pointLight)
             {
-                this.PointLights.Add(pointLight);
+                // Only add the point light if it is not already present in the scene
+                if (this.PointLights.Find(l => l.ID == pointLight.ID) == null)
+                {
+                    this.PointLights.Add(pointLight);
+                }
             }
             else if (light is DirectionalLight3D directionalLight)
             {
@@ -655,11 +664,23 @@ namespace LibGFX.Core
         /// <param name="renderer"></param>
         public override void FreeScene(IRenderDevice renderer)
         {
+            // Dispose the game elements and clear the list
             this.Elements.ForEach(e =>
             {
                 e.Dispose(this, renderer);
             });
             this.Elements.Clear();
+
+            // Dispose the lights and clear the point lights list
+            this.DirectionalLight?.Dispose(renderer);
+            this.DirectionalLight = null;
+            foreach (var pointLight in this.PointLights)
+            {
+                pointLight.Dispose(renderer);
+            }
+            this.PointLights.Clear();
+            renderer.DisposeBuffer(_pointLightBuffer);
+            _pointLightBuffer = -1;
         }
 
         /// <summary>
