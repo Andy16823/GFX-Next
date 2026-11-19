@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -69,6 +69,7 @@ namespace LibGFX.Graphics.Shader
                 uniform mat4 lightSpaceMatrices[16];
                 uniform float farPlane;
                 uniform int castsShadows;
+                uniform int shadowDebugMode;
 
                 struct DirLight {
                     vec3 direction;
@@ -154,7 +155,7 @@ namespace LibGFX.Graphics.Shader
                     return (ambient + diffuse + specular);
                 } 
 
-                float ShadowCalculation(vec3 fragPosWorldSpace, vec4 fragPosViewSpace, vec3 normal, DirLight light) {
+                float ShadowCalculation(vec3 fragPosWorldSpace, vec4 fragPosViewSpace, vec3 normal, DirLight light, out vec3 debugValue) {
     
                     float depthValue = abs(fragPosViewSpace.z);
     
@@ -172,15 +173,29 @@ namespace LibGFX.Graphics.Shader
                     vec3 projCoords = fragPosLightSpace.xyz / fragPosLightSpace.w;
                     projCoords = projCoords * 0.5 + 0.5;
 
+                    debugValue = vec3(projCoords.z, 1.0, 0.0);
+                    if (shadowDebugMode == 1) {
+                        debugValue = layer == 0 ? vec3(1.0, 0.0, 0.0) :
+                                     layer == 1 ? vec3(0.0, 1.0, 0.0) :
+                                     layer == 2 ? vec3(0.0, 0.0, 1.0) : vec3(1.0, 1.0, 0.0);
+                    } else if (shadowDebugMode == 2) {
+                        debugValue = projCoords;
+                    }
+
+                    // Fragments outside this cascade's light-space frustum are not shadowed by it.
+                    if (projCoords.x < 0.0 || projCoords.x > 1.0 ||
+                        projCoords.y < 0.0 || projCoords.y > 1.0 ||
+                        projCoords.z < 0.0 || projCoords.z > 1.0) {
+                        return 0.0;
+                    }
+
                     float currentDepth = projCoords.z;
-                    if(currentDepth > 1.0) return 0.0;
 
                     vec3 lightDir = normalize(-light.direction);
-                    float bias = max(0.05 * (1.0 - dot(normal, lightDir)), 0.005);
-                    // ✅ Kein cascadeCount-Vergleich mehr nötig
-                    bias *= 1.0 / (cascadePlaneDistances[layer] * 0.5);
+                    float bias = max(0.0005 * (1.0 - dot(normal, lightDir)), 0.00005);
 
                     float shadow = 0.0;
+                    float sampledDepth = 0.0;
                     vec2 texelSize = 1.0 / vec2(textureSize(shadowMap, 0));
                     for (int x = -1; x <= 1; ++x) {
                         for (int y = -1; y <= 1; ++y) {
@@ -189,11 +204,46 @@ namespace LibGFX.Graphics.Shader
                                 vec3(projCoords.xy + vec2(x, y) * texelSize, layer)
                             ).r;
                             shadow += (currentDepth - bias) > pcfDepth ? 1.0 : 0.0;
+                            sampledDepth += pcfDepth;
                         }
                     }
                     shadow /= 9.0;
+                    sampledDepth /= 9.0;
 
-                    if (projCoords.z > 1.0) shadow = 0.0;
+                    // Fade into the next cascade before the split to avoid a hard shadow discontinuity.
+                    if (layer < cascadeCount - 1) {
+                        float previousSplit = layer == 0 ? 0.0 : cascadePlaneDistances[layer - 1];
+                        float splitDistance = cascadePlaneDistances[layer];
+                        float blendStart = splitDistance - (splitDistance - previousSplit) * 0.1;
+                        if (depthValue > blendStart) {
+                            int nextLayer = layer + 1;
+                            vec4 nextLightSpace = vec4(fragPosWorldSpace, 1.0) * lightSpaceMatrices[nextLayer];
+                            vec3 nextCoords = nextLightSpace.xyz / nextLightSpace.w;
+                            nextCoords = nextCoords * 0.5 + 0.5;
+                            if (nextCoords.x >= 0.0 && nextCoords.x <= 1.0 &&
+                                nextCoords.y >= 0.0 && nextCoords.y <= 1.0 &&
+                                nextCoords.z >= 0.0 && nextCoords.z <= 1.0) {
+                                float nextBias = bias;
+                                float nextShadow = 0.0;
+                                vec2 nextTexelSize = 1.0 / vec2(textureSize(shadowMap, 0));
+                                for (int x = -1; x <= 1; ++x) {
+                                    for (int y = -1; y <= 1; ++y) {
+                                        float nextDepth = texture(
+                                            shadowMap,
+                                            vec3(nextCoords.xy + vec2(x, y) * nextTexelSize, nextLayer)
+                                        ).r;
+                                        nextShadow += (nextCoords.z - nextBias) > nextDepth ? 1.0 : 0.0;
+                                    }
+                                }
+                                nextShadow /= 9.0;
+                                float blendFactor = smoothstep(blendStart, splitDistance, depthValue);
+                                shadow = mix(shadow, nextShadow, blendFactor);
+                            }
+                        }
+                    }
+
+                    if (shadowDebugMode == 3) debugValue = vec3(currentDepth, sampledDepth, shadow);
+
                     return shadow;
                 }
 
@@ -210,8 +260,13 @@ namespace LibGFX.Graphics.Shader
                     vec3 viewDir = normalize(viewPos-position);
                     
                     float shadow = 0.0;
-                    if (castsShadows == 1) {
-                        shadow = ShadowCalculation(position, fragPosViewSpace, norm, dirLight);
+                    vec3 shadowDebug = vec3(0.0);
+                    if (castsShadows == 1 || shadowDebugMode > 0) {
+                        shadow = ShadowCalculation(position, fragPosViewSpace, norm, dirLight, shadowDebug);
+                    }
+                    if (shadowDebugMode > 0) {
+                        fragColor = vec4(shadowDebug, 1.0);
+                        return;
                     }
                     vec3 result = CalcDirLight(dirLight, norm, shadow, viewDir);
                     for (int i = 0; i < pointLights.length(); i++) {

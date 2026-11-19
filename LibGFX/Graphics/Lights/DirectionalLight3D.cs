@@ -1,4 +1,4 @@
-﻿using Assimp;
+using Assimp;
 using LibGFX.Core;
 using LibGFX.Graphics.Renderer.OpenGL;
 using LibGFX.Graphics.RenderTarget;
@@ -40,6 +40,9 @@ namespace LibGFX.Graphics.Lights
         /// The Bias of the light shadow map.
         /// </summary>
         public float Bias { get; set; } = 0.005f;
+
+        /// <summary>0 = normal rendering, 1 = cascade index, 2 = projected light coordinates, 3 = fragment and sampled depths.</summary>
+        public int ShadowDebugMode { get; set; } = 0;
 
         /// <summary>
         /// Gets or sets a value indicating whether the object casts shadows in the scene.
@@ -145,6 +148,7 @@ namespace LibGFX.Graphics.Lights
             renderer.PrepareShader("cascadePlaneDistances", cascadeLevels.Length, cascadeLevels);
             renderer.PrepareShader("cameraFar", camera.Far);
             renderer.PrepareShader("castsShadows", this.CastsShadows ? 1 : 0);
+            renderer.PrepareShader("shadowDebugMode", this.ShadowDebugMode);
 
             // Bind the lightning data
             renderer.PrepareShader("dirLight.direction", this.Direction);
